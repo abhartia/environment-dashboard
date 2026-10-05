@@ -8,6 +8,7 @@ download URL. An independent agent then re-checked each domain's findings.
 |---|---|
 | `sources-<domain>.json` | `research`: the sources found for one domain. Each entry has publisher, coverage, latest release, download URLs, licence with quoted terms, recommended citation and DOI, status (including US federal funding risk) and what the fetch returned. `verification`: the second agent's verdict per source (`confirmed` / `corrected` / `refuted`), with corrected licence class and priority, plus checks of the headline numbers and sources the first pass missed. |
 | `platform.md` | Cloudflare, GitHub Actions, Zenodo, Internet Archive and visualisation-library facts and limits, with URLs. |
+| `sources-ghg-food-personal-2026-10-05.json` | 2026-10-05 follow-up to the owner's feedback ("food is 31.7% but not in where emissions come from"; "per food"; "per person" meaning a personal footprint). `research`: one pass each for all greenhouse gases by sector, emissions by food stage and product, and personal footprints. `verification`: an independent skeptic's verdict per candidate (`adopt` / `adopt-with-changes` / `reject`) with what it re-derived from the raw files. |
 | `plan-critique-2026-10-04.txt` | The adversarial review of the build plan (licensing, architecture, operations, UX, completeness) whose fixes the plan adopted. |
 
 This is a dated snapshot, not the source of truth. A source's licence class is decided in
