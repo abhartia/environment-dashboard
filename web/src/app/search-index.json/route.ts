@@ -1,19 +1,16 @@
 import { catalog, sources } from "@/lib/data";
 import { producers } from "@/lib/provenance";
 import { dataPath, sourcePath } from "@/lib/routes";
-import { SECTIONS } from "@/lib/sections";
+import { CHAPTER_META } from "@/lib/dash/meta";
 
 export const dynamic = "force-static";
 
-export type SearchItem = { kind: "story" | "section" | "data" | "source" | "page"; title: string; detail: string; href: string };
+export type SearchItem = { kind: "chapter" | "data" | "source" | "page"; title: string; detail: string; href: string };
 
-/** The ⌘K search index, built with the site: stories, every published number and every source. */
+/** The ⌘K search index, built with the site: the dashboard chapters, every published number and every source. */
 export function GET() {
   const items: SearchItem[] = [
-    ...SECTIONS.map((s) => ({ kind: "section" as const, title: s.question, detail: s.label, href: s.href })),
-    ...SECTIONS.flatMap((s) =>
-      s.stories.filter((st) => st.ready).map((st) => ({ kind: "story" as const, title: st.question, detail: `${s.label} · ${st.title}`, href: `${s.href}/${st.slug}` })),
-    ),
+    ...CHAPTER_META.map((c) => ({ kind: "chapter" as const, title: c.question, detail: c.title, href: `/${c.slug}` })),
     ...catalog().indicators.map((e) => ({ kind: "data" as const, title: e.title, detail: producers(e).join(", "), href: dataPath(e.id) })),
     ...sources().map((s) => ({ kind: "source" as const, title: s.title, detail: s.publisher, href: sourcePath(s.id) })),
     { kind: "page", title: "Methods: how every number is sourced and checked", detail: "About the data", href: "/methods" },

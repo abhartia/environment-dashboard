@@ -23,8 +23,7 @@ const queryClient = new QueryClient({
 });
 
 const GROUPS: { kind: SearchItem["kind"]; heading: string }[] = [
-  { kind: "section", heading: "Questions" },
-  { kind: "story", heading: "Stories" },
+  { kind: "chapter", heading: "Chapters" },
   { kind: "data", heading: "Numbers" },
   { kind: "source", heading: "Sources" },
   { kind: "page", heading: "About the data" },

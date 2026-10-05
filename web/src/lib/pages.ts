@@ -1,17 +1,17 @@
 /**
  * Every indexable static page with the date its content last really changed. The sitemap and llms.txt read this;
- * data-driven pages (stories, /data, /sources, countries) add their own entries dated by data vintage.
+ * data-driven pages (/data, /sources) add their own entries dated by data vintage.
  * Never bump a date without a real change: a lastmod that moves on every deploy teaches crawlers to ignore it.
  */
-import { SECTIONS } from "@/lib/sections";
+import { CHAPTER_META } from "@/lib/dash/meta";
 
 export type StaticPage = { path: string; title: string; summary: string; updated: string; priority: number };
 
 const SITE_START = "2026-10-04";
 
 export const STATIC_PAGES: StaticPage[] = [
-  { path: "/", title: "Home", summary: "The three questions and how to check any number.", updated: SITE_START, priority: 1 },
-  ...SECTIONS.map((s) => ({ path: s.href, title: s.label, summary: `${s.question} ${s.intro}`, updated: SITE_START, priority: 0.9 })),
+  { path: "/", title: "Home", summary: "The climate from 1850 to today in six measurements, each opening its chapter.", updated: "2026-10-05", priority: 1 },
+  ...CHAPTER_META.map((c) => ({ path: `/${c.slug}`, title: c.title, summary: c.question, updated: "2026-10-05", priority: 0.9 })),
   { path: "/data", title: "Data", summary: "Every published number with its producer, version, licence and provenance.", updated: SITE_START, priority: 0.8 },
   { path: "/sources", title: "Sources", summary: "Every data source, its licence quoted from its own terms, and its status.", updated: SITE_START, priority: 0.7 },
   { path: "/status", title: "Status", summary: "How each source fared in the latest weekly check.", updated: SITE_START, priority: 0.3 },

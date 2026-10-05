@@ -7,8 +7,8 @@ it came from, without feeling lectured.
 - Write for a curious 15-year-old. Explain a term the first time it appears ("effective radiative forcing: the extra
   energy held in by a gas"), or avoid it.
 - One idea per paragraph. Short sentences. Lead with the answer.
-- Units in words on story pages ("parts per million", "billion tonnes of carbon dioxide"). Symbols are fine in charts,
-  tables and data pages.
+- Units in words beside a dashboard view's big number ("parts per million", "billion tonnes of carbon dioxide").
+  Symbols are fine in charts, tables and data pages.
 - Round for reading, not for show: "about 1.4 °C", with the exact value one click away. Never imply more precision
   than the source states.
 
@@ -38,5 +38,6 @@ it came from, without feeling lectured.
 - Hedge claims about other organisations' intentions; report what they published.
 
 ## Records and rankings
-A sentence that says "highest", "record", "warmest", "fastest", "largest" or "first" is a claim. Declare it in the
-page's frontmatter `claims`, so tests re-check it whenever the data updates.
+A sentence that says "highest", "record", "warmest", "fastest", "largest" or "first" is a claim. In a dashboard tree,
+derive it from the data (rank the values, then name the first) or check it and throw when it no longer holds, so the
+build fails whenever the data stops supporting it.

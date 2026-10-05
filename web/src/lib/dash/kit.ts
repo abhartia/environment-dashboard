@@ -3,7 +3,7 @@ import "server-only";
 import type { Observation } from "@/gen/hey-api/types.gen";
 import { catalogEntry, indicator } from "@/lib/data";
 import { isPlace } from "@/lib/dash/entities";
-import type { Bar, Chart, Credit, DrillNode, Headline, Preview, Series, SeriesPoint } from "@/lib/dash/types";
+import type { Bar, Chart, Credit, Drill, DrillNode, Headline, Preview, Series, SeriesPoint } from "@/lib/dash/types";
 
 /**
  * Building blocks for a chapter's drill-down tree (lib/dash/<chapter>-tree.ts). They only select, order and label
@@ -165,6 +165,11 @@ export function preview(chart: Chart): Preview {
   };
 }
 
+/** A drill into another chapter's node ("food:stages"), carrying that node's kicker and the shape of its chart. */
+export function crossDrill(label: string, chapterSlug: string, target: DrillNode | Built): Drill {
+  return { label, to: `${chapterSlug}:${target.id}`, crumb: target.crumb, kicker: target.kicker, preview: preview(target.chart) };
+}
+
 /**
  * A chapter: its node ids (for the static files) and a node builder that attaches the breadcrumb trail by walking
  * the parent chain, so a deep link shows where it sits, and gives each choice the idea and the chart shape it leads to.
@@ -181,6 +186,11 @@ export function chapter(ids: () => string[], build: (id: string) => Built): { id
         p = parent.parent;
       }
       const drills = node.drills.map((d) => {
+        // A target in another chapter ("food:stages") brings its own crumb, kicker and preview (see crossDrill).
+        if (d.to.includes(":")) {
+          if (!d.kicker || !d.preview) throw new Error(`${id}: the cross-chapter drill to ${d.to} needs its kicker and preview`);
+          return d;
+        }
         const next = build(d.to);
         return { ...d, crumb: next.crumb, kicker: next.kicker, preview: preview(next.chart) };
       });

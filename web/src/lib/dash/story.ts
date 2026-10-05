@@ -59,7 +59,7 @@ export function storyRows(): StoryRow[] {
   return [
     {
       key: "emissions",
-      href: "/emissions",
+      href: "/emissions?v=fuels",
       phrase: "We burn coal, oil and gas",
       ...unit(FOSSIL),
       decimals: 0,

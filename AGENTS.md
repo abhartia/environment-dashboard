@@ -22,9 +22,10 @@ exact file, fetch date, sha256, the transformation applied, and the licence. Tha
 2. **UI is shadcn/ui.** Client-side data goes through the generated TanStack Query `queryOptions` factories over
    `/data/v1/*` (`npm run gen:api` after any change to `pipeline/schema/openapi.json`). Content pages render on the
    server and do not ship the query runtime.
-3. **Never type a data number in TSX or MDX.** Use `<Num id="…"/>`, which renders from `data/` and links to the
-   number's provenance. Prose that asserts a rank, record or threshold declares it in frontmatter `claims`, which
-   tests evaluate against the current data.
+3. **Never type a data number in TSX or MDX.** Numbers come from `data/`: a dashboard node's traced headline and
+   chart (rule 11), or `<Num id="…"/>` on other pages; both link to the number's provenance. Words that assert a
+   rank, record or threshold are derived from the data or checked by the code that writes them, so a refresh that
+   falsifies them fails the build.
 4. **Never hand-edit `data/`.** Run `cd pipeline && uv run envdash build`.
 5. **New source = licence first.** Add a `docs/sources.md` entry and `pipeline/sources/<id>.yaml` with `terms_url`,
    a verbatim `licence_quote` and `checked_on` before writing any fetch code. If the terms forbid what we need,

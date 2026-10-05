@@ -1,6 +1,6 @@
 "use client";
 
-import { area as d3area, line as d3line, stack as d3stack, stackOffsetNone, stackOrderNone } from "d3-shape";
+import { area as d3area, line as d3line, stack as d3stack, stackOffsetDiverging, stackOrderNone } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -54,9 +54,10 @@ export function Thumb({ preview, delay = 0 }: { preview: Preview; delay?: number
       .keys(preview.series.map((_, i) => `s${i}`))
       .value((d, k) => d[k])
       .order(stackOrderNone)
-      .offset(stackOffsetNone)(rows);
+      .offset(stackOffsetDiverging)(rows);
     const top = Math.max(...layers.flatMap((l) => l.map((d) => d[1]).filter(Number.isFinite)));
-    const y = scaleLinear().domain([0, top]).range([H, 2]);
+    const bottom = Math.min(0, ...layers.flatMap((l) => l.map((d) => d[0]).filter(Number.isFinite)));
+    const y = scaleLinear().domain([bottom, top]).range([H, 2]);
     return (
       <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="h-full w-full" aria-hidden>
         {layers.map((layer, i) => (

@@ -4,6 +4,7 @@ import { keepPreviousData, useQuery, useQueryClient } from "@tanstack/react-quer
 import { ArrowLeft } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Fragment, useCallback, useState, useSyncExternalStore } from "react";
 
 import { QueryProvider } from "@/components/query-provider";
@@ -53,7 +54,15 @@ function subscribe(onChange: () => void): () => void {
   };
 }
 
+/** A target in another chapter is written "chapter:node" (e.g. "food:stages"); it opens that chapter's page. */
+function crossChapter(id: string): { chapter: string; node: string } | null {
+  const m = id.match(/^([a-z]+):(.+)$/);
+  return m ? { chapter: m[1], node: m[2] } : null;
+}
+
 function hrefFor(id: string, rootId: string): string {
+  const cross = crossChapter(id);
+  if (cross) return cross.node === "root" ? `/${cross.chapter}` : `/${cross.chapter}?v=${encodeURIComponent(cross.node)}`;
   return id === rootId ? "?" : `?v=${encodeURIComponent(id)}`;
 }
 
@@ -76,8 +85,11 @@ function Canvas({ chapter, initial }: { chapter: string; initial: DrillNode }) {
     retry: 1,
   });
 
+  const router = useRouter();
+
   const peek = useCallback(
     (next: string) => {
+      if (crossChapter(next)) return;
       void queryClient.prefetchQuery({ queryKey: ["dash", chapter, next], queryFn: () => fetchNode(chapter, next), staleTime: Number.POSITIVE_INFINITY });
     },
     [chapter, queryClient],
@@ -85,6 +97,10 @@ function Canvas({ chapter, initial }: { chapter: string; initial: DrillNode }) {
 
   const go = useCallback(
     (next: string) => {
+      if (crossChapter(next)) {
+        router.push(hrefFor(next, initial.id));
+        return;
+      }
       const url = new URL(window.location.href);
       if (next === initial.id) url.searchParams.delete("v");
       else url.searchParams.set("v", next);
@@ -92,7 +108,7 @@ function Canvas({ chapter, initial }: { chapter: string; initial: DrillNode }) {
       setMoved(true);
       window.dispatchEvent(new Event(NAV_EVENT));
     },
-    [initial.id],
+    [initial.id, router],
   );
 
   /** Plain clicks navigate in place; modified clicks (new tab) follow the href. */

@@ -5,7 +5,7 @@ import {
   line as d3line,
   stack as d3stack,
   stackOrderNone,
-  stackOffsetNone,
+  stackOffsetDiverging,
 } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -76,7 +76,8 @@ export function TimeChart({
       .keys(chart.series.map((s) => s.key))
       .value((d, k) => d[k])
       .order(stackOrderNone)
-      .offset(stackOffsetNone)(byYear);
+      // Diverging: positive bands stack up from zero and a negative band (a net sink) hangs below it, never across.
+      .offset(stackOffsetDiverging)(byYear);
   })();
 
   const yMax = (() => {
@@ -91,7 +92,8 @@ export function TimeChart({
     );
   })();
   const yMin = (() => {
-    if (layers || chart.kind === "area") return 0;
+    if (layers) return Math.min(0, ...layers.flatMap((l) => l.map((d) => d[0]).filter(Number.isFinite)));
+    if (chart.kind === "area") return 0;
     return Math.min(
       0,
       ...chart.series.flatMap((s) =>
