@@ -111,6 +111,7 @@ function visibleText(markup) {
   const attrs = [...body.matchAll(ATTR_TEXT)].map((m) => m[1]);
   return norm([decodeEntities(head), ...meta.map(decodeEntities), wordsOf(body), ...attrs.map(decodeEntities)].join(" "));
 }
+const textOf = (markup) => norm(decodeEntities(markup.replace(/<[^>]*>/g, " ")));
 const count = (s, re) => (s.match(re) ?? []).length;
 
 // --- Per-page checks ------------------------------------------------------------------------
@@ -148,6 +149,11 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
     }
   }
 
+  // Invalid nesting breaks hydration (React rebuilds the tree on the client): no <p> inside a <p>.
+  for (const m of markup.matchAll(/<p[\s>](?:(?!<\/p>)[\s\S])*?<p[\s>]/g)) {
+    fail(`${page}: a <p> is nested in another <p> near "${textOf(m[0]).slice(0, 60)}"`);
+    break;
+  }
   if (page !== "404.html" && !html.includes(NOINDEX)) {
     const h1s = count(markup, /<h1[\s>]/g);
     if (h1s !== 1) fail(`${page}: ${h1s} <h1> elements, expected exactly 1`);

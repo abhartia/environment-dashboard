@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/site/container";
 import { MobileNav } from "@/components/site/mobile-nav";
 import { NavLinks } from "@/components/site/nav-links";
+import { SiteSearch } from "@/components/site/site-search";
 import { Mark, Wordmark } from "@/components/site/wordmark";
 
 export function SiteHeader() {
@@ -20,7 +21,8 @@ export function SiteHeader() {
           <Wordmark />
         </Link>
         <NavLinks />
-        <div className="ml-auto flex items-center">
+        <div className="ml-auto flex items-center gap-1">
+          <SiteSearch />
           <MobileNav />
         </div>
       </Container>
