@@ -1,0 +1,42 @@
+# World Bank, State and Trends of Carbon Pricing 2026, key messages: the share of global greenhouse gas emissions
+# covered by direct carbon pricing (carbon taxes and emissions trading systems in force on 1 April 2026).
+# The build checks that `quote` appears on PDF page 9 (printed page 5) of the snapshot of
+# wb-carbon-pricing-2026/report-pdf. The same 29 percent is repeated on printed pages 13 and 16; the foreword (printed
+# page 3) rounds it to "nearly 30 percent".
+id: wb-carbon-pricing-2026-coverage
+indicator_id: carbon-pricing.wb-2026.emissions-covered
+source_id: wb-carbon-pricing-2026
+artifact_id: report-pdf
+title: Share of global greenhouse gas emissions covered by a carbon price (World Bank)
+description: >-
+  The share of the world's greenhouse gas emissions covered by a direct carbon price, a carbon tax or an emissions
+  trading system, through the 87 such policies in force on 1 April 2026. Coverage says how much of the world's
+  emissions face a price, not how high that price is.
+unit:
+  code: percent
+  label: percent of global greenhouse gas emissions
+  short: "%"
+display:
+  decimals: 0
+scope:
+  geography: World
+  basis: >-
+    Carbon taxes and emissions trading systems implemented as of 1 April 2026 (the report's data cut-off), as a share
+    of global greenhouse gas emissions. Indirect carbon pricing (fuel taxes) and carbon crediting are not included.
+geo_coverage: global-only
+headline_entity: WLD
+vintage: State and Trends of Carbon Pricing 2026 (World Bank, May 2026)
+locator: Key messages, item 1, p. 5
+pdf_page: 9
+quote: >-
+  Direct carbon pricing covers 29 percent of global greenhouse gas (GHG) emissions through 87 implemented policies.
+value_text: 29 percent of global greenhouse gas (GHG) emissions
+value_reading: >-
+  "29 percent of global greenhouse gas (GHG) emissions" is published as 29 percent, dated 2026 (the policies in force
+  on 1 April 2026).
+observations:
+  - {entity: WLD, period: "2026", value: "29"}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#World Bank State and Trends of Carbon Pricing 2026 and the Carbon
+  Pricing Dashboard

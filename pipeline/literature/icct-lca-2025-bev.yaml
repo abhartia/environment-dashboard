@@ -1,0 +1,42 @@
+# ICCT (Negri & Bieker, July 2025), executive summary: life-cycle greenhouse gas emissions of a medium-segment battery
+# electric car sold in the EU in 2025, on the projected 2025-2044 average EU electricity mix.
+# The build checks that `quote` appears on PDF page 3 (printed page i) of the snapshot of icct-lca-2025/report-pdf.
+# The same 63 g CO2e/km is repeated in the results (printed page 17) and conclusions (printed page 23).
+id: icct-lca-2025-bev
+indicator_id: cars.icct-2025.lifecycle-bev-eu
+source_id: icct-lca-2025
+artifact_id: report-pdf
+title: Life-cycle emissions of a battery electric car in the EU (ICCT)
+description: >-
+  Greenhouse gas emissions over the whole life of a medium-size battery electric car sold in the European Union in
+  2025, per kilometre driven: making the car and its battery, producing the electricity it uses on the EU's projected
+  average grid mix for 2025-2044, maintenance and recycling. The ICCT estimates it at 63 grams of CO2-equivalent per
+  kilometre, 73 percent less than a comparable petrol car.
+unit:
+  code: gCO2e/km
+  label: grams of CO2-equivalent per kilometre
+  short: g CO₂e/km
+display:
+  decimals: 0
+scope:
+  geography: European Union
+  basis: >-
+    Sales-weighted average medium-segment car (SUVs excluded) registered in the EU in 2023, sold in 2025 and driven
+    for 20 years on the projected 2025–2044 average EU electricity mix; vehicle and battery production and recycling,
+    electricity production and maintenance. Depends on that grid projection.
+geo_coverage: country
+headline_entity: EU27
+vintage: ICCT report ID 392 (July 2025)
+locator: Executive summary, p. i
+pdf_page: 3
+quote: >-
+  As presented in Figure ES1, BEVs operating on the projected 2025–2044 average EU electricity mix had estimated
+  life-cycle GHG emissions of 63 g CO2e/km.
+value_text: 63 g CO2e/km
+value_reading: '"63 g CO2e/km" is published as 63 grams of CO2-equivalent per kilometre for cars sold in 2025.'
+observations:
+  - {entity: EU27, period: "2025", value: "63", status: projection}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#ICCT: Life-cycle greenhouse gas emissions from passenger cars in the
+  European Union, 2025 update (plus 2021 global comparison)

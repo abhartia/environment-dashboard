@@ -9,9 +9,13 @@
 #     with HTTP 206. Zenodo ignores If-Modified-Since, so conditional is false; the pinned version never changes.
 #   - The Science article itself carries no open licence (Crossref lists none; science.org answers HTTP 403 to
 #     scripts), so only the Zenodo deposit is used, never text or figures from the article.
-#   - The results that list the 63 successful policy interventions and their effect sizes are R data files
-#     (Policy_out.RDS 1,285,199 bytes, Break_detection_results.RDS 1,265,170 bytes). Artifact.format has no value for
-#     R's RDS format, so they are not registered here; registering them needs that format added to the data contract.
+#   - The results that list the successful policy interventions and their effect sizes are R data files
+#     (Policy_out.RDS 1,285,199 bytes, Break_detection_results.RDS 1,265,170 bytes). Policy_out.RDS is registered
+#     (format rds, checked 2026-10-05): a tibble of 8 rows (developed "AC1" and developing "AC6" country samples x 4
+#     sectors) whose list-columns hold each sample's detected negative breaks (country, year, coefficient, time
+#     confidence interval) and the policies matched to each break within the statistical, 2-year and 3-year windows
+#     (03_policy_matching.R). 69 breaks in all; 59 have an OECD-coded policy within 2 years and 4 more an EU policy
+#     from EU_policies_label_df.csv, which 06_Fig_4.R's notes add by hand: 63 matched, 6 unmatched.
 #     The Zenodo "files-archive" zip is not a substitute: it is generated per request and its sha256 differs on every
 #     download (two downloads 3 seconds apart, 41,398,538 bytes each, different hashes).
 #   - Upstream terms. The policy data are the OECD Climate Actions and Policies Measurement Framework (CAPMF), a
@@ -114,6 +118,23 @@ artifacts:
     description: >-
       country_groupings.csv: the countries the paper treats as developed (one name per line under a "Developed"
       header). 392 bytes, md5:f4899d8f591d633ce28cd3daabe9add3.
+    access: {conditional: false}
+  - id: policy-out
+    url: https://zenodo.org/api/records/12773811/files/Policy_out.RDS/content
+    format: rds
+    description: >-
+      Policy_out.RDS (written by 03_policy_matching.R): for each country sample (AC1 developed, AC6 developing) and
+      sector, the detected negative structural breaks in sectoral emissions (country, break year, coefficient on the
+      log scale, its standard error and the time confidence interval) and the CAPMF policies matched to each break
+      within the statistical, 2-year and 3-year windows. 1,285,199 bytes, md5:4db9c883ad57c0f04349e9646f4f0623.
+    access: {conditional: false}
+  - id: eu-policies-label
+    url: https://zenodo.org/api/records/12773811/files/EU_policies_label_df.csv/content
+    format: csv
+    description: >-
+      EU_policies_label_df.csv (written by 02_preprocess_oecd_data.R): the EU policies the break detection controls
+      for (EU labels, EU ETS, EU minimum energy performance standards), by country, sector and year of entry into
+      force. 14,542 bytes, md5:a3dcd7ba285158b609cd991e46599daa.
     access: {conditional: false}
   - id: final-countries-in-analysis
     url: https://zenodo.org/api/records/12773811/files/final_countries_in_analysis.csv/content
