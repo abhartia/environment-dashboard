@@ -33,6 +33,18 @@ export type Access = {
      */
     cookie_accept_url: string | null;
     /**
+     * Key Header
+     *
+     * auth api-key: the request header that carries the key (e.g. x-api-key). Set this or key_query.
+     */
+    key_header: string | null;
+    /**
+     * Key Query
+     *
+     * auth api-key: the query parameter that carries the key (e.g. client_id). Set this or key_header.
+     */
+    key_query: string | null;
+    /**
      * Method
      */
     method: 'GET';
@@ -46,13 +58,23 @@ export type Access = {
 export type Artifact = {
     access: Access;
     /**
+     * Content Key
+     *
+     * For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.
+     */
+    content_key: 'zip-members' | null;
+    /**
      * Description
      */
     description: string;
     /**
+     * Find the URL from a listing at each fetch, for files whose names change.
+     */
+    discover: Discover | null;
+    /**
      * Format
      */
-    format: 'csv' | 'txt' | 'tsv' | 'xlsx' | 'json' | 'zip' | 'nc' | 'pdf' | 'html';
+    format: 'csv' | 'csv.gz' | 'txt' | 'tsv' | 'xlsx' | 'xls' | 'json' | 'xml' | 'zip' | 'nc' | 'pdf' | 'html' | 'rds';
     /**
      * Id
      */
@@ -64,9 +86,15 @@ export type Artifact = {
      */
     max_bytes: number;
     /**
+     * Member Name Ignore
+     *
+     * content_key zip-members: a regex whose matches are removed from member names before fingerprinting, for producers that stamp the download date into every member name.
+     */
+    member_name_ignore: string | null;
+    /**
      * Url
      *
-     * Direct download URL; null for manual-only files.
+     * Direct download URL; null for manual-only files and for files found through `discover`.
      */
     url: string | null;
 };
@@ -234,6 +262,56 @@ export type DimensionValue = {
 };
 
 /**
+ * Discover
+ *
+ * How to find the current file of an artifact whose file name changes on a schedule (a month or date in the
+ * name, a new upload folder each month). envdash/discover.py reads `listing_url` (an HTML page or directory
+ * listing), takes every link (href, resolved against the page URL, fragment dropped) and keeps those whose absolute
+ * URL matches `link_pattern` in full. The file taken is the one with the largest key. Keys are compared as text and
+ * must all have the same length (so fixed-width dates such as 202608 or 2026-08-31 order correctly); a tie between
+ * two different URLs, keys of different lengths, or no match at all is a failure, never a guess. The resolved URL
+ * is what is downloaded and what the snapshot manifest records as its url, with the listing(s) read in
+ * `discovery`.
+ *
+ * With `sublisting_pattern`, the links on `listing_url` that match it are listings themselves (monthly
+ * directories, monthly bulletin pages). They are read newest key first, and the first one with at least one
+ * `link_pattern` match supplies the file; at most `max_sublistings` are read before failing. This finds the newest
+ * file when the newest directory does not yet hold one (OISST final files lag the preliminary ones by two weeks).
+ */
+export type Discover = {
+    /**
+     * Choose
+     *
+     * Which match to take: the largest key.
+     */
+    choose: 'max';
+    /**
+     * Link Pattern
+     *
+     * Regex matched in full against each link's absolute URL, with a named group 'key' (or 'year' and 'month'). The file taken is the match with the largest key.
+     */
+    link_pattern: string;
+    /**
+     * Listing Url
+     *
+     * The page or directory listing that links to the file.
+     */
+    listing_url: string;
+    /**
+     * Max Sublistings
+     *
+     * How many sublistings to read before failing.
+     */
+    max_sublistings: number;
+    /**
+     * Sublisting Pattern
+     *
+     * Regex, as link_pattern, for links on listing_url that are listings to search for link_pattern (newest key first). A link without a trailing slash is read as a directory (slash added) when the listing is a directory index.
+     */
+    sublisting_pattern: string | null;
+};
+
+/**
  * Display
  */
 export type Display = {
@@ -396,7 +474,7 @@ export type LicenceEvidence = {
     /**
      * Terms Check
      *
-     * How the weekly run re-checks the quote: a machine-readable licence field, the page's text, a PDF's text, or a person each quarter (bot-walled pages).
+     * How the weekly run re-checks the quote: a machine-readable licence field (api: the JSON or XML response's text), the page's text, a PDF's text, or a person each quarter (bot-walled pages). api, page and pdf all match the quote against the normalised text of the body fetched from terms_url.
      */
     terms_check: 'api' | 'page' | 'pdf' | 'manual';
     /**
