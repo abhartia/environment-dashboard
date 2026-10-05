@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useRef, useState } from "react";
 
 import type { StoryRow, StoryValue } from "@/lib/dash/story";
-import { formatValue } from "@/lib/format";
+import { formatReadable } from "@/lib/format";
 import { dataPath } from "@/lib/routes";
 
 const RDBU = ["#053061", "#2166ac", "#4393c3", "#92c5de", "#d1e5f0", "#f7f7f7", "#fddbc7", "#f4a582", "#d6604d", "#b2182b", "#67001f"];
@@ -165,7 +165,7 @@ function Reading({ row, t, atRest }: { row: StoryRow; t: number; atRest: boolean
     );
   }
   const decimals = v.value >= 1000 ? 0 : row.decimals;
-  const text = formatValue(v.value, decimals);
+  const text = formatReadable(v.value, decimals);
   return (
     <p className="flex min-w-0 flex-wrap items-baseline gap-x-1.5">
       <a

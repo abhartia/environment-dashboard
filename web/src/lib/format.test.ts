@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatPeriod, formatSigned, formatValue } from "./format";
+import { formatPeriod, formatReadable, formatSigned, formatTick, formatValue, readable } from "./format";
 
 describe("formatValue", () => {
   it("rounds to the indicator's decimals", () => {
@@ -36,5 +36,22 @@ describe("formatPeriod", () => {
   it("rejects anything that is not a period", () => {
     expect(() => formatPeriod("Aug 2026")).toThrow();
     expect(() => formatPeriod("2026-13")).toThrow();
+  });
+});
+
+describe("readable", () => {
+  it("shows millions and billions in words, never finer than published", () => {
+    expect(formatReadable(332_928_197.51, 0)).toBe("332.9 million");
+    expect(formatReadable(4_140_443_710, 0)).toBe("4.1 billion");
+    expect(formatReadable(15_805.254, 0)).toBe("15,805");
+    expect(formatReadable(1.43, 2)).toBe("1.43");
+  });
+  it("keeps one scale word while a number counts toward its target", () => {
+    expect(readable(150_000_000, 0, 332_928_197.51)).toEqual({ number: "150.0", word: "million" });
+  });
+  it("labels axes compactly", () => {
+    expect(formatTick(500_000_000, 0)).toBe("500m");
+    expect(formatTick(1_500_000_000, 0)).toBe("1.5bn");
+    expect(formatTick(40_000, 0)).toBe("40,000");
   });
 });

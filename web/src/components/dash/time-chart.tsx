@@ -12,7 +12,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import type { Chart, Series } from "@/lib/dash/types";
-import { formatValue } from "@/lib/format";
+import { formatReadable, formatTick, formatValue } from "@/lib/format";
 
 const M = { top: 16, right: 12, bottom: 32, left: 36 };
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -116,7 +116,7 @@ export function TimeChart({
   // The left margin fits the longest axis label (about 7.5 px a character at 13 px), so "40,000" is never clipped.
   const left = Math.max(
     M.left,
-    12 + 7.5 * Math.max(...yTicks.map((t) => formatValue(t, tickDecimals).length)),
+    12 + 7.5 * Math.max(...yTicks.map((t) => formatTick(t, tickDecimals).length)),
   );
   const x = scaleLinear()
     .domain([chart.from, chart.to])
@@ -212,7 +212,7 @@ export function TimeChart({
                     textAnchor="end"
                     className="fill-muted-foreground text-[13px] num"
                   >
-                    {formatValue(t, tickDecimals)}
+                    {formatTick(t, tickDecimals)}
                   </text>
                 </motion.g>
               ))}
@@ -302,7 +302,7 @@ export function TimeChart({
               <span className="text-muted-foreground">{s.label}</span>
               <span className="ml-auto pl-3 num font-medium">
                 {Number.isFinite(hoverRow[s.key])
-                  ? `${formatValue(hoverRow[s.key], Math.abs(hoverRow[s.key]) >= 1000 ? 0 : chart.decimals)} ${chart.unit}`
+                  ? `${formatReadable(hoverRow[s.key], Math.abs(hoverRow[s.key]) >= 1000 ? 0 : chart.decimals)} ${chart.unit}`
                   : "no data"}
               </span>
             </p>

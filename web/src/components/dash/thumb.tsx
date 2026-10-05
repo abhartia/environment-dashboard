@@ -16,7 +16,7 @@ export function Thumb({ preview, delay = 0 }: { preview: Preview; delay?: number
   const t = { duration: reduce ? 0 : 0.9, ease: EASE, delay: reduce ? 0 : delay };
 
   if (preview.kind === "bars") {
-    const max = Math.max(...preview.bars.map((b) => b.value));
+    const max = Math.max(...preview.bars.map((b) => Math.abs(b.value)));
     const h = H / preview.bars.length;
     return (
       <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="h-full w-full" aria-hidden>
@@ -29,7 +29,7 @@ export function Thumb({ preview, delay = 0 }: { preview: Preview; delay?: number
             rx={1.5}
             fill={b.colour}
             initial={{ width: 0 }}
-            animate={{ width: (Math.max(0, b.value) / max) * W }}
+            animate={{ width: (Math.abs(b.value) / max) * W }}
             transition={{ ...t, delay: t.delay + i * 0.04 }}
           />
         ))}

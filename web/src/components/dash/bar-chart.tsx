@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 
 import type { Chart } from "@/lib/dash/types";
-import { formatValue } from "@/lib/format";
+import { formatReadable } from "@/lib/format";
 
 type BarsSpec = Extract<Chart, { kind: "bars" }>;
 
@@ -16,7 +16,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  */
 export function BarChart({ chart, onSelect, onPeek }: { chart: BarsSpec; onSelect: (id: string) => void; onPeek: (id: string) => void }) {
   const reduce = useReducedMotion();
-  const max = Math.max(...chart.bars.map((b) => b.value));
+  const max = Math.max(...chart.bars.map((b) => Math.abs(b.value)));
   const duration = reduce ? 0 : 0.8;
   return (
     <figure className="flex h-full min-h-0 flex-col">
@@ -31,7 +31,7 @@ export function BarChart({ chart, onSelect, onPeek }: { chart: BarsSpec; onSelec
       </div>
       <ol className="grid min-h-0 flex-1 auto-rows-fr">
         {chart.bars.map((b, i) => {
-          const value = formatValue(b.value, b.value >= 1000 ? 0 : chart.decimals);
+          const value = formatReadable(b.value, Math.abs(b.value) >= 1000 ? 0 : chart.decimals);
           const inner = (
             <>
               <span className="line-clamp-2 w-24 shrink-0 text-left text-xs leading-tight font-semibold sm:w-44 sm:text-sm" title={b.label}>
@@ -40,11 +40,20 @@ export function BarChart({ chart, onSelect, onPeek }: { chart: BarsSpec; onSelec
               <span className="relative h-[70%] max-h-8 min-h-2 flex-1">
                 <motion.span
                   className="absolute inset-y-0 left-0 rounded-[3px]"
-                  style={{ background: b.colour }}
+                  style={{ background: b.colour, opacity: b.inner === undefined ? 1 : 0.35 }}
                   initial={{ width: "0%" }}
-                  animate={{ width: `${(Math.max(0, b.value) / max) * 100}%` }}
+                  animate={{ width: `${(Math.abs(b.value) / max) * 100}%` }}
                   transition={{ duration, ease: EASE, delay: reduce ? 0 : i * 0.03 }}
                 />
+                {b.inner !== undefined ? (
+                  <motion.span
+                    className="absolute inset-y-0 left-0 rounded-[3px]"
+                    style={{ background: b.colour }}
+                    initial={{ width: "0%" }}
+                    animate={{ width: `${(Math.abs(b.inner) / max) * 100}%` }}
+                    transition={{ duration, ease: EASE, delay: reduce ? 0 : 0.3 + i * 0.03 }}
+                  />
+                ) : null}
               </span>
               <span className="w-14 shrink-0 text-right text-xs font-semibold num sm:w-16 sm:text-sm">{value}</span>
             </>

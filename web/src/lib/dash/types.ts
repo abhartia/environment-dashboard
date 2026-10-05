@@ -28,7 +28,12 @@ export type Series = {
   drill?: string;
 };
 
-export type Bar = { key: string; label: string; value: number; colour: string; drill?: string };
+/**
+ * One ranked bar. `inner` draws a second published value inside the bar (e.g. today's impact inside the achievable
+ * one), named in the chart's legend. Bars are as long as the size of the value, so a cut (negative) reads as a bar;
+ * the number shown keeps its sign.
+ */
+export type Bar = { key: string; label: string; value: number; colour: string; inner?: number; drill?: string };
 
 export type Chart =
   | { kind: "area"; stacked: boolean; series: Series[]; unit: string; decimals: number; from: number; to: number }

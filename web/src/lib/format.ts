@@ -58,3 +58,30 @@ export function calendarPeriod(t: { period: string | null }): string {
   if (t.period === null) throw new Error("expected a calendar period, got an age-dated (years-before-1950) value");
   return t.period;
 }
+
+/**
+ * How a big value reads: 332,928,198 is shown as 332.9 million. The scale is chosen from the value (or from `scaleOf`,
+ * so a counting animation keeps one word), and the shown precision is never finer than published (a tenth of a
+ * million is coarser than any published decimal). Below a million the value is formatted as published.
+ */
+export function readable(value: number, decimals: number, scaleOf: number = value): { number: string; word: string } {
+  const a = Math.abs(scaleOf);
+  if (a >= 1e9) return { number: formatValue(value / 1e9, 1), word: "billion" };
+  if (a >= 1e6) return { number: formatValue(value / 1e6, 1), word: "million" };
+  return { number: formatValue(value, decimals), word: "" };
+}
+
+/** The same, as one string: "332.9 million". */
+export function formatReadable(value: number, decimals: number): string {
+  const r = readable(value, decimals);
+  return r.word ? `${r.number} ${r.word}` : r.number;
+}
+
+/** Axis labels: 500,000,000 -> "500m", 1,500,000,000 -> "1.5bn"; smaller values as formatValue. */
+export function formatTick(value: number, decimals: number): string {
+  const a = Math.abs(value);
+  const short = (v: number) => formatValue(v, Number.isInteger(v) ? 0 : 1);
+  if (a >= 1e9) return `${short(value / 1e9)}bn`;
+  if (a >= 1e6) return `${short(value / 1e6)}m`;
+  return formatValue(value, decimals);
+}

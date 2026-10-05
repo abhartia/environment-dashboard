@@ -4,7 +4,7 @@ import { animate, motion, useMotionValue, useReducedMotion, useTransform } from 
 import { useEffect } from "react";
 
 import type { Headline } from "@/lib/dash/types";
-import { formatValue } from "@/lib/format";
+import { formatReadable, readable } from "@/lib/format";
 import { dataPath } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,9 @@ import { cn } from "@/lib/utils";
 export function TracedValue({ h, className }: { h: Headline; className?: string }) {
   const reduce = useReducedMotion();
   const mv = useMotionValue(h.value);
-  const text = useTransform(mv, (v) => formatValue(v, h.decimals));
+  // Millions and billions read as words; the word follows the target value so it never flips mid-count.
+  const word = readable(h.value, h.decimals).word;
+  const text = useTransform(mv, (v) => readable(v, h.decimals, h.value).number);
 
   useEffect(() => {
     if (reduce) {
@@ -34,11 +36,12 @@ export function TracedValue({ h, className }: { h: Headline; className?: string 
       data-indicator={h.indicator}
       data-period={h.period}
       data-entity={h.entity}
-      aria-label={`${formatValue(h.value, h.decimals)} ${h.unitLabel}${status ? ` (${status})` : ""}, show source`}
+      aria-label={`${formatReadable(h.value, h.decimals)} ${h.unitLabel}${status ? ` (${status})` : ""}, show source`}
       aria-haspopup="dialog"
       className={cn("group inline-flex items-baseline gap-3 no-underline outline-none", className)}
     >
       <motion.span className="num decoration-[0.06em] underline-offset-[0.12em] group-hover:underline group-focus-visible:underline">{text}</motion.span>
+      {word ? <span className="text-[0.4em] font-bold tracking-tight">{word}</span> : null}
       {status ? <span className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">{status}</span> : null}
     </a>
   );
