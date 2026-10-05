@@ -1,0 +1,15 @@
+{
+  "artifact_id": "erf-best-aggregates",
+  "command": "uv run python tests/fixtures/make_fixture.py --source igcc-2025 --artifact erf-best-aggregates --first 3 --last 3",
+  "data_rows_total": 276,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 1671,
+  "fixture_sha256": "e03d2f561a22db93c5525ac8a5d38b5c84afc81035be766b6061786438750bd5",
+  "full_bytes": 73223,
+  "full_sha256": "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-3 and 274-276 of 276",
+  "source_id": "igcc-2025",
+  "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_best_aggregates.csv"
+}

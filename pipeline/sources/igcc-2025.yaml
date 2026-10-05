@@ -14,6 +14,15 @@
 # The ESSD paper's data statement cites the earlier v2026.06.02 release; the verifier found the paper's headline
 # values (1.37 C SR15 row, ERF 3.1035 W/m2 anthropogenic in 2025) unchanged at IGCC-2025a.
 # citation.text: the ESSD "How to cite" text verbatim, then the data citation DataCite returns for the pinned DOI.
+# Per-file artifacts (added 2026-10-04): the CSVs the transforms read, from raw.githubusercontent.com at commit
+# 0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f, which the GitHub API gives as the target of tag IGCC-2025a (committed
+# 2026-07-22) and whose short form names the zip's top directory. All eight were byte-identical to the members of the
+# Zenodo zip (sha256 04658ff9...) on 2026-10-04, and envdash/transforms/climate/igcc_2025.py re-checks that against
+# the zip on every build, so each number still traces to the DOI-pinned deposit. They exist so tests can use
+# byte-exact slices of real files (a zip cannot be sliced). The GitHub repo reports licence CC-BY-4.0 (spdx).
+# Paper artifact (added 2026-10-04): the ESSD article PDF, HTTP 200, 9,736,703 bytes, ETag "9491ff-653ed6ee5a83f",
+# Last-Modified 10 Jun 2026. Its own licence statement (PDF page 1, checked verbatim 2026-10-04): "This work is
+# distributed under the Creative Commons Attribution 4.0 License." Same class and licence as the data.
 id: igcc-2025
 title: Indicators of Global Climate Change 2025
 publisher: Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds
@@ -102,6 +111,62 @@ artifacts:
       the assumptions, e.g. hdT_1.24).
     access:
       conditional: false
+  - id: warming-assessment-headlines
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv
+    format: csv
+    description: >-
+      data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv at IGCC-2025a: the multi-method
+      assessment of attributable warming (5th, 50th, 95th percentile columns) for 2010-2019, 2016-2025, 2017 and 2025;
+      rows noted "SR15 definition" use the trend-based single-year definition, the others the annual mean.
+  - id: warming-walsh-timeseries
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Walsh_GMST_timeseries.csv
+    format: csv
+    description: >-
+      data/base/anthropogenic_warming/Walsh_GMST_timeseries.csv at IGCC-2025a: annual attributable warming
+      1850-2025 by the Global Warming Index method (Walsh), percentiles 5, 17, 50, 83 and 95.
+  - id: warming-gillett-timeseries
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Gillett_GMST_timeseries.csv
+    format: csv
+    description: >-
+      data/base/anthropogenic_warming/Gillett_GMST_timeseries.csv at IGCC-2025a: annual attributable warming
+      1850-2025 by regularised optimal fingerprinting (Gillett), percentiles 5, 17, 50, 83 and 95.
+  - id: warming-ribes-timeseries
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Ribes_GMST_timeseries.csv
+    format: csv
+    description: >-
+      data/base/anthropogenic_warming/Ribes_GMST_timeseries.csv at IGCC-2025a: annual attributable warming
+      1850-2025 by kriging for climate change (Ribes), percentiles 5, 17, 50, 83 and 95.
+  - id: erf-best-aggregates
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_best_aggregates.csv
+    format: csv
+    description: >-
+      data/base/effective_radiative_forcing/ERF_best_aggregates.csv at IGCC-2025a: best-estimate effective radiative
+      forcing relative to 1750 by agent and aggregate (W/m2), 1750-2025.
+  - id: erf-p05-aggregates
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_p05_aggregates.csv
+    format: csv
+    description: >-
+      data/base/effective_radiative_forcing/ERF_p05_aggregates.csv at IGCC-2025a: 5th percentile of the same.
+  - id: erf-p95-aggregates
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_p95_aggregates.csv
+    format: csv
+    description: >-
+      data/base/effective_radiative_forcing/ERF_p95_aggregates.csv at IGCC-2025a: 95th percentile of the same.
+  - id: rcb-magicc-hdt-1p24
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv
+    format: csv
+    description: >-
+      data/base/carbon_budget/budget_normal_magicc_True_fair_False_..._hdT_1.24NonlinNonCO2_all_None_recEm213.csv at
+      IGCC-2025a: remaining carbon budgets (GtCO2) from the start of 2026 for warming levels in 0.1 degree steps and
+      seven likelihoods, using MAGICC for non-CO2 warming, 1.24 degrees of historical human-induced warming
+      (2016-2025) and 213 GtCO2 emitted since the middle of that period: the assumptions of the paper's Table 8.
+  - id: essd-paper-pdf
+    url: https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf
+    format: pdf
+    description: >-
+      The ESSD article (Forster et al. 2026, Earth Syst. Sci. Data 18, 3889-3933, 45 pages, published 11 June
+      2026), for statements quoted with their page: the remaining carbon budget (Sect. 9 and Table 8, p. 3910) and
+      the figures the producers state for effective radiative forcing (Sect. 5, p. 3899) and attributable warming.
 status:
   state: active
   note: >-

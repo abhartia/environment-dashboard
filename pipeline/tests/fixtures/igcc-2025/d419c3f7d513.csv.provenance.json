@@ -1,0 +1,15 @@
+{
+  "artifact_id": "warming-assessment-headlines",
+  "command": "uv run python tests/fixtures/make_fixture.py --source igcc-2025 --artifact warming-assessment-headlines --first 6 --last 0",
+  "data_rows_total": 6,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 683,
+  "fixture_sha256": "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879",
+  "full_bytes": 683,
+  "full_sha256": "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 6 data rows",
+  "source_id": "igcc-2025",
+  "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv"
+}

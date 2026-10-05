@@ -1,0 +1,15 @@
+{
+  "artifact_id": "warming-gillett-timeseries",
+  "command": "uv run python tests/fixtures/make_fixture.py --source igcc-2025 --artifact warming-gillett-timeseries --first 3 --last 10",
+  "data_rows_total": 176,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 3766,
+  "fixture_sha256": "9a9e08032a035883f4c7bc89837e594fe5d044940984e6d3404056afa5d0bc95",
+  "full_bytes": 46521,
+  "full_sha256": "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-3 and 167-176 of 176",
+  "source_id": "igcc-2025",
+  "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Gillett_GMST_timeseries.csv"
+}
