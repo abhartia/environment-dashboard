@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from envdash.models import CatalogEntry, Display, Latest, Observation, Unit, strictest
+from envdash.models import Catalog, CatalogEntry, Display, Latest, Observation, Unit, strictest
 from envdash.paths import Paths
 from envdash.registry import load_registry
 
@@ -44,6 +44,12 @@ def test_strictest_class():
     assert strictest(["open", "share-alike"]) == "share-alike"
 
 
+def _provenance():
+    """A real provenance block, from the published catalogue (no invented origins)."""
+    catalog = Catalog.model_validate_json((Paths.default().data / "v1" / "catalog.json").read_bytes())
+    return catalog.indicators[0].provenance
+
+
 def _entry(cls: str, latest: Latest | None, downloadable: bool) -> CatalogEntry:
     return CatalogEntry(
         id="co2.noaa-gml.annual-global",
@@ -58,6 +64,7 @@ def _entry(cls: str, latest: Latest | None, downloadable: bool) -> CatalogEntry:
         entities=["WLD"],
         downloadable=downloadable,
         export_sha256="0" * 64,
+        provenance=_provenance(),
     )
 
 

@@ -22,7 +22,7 @@ from pathlib import Path
 
 from envdash import canonical
 from envdash.build import IndicatorOutcome, build_key, build_one, export_path, lock_sha, write_build_record
-from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, SourceList
+from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, Provenance, SourceList
 from envdash.paths import Paths
 from envdash.registry import Registry
 from envdash.snapshots import read_current
@@ -135,6 +135,17 @@ def catalog_entry(paths: Paths, ind: Indicator) -> CatalogEntry:
         entities=sorted({o.entity for o in ind.observations}),
         downloadable=redistributable,
         export_sha256=canonical.sha256_file(export_path(paths, ind.id, ind.licence_class)),
+        provenance=Provenance(
+            description=ind.description,
+            kind=ind.kind,
+            scope=ind.scope,
+            licence=ind.licence,
+            attribution=ind.attribution,
+            notice=ind.notice,
+            origins=ind.origins,
+            processing=ind.processing,
+            published_value=ind.published_value,
+        ),
     )
 
 

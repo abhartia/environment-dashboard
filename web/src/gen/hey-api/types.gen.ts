@@ -88,7 +88,8 @@ export type Catalog = {
 /**
  * CatalogEntry
  *
- * What the site needs to list an indicator without loading it. Present for every class except excluded.
+ * What the site needs to list and trace an indicator without loading it. Present for every class except
+ * excluded.
  */
 export type CatalogEntry = {
     display: Display;
@@ -124,6 +125,7 @@ export type CatalogEntry = {
      * Licence Class
      */
     licence_class: 'open' | 'share-alike' | 'noncommercial' | 'no-derivatives' | 'display-only' | 'excluded';
+    provenance: Provenance;
     /**
      * Source Ids
      */
@@ -670,6 +672,42 @@ export type ProcessingStep = {
      * sha256 of that file's source text.
      */
     transform_sha256: string;
+};
+
+/**
+ * Provenance
+ *
+ * Everything about where an indicator came from, without its values. Public for every class: the files,
+ * fingerprints, steps and credits are metadata, so even a number we may not redistribute can be traced.
+ */
+export type Provenance = {
+    /**
+     * Attribution
+     */
+    attribution: string;
+    /**
+     * Description
+     */
+    description: string;
+    /**
+     * Kind
+     */
+    kind: 'series' | 'published-value' | 'derived';
+    licence: Licence;
+    /**
+     * Notice
+     */
+    notice: string | null;
+    /**
+     * Origins
+     */
+    origins: Array<Origin>;
+    /**
+     * Processing
+     */
+    processing: Array<ProcessingStep>;
+    published_value: PublishedValueRef | null;
+    scope: Scope;
 };
 
 /**

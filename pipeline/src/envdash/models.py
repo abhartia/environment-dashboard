@@ -385,8 +385,24 @@ class Indicator(Strict):
 # --- catalogue, status --------------------------------------------------------------------------------------------
 
 
+class Provenance(Strict):
+    """Everything about where an indicator came from, without its values. Public for every class: the files,
+    fingerprints, steps and credits are metadata, so even a number we may not redistribute can be traced."""
+
+    description: str
+    kind: Literal["series", "published-value", "derived"]
+    scope: Scope
+    licence: Licence
+    attribution: str
+    notice: str | None = None
+    origins: list[Origin] = Field(min_length=1)
+    processing: list[ProcessingStep] = Field(min_length=1)
+    published_value: PublishedValueRef | None = None
+
+
 class CatalogEntry(Strict):
-    """What the site needs to list an indicator without loading it. Present for every class except excluded."""
+    """What the site needs to list and trace an indicator without loading it. Present for every class except
+    excluded."""
 
     id: IndicatorId
     title: str
@@ -403,6 +419,7 @@ class CatalogEntry(Strict):
     entities: list[EntityCode]
     downloadable: bool = Field(description="True only for redistributable classes.")
     export_sha256: Sha256 = Field(description="sha256 of the canonical indicator JSON (public or private).")
+    provenance: Provenance
 
     @model_validator(mode="after")
     def _consistent(self) -> CatalogEntry:

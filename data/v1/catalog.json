@@ -17,6 +17,52 @@
         "value": 425.62
       },
       "licence_class": "open",
+      "provenance": {
+        "attribution": "NOAA Global Monitoring Laboratory (Lan, Tans & Thoning), version 2026-09, doi:10.15138/9N0H-ZH07. Mauna Loa data March 1958 to April 1974: C. David Keeling, Scripps Institution of Oceanography.",
+        "description": "Annual mean carbon dioxide in dry air averaged over NOAA's global network of marine surface sites, since 1979.",
+        "kind": "series",
+        "licence": {
+          "name": "Public domain (work of the US federal government)",
+          "spdx": null,
+          "url": "https://www.copyright.gov/title17/92chap1.html#105"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "co2-annmean-gl", "bytes": 2513, "citation_full": "Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09 https://doi.org/10.15138/9N0H-ZH07", "date_accessed": "2026-10-04", "date_published": "2026-09-05", "doi": "10.15138/9N0H-ZH07", "etag": "\"9d1-65af9c4f70378\"", "last_modified": "Tue, 08 Sep 2026 14:44:18 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14", "source_id": "noaa-gml-trends", "title": "Trends in atmospheric carbon dioxide, methane and nitrous oxide", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv", "url_main": "https://gml.noaa.gov/ccgg/trends/", "version_producer": "2026-09", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read co2_annmean_gl.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
+            "inputs": ["36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
+            "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
+          },
+          {
+            "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the mean of the standard deviations of 200 Monte Carlo global averages (one standard deviation).",
+            "inputs": ["36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
+            "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
+          },
+          {
+            "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
+            "inputs": ["36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
+            "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Dry-air mole fraction; NOAA's global marine boundary layer average.",
+          "bunkers": null,
+          "geography": "Global mean of marine surface sites",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
       "source_ids": ["noaa-gml-trends"],
       "title": "Carbon dioxide, global annual mean",
       "unit": {
@@ -43,6 +89,45 @@
         "value": 427.55
       },
       "licence_class": "open",
+      "provenance": {
+        "attribution": "NOAA Global Monitoring Laboratory (Lan, Tans & Thoning), version 2026-09, doi:10.15138/9N0H-ZH07. Mauna Loa data March 1958 to April 1974: C. David Keeling, Scripps Institution of Oceanography.",
+        "description": "Monthly mean carbon dioxide in dry air measured at Mauna Loa Observatory, Hawaii, since March 1958: the Keeling Curve. Values before May 1974 were measured by the Scripps Institution of Oceanography.",
+        "kind": "series",
+        "licence": {
+          "name": "Public domain (work of the US federal government)",
+          "spdx": null,
+          "url": "https://www.copyright.gov/title17/92chap1.html#105"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "co2-mm-mlo", "bytes": 38732, "citation_full": "Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09 https://doi.org/10.15138/9N0H-ZH07", "date_accessed": "2026-10-04", "date_published": "2026-09-05", "doi": "10.15138/9N0H-ZH07", "etag": "\"974c-65af9c4f795ec\"", "last_modified": "Tue, 08 Sep 2026 14:44:18 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d", "source_id": "noaa-gml-trends", "title": "Trends in atmospheric carbon dioxide, methane and nitrous oxide", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv", "url_main": "https://gml.noaa.gov/ccgg/trends/", "version_producer": "2026-09", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the monthly mean column (average) of co2_mm_mlo.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
+            "inputs": ["dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
+            "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
+          },
+          {
+            "description": "Kept every month as published. Where NOAA's own markers say something about a month (a Scripps-era value, a month with no measurement days that NOAA interpolated, a month without a standard deviation, or a month measured at Maunakea after the 2022 eruption) the observation carries that as a note. The deseasonalized, days, standard deviation and uncertainty columns are not published.",
+            "inputs": ["dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
+            "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Dry-air mole fraction; monthly means of daily means, as published (not deseasonalized).",
+          "bunkers": null,
+          "geography": "Mauna Loa Observatory, Hawaii (19.5° N, 155.6° W)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
       "source_ids": ["noaa-gml-trends"],
       "title": "Carbon dioxide at Mauna Loa, monthly mean",
       "unit": {
@@ -63,6 +148,49 @@
       "id": "mitigation.ipcc-ar6.cost-under-100-2030",
       "latest": null,
       "licence_class": "display-only",
+      "provenance": {
+        "attribution": "IPCC, 2022: Summary for Policymakers. In: Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press. doi:10.1017/9781009157926.001",
+        "description": "The IPCC's assessment that mitigation options costing 100 US dollars per tonne of CO₂-equivalent or less could reduce global greenhouse gas emissions in 2030 by at least half of the 2019 level.",
+        "kind": "published-value",
+        "licence": {
+          "name": "© IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works)",
+          "spdx": null,
+          "url": "https://www.ipcc.ch/copyright/"
+        },
+        "notice": "Quoted from the IPCC report with its statement number and page. IPCC material may not be redistributed or altered; the full report is at https://www.ipcc.ch/report/ar6/wg3/.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "spm-pdf", "bytes": 1304166, "citation_full": "IPCC, 2022: Summary for Policymakers [P.R. Shukla, J. Skea, A. Reisinger, R. Slade, R. Fradera, M. Pathak, A. Al Khourdajie, M. Belkacemi, R. van Diemen, A. Hasija, G. Lisboa, S. Luz, J. Malley, D. McCollum, S. Some, P. Vyas, (eds.)]. In: Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [P.R. Shukla, J. Skea, R. Slade, A. Al Khourdajie, R. van Diemen, D. McCollum, M. Pathak, S. Some, P. Vyas, R. Fradera, M. Belkacemi, A. Hasija, G. Lisboa, S. Luz, J. Malley, (eds.)]. Cambridge University Press, Cambridge, UK and New York, NY, USA. doi: 10.1017/9781009157926.001.", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.1017/9781009157926.001", "etag": "\"13e666-6235352c27f80\"", "last_modified": "Mon, 30 Sep 2024 10:03:58 GMT", "licence": {"name": "© IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works)", "spdx": null, "url": "https://www.ipcc.ch/copyright/"}, "producer": "Intergovernmental Panel on Climate Change (IPCC), Working Group III", "r2_url": null, "sha256": "fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778", "source_id": "ipcc-ar6-wg3-spm", "title": "Climate Change 2022: Mitigation of Climate Change. Summary for Policymakers", "url_download": "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_SummaryForPolicymakers.pdf", "url_main": "https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/", "version_producer": "AR6 WGIII (2022)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from SPM statement C.12, p. 37. The quote was found in the text of page 41 of the snapshot (sha256 fdec68c55cbf…) before publishing.",
+            "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "45db5196e6832de032e821b8821a3197ea9f3e43253c85dddcecb7a36f7d815e"
+          },
+          {
+            "description": "Value: \"at least half the 2019 level\" is published as 50 percent of 2019 global greenhouse gas emissions, the lower bound the statement gives; the IPCC states no upper bound.",
+            "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "45db5196e6832de032e821b8821a3197ea9f3e43253c85dddcecb7a36f7d815e"
+          }
+        ],
+        "published_value": {
+          "document": "ipcc-ar6-wg3-spm",
+          "locator": "SPM statement C.12, p. 37",
+          "quote": "Mitigation options costing USD100 tCO₂-eq⁻¹ or less could reduce global GHG emissions by at least half the 2019 level by 2030 (high confidence)."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "An assessed potential for 2030, not a forecast of what will happen: the reduction that options costing USD100 tCO₂-eq⁻¹ or less could deliver, from the sectoral literature. The statement is a lower bound (\"at least\").",
+          "bunkers": null,
+          "geography": "World",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
       "source_ids": ["ipcc-ar6-wg3-spm"],
       "title": "Emission cuts available by 2030 from options costing up to 100 US dollars per tonne",
       "unit": {
@@ -89,6 +217,53 @@
         "value": 1.432652257
       },
       "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from HadCRUT.5.2.0.0. HadCRUT.5.2.0.0 data were obtained from http://www.metoffice.gov.uk/hadobs/hadcrut5 on 2026-10-04 and are © British Crown Copyright, Met Office 2026, provided under an Open Government License, http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/ Changes: anomalies and their 95% range re-based from 1961–1990 to the 1850–1900 mean of the same dataset; 2026 left out as a partial year.",
+        "description": "Global mean near-surface temperature for each complete year since 1850, as the difference from the 1850–1900 average of the same dataset, with the 95% range.",
+        "kind": "series",
+        "licence": {
+          "name": "Open Government Licence v3.0 (Crown copyright)",
+          "spdx": "OGL-UK-3.0",
+          "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "global-annual", "bytes": 7046, "citation_full": "Morice, C. P., Kennedy, J. J., Rayner, N. A., Winn, J. P., Hogan, E., Killick, R. E., et al. (2021). An updated assessment of near-surface temperature change from 1850: the HadCRUT5 data set. Journal of Geophysical Research: Atmospheres, 126, e2019JD032361. https://doi.org/10.1029/2019JD032361", "date_accessed": "2026-10-04", "date_published": "2026-09-18", "doi": "10.1029/2019JD032361", "etag": "\"1b86-65cdb332e714b\"", "last_modified": "Fri, 02 Oct 2026 13:06:26 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Met Office Hadley Centre and University of East Anglia Climatic Research Unit", "r2_url": null, "sha256": "7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "source_id": "hadcrut5", "title": "HadCRUT5 near-surface temperature anomalies", "url_download": "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.annual.csv", "url_main": "https://www.metoffice.gov.uk/hadobs/hadcrut5/", "version_producer": "5.2.0.0", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "global-monthly", "bytes": 89634, "citation_full": "Morice, C. P., Kennedy, J. J., Rayner, N. A., Winn, J. P., Hogan, E., Killick, R. E., et al. (2021). An updated assessment of near-surface temperature change from 1850: the HadCRUT5 data set. Journal of Geophysical Research: Atmospheres, 126, e2019JD032361. https://doi.org/10.1029/2019JD032361", "date_accessed": "2026-10-04", "date_published": "2026-09-18", "doi": "10.1029/2019JD032361", "etag": "\"15e22-65cdb332f5bab\"", "last_modified": "Fri, 02 Oct 2026 13:06:26 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Met Office Hadley Centre and University of East Anglia Climatic Research Unit", "r2_url": null, "sha256": "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1", "source_id": "hadcrut5", "title": "HadCRUT5 near-surface temperature anomalies", "url_download": "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.monthly.csv", "url_main": "https://www.metoffice.gov.uk/hadobs/hadcrut5/", "version_producer": "5.2.0.0", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the global annual and global monthly summary series of HadCRUT.5.2.0.0 (analysis ensemble means; anomalies relative to 1961–1990 with the 2.5% and 97.5% limits).",
+            "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
+            "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
+          },
+          {
+            "description": "Excluded 2026: the monthly file has 8 of its 12 months, so the annual file's value for it is a partial-year average. A year is published only when all 12 months are in the monthly file.",
+            "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
+            "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
+          },
+          {
+            "description": "Re-based to the dataset's own 1850–1900 mean: subtracted the mean of the 51 annual anomalies 1850–1900, -0.359435557 °C relative to 1961–1990 (exact decimal arithmetic on the printed values), from every anomaly and from both limits of the 95% range.",
+            "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
+            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
+            "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": "1850–1900 mean of this dataset",
+          "basis": "Blend of land air temperature (CRUTEM5) and sea-surface temperature (HadSST4), with statistical infilling of data-sparse regions (HadCRUT5 analysis).",
+          "bunkers": null,
+          "geography": "Global mean",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
       "source_ids": ["hadcrut5"],
       "title": "Global surface temperature above 1850–1900 (HadCRUT5)",
       "unit": {

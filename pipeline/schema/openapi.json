@@ -115,7 +115,7 @@
       },
       "CatalogEntry": {
         "additionalProperties": false,
-        "description": "What the site needs to list an indicator without loading it. Present for every class except excluded.",
+        "description": "What the site needs to list and trace an indicator without loading it. Present for every class except\nexcluded.",
         "properties": {
           "display": {
             "$ref": "#/components/schemas/Display"
@@ -158,6 +158,9 @@
             "title": "Licence Class",
             "type": "string"
           },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
           "source_ids": {
             "items": {
               "type": "string"
@@ -177,7 +180,7 @@
             "type": "string"
           }
         },
-        "required": ["id", "title", "unit", "display", "licence_class", "source_ids", "vintage", "latest", "geo_coverage", "entities", "downloadable", "export_sha256"],
+        "required": ["id", "title", "unit", "display", "licence_class", "source_ids", "vintage", "latest", "geo_coverage", "entities", "downloadable", "export_sha256", "provenance"],
         "title": "CatalogEntry",
         "type": "object"
       },
@@ -912,6 +915,65 @@
         },
         "required": ["script", "transform_sha256", "lock_sha256", "inputs", "description"],
         "title": "ProcessingStep",
+        "type": "object"
+      },
+      "Provenance": {
+        "additionalProperties": false,
+        "description": "Everything about where an indicator came from, without its values. Public for every class: the files,\nfingerprints, steps and credits are metadata, so even a number we may not redistribute can be traced.",
+        "properties": {
+          "attribution": {
+            "title": "Attribution",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "kind": {
+            "enum": ["series", "published-value", "derived"],
+            "title": "Kind",
+            "type": "string"
+          },
+          "licence": {
+            "$ref": "#/components/schemas/Licence"
+          },
+          "notice": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Notice"
+          },
+          "origins": {
+            "items": {
+              "$ref": "#/components/schemas/Origin"
+            },
+            "minItems": 1,
+            "title": "Origins",
+            "type": "array"
+          },
+          "processing": {
+            "items": {
+              "$ref": "#/components/schemas/ProcessingStep"
+            },
+            "minItems": 1,
+            "title": "Processing",
+            "type": "array"
+          },
+          "published_value": {
+            "anyOf": [
+              {"$ref": "#/components/schemas/PublishedValueRef"},
+              {"type": "null"}
+            ],
+            "default": null
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Scope"
+          }
+        },
+        "required": ["description", "kind", "scope", "licence", "attribution", "notice", "origins", "processing", "published_value"],
+        "title": "Provenance",
         "type": "object"
       },
       "PublishedValueRef": {
