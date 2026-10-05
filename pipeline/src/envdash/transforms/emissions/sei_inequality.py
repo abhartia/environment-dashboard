@@ -1,5 +1,5 @@
 """SEI Emissions Inequality Dashboard: the share of the world's consumption carbon dioxide emitted by the richest 10%,
-the richest 1% and the poorest 50% of people, each year 1990-2023.
+the richest 1% and the poorest 50% of people, each year 1990-2022.
 
 Input: the Historical Global Shares API (artifact global-percentile-shares, CC BY 4.0), one JSON object
 {"records": [...]}. Each record is one slice of the world's population ranked by income for one year: Year,
@@ -24,6 +24,16 @@ territorial emissions plus net emissions embodied in trade, of fossil carbon dio
 emissions and emissions from land-use change"), shared among each country's people by income and then ranked across
 the world. The split rests on SEI's assumptions (an emissions floor and ceiling and an elasticity of 1 between them;
 every record of the file gives Elasticity "1").
+
+The series ends in 2022. SEI's national inputs switch basis in 2023, from consumption-based to territorial carbon
+dioxide: the API's own national values (historicalDataByCountry, read 2026-10-05) give Switzerland NatEmisions
+121,979,300 t in 2022 and 32,737,300 t in 2023, the United States 5,642,856,100 t and 4,911,391,000 t, and the United
+Kingdom 488,532,000 t and 305,146,300 t. The research of 2026-10-05
+(docs/research/sources-ghg-food-personal-2026-10-05.json) matched the 2023 values to territorial emissions (Global
+Carbon Budget 2025: Switzerland consumption 118.3 Mt, territorial 32.0 Mt; United States 5,432 Mt and 4,918 Mt). The
+world top-10% share drops from 48.99% in 2022 to 47.08% in 2023 at that break. So 2023 is not comparable with
+1990-2022 and is not published. The global shares response carries no basis field, so the cut is a declared year
+(LAST_CONSUMPTION_YEAR), not a test of the data; the transform stops if the response no longer reaches that year.
 
 Vintage. The API has no version or release date. The series is labelled by the years it covers and the date the
 bytes were first fetched (the snapshot's date_accessed).
@@ -55,6 +65,8 @@ GROUPS: tuple[tuple[str, str], ...] = (
     ("bottom-50", "Poorest 50%"),
 )
 BOUNDARIES = (Decimal(50), Decimal(90), Decimal(99))
+LAST_CONSUMPTION_YEAR = 2022
+"""The last year whose national inputs are consumption-based (see the module docstring); later years are left out."""
 
 PERCENT = Unit(code="percent", label="percent of world consumption carbon dioxide emissions", short="%")
 
@@ -135,6 +147,13 @@ def check_years(by_year: dict[int, list[Slice]]) -> None:
         raise SeiFormatError(f"years {years[0]}-{years[-1]} have gaps")
 
 
+def consumption_years(by_year: dict[int, list[Slice]]) -> dict[int, list[Slice]]:
+    """The years up to LAST_CONSUMPTION_YEAR, the last year SEI built on consumption-based national emissions."""
+    if LAST_CONSUMPTION_YEAR not in by_year:
+        raise SeiFormatError(f"the response has no {LAST_CONSUMPTION_YEAR}, the last consumption-based year")
+    return {y: v for y, v in by_year.items() if y <= LAST_CONSUMPTION_YEAR}
+
+
 def in_group(group: str, s: Slice) -> bool:
     if group == "top-10":
         return s.lower >= 90
@@ -158,20 +177,29 @@ def group_shares(by_year: dict[int, list[Slice]]) -> list[Observation]:
 
 def _run(files: dict[str, InputFile]) -> Result:
     f = files[SHARES.key]
-    by_year = read_slices(f.path.read_bytes())
-    check_years(by_year)
+    served = read_slices(f.path.read_bytes())
+    check_years(served)
+    by_year = consumption_years(served)
     first, last = min(by_year), max(by_year)
-    slices = {len(v) for v in by_year.values()}
+    slices = {len(v) for v in served.values()}
     accessed = f.snapshot.date_accessed.isoformat()
+    dropped = sorted(set(served) - set(by_year))
     return Result(
         observations=group_shares(by_year),
-        vintage=f"{first}-{last} historical series, retrieved {accessed}",
+        vintage=f"{first}-{last} consumption-based years of the {min(served)}-{max(served)} historical series, "
+        f"retrieved {accessed}",
         steps=[
             f"Read the Historical Global Shares API response (sha256 {f.snapshot.sha256[:12]}…, retrieved {accessed}): "
-            f"{sum(len(v) for v in by_year.values())} records, {first}–{last}, "
+            f"{sum(len(v) for v in served.values())} records, {min(served)}–{max(served)}, "
             f"{' or '.join(str(n) for n in sorted(slices))} income slices a year. Checked for every year that the "
             "slices run from 0 to 100% of people with no gap or overlap, that each slice's width matches its label, "
             "and that the emission shares add up to 1 (within one billionth).",
+            f"Kept {first}–{last} and left out {', '.join(map(str, dropped)) or 'no year'}. SEI's national inputs are "
+            f"consumption-based up to {LAST_CONSUMPTION_YEAR} and territorial (where emissions happen) from 2023, so "
+            "later shares are not comparable. The API's own national values show the break (historicalDataByCountry, "
+            "read 2026-10-05): Switzerland 121,979,300 t in 2022 and 32,737,300 t in 2023, the United States "
+            "5,642,856,100 t and 4,911,391,000 t, the United Kingdom 488,532,000 t and 305,146,300 t; the 2023 values "
+            "match Global Carbon Budget 2025 territorial emissions, not consumption.",
             "For each year, added up the EmissionShare of the slices in each group with exact decimal arithmetic on "
             "the values as served: the poorest 50% (slices up to the 50th percentile), the richest 10% (from the 90th) "
             "and the richest 1% (from the 99th, which SEI splits into finer slices). The richest 1% are part of the "
@@ -191,9 +219,11 @@ def transforms(paths: Paths) -> list[Transform]:
                 title="Share of world consumption carbon dioxide by income group (SEI)",
                 description="The share of the world's consumption-based carbon dioxide emissions caused by the "
                 "richest 10%, the richest 1% and the poorest 50% of people, ranked by income across the world, each "
-                "year from 1990. Consumption emissions count what a country's people buy, including imports, and "
-                "exclude what it makes for export. The split between people depends on the Stockholm Environment "
-                "Institute's assumptions about how emissions rise with income.",
+                "year from 1990 to 2022. Consumption emissions count what a country's people buy, including imports, "
+                "and exclude what it makes for export. The split between people depends on the Stockholm Environment "
+                "Institute's assumptions about how emissions rise with income. These are shares of the world total, "
+                "not tonnes per person. SEI also serves 2023, but builds it on territorial national emissions "
+                "(where emissions happen) instead of consumption, so 2023 is not comparable and is not shown.",
                 kind="derived",
                 unit=PERCENT,
                 display=Display(decimals=1),
@@ -221,6 +251,6 @@ def transforms(paths: Paths) -> list[Transform]:
             inputs=(SHARES,),
             run=_run,
             module_file=Path(__file__),
-            validation=Validation(min_rows=3 * 34, value_range=(0.0, 100.0)),
+            validation=Validation(min_rows=3 * 33, value_range=(0.0, 100.0)),
         )
     ]

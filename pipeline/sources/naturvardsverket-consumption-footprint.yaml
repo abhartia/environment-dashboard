@@ -1,0 +1,99 @@
+# Naturvårdsverket: consumption-based greenhouse gas emissions per person and year in Sweden, by consumption area.
+# Evidence: docs/research/sources-ghg-food-personal-2026-10-05.json (research need C, rank 1; verifier verdict
+# adopt-with-changes; every verifier problem is handled below or in the transform).
+# Checked 2026-10-05:
+#   - https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/ -> 200. Under 'Upphovsrätt' >
+#     'Öppna data' it carries the first sentence of licence_quote. The same section says most photographs and
+#     illustrations on the site are protected by copyright, and the link policy asks that the Naturvårdsverket logo is
+#     not used.
+#   - https://www.scb.se/vara-tjanster/oppna-data/ -> 200 with the CC0 sentence quoted second. The statistics page
+#     names 'ANSVARIG MYNDIGHET: Statistikmyndigheten SCB' and carries the Sveriges officiella statistik logo: the
+#     figures are SCB official statistics, so the CC0 on SCB's open data is the firmer basis, and the third-party funder
+#     clause of Naturvårdsverket's terms does not apply.
+#   - The quote spans two pages, so the weekly run cannot match it at one terms_url: terms_check is manual (a person
+#     re-reads both pages each quarter).
+#   - The page: HTTP 200, 231,605 bytes; no ETag or Last-Modified (conditional false). Two curl fetches a minute apart
+#     gave the same bytes (sha256 da4e1b4d…), while envdash fetch got ac383cb0… of the same length: the site's
+#     navigation menu marks a different item 'isActive' between requests. The data payload is identical in both, so
+#     an occasional new snapshot with unchanged values is expected. The page model is the
+#     JSON in <script id="__model_data" type="application/json">; its content.highChartsOptions is a JSON string whose
+#     data.csv holds the series: header '"null";"Transporter ";"Livsmedel ";"Boende ";"Övrigt ";"Offentlig konsumtion
+#     ";"Investeringar ";"Totalt "', rows 2008-2023, y-axis 'Ton koldioxidekvivalenter per person'. lastReviewed
+#     2025-10-28 ('Granskad: 28 oktober 2025'). The page says 'Nästa uppdatering: Hösten 2026 (med data t.o.m. 2024)'.
+# mirror_raw is false: the open-data clause and SCB's CC0 cover the statistics, not the page's own text, and the page
+# names its photographs and illustrations as copyright-protected. Fixtures therefore hold only the bytes of the data.csv
+# payload (tests/fixtures/naturvardsverket-consumption-footprint/), never the page text.
+id: naturvardsverket-consumption-footprint
+title: Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)
+publisher: Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)
+landing_url: https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/
+description: >-
+  The greenhouse gas footprint of an average person in Sweden, in tonnes of carbon dioxide equivalent per person per
+  year, 2008-2023: the emissions, in Sweden and abroad, from producing everything used in Sweden, divided among its
+  population. Split into six parts that do not overlap: household transport, food, housing and other household
+  consumption, plus public consumption (schools, hospitals, agencies) and investment (buildings, machinery, valuables
+  and stocks), which are not personal choices. Built by SCB's environmental accounts with an environmentally extended
+  input-output model. International flights are undercounted (only jet fuel bought in Sweden, no stopovers, no
+  high-altitude effect). Sweden only.
+citation:
+  type: webpage
+  title: Konsumtionsbaserade växthusgasutsläpp per person och år
+  author:
+    - {literal: Naturvårdsverket}
+  issued: "2025-10-28"
+  publisher: Naturvårdsverket
+  version: "{version}"
+  URL: https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/
+  # Naturvårdsverket publishes no recommended citation ("ange gärna Naturvårdsverket som källa"); this is the page's
+  # publisher, review date ('Granskad'), title and responsible authority.
+  text: >-
+    Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år ({version}). Official statistics
+    of Sweden; responsible authority Statistics Sweden (SCB).
+    https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/
+licence_class: open
+licence:
+  name: Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0
+  spdx: null
+  url: https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/
+evidence:
+  terms_url: https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/
+  licence_quote: >-
+    Öppna data får användas fritt men ange gärna Naturvårdsverket som källa. (Statistics Sweden,
+    https://www.scb.se/vara-tjanster/oppna-data/: "Vi använder licensen CC0 för dessa data, vilket innebär att du får
+    använda och sprida eller tillgängliggöra sådana data utan krav på att ange källa.")
+  checked_on: 2026-10-05
+  terms_check: manual
+obligations:
+  attribution: >-
+    Naturvårdsverket, Konsumtionsbaserade växthusgasutsläpp per person och år ({version}); official statistics of
+    Sweden, responsible authority Statistics Sweden (SCB). Open data; SCB data CC0 1.0.
+  mirror_raw: false
+  # Link policy on the terms page: "Inte använda Naturvårdsverkets logotyp för att länka till vår webbplats."
+  no_logo: true
+  # SCB: "Det är inte tillåtet presentera en tjänst som ett 'officiellt samarbete' eller 'partnerskap' med SCB."
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: per-person-page
+    url: https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/
+    format: html
+    description: >-
+      The statistics page "Konsumtionsbaserade växthusgasutsläpp per person och år". The series is embedded in the
+      page model (<script id="__model_data">, content.highChartsOptions, data.csv): one row per year 2008-2023 with
+      Transporter, Livsmedel, Boende, Övrigt, Offentlig konsumtion, Investeringar and Totalt, in tonnes of carbon
+      dioxide equivalent per person. There is no separate data file. 231,605 bytes on 2026-10-05.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Official statistics of Sweden, updated each autumn with data two years behind. The page reviewed on 28 October 2025
+    holds 2008-2023 and announces the next update for autumn 2026 with data to 2024, so the values may change soon.
+    The series exists only inside the page's chart payload, so each fetch keeps the whole page as a snapshot and the
+    transform stops if the payload's shape changes. Not a US federal product.
+  us_federal: false
+update_cadence: Annual, each autumn (data two years behind)
+twins: []
+research_ref: >-
+  docs/research/sources-ghg-food-personal-2026-10-05.json#NEED C rank 1: Consumption-based greenhouse gas emissions
+  per person and year, by consumption area (Sweden)

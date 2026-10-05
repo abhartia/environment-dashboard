@@ -1,0 +1,14 @@
+{
+  "artifact_id": "per-person-page",
+  "byte_range": [57845, 58726],
+  "command": "uv run python tests/fixtures/naturvardsverket-consumption-footprint/make_payload_fixture.py --artifact per-person-page",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 881,
+  "fixture_sha256": "6b9aaffe9a627ea33bb27769e90b340edc43019d9d35c9db919a77e9467037be",
+  "full_bytes": 231605,
+  "full_sha256": "ac383cb0999e2a7830be5a94944edc7041bfda1b098d441faa707902d53314a0",
+  "licence": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0",
+  "rows_kept": "bytes 57845-58726 of 231605: the chart's data.csv value as escaped in the page model, no page text",
+  "source_id": "naturvardsverket-consumption-footprint",
+  "url": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/"
+}

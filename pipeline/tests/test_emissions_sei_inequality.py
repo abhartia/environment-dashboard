@@ -1,9 +1,9 @@
 """SEI Emissions Inequality Dashboard: share of world consumption CO2 by income group
 (envdash/transforms/emissions/sei_inequality.py).
 
-The fixture is a byte-exact cut of the real Historical Global Shares API response (CC BY 4.0): the 127 records of 1990
-and of 2023, cut by tests/fixtures/sei-emissions-inequality/make_json_fixture.py. It sits one directory lower than
-make_fixture.py's, so the two sidecar checks of test_fixtures_provenance.py are repeated here with the JSON cutter.
+The fixture is a byte-exact cut of the real Historical Global Shares API response (CC BY 4.0): the 127 records of each
+of 1990, 2022 and 2023, cut by tests/fixtures/sei-emissions-inequality/make_json_fixture.py. It sits one directory lower
+than make_fixture.py's, so the two sidecar checks of test_fixtures_provenance.py are repeated here with the JSON cutter.
 The response is one line of JSON, so a line slice could not hold a readable part of it.
 """
 
@@ -84,7 +84,7 @@ def test_fixture_is_an_exact_slice_of_the_snapshot(side):
 
 def test_slices_partition_each_year():
     by_year = sei.read_slices(_raw())
-    assert sorted(by_year) == [1990, 2023]
+    assert sorted(by_year) == [1990, 2022, 2023]
     for slices in by_year.values():
         assert len(slices) == 127
         assert slices[0].lower == 0 and slices[-1].upper == 100
@@ -102,15 +102,18 @@ def test_group_shares_add_the_slices_exactly():
     assert shares[("top-10", "1990")] == 51.54104139587493
     assert shares[("top-1", "1990")] == 14.491619690149705
     assert shares[("bottom-50", "1990")] == 8.693080083916344
+    assert shares[("top-10", "2022")] == 48.992907074468484
+    assert shares[("top-1", "2022")] == 16.83069592664831
+    assert shares[("bottom-50", "2022")] == 7.959763477732884
     # The records of p99p99.1 ... p99.999p100 are exactly the top 1%; the top 1% is inside the top 10%.
-    for year in ("1990", "2023"):
+    for year in ("1990", "2022", "2023"):
         assert shares[("top-1", year)] < shares[("top-10", year)]
     top1 = [s for s in by_year[2023] if s.lower >= 99]
     assert len(top1) == 28 and sum(s.upper - s.lower for s in top1) == 1
 
 
 def test_a_gap_in_the_years_is_refused():
-    # The fixture holds 1990 and 2023 only; the API serves every year, so the transform refuses this as a response.
+    # The fixture holds 1990, 2022 and 2023 only; the API serves every year, so the transform refuses this response.
     with pytest.raises(sei.SeiFormatError, match="have gaps"):
         sei.check_years(sei.read_slices(_raw()))
 
@@ -148,6 +151,30 @@ def test_shares_that_do_not_add_to_one_are_refused():
         sei.read_slices(_edited(inflate))
 
 
+def test_2023_is_left_out_as_a_different_basis():
+    # SEI's 2023 national inputs are territorial, 1990-2022 consumption-based: the series ends at 2022.
+    by_year = sei.read_slices(_raw())
+    kept = sei.consumption_years(by_year)
+    assert sorted(kept) == [1990, 2022] and sei.LAST_CONSUMPTION_YEAR == 2022
+    shares = _shares(sei.group_shares(kept))
+    assert {p for _, p in shares} == {"1990", "2022"}
+    # The break the cut avoids: the top-10% share falls from 48.99% to 47.08% between the two bases.
+    full = _shares(sei.group_shares(by_year))
+    assert round(full[("top-10", "2022")], 2) == 48.99 and round(full[("top-10", "2023")], 2) == 47.08
+
+
+def test_a_response_without_the_last_consumption_year_is_refused():
+    by_year = sei.read_slices(_raw())
+    with pytest.raises(sei.SeiFormatError, match="last consumption-based year"):
+        sei.consumption_years({y: v for y, v in by_year.items() if y != 2022})
+
+
+def test_description_says_what_is_counted():
+    (t,) = sei.transforms(Paths.default())
+    assert "1990 to 2022" in t.spec.description and "not tonnes per person" in t.spec.description
+    assert "territorial" in t.spec.description
+
+
 def test_transform_declares_its_registered_input():
     (t,) = sei.transforms(Paths.default())
     assert t.spec.id == ID and t.spec.kind == "derived"
@@ -174,11 +201,15 @@ def test_every_year_from_the_real_response():
     result = t.run({sei.SHARES.key: _current_file()})
     validate(t, result.observations)
     shares = _shares(result.observations)
-    assert len(shares) == 3 * 34
-    assert {p for _, p in shares} == {str(y) for y in range(1990, 2024)}
-    # The same 2023 values as the fixture, which holds that year's records unchanged.
-    assert shares[("top-10", "2023")] == 47.07544857094307
-    assert result.vintage == "1990-2023 historical series, retrieved 2026-10-04"
+    assert len(shares) == 3 * 33
+    assert {p for _, p in shares} == {str(y) for y in range(1990, 2023)}
+    # The same 2022 values as the fixture, which holds that year's records unchanged; 2023 is left out.
+    assert shares[("top-10", "2022")] == 48.992907074468484
+    assert ("top-10", "2023") not in shares
+    assert (
+        result.vintage == "1990-2022 consumption-based years of the 1990-2023 historical series, retrieved 2026-10-04"
+    )
+    assert any("left out 2023" in s for s in result.steps)
     assert result.changes is not None
 
 
@@ -197,7 +228,7 @@ def test_build_exports_publicly(tmp_paths):
     assert [o.state for o in report.outcomes] == ["built"], [o.reason for o in report.outcomes]
     ind = exported(paths.public_indicators / f"{ID}.json")
     assert ind["licence_class"] == "open"
-    assert ind["latest"]["dims"] == {"group": "top-10"} and ind["latest"]["period"] == "2023"
+    assert ind["latest"]["dims"] == {"group": "top-10"} and ind["latest"]["period"] == "2022"
     assert "Calculated by Environment Dashboard from Stockholm Environment Institute data" in ind["attribution"]
     assert "Changes: emission shares of income slices added up" in ind["attribution"]
     assert (paths.public_indicators / f"{ID}.csv").exists()

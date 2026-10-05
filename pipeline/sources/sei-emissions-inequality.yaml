@@ -82,7 +82,10 @@ artifacts:
 status:
   state: active
   note: >-
-    The historical series ends in 2023 (2023 methodology update). The API has no versions or DOI, and it is served
+    The historical series ends in 2023 (2023 methodology update), but its 2023 national values are territorial
+    carbon dioxide while 1990-2022 are consumption-based (Switzerland 122.0 Mt in 2022, 32.7 Mt in 2023;
+    historicalDataByCountry, read 2026-10-05), so the site publishes 1990-2022 only. The API has no versions or DOI,
+    and it is served
     from a host named sei-eqtrans-dev.net, which the dashboard's own API page links to. The address could change
     without notice, so each response is kept as a dated snapshot. Figures differ from those printed in Oxfam's
     releases because of method updates. Not a US federal product.
