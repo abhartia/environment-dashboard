@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: { default: `${BRAND.name} · ${BRAND.tagline}`, template: `%s · ${BRAND.name}` },
   description: BRAND.description,
   applicationName: BRAND.name,
-  openGraph: { type: "website", siteName: BRAND.name, locale: "en_US" },
+  openGraph: { type: "website", siteName: BRAND.name, locale: "en_US", images: [{ url: "/og/home.png", width: 1200, height: 630 }] },
   twitter: { card: "summary_large_image" },
   alternates: { canonical: SITE_URL },
 };

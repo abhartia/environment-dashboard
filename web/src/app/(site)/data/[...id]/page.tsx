@@ -13,6 +13,7 @@ import { formatPeriod, formatValue } from "@/lib/format";
 import { citeAs, licenceSentence } from "@/lib/provenance";
 import { dataPath, downloadPath, idFromSegments, sourcePath } from "@/lib/routes";
 import { BRAND, reportProblemUrl } from "@/lib/site";
+import { ogImages } from "@/lib/seo/og";
 import { absoluteUrl, canonical } from "@/lib/site-url";
 import { periodToYear } from "@/lib/viz/period";
 
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: PageProps<"/data/[...id]">): 
     title: entry.title,
     description: `${entry.title}: the data, where it comes from (${entry.provenance.origins[0].producer}), every step applied, and its licence.`.slice(0, 158),
     alternates: canonical(dataPath(id)),
+    openGraph: { images: ogImages(dataPath(id)) },
   };
 }
 
