@@ -1,0 +1,15 @@
+{
+  "artifact_id": "erf-p95-aggregates",
+  "command": "uv run python tests/fixtures/make_fixture.py --source igcc-2025 --artifact erf-p95-aggregates --first 3 --last 3",
+  "data_rows_total": 276,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 1653,
+  "fixture_sha256": "a1c52c8e68284d798c4820e3fd106d3d4cdba36b6d0a84db5a5db0609b9b0d6a",
+  "full_bytes": 72605,
+  "full_sha256": "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-3 and 274-276 of 276",
+  "source_id": "igcc-2025",
+  "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_p95_aggregates.csv"
+}

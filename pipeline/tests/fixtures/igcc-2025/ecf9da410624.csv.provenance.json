@@ -1,0 +1,15 @@
+{
+  "artifact_id": "warming-walsh-timeseries",
+  "command": "uv run python tests/fixtures/make_fixture.py --source igcc-2025 --artifact warming-walsh-timeseries --first 3 --last 10",
+  "data_rows_total": 176,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 16408,
+  "fixture_sha256": "a280004097fbf46296d58a8f896d88973849a0cf20918f2e42388a0e9e6cccee",
+  "full_bytes": 202355,
+  "full_sha256": "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-3 and 167-176 of 176",
+  "source_id": "igcc-2025",
+  "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Walsh_GMST_timeseries.csv"
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_id": "warming-ribes-timeseries",
+  "command": "uv run python tests/fixtures/make_fixture.py --source igcc-2025 --artifact warming-ribes-timeseries --first 3 --last 10",
+  "data_rows_total": 176,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 2609,
+  "fixture_sha256": "381b15ace5c6f91d4d7f072a70cebad78ee28dd1bb8f38ed93b568e2d6d13e52",
+  "full_bytes": 30591,
+  "full_sha256": "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-3 and 167-176 of 176",
+  "source_id": "igcc-2025",
+  "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Ribes_GMST_timeseries.csv"
+}
