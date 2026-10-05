@@ -1,4 +1,4 @@
-# NOAA Global Monitoring Laboratory greenhouse-gas trend files (CO2, CH4, N2O).
+# NOAA Global Monitoring Laboratory carbon dioxide trend files.
 # Evidence: docs/research/sources-atmosphere-and-temperature.json ("NOAA GML Trends in Atmospheric Carbon Dioxide").
 # Licence evidence: the data-use statement in the '#' header of every trend file (terms_url below; the quote is checked
 # against the file's text with the comment markers removed). GML's site-wide "Disclaimer and Terms of Reference"
@@ -11,8 +11,10 @@
 # not subject to copyright protection." Hence no_endorsement, the notice, and "Not official NOAA material" on the
 # modified credit line, as for noaa-aggi. The Mauna Loa values before May 1974 are Scripps measurements (C. David
 # Keeling), so the notice names only the NOAA material.
+# The CH4 and N2O files moved to noaa-gml-trends-ch4-n2o-sf6 on 2026-10-04: NOAA cites them as a separate product
+# (Lan, Thoning & Dlugokencky, doi:10.15138/P8XG-AA10), not with this entry's CO2 citation and DOI.
 id: noaa-gml-trends
-title: Trends in atmospheric carbon dioxide, methane and nitrous oxide
+title: Trends in atmospheric carbon dioxide
 publisher: NOAA Global Monitoring Laboratory
 landing_url: https://gml.noaa.gov/ccgg/trends/
 description: >-
@@ -83,14 +85,6 @@ artifacts:
     url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_gr_gl.csv
     format: csv
     description: Annual CO2 increase from January 1 to December 31, global marine surface sites (ppm per year).
-  - id: ch4-annmean-gl
-    url: https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv
-    format: csv
-    description: Annual mean methane averaged over global marine surface sites, from 1984 (ppb).
-  - id: n2o-annmean-gl
-    url: https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv
-    format: csv
-    description: Annual mean nitrous oxide averaged over global marine surface sites, from 2001 (ppb).
 status:
   state: at-risk
   note: >-

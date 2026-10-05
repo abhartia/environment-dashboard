@@ -1,0 +1,15 @@
+{
+  "artifact_id": "n2o-annmean-gl",
+  "command": "uv run python tests/fixtures/make_fixture.py --source noaa-gml-trends-ch4-n2o-sf6 --artifact n2o-annmean-gl --first 100 --last 0",
+  "data_rows_total": 26,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 2455,
+  "fixture_sha256": "4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d",
+  "full_bytes": 2455,
+  "full_sha256": "4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d",
+  "header_lines": 44,
+  "licence": "Public domain (work of the US federal government)",
+  "rows_kept": "all 26 data rows",
+  "source_id": "noaa-gml-trends-ch4-n2o-sf6",
+  "url": "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv"
+}

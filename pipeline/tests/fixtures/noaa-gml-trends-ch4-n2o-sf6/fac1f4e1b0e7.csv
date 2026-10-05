@@ -1,0 +1,87 @@
+# --------------------------------------------------------------------
+# USE OF NOAA GML DATA
+#
+# These data are made freely available to the public and the scientific
+# community in the belief that their wide dissemination will lead to
+# greater understanding and new scientific insights. To ensure that GML
+# receives fair credit for their work please include relevant citation
+# text in publications. We encourage users to contact the data providers,
+# who can provide detailed information about the measurements and
+# scientific insight.  In cases where the data are central to a
+# publication, coauthorship for data providers may be appropriate.
+#
+#
+#
+# Contact:  Xin Lan (xin.lan@noaa.gov)
+#
+# File Creation: Sat Sep  5 04:05:12 2026
+#
+#
+# --------------------------------------------------------------------
+#
+#
+# See gml.noaa.gov/ccgg/trends/ for additional details.
+#
+#
+# Uncertainties in the global annual means are estimated using two
+# terms: The first is a bootstrap (resampling) method that varies the
+# sites in our network. Each pseudo-network contains the same number of
+# sites as our actual NOAA ESRL cooperative global air sampling network,
+# but some are repeated and some are excluded. The second term is a
+# Monte Carlo method that randomly modifies the data to account for
+# measurement uncertainty. In both cases, 100 globally-averaged time
+# series are created. Standard deviations of the annual means are
+# calculated, and the two terms (network and analytical) are taken in
+# quadrature to give the  reported uncertainties. Please see Dlugokencky
+# et al., 1994, JGR, vol. 99, 17021-17043, for a complete discussion.
+#
+# CH4 expressed as a mole fraction in dry air, nanomol/mol, abbreviated as ppb
+#
+# NOTE: In general, the data presented for the last year are subject to change,
+# depending on recalibration of the reference gas mixtures used, and other quality
+# control procedures. Occasionally, earlier years may also change for the same
+# reasons.  Usually these changes are minor.
+year,mean,unc
+
+1984,1644.84,0.60
+1985,1657.30,0.55
+1986,1670.09,0.77
+1987,1682.71,0.51
+1988,1693.19,0.62
+1989,1704.55,0.53
+1990,1714.43,0.69
+1991,1724.79,0.68
+1992,1735.47,0.58
+1993,1736.48,0.47
+1994,1742.08,0.57
+1995,1748.88,0.52
+1996,1751.30,0.63
+1997,1754.51,0.38
+1998,1765.57,0.61
+1999,1772.30,0.56
+2000,1773.22,0.70
+2001,1771.29,0.52
+2002,1772.68,0.46
+2003,1777.33,0.51
+2004,1777.13,0.49
+2005,1774.23,0.59
+2006,1774.93,0.50
+2007,1781.31,0.56
+2008,1787.01,0.56
+2009,1793.51,0.59
+2010,1798.93,0.71
+2011,1803.03,0.56
+2012,1808.07,0.58
+2013,1813.42,0.57
+2014,1822.58,0.56
+2015,1834.19,0.49
+2016,1843.18,0.58
+2017,1849.62,0.69
+2018,1857.33,0.77
+2019,1866.59,0.57
+2020,1878.72,0.66
+2021,1894.79,0.63
+2022,1910.95,0.89
+2023,1921.40,0.70
+2024,1929.41,0.59
+2025,1935.94,0.48

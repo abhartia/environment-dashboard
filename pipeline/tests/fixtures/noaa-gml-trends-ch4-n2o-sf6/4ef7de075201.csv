@@ -1,0 +1,70 @@
+# --------------------------------------------------------------------
+# USE OF NOAA GML DATA
+#
+# These data are made freely available to the public and the scientific
+# community in the belief that their wide dissemination will lead to
+# greater understanding and new scientific insights. To ensure that GML
+# receives fair credit for their work please include relevant citation
+# text in publications. We encourage users to contact the data providers,
+# who can provide detailed information about the measurements and
+# scientific insight.  In cases where the data are central to a
+# publication, coauthorship for data providers may be appropriate.
+#
+#
+#
+# Contact:  Xin Lan (xin.lan@noaa.gov)
+#
+# File Creation: Sat Sep  5 04:07:37 2026
+#
+#
+# --------------------------------------------------------------------
+#
+#
+# See gml.noaa.gov/ccgg/trends/ for additional details.
+#
+#
+# Uncertainties in the global annual means are estimated using two
+# terms: The first is a bootstrap (resampling) method that varies the
+# sites in our network. Each pseudo-network contains the same number of
+# sites as our actual NOAA ESRL cooperative global air sampling network,
+# but some are repeated and some are excluded. The second term is a
+# Monte Carlo method that randomly modifies the data to account for
+# measurement uncertainty. In both cases, 100 globally-averaged time
+# series are created. Standard deviations of the annual means are
+# calculated, and the two terms (network and analytical) are taken in
+# quadrature to give the  reported uncertainties. Please see Dlugokencky
+# et al., 1994, JGR, vol. 99, 17021-17043, for a complete discussion.
+#
+# N2O expressed as a mole fraction in dry air, nanomol/mol, abbreviated as ppb
+#
+# NOTE: In general, the data presented for the last year are subject to change,
+# depending on recalibration of the reference gas mixtures used, and other quality
+# control procedures. Occasionally, earlier years may also change for the same
+# reasons.  Usually these changes are minor.
+year,mean,unc
+
+2001,316.36,0.12
+2002,316.94,0.13
+2003,317.63,0.14
+2004,318.25,0.12
+2005,318.91,0.13
+2006,319.82,0.13
+2007,320.44,0.11
+2008,321.50,0.12
+2009,322.27,0.14
+2010,323.18,0.13
+2011,324.21,0.12
+2012,325.05,0.12
+2013,325.94,0.12
+2014,327.09,0.11
+2015,328.17,0.12
+2016,328.95,0.12
+2017,329.74,0.11
+2018,330.90,0.12
+2019,331.88,0.12
+2020,333.00,0.06
+2021,334.27,0.03
+2022,335.61,0.03
+2023,336.68,0.03
+2024,337.71,0.02
+2025,338.85,0.02
