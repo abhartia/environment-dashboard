@@ -79,6 +79,10 @@ artifacts:
       https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, downloads
       food_waste_index_report_2024.pdf (the English file, not the _PT or _SP translations), and records it with
       `uv run envdash snapshot add --source unep-food-waste-index-2024 --file food_waste_index_report_2024.pdf`.
+      The snapshot recorded on 2026-10-05 (sha256 14d3955a9d58…, 26,521,890 bytes) is the Internet Archive capture of
+      that producer URL made on 2024-03-28
+      (https://web.archive.org/web/20240328101605/https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf),
+      the same capture the licence quote was read from; its manifest note says so.
 status:
   state: active
   note: >-

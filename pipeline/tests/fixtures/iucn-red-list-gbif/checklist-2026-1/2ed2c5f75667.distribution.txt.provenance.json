@@ -1,0 +1,17 @@
+{
+  "artifact_id": "checklist-2026-1",
+  "command": "uv run python tests/fixtures/zip_member_fixture.py --source iucn-red-list-gbif --artifact checklist-2026-1 --member distribution.txt --lines 1:300 --suffix .distribution",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 68915,
+  "fixture_sha256": "eeb171a49c259b3e6b4db2b254901c00947588213c34f3e7ea03970ea51a1123",
+  "full_bytes": 21140648,
+  "full_sha256": "2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d",
+  "licence": "CC BY 4.0",
+  "member": "distribution.txt",
+  "member_bytes": 41700238,
+  "member_lines": 178011,
+  "member_sha256": "46c10475a0e61162fafccf1dc9662bc1d1e211f1ec26533df66dd4dd61bb1f7d",
+  "rows_kept": "lines 1-300 of 178011",
+  "source_id": "iucn-red-list-gbif",
+  "url": "https://hosted-datasets.gbif.org/datasets/iucn/iucn-2026-1.zip"
+}

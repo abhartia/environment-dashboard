@@ -1,0 +1,18 @@
+{
+  "artifact_id": "land-use",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact land-use --member 'Inputs_LandUse_E_All_Data_(Normalized).csv' --area-code 5000 --item-element 6610:5110 --item-element 6620:5110 --item-element 6655:5110 --item-element 6646:5110 --item-element 6610:7209 --item-element 6620:7209 --item-element 6655:7209 --item-element 6646:7209",
+  "data_rows_total": 421850,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 50921,
+  "fixture_sha256": "ae3a1bfb3e91df3a5bcb1588e5878bf1ac51d006842878df6d02d231821c46d6",
+  "full_bytes": 2970716,
+  "full_sha256": "39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Inputs_LandUse_E_All_Data_(Normalized).csv",
+  "member_bytes": 49969452,
+  "member_sha256": "cd8c9ab6fd02529fe519c770d546135b8b39e74013190480f95c7d4a372d25ac",
+  "rows_kept": "455 of 421850 data rows: Area Code 5000, (Item Code:Element Code) in 6610:5110, 6620:5110, 6655:5110, 6646:5110, 6610:7209, 6620:7209, 6655:7209, 6646:7209",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"
+}

@@ -1,0 +1,18 @@
+{
+  "artifact_id": "land-use",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact land-use --member 'Inputs_LandUse_E_All_Data_(Normalized).csv' --area-code 157 --item-element 6610:5110 --item-element 6646:5110 --item-element 6610:7209 --suffix .nicaragua",
+  "data_rows_total": 421850,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 18225,
+  "fixture_sha256": "dc7ea57f0765ad0473218859d45c60efa86f5fd874e22c004eb81b5d4ffd8e4f",
+  "full_bytes": 2970716,
+  "full_sha256": "39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Inputs_LandUse_E_All_Data_(Normalized).csv",
+  "member_bytes": 49969452,
+  "member_sha256": "cd8c9ab6fd02529fe519c770d546135b8b39e74013190480f95c7d4a372d25ac",
+  "rows_kept": "164 of 421850 data rows: Area Code 157, (Item Code:Element Code) in 6610:5110, 6646:5110, 6610:7209",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"
+}

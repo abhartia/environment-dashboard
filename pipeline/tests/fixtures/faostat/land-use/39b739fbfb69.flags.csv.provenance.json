@@ -1,0 +1,16 @@
+{
+  "artifact_id": "land-use",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact land-use --member Inputs_LandUse_E_Flags.csv --suffix .flags",
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 183,
+  "fixture_sha256": "bcc621581ea0ecb73c500a0aa94b85326e891e167c7ab467069fda96b1cd0320",
+  "full_bytes": 2970716,
+  "full_sha256": "39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f",
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Inputs_LandUse_E_Flags.csv",
+  "member_bytes": 183,
+  "member_sha256": "bcc621581ea0ecb73c500a0aa94b85326e891e167c7ab467069fda96b1cd0320",
+  "rows_kept": "whole member",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"
+}

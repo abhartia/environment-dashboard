@@ -1,0 +1,18 @@
+{
+  "artifact_id": "sdg-indicators",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact sdg-indicators --member 'SDG_BulkDownloads_E_All_Data_(Normalized).csv' --area-code 420 --item-element 24044-_T:6121 --suffix .ssa",
+  "data_rows_total": 478304,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 2952,
+  "fixture_sha256": "f4b21f5bd45d29dbaab34d14010eb39750ce9cd33d6a49232713d70a8dd383db",
+  "full_bytes": 4721843,
+  "full_sha256": "ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "SDG_BulkDownloads_E_All_Data_(Normalized).csv",
+  "member_bytes": 133846164,
+  "member_sha256": "74dfc787032d50cebe0ffd7ff10cfedb01bce36d5ca60e083c879bdc0aff1cb6",
+  "rows_kept": "10 of 478304 data rows: Area Code 420, (Item Code:Element Code) in 24044-_T:6121",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip"
+}
