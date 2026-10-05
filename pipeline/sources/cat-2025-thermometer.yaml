@@ -10,10 +10,18 @@
 #     view, download, print and distribute the copyrighted content from this data file subject to the following
 #     condition: Any reproduction, in full or in part, must credit Climate Analytics and NewClimate Institute, include
 #     a copyright notice and must not be used for commerical purposes." (sic).
-#   - Class noncommercial: reproduction and distribution are authorised for non-commercial use with credit and the
-#     copyright notice, so CAT's values may be charted and downloaded, and the unmodified file re-hosted. The terms do
-#     not authorise adaptation: no values are computed from CAT's (differences, re-baselining, interpolation), hence
-#     attribution_modified is null.
+#   - Class no-derivatives (corrected 2026-10-04 from noncommercial). The terms start from "All rights reserved" and
+#     grant only four acts, to "view, download, print and distribute" the content, on condition that "Any
+#     reproduction, in full or in part" credits CAT, carries the copyright notice and is non-commercial. Nothing
+#     grants a right to adapt, modify or build on the content, so under "All rights reserved" every adaptation stays
+#     with the owners: these are CC BY-NC-ND-like terms, not CC BY-NC. The site therefore shows CAT's published values
+#     verbatim (the rounded table values, with CAT's own labels), computes nothing from them (no differences,
+#     re-baselining, interpolation, unit changes or new aggregates) and offers no download of them. The class keeps
+#     the values out of data/, downloads and the public R2 bucket; mirror_raw is false because the model allows no
+#     public raw mirror for this class (the terms would allow distributing the unmodified file; it is archived in the
+#     private bucket instead). attribution_modified is null because no modified version may exist. The licence_quote
+#     starts at "All rights reserved." so the weekly terms check does not break when the page's year range
+#     ("Copyright © 2009-2026") moves on.
 #   - Rounding: the CAT Thermometer, Global Emissions and GMT sheets say: "We include the unrounded values to assist
 #     with the preparation of graphics, however if you are reproducing the numerical values, please adhere to the
 #     displayed rounded values in the tables." The tables show warming to 0.1 °C and emissions gaps as whole-number
@@ -47,19 +55,20 @@ citation:
   text: >-
     Climate Action Tracker (2025). The CAT Thermometer. November 2025. Available at:
     https://climateactiontracker.org/global/cat-thermometer/
-licence_class: noncommercial
+licence_class: no-derivatives
 licence:
   name: >-
-    © Climate Analytics and NewClimate Institute, all rights reserved; non-commercial reproduction allowed with credit
-    and the copyright notice
+    © Climate Analytics and NewClimate Institute, all rights reserved; non-commercial reproduction and distribution
+    allowed with credit and the copyright notice; no adaptation granted
   spdx: null
   url: https://climateactiontracker.org/about/legal/
 evidence:
   terms_url: https://climateactiontracker.org/about/legal/
   licence_quote: >-
-    You are authorised to view, download, print and distribute the copyrighted content from this website subject to
-    the following condition: Any reproduction, in full or in part, must credit Climate Analytics and NewClimate
-    Institute and must include a copyright notice and must not be used for commercial purposes.
+    All rights reserved. The content provided by this website is protected by copyright. You are authorised to view,
+    download, print and distribute the copyrighted content from this website subject to the following condition: Any
+    reproduction, in full or in part, must credit Climate Analytics and NewClimate Institute and must include a
+    copyright notice and must not be used for commercial purposes.
   checked_on: 2026-10-04
   terms_check: page
 obligations:
@@ -68,12 +77,12 @@ obligations:
     https://climateactiontracker.org/global/cat-thermometer/.
   attribution_modified: null
   notice: >-
-    Copyright © 2025 by Climate Analytics and NewClimate Institute. All rights reserved. Reproduced for
+    Copyright © 2025 by Climate Analytics and NewClimate Institute. All rights reserved. Reproduced unmodified for
     non-commercial use; not to be used for commercial purposes.
   rounding: >-
     Numbers are shown only as CAT's tables show them: warming to 0.1 °C and emissions gaps as whole GtCO2e ranges.
     The unrounded time-series values may be used to draw lines, never printed as numbers.
-  mirror_raw: true
+  mirror_raw: false
 acquisition: automatic
 artifacts:
   - id: global-temperature-estimates
