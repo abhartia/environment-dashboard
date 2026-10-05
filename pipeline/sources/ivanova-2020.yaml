@@ -1,0 +1,123 @@
+# Ivanova et al. (2020), Environ. Res. Lett. 15 093001: the greenhouse gas mitigation potential of 61 household
+# consumption options, synthesised from 53 studies.
+# Evidence: docs/research/sources-solutions-and-action.json ("Ivanova et al. 2020 ..."); verdict "corrected": there is
+# no "7,000 data points" figure (the method is 53 studies, 771 original options, 61 summarised options); the footprints
+# of about 6 t (world), 13.4 t (North America), 7.5 t (Europe) and 1.7 t (Africa and Middle East) are for 2011; the
+# paper ranks options by MEDIAN, so every chart says whether it shows means or medians. final_redistribution
+# open-attribution.
+# Checked 2026-10-04:
+#   - Crossref (api.crossref.org/works/10.1088/1748-9326/ab8589): licence http://creativecommons.org/licenses/by/4.0
+#     for the version of record from 2020-08-20; volume 15, issue 9, article 093001.
+#   - The licence quote below is on page 2 of the version-of-record PDF that the authors deposited on Zenodo (record
+#     4106717, licence cc-by-4.0, DOI field = the article DOI): HTTP 200, 2,037,080 bytes, md5
+#     dadf8184697204b76bf9b2b280d55788 as Zenodo lists it, sha256
+#     f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e; IOP cover page "downloaded ... on 22/09/2020".
+#     The Zenodo bytes never change. IOP's own PDF adds a cover page with the downloader's IP address and time, so
+#     its sha256 differs on every download.
+#   - iopscience.iop.org answered the first two scripted requests (article page, PDF) with HTTP 200, then sent every
+#     request, including /article/10.1088/1748-9326/ab8589/data where the supplementary files are listed, to a
+#     "Radware Bot Manager Captcha" page (302 to validate.perfdrive.com). The supplementary files are therefore
+#     acquired by hand, which makes the whole source acquisition: manual.
+#   - Supplementary files, named on the Internet Archive copy of the /data page (2023-11-25):
+#     ERL_15_9_093001_suppdata.xlsx (the spreadsheet with every option) and ERL_15_9_093001_suppdata.pdf. IOP serves
+#     both from content.cld.iop.org with signed URLs that expire.
+#   - The paper's data availability statement covers the spreadsheet: "The data that support the findings of this
+#     study are openly available in the supplementary spreadsheet. Please cite this article and its digital object
+#     identifier (DOI) when making use of the data."
+# No twin: Wynes & Nicholas (2017) is one of the studies Ivanova et al. reviewed (their reference 30), so it is not an
+# independent measurement.
+id: ivanova-2020
+title: Mitigation potential of household consumption options (Ivanova et al. 2020)
+publisher: >-
+  Ivanova, Barrett, Wiedenhofer, Macura, Callaghan and Creutzig (University of Leeds, BOKU Vienna, Stockholm
+  Environment Institute, MCC Berlin); published in Environmental Research Letters (IOP Publishing)
+landing_url: https://doi.org/10.1088/1748-9326/ab8589
+description: >-
+  A systematic review of 53 studies published after 2011, which found 771 consumption options and summarised them as
+  61 options in transport, housing, food and other consumption. For each option the paper reports the greenhouse gas
+  mitigation potential in tonnes of CO2-equivalent per person per year: the mean, the median, the 25th and 75th
+  percentiles and the range across studies. The paper's figures order options by median. The values come mostly from
+  high-income settings, depend on context (grid mix, the car replaced, the starting diet) and are not additive.
+  Footprint figures quoted for context (about 6 t per person worldwide, 13.4 t North America, 7.5 t Europe, 1.7 t
+  Africa and Middle East) refer to 2011.
+citation:
+  type: article-journal
+  title: Quantifying the potential for climate change mitigation of consumption options
+  author:
+    - {family: Ivanova, given: Diana}
+    - {family: Barrett, given: John}
+    - {family: Wiedenhofer, given: Dominik}
+    - {family: Macura, given: Biljana}
+    - {family: Callaghan, given: Max}
+    - {family: Creutzig, given: Felix}
+  issued: "2020-08-20"
+  publisher: IOP Publishing
+  container-title: Environmental Research Letters
+  volume: "15"
+  page: "093001"
+  DOI: 10.1088/1748-9326/ab8589
+  URL: https://doi.org/10.1088/1748-9326/ab8589
+  # IOP's "To cite this article" line, followed by the DOI, which the data availability statement asks for.
+  text: Diana Ivanova et al 2020 Environ. Res. Lett. 15 093001 https://doi.org/10.1088/1748-9326/ab8589
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://zenodo.org/api/records/4106717/files/ERL%20Ivanova%20etal%202020%20Potential%20consumption%20options%20climate%20change%20mitigation.pdf/content
+  licence_quote: >-
+    Original content from this work may be used under the terms of the Creative Commons Attribution 4.0 licence. Any
+    further distribution of this work must maintain attribution to the author(s) and the title of the work, journal
+    citation and DOI.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  # The licence statement asks for the authors, the title, the journal citation and the DOI.
+  attribution: >-
+    Ivanova, D., Barrett, J., Wiedenhofer, D., Macura, B., Callaghan, M. & Creutzig, F. (2020). Quantifying the
+    potential for climate change mitigation of consumption options. Environmental Research Letters 15, 093001.
+    doi:10.1088/1748-9326/ab8589. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Ivanova, D., Barrett, J., Wiedenhofer, D., Macura, B., Callaghan, M. &
+    Creutzig, F. (2020). Quantifying the potential for climate change mitigation of consumption options.
+    Environmental Research Letters 15, 093001. doi:10.1088/1748-9326/ab8589. CC BY 4.0.
+  mirror_raw: true
+acquisition: manual
+artifacts:
+  - id: article-pdf
+    url: https://zenodo.org/api/records/4106717/files/ERL%20Ivanova%20etal%202020%20Potential%20consumption%20options%20climate%20change%20mitigation.pdf/content
+    format: pdf
+    description: >-
+      Version of record (20 pages, including IOP's cover page), as deposited by the authors on Zenodo (record
+      4106717). Figures 3 to 6 (transport, other consumption, food, housing) and the summary Figure 7 show each
+      study's value, the mean, the median and the quartiles for every option; the text gives means and medians for
+      the leading options.
+      2,037,080 bytes, md5 dadf8184697204b76bf9b2b280d55788. The URL answers scripted requests (HTTP 200 on
+      2026-10-04); a person records it with uv run envdash snapshot add --source ivanova-2020 --file <path> together
+      with the supplementary files.
+    access: {conditional: false}
+  - id: supplementary-spreadsheet
+    url: null
+    format: xlsx
+    description: >-
+      ERL_15_9_093001_suppdata.xlsx, the supplementary spreadsheet with every option and its statistics. A person
+      opens https://iopscience.iop.org/article/10.1088/1748-9326/ab8589/data in a browser, passes IOP's bot check,
+      and downloads the .xlsx listed under "Supplementary data". Record it with
+      uv run envdash snapshot add --source ivanova-2020 --file <path>.
+  - id: supplementary-pdf
+    url: null
+    format: pdf
+    description: >-
+      ERL_15_9_093001_suppdata.pdf, the supplementary material the paper refers to for the search strings, the
+      inclusion and exclusion criteria and SM figures 1 and 2. Downloaded by hand from the same /data page as the
+      spreadsheet and recorded the same way.
+status:
+  state: archived
+  note: Published 20 August 2020 (volume 15, issue 9) as a one-off topical review; no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2020)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#Ivanova et al. 2020: Quantifying the potential for climate change
+  mitigation of consumption options (ERL systematic review)

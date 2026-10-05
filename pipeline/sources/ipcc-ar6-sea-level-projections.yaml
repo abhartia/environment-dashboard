@@ -1,0 +1,135 @@
+# IPCC AR6 Sea Level Projections (Garner, Kopp et al.), version 20210809, Zenodo record 6382554: global and relative
+# sea-level projections by SSP scenario behind IPCC AR6 WGI Chapter 9.
+# Evidence: docs/research/sources-impacts.json ("IPCC AR6 Sea Level Projections (global, regional, tide-gauge
+# locations)"; verdict "confirmed") and docs/research/sources-ocean-and-ice.json ("IPCC AR6 Sea Level Projections
+# (FACTS; NASA/IPCC Sea Level Projection Tool)").
+# Checked 2026-10-04:
+#   - zenodo.org/records/6382554 -> 200. Its description says: "The IPCC AR6 Sea-Level Rise Projections are licensed by
+#     the authors under a Creative Commons Attribution 4.0 International License" (quoted below), and the Zenodo and
+#     DataCite licence fields for doi:10.5281/zenodo.6382554 say cc-by-4.0 / "Creative Commons Attribution 4.0
+#     International".
+#   - The same description makes citation a condition: "users of the projections are obligated to cite chapter 9 of
+#     Working Group 1 contribution to the the IPCC Sixth Assessment Report, the Framework for Assessment of Changes To
+#     Sea-level (FACTS) model description paper, and the version of the data set used", and asks for the
+#     acknowledgement used as the notice below. citation.text is the dataset citation exactly as given there, with
+#     "[YYYY-MM-DD]" written as {date_accessed}; the attribution carries all three required citations.
+#   - The concept DOI 10.5281/zenodo.5914709 and the version DOI 10.5281/zenodo.6382554 both resolve to this record;
+#     its only other version (5914710) is the same 20210809 release. The version DOI is pinned.
+#   - Files: ar6.zip 889,784,792 bytes (md5 6ae2f0206bcc687b2dadb1eb997d4234), ar6-regional-confidence.zip
+#     9,243,771,601 bytes, ar6-regional_novlm-confidence.zip 8,746,266,026 bytes, location_list.lst 2,659,137 bytes.
+#     The file URL returns 200 without login and supports ranged GETs (206); If-Modified-Since is ignored.
+#   - ar6.zip's central directory (read by ranged GET) lists ar6/global/confidence_output_files/medium_confidence/
+#     {ssp119,ssp126,ssp245,ssp370,ssp585,tlim*} and low_confidence/{ssp126,ssp245,ssp585}, each with AIS, GIS,
+#     glaciers, landwaterstorage, oceandynamics and total *_values.nc. Two extracted files: sea_level_change in mm,
+#     107 quantiles; total_ssp245_medium years 2020-2150, total_ssp585_low years 2020-2300, by decade.
+#   - Acquisition manual: the release is frozen (static until AR7) and ar6.zip is 890 MB, so a weekly fetch would
+#     re-download it every run. A person downloads it once and records it; mirror_raw is false because Zenodo already
+#     keeps the file permanently under its DOI, so it is linked, not re-hosted.
+#   - sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool (named in the Zenodo description) returns 404; the NASA
+#     tool's material is now under earth.gov/sealevel (200).
+id: ipcc-ar6-sea-level-projections
+title: IPCC AR6 Sea Level Projections
+publisher: IPCC AR6 Working Group I Chapter 9 authors (Garner, Kopp et al.), on Zenodo
+landing_url: https://doi.org/10.5281/zenodo.6382554
+description: >-
+  The sea-level projections assessed in the IPCC Sixth Assessment Report (2021). Global mean sea-level change in
+  millimetres, every ten years from 2020, at 107 quantiles, relative to 1995-2014 (the AR6 reference period, which the
+  files themselves do not state). Medium-confidence projections run to 2150 for SSP1-1.9, SSP1-2.6, SSP2-4.5,
+  SSP3-7.0 and SSP5-8.5 and for warming levels; low-confidence projections, which add ice-sheet processes whose
+  likelihood is poorly known, run to 2300 for SSP1-2.6, SSP2-4.5 and SSP5-8.5. Totals come with their components:
+  ocean dynamics (including thermal expansion), glaciers, the Greenland and Antarctic ice sheets, and land water
+  storage. The record also holds regional and tide-gauge projections.
+citation:
+  type: dataset
+  title: IPCC AR6 Sea Level Projections
+  author:
+    - {family: Garner, given: G. G.}
+    - {family: Hermans, given: T.}
+    - {family: Kopp, given: R. E.}
+    - {family: Slangen, given: A. B. A.}
+    - {family: Edwards, given: T. L.}
+    - {family: Levermann, given: A.}
+    - {family: Nowicki, given: S.}
+    - {family: Palmer, given: M. D.}
+    - {family: Smith, given: C.}
+    - {family: Fox-Kemper, given: B.}
+    - {family: Hewitt, given: H. T.}
+    - {family: Xiao, given: C.}
+    - {family: Aðalgeirsdóttir, given: G.}
+    - {family: Drijfhout, given: S. S.}
+    - {family: Golledge, given: N. R.}
+    - {family: Hemer, given: M.}
+    - {family: Krinner, given: G.}
+    - {family: Mix, given: A.}
+    - {family: Notz, given: D.}
+    - {family: Nurhati, given: I. S.}
+    - {family: Ruiz, given: L.}
+    - {family: Sallée, given: J-B.}
+    - {family: Yu, given: Y.}
+    - {family: Hua, given: L.}
+    - {family: Palmer, given: T.}
+    - {family: Pearson, given: B.}
+  issued: "2021-08-09"
+  publisher: Zenodo
+  version: "20210809"
+  DOI: 10.5281/zenodo.6382554
+  URL: https://doi.org/10.5281/zenodo.6382554
+  text: >-
+    Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, A. Levermann, S. Nowikci, M. D. Palmer,
+    C. Smith, B. Fox-Kemper, H. T. Hewitt, C. Xiao, G. Aðalgeirsdóttir, S. S. Drijfhout, T. L. Edwards, N. R.
+    Golledge, M. Hemer, G. Krinner, A. Mix, D. Notz, S. Nowicki, I. S. Nurhati, L. Ruiz, J-B. Sallée, Y. Yu, L. Hua,
+    T. Palmer, B. Pearson, 2021. IPCC AR6 Sea Level Projections. Version 20210809. Dataset accessed {date_accessed}
+    at https://doi.org/10.5281/zenodo.5914709.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://zenodo.org/records/6382554
+  licence_quote: >-
+    The IPCC AR6 Sea-Level Rise Projections are licensed by the authors under a Creative Commons Attribution 4.0
+    International License
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    IPCC AR6 Sea Level Projections, version 20210809 (Garner et al., 2021), doi:10.5281/zenodo.6382554, accessed
+    {date_accessed}, CC BY 4.0. Fox-Kemper et al. (2021), Ocean, Cryosphere and Sea Level Change, IPCC AR6 WGI
+    Chapter 9, doi:10.1017/9781009157896.011. Kopp et al. (2023), The Framework for Assessing Changes To Sea-Level
+    (FACTS) v1.0, Geoscientific Model Development 16, 7461–7489, doi:10.5194/gmd-16-7461-2023.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the IPCC AR6 Sea Level Projections, version 20210809 (Garner et al.,
+    2021), doi:10.5281/zenodo.6382554, accessed {date_accessed}, CC BY 4.0. Fox-Kemper et al. (2021), Ocean, Cryosphere
+    and Sea Level Change, IPCC AR6 WGI Chapter 9, doi:10.1017/9781009157896.011. Kopp et al. (2023), The Framework for
+    Assessing Changes To Sea-Level (FACTS) v1.0, Geoscientific Model Development 16, 7461–7489,
+    doi:10.5194/gmd-16-7461-2023.
+  notice: >-
+    We thank the projection authors for developing and making the sea-level rise projections available, multiple
+    funding agencies for supporting the development of the projections, and the NASA Sea Level Change Team for
+    developing and hosting the IPCC AR6 Sea Level Projection Tool.
+  mirror_raw: false
+acquisition: manual
+artifacts:
+  - id: ar6-global
+    url: https://zenodo.org/api/records/6382554/files/ar6.zip/content
+    format: zip
+    description: >-
+      ar6.zip (889,784,792 bytes, md5 6ae2f0206bcc687b2dadb1eb997d4234): global projections, as NetCDF. The
+      confidence_output_files (medium and low confidence, per SSP and per warming level) hold the quantiles that match
+      the report's tables and figures; full_sample* directories hold the samples. A person downloads it from this URL
+      (no login) and records it with `uv run envdash snapshot add --source ipcc-ar6-sea-level-projections --file
+      ar6.zip`, checking the md5 against the record.
+    access:
+      conditional: false
+    max_bytes: 900000000
+status:
+  state: archived
+  note: >-
+    Version 20210809 is final and will not change before the IPCC's seventh assessment. Zenodo (CERN) is the durable
+    home; the NASA projection tool that also served these data moved from sealevel.nasa.gov (now 404) to
+    earth.gov/sealevel. Not exposed to US federal cuts while the Zenodo record stands.
+  us_federal: false
+update_cadence: Static until the IPCC's seventh assessment report
+research_ref: >-
+  docs/research/sources-impacts.json#IPCC AR6 Sea Level Projections (global, regional, tide-gauge locations)

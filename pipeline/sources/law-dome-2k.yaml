@@ -1,0 +1,95 @@
+# Law Dome (East Antarctica) ice-core and firn-air CO2, CH4, N2O and delta-13C-CO2 over the last 2000 years.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("Law Dome Ice Core 2000-Year"); verifier verdict
+# "confirmed" (splines 154-1996 AD, CH4 spline from 155, delta-13C spline 1020-1993, raw CO2 ends 1996).
+# Licence evidence checked 2026-10-04 via the CSIRO Data Access Portal API for version 3 (collection 63432):
+# licence "Creative Commons Attribution 4.0 International Licence", rights "All Rights (including copyright) CSIRO
+# 2019.", access "The metadata and files (if any) are available to the public.", dataRestricted FALSE, published
+# 2024-09-04. The licence record (dap/ws/v2/licences/1121) links https://creativecommons.org/licenses/by/4.0/.
+# The landing page (data.csiro.au/collection/csiro:37077) is a JavaScript shell, so the API is the machine-readable
+# statement.
+# Artifact checked 2026-10-04: the DAP endpoint answers HTTP 302 (cache-control no-store) to a presigned
+# s3.data.csiro.au URL valid for 48 hours, which returns HTTP 200, 261,755 bytes, ETag
+# "f7dd24e36565b2e213b20f90c88c990e", Last-Modified 12 May 2023. Version 3 changed metadata only: dataVersionNumber 1,
+# file lastUpdated 2018-11-26, ReadMe sheet "LAST UPDATE: 11/2018". conditional is false because the redirect is
+# re-signed on every request.
+# NOAA NCEI mirrors the same data as text files (doi:10.25921/dwg2-6m61, law2018*-noaa.txt, all HTTP 200 per the
+# verifier); we take the producer's own file instead.
+# The CSIRO attribution statement dates the v3 dataset citation 2019 (the research note had 2024).
+id: law-dome-2k
+title: Law Dome ice core 2000-year CO2, CH4, N2O and delta-13C-CO2
+publisher: CSIRO (with the Australian Antarctic Division and ANSTO)
+landing_url: https://data.csiro.au/collection/csiro:37077
+description: >-
+  Greenhouse gases in air from Law Dome ice cores (DSS, DSS0506, DE08, DE08-2) and firn (DE08-2, DSSW20K), East
+  Antarctica: CO2 (ppm), CH4 (ppb) and N2O (ppb) over the last 2000 years and delta-13C of CO2 (per mil) over the last
+  1000 years, by core and by gas age, plus smoothing-spline fits and growth rates (CO2 and N2O splines from 154 AD, CH4
+  from 155 AD, delta-13C from 1020 AD; the CO2 spline ends in 1996). Each gas in the spline sheet has its own year
+  column. Static dataset (CSIRO version 3; data last updated November 2018).
+citation:
+  type: dataset
+  title: Law Dome Ice Core 2000-Year CO2, CH4, N2O and d13C-CO2
+  author:
+    - {family: Rubino, given: Mauro}
+    - {family: Etheridge, given: David}
+    - {family: Thornton, given: David}
+    - {family: Allison, given: Colin}
+    - {family: Francey, given: Roger}
+    - {family: Langenfelds, given: Ray}
+    - {family: Steele, given: Paul}
+    - {family: Trudinger, given: Cathy}
+    - {family: Spencer, given: Darren}
+    - {family: Curran, given: Mark}
+    - {family: Van Ommen, given: Tas}
+    - {family: Smith, given: Andrew}
+  issued: "2019"
+  publisher: CSIRO
+  version: v3
+  DOI: 10.25919/5bfe29ff807fb
+  URL: https://doi.org/10.25919/5bfe29ff807fb
+  text: >-
+    Rubino, Mauro; Etheridge, David; Thornton, David; Allison, Colin; Francey, Roger; Langenfelds, Ray; Steele, Paul;
+    Trudinger, Cathy; Spencer, Darren; Curran, Mark; Van Ommen, Tas; & Smith, Andrew (2019): Law Dome Ice Core
+    2000-Year CO2, CH4, N2O and d13C-CO2. v3. CSIRO. Data Collection. https://doi.org/10.25919/5bfe29ff807fb. Rubino,
+    Mauro; Etheridge, David; Thornton, David; Howden, Russell; Allison, Colin; Francey, Roger; Langenfelds, Ray;
+    Steele, Paul; Trudinger, Cathy; Spencer, Darren; Curran, Mark; van Ommen, Tas; Smith, Andrew. Revised records of
+    atmospheric trace gases CO2, CH4, N2O, and δ13C-CO2 over the last 2000 years from Law Dome, Antarctica. Earth
+    System Science Data. 2019; 11:473-492. https://doi.org/10.5194/essd-11-473-2019
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://data.csiro.au/dap/ws/v2/collections/63432
+  licence_quote: Creative Commons Attribution 4.0 International Licence
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  attribution: >-
+    Rubino et al., Law Dome Ice Core 2000-Year CO2, CH4, N2O and d13C-CO2, v3, CSIRO,
+    doi:10.25919/5bfe29ff807fb; Rubino et al. (2019), Earth System Science Data 11, 473-492,
+    doi:10.5194/essd-11-473-2019. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Rubino et al., Law Dome Ice Core 2000-Year CO2, CH4, N2O and d13C-CO2,
+    v3, CSIRO, doi:10.25919/5bfe29ff807fb; Rubino et al. (2019), Earth System Science Data 11, 473-492,
+    doi:10.5194/essd-11-473-2019. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: law-dome-ghg-2000years
+    url: https://data.csiro.au/dap/ws/v2/collections/63432/data/53592973
+    format: xlsx
+    description: >-
+      Law_Dome_GHG_2000years.xlsx: sheets ReadMe, CO2byCore, CO2byAge, CH4byCore, CH4byAge, N2ObyCore, N2ObyAge,
+      d13CbyCore, d13CbyAge and "Splines fits" (year AD, spline value and growth rate for each gas).
+    access:
+      conditional: false
+status:
+  state: archived
+  note: >-
+    Static science dataset. CSIRO published version 3 of the collection on 4 September 2024 with metadata changes
+    only; the data file dates from November 2018.
+  us_federal: false
+update_cadence: Static (occasional recalibration versions)
+twins: []
+research_ref: docs/research/sources-atmosphere-and-temperature.json#Law Dome Ice Core 2000-Year

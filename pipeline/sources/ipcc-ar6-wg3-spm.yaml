@@ -1,0 +1,76 @@
+# IPCC Sixth Assessment Report, Working Group III (mitigation), Summary for Policymakers.
+# Evidence: docs/research/sources-solutions-and-action.json ("IPCC AR6 WGIII Summary for Policymakers ..."); the
+# verifier corrected the class to restricted-no-redistribution, which is display-only here.
+id: ipcc-ar6-wg3-spm
+title: "Climate Change 2022: Mitigation of Climate Change. Summary for Policymakers"
+publisher: Intergovernmental Panel on Climate Change (IPCC), Working Group III
+landing_url: https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/
+description: >-
+  The approved summary of the IPCC's latest assessment of climate change mitigation (2022). Statements carry
+  paragraph identifiers (for example C.12) and confidence levels. Only short quoted statements and the numbers in
+  them are shown, with the paragraph and page; IPCC figures are never reproduced or redrawn from the report.
+citation:
+  type: chapter
+  title: Summary for Policymakers
+  author:
+    - {literal: IPCC}
+  issued: "2022"
+  publisher: Cambridge University Press
+  container-title: >-
+    Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment
+    Report of the Intergovernmental Panel on Climate Change
+  DOI: 10.1017/9781009157926.001
+  URL: https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/
+  text: >-
+    IPCC, 2022: Summary for Policymakers [P.R. Shukla, J. Skea, A. Reisinger, R. Slade, R. Fradera, M. Pathak, A. Al
+    Khourdajie, M. Belkacemi, R. van Diemen, A. Hasija, G. Lisboa, S. Luz, J. Malley, D. McCollum, S. Some, P. Vyas,
+    (eds.)]. In: Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth
+    Assessment Report of the Intergovernmental Panel on Climate Change [P.R. Shukla, J. Skea, R. Slade, A. Al
+    Khourdajie, R. van Diemen, D. McCollum, M. Pathak, S. Some, P. Vyas, R. Fradera, M. Belkacemi, A. Hasija, G.
+    Lisboa, S. Luz, J. Malley, (eds.)]. Cambridge University Press, Cambridge, UK and New York, NY, USA. doi:
+    10.1017/9781009157926.001.
+licence_class: display-only
+licence:
+  name: © IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works)
+  spdx: null
+  url: https://www.ipcc.ch/copyright/
+evidence:
+  terms_url: https://www.ipcc.ch/copyright/
+  licence_quote: >-
+    You may freely download and copy the material contained on this website for your personal, non-commercial use,
+    without any right to resell or redistribute it or to compile or create derivative works there from, subject to
+    more specific restrictions that may apply to specific materials.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    IPCC, 2022: Summary for Policymakers. In: Climate Change 2022: Mitigation of Climate Change. Contribution of
+    Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge
+    University Press. doi:10.1017/9781009157926.001
+  notice: >-
+    Quoted from the IPCC report with its statement number and page. IPCC material may not be redistributed or
+    altered; the full report is at https://www.ipcc.ch/report/ar6/wg3/.
+  mirror_raw: false
+  # The copyright page lists logos among the IPCC's property and says permission is required for any other use.
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: spm-pdf
+    url: https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_SummaryForPolicymakers.pdf
+    format: pdf
+    description: >-
+      The Summary for Policymakers as published (56 pages, PDF created September 2024). The other file at
+      .../IPCC_AR6_WGIII_SPM.pdf is the July 2022 pre-final version, marked "subject to error correction" on every
+      page, and is not used.
+status:
+  state: active
+  note: >-
+    AR6 WGIII (2022) is the latest IPCC mitigation assessment; the AR7 WGIII report had not been published as of
+    October 2026. The SPM.7 figure data (doi:10.48490/ayfg-tv12) resolves to a 404 and its licence is unknown, so
+    only quoted statements are used.
+  us_federal: false
+update_cadence: IPCC assessment cycle, about 6 to 8 years
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#IPCC AR6 WGIII Summary for Policymakers (Figure SPM.6
+  demand-side potential, Figure SPM.7 mitigation options cost and potential in 2030) and Chapter 5 (demand-side
+  mitigation)

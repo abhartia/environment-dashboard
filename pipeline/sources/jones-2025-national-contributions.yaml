@@ -1,0 +1,113 @@
+# National contributions to climate change due to historical emissions of CO2, CH4 and N2O (Jones et al.), v2025.1.
+# Evidence: docs/research/sources-emissions.json ("National contributions to climate change ... version 2025.1").
+# The research and its verifier class this as open (CC BY 4.0) on the assumption that its CH4 and N2O come from
+# PRIMAP-hist v2.6 (CC BY). That assumption is wrong, so this entry is noncommercial. Checked 2026-10-04:
+#   - Zenodo record 16640595 (v2025.1, 2025-11-13, 25 files) is labelled cc-by-4.0, and /versions/latest resolves to it.
+#   - Its own reference list (zenodo.org/records/16640595) cites "Gütschow, J., Busch, D. & Pflüger, M. (2025): The
+#     PRIMAP-hist national historical emissions time series (1750-2024) v2.7". The earlier versions cite v2.6 (2024.2),
+#     v2.5.1 (2024.1) and v2.4 (2023.x). The description text still says "(Gütschow et al., 2024)".
+#   - The CH4 and N2O series run to 2024 (EMISSIONS_ANNUAL_1830-2024.csv: China CH4 Total 2024 = 54.555951 Tg). Only
+#     PRIMAP-hist v2.7 covers 2024; v2.6.1 (zenodo 15016289, CC BY 4.0) ends in 2023.
+#   - PRIMAP-hist v2.7 (zenodo 17090760) is CC BY-NC-SA 4.0. Its commercial licence covers only the country-reported
+#     (CR) series, and Jones uses the third-party (HISTTP) series. So the CH4, N2O and 3-GHG values, and the warming
+#     derived from them, are adaptations of NC-SA data. The deposit's CC BY label cannot lift that. This entry takes the
+#     stricter terms (noncommercial: BY-NC-SA downloads), and the evidence quotes the upstream terms that decide the
+#     class. The CO2-only components come from GCB (CC BY) but share the same files.
+#   - Every artifact URL: ranged GET -> 206. DataCite 10.5281/zenodo.16640595 rights: "Creative Commons Attribution 4.0
+#     International".
+#   - citation.text is Zenodo's "Cite as" text for the record (APA), copied verbatim.
+id: jones-2025-national-contributions
+title: National contributions to climate change due to historical emissions of carbon dioxide, methane and nitrous oxide
+publisher: Jones et al. (University of East Anglia, CICERO and others)
+landing_url: https://zenodo.org/records/16640595
+description: >-
+  The change in global mean surface temperature caused by each country's emissions of carbon dioxide, methane and
+  nitrous oxide from fossil fuels and from land use, from 1851 to 2024 (reference year 1850). The files also give the
+  annual emissions it is computed from (from 1830) and cumulative CO2-equivalent emissions (GWP*), for countries and for
+  groups such as Annex I, the OECD, the EU27 and the least developed countries. Warming uses the IPCC AR6 best-estimate
+  transient climate response to cumulative emissions. Aerosols and fluorinated gases are not included, so the total
+  warming here is larger than the observed human-induced warming.
+citation:
+  type: dataset
+  title: National contributions to climate change due to historical emissions of carbon dioxide, methane and nitrous oxide
+  author:
+    - {family: Jones, given: Matthew W.}
+    - {family: Peters, given: Glen P.}
+    - {family: Gasser, given: Thomas}
+    - {family: Andrew, given: Robbie M.}
+    - {family: Schwingshackl, given: Clemens}
+    - {family: Gütschow, given: Johannes}
+    - {family: Houghton, given: Richard A.}
+    - {family: Friedlingstein, given: Pierre}
+    - {family: Pongratz, given: Julia}
+    - {family: Le Quéré, given: Corinne}
+  issued: "2025"
+  publisher: Zenodo
+  version: "2025.1"
+  DOI: 10.5281/zenodo.16640595
+  URL: https://zenodo.org/records/16640595
+  text: >-
+    Jones, M. W., Peters, G. P., Gasser, T., Andrew, R. M., Schwingshackl, C., Gütschow, J., Houghton, R. A.,
+    Friedlingstein, P., Pongratz, J., & Le Quéré, C. (2025). National contributions to climate change due to historical
+    emissions of carbon dioxide, methane and nitrous oxide [Dataset]. In Scientific Data (Version 2025.1, Vol. 10, Issue
+    155). Zenodo. https://doi.org/10.5281/zenodo.16640595
+licence_class: noncommercial
+licence:
+  name: CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0)
+  spdx: CC-BY-NC-SA-4.0
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+evidence:
+  # The upstream terms that decide the class (see the header). Re-check Jones's reference list at every re-ingest.
+  terms_url: https://zenodo.org/records/17090760
+  licence_quote: >-
+    Since v2.7 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users
+    can not use it freely and have to obtain a commercial license.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Jones et al. (2025), National contributions to climate change due to historical emissions of carbon dioxide,
+    methane and nitrous oxide, version 2025.1, doi:10.5281/zenodo.16640595; method in Jones et al. (2023), Scientific
+    Data 10, 155, doi:10.1038/s41597-023-02041-1.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Jones et al. (2025), National contributions to climate change due to
+    historical emissions of carbon dioxide, methane and nitrous oxide, version 2025.1, doi:10.5281/zenodo.16640595.
+  notice: >-
+    Methane and nitrous oxide emissions come from PRIMAP-hist v2.7 (Gütschow, Busch and Pflüger, 2025,
+    doi:10.5281/zenodo.17090760), licensed CC BY-NC-SA 4.0. Values derived from this dataset are shared under
+    CC BY-NC-SA 4.0, for non-commercial use only.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: gmst-response-1851
+    url: https://zenodo.org/api/records/16640595/files/GMST_response_1851-2024.csv/content
+    format: csv
+    description: >-
+      Warming (degrees Celsius) attributable to each country and group, by gas (CO2, CH4, N2O, 3-GHG) and component
+      (fossil, LULUCF, total), 1851-2024, reference year 1850. 29,113,799 bytes.
+  - id: emissions-cumulative-1851
+    url: https://zenodo.org/api/records/16640595/files/EMISSIONS_CUMULATIVE_CO2e100_1851-2024.csv/content
+    format: csv
+    description: >-
+      Cumulative CO2-equivalent emissions since 1850 (Pg CO2-e100, GWP*), by country, gas and component, 1851-2024.
+      33,870,799 bytes.
+  - id: emissions-annual-1830
+    url: https://zenodo.org/api/records/16640595/files/EMISSIONS_ANNUAL_1830-2024.csv/content
+    format: csv
+    description: >-
+      Annual emissions of CO2 (Pg per year), CH4 and N2O (Tg per year) by country and component, 1830-2024.
+      26,570,313 bytes.
+  - id: country-groupings
+    url: https://zenodo.org/api/records/16640595/files/COUNTRY_GROUPINGS.xlsx/content
+    format: xlsx
+    description: The countries in each group (Annex I, Annex II, EIT, LDC, LMDC, OECD, EU27, BASIC). 18,604 bytes.
+status:
+  state: active
+  note: >-
+    Version 2025.1 (13 November 2025) is the latest under concept DOI 10.5281/zenodo.7076346 on 4 October 2026. From
+    this version on, the methane and nitrous oxide inputs come from PRIMAP-hist v2.7 or later, which are CC BY-NC-SA.
+    A new version usually appears alongside the Global Carbon Budget (GCB 2026 is expected during COP31, 9-20 November
+    2026). Not a US federal product.
+  us_federal: false
+update_cadence: Annual, alongside the Global Carbon Budget in November
+research_ref: "docs/research/sources-emissions.json#National contributions to climate change due to historical emissions of CO2, CH4 and N2O (Jones et al.), version 2025.1"

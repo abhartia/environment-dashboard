@@ -1,0 +1,87 @@
+# IUCN Red List of Threatened Species, version 2026-1, as the checklist IUCN publishes on GBIF (taxon, higher
+# taxonomy and global Red List category for every assessed taxon).
+# Evidence: docs/research/sources-food-land-nature.json ("IUCN Red List v2026-1 checklist on GBIF"); verdict
+# "confirmed" (175,909 species, 49,505 threatened, reproduced from the archive), final_redistribution open-attribution.
+# The IUCN website and API v4 are a different source and stay out: the IUCN Red List Terms and Conditions of Use
+# (version 3.1, June 2024, read via the Internet Archive because iucnredlist.org answers HTTP 403) forbid reposting or
+# redistributing Red List Data, but also say IUCN "places no restrictions on use of the IUCN Red List Categories
+# associated with each named taxonomic entity". This checklist is published by IUCN itself (GBIF publishing
+# organization d44af9a3-e779-40c0-a186-79e7717c6d2b, International Union for Conservation of Nature) under CC BY 4.0.
+# Terms checked 2026-10-04 (api): GBIF dataset API license "http://creativecommons.org/licenses/by/4.0/legalcode",
+# DOI 10.15468/0qnb58, citation provided by source; the dataset's EML document (terms_url) intellectualRights text is
+# quoted below, with licenseName "Creative Commons Attribution 4.0 International" and identifier CC-BY-4.0.
+# Artifact checked 2026-10-04: the pinned file iucn-2026-1.zip answers HTTP 200 (HEAD) and 206 (ranged GET),
+# application/zip, 21,140,648 bytes, ETag "14294a8-657ace70f2bf7", Last-Modified 2026-07-28; iucn-latest.zip is the
+# same object today. The hosted-datasets directory keeps one zip per Red List version (2020-3 to 2026-1).
+# Archive contents (research): taxon.txt, distribution.txt (category), vernacularname.txt, meta.xml, eml.xml; keep
+# rank = species and global assessments to match IUCN totals; normalise legacy lower-case categories.
+# IUCN's "Planned Red List Updates" page (Internet Archive capture 2026-04-30) lists 2026-2 for 19 November 2026,
+# "subject to change"; GBIF republished 2026-1 nineteen days after IUCN's release.
+id: iucn-red-list-gbif
+title: IUCN Red List of Threatened Species, version 2026-1 (GBIF checklist)
+publisher: International Union for Conservation of Nature (IUCN), published through GBIF
+landing_url: https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3
+description: >-
+  Every taxon assessed for the IUCN Red List with its higher taxonomy, rank and global Red List category (Extinct,
+  Extinct in the Wild, Critically Endangered, Endangered, Vulnerable, Near Threatened, Least Concern, Data Deficient),
+  as a Darwin Core Archive. Version 2026-1 holds 175,909 species, of which 49,505 are threatened (Critically
+  Endangered, Endangered or Vulnerable). Assessed species are a biased sample: birds, mammals, amphibians, reef corals
+  and conifers are comprehensively assessed, insects barely, so shares apply to assessed species only. The archive has
+  no threat or habitat fields.
+citation:
+  type: dataset
+  title: The IUCN Red List of Threatened Species
+  author:
+    - {literal: IUCN}
+  issued: "2026"
+  publisher: International Union for Conservation of Nature
+  version: 2026-1
+  DOI: 10.15468/0qnb58
+  URL: https://www.iucnredlist.org
+  # Citation provided by the source on GBIF (citationProvidedBySource: true), with our access date.
+  text: >-
+    IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on
+    2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on {date_accessed}.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/legalcode
+evidence:
+  terms_url: https://api.gbif.org/v1/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3/document
+  licence_quote: This work is licensed under a Creative Commons Attribution (CC-BY) 4.0 License
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  attribution: >-
+    IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on
+    2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on {date_accessed}. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1.
+    https://www.iucnredlist.org. Downloaded on 2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on
+    {date_accessed}. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: checklist-2026-1
+    url: https://hosted-datasets.gbif.org/datasets/iucn/iucn-2026-1.zip
+    format: zip
+    description: >-
+      Darwin Core Archive of the IUCN Red List version 2026-1 (tab-separated, no header; columns defined in meta.xml):
+      taxon.txt, distribution.txt with the global Red List category, vernacularname.txt, eml.xml.
+status:
+  state: active
+  note: >-
+    Version 2026-1 was released by IUCN on 9 July 2026 and published on GBIF on 28 July 2026. IUCN is on the list of
+    organisations the US is withdrawing from (Presidential memorandum of 7 January 2026, FR Doc 2026-00976); no effect
+    on Red List releases so far. Not a US federal programme.
+  us_federal: false
+update_cadence: >-
+  The Red List is updated at least twice a year; GBIF publishes a new versioned archive a few weeks after each release
+next_release:
+  expected: 2026-11-19
+  note: >-
+    IUCN Red List version 2026-2 (IUCN's planned date, subject to change); the GBIF archive iucn-2026-2.zip follows
+    some weeks later and needs a new pinned artifact URL.
+twins: []
+research_ref: docs/research/sources-food-land-nature.json#IUCN Red List v2026-1 checklist on GBIF

@@ -1,0 +1,131 @@
+# Lancet Countdown on Health and Climate Change, 2025 global report: indicator workbooks 1.1.5 (heat-related
+# mortality), 1.1.3 (potential work hours lost to heat) and 1.1.1 (heatwave exposure, two workbooks).
+# Evidence: docs/research/sources-impacts.json ("Lancet Countdown on Health and Climate Change: 2025 global indicator
+# data ..."; verdict "confirmed", final_redistribution noncommercial-only).
+# Checked 2026-10-04:
+#   - lancetcountdown.org/use-our-data/ -> 200 with the licence text quoted below. Each workbook's DATA GUIDANCE sheet
+#     repeats it ("2.2 Data Licence") and adds the CC BY-NC-SA attribution, non-commercial and share-alike terms.
+#   - The site's general Terms & Conditions (/terms-conditions/) allow only personal, non-commercial use "subject to
+#     ... more specific restrictions that may apply to specific Materials". The data files carry their own, more
+#     specific CC BY-NC-SA 4.0 grant, which is what this entry relies on.
+#   - Each DATA GUIDANCE sheet says third-party inputs keep their own licences. All three indicators use ERA5
+#     (Copernicus Climate Change Service), hence the Copernicus notice below. 1.1.3 also lists GPWv4, UN population,
+#     ILOSTAT, World Bank boundaries and GADM 3.6 (used only to aggregate to countries; no boundaries are shipped);
+#     1.1.5 lists UN population, the World Mortality Dataset, GPWv4, WDI and GBD 2021.
+#   - /use-of-our-logo/: "We generally do not approve the use of our logo in third-party webpages" (no_logo), and
+#     the CC licence text in each workbook forbids suggesting endorsement (no_endorsement).
+#   - Files (all HTTP 200, Last-Modified 30 Oct 2025, ETag honoured: If-None-Match -> 304):
+#       1.1.5            137,358 bytes  sha256 f6a18bdec8434973269c095727a13a0375e78b0e674124cf8c9827ec267131e0
+#       1.1.3 PWHL     1,510,290 bytes  sha256 36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb
+#       1.1.1 Attrib.    205,138 bytes  sha256 53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632
+#       1.1.1 Vulner.    710,882 bytes  sha256 a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7
+#   - citation.text is the "Suggested Citation" printed in every workbook. Crossref lists 128 authors (The Lancet
+#     406(10521), 2804-2857, issue dated December 2025); only the three named in that citation are listed below.
+#   - The homepage confirms the 10th (2026) global report launches on 28 October 2026. File names carry "-1" and
+#     "_v2" suffixes and will change with that vintage; indicator methods also change between report years, so
+#     vintages are never spliced.
+#   - {year} in the notice is the report year of the values shown (2025 for these files).
+id: lancet-countdown-2025
+title: "Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"
+publisher: Lancet Countdown on Health and Climate Change (led by University College London)
+landing_url: https://lancetcountdown.org/explore-our-data/
+description: >-
+  Indicator data behind the 2025 report of the Lancet Countdown on health and climate change. Indicator 1.1.5:
+  deaths attributable to heat (number and share of all deaths), 1990 to 2021, for the world, WHO regions, Lancet
+  Countdown regions and Human Development Index groups, with no country values. Indicator 1.1.3: potential work hours
+  lost to heat, in total and for services, manufacturing, agriculture and construction, 1990 to 2024, for the world,
+  regions, HDI groups and 219 countries. Indicator 1.1.1, two workbooks: heatwave days per person observed in 2020 to
+  2024 compared with a modelled climate without human-caused warming, for the world and 220 countries; and heatwave
+  days experienced by infants and people over 65, 1980 to 2024. Heat mortality is modelled, not counted.
+citation:
+  type: article-journal
+  title: "The 2025 report of the Lancet Countdown on health and climate change: climate change action offers a lifeline"
+  author:
+    - {family: Romanello, given: Marina}
+    - {family: Walawender, given: Maria}
+    - {family: Hsu, given: Shih-Che}
+  issued: "2025"
+  publisher: Elsevier
+  container-title: The Lancet
+  volume: "406"
+  page: 2804-2857
+  DOI: 10.1016/S0140-6736(25)01919-1
+  URL: https://doi.org/10.1016/S0140-6736(25)01919-1
+  text: >-
+    Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change.
+    Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.
+licence_class: noncommercial
+licence:
+  name: CC BY-NC-SA 4.0
+  spdx: CC-BY-NC-SA-4.0
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+evidence:
+  terms_url: https://lancetcountdown.org/use-our-data/
+  licence_quote: >-
+    Lancet Countdown data, and associated data visualisations, are provided at no-cost under a Creative Commons
+    Attribution-Non Commercial-Share Alike Licence (CC BY-NC-SA 4.0).
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere
+    (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C.
+    Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos. Romanello et
+    al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Lancet Countdown on Health and Climate Change 2025 report data: indicator
+    1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable
+    populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña
+    and J. Ruiz-Cabrejos. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.
+  notice: >-
+    Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and
+    anything built from these figures must be shared under the same licence. These indicators are computed from ERA5
+    and contain modified Copernicus Climate Change Service information {year}; neither the European Commission nor
+    ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.
+  mirror_raw: true
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: heat-mortality-1-1-5
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.5_Data-Download_2025-Lancet-Countdown-Report-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.1.5, heat-related mortality: sheets DATA GUIDANCE, Global, WHO, LC and HDI with Year, AF (percent of
+      deaths attributable to heat) and AN (deaths attributable to heat), 1990-2021. No country sheet.
+  - id: work-hours-lost-1-1-3
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.1.3, potential work hours lost: sheets Country, Global, WHO and HDI, 1990-2024. Hours lost by sector
+      (WHL200Serv, WHL300Manuf, WHL400sunAgr, WHL400sunConstr) and in total (TotalSunAgCon), in thousands of hours,
+      plus hours lost per worker (TotalSunWHLpp).
+  - id: heatwave-days-attributable-1-1-1
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Attributable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.1.1, heatwave days per person: Observed, Counterfactual (without human-caused warming) and
+      Attributable_to_CC, for each year 2020-2024, on a country sheet and a global sheet.
+  - id: heatwave-exposure-vulnerable-1-1-1
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Vulnerable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.1.1, heatwave exposure of infants under 1 and adults over 65: total person-days and average days per
+      person, 1980-2024, on Country, Global, WHO, LC and HDI sheets (the Global sheet also has over-75s).
+status:
+  state: active
+  note: >-
+    The 2025 workbooks were posted on 30 October 2025, the day after the report. The 2026 report is the next vintage
+    and replaces these files under new names. Not a US federal product.
+  us_federal: false
+update_cadence: Annual global report in late October, with the indicator workbooks posted the same week
+next_release:
+  expected: 2026-10-28
+  note: >-
+    The 10th (2026) global report launches at the Health and Climate Change Conference on 28 October 2026; its
+    indicator workbooks will have new file names.
+  url: https://lancetcountdown.org/
+research_ref: >-
+  docs/research/sources-impacts.json#Lancet Countdown on Health and Climate Change: 2025 global indicator data (heat
+  mortality 1.1.5, labour capacity 1.1.3, heatwave exposure 1.1.1, wildfire smoke 1.2.1, sea-level population 2.3.3
+  and others)

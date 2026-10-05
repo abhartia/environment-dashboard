@@ -1,0 +1,107 @@
+# NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), version 6.1.0, NOAA NCEI.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("NOAA Global Surface Temperature (NOAAGlobalTemp
+# v6.1.0) and Climate at a Glance"; verifier corrected the method-paper author order and noted that the annual file's
+# error-variance columns are all -999).
+#
+# File names embed the month of the latest data (yyyymm) and only the current set is kept in the directory, so the
+# URLs below go stale at each monthly release. Pattern, from 00_Readme_timeseries.txt:
+#   https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/
+#     aravg.{ann|mon}.{land_ocean|land|ocean}.{south}.{north}.v6.1.0.{yyyymm}.asc
+# The fetcher must read the directory listing and record the exact file name it took. Current set: 202608 (all HTTP
+# 200 on 2026-10-04, Last-Modified 08 Sep 2026, ETag present).
+# Not used: the Climate at a Glance CSV (stable URL, but a 1901-2000 base period and two decimals). Never mix the two
+# baselines.
+id: noaaglobaltemp-v6
+title: NOAA Global Surface Temperature (NOAAGlobalTemp), version 6.1
+publisher: NOAA National Centers for Environmental Information
+landing_url: https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp
+description: >-
+  Monthly and annual land-ocean surface temperature anomalies from January 1850, for the globe and for latitude bands.
+  Version 6.1.0 combines NOAA GHCN monthly land-station data with ERSST version 6 sea-surface temperatures and fills gaps
+  with an artificial neural network. Anomalies are in kelvin (equal to degrees Celsius) relative to 1991–2020; the site
+  rebases them to this dataset's own 1850–1900 mean. The annual files carry no uncertainty (every error-variance column
+  is -999), and the current year's annual row averages only the months so far.
+citation:
+  type: dataset
+  title: NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.1
+  author:
+    - {family: Huang, given: Boyin}
+    - {family: Yin, given: Xungang}
+    - {family: Menne, given: Matthew J.}
+    - {family: Vose, given: Russell S.}
+  issued: "2026"
+  publisher: NOAA National Centers for Environmental Information
+  version: "6.1"
+  DOI: 10.25921/vvaa-wq11
+  URL: https://doi.org/10.25921/vvaa-wq11
+  # The NCEI ISO 19115 record's "Cite as" text, with its "[indicate subset used]" and "[date]" filled in.
+  text: >-
+    Huang, Boyin; Yin, Xungang; Menne, Matthew J.; and Vose, Russell S. 2026. NOAA Global Surface Temperature Dataset
+    (NOAAGlobalTemp), Version 6.1. Areal-average time series. NOAA National Centers for Environmental Information.
+    https://doi.org/10.25921/vvaa-wq11. Accessed {date_accessed}.
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  # The product page and the dataset's ISO record state no licence; the record's only use constraint is the citation.
+  # NCEI's open data policy states the public-domain basis for NOAA-produced data. All four cited authors are NCEI staff.
+  terms_url: https://www.ncei.noaa.gov/sites/default/files/2023-12/NCEI%20PD-10-2-02%20-%20Open%20Data%20Policy%20Signed.pdf
+  licence_quote: >-
+    Environmental data and information produced by NOAA or any Federal agency are available fully and openly to data
+    users unless explicitly exempt from release by Federal law, regulation or policy. These data are in the public
+    domain in the United States.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    NOAA National Centers for Environmental Information, NOAAGlobalTemp version {version} (Huang, Yin, Menne & Vose),
+    doi:10.25921/vvaa-wq11, accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NOAA National Centers for Environmental Information NOAAGlobalTemp version
+    {version} (Huang, Yin, Menne & Vose), doi:10.25921/vvaa-wq11, accessed {date_accessed}.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: global-annual
+    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc
+    format: txt
+    description: >-
+      Global (90°S–90°N) land-ocean annual anomaly from 1850, kelvin relative to 1991–2020. Whitespace columns: year,
+      anomaly, then four error variances (all -999). File name changes monthly (see header comment).
+  - id: global-monthly
+    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.mon.land_ocean.90S.90N.v6.1.0.202608.asc
+    format: txt
+    description: >-
+      Global (90°S–90°N) land-ocean monthly anomaly from January 1850, kelvin relative to 1991–2020. Whitespace
+      columns: year, month, anomaly, error variances and diagnostics (all -999). Used to tell complete years from the
+      partial current year. File name changes monthly.
+  - id: arctic-annual
+    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.60N.90N.v6.1.0.202608.asc
+    format: txt
+    description: >-
+      60°N–90°N land-ocean annual anomaly from 1850, kelvin relative to 1991–2020, for the Arctic-versus-global
+      comparison. File name changes monthly.
+  - id: timeseries-readme
+    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/00_Readme_timeseries.txt
+    format: txt
+    description: >-
+      Column definitions and file-name convention for the time series; states "anomalies are based on the climatology
+      from 1991 to 2020". Kept so a change of baseline or layout is caught.
+status:
+  state: active
+  note: >-
+    Version 6.1.0 published 23 March 2026 (NCEI ISO record; DOI registered 27 March 2026), switching to ERSST version 6
+    and a 1991–2020 base. NCEI is moving its data to the cloud and warns of temporary access delays. NCEI is a NOAA line
+    office exposed to the proposed FY2027 NOAA budget cut.
+  us_federal: true
+update_cadence: Monthly, with NOAA NCEI's global climate report (around the 8th–10th)
+next_release:
+  expected: 2026-10-09
+  note: >-
+    September 2026 data. Date from the GISS release schedule, which GISS sets "simultaneously with NOAA/NCEI's releases
+    of their monthly Global Analysis"; NCEI's own page lists only the US release (8 October 2026).
+  url: https://data.giss.nasa.gov/gistemp/release_dates.html
+twins: [hadcrut5, gistemp-v4, c3s-era5-bulletin]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#NOAA Global Surface Temperature (NOAAGlobalTemp v6.1.0) and Climate at a Glance

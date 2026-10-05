@@ -1,0 +1,123 @@
+# Global Energy Monitor Global Coal Plant Tracker (July 2026 release): every coal unit of 30 MW or more.
+# Evidence: docs/research/sources-energy.json ("Global Energy Monitor – Global Coal Plant Tracker"; the verifier found
+# no licence on the tracker pages), re-checked 2026-10-04.
+# Licence, and why terms_check is manual:
+#   - The tracker page (GET 200; /download-data/ now 301-redirects to it) states no licence; its footer reads "All
+#     Rights Reserved". The unit-level workbook comes only through a JavaScript download form, which was not filled.
+#   - terms_url is GEM's own extraction of the "About" tab of the previous workbook
+#     (source_file "Global-Coal-Plant-Tracker-January-2026.xlsx"), in GEM's public GitHub repository
+#     GlobalEnergyMonitor/gem-tracker-metadata-audit, pinned to commit 8e04714 (GET 200 on 2026-10-04). Its
+#     header_info.license is quoted below; the same repository's api_coal_plants.json carries the same notice.
+#   - NC carve-outs: none appears in that extract or on the coal tracker page, unlike the solar tracker page, which
+#     marks TransitionZero-sourced records ("TZ ID") as CC BY-NC 4.0. But the solar extract in the same repository
+#     also omits that carve-out, so the extract cannot rule one out.
+#   - So the class is open on the January 2026 About text, and the person who downloads the July 2026 workbook reads
+#     its whole About tab before recording it: if the licence line differs or any records carry a non-commercial or
+#     other carve-out, this entry is changed (class, or those records excluded) before any value is published.
+#     mirror_raw stays false until that check is done.
+# citation.text is the tracker page's "recommended citation", with the release as {version} ("July 2026").
+id: gem-coal-plant-tracker
+title: Global Coal Plant Tracker
+publisher: Global Energy Monitor
+landing_url: https://globalenergymonitor.org/projects/global-coal-plant-tracker/
+description: >-
+  Unit-level database of coal-fired power units of 30 MW or more: operating units, units proposed since 2010 and
+  units retired since 2000, with capacity, status (announced, pre-permit, permitted, construction, shelved,
+  cancelled, operating, mothballed, retired), owner and parent, start and planned retirement years, technology,
+  location and estimated CO2. The July 2026 release covers 14,674 units in 111 countries. Its "Coal Plants by Country
+  (MW)" table totals 2,226,469 MW operating, 260,301 MW under construction and 502,744 MW announced, pre-permit or
+  permitted. Capacity is not generation. Unit CO2 estimates use capacity factors derived from Ember generation data.
+citation:
+  type: dataset
+  title: Global Coal Plant Tracker
+  author:
+    - {literal: Global Energy Monitor}
+  issued: "2026"
+  publisher: Global Energy Monitor
+  version: "{version}"
+  URL: https://globalenergymonitor.org/projects/global-coal-plant-tracker/
+  text: Global Coal Plant Tracker, Global Energy Monitor, {version} release.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://globalenergymonitor.org/creative-commons-license/
+evidence:
+  terms_url: https://raw.githubusercontent.com/GlobalEnergyMonitor/gem-tracker-metadata-audit/8e04714adfae4edce806f52209bc7c49a14afb11/metadata/global_coal_plant_tracker_january_2026.json
+  licence_quote: >-
+    Copyright © Global Energy Monitor. Global Coal Plant Tracker, January 2026 release. Distributed under a Creative
+    Commons Attribution 4.0 International License.
+  checked_on: 2026-10-04
+  terms_check: manual
+obligations:
+  attribution: >-
+    Global Coal Plant Tracker, Global Energy Monitor, {version} release. © Global Energy Monitor, CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the Global Coal Plant Tracker, Global Energy Monitor, {version} release.
+    © Global Energy Monitor, CC BY 4.0.
+  mirror_raw: false
+acquisition: manual
+artifacts:
+  - id: units-workbook
+    url: null
+    format: xlsx
+    description: >-
+      The unit-level workbook (the January 2026 edition was Global-Coal-Plant-Tracker-January-2026.xlsx, with tabs
+      "About" and "Units"). A person opens https://globalenergymonitor.org/projects/global-coal-plant-tracker/,
+      clicks "Download data", completes GEM's download form and saves the workbook; then reads the About tab's
+      licence line and any carve-outs (see the header of this file) and records it with
+      uv run envdash snapshot add --source gem-coal-plant-tracker --file <path>.
+  # The summary tables below are public Google Sheets linked from the tracker page. Each CSV export returned 307 to
+  # googleusercontent.com, then 200 text/csv, on 2026-10-04, with no ETag or Last-Modified. Each says "This data is
+  # based on the Global Coal Plant Tracker, updated July 2026". Sheet ids can change between releases.
+  - id: summary-by-country-mw
+    url: https://docs.google.com/spreadsheets/d/1_6AkrRZOn3ZXhSV9O6tZnX-m7aJsfG9HiQ_iEqBkbW8/export?format=csv
+    format: csv
+    description: >-
+      "Coal Plants by Country (MW)": capacity by status for each country, with TOTAL and "Percent China" rows
+      (5,695 bytes).
+    access:
+      conditional: false
+  - id: summary-by-region-mw
+    url: https://docs.google.com/spreadsheets/d/1syW5vTgJhSpAh_z-QvlMf33oViVEk1cjJqOAHO5iYSs/export?format=csv
+    format: csv
+    description: '"Coal Plants by Region (MW)": capacity by status for each region and subregion (2,278 bytes).'
+    access:
+      conditional: false
+  - id: summary-new-by-year-mw
+    url: https://docs.google.com/spreadsheets/d/1j35F0WrRJ9dbIJhtRkm8fvPw0Vsf-JV6G95u7gT-DDw/export?format=csv
+    format: csv
+    description: >-
+      "Newly Operating Coal Plants by Year (MW)": capacity entering operation by country, 2000 to 2025 and H1 2026
+      (10,775 bytes).
+    access:
+      conditional: false
+  - id: summary-retired-by-year-mw
+    url: https://docs.google.com/spreadsheets/d/1t3gO35bzcVI8ekq9318jBUq6nd7UADcut4gY3vjHZMM/export?format=csv
+    format: csv
+    description: >-
+      "Retired Coal Plants (MW)": capacity retired by country, 2000 to 2025 and H1 2026 (9,603 bytes).
+    access:
+      conditional: false
+  - id: summary-planned-retirements-mw
+    url: https://docs.google.com/spreadsheets/d/1E82_2I7n4__oFzDTWVuZwPstfr1tk4jn1kFw4E_gf5w/export?format=csv
+    format: csv
+    description: >-
+      "Planned Coal Plant Retirements (MW)": operating capacity with a planned retirement year, by country, 2026 to
+      2040 (6,143 bytes).
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    July 2026 release (the tracker page: "The most recent release of this data was in July 2026."). GEM is a
+    philanthropically funded non-profit; not a US federal programme.
+  us_federal: false
+update_cadence: Twice a year, around January and July
+next_release:
+  expected: 2027-01-31
+  note: >-
+    GEM says the data "are updated bi-annually, around January and July" and announces no date; 31 January 2027 is
+    the check-by date for the January 2027 release, not an announced date.
+  url: https://globalenergymonitor.org/projects/global-coal-plant-tracker/
+research_ref: docs/research/sources-energy.json#Global Energy Monitor – Global Coal Plant Tracker

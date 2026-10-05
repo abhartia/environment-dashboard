@@ -4,3 +4,4 @@
 data/** linguist-generated=true
 # Snapshot manifests are one file per sha256; union-merge any shared index so bot and human appends never conflict.
 pipeline/manifests/*.jsonl merge=union
+pipeline/tests/fixtures/** -text

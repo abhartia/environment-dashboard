@@ -1,0 +1,106 @@
+# UK Government greenhouse gas conversion factors for company reporting, 2026 (DESNZ), flat file version 1.2.
+# Evidence: docs/research/sources-solutions-and-action.json ("UK Government GHG Conversion Factors for Company
+# Reporting 2026 (DESNZ) ..."); verdict "confirmed", final_redistribution open-attribution.
+# Checked 2026-10-04:
+#   - GOV.UK content API
+#     (https://www.gov.uk/api/content/government/publications/greenhouse-gas-reporting-conversion-factors-2026): first
+#     published 2026-06-11, updated 2026-07-31 with the change note "Updated the conversion factors 2026: flat
+#     file to correct a number of values that were initially reported as 0."; organisation Department for Energy
+#     Security and Net Zero.
+#   - Flat file: HTTP 200, 515,426 bytes, ETag "6a6c9748-7dd62", Last-Modified 31 Jul 2026, sha256
+#     a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e. Front page: Status Final, Version 1.2,
+#     Updated 2026-07-10 (well-to-tank factors for some hybrid, CNG and LPG cars and some hotel-stay factors had been
+#     shown as 0 instead of blank), next publication date 2027-06-01. The asset URL is per revision: a later
+#     correction would be a new GOV.UK media id, so this URL pins version 1.2.
+#   - Methodology paper: HTTP 200, 1,761,487 bytes, ETag "6a294054-1ae0cf"; 152 pages; its cover reads "This
+#     publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated."
+#   - DESNZ gives no specific attribution statement, so OGL v3 requires its default: "Contains public sector
+#     information licensed under the Open Government Licence v3.0." DESNZ also publishes no recommended citation; the
+#     citation below is built from the GOV.UK publication record (organisation, year, title, file and version).
+#   - The workbook's own note: "The scope of the factors is defined to be relevant to emissions reporting, although the
+#     factors may also be used for other purposes. Regardless of this, their usage is at the users' own risk."
+# Factors already include the 8% great-circle distance uplift for flights (methodology paper); the radiative-forcing
+# ("With RF") and "Without RF" rows are both published and both are shown. Factor IDs (e.g. 21_316_3170_11_1) are
+# kept with every value.
+id: desnz-ghg-factors-2026
+title: "Greenhouse gas reporting: conversion factors 2026"
+publisher: Department for Energy Security and Net Zero (UK Government)
+landing_url: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026
+description: >-
+  Emission factors in kilograms of CO2-equivalent per unit of activity, for UK organisations reporting their
+  emissions: fuels per litre, tonne and kWh; UK and overseas electricity per kWh; passenger cars per kilometre by size
+  and fuel; flights per passenger-kilometre by haul and seat class, with and without the radiative-forcing uplift;
+  hotel stays per night by country; and more, each with separate CO2, CH4 and N2O factors and separate well-to-tank
+  rows. One row per factor with a stable factor ID. These are UK reporting averages for 2026, not universal values.
+citation:
+  type: dataset
+  title: "Greenhouse gas reporting: conversion factors 2026 (flat file)"
+  author:
+    - {literal: Department for Energy Security and Net Zero}
+  issued: "2026-06-11"
+  publisher: GOV.UK
+  version: "{version}"
+  URL: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026
+  # DESNZ publishes no recommended citation; this is the GOV.UK publication record's organisation, year and title.
+  text: >-
+    Department for Energy Security and Net Zero (2026). Greenhouse gas reporting: conversion factors 2026, flat file
+    version {version}. GOV.UK.
+    https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026
+licence_class: open
+licence:
+  name: Open Government Licence v3.0 (Crown copyright)
+  spdx: OGL-UK-3.0
+  url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+evidence:
+  terms_url: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026
+  licence_quote: All content is available under the Open Government Licence v3.0, except where otherwise stated
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # OGL v3: "If the Information Provider does not provide a specific attribution statement, you must use the
+  # following: Contains public sector information licensed under the Open Government Licence v3.0."
+  attribution: >-
+    Department for Energy Security and Net Zero, Greenhouse gas reporting: conversion factors 2026 (flat file version
+    {version}). Contains public sector information licensed under the Open Government Licence v3.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Department for Energy Security and Net Zero, Greenhouse gas reporting:
+    conversion factors 2026 (flat file version {version}). Contains public sector information licensed under the Open
+    Government Licence v3.0.
+  mirror_raw: true
+  # OGL v3 "Non-endorsement": "This licence does not grant you any right to use the Information in a way that suggests
+  # any official status or that the Information Provider and/or Licensor endorse you or your use of the Information."
+  # OGL v3 also excludes "departmental or public sector organisation logos, crests and the Royal Arms".
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: flat-file
+    url: https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx
+    format: xlsx
+    description: >-
+      "Conversion factors 2026: flat file (for automatic processing only)", version 1.2. Sheet "Factors by Category":
+      ID, Scope, Level 1 to Level 4, Column Text, UOM, GHG/Unit and "GHG Conversion Factor 2026" (for example
+      21_316_3170_11_1, long-haul flight to or from the UK, economy class, with RF: 0.11704 kg CO2e per
+      passenger-km). 515,426 bytes.
+  - id: methodology-pdf
+    url: https://assets.publishing.service.gov.uk/media/6a2940543b15d05a7ce3202e/2026-GHG-conversion-factors-methodology-report.pdf
+    format: pdf
+    description: >-
+      "2026 Government greenhouse gas conversion factors for company reporting: Methodology paper" (152 pages), which
+      states how each factor is derived, including the distance and radiative-forcing uplifts for flights.
+      1,761,487 bytes.
+status:
+  state: active
+  note: >-
+    Published every June since 2002. The 2026 set was first published on 11 June 2026; the flat file was revised to
+    version 1.2 (dated 10 July, posted 31 July 2026). UK Government statistics, not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Annual, each June
+next_release:
+  expected: 2027-06-01
+  note: The flat file's front page gives 1 June 2027 as the next publication date (2027 factors).
+  url: https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#UK Government GHG Conversion Factors for Company Reporting 2026
+  (DESNZ), for flight, home-energy and travel calculators. US EPA equivalents noted.

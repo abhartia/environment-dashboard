@@ -1,0 +1,90 @@
+# NOAA Global Monitoring Laboratory greenhouse-gas trend files (CO2, CH4, N2O).
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("NOAA GML Trends in Atmospheric Carbon Dioxide").
+id: noaa-gml-trends
+title: Trends in atmospheric carbon dioxide, methane and nitrous oxide
+publisher: NOAA Global Monitoring Laboratory
+landing_url: https://gml.noaa.gov/ccgg/trends/
+description: >-
+  Monthly and annual mean concentrations measured at Mauna Loa Observatory, Hawaii, and averaged over NOAA's global
+  network of marine surface sites. The Mauna Loa record before May 1974 was measured by C. David Keeling of the
+  Scripps Institution of Oceanography.
+citation:
+  type: dataset
+  title: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements
+  author:
+    - {family: Lan, given: X.}
+    - {family: Tans, given: P.}
+    - {family: Thoning, given: K. W.}
+  issued: "2026"
+  publisher: NOAA Global Monitoring Laboratory
+  version: "{version}"
+  DOI: 10.15138/9N0H-ZH07
+  URL: https://gml.noaa.gov/ccgg/trends/gl_data.html
+  text: >-
+    Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring
+    Laboratory measurements. Version {version} https://doi.org/10.15138/9N0H-ZH07
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv
+  licence_quote: >-
+    These data are made freely available to the public and the scientific community in the belief that their wide
+    dissemination will lead to greater understanding and new scientific insights. To ensure that GML receives fair
+    credit for their work please include relevant citation text in publications.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    NOAA Global Monitoring Laboratory (Lan, Tans & Thoning), version {version}, doi:10.15138/9N0H-ZH07. Mauna Loa
+    data March 1958 to April 1974: C. David Keeling, Scripps Institution of Oceanography.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NOAA Global Monitoring Laboratory data (Lan, Tans & Thoning), version
+    {version}, doi:10.15138/9N0H-ZH07. Mauna Loa data March 1958 to April 1974: C. David Keeling, Scripps Institution
+    of Oceanography.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: co2-mm-mlo
+    url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv
+    format: csv
+    description: Monthly mean CO2 at Mauna Loa, from March 1958 (ppm).
+  - id: co2-annmean-mlo
+    url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.csv
+    format: csv
+    description: Annual mean CO2 at Mauna Loa, from 1959 (ppm).
+  - id: co2-annmean-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv
+    format: csv
+    description: Annual mean CO2 averaged over global marine surface sites, from 1979 (ppm).
+  - id: co2-mm-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_gl.csv
+    format: csv
+    description: Monthly mean CO2 averaged over global marine surface sites, from 1979 (ppm).
+  - id: co2-gr-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_gr_gl.csv
+    format: csv
+    description: Annual CO2 increase from January 1 to December 31, global marine surface sites (ppm per year).
+  - id: ch4-annmean-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv
+    format: csv
+    description: Annual mean methane averaged over global marine surface sites, from 1984 (ppb).
+  - id: n2o-annmean-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv
+    format: csv
+    description: Annual mean nitrous oxide averaged over global marine surface sites, from 2001 (ppb).
+status:
+  state: at-risk
+  note: >-
+    Still publishing monthly (the August 2026 value appeared on 5 September 2026). The FY2026 and FY2027 US budget
+    requests proposed closing NOAA's research labs, including GML and Mauna Loa Observatory; Congress rejected the
+    FY2026 closure. Mauna Loa has had no mains power since the 2022 eruption.
+  us_federal: true
+update_cadence: Monthly, around the 5th of the month
+next_release:
+  expected: 2026-10-05
+  note: September 2026 monthly values.
+twins: [scripps-co2]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#NOAA GML Trends in Atmospheric Carbon Dioxide

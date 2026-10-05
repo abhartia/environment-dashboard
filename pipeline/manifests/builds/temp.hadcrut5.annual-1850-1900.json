@@ -1,0 +1,27 @@
+{
+  "export": "data/v1/indicators/temp.hadcrut5.annual-1850-1900.json",
+  "export_sha256": "7f299ced8a28e65df8f265e0318a72299f2a0b7763938151150e9bda9fcfb640",
+  "indicator_id": "temp.hadcrut5.annual-1850-1900",
+  "key": "b3dd349fddc2119af8892e9f9a2a6e1b7bd87d58b3a22ae7122b90d3d37b7c04",
+  "key_parts": {
+    "inputs": {
+      "hadcrut5/global-annual": {
+        "manifest_sha256": "3714a34f76af5e885ac0d60dc797d19c0b1d725fb91f6092724d618d31d2539c",
+        "sha256": "7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04"
+      },
+      "hadcrut5/global-monthly": {
+        "manifest_sha256": "3fb3f74c801d98311e89fd1e52833a9c63fb069a27cb87557c5e20e6c0dc4630",
+        "sha256": "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "hadcrut5": "b8b27b1de3b91fd8aaa676e31cd7e6274e6de2adbd06be01fe3bf56211327de1"
+    },
+    "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
+  },
+  "publisher_checks": [
+    {"detail": "check is for vintage 5.1.0.0; built 5.2.0.0", "entity": "WLD", "period": "2025", "quote": "2025 was 1.41 (uncertainty range 1.32 to 1.49) °C above the 1850 to 1900 baseline", "source_id": "hadcrut5", "stated": "1.41", "status": "not-applicable", "url": "https://crudata.uea.ac.uk/cru/data/t2025/", "vintage": "5.1.0.0"}
+  ]
+}

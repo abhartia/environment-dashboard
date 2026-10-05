@@ -1,0 +1,64 @@
+# Ember monthly electricity data (global file): generation, shares, lifecycle emissions and intensity by month.
+# Evidence: docs/research/sources-energy.json ("Ember – Monthly Electricity Data"), re-checked 2026-10-04.
+# Licence: the Creative Commons page linked from every ember-energy.org footer (GET 200 on 2026-10-04); the API spec
+# at https://api.ember-energy.org/v1/openapi.json declares "CC-BY-4.0 (data)". citation.text is the example
+# attribution given verbatim in that spec's "License and Attribution" section. Ember publishes no version label:
+# {version} is the file's HTTP Last-Modified date.
+id: ember-monthly
+title: Monthly electricity data
+publisher: Ember
+landing_url: https://ember-energy.org/data/monthly-electricity-data/
+description: >-
+  Monthly electricity generation by source (terawatt-hours), share of generation, lifecycle emissions (MtCO2e) and
+  emissions intensity (gCO2e per kWh) for 88 countries and 11 regions, from December 1998 at the earliest; the World
+  series runs from January 2019. Values are provisional and revised often. The World total is Ember's estimate built
+  from the countries it covers. Recent months cover fewer countries: in the file of 18 September 2026, "Total
+  generation" has values for 71 countries in May 2026, 64 in June, 56 in July and 38 in August, and the World series
+  ends in July 2026. Each month is shown with the number of countries behind it. Emissions are lifecycle
+  CO2-equivalent, not combustion CO2.
+citation:
+  type: dataset
+  title: Monthly electricity data
+  author:
+    - {literal: Ember}
+  issued: "2026"
+  publisher: Ember
+  version: "{version}"
+  URL: https://ember-energy.org/data/monthly-electricity-data/
+  text: Monthly electricity generation data, Ember
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://ember-energy.org/creative-commons/
+  licence_quote: >-
+    Ember content is released under a Creative Commons Attribution Licence (CC-BY-4.0) This means you’re free to share
+    and adapt our work – as long as you credit us.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: Ember, Monthly Electricity Data (file of {version}), CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Ember, Monthly Electricity Data (file of {version}), CC BY 4.0.
+  mirror_raw: true
+  # The same page: "If you would like to use our logo, we ask that you request permission."
+  no_logo: true
+acquisition: automatic
+artifacts:
+  # HEAD 200 on 2026-10-04: 28,333,064 bytes, Last-Modified Fri 18 Sep 2026, ETag from Google Cloud Storage.
+  - id: generation-monthly-global
+    url: https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_monthly_global.csv
+    format: csv
+    description: >-
+      One row per area, month and source, with generation, share, emissions and intensity as columns. The
+      Europe-only file (release_generation_monthly_lower.csv, net generation) is not used.
+status:
+  state: active
+  note: >-
+    Updated about twice a month. The landing page still says "Last Updated 28/07/2026" while the file was last
+    modified on 18 September 2026, so the file date is the version. Not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Rolling updates about twice a month
+research_ref: docs/research/sources-energy.json#Ember – Monthly Electricity Data

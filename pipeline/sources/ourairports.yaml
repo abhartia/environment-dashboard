@@ -1,0 +1,70 @@
+# OurAirports open data: airports.csv (locations and codes of airports worldwide), for great-circle flight distances.
+# Evidence: no entry in the research JSONs; added by the plan review, docs/research/plan-critique-2026-10-04.txt (flight
+# calculator fix: "add OurAirports airports.csv as a source (public domain per https://ourairports.com/data/)").
+# Checked 2026-10-04:
+#   - https://ourairports.com/data/ (HTTP 200) states the terms quoted below, says credit is welcome but "you're not
+#     required to", and links the nightly CSV files on GitHub Pages ("Effective 3 November 2021, the download files are
+#     stored on GitHub, in the repository davidmegginson/ourairports-data").
+#   - That repository's LICENSE is The Unlicense (GitHub API: spdx_id Unlicense), a public-domain dedication.
+#   - airports.csv: HTTP 200 text/csv, 12,735,652 bytes, ETag "6ac1b1b9-c254a4", Last-Modified Sun, 04 Oct 2026
+#     01:54:01 GMT; 86,185 rows, 9,051 with an IATA code. Columns: id, ident, type, name, latitude_deg, longitude_deg,
+#     elevation_ft, continent, iso_country, iso_region, municipality, scheduled_service, icao_code, iata_code,
+#     gps_code, local_code, home_link, wikipedia_link, keywords.
+#   - The repository README notes that GitHub changes a file's date only when its contents change, so the ETag is a
+#     reliable change signal.
+# Coordinates are community-edited, with no guarantee of accuracy (the terms say so); a route whose airport is missing
+# or closed shows "No data", never a substitute airport.
+id: ourairports
+title: OurAirports open data (airports)
+publisher: OurAirports (David Megginson and contributors)
+landing_url: https://ourairports.com/data/
+description: >-
+  Every airport, heliport and seaplane base in the OurAirports database with its latitude and longitude (decimal
+  degrees), type (large, medium or small airport, heliport, seaplane base, closed), ICAO, IATA and local codes, country
+  (ISO 3166-1 alpha-2), region and whether it has scheduled service. Used only for the coordinates of airports with
+  IATA codes, to compute great-circle distances between them. Community-maintained and regenerated every night.
+citation:
+  type: dataset
+  title: OurAirports open data downloads (airports.csv)
+  author:
+    - {literal: OurAirports}
+  issued: "2026"
+  publisher: OurAirports
+  URL: https://ourairports.com/data/
+  # OurAirports asks for no particular citation (credit is optional); this names the file and the access date.
+  text: OurAirports, airports.csv (nightly data dump), https://ourairports.com/data/, accessed {date_accessed}.
+licence_class: open
+licence:
+  name: Public domain (OurAirports terms of use; The Unlicense on the data repository)
+  spdx: Unlicense
+  url: https://unlicense.org/
+evidence:
+  terms_url: https://ourairports.com/data/
+  licence_quote: All data is released to the Public Domain, and comes with no guarantee of accuracy or fitness for use.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # Credit is optional under the terms; the site gives it anyway.
+  attribution: Airport locations from OurAirports (ourairports.com), public domain, accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from airport locations in OurAirports (ourairports.com), public domain,
+    accessed {date_accessed}.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: airports
+    url: https://davidmegginson.github.io/ourairports-data/airports.csv
+    format: csv
+    description: >-
+      airports.csv: one row per airport with coordinates (latitude_deg, longitude_deg), type, iso_country,
+      scheduled_service, icao_code and iata_code; about 12.7 MB. Column definitions:
+      https://ourairports.com/help/data-dictionary.html.
+status:
+  state: active
+  note: >-
+    Regenerated every night from the community-edited OurAirports database; the data repository was last updated on
+    4 October 2026. Privately run, not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Daily (nightly data dump; the file changes only when the data change)
+twins: []
+research_ref: docs/research/plan-critique-2026-10-04.txt (flight calculator fix, OurAirports airports.csv)

@@ -1,0 +1,69 @@
+# Ember yearly electricity data (global file): generation, shares, lifecycle emissions and intensity by country.
+# Evidence: docs/research/sources-energy.json ("Ember – Yearly Electricity Data"), re-checked 2026-10-04.
+# Licence: the Creative Commons page linked from every ember-energy.org footer (GET 200 on 2026-10-04). The API spec
+# at https://api.ember-energy.org/v1/openapi.json agrees: info.license.name "CC-BY-4.0 (data)", and its "License and
+# Attribution" section says "Anyone is able to use our data for any purpose (personal, commercial, etc.)".
+# Ember publishes no fixed citation string. citation.text follows the example form in that API section
+# ('Monthly electricity generation data, Ember'). Ember publishes no version label either: {version} is the file's
+# HTTP Last-Modified date.
+id: ember-yearly
+title: Yearly electricity data
+publisher: Ember
+landing_url: https://ember-energy.org/data/yearly-electricity-data/
+description: >-
+  Annual electricity generation by source (terawatt-hours), share of generation, installed capacity, lifecycle
+  emissions (MtCO2e) and emissions intensity (gCO2e per kWh) for 224 countries, economies and regions, 1985 to 2025.
+  Country coverage thins in the latest years: in the file of 22 September 2026, "Total generation" has values for
+  208 countries in 2023, 194 in 2024 and 93 in 2025, so the 2025 World and regional values are partly Ember's
+  estimates and each country's latest year must be shown. Emissions are lifecycle CO2-equivalent (UNECE factors), not
+  combustion CO2, and are never added to Global Carbon Project values. The Capacity (GW) column is compiled from
+  IRENA and Global Energy Monitor; capacity indicators use those sources directly.
+citation:
+  type: dataset
+  title: Yearly electricity data
+  author:
+    - {literal: Ember}
+  issued: "2026"
+  publisher: Ember
+  version: "{version}"
+  URL: https://ember-energy.org/data/yearly-electricity-data/
+  text: Yearly electricity generation data, Ember
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://ember-energy.org/creative-commons/
+  licence_quote: >-
+    Ember content is released under a Creative Commons Attribution Licence (CC-BY-4.0) This means you’re free to share
+    and adapt our work – as long as you credit us.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: Ember, Yearly Electricity Data (file of {version}), CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Ember, Yearly Electricity Data (file of {version}), CC BY 4.0.
+  mirror_raw: true
+  # The same page: "If you would like to use our logo, we ask that you request permission."
+  no_logo: true
+acquisition: automatic
+artifacts:
+  # HEAD 200 on 2026-10-04: 16,084,305 bytes, Last-Modified Tue 22 Sep 2026, ETag from Google Cloud Storage.
+  - id: generation-yearly-global
+    url: https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv
+    format: csv
+    description: >-
+      One row per area, year and source, with generation, share, capacity, emissions and intensity as columns
+      (wide release format). The Europe-only file (release_generation_yearly_lower.csv) and the legacy long-format
+      file (last modified 23 June 2026) are not used.
+status:
+  state: active
+  note: >-
+    Updated about twice a month; the landing page says "Last Updated: 15/09/2026" and the file was last modified on
+    22 September 2026. Philanthropically funded, not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Rolling updates about twice a month; main annual release in April with the Global Electricity Review
+# No twin: Ember compiles its generation figures partly from EIA, UN, Eurostat and Energy Institute data, so agreement
+# with eia-international or unsd-energy is not an independent check.
+research_ref: docs/research/sources-energy.json#Ember – Yearly Electricity Data

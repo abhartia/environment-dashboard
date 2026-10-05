@@ -1,0 +1,77 @@
+# Natural Earth 1:50m cultural vectors: admin-0 countries (polygons) and admin-0 tiny countries (points), for the world
+# map. Joined to the site's entities on ISO_A3_EH, then ADM0_A3.
+# Evidence: docs/research/sources-country-and-local.json ("Natural Earth (admin-0 countries, admin-1
+# states/provinces)"); verdict "confirmed", final_redistribution open-public-domain.
+# Checked 2026-10-04:
+#   - Terms of use (https://www.naturalearthdata.com/about/terms-of-use/, HTTP 200), quoted below; credit is optional
+#     ("Crediting the authors is unnecessary"), with the suggested short and long credit texts.
+#   - ne_50m_admin_0_countries.zip: HTTP 200, 799,734 bytes, ETag "a33f3bf62d90e1916ebc16fe38959165", Last-Modified
+#     13 May 2022 (release v5.1.2, the latest; the GitHub master VERSION reads 5.2.0-pre). The zip's own VERSION.txt
+#     reads 5.1.1. Shapefile with 242 features; fields include ADM0_A3, ISO_A3, ISO_A3_EH, ADM0_ISO and FCLASS_ISO.
+#   - ne_50m_admin_0_tiny_countries.zip: HTTP 200, 48,343 bytes, ETag "c4bdbafd98a90942438a80af2e84acab", same date;
+#     76 point features with the same identifier fields.
+#   - Point of view: these files show Natural Earth's default de facto boundaries. Natural Earth's country-specific
+#     point-of-view files exist only at 1:10m (naciscdn 50m point-of-view paths answer HTTP 403; the v5.1.2
+#     50m_cultural folder has none), so the stated point of view is Natural Earth's default, said on every map.
+id: natural-earth
+title: Natural Earth admin-0 countries and tiny countries (1:50m)
+publisher: Natural Earth (NACIS volunteers; Tom Patterson and Nathaniel Vaughn Kelso, primary authors)
+landing_url: https://www.naturalearthdata.com/downloads/50m-cultural-vectors/
+description: >-
+  Country outlines at 1:50 million scale with Natural Earth's identifiers (ADM0_A3, ISO_A3, ISO_A3_EH), plus point
+  locations for countries too small to draw at that scale. Boundaries follow Natural Earth's default "de facto" point
+  of view; disputed areas are drawn as Natural Earth draws them, and the map says so. Last released in May 2022
+  (version 5.1.2).
+citation:
+  type: dataset
+  title: Natural Earth 1:50m Cultural Vectors (Admin 0 – Countries; Admin 0 – Tiny countries)
+  author:
+    - {literal: Natural Earth}
+  issued: "2022-05-13"
+  publisher: Natural Earth
+  version: 5.1.2
+  URL: https://www.naturalearthdata.com/
+  # The "Long text" credit the terms of use suggest, verbatim.
+  text: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
+licence_class: open
+licence:
+  name: Public domain (Natural Earth terms of use)
+  spdx: null
+  url: https://www.naturalearthdata.com/about/terms-of-use/
+evidence:
+  terms_url: https://www.naturalearthdata.com/about/terms-of-use/
+  licence_quote: >-
+    All versions of Natural Earth raster + vector map data found on this website are in the public domain. You may use
+    the maps in any manner, including modifying the content and design, electronic dissemination, and offset printing.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # Optional under the terms; given anyway, in the form Natural Earth suggests.
+  attribution: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
+  attribution_modified: >-
+    Simplified by Environment Dashboard from Natural Earth (version 5.1.2, de facto boundaries). Made with Natural
+    Earth. Free vector and raster map data @ naturalearthdata.com.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: admin-0-countries-50m
+    url: https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip
+    format: zip
+    description: >-
+      ne_50m_admin_0_countries.zip: shapefile (.shp, .shx, .dbf, .prj, .cpg) of 242 countries and areas, with
+      README and VERSION files. 799,734 bytes.
+  - id: admin-0-tiny-countries-50m
+    url: https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_tiny_countries.zip
+    format: zip
+    description: >-
+      ne_50m_admin_0_tiny_countries.zip: shapefile of 76 points for countries and areas too small to show as polygons
+      at 1:50m. 48,343 bytes.
+status:
+  state: active
+  note: >-
+    Volunteer-maintained; no release since version 5.1.2 (13 May 2022). The next version (5.2.0) is in preparation on
+    GitHub with no announced date. Not a US federal programme.
+  us_federal: false
+update_cadence: Irregular (last release May 2022)
+twins: []
+research_ref: docs/research/sources-country-and-local.json#Natural Earth (admin-0 countries, admin-1 states/provinces)

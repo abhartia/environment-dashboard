@@ -1,0 +1,134 @@
+# GWIS (Global Wildfire Information System) Country Profile: yearly burned area by land cover from NASA MODIS MCD64A1,
+# for the world and the five continents, from the JSON API behind gwis.jrc.ec.europa.eu/apps/country.profile.
+# Evidence: docs/research/sources-impacts.json ("Global Wildfire Information System (GWIS): country profiles ...";
+# verdict "confirmed", open-attribution) and the OWID entry in the same file (verdict "corrected"; OWID's GWIS series is
+# only a mirror and is not used: the licence comes from GWIS's own page).
+# Checked 2026-10-04:
+#   - gwis.jrc.ec.europa.eu/about-gwis/data-license -> 200, CC BY 4.0 text quoted below. The same page excludes
+#     "logos and names" from the reuse policy (no_logo).
+#   - The bulk file the app's Data downloads page lists, MCD64A1_burned_area_full_dataset_2002_2024.zip on
+#     effis-gwis-cms.s3.eu-west-1.amazonaws.com, returns 404 (as do the GlobFire, GFED, FAO and GFAS zips, the user
+#     guide, and 2002_2025 variants). Country values for all 251 countries are therefore not in this entry: the API
+#     serves one country per request, and the page offers no working bulk file. Adding countries waits for JRC to
+#     restore the zip or document the API (jrc-effis@ec.europa.eu).
+#   - The API is undocumented. The URLs below are exactly what the app requests (read from the app's network
+#     requests: level=ADM0&value=ITA&year=2024&yearFrom=2002&yearTo=2024&env=PROD for a country), with level=AOI for
+#     the areas the app lists (/api/v3/aoi?env=PROD: UN_AFR, UN_AME, UN_ASI, UN_EUR, UN_OCE, WORLD and others).
+#     All six return 200 JSON (125-134 kB) with no ETag or Last-Modified, so conditional is false. Not yet run from a
+#     GitHub runner.
+#   - The app currently shows 2002-2024; the API also returns 2025 when asked (yearTo=2025). In 2025 rows the
+#     GlobFire fields ba_area_ha, ba_count and firesize are 0.0 because that product has not been processed for 2025;
+#     those zeros are not measurements. The land-cover fields (lc1..lc5, lc_tot) come from MCD64A1 and are filled for
+#     2025. WORLD lc_tot for 2025 is 332,928,197.5 ha, the value OWID republishes.
+#   - Land-cover classes, from the app's own labels: lc1 Forest, lc2 Savannas, lc3 Shrublands/Grasslands,
+#     lc4 Croplands, lc5 Other. Values are hectares; lc1p..lc5p are percentages of lc_tot.
+#   - GWIS gives no recommended citation for this dataset (the downloads page's citation field for it is empty), so
+#     citation.text names the app and adds the upstream product's citation as DataCite returns it for
+#     doi:10.5067/MODIS/MCD64A1.061. MCD64A1 is a NASA product with no use restrictions.
+#   - Country and sub-national units in GWIS are GADM boundaries; only burned-area statistics are used here, never
+#     GADM geometry.
+id: gwis-burned-area
+title: "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)"
+publisher: European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)
+landing_url: https://gwis.jrc.ec.europa.eu/apps/country.profile
+description: >-
+  Area burned each year from 2002, in hectares, for the world and for each continent (Africa, Americas, Asia, Europe,
+  Oceania), split by land cover: forest, savannas, shrublands and grasslands, croplands and other. Mapped from NASA's
+  MODIS MCD64A1 Collection 6.1 monthly burned-area product at 500 metre resolution, which misses many small fires
+  and much cropland burning, so totals are lower than finer-resolution estimates. Each response also carries monthly
+  values and the 2002-2024 monthly range. Calendar years, unlike the March-February fire seasons of State of
+  Wildfires.
+citation:
+  type: dataset
+  title: "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)"
+  author:
+    - {literal: European Commission Joint Research Centre}
+  issued: "2026"
+  publisher: Global Wildfire Information System (GWIS)
+  URL: https://gwis.jrc.ec.europa.eu/apps/country.profile
+  text: >-
+    Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre,
+    https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed {date_accessed}. Burned area from Giglio, L.,
+    Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061
+    [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061
+licence_class: open
+licence:
+  name: CC BY 4.0 (European Commission reuse policy)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://gwis.jrc.ec.europa.eu/about-gwis/data-license
+  licence_quote: >-
+    Unless otherwise indicated (e.g. in individual copyright notices), content owned by the EU on this website is
+    licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is
+    allowed, provided appropriate credit is given and changes are indicated.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    © European Union, Global Wildfire Information System (GWIS), Country Profile,
+    https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed {date_accessed}, CC BY 4.0. Burned area from NASA
+    MODIS MCD64A1 v061 (Giglio et al. 2021, doi:10.5067/MODIS/MCD64A1.061).
+  attribution_modified: >-
+    Calculated by Environment Dashboard from © European Union, Global Wildfire Information System (GWIS), Country
+    Profile, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed {date_accessed}, CC BY 4.0. Burned area from
+    NASA MODIS MCD64A1 v061 (Giglio et al. 2021, doi:10.5067/MODIS/MCD64A1.061).
+  mirror_raw: true
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: banf-world
+    url: https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=WORLD&year=2025&yearFrom=2002&yearTo=2025&env=PROD
+    format: json
+    description: >-
+      World. banfyear holds one row per year 2002-2025 with lc1..lc5 and lc_tot (hectares burned by land cover,
+      MCD64A1) and ba_area_ha, ba_count, firesize (GlobFire; 0.0 in 2025, not processed). Also banfmonth,
+      banfmonthlyavg, monthlyburnedareavshistorical and fire-size distributions.
+    access:
+      conditional: false
+  - id: banf-africa
+    url: https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_AFR&year=2025&yearFrom=2002&yearTo=2025&env=PROD
+    format: json
+    description: Africa (UN continent UN_AFR), same structure as banf-world.
+    access:
+      conditional: false
+  - id: banf-americas
+    url: https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_AME&year=2025&yearFrom=2002&yearTo=2025&env=PROD
+    format: json
+    description: Americas (UN continent UN_AME), same structure as banf-world.
+    access:
+      conditional: false
+  - id: banf-asia
+    url: https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_ASI&year=2025&yearFrom=2002&yearTo=2025&env=PROD
+    format: json
+    description: Asia (UN continent UN_ASI), same structure as banf-world.
+    access:
+      conditional: false
+  - id: banf-europe
+    url: https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_EUR&year=2025&yearFrom=2002&yearTo=2025&env=PROD
+    format: json
+    description: >-
+      Europe (UN continent UN_EUR), same structure as banf-world. This is GWIS's MODIS-based Europe, not the EFFIS
+      estimate (source effis), and the two differ.
+    access:
+      conditional: false
+  - id: banf-oceania
+    url: https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_OCE&year=2025&yearFrom=2002&yearTo=2025&env=PROD
+    format: json
+    description: Oceania (UN continent UN_OCE), same structure as banf-world.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    GWIS is run by the European Commission's Joint Research Centre, with Copernicus, GEO and NASA as partners. Its
+    burned area depends entirely on NASA's MODIS MCD64A1 product, hence the US federal exposure. The app's bulk
+    downloads returned 404 when checked on 4 October 2026, and the year range in these URLs must be extended by hand
+    each year.
+  us_federal: true
+update_cadence: >-
+  Annual for completed years; on 4 October 2026 the app showed 2002-2024 while the API already held 2025 land-cover
+  values
+research_ref: >-
+  docs/research/sources-impacts.json#Global Wildfire Information System (GWIS): country profiles (burned area, fire
+  emissions)

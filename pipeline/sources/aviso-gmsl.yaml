@@ -1,0 +1,117 @@
+# AVISO+ reference global mean sea level (GMSL) from satellite altimetry, January 1993 to present.
+# Evidence: docs/research/sources-ocean-and-ice.json ("AVISO+ Global Mean Sea Level (MSL indicators, reference-mission
+# merged series)"); verifier verdict "corrected": the licence is the AVISO License Agreement Issue 20, CC BY-like but
+# explicitly not CC BY 4.0; section 3.2 bars re-sharing the original, unmodified product through a web portal, public
+# API or cloud platform without written authorisation from CNES. docs/research/plan-critique-2026-10-04.txt (first
+# problem) reaches the same result. Hence class open with mirror_raw: false: we publish only values we derive, never
+# the raw file, and the "Original file" link points at AVISO.
+# Licence evidence checked 2026-10-04: License_Aviso_ini.pdf, HTTP 200, 344,718 bytes, Last-Modified 11 Aug 2026,
+# "Issue 20 – August 2026", effective 10 August 2026. Section 2.1 grants reproducing and sharing the material and
+# producing and sharing adapted material "for any purpose, including commercial purposes". Section 3.1 requires credit
+# to the producer and CNES, a citation (product name, producer, DOI), a link to the licence and an indication of any
+# modification. Section 3.2 is the redistribution restriction above; it "does not restrict Sharing Adapted Material".
+# Section 2.6 bars implying endorsement by CNES, AVISO or any producer. Annex A puts only FES tide currents and POLYMER
+# ocean-colour products under non-commercial terms, so this indicator has the full grant. The MSL data-access page
+# links this PDF as "the licence agreement".
+# AVISO's stated rate (the evidence for the plan's published-value headline), product page fetched 2026-10-04, HTTP 200,
+# 51,308 bytes, byte-identical on two fetches: "The average sea level rise rate is 3.6 mm per year (+/-0.3 mm/yr,
+# 90%CI) over the globe and from 1999." The same page gives an acceleration of 0.8 +/- 0.4 mm/yr per decade (90% CI),
+# says "Since February 1993, the GMSL has risen by approximately 11 cm", and says the processing of the 1993-1999 part
+# of the record changed in the latest release. The verifier recorded the rate as "from 1993"; the page says "from 1999".
+# Our own check of the TXT (2026-10-04, 1,236 rows, 1993.011795 to 2026.621151): OLS slope 3.41 mm/yr over all rows and
+# 3.67 mm/yr over rows from 1999.0, consistent with AVISO's stated rate. The TXT msl column equals the NetCDF msl
+# variable exactly. The NetCDF's TPA_correction and amr_correction variables are the amounts to ADD to obtain the
+# uncorrected series (their long names say so), so the published series already includes the TOPEX-A and Jason-3
+# radiometer corrections; the verifier's suspicion that the TXT lacks them is not borne out.
+# Artifacts checked 2026-10-04: TXT HTTP 200, 66,422 bytes, ETag "10376-65ce67010f803", Last-Modified 3 Oct 2026,
+# answers If-None-Match with 304; NetCDF HTTP 200, 66,087 bytes, Last-Modified 3 Oct 2026, global attributes doi
+# https://doi.org/10.24400/527896/AVISO-2025.010, history "2026-09-26 01:49:18: created by aviso@altimetry.fr",
+# end_date 2026-08-15, gia_corrected True, filter_period "2 months", mission_name TP J1 J2 J3 S6A; product page HTTP 200
+# with no ETag or Last-Modified (so conditional: false). No registration is needed for these HTTPS paths.
+# citation.text: DataCite's APA citation for the indicator DOI (its rightsList is empty), then the credit line the
+# readme (AVISO_readme_msl_files.txt) asks for: "please mention url (https://aviso.altimetry.fr/msl) and credits (EU
+# Copernicus Marine Service/CNES/LEGOS/CLS)".
+id: aviso-gmsl
+title: AVISO reference global mean sea level from satellite altimetry
+publisher: CNES / AVISO+ (produced with CLS and LEGOS)
+landing_url: https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html
+description: >-
+  Global mean sea level anomaly (metres) from the reference altimetry missions TOPEX/Poseidon, Jason-1, Jason-2, Jason-3
+  and Sentinel-6 Michael Freilich, about every 10 days from January 1993, over roughly 66°S to 66°N. Corrected for
+  glacial isostatic adjustment, with annual and semi-annual signals removed and a 2-month filter applied. The TXT has no
+  header: decimal year, GMSL (m) and the uncertainty envelope (m). The newest rows are revised as the filter updates.
+  AVISO's own rate, 3.6 mm per year (±0.3, 90% confidence) "from 1999", is a published statement on the product page;
+  any rate we compute is ours and is labelled as such. The licence forbids re-hosting the unmodified file, so only
+  derived values are published.
+citation:
+  type: dataset
+  title: AVISO Global Mean Sea Level Indicator
+  author:
+    - {literal: CNES}
+    - {literal: CLS}
+  issued: "2026"
+  publisher: CNES
+  DOI: 10.24400/527896/AVISO-2025.010
+  URL: https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html
+  text: >-
+    CNES, & CLS. (2026). AVISO Global Mean Sea Level Indicator [Dataset]. CNES.
+    https://doi.org/10.24400/527896/AVISO-2025.010. Credits: EU Copernicus Marine Service/CNES/LEGOS/CLS,
+    https://aviso.altimetry.fr/msl
+licence_class: open
+licence:
+  name: AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0)
+  spdx: null
+  url: https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf
+evidence:
+  terms_url: https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf
+  licence_quote: >-
+    This is a distinct license — the AVISO License — that CNES has designed to give users CC-BY-like freedoms (use,
+    share, adapt, including for commercial purposes) while retaining one CNES-specific condition on bulk/operational
+    redistribution of the original data, described in Section 3.2 below.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    AVISO Global Mean Sea Level Indicator (CNES, CLS), doi:10.24400/527896/AVISO-2025.010; credits EU Copernicus Marine
+    Service/CNES/LEGOS/CLS, https://aviso.altimetry.fr/msl, accessed {date_accessed}. Licence: AVISO License Agreement
+    Issue 20, https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the AVISO Global Mean Sea Level Indicator (CNES, CLS),
+    doi:10.24400/527896/AVISO-2025.010; credits EU Copernicus Marine Service/CNES/LEGOS/CLS,
+    https://aviso.altimetry.fr/msl, accessed {date_accessed}. Modified from the original. Licence: AVISO License
+    Agreement Issue 20, https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf
+  mirror_raw: false
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: msl-global-filter2m-txt
+    url: https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.txt
+    format: txt
+    description: >-
+      Space-separated, no header: decimal year, GMSL anomaly (m), uncertainty envelope (m). GIA-adjusted, annual and
+      semi-annual signals removed, 2-month filter. 1,236 rows from 1993.011795 on 2026-10-04.
+  - id: msl-global-filter2m-nc
+    url: https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.nc
+    format: nc
+    description: >-
+      The same series as NetCDF (variables time, cycle, msl, uncertainty_envelop, amr_correction, TPA_correction),
+      with the DOI, creation date (history), end_date and mission list in its global attributes; the vintage comes
+      from here.
+  - id: msl-product-page
+    url: https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html
+    format: html
+    description: >-
+      AVISO's Mean Sea Level product page, kept for its stated rate and acceleration (the published-value headline)
+      and its notes on processing changes.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Rolling updates every few weeks: the files of 3 October 2026 (NetCDF created 26 September 2026) run to mid-August
+    2026. The page lists the switch to the L2P-DT-2024 upstream data in June 2025 and Sentinel-6 Michael Freilich from
+    January 2023. Produced in France by CNES, CLS and LEGOS.
+  us_federal: false
+update_cadence: Every few weeks (rolling; the newest rows are revised)
+twins: [nasa-ssh-gmsl]
+research_ref: docs/research/sources-ocean-and-ice.json#AVISO+ Global Mean Sea Level (MSL indicators, reference-mission merged series)

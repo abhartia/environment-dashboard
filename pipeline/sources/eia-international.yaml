@@ -1,0 +1,84 @@
+# US Energy Information Administration international energy data (bulk INTL.zip, keyless).
+# Evidence: docs/research/sources-energy.json ("U.S. EIA Open Data API v2 and bulk files"), re-checked 2026-10-04.
+# Licence: EIA "Copyrights and Reuse" page (GET 200 on 2026-10-04; a HEAD request gets an Akamai 503, so the weekly
+# check must use GET). Every one of the 104,434 series in INTL.txt carries "source": "EIA, U.S. Energy Information
+# Administration" and "copyright": "None", and the bulk manifest marks INTL "accessLevel": "public".
+# citation.text is EIA's requested acknowledgement form, verbatim apart from the date: the page's example is
+# "Source: U.S. Energy Information Administration (Oct 2008)." {version} is the month and year of the INTL release.
+# The keyless bulk file is used instead of API v2, which needs a key: it already holds total energy consumption by
+# fuel for every country (series INTL.44-2 and INTL.4411/4413/4415/4417/4418-2, quad Btu).
+id: eia-international
+title: International energy data
+publisher: U.S. Energy Information Administration
+landing_url: https://www.eia.gov/international/data/world
+description: >-
+  Production, consumption, trade, reserves, capacity and CO2 emissions by country and fuel for 265 country, region
+  and aggregate codes, in natural units, terawatt-hours and quadrillion Btu. Most series are annual, 1980 to 2024;
+  a few are monthly (to May 2026 in the file of 3 October 2026). Primary-energy
+  accounting: fossil fuels at their heat content; non-combustible renewable electricity (hydro, wind, solar,
+  geothermal, tide) at the heat content of the electricity, 3,412 Btu per kWh (the captured-energy approach); nuclear
+  at the heat input of nuclear plants. Checked in the file of 3 October 2026 for World 2024: wind 8.570 quad Btu from
+  2,511.7 billion kWh (3,412 Btu per kWh), hydro 3,412, nuclear 28.386 quad Btu from 2,735.1 billion kWh (10,379 Btu
+  per kWh). This differs from the Energy Institute's physical-energy-content totals and from the older
+  fossil-fuel-equivalent method, so series from different producers are never joined. World total energy consumption
+  2024 is 606.04 quad Btu; the by-fuel series sum to 607.48, and the gap is left as published.
+citation:
+  type: dataset
+  title: International Energy Data
+  author:
+    - {literal: U.S. Energy Information Administration}
+  issued: "2026"
+  publisher: U.S. Energy Information Administration
+  version: "{version}"
+  URL: https://www.eia.gov/international/data/world
+  text: "Source: U.S. Energy Information Administration ({version})."
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://www.eia.gov/about/copyrights_reuse.php
+  licence_quote: >-
+    U.S. government publications are in the public domain and are not subject to copyright protection. You may use
+    and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that
+    are on our website or that you receive through our email distribution service.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: "Source: U.S. Energy Information Administration ({version})."
+  attribution_modified: >-
+    Calculated by Environment Dashboard from U.S. Energy Information Administration international energy data
+    ({version}).
+  mirror_raw: true
+  # Same page: "The EIA logo is a registered trademark ... and may not be used without the expressed consent of the
+  # U.S. Energy Information Administration."
+  no_logo: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-04: 24,153,479 bytes, Last-Modified Sat 03 Oct 2026, ETag "80a6e6761c53dd1:0". The old
+  # https://api.eia.gov/bulk/INTL.zip returns 301 to this URL.
+  - id: intl-bulk
+    url: https://www.eia.gov/opendata/bulk/INTL.zip
+    format: zip
+    description: >-
+      INTL.txt (128.8 MB unzipped), one JSON object per line: 104,434 series plus category and geography records.
+      Missing values are the string "NA".
+  # GET 200 on 2026-10-04 (JSON served as text/plain). INTL "last_updated": "2026-09-30T21:20:54-04:00".
+  - id: bulk-manifest
+    url: https://www.eia.gov/opendata/bulk/manifest.txt
+    format: json
+    description: Manifest of all EIA bulk files; the INTL entry's last_updated is the release date of the bulk file.
+    max_bytes: 5000000
+status:
+  state: at-risk
+  note: >-
+    INTL.zip was refreshed on 3 October 2026 and the World series run to 2024. In 2025 EIA lost more than 100 of its
+    about 350 staff after buyouts and firings, cancelled the 2025 International Energy Outlook and delayed several
+    reports (Reuters, Argus, ProPublica, 2025). Every pull is archived.
+  us_federal: true
+update_cadence: >-
+  Annual series, each revised on its own schedule (in the file of 3 October 2026, 88,097 of 104,434 series were last
+  updated between January and September 2026)
+twins: [unsd-energy, energy-institute-review-2026]
+research_ref: docs/research/sources-energy.json#U.S. EIA Open Data API v2 and bulk files

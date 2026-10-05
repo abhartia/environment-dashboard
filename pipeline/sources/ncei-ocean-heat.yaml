@@ -1,0 +1,137 @@
+# NOAA NCEI global ocean heat content basin time series (Levitus, Boyer et al.; NCEI Accession 0164586).
+# Evidence: docs/research/sources-ocean-and-ice.json ("NOAA NCEI Global Ocean Heat Content (Levitus/Boyer basin time
+# series; NCEI Accession 0164586)"); verifier verdict "confirmed" (values, DOI, use agreement). The verifier's headline
+# check adds that 2025 is the record-high level of 0-2000 m heat content but the 2024-to-2025 gain (22.2 ZJ) is not a
+# record annual gain in this file (2017: +27.9 ZJ).
+# Licence evidence checked 2026-10-04: the Ocean Heat Content CDR use agreement (UseAgreement_01B-41.pdf, HTTP 200,
+# 22,692 bytes) states the CDR Program Open Data Policy quoted below and "urges" (does not require) an acknowledgement
+# and citation; it names the developers as scientists "at the National Centers for Environmental Information", so the
+# data are also a US federal government work. The NCEI archive record for accession 0164586 (where doi:10.7289/V53F4MVP
+# resolves; latest archive version v26.26, published 2026-07-28) gives only the citation and a liability disclaimer as
+# use constraints.
+# Artifacts checked 2026-10-04 (all HTTP 200 with ETag and Last-Modified, all answer If-None-Match with 304):
+#   yearly/h22-w0-700m.dat 4,104 bytes, Last-Modified 6 Jul 2026: 1955.500 -3.201 to 2025.500 22.845.
+#   yearly/h22-w0-2000m.dat 1,254 bytes, Last-Modified 6 Jul 2026: 2005.500 10.171 to 2025.500 32.533.
+#   pentad/pent_h22-w0-700m.dat and pent_h22-w0-2000m.dat 3,876 bytes each, Last-Modified 6 Jul 2026: 1957.5
+#     (1955-59) to 2023.5 (2021-25); 0-2000 m 2023.5 = 29.480.
+#   yearly/h22-a0-2000m.dat, h22-p0-2000m.dat, h22-i0-2000m.dat 1,254 bytes each, Last-Modified 6 Jul 2026.
+#   The 3-month files (3month/h22-w0-2000m1-3.dat etc.) run to 2026.125 (January-March 2026); the older
+#   3month/h22-w0-2000m.dat stops at 2010.5 (Last-Modified 9 Oct 2020) and is not used.
+# citation.text: the NCEI "Cite as" text from the accession record, with "[indicate subset used]" filled by the
+# product page's title and "[date]" by {date_accessed}, then the literature citation from the use agreement, verbatim.
+id: ncei-ocean-heat
+title: Global ocean heat content basin time series
+publisher: NOAA National Centers for Environmental Information (NCEI)
+landing_url: https://www.ncei.noaa.gov/access/global-ocean-heat-content/
+description: >-
+  Ocean heat content anomaly in units of 10^22 joules (1 unit = 10 zettajoules), with standard errors, for the 0-700 m
+  and 0-2000 m layers of the World Ocean and its Atlantic, Pacific and Indian basins, from in situ ocean temperature
+  profiles. Columns: year + 0.5 (or the middle of a five-year period), then World (or
+  basin), Northern and Southern Hemisphere values, each with its standard error. Yearly 0-700 m values start in 1955,
+  yearly 0-2000 m values in 2005; earlier 0-2000 m values exist only as five-year (pentadal) means from 1955-59. Values
+  are anomalies from NCEI's long-term climatology, so they describe change, not total heat.
+citation:
+  type: dataset
+  title: >-
+    NCEI ocean heat content, temperature anomalies, salinity anomalies, thermosteric sea level anomalies, halosteric
+    sea level anomalies, and total steric sea level anomalies from 1955 to present calculated from in situ
+    oceanographic subsurface profile data (NCEI Accession 0164586)
+  author:
+    - {family: Levitus, given: Sydney}
+    - {family: Antonov, given: John I.}
+    - {family: Boyer, given: Tim P.}
+    - {family: Baranova, given: Olga K.}
+    - {family: García, given: Hernán E.}
+    - {family: Locarnini, given: Ricardo A.}
+    - {family: Mishonov, given: Alexey V.}
+    - {family: Reagan, given: James R.}
+    - {family: Seidov, given: Dan}
+    - {family: Yarosh, given: Evgeney}
+    - {family: Zweng, given: Melissa M.}
+  issued: "2017"
+  publisher: NOAA National Centers for Environmental Information
+  DOI: 10.7289/V53F4MVP
+  URL: https://www.ncei.noaa.gov/archive/accession/0164586
+  text: >-
+    Levitus, Sydney; Antonov, John I.; Boyer, Tim P.; Baranova, Olga K.; García, Hernán E.; Locarnini, Ricardo A.;
+    Mishonov, Alexey V.; Reagan, James R.; Seidov, Dan; Yarosh, Evgeney; Zweng, Melissa M. (2017). NCEI ocean heat
+    content, temperature anomalies, salinity anomalies, thermosteric sea level anomalies, halosteric sea level
+    anomalies, and total steric sea level anomalies from 1955 to present calculated from in situ oceanographic
+    subsurface profile data (NCEI Accession 0164586). Global Ocean Heat and Salt Content - Seasonal, Yearly, and
+    Pentadal Fields. NOAA National Centers for Environmental Information. Dataset. https://doi.org/10.7289/v53f4mvp.
+    Accessed {date_accessed}. Levitus, S., J. I. Antonov, T. P. Boyer, O. K. Baranova, H. E. Garcia, R. A. Locarnini,
+    A.V. Mishonov, J. R. Reagan, D. Seidov, E. S. Yarosh, M. M. Zweng, 2012: World Ocean heat content and thermosteric
+    sea level change (0-2000 m) 1955-2010. Geophys. Res. Lett. , 39, L10603, doi:10.1029/2012GL051106.
+licence_class: open
+licence:
+  name: No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)
+  spdx: null
+  url: https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf
+evidence:
+  terms_url: https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf
+  licence_quote: >-
+    In line with these policies, the CDR data sets are non-proprietary, publicly available, and no restrictions are
+    placed upon their use.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    NOAA NCEI Ocean Heat Content Climate Data Record (Levitus, Antonov, Boyer et al.), NCEI Accession 0164586,
+    doi:10.7289/V53F4MVP, accessed {date_accessed}; Levitus et al. (2012), Geophys. Res. Lett. 39, L10603,
+    doi:10.1029/2012GL051106.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the NOAA NCEI Ocean Heat Content Climate Data Record (Levitus, Antonov,
+    Boyer et al.), NCEI Accession 0164586, doi:10.7289/V53F4MVP, accessed {date_accessed}; Levitus et al. (2012),
+    Geophys. Res. Lett. 39, L10603, doi:10.1029/2012GL051106.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: world-0-700m-yearly
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-700m.dat
+    format: txt
+    description: >-
+      World Ocean 0-700 m heat content anomaly, yearly from 1955 (10^22 J), fixed-width columns YEAR WO WOse NH NHse SH
+      SHse (year + 0.5; World, Northern and Southern Hemisphere values with standard errors).
+  - id: world-0-2000m-yearly
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-2000m.dat
+    format: txt
+    description: World Ocean 0-2000 m heat content anomaly, yearly from 2005 (10^22 J), same column layout.
+  - id: world-0-700m-pentadal
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-700m.dat
+    format: txt
+    description: >-
+      World Ocean 0-700 m heat content anomaly as five-year means from 1955-59 (first column is the middle year, e.g.
+      1957.5), same column layout.
+  - id: world-0-2000m-pentadal
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat
+    format: txt
+    description: >-
+      World Ocean 0-2000 m heat content anomaly as five-year means from 1955-59, the only 0-2000 m values before 2005.
+  - id: atlantic-0-2000m-yearly
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-a0-2000m.dat
+    format: txt
+    description: >-
+      Atlantic Ocean 0-2000 m heat content anomaly, yearly from 2005 (10^22 J); columns YEAR AO AOse NA NAse SA SAse
+      (basin, then its northern and southern halves, each with a standard error).
+  - id: pacific-0-2000m-yearly
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-p0-2000m.dat
+    format: txt
+    description: >-
+      Pacific Ocean 0-2000 m heat content anomaly, yearly from 2005 (10^22 J); columns YEAR PO POse NP NPse SP SPse
+      (basin, then its northern and southern halves, each with a standard error).
+  - id: indian-0-2000m-yearly
+    url: https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-i0-2000m.dat
+    format: txt
+    description: >-
+      Indian Ocean 0-2000 m heat content anomaly, yearly from 2005 (10^22 J); columns YEAR IO IOse NI NIse SI SIse
+      (basin, then its northern and southern halves, each with a standard error).
+status:
+  state: active
+  note: >-
+    Updated quarterly: the yearly and pentadal files were last revised on 6 July 2026 (adding 2025), and the 3-month
+    files run to January-March 2026. The FY2027 US budget request (April 2026) proposes cutting NCEI by $17.8 million,
+    keeping core archive functions while reducing "engagement services, tailored products".
+  us_federal: true
+update_cadence: Quarterly (yearly values once a year; 2025 was added in July 2026)
+twins: []
+research_ref: docs/research/sources-ocean-and-ice.json#NOAA NCEI Global Ocean Heat Content (Levitus/Boyer basin time series; NCEI Accession 0164586)

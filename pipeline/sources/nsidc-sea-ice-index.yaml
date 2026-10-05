@@ -1,0 +1,125 @@
+# NOAA@NSIDC Sea Ice Index, Version 4 (G02135): Arctic and Antarctic sea ice extent, daily from October 1978.
+# Evidence: docs/research/sources-ocean-and-ice.json ("Sea Ice Index, Version 4 (G02135)"); verifier verdict
+# "corrected": not public domain, because the landing page makes citation a condition of use (class open with
+# attribution). Also from the verifier: each daily value comes from a 3-day centred window of input files, so the
+# newest one or two days are revised; the daily CSV header still names NSIDC-0081/0051 although rows from 1 January
+# 2025 come from NSIDC-0803 (AMSR2), so the per-row Source Data column is the one to read.
+# Licence evidence checked 2026-10-04: the G02135 v4 landing page (HTTP 200) states the condition quoted below. NSIDC's
+# Citation Policies page (nsidc.org/about/data-use-and-copyright) repeats "As a condition of use, NSIDC requests that
+# authors include a data citation"; its Data Policies page says "Most of the data held by NSIDC are government-funded
+# and in the public domain" and that NSIDC flags any copyright restriction in the data set documentation. Neither the
+# landing page nor the v4 user guide states a restriction on copying or redistribution, so the raw files may be
+# mirrored with the citation.
+# Artifacts checked 2026-10-04 (all HTTP 200 with ETag and Last-Modified, answer If-None-Match with 304):
+#   north and south daily extent CSVs: 1,902,460 and 1,830,606 bytes, Last-Modified 4 Oct 2026 10:44 UTC; the north
+#     file's last row is 2026-10-03, 5.771 million km2.
+#   north and south 1981-2010 daily climatology CSVs: 34,520 bytes each, Last-Modified 2 Oct 2026.
+#   monthly CSVs N_03, N_09, S_02, S_09: 2,352 bytes each, Last-Modified 2 Oct 2026; N_09 runs 1979 (7.05) to 2026
+#     (4.81, NSIDC-0803); S_09 2026 = 17.32.
+# The v4 user guide (g02135-v004-userguide.pdf) says AMSR2 data are the input from 1 January 2025, monthly extent is
+# computed from a monthly mean concentration field (not the mean of daily extents), and NSIDC's own daily analysis
+# uses a 5-day trailing mean.
+# citation.text: the landing page's citation with "[ describe subset used if applicable ]" filled and "Date Accessed"
+# given as {date_accessed}.
+id: nsidc-sea-ice-index
+title: Sea Ice Index, Version 4 (G02135)
+publisher: NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder)
+landing_url: https://nsidc.org/data/g02135/versions/4
+description: >-
+  Sea ice extent (area of ocean with at least 15% ice concentration) and sea ice area, in million km2, for the Northern
+  and Southern Hemispheres, from passive microwave satellite data on a 25 km grid: every other day from 26 October
+  1978 to 20 August 1987, daily after that (no data from 3 December 1987 to 13 January 1988). Daily files carry extent
+  and a 1981-2010 daily climatology (mean, standard deviation
+  and percentiles); monthly files give one value per year for a calendar month. From 1 January 2025 the input is JAXA's
+  AMSR2 (NSIDC-0803) instead of the DMSP SSMIS record (NSIDC-0051), which the source column of each row records.
+  Recent daily values are revised for a day or two. Not interchangeable with OSI SAF's index, which uses a different
+  algorithm; the two are shown as separate lines.
+citation:
+  type: dataset
+  title: Sea Ice Index (G02135, Version 4)
+  author:
+    - {family: Fetterer, given: F.}
+    - {family: Knowles, given: K.}
+    - {family: Meier, given: W. N.}
+    - {family: Savoie, given: M.}
+    - {family: Windnagel, given: A. K.}
+    - {family: Stafford, given: T.}
+  issued: "2025"
+  publisher: National Snow and Ice Data Center
+  version: "4"
+  DOI: 10.7265/a98x-0f50
+  URL: https://doi.org/10.7265/a98x-0f50
+  text: >-
+    Fetterer, F., Knowles, K., Meier, W. N., Savoie, M., Windnagel, A. K. & Stafford, T. (2025). Sea Ice Index.
+    (G02135, Version 4). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center.
+    https://doi.org/10.7265/a98x-0f50. Daily and monthly sea ice extent, Northern and Southern Hemispheres. Date
+    Accessed {date_accessed}.
+licence_class: open
+licence:
+  name: No licence stated; free use with citation as a condition of use (NSIDC)
+  spdx: null
+  url: https://nsidc.org/about/data-use-and-copyright
+evidence:
+  terms_url: https://nsidc.org/data/g02135/versions/4
+  licence_quote: >-
+    As a condition of using these data, you must cite the use of this data set. Such a practice gives credit to data
+    set producers and advances principles of transparency and reproducibility.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and
+    Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice
+    Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed
+    {date_accessed}.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: north-daily-extent
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv
+    format: csv
+    description: >-
+      Arctic daily extent and missing area (million km2) from 26 October 1978, with the input files of each day's
+      3-day window in the last column. Two header rows.
+  - id: north-daily-climatology
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_climatology_1981-2010_v4.0.csv
+    format: csv
+    description: >-
+      Arctic 1981-2010 daily climatology by day of year: average extent, standard deviation and 10th, 25th, 50th, 75th
+      and 90th percentiles (million km2).
+  - id: south-daily-extent
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/south/daily/data/S_seaice_extent_daily_v4.0.csv
+    format: csv
+    description: Antarctic daily extent and missing area (million km2) from 26 October 1978, same layout.
+  - id: south-daily-climatology
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/south/daily/data/S_seaice_extent_climatology_1981-2010_v4.0.csv
+    format: csv
+    description: Antarctic 1981-2010 daily climatology by day of year, same layout.
+  - id: north-monthly-march
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_03_extent_v4.0.csv
+    format: csv
+    description: Arctic March (around the yearly maximum) extent and area by year from 1979 (million km2).
+  - id: north-monthly-september
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv
+    format: csv
+    description: Arctic September (around the yearly minimum) extent and area by year from 1979 (million km2).
+  - id: south-monthly-february
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/south/monthly/data/S_02_extent_v4.0.csv
+    format: csv
+    description: Antarctic February (around the yearly minimum) extent and area by year from 1979 (million km2).
+  - id: south-monthly-september
+    url: https://noaadata.apps.nsidc.org/NOAA/G02135/south/monthly/data/S_09_extent_v4.0.csv
+    format: csv
+    description: Antarctic September (around the yearly maximum) extent and area by year from 1979 (million km2).
+status:
+  state: at-risk
+  note: >-
+    Updated daily (the 4 October 2026 file runs to 3 October). The landing page says the data set was "recently
+    downgraded to a 'Basic' Level of Service" because of funding limitations: data integrity is still verified, but
+    support is limited. Funded by NOAA; Version 4 (released July 2025) moved to AMSR2 input from 1 January 2025.
+  us_federal: true
+update_cadence: Daily (monthly files after each month ends)
+twins: [osisaf-sea-ice-index]
+research_ref: docs/research/sources-ocean-and-ice.json#Sea Ice Index, Version 4 (G02135)

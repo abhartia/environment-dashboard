@@ -1,0 +1,92 @@
+# UNEP Food Waste Index Report 2024 (SDG 12.3.1b): food waste at household, food service and retail level in 2022,
+# global and by country.
+# Evidence: docs/research/sources-food-land-nature.json ("UNEP Food Waste Index Report 2024 (SDG 12.3.1b) via UN SDG
+# API"); verdict "corrected", final_redistribution noncommercial-only.
+# Class decision: noncommercial. The report's own notice (quoted below) allows reproduction "in whole or in part and in
+# any form for educational or non-profit services" with acknowledgement, and forbids resale or any commercial use
+# without UNEP's written permission. That is a custom non-commercial licence that permits derived values and
+# downloads on this non-commercial site, carrying those terms, so display-only is not needed. The same page adds: "The
+# use of information from this document for publicity or advertising is not permitted." (in notice).
+# How the terms were read: unep.org and wedocs.unep.org answered HTTP 403 to every scripted request on 2026-10-04
+# (handle page, REST API, bitstream). The quote was copied verbatim from the report PDF itself, as captured by the
+# Internet Archive from the wedocs bitstream URL (captures 20240328101605, 26,521,890 bytes, ModDate 2024-03-27; and
+# 20240519214314, 5,443,651 bytes, ModDate 2024-03-29, a re-saved copy; both carry the same notice). Because the
+# producer's file cannot be fetched by a script, terms_check is manual (quarterly check by a person).
+# Route rejected: the UN SDG Global Database API (unstats.un.org/sdgapi, series AG_FOOD_WST and AG_FOOD_WST_PC) carries
+# the same 2022 values (World ALL 1,051,962,676 t; 131.91 kg per person), but that site is governed by the UN Terms of
+# Use (footer link www.un.org/en/aboutun/terms/: personal, non-commercial use, no redistribution or derivative works),
+# not by UNEP's notice. So the numbers come from UNEP's own PDF, acquired by hand.
+# mirror_raw is false: the PDF contains maps, photos and illustrations under other copyrights ("© Maps, photos and
+# illustrations as specified"), so the unmodified file is not re-hosted.
+id: unep-food-waste-index-2024
+title: Food Waste Index Report 2024
+publisher: United Nations Environment Programme (UNEP), with WRAP
+landing_url: https://wedocs.unep.org/handle/20.500.11822/45230
+description: >-
+  Estimates of food waste (food and associated inedible parts such as bones and peels) in 2022 at household, food
+  service (out-of-home consumption) and retail level: global tonnes and kilograms per person per year, averages by
+  income group and region, and household estimates by country with a confidence rating (many country values are
+  extrapolated). SDG indicator 12.3.1b, with UNEP as custodian. The 2019 estimates of the 2021 report used different
+  data and methods, so the two editions are not a trend.
+citation:
+  type: report
+  title: >-
+    Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste
+  author:
+    - {literal: United Nations Environment Programme}
+  issued: "2024-03-27"
+  publisher: United Nations Environment Programme
+  URL: https://wedocs.unep.org/20.500.11822/45230
+  # "Suggested citation" on the report's copyright page.
+  text: >-
+    United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to
+    Halve Global Food Waste. Nairobi.
+licence_class: noncommercial
+licence:
+  name: UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)
+  spdx: null
+  url: https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf
+evidence:
+  terms_url: https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf
+  licence_quote: >-
+    This publication may be reproduced in whole or in part and in any form for educational or non-profit services
+    without special permission from the copyright holder, provided acknowledgement of the source is made.
+  checked_on: 2026-10-04
+  terms_check: manual
+obligations:
+  attribution: >-
+    United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to
+    Halve Global Food Waste. Nairobi. https://wedocs.unep.org/20.500.11822/45230
+  attribution_modified: >-
+    Calculated by Environment Dashboard from United Nations Environment Programme (2024). Food Waste Index Report
+    2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi.
+    https://wedocs.unep.org/20.500.11822/45230
+  notice: >-
+    © 2024 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No
+    use for resale or any other commercial purpose without prior written permission from UNEP; use of this
+    information for publicity or advertising is not permitted.
+  mirror_raw: false
+acquisition: manual
+artifacts:
+  - id: report-pdf
+    url: null
+    format: pdf
+    description: >-
+      The English report (191 pages): Table 1 and Table 23 give global food waste in 2022 by sector (tonnes and kg per
+      person per year); Annex 3 lists household estimates by country (M49 code, kg per person per year, tonnes per
+      year, confidence). Country food service and retail tables are in the report's separate Appendix, which is not
+      registered here. A person opens
+      https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, downloads
+      food_waste_index_report_2024.pdf (the English file, not the _PT or _SP translations), and records it with
+      `uv run envdash snapshot add --source unep-food-waste-index-2024 --file food_waste_index_report_2024.pdf`.
+status:
+  state: active
+  note: >-
+    Published 27 March 2024 with 2022 data; no later edition found on 2026-10-04 (editions so far: 2021 and 2024).
+    UNEP is not on the January 2026 US withdrawal memorandum. The research behind the report was co-funded by the
+    Swiss Federal Office for Agriculture and the US Environmental Protection Agency.
+  us_federal: false
+update_cadence: Irregular (2021 and 2024 editions)
+twins: []
+research_ref: >-
+  docs/research/sources-food-land-nature.json#UNEP Food Waste Index Report 2024 (SDG 12.3.1b) via UN SDG API

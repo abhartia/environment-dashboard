@@ -1,0 +1,134 @@
+# EFFIS (European Forest Fire Information System) burnt-area estimates for Europe, from the JSON API behind the EFFIS
+# Statistics Portal, plus the JRC's Advance report on the 2025 fire season.
+# Evidence: docs/research/sources-impacts.json, verification.missing_sources item 1 (EFFIS, CC BY 4.0 verified on
+# /about-effis/data-license; the primary source for Europe's 2025 record, Advance report doi:10.2760/3859043), and the
+# "State of Wildfires 2025-26" verdict (the Europe figure quoted there is EFFIS's, not State of Wildfires').
+# Checked 2026-10-04:
+#   - forest-fire.emergency.copernicus.eu/about-effis/data-license -> 200, CC BY 4.0 text quoted below; "logos and
+#     names" are excluded from the reuse policy (no_logo). The Advance report's imprint (PDF p. 2) says the same:
+#     "Unless otherwise noted, the reuse of this document is authorised under the Creative Commons Attribution 4.0
+#     International (CC BY 4.0) licence". No third-party photo credits found in the PDF text.
+#   - The API is undocumented. The URLs are those the Statistics Portal (apps/effis.statistics/estimates) requests,
+#     read from its network requests; countries per area come from /statistics/utils/countriesbyaoi?aoi=effis (EU: 27
+#     members; Non_EU: ALB, AND, BIH, XKO, MNE, MKD, NOR, SRB, CHE, TUR, UKR, GBR). All three return 200 JSON with
+#     no ETag or Last-Modified (conditional false). Not yet run from a GitHub runner.
+#   - estimatesbycountry returns the same values with or without firesize=30; the portal labels them "Fires mapped in
+#     EFFIS of approx. 30 ha or larger". The series include the current year to date (2026: EU 689,324 ha on
+#     2026-10-04), which is a partial year. In the 2025 country overview the per-country values sum exactly to the EU
+#     (1,034,552 ha) and Non_EU (1,006,799 ha) totals; seven countries (AND, CZE, EST, LTU, LUX, MLT, CHE) have null
+#     ba, which the portal shows as blank.
+#   - Advance report PDF via the Publications Office download handler (Cellar id 15c8033e-2c3e-11f1-906d-01aa75ed71a1):
+#     200, application/pdf, 12,361,294 bytes, sha256 6e0a50e90ede5d507f34dbc00a567a63760d927252473f365ed41bae76082353,
+#     75 pages. Its abstract says the complete 2025 analysis with the EFFIS country network follows "in the last
+#     quarter of 2026" (no date, so no next_release).
+#   - citation.text: "How to cite this report" from the Advance report (p. 2). The authors are the 16 the DOI's CSL
+#     record lists (it also lists "European Commission. Joint Research Centre" as an institutional author).
+id: effis
+title: European Forest Fire Information System (EFFIS) burnt-area estimates
+publisher: European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service
+landing_url: https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates
+description: >-
+  Area burnt (hectares) and number of fires mapped by EFFIS from satellite imagery, for fires of about 30 hectares or
+  larger, every year from 2006. Two series: the 27 EU member states together, and 12 other European countries
+  together (including Türkiye, Ukraine and the United Kingdom). A third file gives each of those 39 countries' 2025
+  total next to its 2006-2024 average. Fires burning natural land are counted, including prescribed burns; values
+  differ from national statistics, and from GWIS's MODIS-based Europe totals. The Advance report gives the JRC's
+  analysis of the 2025 season.
+citation:
+  type: report
+  title: Advance report on forest fires in Europe, Middle East and North Africa 2025
+  author:
+    - {family: Sedano, given: Fernando}
+    - {family: Maianti, given: Pieralberto}
+    - {family: Boca, given: Roberto}
+    - {family: Suarez-Moreno, given: Maria}
+    - {family: Broglia, given: Marco}
+    - {family: de Rigo, given: Daniele}
+    - {family: Roglia, given: Elena}
+    - {family: Branco, given: Alfredo}
+    - {family: San-Miguel-Ayanz, given: Jesús}
+    - {family: Durrant, given: Tracy}
+    - {family: Ferrari, given: Davide}
+    - {family: Scionti, given: Nicola}
+    - {family: Nikonovas, given: Tadas}
+    - {family: Oom, given: Duarte}
+    - {family: Artés Vivancos, given: Tomàs}
+  issued: "2026"
+  publisher: Publications Office of the European Union
+  DOI: 10.2760/3859043
+  URL: https://data.europa.eu/doi/10.2760/3859043
+  text: >-
+    Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe,
+    Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026,
+    https://data.europa.eu/doi/10.2760/3859043, JRC146199.
+licence_class: open
+licence:
+  name: CC BY 4.0 (European Commission reuse policy)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://forest-fire.emergency.copernicus.eu/about-effis/data-license
+  licence_quote: >-
+    Unless otherwise indicated (e.g. in individual copyright notices), content owned by the EU on this website is
+    licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is
+    allowed, provided appropriate credit is given and changes are indicated.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    © European Union, European Forest Fire Information System (EFFIS), https://forest-fire.emergency.copernicus.eu,
+    accessed {date_accessed}, CC BY 4.0. Sedano et al., Advance report on Forest Fires in Europe, Middle East and North
+    Africa 2025, Publications Office of the European Union, 2026, doi:10.2760/3859043.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from © European Union, European Forest Fire Information System (EFFIS),
+    https://forest-fire.emergency.copernicus.eu, accessed {date_accessed}, CC BY 4.0. Sedano et al., Advance report on
+    Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, 2026,
+    doi:10.2760/3859043.
+  mirror_raw: true
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: estimates-eu
+    url: https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=EU
+    format: json
+    description: >-
+      EU-27 total, one object per year from 2006: year, ba (hectares burnt), nf (number of fires mapped). The last year
+      is the current year to date.
+    access:
+      conditional: false
+  - id: estimates-non-eu
+    url: https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=Non_EU
+    format: json
+    description: >-
+      Total for the 12 European countries outside the EU that EFFIS covers (ALB, AND, BIH, XKO, MNE, MKD, NOR, SRB,
+      CHE, TUR, UKR, GBR), same structure as estimates-eu.
+    access:
+      conditional: false
+  - id: overview-2025-europe
+    url: https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesoverview?countries=AUT,BEL,BGR,HRV,CYP,CZE,DNK,EST,FIN,FRA,DEU,GRC,HUN,IRL,ITA,LVA,LTU,LUX,MLT,NLD,POL,PRT,ROU,SVK,SVN,ESP,SWE,ALB,AND,BIH,XKO,MNE,MKD,NOR,SRB,CHE,TUR,UKR,GBR&year=2025&yearFrom=2006&yearTo=2024&firesize=30
+    format: json
+    description: >-
+      One object per country for the 39 countries above: ba and nf in 2025, ba_avg and nf_avg over 2006-2024, the
+      same as percentages of the country's area (ba_p, ba_avg_p), area_ha and min_year. A null ba means EFFIS shows
+      no value for that country.
+    access:
+      conditional: false
+  - id: advance-report-2025
+    url: https://op.europa.eu/o/opportal-service/download-handler?identifier=15c8033e-2c3e-11f1-906d-01aa75ed71a1&format=pdf&language=en&productionSystem=cellar&part=
+    format: pdf
+    description: >-
+      Advance report on forest fires in Europe, Middle East and North Africa 2025 (JRC146199, EUR 40665, 75 pages),
+      for statements quoted with their page.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    EFFIS is the European Commission's fire information service under Copernicus. The full 2025 report with national
+    statistics from the EFFIS country network is due in the last quarter of 2026; the year in the overview URL must be
+    moved on by hand. Not a US federal product.
+  us_federal: false
+update_cadence: >-
+  Continuous during the fire season; an advance report on the past season early in the year and the full report in
+  the last quarter
+research_ref: "docs/research/sources-impacts.json#verification.missing_sources (1) EFFIS"

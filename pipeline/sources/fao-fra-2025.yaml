@@ -1,0 +1,108 @@
+# FAO Global Forest Resources Assessment 2025 (FRA 2025): country-reported forest statistics from the FRA platform,
+# and FAO's published global estimates from the main report.
+# Evidence: docs/research/sources-food-land-nature.json ("FAO Global Forest Resources Assessment 2025 (FRA 2025)");
+# verdict "confirmed", final_redistribution open-attribution.
+# Terms checked 2026-10-04: the FAO Statistical Database Terms of Use page (HTTP 200) lists "Global Forest Resources
+# Assessments (FRA)" in Annex 1, so the CC BY 4.0 sentence quoted below covers the platform data; the same page sets
+# the no-endorsement clause, and FAO's web terms (incorporated) prohibit use of the FAO logo without permission.
+# The bulk README (README.txt inside the zip) gives the required citation: "[FAO. Year of the download. Global Forest
+# Resources Assessment. URL. Accessed on: date-of-the-download]".
+# The report's licence page (OpenKnowledge TEXT bitstream ba39670a-..., HTTP 200) reads "© FAO, 2025 Some rights
+# reserved. This work is made available under the Creative Commons Attribution- 4.0 International licence (CC BY
+# 4.0 ...)", "There should be no suggestion that FAO endorses any specific organization, products or services. The use
+# of the FAO logo is not permitted", requires the disclaimer used in derived_disclaimer on any adaptation, and
+# excludes third-party materials (tables, figures, images credited to others) from the licence. Its required citation:
+# "FAO. 2025. Global Forest Resources Assessment 2025. Rome. https://doi.org/10.4060/cd6709en". OpenKnowledge API
+# dc.rights.license: "CC BY 4.0".
+# Artifacts checked 2026-10-04: the bulk-download endpoint with countryIso=WO answers HTTP 200 application/zip,
+# 1,377,159 bytes, 133 files, no ETag or Last-Modified. The zip is generated per request and every file name carries
+# the download date (e.g. FRA_Years_2026-10-05.csv), so its sha256 changes on every fetch even when the data do not
+# (conditional false; the transform must key on contents, not the zip hash). Without countryIso it returned HTTP 500
+# in research. The report PDF bitstream answers HTTP 206 to a ranged GET, application/pdf, 8,585,230 bytes, ETag
+# "bfcf1b18a9f5360baa693fcd6a04029e", Last-Modified 2025-10-21. doi.org/10.4060/cd6709en resolves to the
+# OpenKnowledge handle page (JavaScript-gated), so the REST bitstream is the stable file URL.
+# Summing the platform's country rows undercounts global deforestation (non-reporting countries); global
+# deforestation comes from the report as published values (17.6, 13.6 and 10.9 million ha a year for 1990-2000,
+# 2000-2015 and 2015-2025).
+id: fao-fra-2025
+title: Global Forest Resources Assessment 2025
+publisher: Food and Agriculture Organization of the United Nations (FAO), Forestry Division
+landing_url: https://fra-data.fao.org/assessments/fra/2025/WO/home/overview
+description: >-
+  Country-reported forest statistics for 236 countries and territories: forest area, other wooded land, land area,
+  naturally regenerating, planted and primary forest (1990, 2000, 2010, 2015, 2020, 2025), annual averages of
+  deforestation, forest expansion, afforestation and natural expansion for 1990-2000 through 2020-2025, growing stock,
+  biomass and carbon, and annual disturbances (fire, insects, diseases, weather) from 2000, with tiers and flags. FRA
+  "forest" is a land-use definition (at least 0.5 ha, more than 10% canopy, trees over 5 m, not mainly agricultural),
+  not satellite tree cover. The report adds FAO's global estimates, which include FAO modelling and a remote sensing
+  survey.
+citation:
+  type: report
+  title: Global Forest Resources Assessment 2025
+  author:
+    - {literal: FAO}
+  issued: "2025"
+  publisher: Food and Agriculture Organization of the United Nations
+  DOI: 10.4060/cd6709en
+  URL: https://doi.org/10.4060/cd6709en
+  # Report citation from its copyright page, then the data citation format from the bulk README.
+  text: >-
+    FAO. 2025. Global Forest Resources Assessment 2025. Rome. https://doi.org/10.4060/cd6709en. FAO. {year}. Global
+    Forest Resources Assessment. https://fra-data.fao.org. Accessed on: {date_accessed}
+licence_class: open
+licence:
+  name: CC BY 4.0 (FAO Statistical Database Terms of Use; report CC BY 4.0)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.fao.org/contact-us/terms/db-terms-of-use/en/
+  licence_quote: >-
+    Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical
+    databases (see examples in Annex 1) are licensed under the Creative Commons Attribution-4.0 International licence
+    (CC BY 4.0)
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # {year} is the year of the download, per the bulk README.
+  attribution: >-
+    FAO. {year}. Global Forest Resources Assessment. https://fra-data.fao.org. Accessed on: {date_accessed}. Licence:
+    CC-BY-4.0. Global estimates: FAO. 2025. Global Forest Resources Assessment 2025. Rome.
+    https://doi.org/10.4060/cd6709en
+  attribution_modified: >-
+    Calculated by Environment Dashboard from FAO. {year}. Global Forest Resources Assessment. https://fra-data.fao.org.
+    Accessed on: {date_accessed}. Licence: CC-BY-4.0. Global estimates: FAO. 2025. Global Forest Resources Assessment
+    2025. Rome. https://doi.org/10.4060/cd6709en
+  # Required by the report's CC BY 4.0 notice on any adaptation of the work.
+  derived_disclaimer: >-
+    This adaptation was not created by the Food and Agriculture Organization of the United Nations (FAO). FAO is not
+    responsible for the content or accuracy of this adaptation. The original English edition shall be the
+    authoritative edition.
+  mirror_raw: true
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: bulk-download-world
+    url: https://fra-data.fao.org/api/file/bulk-download?assessmentName=fra&cycleName=2025&countryIso=WO
+    format: zip
+    description: >-
+      FRA 2025 platform bulk download for all countries: FRA_Years, Intervals and Annual CSVs (one file per variable
+      plus combined files with flags), Tiers, NDPYear, README.txt. File names carry the download date.
+    access: {conditional: false}
+    max_bytes: 50000000
+  - id: report-2025
+    url: https://openknowledge.fao.org/server/api/core/bitstreams/12322cae-5b20-4be2-927a-72a86fd319e9/content
+    format: pdf
+    description: >-
+      Global Forest Resources Assessment 2025 main report (cd6709en.pdf, 8.6 MB), source of FAO's published global
+      estimates: forest area 4.14 billion ha (32% of land) and deforestation of 17.6, 13.6 and 10.9 million ha a year
+      in 1990-2000, 2000-2015 and 2015-2025.
+status:
+  state: active
+  note: >-
+    FRA 2025 was published on 21 October 2025; the platform serves live bulk downloads and countries may revise their
+    reports between assessments. FAO is not exposed to US federal programme cuts.
+  us_federal: false
+update_cadence: Every five years (next assessment FRA 2030), with occasional country revisions on the platform
+twins: []
+research_ref: docs/research/sources-food-land-nature.json#FAO Global Forest Resources Assessment 2025 (FRA 2025)

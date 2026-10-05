@@ -1,0 +1,98 @@
+# World Bank, State and Trends of Carbon Pricing 2026: values as published in the report.
+# Evidence: docs/research/sources-solutions-and-action.json ("World Bank State and Trends of Carbon Pricing 2026 and the
+# Carbon Pricing Dashboard"); verdict "confirmed", final_redistribution open-attribution for the report; the dashboard
+# data licence is unverified.
+# Checked 2026-10-04:
+#   - Open Knowledge Repository item (handle 10986/44787; API
+#     /server/api/core/items/64c7e4b9-bdd4-4761-9f3f-35fcccb4b7ef): dc.rights "CC BY 3.0 IGO", dc.rights.uri
+#     https://creativecommons.org/licenses/by/3.0/igo/, dc.date.issued 2026-05-19, DOI 10.1596/978-1-4648-2348-0.
+#   - Report PDF (OKR bitstream 9ae836ed-db57-4766-92a5-4616cb1e81f9): HTTP 200 application/pdf to the pipeline's own
+#     user agent, 15,253,357 bytes, ETag "fe570ff97a33de96465278b5dbba4afe" (= the md5 OKR lists), Last-Modified Fri,
+#     17 Jul 2026, 76 pages. Page 2 ("Rights and Permissions") holds the licence quoted below, the citation, and the
+#     adaptation disclaimer. The plan listed this source as manual; the report downloads without any bot check, so it
+#     is automatic here. Not yet run from a GitHub runner.
+#   - The report's data cut-off: "The cutoff date for the data used in the report was April 1, 2026 unless otherwise
+#     stated."
+#   - Third-party content: the report warns that "The World Bank does not necessarily own each component of the
+#     content contained within the work" (tables, figures, images). Only the World Bank's own published statements and
+#     values are used, quoted with their page.
+#   - Not registered: the Carbon Pricing Dashboard (carbonpricingdashboard.worldbank.org) and its XLSX downloads. The
+#     site answers HTTP 403 with "cf-mitigated: challenge" (Cloudflare) to scripts, and its data licence could not be
+#     read.
+id: wb-carbon-pricing-2026
+title: State and Trends of Carbon Pricing 2026
+publisher: World Bank
+landing_url: https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing
+description: >-
+  The World Bank's annual review of carbon taxes, emissions trading systems and carbon crediting worldwide: the
+  instruments in force, the share of global greenhouse gas emissions they cover, prices (US dollars per tonne of
+  CO2-equivalent) and the revenue they raise. The 2026 edition uses data up to 1 April 2026; its executive summary
+  states that direct carbon pricing covers 29 percent of global greenhouse gas emissions through 87 implemented
+  policies, and that government revenues from these instruments rose to over US$ 107 billion in 2025. Coverage is not
+  the same as price level. Values are quoted as the report states them, with the page.
+citation:
+  type: report
+  title: State and Trends of Carbon Pricing 2026
+  author:
+    - {literal: World Bank}
+  issued: "2026-05-19"
+  publisher: World Bank
+  DOI: 10.1596/978-1-4648-2348-0
+  URL: https://hdl.handle.net/10986/44787
+  # "Please cite the work as follows", report page 2, verbatim.
+  text: >-
+    World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi:
+    10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.
+licence_class: open
+licence:
+  name: CC BY 3.0 IGO
+  spdx: CC-BY-3.0-IGO
+  url: https://creativecommons.org/licenses/by/3.0/igo/
+evidence:
+  terms_url: https://openknowledge.worldbank.org/server/api/core/bitstreams/9ae836ed-db57-4766-92a5-4616cb1e81f9/content
+  licence_quote: >-
+    This work is available under the Creative Commons Attribution 3.0 IGO license (CC BY 3.0 IGO)
+    http://creativecommons.org/licenses/by/3.0/igo. Under the Creative Commons Attribution license, you are free to
+    copy, distribute, transmit, and adapt this work, including for commercial purposes, under the following
+    conditions:
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi:
+    10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World
+    Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.
+  # Required by the report's "Adaptations" condition, verbatim.
+  derived_disclaimer: >-
+    This is an adaptation of an original work by The World Bank. Views and opinions expressed in the adaptation are
+    the sole responsibility of the author or authors of the adaptation and are not endorsed by The World Bank.
+  mirror_raw: true
+  # CC BY 3.0 IGO: "You may not implicitly or explicitly assert or imply any connection with, sponsorship or
+  # endorsement by the Licensor".
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: report-pdf
+    url: https://openknowledge.worldbank.org/server/api/core/bitstreams/9ae836ed-db57-4766-92a5-4616cb1e81f9/content
+    format: pdf
+    description: >-
+      "State and Trends of Carbon Pricing 2026.pdf" (76 pages) from the World Bank Open Knowledge Repository. 15,253,357
+      bytes, md5 fe570ff97a33de96465278b5dbba4afe.
+status:
+  state: active
+  note: >-
+    Annual; the 2026 edition was issued on 19 May 2026. The World Bank is an international organisation, not a US
+    federal programme.
+  us_federal: false
+update_cadence: Annual (May or June)
+next_release:
+  expected: 2027-06-30
+  note: >-
+    No date announced for the 2027 edition. The 2026 edition appeared on 19 May 2026; 30 June 2027 is the date by
+    which to check for the 2027 edition, not an announced date.
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#World Bank State and Trends of Carbon Pricing 2026 and the Carbon
+  Pricing Dashboard

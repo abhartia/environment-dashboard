@@ -1,0 +1,93 @@
+# NOAA Annual Greenhouse Gas Index (AGGI): effective radiative forcing from long-lived greenhouse gases since 1750.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("NOAA Annual Greenhouse Gas Index (AGGI)");
+# verifier verdict "confirmed" (Hofmann et al. 2006 DOI verified; the source-links TXT is stale 2023-vintage; HFC-23
+# comes from AGAGE; the page text and the files differ slightly on 2024 CO2 because of revisions).
+# Licence evidence checked 2026-10-04: GML's "Disclaimer and Terms of Reference" page (linked from every GML page,
+# HTTP 200) is the GML-wide data-use statement; the AGGI page itself states no separate terms. Its conditions are
+# carried below as no_endorsement and the notice; its requested acknowledgement is the citation text. The same page
+# asks that works consisting predominantly of NOAA material identify it and state it is not subject to copyright
+# (17 U.S.C. 403), hence the notice.
+# Artifacts checked 2026-10-04 (all HTTP 200 with ETag and Last-Modified):
+#   AGGI_Table.csv: 2,919 bytes, Last-Modified 5 Jan 2026; last row
+#     2024,2.333,0.567,0.226,0.298,0.060,0.055,3.539,539,1.538,2.3 (the page still reads "Updated Fall 2025").
+#   NOAA_Annual_Mean_MoleFractions.csv: 11,400 bytes, Last-Modified 29 Sep 2025.
+#   NOAA_Source_Data_Web_Links_and_doi_Citations.txt (HTTP 200, Last-Modified 23 Sep 2024) lists 2023-vintage
+#     component versions, so it is not registered as an artifact.
+id: noaa-aggi
+title: NOAA Annual Greenhouse Gas Index
+publisher: NOAA Global Monitoring Laboratory
+landing_url: https://gml.noaa.gov/aggi/aggi.html
+description: >-
+  Global effective radiative forcing (W/m2, relative to 1750) from 22 long-lived greenhouse gases measured by NOAA,
+  grouped as CO2, CH4, N2O, CFC* (CFCs plus CCl4, CH3CCl3 and halons, 8 gases; CFCs were 95% of the group's forcing in
+  2024), HCFCs (HCFC-22, -141b, -142b) and HFC* (seven HFCs plus SF6), with the CO2-equivalent mixing ratio (ppm) and
+  the index itself (1990 = 1), annually from 1979. Also the global annual mean mole fractions used. Covers long-lived
+  gases only: no aerosols, ozone or land-use forcing. Since the 2023 update all years use the IPCC AR6 effective
+  radiative forcing expressions. The vintage is the page's "Updated" label.
+citation:
+  type: webpage
+  title: The NOAA Annual Greenhouse Gas Index (AGGI)
+  author:
+    - {literal: NOAA Global Monitoring Laboratory}
+  issued: "2025"
+  publisher: NOAA Global Monitoring Laboratory
+  version: "{version}"
+  URL: https://gml.noaa.gov/aggi/aggi.html
+  text: >-
+    Data/Image provided by NOAA Global Monitoring Laboratory, Boulder, Colorado, USA (https://gml.noaa.gov). Hofmann,
+    D.J., J.H. Butler, E.J. Dlugokencky, J.W. Elkins, K. Masarie, S.A. Montzka, and P. Tans, (2006), The role of
+    carbon dioxide in climate forcing from 1979–2004: Introduction of the Annual Greenhouse Gas Index, Tellus B, 58B,
+    614–619.
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://gml.noaa.gov/about/disclaimer.html
+  licence_quote: >-
+    The information on government servers are in the public domain, unless specifically annotated otherwise, and may
+    be used freely by the public so long as you do not 1) claim it is your own (e.g. by claiming copyright for NOAA
+    information – see next paragraph), 2) use it in a manner that implies an endorsement or affiliation with NOAA, or
+    3) modify it in content and then present it as official government material.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Data provided by NOAA Global Monitoring Laboratory, Boulder, Colorado, USA (https://gml.noaa.gov): The NOAA Annual
+    Greenhouse Gas Index (AGGI), updated {version}. HFC-23 measurements: AGAGE (Prinn et al. 2018,
+    doi:10.5194/essd-10-985-2018).
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NOAA Global Monitoring Laboratory data (https://gml.noaa.gov): The NOAA
+    Annual Greenhouse Gas Index (AGGI), updated {version}. Not official NOAA material. HFC-23 measurements: AGAGE
+    (Prinn et al. 2018, doi:10.5194/essd-10-985-2018).
+  notice: >-
+    The NOAA Annual Greenhouse Gas Index values are US Government material from the NOAA Global Monitoring Laboratory
+    and are not subject to copyright protection in the United States.
+  no_endorsement: true
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: aggi-table
+    url: https://gml.noaa.gov/aggi/AGGI_Table.csv
+    format: csv
+    description: >-
+      Annual global effective radiative forcing by gas group (W/m2), total, CO2-equivalent (ppm), AGGI (1990 = 1) and
+      annual change (% of 1990 forcing), from 1979. Header: Year,CO2,CH4,N2O,CFC*,HCFCs,HFCs*,Total,Total,1990 =
+      1,change *.
+  - id: annual-mean-mole-fractions
+    url: https://gml.noaa.gov/aggi/NOAA_Annual_Mean_MoleFractions.csv
+    format: csv
+    description: >-
+      Global annual mean dry-air mole fractions of the 22 gases used in the AGGI (CO2 ppm, CH4 and N2O ppb, halocarbons
+      ppt), with "nd" for no data and trailing citation rows. The HFC-23 column is AGAGE data (Prinn et al. 2018).
+status:
+  state: at-risk
+  note: >-
+    The newest edition is the 2024 index, "Updated Fall 2025"; no 2025 index had been posted by 4 October 2026. The
+    index is produced by GML, the lab the FY2026 and FY2027 US budget requests proposed closing; Congress rejected the
+    FY2026 closure.
+  us_federal: true
+update_cadence: Annual (the 2024 index was posted in fall 2025)
+twins: [igcc-2025]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#NOAA Annual Greenhouse Gas Index (AGGI)

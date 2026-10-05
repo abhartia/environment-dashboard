@@ -1,0 +1,104 @@
+# Global Carbon Budget 2025: national fossil CO2 (territorial, consumption-based, transfers) and national land-use change
+# CO2, final v1.0 data on ICOS.
+# Evidence: docs/research/sources-emissions.json and docs/research/sources-solutions-and-action.json (both "corrected":
+# pin the ICOS v1.0 PIDs; cite "Supplemental data of Global Carbon Budget 2025", not the file name).
+# Checked 2026-10-04:
+#   - meta.icos-cp.eu: loCXyssaalv6DPdO6Qdj90qQ = National_Fossil_Carbon_Emissions_2025_v1.0.xlsx, 755,198 bytes;
+#     milTbWkl0G-MSpdYG3IBIfzy = National_LandUseChange_Carbon_Emissions_2025_v1.0.xlsx, 1,271,678 bytes. Both submitted
+#     2026-05-17, latestVersion = itself, licence "ICOS CCBY4 Data Licence" (baseLicence CC BY 4.0).
+#   - Same ICOS click-through as gcb-2025-global: a plain GET to /licence_accept?ids=... sets CpLicenseAcceptedFor=<pid>;
+#     with it both GETs return 200 (sha256 968097cacb1a6a5bfa0cf74ee90763f74a90ef10499e060ab43d1a74c671d46b and
+#     9a29536d6925d06f8c4a97581b720121fcf219732c240e970bc24167d74e38d1, matching the PID hashes). HEAD -> 404;
+#     GET with If-None-Match -> 304.
+#   - The plan listed this file as manual because of the click-through. It is automatic here: nothing blocks automated
+#     access, and the mechanism is the same as for the global file, which the plan fetches automatically. Not yet run
+#     from a GitHub runner.
+#   - Fossil sheets: Territorial Emissions (1850-2024), Consumption Emissions and Emissions Transfers (1990-2024; country
+#     values stop in 2023), Regions. Land-use change sheets: BLUE, OSCAR, LUCE (1850-2024), one per bookkeeping model;
+#     the file has no combined series.
+#   - Per-sheet "Cite as" lines (required by the GCP terms quoted in gcb-2025-global): territorial = Friedlingstein et
+#     al.; consumption and transfers = updated from Peters, Davis & Andrew (2012); each land-use model = its own paper.
+id: gcb-2025-national
+title: "Global Carbon Budget 2025: national fossil and land-use change carbon dioxide emissions"
+publisher: Global Carbon Project
+landing_url: https://www.icos-cp.eu/GCP/2025
+description: >-
+  Fossil carbon dioxide emissions by country: territorial emissions from 1850 to 2024, and consumption-based emissions
+  with the emissions transferred through trade from 1990 (country values to 2023), plus the country lists of each
+  region. Also land-use change carbon dioxide emissions by country from 1850 to 2024, from each of three bookkeeping
+  models (BLUE, OSCAR and LUCE) separately. Values are in million tonnes of carbon per year; multiply by 3.664 for
+  carbon dioxide. National values exclude international aviation and shipping, which the world total includes.
+citation:
+  type: dataset
+  title: Supplemental data of Global Carbon Budget 2025
+  author:
+    - {literal: Global Carbon Project}
+  issued: "2026"
+  publisher: Global Carbon Project
+  version: "1.0"
+  DOI: 10.18160/GCP-2025
+  URL: https://www.icos-cp.eu/GCP/2025
+  text: >-
+    Global Carbon Project. (2026). Supplemental data of Global Carbon Budget 2025 (Version 1.0) [Data set]. Global
+    Carbon Project. https://doi.org/10.18160/gcp-2025
+licence_class: open
+licence:
+  name: CC BY 4.0 (ICOS CCBY4 Data Licence)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://data.icos-cp.eu/licence
+  licence_quote: >-
+    By downloading this ICOS data product you agree to the licensing conditions that apply to this data (CC BY 4.0).
+    Under this licence derived products and redistribution are allowed, but you are required to always inform your
+    users of the original source of the data used, refer them to the licence text and the original source at ICOS for
+    possible updates or uploads.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Global Carbon Project, Supplemental data of Global Carbon Budget 2025 (Version 1.0), ICOS Carbon Portal,
+    doi:10.18160/GCP-2025, CC BY 4.0. Friedlingstein et al. (2026), Global Carbon Budget 2025, Earth Syst. Sci. Data
+    18, 3211–3288, doi:10.5194/essd-18-3211-2026.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Global Carbon Project data: Supplemental data of Global Carbon Budget 2025
+    (Version 1.0), ICOS Carbon Portal, doi:10.18160/GCP-2025, CC BY 4.0. Friedlingstein et al. (2026), Global Carbon
+    Budget 2025, Earth Syst. Sci. Data 18, 3211–3288, doi:10.5194/essd-18-3211-2026.
+  notice: >-
+    Consumption-based emissions and emissions transfers: updated from Peters, Davis and Andrew (2012), Biogeosciences 9,
+    3247–3276, doi:10.5194/bg-9-3247-2012. Land-use change by country: BLUE (Hansis et al., 2015,
+    doi:10.1002/2014gb004997), OSCAR (Gasser et al., 2020, doi:10.5194/bg-17-4075-2020) and LUCE (Qin et al., 2024,
+    doi:10.1016/j.oneear.2024.04.002).
+  mirror_raw: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: national-fossil
+    url: https://data.icos-cp.eu/objects/loCXyssaalv6DPdO6Qdj90qQ
+    format: xlsx
+    description: >-
+      National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (ICOS PID 11676/loCXyssaalv6DPdO6Qdj90qQ): territorial,
+      consumption-based and transferred fossil CO2 by country, and region definitions (MtC per year).
+    access:
+      cookie_accept_url: https://data.icos-cp.eu/licence_accept?ids=%5B%22loCXyssaalv6DPdO6Qdj90qQ%22%5D
+      conditional: true
+  - id: national-land-use-change
+    url: https://data.icos-cp.eu/objects/milTbWkl0G-MSpdYG3IBIfzy
+    format: xlsx
+    description: >-
+      National_LandUseChange_Carbon_Emissions_2025_v1.0.xlsx (ICOS PID 11676/milTbWkl0G-MSpdYG3IBIfzy): land-use change
+      CO2 by country from the BLUE, OSCAR and LUCE bookkeeping models, one sheet each (MtC per year).
+    access:
+      cookie_accept_url: https://data.icos-cp.eu/licence_accept?ids=%5B%22milTbWkl0G-MSpdYG3IBIfzy%22%5D
+      conditional: true
+status:
+  state: active
+  note: >-
+    Version 1.0 was deposited on ICOS on 17 May 2026 and replaced v0.1 of 13 November 2025. The pinned objects never
+    change; GCB 2026 will arrive as new ICOS objects, expected during COP31 (9-20 November 2026), with no date
+    announced on 4 October 2026. Not a US federal product.
+  us_federal: false
+update_cadence: >-
+  Annual: preliminary data each November at the UN climate conference, final ICOS v1.0 objects about six months later
+twins: [edgar-2026-ghg]
+research_ref: "docs/research/sources-emissions.json#Global Carbon Budget 2025: national fossil CO2 (territorial, consumption-based, transfers), national land-use change CO2, and global budget"

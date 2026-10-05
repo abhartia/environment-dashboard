@@ -1,0 +1,98 @@
+# Climate Action Tracker (Climate Analytics and NewClimate Institute): COP30 Global Temperature Update, 13 November 2025
+# (the CAT Thermometer, emissions gaps, and global emissions and temperature pathways to 2100).
+# Evidence: docs/research/sources-impacts.json ("Climate Action Tracker (CAT) Warming Projections Global Update (COP30,
+# Nov 2025)"; verdict "confirmed") and docs/research/sources-solutions-and-action.json ("Climate Action Tracker: CAT
+# Thermometer ..."; verdict "confirmed", use CAT's own suggested citation).
+# Checked 2026-10-04:
+#   - climateactiontracker.org/about/legal/ -> 200 with the terms quoted below ("Copyright © 2009-2026 by Climate
+#     Analytics and NewClimate Institute. All rights reserved."). Every sheet of the xlsx repeats them for the file:
+#     "Copyright © 2025 by Climate Analytics and NewClimate Institute. All rights reserved." and "You are authorised to
+#     view, download, print and distribute the copyrighted content from this data file subject to the following
+#     condition: Any reproduction, in full or in part, must credit Climate Analytics and NewClimate Institute, include
+#     a copyright notice and must not be used for commerical purposes." (sic).
+#   - Class noncommercial: reproduction and distribution are authorised for non-commercial use with credit and the
+#     copyright notice, so CAT's values may be charted and downloaded, and the unmodified file re-hosted. The terms do
+#     not authorise adaptation: no values are computed from CAT's (differences, re-baselining, interpolation), hence
+#     attribution_modified is null.
+#   - Rounding: the CAT Thermometer, Global Emissions and GMT sheets say: "We include the unrounded values to assist
+#     with the preparation of graphics, however if you are reproducing the numerical values, please adhere to the
+#     displayed rounded values in the tables." The tables show warming to 0.1 °C and emissions gaps as whole-number
+#     GtCO2e ranges (2030 targets gap 26 – 29; implementation gap 29 – 32 in 2030 and 31 – 37 in 2035).
+#   - xlsx -> 200, 1,165,847 bytes, Last-Modified 13 Nov 2025, ETag "c95fceea86569263ba2e163314ae8999b6605470";
+#     If-None-Match -> 304. sha256 44044cda8f851f77d6ca0eeb0750848fb6ee32bab50939df2cc2363e63a8c6c1. Linked from
+#     /global/cat-thermometer/ ("Last update: 13 November 2025"); /global/temperatures/ now redirects to
+#     /global/emissions-pathways/. CAT Thermometer sheet, 2100 warming in °C (lower / median / upper): Policies &
+#     action 2.1 / 2.6 / 3.3; 2030 & 2035 targets only 2.1 / 2.6 / 3.2; Pledges & targets 1.8 / 2.2 / 2.8; Optimistic
+#     1.5 / 1.9 / 2.4 (MAGICC7).
+#   - citation.text: the "Suggested citation" on /global/cat-thermometer/.
+id: cat-2025-thermometer
+title: "Climate Action Tracker: the CAT Thermometer, November 2025 (COP30 global update)"
+publisher: Climate Action Tracker (Climate Analytics and NewClimate Institute)
+landing_url: https://climateactiontracker.org/global/cat-thermometer/
+description: >-
+  Projected global warming in 2100, in degrees Celsius above pre-industrial levels, under four sets of assumptions:
+  current policies and action, only the 2030 and 2035 national targets, all pledges and targets, and an optimistic
+  case in which every net-zero announcement is met. Each comes with a lower bound, median and upper bound from the
+  MAGICC7 climate model. The file also gives the 2030 and 2035 emissions gaps to a 1.5 °C pathway (GtCO2e), global
+  emissions to 2100 and warming by decade for each case. Published 13 November 2025, at COP30.
+citation:
+  type: dataset
+  title: The CAT Thermometer
+  author:
+    - {literal: Climate Action Tracker}
+  issued: "2025-11-13"
+  publisher: Climate Analytics and NewClimate Institute
+  version: November 2025
+  URL: https://climateactiontracker.org/global/cat-thermometer/
+  text: >-
+    Climate Action Tracker (2025). The CAT Thermometer. November 2025. Available at:
+    https://climateactiontracker.org/global/cat-thermometer/
+licence_class: noncommercial
+licence:
+  name: >-
+    © Climate Analytics and NewClimate Institute, all rights reserved; non-commercial reproduction allowed with credit
+    and the copyright notice
+  spdx: null
+  url: https://climateactiontracker.org/about/legal/
+evidence:
+  terms_url: https://climateactiontracker.org/about/legal/
+  licence_quote: >-
+    You are authorised to view, download, print and distribute the copyrighted content from this website subject to
+    the following condition: Any reproduction, in full or in part, must credit Climate Analytics and NewClimate
+    Institute and must include a copyright notice and must not be used for commercial purposes.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Climate Action Tracker (2025), The CAT Thermometer, November 2025, Climate Analytics and NewClimate Institute,
+    https://climateactiontracker.org/global/cat-thermometer/.
+  attribution_modified: null
+  notice: >-
+    Copyright © 2025 by Climate Analytics and NewClimate Institute. All rights reserved. Reproduced for
+    non-commercial use; not to be used for commercial purposes.
+  rounding: >-
+    Numbers are shown only as CAT's tables show them: warming to 0.1 °C and emissions gaps as whole GtCO2e ranges.
+    The unrounded time-series values may be used to draw lines, never printed as numbers.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: global-temperature-estimates
+    url: https://climateactiontracker.org/documents/1349/CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx
+    format: xlsx
+    description: >-
+      CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx. Sheets: Info, CAT Thermometer (2100 warming,
+      lower / median / upper bound, rounded to 0.1 °C), 2030 Emissions Gap (GtCO2e ranges for 2030 and 2035), Global
+      Emissions time series (GtCO2e, 1990-2100) and GMT time series (°C above pre-industrial, by decade to 2100,
+      unrounded).
+status:
+  state: active
+  note: >-
+    No newer global update had appeared by 4 October 2026: the publications page lists country memos of 27 August and
+    18 September 2026 and an 11 June 2026 briefing since. The global temperature updates came at the UN climate
+    conferences (14 November 2024, 13 November 2025); COP31 is in November 2026 and no CAT date is announced.
+    Climate Analytics and NewClimate Institute are European non-profits; not a US federal product.
+  us_federal: false
+update_cadence: Annual global temperature update at the November UN climate conference
+twins: [unep-egr-2025]
+research_ref: >-
+  docs/research/sources-impacts.json#Climate Action Tracker (CAT) Warming Projections Global Update (COP30, Nov 2025)

@@ -1,0 +1,103 @@
+# Copernicus Climate Change Service (C3S) Climate Pulse: daily global surface air temperature and sea-surface
+# temperature from ERA5, near real time.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("Copernicus C3S ERA5 global temperature and Climate
+# Pulse"; verifier corrected the licence to CC BY 4.0 and added the EC/ECMWF disclaimer).
+#
+# Licence: the CSVs carry no licence line. Their headers name the source as ERA5 hourly data on single levels on the
+# C3S Climate Data Store, whose catalogue entry is licensed CC BY 4.0 (the quote below). The Climate Pulse "Credits"
+# panel (in the app bundle, checked 2026-10-04) says "All users of Copernicus Products must provide clear and visible
+# attribution to the Copernicus programme" and asks users to cite ERA5 hourly (doi:10.24381/cds.adbb2d47) and monthly
+# (doi:10.24381/cds.f17050d7). The CDS "Citation and attribution" text adds the Copernicus attribution and the EC/ECMWF
+# disclaimer "in addition to the requirements of the applicable license(s)", so both are obligations here; they also
+# meet clause 5 of the Licence to use Copernicus Products (rev. 12).
+id: c3s-climate-pulse
+title: C3S Climate Pulse daily global temperatures (ERA5)
+publisher: Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission
+landing_url: https://pulse.climate.copernicus.eu/
+description: >-
+  Daily global-mean surface air temperature (2 metres) from 1 January 1940 and daily mean sea-surface temperature
+  averaged over 60°S–60°N from 1 January 1979, from the ERA5 reanalysis, updated each day with data up to two days
+  behind real time. Each row gives the absolute value, the smoothed 1991–2020 daily climatology, the anomaly from
+  1991–2020 and a status. Days 2 to 5 behind real time use ERA5 data not yet released on the Climate Data Store, and
+  rows marked PRELIMINARY (usually the newest day) are likely to change slightly; the site keeps that status and labels
+  those days preliminary.
+citation:
+  type: dataset
+  title: ERA5 hourly data on single levels from 1940 to present
+  author:
+    - {family: Hersbach, given: H.}
+    - {family: Bell, given: B.}
+    - {family: Berrisford, given: P.}
+    - {family: Biavati, given: G.}
+    - {family: Horányi, given: A.}
+    - {family: Muñoz Sabater, given: J.}
+    - {family: Nicolas, given: J.}
+    - {family: Peubey, given: C.}
+    - {family: Radu, given: R.}
+    - {family: Rozum, given: I.}
+    - {family: Schepers, given: D.}
+    - {family: Simmons, given: A.}
+    - {family: Soci, given: C.}
+    - {family: Dee, given: D.}
+    - {family: Thépaut, given: J-N.}
+  issued: "2023"
+  publisher: Copernicus Climate Change Service (C3S) Climate Data Store (CDS)
+  DOI: 10.24381/cds.adbb2d47
+  URL: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels
+  # "Citing the data" from the CDS Citation and attribution panel, with DD-MMM-YYYY filled in by the build.
+  text: >-
+    Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C.,
+    Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2023): ERA5 hourly data on
+    single levels from 1940 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI:
+    10.24381/cds.adbb2d47 (Accessed on {date_accessed})
+licence_class: open
+licence:
+  name: CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  # The CDS catalogue API's licence field for the dataset named in both CSV headers.
+  terms_url: https://cds.climate.copernicus.eu/api/catalogue/v1/collections/reanalysis-era5-single-levels
+  licence_quote: '"license":"CC-BY-4.0"'
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  attribution: >-
+    Generated using Copernicus Climate Change Service information {year}. Data source: ERA5 (Hersbach et al. 2023,
+    doi:10.24381/cds.adbb2d47), C3S Climate Pulse. Credit: C3S/ECMWF.
+  attribution_modified: >-
+    Contains modified Copernicus Climate Change Service information {year}. Data source: ERA5 (Hersbach et al. 2023,
+    doi:10.24381/cds.adbb2d47), C3S Climate Pulse. Credit: C3S/ECMWF.
+  notice: >-
+    Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information
+    or data it contains.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  # Both HTTP 200 on 2026-10-04 (Last-Modified 04 Oct 2026 04:11 GMT, ETag present). Stable URLs; the app's own
+  # download buttons point at these files.
+  - id: air-temperature-daily
+    url: https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv
+    format: csv
+    description: >-
+      Daily global-mean 2 m air temperature from 1 January 1940: columns date, 2t, clim_91-20, ano_91-20, status
+      (FINAL or PRELIMINARY), °C, after a "#" header ending "Last updated: <date>". On 2026-10-04 the last row was
+      2026-10-02, PRELIMINARY.
+  - id: sea-surface-temperature-daily
+    url: https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_sst_60S-60N_ocean.csv
+    format: csv
+    description: >-
+      Daily mean sea-surface temperature over the 60°S–60°N ocean from 1 January 1979: columns date, sst, clim_91-20,
+      ano_91-20, status, °C. ERA5 takes its SST from the Met Office OSTIA analysis (HadISST2 before September 2007).
+status:
+  state: active
+  note: >-
+    Updated once a day, usually before 05:00 UTC, with ERA5 data up to two days behind real time. EU Copernicus
+    programme, implemented by ECMWF; not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Daily, usually before 05:00 UTC
+next_release:
+  expected: 2026-10-05
+  note: Daily update adding 3 October 2026 (preliminary) and finalising 2 October 2026.
+twins: [oisst-v2]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#Copernicus C3S ERA5 global temperature and Climate Pulse

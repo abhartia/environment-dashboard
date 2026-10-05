@@ -1,0 +1,80 @@
+# Energy Institute Statistical Review of World Energy 2026 (75th edition): quoted statements only.
+# Evidence: docs/research/sources-energy.json ("Energy Institute – Statistical Review of World Energy 2026"; the
+# verifier corrected the licence from "unclear" to restricted), re-checked 2026-10-04.
+# Every energyinst.org page and file returns HTTP 403 with "cf-mitigated: challenge" (Cloudflare) to scripts,
+# including the terms page, the downloads page and the PDF (checked 2026-10-04). The quote below was read from the
+# PDF itself (p. 85 of 88, "Quoting from the review") in the Internet Archive copy captured 2026-10-01
+# (https://web.archive.org/web/20261001211107/https://www.energyinst.org/__data/assets/file/0004/1827616/Statistical-Review-of-World-Energy-PDF-Report.pdf,
+# 12,632,347 bytes, sha256 d3648350e90a2a54d7292c14b2a5d6550bb056adb6409d74aeb5e89e5177dc24). Because the live file
+# cannot be fetched, terms_check is manual.
+# The rest of the terms (Internet Archive copy of https://www.energyinst.org/terms, 2026-09-03): "All such rights are
+# reserved." and "No licence or right, other than the right to view on the Sites, is granted to any person in respect
+# of any intellectual property rights." The same PDF page adds: "The redistribution or reproduction of data whose
+# source is S&P Global Energy or S&P Global Inc, is strictly prohibited without its prior authorisation."
+# So: quotation of individual statements with the attribution below, nothing else. Bulk use would need written
+# permission from statisticalreview@energyinst.org.
+id: energy-institute-review-2026
+title: Statistical Review of World Energy 2026
+publisher: Energy Institute
+landing_url: https://www.energyinst.org/statistical-review
+description: >-
+  The 75th edition, with 2025 data, published at the end of June 2026 (PDF created 29 June 2026). Used only for
+  verbatim statements quoted with attribution, such as "Fossil fuels continued to expand in absolute terms and
+  retained their dominant position, accounting for 86% of TES." (2025 Key highlights, printed page 3, PDF page 5).
+  TES is total energy supply on the physical energy content method, which the Review adopted in its 2025 edition in
+  place of the fossil-fuel-equivalent method; EI growth rates are adjusted for the leap year 2024. No EI table,
+  chart or series is reproduced, and nothing sourced from S&P Global is used.
+citation:
+  type: report
+  title: Statistical Review of World Energy 2026
+  author:
+    - {literal: Energy Institute}
+  issued: "2026"
+  publisher: Energy Institute
+  version: 75th edition
+  URL: https://www.energyinst.org/statistical-review/home
+  # Verbatim from the "Cite" box on the downloads page (Internet Archive copy, 2026-09-24).
+  text: Energy Institute (2026), Statistical Review of World Energy 2026, Energy Institute, London.
+licence_class: display-only
+licence:
+  name: All rights reserved (© Energy Institute 2026); quotation with attribution permitted
+  spdx: null
+  url: https://www.energyinst.org/terms
+evidence:
+  terms_url: https://www.energyinst.org/__data/assets/file/0004/1827616/Statistical-Review-of-World-Energy-PDF-Report.pdf
+  licence_quote: >-
+    Publishers are welcome to quote from this Review provided that they attribute the source to Energy Institute
+    Statistical Review of World Energy 2026. However, for extensive reproduction of tables and/or charts, permission
+    must first be obtained from:
+  checked_on: 2026-10-04
+  terms_check: manual
+obligations:
+  attribution: Energy Institute Statistical Review of World Energy 2026
+  mirror_raw: false
+acquisition: manual
+artifacts:
+  - id: report-pdf
+    url: null
+    format: pdf
+    description: >-
+      The full report PDF (88 pages). A person opens
+      https://www.energyinst.org/statistical-review/resources-and-data-downloads in a browser, passes the Cloudflare
+      check, and under "Key reports" clicks the PDF of "Statistical Review of World Energy". The file is served from
+      https://www.energyinst.org/__data/assets/file/0004/1827616/Statistical-Review-of-World-Energy-PDF-Report.pdf
+      (the page labels it 5.3 MB; the archived copy is 12,632,347 bytes). Record it with
+      uv run envdash snapshot add --source energy-institute-review-2026 --file <path>, and check its sha256 against
+      the archived copy noted above.
+status:
+  state: active
+  note: >-
+    Published annually; the 2026 edition is the 75th. All energyinst.org pages and files sit behind a Cloudflare bot
+    challenge, so acquisition and terms checks are manual. Not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Annual, late June
+next_release:
+  expected: 2027-06-30
+  note: >-
+    No 2027 date announced. The 2026 edition appeared at the end of June 2026; 30 June 2027 is the check-by date for
+    the 2027 edition, not an announced date.
+twins: [eia-international]
+research_ref: docs/research/sources-energy.json#Energy Institute – Statistical Review of World Energy 2026

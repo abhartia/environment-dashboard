@@ -1,0 +1,111 @@
+# NOAA Coral Reef Watch (CRW): global 5 km coral bleaching heat stress (Degree Heating Weeks) and CRW's published
+# statistics on the fourth global coral bleaching event.
+# Evidence: docs/research/sources-ocean-and-ice.json ("NOAA Coral Reef Watch (5 km DHW/Bleaching Alert, Marine
+# Heatwave Watch v1.0.1, Regional Virtual Stations)"), verdict "confirmed"; and docs/research/sources-impacts.json
+# ("NOAA Coral Reef Watch (CRW): global 5 km Degree Heating Week and the fourth global coral bleaching event
+# statistics"), verdict "corrected": neither NOAA page gives a reef-area percentage for the 1998 or 2010 events (the
+# status page still only says they "occurred in 1998 and 2010"), so no such bars without another primary source.
+# Licence evidence checked 2026-10-04: CRW's "Disclaimer and Recommendations for Citing" page (HTTP 200) states the
+# public-domain terms quoted below and asks for credit to "NOAA Coral Reef Watch". The NetCDF files' license attribute
+# says the data "are available for use without restriction" with the same credit request. A NOAA NESDIS/STAR programme,
+# so a US federal government work.
+# Artifacts checked 2026-10-04:
+#   status page coral_bleaching_report.php: HTTP 200, 25,234 bytes, byte-identical on two fetches, no ETag or
+#     Last-Modified (so conditional: false); "(Updated: June 2, 2026)"; "From 1 January 2023 to 30 September 2025,
+#     bleaching-level heat stress has impacted ~84.4% of the world's coral reef area and mass coral bleaching has been
+#     documented in at least 83 countries and territories"; 68.2% for 2014-2017.
+#   annual composites ct5km_dhw-max_v3.1_<year>.nc: HTTP 200 with ETag, answer If-None-Match with 304; 2023 14,413,522
+#     bytes (Last-Modified 3 Jan 2024), 2024 15,778,551 bytes (2 Jan 2025), 2025 14,551,455 bytes (1 Jan 2026). The
+#     2025 file: 3600 x 7200 grid (0.05 degree), degree_heating_week scaled by 0.01 (degree C weeks), plus the date of
+#     the first occurrence of the maximum and a pixel classification mask. Annual names are fixed per year, unlike the
+#     daily files (ct5km_dhw_v3.1_YYYYMMDD.nc), which take a new name each day.
+# citation.text: CRW's recommended form for Version 3.1 DHW data ("Sample 2" on the citing page) with our dates and
+# directory filled in, then the methods paper CRW recommends for the 5 km product suite, verbatim.
+id: noaa-crw
+title: NOAA Coral Reef Watch coral bleaching heat stress and global bleaching status
+publisher: NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch
+landing_url: https://coralreefwatch.noaa.gov/
+description: >-
+  Coral bleaching heat stress from Coral Reef Watch's daily global 5 km satellite product suite, version 3.1 (CoralTemp
+  sea surface temperature, from 1985). Degree Heating Weeks (DHW, in degree Celsius-weeks) accumulate, over the past 12
+  weeks, the days when the sea was more than 1 °C warmer than its usual warmest-month average, weighted by how much
+  warmer; CRW says values over 4 °C-weeks have caused significant bleaching and over 8 °C-weeks severe bleaching and
+  significant mortality. Registered here: the annual maximum DHW maps for 2023, 2024 and 2025, the years of the fourth
+  global bleaching event, and CRW's global bleaching status page, which publishes the share of the world's coral reef
+  area that had bleaching-level heat stress (about 84.4% from 1 January 2023 to 30 September 2025; 68.2% in 2014-2017).
+  Those percentages are CRW's published values; recomputing them needs CRW's reef-pixel definition. Heat stress is a
+  measure of risk, not of observed bleaching or coral death.
+citation:
+  type: dataset
+  title: NOAA Coral Reef Watch Version 3.1 Daily Global 5km Satellite Coral Bleaching Degree Heating Week Product
+  author:
+    - {literal: NOAA Coral Reef Watch}
+  issued: "2018"
+  publisher: NOAA Coral Reef Watch
+  version: "3.1"
+  DOI: null
+  URL: https://coralreefwatch.noaa.gov/product/5km/index.php
+  text: >-
+    NOAA Coral Reef Watch. 2018, updated daily. NOAA Coral Reef Watch Version 3.1 Daily Global 5km Satellite Coral
+    Bleaching Degree Heating Week Product, Jan. 1, 2023-Dec. 31, 2025. College Park, Maryland, USA: NOAA Coral Reef
+    Watch. Data set accessed {date_accessed} at
+    https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/annual/. Skirving, W; Marsh, B; De La
+    Cour, J; Liu, G; Harris, A; Maturi, E; Geiger, E; Eakin, CM. CoralTemp and the Coral Reef Watch Coral Bleaching
+    Heat Stress Product Suite Version 3.1. Remote Sens. 2020, 12, 3856; https://doi.org/10.3390/rs12233856.
+licence_class: open
+licence:
+  name: Public domain (NOAA Coral Reef Watch; US federal government work)
+  spdx: null
+  url: https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php
+evidence:
+  terms_url: https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php
+  licence_quote: >-
+    NOAA Coral Reef Watch (CRW) data posted on the internet are freely available to the public. All content on this
+    website is considered to be in the public domain and may be distributed freely.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    NOAA Coral Reef Watch, Version 3.1 Daily Global 5km Satellite Coral Bleaching Heat Stress products (Skirving et al.
+    2020, Remote Sensing 12, 3856, doi:10.3390/rs12233856), accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NOAA Coral Reef Watch, Version 3.1 Daily Global 5km Satellite Coral
+    Bleaching Heat Stress products (Skirving et al. 2020, Remote Sensing 12, 3856, doi:10.3390/rs12233856), accessed
+    {date_accessed}.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: global-bleaching-status
+    url: https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php
+    format: html
+    description: >-
+      CRW's "Current Global Bleaching: Status Update" page (updated 2 June 2026): the published share of global reef
+      area under bleaching-level heat stress in the fourth (2023-2025) and third (2014-2017) global events and the
+      count of countries and territories with documented mass bleaching.
+    access:
+      conditional: false
+  - id: dhw-max-2023
+    url: https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/annual/ct5km_dhw-max_v3.1_2023.nc
+    format: nc
+    description: >-
+      Annual maximum Degree Heating Week for 2023, global 0.05-degree grid (degree_heating_week x 0.01, date of first
+      occurrence, pixel mask).
+  - id: dhw-max-2024
+    url: https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/annual/ct5km_dhw-max_v3.1_2024.nc
+    format: nc
+    description: Annual maximum Degree Heating Week for 2024, same layout.
+  - id: dhw-max-2025
+    url: https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/annual/ct5km_dhw-max_v3.1_2025.nc
+    format: nc
+    description: Annual maximum Degree Heating Week for 2025, same layout.
+status:
+  state: active
+  note: >-
+    Daily products are current (the daily DHW file for 3 October 2026 was posted on 4 October). The status page was
+    last updated on 2 June 2026, when NOAA said the fourth global bleaching event likely ended in 2025. The FY2027 US
+    budget request (April 2026) proposes terminating NOAA's Coral Reef Conservation Program, while listing "Maintain
+    ecological forecasting for coral bleaching via the coral reef watch program (ongoing)" among its objectives.
+  us_federal: true
+update_cadence: Daily (5 km products); annual composites each January; status page when events warrant
+twins: []
+research_ref: docs/research/sources-ocean-and-ice.json#NOAA Coral Reef Watch (5 km DHW/Bleaching Alert, Marine Heatwave Watch v1.0.1, Regional Virtual Stations)

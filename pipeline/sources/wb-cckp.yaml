@@ -1,0 +1,244 @@
+# World Bank Climate Change Knowledge Portal (CCKP): ERA5 country temperature series and CMIP6 hot-day projections.
+# Evidence: docs/research/sources-country-and-local.json ("Climate Change Knowledge Portal (CCKP): ERA5 and CMIP6
+# aggregated to countries, ADM1 and watersheds"; verifier corrected the terms URL and added the pass-through duty).
+#
+# Checked 2026-10-04: climateknowledgeportal.worldbank.org returns HTTP 403 to curl, so its pages were read in a
+# browser. Its "Terms of Use" tab says "CCKP data is disseminated by the World Bank under its Open Data policy" and
+# reproduces the World Bank Dataset Terms; its Metadata page says "All CCKP data adhere to CC-BY 4.0" and that the
+# CMIP6 inputs were relaxed from CC BY-SA 4.0 to CC BY 4.0 in 2022 (PCMDI's CMIP6 terms page: all modelling groups on
+# CC BY 4.0 since October 2022). The Terms tab still links the old dataset-terms URL, which now redirects (HTTP 301) to
+# the general World Bank terms page (non-commercial, no derivatives for other materials), so terms_url points at the
+# dataset terms page directly. The API (cckpapi.worldbank.org) needs no key and answered HTTP 200 for all 22 artifacts
+# below with the pipeline's own client and User-Agent (envdash.fetch.USER_AGENT); it returns HTTP 403 to Python
+# urllib's default User-Agent only. It sends no ETag or Last-Modified, so fetches are unconditional and change is
+# detected by sha256.
+#
+# The ERA5 period code ends in the latest year ("1950-2025"); a 1950-2026 call returned an empty data array, so the URL
+# changes when CCKP adds a year (about annually). Values are absolute °C keyed "YYYY-07" (the mid-year stamp of an
+# annual value). CCKP publishes ERA5 climatologies for 1986-2005, 1991-2020 and 1995-2014 only (a 1951-1980 call
+# returned no data). A 1951-1980 baseline would therefore be the site's own computation from the annual series; the
+# baseline CCKP itself publishes is 1991-2020 (artifacts below).
+id: wb-cckp
+title: Climate Change Knowledge Portal country climate data
+publisher: World Bank Group
+landing_url: https://climateknowledgeportal.worldbank.org/
+description: >-
+  Country and global aggregates of climate data prepared by the World Bank on its official boundaries. Observed: ERA5
+  reanalysis annual mean near-surface air temperature for every country and territory from 1950, as absolute values in
+  degrees Celsius, with CCKP's 1991–2020 climatology as the reference. Projected: the number of days a year with a
+  daily maximum of 35 °C or more, from the bias-corrected, downscaled CMIP6 multi-model ensemble (median, 10th and
+  90th percentiles) for 1995–2014 and for 2040–2059 under five emissions scenarios. These are reanalysis and model
+  aggregates over each country's land area, not weather-station records.
+citation:
+  type: dataset
+  title: "Climate Change Knowledge Portal: Observed Climate Data, ERA5 0.25-Degree"
+  author:
+    - {literal: World Bank}
+  issued: "2024"
+  publisher: World Bank
+  DOI: 10.57966/128g-6s70
+  URL: https://doi.org/10.57966/128g-6s70
+  # CCKP Metadata page, "CCKP Data Reference" for the two collections used, verbatim.
+  text: >-
+    Climate Change Knowledge Portal: Observed Climate Data, ERA5 0.25-Degree, DOI: https://doi.org/10.57966/128g-6s70.
+    Climate Change Knowledge Portal: Projected Climate Data, CMIP6 0.25-Degree. DOI: https://doi.org/10.57966/b54h-7s87
+licence_class: open
+licence:
+  name: CC BY 4.0 with the World Bank Dataset Terms
+  spdx: CC-BY-4.0
+  url: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+evidence:
+  terms_url: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+  licence_quote: >-
+    Unless specifically labeled otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0
+    International License (CC BY 4.0), with the additional terms below.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # Dataset Terms: "You agree to provide attribution to The World Bank and its data providers in the following format:
+  # The World Bank: Dataset name: Data source (if known)."
+  attribution: >-
+    The World Bank: Climate Change Knowledge Portal: Observed Climate Data, ERA5 0.25-Degree (doi:10.57966/128g-6s70):
+    Copernicus Climate Change Service ERA5. The World Bank: Climate Change Knowledge Portal: Projected Climate Data,
+    CMIP6 0.25-Degree (doi:10.57966/b54h-7s87): CMIP6 multi-model ensemble (World Climate Research Programme).
+  attribution_modified: >-
+    Calculated by Environment Dashboard from The World Bank: Climate Change Knowledge Portal: Observed Climate Data,
+    ERA5 0.25-Degree (doi:10.57966/128g-6s70): Copernicus Climate Change Service ERA5, and The World Bank: Climate
+    Change Knowledge Portal: Projected Climate Data, CMIP6 0.25-Degree (doi:10.57966/b54h-7s87): CMIP6 multi-model
+    ensemble (World Climate Research Programme).
+  # Dataset Terms: "When sharing or facilitating access to the Datasets, you agree to include the same acknowledgment
+  # requirement in any sub-licenses of the data that you grant, and a requirement that any sub-licensees do the same.
+  # You may meet this requirement by providing the uniform resource locator (URL) of these terms of use."
+  notice: >-
+    Shared under the World Bank Dataset Terms (CC BY 4.0 with additional terms), including their attribution
+    requirement, which passes to anyone who shares these data further:
+    https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+  mirror_raw: true
+  # Dataset Terms, "No Endorsement" and "No Association" (no name, trade-mark, emblem or logo without written consent).
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: era5-tas-annual-countries
+    url: https://cckpapi.worldbank.org/cckp/v1/era5-x0.25_timeseries_tas_timeseries_annual_1950-2025_mean_historical_era5_x0.25_mean/all_countries?_format=json
+    format: json
+    description: >-
+      ERA5 annual mean near-surface air temperature (°C, absolute) for every country and territory, 1950–2025, keyed
+      by ISO3 code and "YYYY-07".
+    access: {conditional: false}
+  - id: era5-tas-annual-global
+    url: https://cckpapi.worldbank.org/cckp/v1/era5-x0.25_timeseries_tas_timeseries_annual_1950-2025_mean_historical_era5_x0.25_mean/global?_format=json
+    format: json
+    description: >-
+      The same ERA5 annual series aggregated by CCKP over the globe (key "GLOBAL"), 1950–2025, for the world line
+      beside each country.
+    access: {conditional: false}
+  - id: era5-tas-climatology-1991-2020-countries
+    url: https://cckpapi.worldbank.org/cckp/v1/era5-x0.25_climatology_tas_climatology_annual_1991-2020_mean_historical_era5_x0.25_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CCKP's own ERA5 1991–2020 annual mean temperature (°C) for every country and territory, the baseline CCKP
+      publishes for these series.
+    access: {conditional: false}
+  - id: era5-tas-climatology-1991-2020-global
+    url: https://cckpapi.worldbank.org/cckp/v1/era5-x0.25_climatology_tas_climatology_annual_1991-2020_mean_historical_era5_x0.25_mean/global?_format=json
+    format: json
+    description: >-
+      CCKP's ERA5 1991–2020 annual mean temperature (°C) for the globe.
+    access: {conditional: false}
+  - id: cmip6-hd35-1995-2014-median
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_1995-2014_median_historical_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble median: days per year with daily maximum temperature of 35 °C or more, 1995–2014
+      reference period (historical runs), every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-1995-2014-p10
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_1995-2014_p10_historical_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 10th percentile: days per year with daily maximum temperature of 35 °C or more,
+      1995–2014 reference period (historical runs), every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-1995-2014-p90
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_1995-2014_p90_historical_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
+      1995–2014 reference period (historical runs), every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp119-median
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp119_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble median: days per year with daily maximum temperature of 35 °C or more, 2040–2059
+      under SSP1-1.9, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp119-p10
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p10_ssp119_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 10th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP1-1.9, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp119-p90
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p90_ssp119_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP1-1.9, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp126-median
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp126_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble median: days per year with daily maximum temperature of 35 °C or more, 2040–2059
+      under SSP1-2.6, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp126-p10
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p10_ssp126_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 10th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP1-2.6, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp126-p90
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p90_ssp126_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP1-2.6, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp245-median
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble median: days per year with daily maximum temperature of 35 °C or more, 2040–2059
+      under SSP2-4.5, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp245-p10
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p10_ssp245_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 10th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP2-4.5, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp245-p90
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p90_ssp245_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP2-4.5, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp370-median
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp370_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble median: days per year with daily maximum temperature of 35 °C or more, 2040–2059
+      under SSP3-7.0, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp370-p10
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p10_ssp370_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 10th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP3-7.0, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp370-p90
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p90_ssp370_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP3-7.0, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp585-median
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp585_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble median: days per year with daily maximum temperature of 35 °C or more, 2040–2059
+      under SSP5-8.5, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp585-p10
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p10_ssp585_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 10th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP5-8.5, every country.
+    access: {conditional: false}
+  - id: cmip6-hd35-2040-2059-ssp585-p90
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p90_ssp585_ensemble_all_mean/all_countries?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
+      2040–2059 under SSP5-8.5, every country.
+    access: {conditional: false}
+status:
+  state: active
+  note: >-
+    The API answered on 2026-10-04 and the ERA5 country series runs to 2025. The ERA5 series is refreshed about once a
+    year; the CMIP6 projections are fixed. No version label is published, so each snapshot's sha256 and fetch date are
+    the version.
+  us_federal: false
+update_cadence: ERA5 series about once a year; CMIP6 projections static
+twins: []
+research_ref: "docs/research/sources-country-and-local.json#Climate Change Knowledge Portal (CCKP): ERA5 and CMIP6 aggregated to countries, ADM1 and watersheds"

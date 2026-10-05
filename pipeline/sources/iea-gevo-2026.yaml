@@ -1,0 +1,98 @@
+# IEA Global EV Outlook 2026 and its Global EV Data Explorer (historical data via api.iea.org/evs).
+# Evidence: docs/research/sources-energy.json ("IEA – Global EV Outlook 2026 and Global EV Data Explorer"),
+# re-checked 2026-10-04. iea.org pages return 403 with "cf-mitigated: challenge"; the blob-hosted PDF and
+# api.iea.org answer scripts.
+# Licence, read 2026-10-04:
+#   - The report PDF's licence page (p. 294 of 295; terms_url) is quoted below; every page footer reads
+#     "IEA. CC BY 4.0."
+#   - The Global EV Data Explorer page (Internet Archive copy, 2026-09-22) says "Licence CC BY 4.0", "Last updated
+#     20 May 2026". Its script (https://iea.blob.core.windows.net/scripts/ev-dashboard/ev-dashboard.js) reads its
+#     data from https://api.iea.org/evs, the artifact below.
+#   - Not used: the "Global EV Outlook 2026" data product (XLSX, needs an IEA account) is licensed under "Terms of
+#     Use for Non-CC Material" (product page, Internet Archive copy, 2026-10-01), not CC BY.
+#   - The IEA "Notice for CC-licensed Content" (Internet Archive copy of
+#     https://www.iea.org/terms/creative-commons-cc-licenses, 2026-10-02) adds: no IEA logo, visual identity or cover
+#     images and no suggestion of IEA endorsement; the preferred attribution "IEA 202[X]; [Title name], [URL],
+#     License: [relevant CC license e.g. CC BY 4.0]"; third-party components are not licensed; and adaptations must
+#     carry the derived-work disclaimer, reproduced verbatim in obligations.derived_disclaimer.
+# citation.text is verbatim from the report page's "Cite report" box (Internet Archive copy, 2026-10-04).
+id: iea-gevo-2026
+title: Global EV Outlook 2026 and Global EV Data Explorer
+publisher: International Energy Agency
+landing_url: https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer
+description: >-
+  Electric vehicle sales, stock, sales share and stock share (cars, vans, buses, trucks, two- and three-wheelers;
+  battery-electric, plug-in hybrid and fuel cell), charging points, electricity demand, battery deployment and oil
+  displacement, 2010 to 2025, for 71 countries and regions. "EV" includes plug-in hybrids. Values are rounded
+  (World 2025: 21,000,000 electric cars sold, 25% of car sales; 75,000,000 on the road). The 1.2 million barrels a
+  day of oil displacement is for cars only; all modes add up to about 1.66. Projections (STEPS, CPS) are excluded by
+  the query. The file also holds car price distributions for 23 markets (parameters price_* and
+  sales-historical-price-data), which the report credits as "IEA analysis based on data from S&P Global Mobility";
+  they are not used. The API is undocumented and may change, so every pull is snapshotted.
+citation:
+  type: report
+  title: Global EV Outlook 2026
+  author:
+    - {literal: International Energy Agency}
+  issued: "2026-05-20"
+  publisher: IEA
+  URL: https://www.iea.org/reports/global-ev-outlook-2026
+  text: >-
+    IEA (2026), Global EV Outlook 2026, IEA, Paris https://www.iea.org/reports/global-ev-outlook-2026, Licence: CC BY
+    4.0
+licence_class: open
+licence:
+  name: CC BY 4.0, subject to the IEA Notice for CC-licensed Content
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://iea.blob.core.windows.net/assets/857aa690-2a43-453f-9f12-147cc8f0a1dd/GlobalEVOutlook2026.pdf
+  licence_quote: >-
+    Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution
+    4.0 International Licence.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    IEA 2026; Global EV Data Explorer, https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer,
+    License: CC BY 4.0
+  attribution_modified: >-
+    Calculated by Environment Dashboard from IEA 2026; Global EV Data Explorer,
+    https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer, License: CC BY 4.0
+  derived_disclaimer: >-
+    This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and
+    responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any
+    manner.
+  # The notice does not license third-party components, and the API ignores parameter filters, so the raw file always
+  # includes the S&P Global Mobility-based price rows. It is therefore not re-hosted.
+  mirror_raw: false
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-04: text/csv, 3,505,319 bytes, 51,539 rows, no ETag or Last-Modified; two pulls were
+  # byte-identical (sha256 43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b). The API needs a
+  # region or a year ("Must specify a region or a year." otherwise) and accepts a comma-separated year list.
+  - id: evs-historical
+    url: https://api.iea.org/evs?category=Historical&year=2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025&csv=true
+    format: csv
+    description: >-
+      All historical rows: columns region, category, parameter, mode, powertrain, year, unit, value.
+    access:
+      conditional: false
+  # GET 200 on 2026-10-04: 20,175,354 bytes, Last-Modified Fri 19 Jun 2026. 295 pages, "Typeset in France by IEA -
+  # May 2026"; the licence page also reads "Revised version, June 2025", which looks like a typo for June 2026.
+  - id: report-pdf
+    url: https://iea.blob.core.windows.net/assets/857aa690-2a43-453f-9f12-147cc8f0a1dd/GlobalEVOutlook2026.pdf
+    format: pdf
+    description: >-
+      The report, for published statements (executive summary p. 10: electric car sales grew 20% to more than
+      20 million in 2025, one in four new cars).
+status:
+  state: active
+  note: >-
+    Report published 20 May 2026 and the explorer updated the same day. iea.org itself blocks scripts; the API and
+    the PDF do not. Not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Annual, in May
+research_ref: docs/research/sources-energy.json#IEA – Global EV Outlook 2026 and Global EV Data Explorer

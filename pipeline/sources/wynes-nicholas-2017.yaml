@@ -1,0 +1,146 @@
+# Wynes & Nicholas (2017), Environ. Res. Lett. 12 074024: emission reductions of individual lifestyle actions in
+# developed countries, with the published comments, corrigendum and replies that critique it.
+# Evidence: docs/research/sources-solutions-and-action.json ("Wynes & Nicholas 2017 ..."); verdict "confirmed",
+# final_redistribution open-attribution, with the reply's article number (048002) added to the citations.
+# Checked 2026-10-04:
+#   - Crossref lists licence http://creativecommons.org/licenses/by/3.0/ for all six items: the paper (aa7541, ERL 12
+#     074024), the comment by van Basshuysen & Brandstedt (aab213, ERL 13 048001), its corrigendum (aac2ee, ERL 13
+#     069501), the reply by Wynes & Nicholas (aab210, ERL 13 048002), a second comment by Laycock Pedersen & Lam
+#     (aac9d0, ERL 13 068001) and the reply to it (aac9cf, ERL 13 068002). The research listed only the first three;
+#     the corrigendum, the second comment and its reply were found through Crossref and the comment's own "Related
+#     content" box.
+#   - iopscience.iop.org sends scripted requests for these articles to a "Radware Bot Manager Captcha" page (302 to
+#     validate.perfdrive.com), so every file is acquired by hand and terms_check is manual.
+#   - The licence quote was read on page 2 of the paper's PDF in the Internet Archive copy captured 2026-10-01
+#     (https://web.archive.org/web/20261001103343/https://iopscience.iop.org/article/10.1088/1748-9326/aa7541/pdf,
+#     1,081,381 bytes, 10 pages). The same sentence, with "Attribution 3.0", is in the archived PDFs of the comment,
+#     the corrigendum, both replies and the second comment. IOP adds a per-download cover page, so each person's
+#     download has its own sha256.
+#   - Supplementary data: ERL_12_7_074024_suppdata.pdf (named on the Internet Archive copy of the /data page,
+#     2026-08-13), served from a signed, expiring S3 URL.
+#   - An open copy of the comment is on LSE Research Online (HTTP 200, 666,427 bytes); its LSE cover page labels it
+#     "Creative Commons: Attribution 4.0", but the article itself says Attribution 3.0, and the publisher's statement
+#     is the one relied on here.
+# The "one fewer child" value (58.6 t per year) counts emissions of descendants (Murtaugh & Schlax accounting); the
+# comment argues this multiple-counts emissions and excludes net-zero trajectories. The site shows the critique next
+# to that value and does not headline it.
+id: wynes-nicholas-2017
+title: The climate mitigation gap (Wynes & Nicholas 2017), with comments and replies
+publisher: >-
+  Seth Wynes and Kimberly A. Nicholas (Lund University, University of British Columbia); published in Environmental
+  Research Letters (IOP Publishing)
+landing_url: https://doi.org/10.1088/1748-9326/aa7541
+description: >-
+  Annual emission reductions per person (tonnes of CO2-equivalent) for lifestyle actions in developed countries, based
+  on 148 scenarios from 39 sources, compared with the actions recommended by ten Canadian high-school science
+  textbooks and by government resources from the EU, USA, Canada and Australia. The four high-impact actions in the
+  abstract: one fewer child (58.6 t per year, an average for developed countries), living car-free (2.4 t per year),
+  avoiding air travel (1.6 t per round-trip transatlantic flight) and a plant-based diet (0.8 t per year). Published
+  with a comment (2018) disputing the child figure's accounting, a corrigendum to that comment, a second comment on
+  how the recommendations were framed, and the authors' replies to both.
+citation:
+  type: article-journal
+  title: >-
+    The climate mitigation gap: education and government recommendations miss the most effective individual actions
+  author:
+    - {family: Wynes, given: Seth}
+    - {family: Nicholas, given: Kimberly A.}
+  issued: "2017-07-12"
+  publisher: IOP Publishing
+  container-title: Environmental Research Letters
+  volume: "12"
+  page: "074024"
+  DOI: 10.1088/1748-9326/aa7541
+  URL: https://doi.org/10.1088/1748-9326/aa7541
+  # IOP's "To cite this article" line on the PDF cover page, followed by the DOI.
+  text: Seth Wynes and Kimberly A Nicholas 2017 Environ. Res. Lett. 12 074024 https://doi.org/10.1088/1748-9326/aa7541
+licence_class: open
+licence:
+  name: CC BY 3.0
+  spdx: CC-BY-3.0
+  url: https://creativecommons.org/licenses/by/3.0/
+evidence:
+  # Read from the Internet Archive copy (see header); the live PDF sits behind IOP's bot check.
+  terms_url: https://iopscience.iop.org/article/10.1088/1748-9326/aa7541/pdf
+  licence_quote: >-
+    Original content from this work may be used under the terms of the Creative Commons Attribution 3.0 licence. Any
+    further distribution of this work must maintain attribution to the author(s) and the title of the work, journal
+    citation and DOI.
+  checked_on: 2026-10-04
+  terms_check: manual
+obligations:
+  attribution: >-
+    Wynes, S. & Nicholas, K. A. (2017). The climate mitigation gap: education and government recommendations miss the
+    most effective individual actions. Environmental Research Letters 12, 074024. doi:10.1088/1748-9326/aa7541.
+    CC BY 3.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Wynes, S. & Nicholas, K. A. (2017). The climate mitigation gap: education
+    and government recommendations miss the most effective individual actions. Environmental Research Letters 12,
+    074024. doi:10.1088/1748-9326/aa7541. CC BY 3.0.
+  # Each critique item is its own CC BY 3.0 work; its credit is required wherever it is quoted or summarised.
+  notice: >-
+    Comment: van Basshuysen, P. & Brandstedt, E. (2018), Environ. Res. Lett. 13, 048001,
+    doi:10.1088/1748-9326/aab213 (corrigendum 13, 069501, doi:10.1088/1748-9326/aac2ee). Reply: Wynes, S. & Nicholas,
+    K. A. (2018), Environ. Res. Lett. 13, 048002, doi:10.1088/1748-9326/aab210. Second comment: Laycock Pedersen, R. &
+    Lam, D. P. M. (2018), Environ. Res. Lett. 13, 068001, doi:10.1088/1748-9326/aac9d0. Reply: Wynes, S. & Nicholas,
+    K. A. (2018), Environ. Res. Lett. 13, 068002, doi:10.1088/1748-9326/aac9cf. All CC BY 3.0.
+  mirror_raw: true
+acquisition: manual
+artifacts:
+  - id: article-pdf
+    url: null
+    format: pdf
+    description: >-
+      The paper (10 pages with IOP's cover page). A person opens
+      https://iopscience.iop.org/article/10.1088/1748-9326/aa7541/pdf in a browser, passes IOP's bot check, saves the
+      PDF and records it with uv run envdash snapshot add --source wynes-nicholas-2017 --file <path>.
+  - id: supplementary-pdf
+    url: null
+    format: pdf
+    description: >-
+      ERL_12_7_074024_suppdata.pdf, the supplementary materials the paper cites as 1 to 5: per-study calculations
+      (including studies outside developed countries, which the main text leaves out), the aviation calculations, the
+      textbook analysis and the details behind figure 1. Downloaded by hand from
+      https://iopscience.iop.org/article/10.1088/1748-9326/aa7541/data and recorded the same way.
+  - id: comment-pdf
+    url: null
+    format: pdf
+    description: >-
+      van Basshuysen & Brandstedt (2018), Comment, ERL 13 048001, from
+      https://iopscience.iop.org/article/10.1088/1748-9326/aab213/pdf (also on LSE Research Online:
+      https://researchonline.lse.ac.uk/id/eprint/101023/). Downloaded and recorded by hand.
+  - id: comment-corrigendum-pdf
+    url: null
+    format: pdf
+    description: >-
+      Corrigendum to the comment (2018), ERL 13 069501, from
+      https://iopscience.iop.org/article/10.1088/1748-9326/aac2ee/pdf. Downloaded and recorded by hand.
+  - id: reply-pdf
+    url: null
+    format: pdf
+    description: >-
+      Wynes & Nicholas (2018), Reply to Comment, ERL 13 048002, from
+      https://iopscience.iop.org/article/10.1088/1748-9326/aab210/pdf. Downloaded and recorded by hand.
+  - id: second-comment-pdf
+    url: null
+    format: pdf
+    description: >-
+      Laycock Pedersen & Lam (2018), Second comment, ERL 13 068001, from
+      https://iopscience.iop.org/article/10.1088/1748-9326/aac9d0/pdf. Downloaded and recorded by hand.
+  - id: second-reply-pdf
+    url: null
+    format: pdf
+    description: >-
+      Wynes & Nicholas (2018), Reply to Second comment, ERL 13 068002, from
+      https://iopscience.iop.org/article/10.1088/1748-9326/aac9cf/pdf. Downloaded and recorded by hand.
+status:
+  state: archived
+  note: >-
+    Published 12 July 2017; the comments, corrigendum and replies appeared in 2018 (volume 13). One-off papers with
+    no planned update.
+  us_federal: false
+update_cadence: One-off (published 2017, critique 2018)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#Wynes & Nicholas 2017: The climate mitigation gap (high-impact
+  individual actions), with the 2018 comment and reply

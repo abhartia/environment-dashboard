@@ -1,0 +1,96 @@
+# NOAA 0.25-degree Daily Optimum Interpolation Sea Surface Temperature (OISST), version 2.1, NOAA NCEI.
+# Evidence: docs/research/sources-ocean-and-ice.json ("NOAA 1/4 degree Daily Optimum Interpolation SST v2.1 (OISST)";
+# verifier corrected the method paper's year to 2021 and rejected Climate Reanalyzer as a pipeline input).
+#
+# NCEI publishes one NetCDF file per day and no global-mean series, so the pipeline computes the area-weighted
+# 60°S–60°N daily mean itself from the gridded files (Climate Reanalyzer's derived JSON returns HTTP 403 to non-browser
+# clients and states no licence; it is not used). File pattern, one directory per month:
+#   https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/{YYYYMM}/oisst-avhrr-v02r01.{YYYYMMDD}.nc
+#   ...and {YYYYMMDD}_preliminary.nc for roughly the last two weeks, replaced by the final file about 14 days later.
+# The two URLs below are the newest final and newest preliminary files on 2026-10-04 (HTTP 200, about 1.5 MB each,
+# ETag present); the first file, 198109/oisst-avhrr-v02r01.19810901.nc, also returned 200. The fetcher must list the
+# monthly directories and record each exact file name it took.
+id: oisst-v2
+title: NOAA Daily Optimum Interpolation Sea Surface Temperature (OISST), version 2.1
+publisher: NOAA National Centers for Environmental Information
+landing_url: https://www.ncei.noaa.gov/products/optimum-interpolation-sst
+description: >-
+  Daily sea-surface temperature on a global 0.25° grid from 1 September 1981, blending AVHRR satellite data with ship,
+  buoy and Argo float measurements and filling gaps by optimum interpolation. Each daily file also carries an anomaly
+  (its metadata says "Climatology is based on 1971-2000 OI.v2 SST"), an error estimate and sea-ice concentration.
+  Files for roughly the last two weeks are preliminary and are replaced by final files; the site keeps that status and
+  labels those days preliminary.
+citation:
+  type: dataset
+  title: NOAA 0.25-degree Daily Optimum Interpolation Sea Surface Temperature (OISST), Version 2.1
+  author:
+    - {family: Huang, given: Boyin}
+    - {family: Liu, given: Chunying}
+    - {family: Banzon, given: Viva F.}
+    - {family: Freeman, given: Eric}
+    - {family: Graham, given: Garrett}
+    - {family: Hankins, given: William}
+    - {family: Smith, given: Thomas M.}
+    - {family: Zhang, given: Huai-Min}
+  issued: "2020"
+  publisher: NOAA National Centers for Environmental Information
+  version: "2.1"
+  DOI: 10.25921/RE9P-PT57
+  URL: https://doi.org/10.25921/RE9P-PT57
+  # The NCEI ISO 19115 record's "Cite as" text, with "[indicate subset used]" and "[date]" filled in. The product page
+  # also asks for the method paper: Huang et al., J. Climate 34(8), 2923-2939, doi:10.1175/JCLI-D-20-0166.1 (published
+  # 2021; the NCEI page says 2020).
+  text: >-
+    Huang, Boyin; Liu, Chunying; Banzon, Viva F.; Freeman, Eric; Graham, Garrett; Hankins, William; Smith, Thomas M.;
+    Zhang, Huai-Min. (2020): NOAA 0.25-degree Daily Optimum Interpolation Sea Surface Temperature (OISST), Version
+    2.1. AVHRR-only daily files. NOAA National Centers for Environmental Information.
+    https://doi.org/10.25921/RE9P-PT57. Accessed {date_accessed}.
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  # The dataset's ISO record says "See the Use Agreement for this CDR available on the CDR page"; this is that
+  # document (CDR 01B-09, PDF, HTTP 200, Last-Modified 30 Sep 2014). Full sentence: "In line with these policies, the
+  # CDR data sets are non-proprietary, publicly available, and no restrictions are placed upon their use."
+  terms_url: https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Sea_Surface_Temperature_Optimum_Interpolation/UseAgreement_01B-09.pdf
+  licence_quote: >-
+    publicly available, and no restrictions are placed upon their use.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    NOAA National Centers for Environmental Information, OISST version 2.1 (Huang et al.), doi:10.25921/RE9P-PT57,
+    accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NOAA National Centers for Environmental Information OISST version 2.1
+    (Huang et al.), doi:10.25921/RE9P-PT57, accessed {date_accessed}.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: daily-final
+    url: https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/202609/oisst-avhrr-v02r01.20260919.nc
+    format: nc
+    description: >-
+      One day's final AVHRR-only OISST grid (sst, anom, err, ice; 0.25°). Newest final file on 2026-10-04; one file
+      per day from 19810901 (see header comment for the pattern).
+  - id: daily-preliminary
+    url: https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/202610/oisst-avhrr-v02r01.20261003_preliminary.nc
+    format: nc
+    description: >-
+      One day's preliminary grid, same layout. Newest file on 2026-10-04 (3 October 2026); preliminary files are
+      replaced by final ones about two weeks later.
+status:
+  state: active
+  note: >-
+    Updated daily (the 3 October 2026 preliminary file was posted on 4 October). NCEI is moving its data to the cloud
+    and warns of temporary access delays and degraded order services. NCEI is a NOAA line office exposed to the
+    proposed FY2027 NOAA budget cut.
+  us_federal: true
+update_cadence: Daily, about one day behind (preliminary), final about two weeks later
+next_release:
+  expected: 2026-10-05
+  note: Daily preliminary file for 4 October 2026.
+twins: [hadsst4, c3s-climate-pulse]
+research_ref: docs/research/sources-ocean-and-ice.json#NOAA 1/4 degree Daily Optimum Interpolation SST v2.1 (OISST)

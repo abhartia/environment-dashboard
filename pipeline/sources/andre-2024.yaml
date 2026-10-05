@@ -1,0 +1,98 @@
+# Andre, Boneva, Chopra & Falk (2024), Nature Climate Change 14:253-259: actual and perceived support for climate
+# action in 125 countries (Global Climate Change Survey, run with the Gallup World Poll 2021/22).
+# Evidence: docs/research/sources-solutions-and-action.json ("Andre, Boneva, Chopra & Falk 2024: Global Climate Change
+# Survey ..."); verdict "corrected" (add volume 14(3), pages 253-259); final_redistribution open-attribution for the
+# paper and its CC BY supplement only.
+# Checked 2026-10-04:
+#   - nature.com article page: HTTP 200 to the pipeline's own client (it first answers 303 to idp.nature.com, a cookie
+#     check, and the client follows it). "Rights and permissions" carries the licence quoted below; "Cite this article"
+#     gives the citation used here. Crossref lists https://creativecommons.org/licenses/by/4.0 (vor and tdm).
+#   - Article PDF: HTTP 200 application/pdf, 4,095,859 bytes, through the same cookie redirect. The redirect adds a
+#     one-time query string, so conditional is false.
+#   - Supplementary Information (MOESM1, "Supplementary Figs. 1–4 and Tables 1–17"): HTTP 200, 822,967 bytes, ETag
+#     "19642d405799b88c511d6f3625b651f8", Last-Modified 14 Mar 2024. Supplementary Table S4 gives national averages
+#     for all 125 countries (willingness to contribute 1% of income, approval of pro-climate norms, demand for
+#     political action, beliefs about others' willingness, share believing a majority would contribute); Table S5
+#     gives world regions. These are the authors' published aggregates, covered by the article's CC BY licence.
+# NOT ingested: the survey microdata on the IZA Data Service Center (doi:10.15185/gccs.1, version 5.0, 2024-04-30,
+# Country_data.zip and Replication.zip). Its licence is IIL-1.0 and its terms of access read "Users are prohibited
+# from using data acquired from the IDSC in the pursuit of any commercial or private ventures. The data will be used
+# only for scholarly, research, educational purposes or replications." and require registration.
+id: andre-2024
+title: Actual and perceived support for climate action (Andre et al. 2024)
+publisher: >-
+  Peter Andre, Teodora Boneva, Felix Chopra and Armin Falk (SAFE and Goethe University Frankfurt, University of Bonn,
+  University of Copenhagen); published in Nature Climate Change
+landing_url: https://doi.org/10.1038/s41558-024-01925-3
+description: >-
+  A representative survey of nearly 130,000 people in 125 countries, run as part of the Gallup World Poll 2021/2022.
+  Worldwide, 69% say they would be willing to contribute 1% of their household income every month to fight global
+  warming, 86% endorse pro-climate social norms and 89% want their government to do more, while people underestimate
+  how many of their compatriots are willing to contribute. National averages for each measure come from the paper's
+  Supplementary Information; global averages are population-weighted averages of national shares.
+citation:
+  type: article-journal
+  title: Globally representative evidence on the actual and perceived support for climate action
+  author:
+    - {family: Andre, given: Peter}
+    - {family: Boneva, given: Teodora}
+    - {family: Chopra, given: Felix}
+    - {family: Falk, given: Armin}
+  issued: "2024-02-09"
+  publisher: Springer Nature
+  container-title: Nature Climate Change
+  volume: "14"
+  page: 253-259
+  DOI: 10.1038/s41558-024-01925-3
+  URL: https://doi.org/10.1038/s41558-024-01925-3
+  # "Cite this article" on nature.com.
+  text: >-
+    Andre, P., Boneva, T., Chopra, F. et al. Globally representative evidence on the actual and perceived support for
+    climate action. Nat. Clim. Chang. 14, 253–259 (2024). https://doi.org/10.1038/s41558-024-01925-3
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.nature.com/articles/s41558-024-01925-3
+  licence_quote: >-
+    This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use,
+    sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit
+    to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes
+    were made.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Andre, P., Boneva, T., Chopra, F. & Falk, A. (2024). Globally representative evidence on the actual and perceived
+    support for climate action. Nature Climate Change 14, 253–259. doi:10.1038/s41558-024-01925-3. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Andre, P., Boneva, T., Chopra, F. & Falk, A. (2024). Globally representative
+    evidence on the actual and perceived support for climate action. Nature Climate Change 14, 253–259.
+    doi:10.1038/s41558-024-01925-3. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-pdf
+    url: https://www.nature.com/articles/s41558-024-01925-3.pdf
+    format: pdf
+    description: >-
+      Version of record (14 pages with methods and references), with the headline global shares. 4,095,859 bytes.
+    access: {conditional: false}
+  - id: supplementary-information
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41558-024-01925-3/MediaObjects/41558_2024_1925_MOESM1_ESM.pdf
+    format: pdf
+    description: >-
+      Supplementary Information (35 pages): Supplementary Figs. 1–4 and Tables S1–S17, including Table S4 (national
+      averages for 125 countries and the world) and Table S5 (world regions). 822,967 bytes.
+status:
+  state: archived
+  note: >-
+    Published 9 February 2024 (issue of March 2024). The survey was run once (2021-2022); no repeat has been announced.
+  us_federal: false
+update_cadence: One-off (published 2024)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#Andre, Boneva, Chopra & Falk 2024: Global Climate Change Survey
+  (actual vs perceived support for climate action)

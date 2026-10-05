@@ -1,0 +1,15 @@
+{
+  "artifact_id": "global-annual",
+  "command": "uv run python tests/fixtures/make_fixture.py --source hadcrut5 --artifact global-annual --first 51 --last 5",
+  "data_rows_total": 177,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 2293,
+  "fixture_sha256": "d3890b15b5be980a923945d8db8e8e38fc8274ac7b79b95718d7dafc95bf65c0",
+  "full_bytes": 7046,
+  "full_sha256": "7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04",
+  "header_lines": 1,
+  "licence": "Open Government Licence v3.0 (Crown copyright)",
+  "rows_kept": "data rows 1-51 and 173-177 of 177",
+  "source_id": "hadcrut5",
+  "url": "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.annual.csv"
+}

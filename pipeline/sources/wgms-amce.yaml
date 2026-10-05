@@ -1,0 +1,89 @@
+# WGMS annual mass-change estimates for the world's glaciers (AMCE), version 2026-02-10: hydrological years 1976-2025.
+# Evidence: docs/research/sources-ocean-and-ice.json ("WGMS Annual mass-change estimates for the world's glaciers
+# (AMCE, version 2026-02-10)"); verifier verdict "confirmed" (143 files; 2025: -408.101 Gt, sigma 67.223; cumulative
+# -9583.132 Gt, sigma 617.629; 26.436 +/- 1.704 mm sea level equivalent; the README carries the citation). The CSV's
+# one-sigma uncertainty for 2025 (67 Gt) differs from the +/-132 Gt in WGMS's Nature Reviews Earth & Environment
+# summary; the CSV value is the one shown.
+# Licence evidence checked 2026-10-04: WGMS data policy page (HTTP 200, "last change 12/06/2023") quoted below; it also
+# says "The use of data and information from WGMS requires acknowledgement of the WGMS and/or the original investigators
+# and sponsoring agencies", which the citation satisfies. The AMCE landing page (where the DOI resolves) gives "Rights:
+# Open access under the requirement of correct citation" and names WGMS and the Copernicus Climate Change Service (C3S)
+# as publishers; the terms of this WGMS distribution are the ones that apply here. DataCite's rightsList for the DOI is
+# empty.
+# Artifact checked 2026-10-04: HTTP 200, 53,589,520 bytes, ETag "331b610-64b93f5a76d99", Last-Modified 24 Feb 2026,
+# answers If-None-Match with 304; sha256 b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc. The zip
+# holds README.md, global.csv, global_grid.nc4, region/*.csv and glacier/*.csv (143 files, 489 MB unpacked); global.csv
+# runs 1976 (+12.432 Gt) to 2025 (-408.101 Gt). Each release has its own DOI and file name, so a new release means a
+# new URL here.
+# citation.text: the two citations in the zip's README.md ("Please cite the dataset" and "the related publication"),
+# verbatim.
+id: wgms-amce
+title: Annual mass-change estimates for the world's glaciers (version 2026-02-10)
+publisher: World Glacier Monitoring Service (WGMS), University of Zurich
+landing_url: https://wgms.ch/mass_change_estimates/
+description: >-
+  Annual glacier mass change for every glacier, 19 glacier regions (Southern Andes split in two), a 0.5-degree grid and
+  the world, for hydrological years 1976-2025: metres water equivalent, gigatonnes and millimetres of sea level
+  equivalent, each with a one-sigma uncertainty, plus glacier area. Made by combining multi-year satellite
+  elevation-change estimates with annual field measurements from the WGMS Fluctuations of Glaciers database.
+  Hydrological years run from 1 October in the Northern Hemisphere, 1 April in the Southern Hemisphere and 1 January in
+  the tropics, labelled by the year they end. In global.csv, mass loss is negative in Gt and positive in mm of sea level
+  equivalent. The latest year is revised in the next release.
+citation:
+  type: dataset
+  title: >-
+    Annual mass-change estimates for the world's glaciers. Individual glacier time series and gridded data products
+  author:
+    - {literal: World Glacier Monitoring Service (WGMS)}
+  issued: "2026-02-10"
+  publisher: World Glacier Monitoring Service
+  version: "2026-02-10"
+  DOI: 10.5904/wgms-amce-2026-02-10
+  URL: https://doi.org/10.5904/wgms-amce-2026-02-10
+  text: >-
+    WGMS (2026): Annual mass-change estimates for the world's glaciers. Individual glacier time series and gridded
+    data products. Digital media. https://doi.org/10.5904/wgms-amce-2026-02-10 Dussaillant, I., Hugonnet, R., Huss,
+    M., Berthier, E., Bannwart, J., Paul, F., and Zemp, M. (2025): Annual mass change of the world's glaciers from 1976
+    to 2024 by temporal downscaling of satellite data with in-situ observations. Earth System Science Data 17(5):
+    1977–2006. https://doi.org/10.5194/essd-17-1977-2025
+licence_class: open
+licence:
+  name: CC BY 4.0 (WGMS data policy, open access on condition of correct citation)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://wgms.ch/data_policy/
+  licence_quote: >-
+    Thus, WGMS data are open access under the requirement of correct citation (see database version), which
+    corresponds to a CC BY 4.0 license by Creative Commons.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    WGMS (2026), Annual mass-change estimates for the world's glaciers, version 2026-02-10,
+    doi:10.5904/wgms-amce-2026-02-10; Dussaillant et al. (2025), Earth System Science Data 17, 1977–2006,
+    doi:10.5194/essd-17-1977-2025. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from WGMS (2026), Annual mass-change estimates for the world's glaciers,
+    version 2026-02-10, doi:10.5904/wgms-amce-2026-02-10; Dussaillant et al. (2025), Earth System Science Data 17,
+    1977–2006, doi:10.5194/essd-17-1977-2025. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: amce-2026-02-10
+    url: https://wgms.ch/downloads/wgms-amce-2026-02-10.zip
+    format: zip
+    description: >-
+      Zip of README.md, global.csv (year, area_km2, mwe, gt, mmsle with sigmas and cumulative sums), region/<code>.csv
+      for the 2017 GTN-G regions (SA1 and SA2 for the Southern Andes), glacier/<region>_*.csv per-glacier series and
+      metadata, and global_grid.nc4 (0.5-degree grid). 53,589,520 bytes.
+status:
+  state: active
+  note: >-
+    Version 2026-02-10 (zip dated 24 February 2026) covers hydrological years to 2025. WGMS releases a new version each
+    February with the previous year added; the landing page also links the earlier 2025-02 version. Swiss-based,
+    within the Global Terrestrial Network for Glaciers.
+  us_federal: false
+update_cadence: Annual (each February, as a new versioned DOI and file)
+twins: []
+research_ref: docs/research/sources-ocean-and-ice.json#WGMS Annual mass-change estimates for the world's glaciers (AMCE, version 2026-02-10)

@@ -1,0 +1,93 @@
+# EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a): sea ice extent and area, hemispheric, global and regional, from
+# October 1978. An independent European counterpart to the NSIDC Sea Ice Index.
+# Evidence: docs/research/sources-ocean-and-ice.json ("EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)"); verifier
+# verdict "corrected": the THREDDS link in the research (osisaf_420siiv3p0.html) returns 404 (the product page's is
+# thredds.met.no/thredds/catalog/osisaf/osisaf_seaiceindex.html, HTTP 200 on 2026-10-04); monthly rows have five
+# fields although the "# Format" line lists six; the file header names the source CDR DOIs, cited in the description.
+# The research's claim that the v2.3 feed ended on 1 June 2026 is unconfirmed: the product page lists v2.3 "on the FTP
+# server since 01/09/2025" and v3.0 since 4 May 2026, with no end date for v2.3.
+# Licence evidence checked 2026-10-04: the OSI-420-a product page (HTTP 200) shows "Licensed under CC BY 4.0 by
+# EUMETSAT", "Licence : CC BY 4.0 Attribution : You must include attribution to EUMETSAT OSI SAF" and the
+# recommended citation, plus the site-wide licence statement quoted below. DataCite for doi:10.15770/EUM_SAF_OSI_0026
+# gives rights "Creative Commons Attribution 4.0 International" (cc-by-4.0), title "Sea Ice Index version 3.0 -
+# Multimission", version 3.0, created 2026-05-04.
+# Artifacts checked 2026-10-04 (HTTP 200, Last-Modified 4 Oct 2026 10:22 UTC, no ETag; If-Modified-Since answers 304):
+#   nh monthly 17,861 bytes ("# Creation date: 2026-10-04 09:36:46"; last row 2026.7068 2026 09 16 5341947);
+#   nh daily 685,383 bytes (last row 2026-10-03, 6,249,935 km2, source OSI438AFT); sh monthly 17,837 bytes; sh daily
+#   684,332 bytes. Months before November 1978 are -999.
+# citation.text: the product page's "Recommended citation", verbatim.
+id: osisaf-sea-ice-index
+title: EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)
+publisher: EUMETSAT Ocean and Sea Ice SAF (OSI SAF), produced by the Norwegian Meteorological Institute
+landing_url: https://osi-saf.eumetsat.int/products/osi-420-a
+description: >-
+  Sea ice extent (area with concentration above 15%) and sea ice area in km2, daily and monthly, for the Northern and
+  Southern Hemispheres (plus global and about 25 regional seas in the same archive), from October 1978 with one day of
+  latency. Derived from the OSI SAF sea ice concentration climate data records OSI-450-a1, OSI-430-a and OSI-438
+  (doi:10.15770/EUM_SAF_OSI_0023, 10.15770/EUM_SAF_OSI_2014, 10.15770/EUM_SAF_OSI_0024). Text files: '#' header lines,
+  then decimal year, year, month, day and extent (km2), with a source code column in the daily files only; -999 marks
+  missing values. Uses a different algorithm from NSIDC's Sea Ice Index, so its values differ (September 2026 Arctic
+  mean: 5.34 million km2 here, 4.81 in NSIDC's); the two are never mixed in one series.
+citation:
+  type: dataset
+  title: Sea Ice Index version 3.0 - Multimission (OSI-420-a)
+  author:
+    - {literal: EUMETSAT OSI SAF}
+  issued: "2026"
+  publisher: EUMETSAT
+  version: "3.0"
+  DOI: 10.15770/EUM_SAF_OSI_0026
+  URL: https://doi.org/10.15770/EUM_SAF_OSI_0026
+  text: EUMETSAT OSI SAF, Sea-Ice Index (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://osi-saf.eumetsat.int/products/osi-420-a
+  licence_quote: >-
+    The EUMETSAT OSI SAF products are made available without charge under a CC-BY-4.0 licence. You may share (copy
+    and redistribute the material in any medium or format for any purpose, even commercially) and adapt (remix,
+    transform, and build upon the material for any purpose, even commercially). You must provide attribution and cannot
+    apply additional restrictions.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    EUMETSAT OSI SAF, Sea-Ice Index v3.0 (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026, produced by the Norwegian
+    Meteorological Institute. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from EUMETSAT OSI SAF, Sea-Ice Index v3.0 (2026), OSI-420-a,
+    doi:10.15770/EUM_SAF_OSI_0026, produced by the Norwegian Meteorological Institute. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: nh-extent-monthly
+    url: https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt
+    format: txt
+    description: >-
+      Northern Hemisphere monthly mean sea ice extent (km2), one row per month dated the 16th, from January 1978
+      (-999 until October 1978). Five fields per row.
+  - id: nh-extent-daily
+    url: https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_daily.txt
+    format: txt
+    description: Northern Hemisphere daily sea ice extent (km2) from October 1978, with the input record's code per row.
+  - id: sh-extent-monthly
+    url: https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/sh/ice_extent_sh_sii-v3p0_monthly.txt
+    format: txt
+    description: Southern Hemisphere monthly mean sea ice extent (km2), same layout as the northern file.
+  - id: sh-extent-daily
+    url: https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/sh/ice_extent_sh_sii-v3p0_daily.txt
+    format: txt
+    description: Southern Hemisphere daily sea ice extent (km2) from October 1978, with the input record's code per row.
+status:
+  state: active
+  note: >-
+    Version 3.0 has been operational since 4 May 2026 (authorised 30 April 2026); the files are regenerated daily
+    (monthly northern file created 4 October 2026). European (EUMETSAT, Norwegian Meteorological Institute), so not
+    exposed to US budget cuts.
+  us_federal: false
+update_cadence: Daily (one day of latency; monthly values after each month ends)
+twins: [nsidc-sea-ice-index]
+research_ref: docs/research/sources-ocean-and-ice.json#EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)

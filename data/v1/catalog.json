@@ -1,0 +1,103 @@
+{
+  "indicators": [
+    {
+      "display": {
+        "decimals": 2
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "d5bcc0ec0c67d547f3e6747877d669b652130737599f85906f7863840ef19dff",
+      "geo_coverage": "global-only",
+      "id": "co2.noaa-gml.annual-global",
+      "latest": {
+        "dims": {},
+        "entity": "WLD",
+        "period": "2025",
+        "status": "preliminary",
+        "value": 425.62
+      },
+      "licence_class": "open",
+      "source_ids": ["noaa-gml-trends"],
+      "title": "Carbon dioxide, global annual mean",
+      "unit": {
+        "code": "ppm",
+        "label": "parts per million",
+        "short": "ppm"
+      },
+      "vintage": "2026-09"
+    },
+    {
+      "display": {
+        "decimals": 2
+      },
+      "downloadable": true,
+      "entities": ["MLO"],
+      "export_sha256": "a16376a39d321da79236702e66aa39096d343609c8823cf2d6b3d6739d61546b",
+      "geo_coverage": "global-only",
+      "id": "co2.noaa-gml.monthly-mlo",
+      "latest": {
+        "dims": {},
+        "entity": "MLO",
+        "period": "2026-08",
+        "status": "final",
+        "value": 427.55
+      },
+      "licence_class": "open",
+      "source_ids": ["noaa-gml-trends"],
+      "title": "Carbon dioxide at Mauna Loa, monthly mean",
+      "unit": {
+        "code": "ppm",
+        "label": "parts per million",
+        "short": "ppm"
+      },
+      "vintage": "2026-09"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": false,
+      "entities": ["WLD"],
+      "export_sha256": "cca4ad969cdb47f59bb94cf0fbadb8cd5e4288082b40b5c98ff9caebf724aac3",
+      "geo_coverage": "global-only",
+      "id": "mitigation.ipcc-ar6.cost-under-100-2030",
+      "latest": null,
+      "licence_class": "display-only",
+      "source_ids": ["ipcc-ar6-wg3-spm"],
+      "title": "Emission cuts available by 2030 from options costing up to 100 US dollars per tonne",
+      "unit": {
+        "code": "percent",
+        "label": "percent of 2019 global greenhouse gas emissions",
+        "short": "%"
+      },
+      "vintage": "AR6 WGIII (2022)"
+    },
+    {
+      "display": {
+        "decimals": 2
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "7f299ced8a28e65df8f265e0318a72299f2a0b7763938151150e9bda9fcfb640",
+      "geo_coverage": "global-only",
+      "id": "temp.hadcrut5.annual-1850-1900",
+      "latest": {
+        "dims": {},
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 1.432652257
+      },
+      "licence_class": "open",
+      "source_ids": ["hadcrut5"],
+      "title": "Global surface temperature above 1850–1900 (HadCRUT5)",
+      "unit": {
+        "code": "degC",
+        "label": "degrees Celsius",
+        "short": "°C"
+      },
+      "vintage": "5.2.0.0"
+    }
+  ],
+  "schema_version": 1
+}

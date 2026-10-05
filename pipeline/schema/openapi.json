@@ -1,0 +1,1353 @@
+{
+  "components": {
+    "schemas": {
+      "Access": {
+        "additionalProperties": false,
+        "description": "How to reach a file. Anything a person must do by hand is acquisition=manual on the source.",
+        "properties": {
+          "auth": {
+            "default": "none",
+            "enum": ["none", "earthdata", "api-key", "cmems"],
+            "title": "Auth",
+            "type": "string"
+          },
+          "auth_env": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Env var holding the credential (from Keychain/secret).",
+            "title": "Auth Env"
+          },
+          "conditional": {
+            "default": true,
+            "description": "Server honours ETag/If-Modified-Since.",
+            "title": "Conditional",
+            "type": "boolean"
+          },
+          "cookie_accept_url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Licence click-through to visit first.",
+            "title": "Cookie Accept Url"
+          },
+          "method": {
+            "const": "GET",
+            "default": "GET",
+            "title": "Method",
+            "type": "string"
+          }
+        },
+        "required": ["method", "auth", "auth_env", "cookie_accept_url", "conditional"],
+        "title": "Access",
+        "type": "object"
+      },
+      "Artifact": {
+        "additionalProperties": false,
+        "description": "One file (or API response) of a source.",
+        "properties": {
+          "access": {
+            "$ref": "#/components/schemas/Access",
+            "default": {
+              "auth": "none",
+              "auth_env": null,
+              "conditional": true,
+              "cookie_accept_url": null,
+              "method": "GET"
+            }
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "format": {
+            "enum": ["csv", "txt", "tsv", "xlsx", "json", "zip", "nc", "pdf", "html"],
+            "title": "Format",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "max_bytes": {
+            "default": 200000000,
+            "description": "Refuse anything larger (protects R2 and runners).",
+            "title": "Max Bytes",
+            "type": "integer"
+          },
+          "url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "description": "Direct download URL; null for manual-only files.",
+            "title": "Url"
+          }
+        },
+        "required": ["id", "url", "format", "description", "access", "max_bytes"],
+        "title": "Artifact",
+        "type": "object"
+      },
+      "Catalog": {
+        "additionalProperties": false,
+        "properties": {
+          "indicators": {
+            "items": {
+              "$ref": "#/components/schemas/CatalogEntry"
+            },
+            "title": "Indicators",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          }
+        },
+        "required": ["schema_version", "indicators"],
+        "title": "Catalog",
+        "type": "object"
+      },
+      "CatalogEntry": {
+        "additionalProperties": false,
+        "description": "What the site needs to list an indicator without loading it. Present for every class except excluded.",
+        "properties": {
+          "display": {
+            "$ref": "#/components/schemas/Display"
+          },
+          "downloadable": {
+            "description": "True only for redistributable classes.",
+            "title": "Downloadable",
+            "type": "boolean"
+          },
+          "entities": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Entities",
+            "type": "array"
+          },
+          "export_sha256": {
+            "description": "sha256 of the canonical indicator JSON (public or private).",
+            "title": "Export Sha256",
+            "type": "string"
+          },
+          "geo_coverage": {
+            "enum": ["global-only", "country", "mixed"],
+            "title": "Geo Coverage",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "latest": {
+            "anyOf": [
+              {"$ref": "#/components/schemas/Latest"},
+              {"type": "null"}
+            ],
+            "description": "The headline value. Null for no-derivatives and display-only indicators: their values never appear under data/, so the site reads them from the private export on the server."
+          },
+          "licence_class": {
+            "enum": ["open", "share-alike", "noncommercial", "no-derivatives", "display-only", "excluded"],
+            "title": "Licence Class",
+            "type": "string"
+          },
+          "source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Ids",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "vintage": {
+            "title": "Vintage",
+            "type": "string"
+          }
+        },
+        "required": ["id", "title", "unit", "display", "licence_class", "source_ids", "vintage", "latest", "geo_coverage", "entities", "downloadable", "export_sha256"],
+        "title": "CatalogEntry",
+        "type": "object"
+      },
+      "Citation": {
+        "additionalProperties": false,
+        "description": "CSL-JSON subset, enough for APA and BibTeX.",
+        "properties": {
+          "DOI": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Doi"
+          },
+          "URL": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Url"
+          },
+          "author": {
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "title": "Author",
+            "type": "array"
+          },
+          "container-title": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Container-Title"
+          },
+          "issued": {
+            "description": "Year, or ISO date.",
+            "title": "Issued",
+            "type": "string"
+          },
+          "page": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Page"
+          },
+          "publisher": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Publisher"
+          },
+          "text": {
+            "description": "The producer's recommended citation, verbatim.",
+            "title": "Text",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "type": {
+            "enum": ["dataset", "article-journal", "report", "webpage", "book", "chapter"],
+            "title": "Type",
+            "type": "string"
+          },
+          "version": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Version"
+          },
+          "volume": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Volume"
+          }
+        },
+        "required": ["type", "title", "author", "issued", "publisher", "container-title", "volume", "page", "version", "DOI", "URL", "text"],
+        "title": "Citation",
+        "type": "object"
+      },
+      "Dimension": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "values": {
+            "items": {
+              "$ref": "#/components/schemas/DimensionValue"
+            },
+            "title": "Values",
+            "type": "array"
+          }
+        },
+        "required": ["id", "label", "values"],
+        "title": "Dimension",
+        "type": "object"
+      },
+      "DimensionValue": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          }
+        },
+        "required": ["id", "label"],
+        "title": "DimensionValue",
+        "type": "object"
+      },
+      "Display": {
+        "additionalProperties": false,
+        "properties": {
+          "decimals": {
+            "maximum": 6,
+            "minimum": 0,
+            "title": "Decimals",
+            "type": "integer"
+          }
+        },
+        "required": ["decimals"],
+        "title": "Display",
+        "type": "object"
+      },
+      "Indicator": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution": {
+            "description": "Credit line as rendered (placeholders filled, modified variant if any).",
+            "title": "Attribution",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "dimensions": {
+            "items": {
+              "$ref": "#/components/schemas/Dimension"
+            },
+            "title": "Dimensions",
+            "type": "array"
+          },
+          "display": {
+            "$ref": "#/components/schemas/Display"
+          },
+          "geo_coverage": {
+            "enum": ["global-only", "country", "mixed"],
+            "title": "Geo Coverage",
+            "type": "string"
+          },
+          "headline_entity": {
+            "description": "The entity whose latest value is the headline (usually WLD).",
+            "title": "Headline Entity",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": ["series", "published-value", "derived"],
+            "title": "Kind",
+            "type": "string"
+          },
+          "latest": {
+            "$ref": "#/components/schemas/Latest"
+          },
+          "licence": {
+            "$ref": "#/components/schemas/Licence"
+          },
+          "licence_class": {
+            "enum": ["open", "share-alike", "noncommercial", "no-derivatives", "display-only", "excluded"],
+            "title": "Licence Class",
+            "type": "string"
+          },
+          "notice": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Notice"
+          },
+          "observations": {
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            },
+            "minItems": 1,
+            "title": "Observations",
+            "type": "array"
+          },
+          "origins": {
+            "items": {
+              "$ref": "#/components/schemas/Origin"
+            },
+            "minItems": 1,
+            "title": "Origins",
+            "type": "array"
+          },
+          "processing": {
+            "items": {
+              "$ref": "#/components/schemas/ProcessingStep"
+            },
+            "minItems": 1,
+            "title": "Processing",
+            "type": "array"
+          },
+          "published_value": {
+            "anyOf": [
+              {"$ref": "#/components/schemas/PublishedValueRef"},
+              {"type": "null"}
+            ],
+            "default": null
+          },
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Scope"
+          },
+          "superseded_by": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Superseded By"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "vintage": {
+            "description": "Producer version or release label of the newest input.",
+            "title": "Vintage",
+            "type": "string"
+          }
+        },
+        "required": ["schema_version", "id", "title", "description", "kind", "unit", "display", "scope", "geo_coverage", "headline_entity", "dimensions", "observations", "latest", "vintage", "origins", "processing", "licence_class", "licence", "attribution", "notice", "published_value", "superseded_by"],
+        "title": "Indicator",
+        "type": "object"
+      },
+      "Latest": {
+        "additionalProperties": false,
+        "properties": {
+          "dims": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Dims",
+            "type": "object"
+          },
+          "entity": {
+            "title": "Entity",
+            "type": "string"
+          },
+          "period": {
+            "title": "Period",
+            "type": "string"
+          },
+          "status": {
+            "enum": ["final", "preliminary", "projection"],
+            "title": "Status",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": ["entity", "period", "value", "status", "dims"],
+        "title": "Latest",
+        "type": "object"
+      },
+      "Licence": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "Human name, e.g. \"CC BY 4.0\", \"Public domain (US Government work)\".",
+            "title": "Name",
+            "type": "string"
+          },
+          "spdx": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "description": "SPDX id when one exists (CC-BY-4.0, OGL-UK-3.0, ...), else null.",
+            "title": "Spdx"
+          },
+          "url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "description": "The licence text or deed.",
+            "title": "Url"
+          }
+        },
+        "required": ["name", "spdx", "url"],
+        "title": "Licence",
+        "type": "object"
+      },
+      "LicenceEvidence": {
+        "additionalProperties": false,
+        "description": "Why we believe the licence is what we say. A class without evidence is rejected by the validator.",
+        "properties": {
+          "checked_on": {
+            "format": "date",
+            "title": "Checked On",
+            "type": "string"
+          },
+          "licence_quote": {
+            "description": "Verbatim text from terms_url that the class relies on.",
+            "minLength": 20,
+            "title": "Licence Quote",
+            "type": "string"
+          },
+          "terms_check": {
+            "description": "How the weekly run re-checks the quote: a machine-readable licence field, the page's text, a PDF's text, or a person each quarter (bot-walled pages).",
+            "enum": ["api", "page", "pdf", "manual"],
+            "title": "Terms Check",
+            "type": "string"
+          },
+          "terms_url": {
+            "description": "The producer's own page (or file) stating the terms.",
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Terms Url",
+            "type": "string"
+          }
+        },
+        "required": ["terms_url", "licence_quote", "checked_on", "terms_check"],
+        "title": "LicenceEvidence",
+        "type": "object"
+      },
+      "NextRelease": {
+        "additionalProperties": false,
+        "properties": {
+          "expected": {
+            "format": "date",
+            "title": "Expected",
+            "type": "string"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Url"
+          }
+        },
+        "required": ["expected", "note", "url"],
+        "title": "NextRelease",
+        "type": "object"
+      },
+      "Obligations": {
+        "additionalProperties": false,
+        "description": "What the terms require wherever the data appears. check-build verifies each one is rendered.",
+        "properties": {
+          "attribution": {
+            "description": "Credit line. Placeholders: {version}, {date_accessed}, {year}.",
+            "title": "Attribution",
+            "type": "string"
+          },
+          "attribution_modified": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Credit line used when we transformed the data (CC BY: indicate changes).",
+            "title": "Attribution Modified"
+          },
+          "derived_disclaimer": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Required text on adaptations (e.g. IEA).",
+            "title": "Derived Disclaimer"
+          },
+          "mirror_raw": {
+            "description": "Whether the unmodified raw file may be re-hosted publicly.",
+            "title": "Mirror Raw",
+            "type": "boolean"
+          },
+          "no_endorsement": {
+            "default": false,
+            "title": "No Endorsement",
+            "type": "boolean"
+          },
+          "no_logo": {
+            "default": false,
+            "title": "No Logo",
+            "type": "boolean"
+          },
+          "notice": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Disclaimer or acknowledgement text that must appear.",
+            "title": "Notice"
+          },
+          "on_motif": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Credit wherever a derived motif appears site-wide.",
+            "title": "On Motif"
+          },
+          "rounding": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Rule the producer imposes on displayed values.",
+            "title": "Rounding"
+          }
+        },
+        "required": ["attribution", "attribution_modified", "notice", "derived_disclaimer", "rounding", "mirror_raw", "no_logo", "no_endorsement", "on_motif"],
+        "title": "Obligations",
+        "type": "object"
+      },
+      "Observation": {
+        "additionalProperties": false,
+        "properties": {
+          "dims": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Dims",
+            "type": "object"
+          },
+          "entity": {
+            "title": "Entity",
+            "type": "string"
+          },
+          "interval": {
+            "anyOf": [
+              {
+                "enum": ["1sigma", "2sigma", "90ci", "95ci", "likely", "very-likely", "range"],
+                "type": "string"
+              },
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Interval"
+          },
+          "lower": {
+            "anyOf": [
+              {"type": "number"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Lower"
+          },
+          "missing_reason": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Why value is null (producer sentinel, gap).",
+            "title": "Missing Reason"
+          },
+          "note": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "What the producer's own file says about this value, in words (e.g. a month the producer interpolated, or measured at a substitute site). Never a judgement of ours.",
+            "title": "Note"
+          },
+          "period": {
+            "title": "Period",
+            "type": "string"
+          },
+          "status": {
+            "default": "final",
+            "enum": ["final", "preliminary", "projection"],
+            "title": "Status",
+            "type": "string"
+          },
+          "upper": {
+            "anyOf": [
+              {"type": "number"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Upper"
+          },
+          "value": {
+            "anyOf": [
+              {"type": "number"},
+              {"type": "null"}
+            ],
+            "title": "Value"
+          }
+        },
+        "required": ["entity", "period", "value", "lower", "upper", "interval", "status", "missing_reason", "note", "dims"],
+        "title": "Observation",
+        "type": "object"
+      },
+      "Origin": {
+        "additionalProperties": false,
+        "description": "One raw file an indicator was computed from (OWID origin fields, plus what makes it verifiable).",
+        "properties": {
+          "acquisition": {
+            "enum": ["automatic", "manual"],
+            "title": "Acquisition",
+            "type": "string"
+          },
+          "artifact_id": {
+            "title": "Artifact Id",
+            "type": "string"
+          },
+          "bytes": {
+            "title": "Bytes",
+            "type": "integer"
+          },
+          "citation_full": {
+            "title": "Citation Full",
+            "type": "string"
+          },
+          "date_accessed": {
+            "format": "date",
+            "title": "Date Accessed",
+            "type": "string"
+          },
+          "date_published": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Date Published"
+          },
+          "doi": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Doi"
+          },
+          "etag": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Etag"
+          },
+          "last_modified": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Last Modified"
+          },
+          "licence": {
+            "$ref": "#/components/schemas/Licence"
+          },
+          "producer": {
+            "title": "Producer",
+            "type": "string"
+          },
+          "r2_url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Public mirror; null when the licence forbids it.",
+            "title": "R2 Url"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "source_id": {
+            "title": "Source Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "url_download": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "title": "Url Download"
+          },
+          "url_main": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Url Main",
+            "type": "string"
+          },
+          "version_producer": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "description": "The producer's own version label.",
+            "title": "Version Producer"
+          },
+          "wayback_url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Wayback Url"
+          }
+        },
+        "required": ["source_id", "artifact_id", "producer", "title", "version_producer", "citation_full", "url_main", "url_download", "date_published", "date_accessed", "licence", "sha256", "bytes", "etag", "last_modified", "wayback_url", "r2_url", "doi", "acquisition"],
+        "title": "Origin",
+        "type": "object"
+      },
+      "Person": {
+        "additionalProperties": false,
+        "properties": {
+          "family": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Family"
+          },
+          "given": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Given"
+          },
+          "literal": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Institutional author.",
+            "title": "Literal"
+          }
+        },
+        "required": ["family", "given", "literal"],
+        "title": "Person",
+        "type": "object"
+      },
+      "ProcessingStep": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "description": "What was done, in words a reader can follow.",
+            "title": "Description",
+            "type": "string"
+          },
+          "inputs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Inputs",
+            "type": "array"
+          },
+          "lock_sha256": {
+            "description": "sha256 of pipeline/uv.lock.",
+            "title": "Lock Sha256",
+            "type": "string"
+          },
+          "script": {
+            "description": "Repo path of the transform, e.g. pipeline/src/envdash/transforms/air/noaa_co2.py",
+            "title": "Script",
+            "type": "string"
+          },
+          "transform_sha256": {
+            "description": "sha256 of that file's source text.",
+            "title": "Transform Sha256",
+            "type": "string"
+          }
+        },
+        "required": ["script", "transform_sha256", "lock_sha256", "inputs", "description"],
+        "title": "ProcessingStep",
+        "type": "object"
+      },
+      "PublishedValueRef": {
+        "additionalProperties": false,
+        "description": "For values quoted from a paper or report rather than computed from a file.",
+        "properties": {
+          "document": {
+            "description": "Source id of the paper/report.",
+            "title": "Document",
+            "type": "string"
+          },
+          "locator": {
+            "description": "e.g. \"Table 3, p. 568\" or \"SPM statement C.10\".",
+            "title": "Locator",
+            "type": "string"
+          },
+          "quote": {
+            "description": "Verbatim text the value is taken from.",
+            "title": "Quote",
+            "type": "string"
+          }
+        },
+        "required": ["document", "locator", "quote"],
+        "title": "PublishedValueRef",
+        "type": "object"
+      },
+      "Scope": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "e.g. \"1850–1900 mean of this dataset\".",
+            "title": "Baseline"
+          },
+          "basis": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Any other scope note, e.g. \"gross of cement carbonation\".",
+            "title": "Basis"
+          },
+          "bunkers": {
+            "anyOf": [
+              {
+                "enum": ["included", "excluded"],
+                "type": "string"
+              },
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Bunkers"
+          },
+          "geography": {
+            "description": "What the numbers cover, e.g. \"Global mean\", \"Mauna Loa, Hawaii\".",
+            "title": "Geography",
+            "type": "string"
+          },
+          "gwp": {
+            "anyOf": [
+              {
+                "enum": ["AR5-GWP100", "AR6-GWP100", "GWP*"],
+                "type": "string"
+              },
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Gwp"
+          },
+          "lulucf": {
+            "anyOf": [
+              {
+                "enum": ["included", "excluded", "only"],
+                "type": "string"
+              },
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Lulucf"
+          }
+        },
+        "required": ["geography", "baseline", "gwp", "lulucf", "bunkers", "basis"],
+        "title": "Scope",
+        "type": "object"
+      },
+      "Source": {
+        "additionalProperties": false,
+        "properties": {
+          "acquisition": {
+            "enum": ["automatic", "manual"],
+            "title": "Acquisition",
+            "type": "string"
+          },
+          "artifacts": {
+            "items": {
+              "$ref": "#/components/schemas/Artifact"
+            },
+            "minItems": 1,
+            "title": "Artifacts",
+            "type": "array"
+          },
+          "citation": {
+            "$ref": "#/components/schemas/Citation"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/LicenceEvidence"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "landing_url": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Landing Url",
+            "type": "string"
+          },
+          "licence": {
+            "$ref": "#/components/schemas/Licence"
+          },
+          "licence_class": {
+            "enum": ["open", "share-alike", "noncommercial", "no-derivatives", "display-only", "excluded"],
+            "title": "Licence Class",
+            "type": "string"
+          },
+          "next_release": {
+            "anyOf": [
+              {"$ref": "#/components/schemas/NextRelease"},
+              {"type": "null"}
+            ],
+            "default": null
+          },
+          "obligations": {
+            "$ref": "#/components/schemas/Obligations"
+          },
+          "publisher": {
+            "title": "Publisher",
+            "type": "string"
+          },
+          "research_ref": {
+            "description": "Where the evidence lives, e.g. docs/research/sources-energy.json#Ember.",
+            "title": "Research Ref",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SourceStatus"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "twins": {
+            "description": "Independent sources measuring the same thing.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Twins",
+            "type": "array"
+          },
+          "update_cadence": {
+            "title": "Update Cadence",
+            "type": "string"
+          }
+        },
+        "required": ["id", "title", "publisher", "landing_url", "description", "citation", "licence_class", "licence", "evidence", "obligations", "acquisition", "artifacts", "status", "update_cadence", "next_release", "twins", "research_ref"],
+        "title": "Source",
+        "type": "object"
+      },
+      "SourceList": {
+        "additionalProperties": false,
+        "description": "data/v1/sources.json: the public registry entries (pipeline/sources/*.yaml) as validated.",
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            },
+            "title": "Sources",
+            "type": "array"
+          }
+        },
+        "required": ["schema_version", "sources"],
+        "title": "SourceList",
+        "type": "object"
+      },
+      "SourceRunStatus": {
+        "additionalProperties": false,
+        "properties": {
+          "checked_at": {
+            "description": "ISO datetime of this run's check.",
+            "title": "Checked At",
+            "type": "string"
+          },
+          "last_success": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Last Success"
+          },
+          "manual_last_verified": {
+            "anyOf": [
+              {"format": "date", "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Manual Last Verified"
+          },
+          "reason": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Why it failed, in words.",
+            "title": "Reason"
+          },
+          "state": {
+            "enum": ["ok", "unchanged", "failed", "manual"],
+            "title": "State",
+            "type": "string"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "enum": ["unchanged", "changed", "unverifiable", "manual"],
+                "type": "string"
+              },
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Terms"
+          },
+          "vintage": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Vintage"
+          }
+        },
+        "required": ["state", "checked_at", "reason", "last_success", "vintage", "manual_last_verified", "terms"],
+        "title": "SourceRunStatus",
+        "type": "object"
+      },
+      "SourceStatus": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "state": {
+            "enum": ["active", "at-risk", "archived", "discontinued"],
+            "title": "State",
+            "type": "string"
+          },
+          "us_federal": {
+            "description": "Exposed to US federal programme cuts (2025-26).",
+            "title": "Us Federal",
+            "type": "boolean"
+          }
+        },
+        "required": ["state", "note", "us_federal"],
+        "title": "SourceStatus",
+        "type": "object"
+      },
+      "Status": {
+        "additionalProperties": false,
+        "properties": {
+          "generated_at": {
+            "title": "Generated At",
+            "type": "string"
+          },
+          "run_url": {
+            "anyOf": [
+              {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
+              {"type": "null"}
+            ],
+            "title": "Run Url"
+          },
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "sources": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SourceRunStatus"
+            },
+            "title": "Sources",
+            "type": "object"
+          }
+        },
+        "required": ["schema_version", "generated_at", "run_url", "sources"],
+        "title": "Status",
+        "type": "object"
+      },
+      "Unit": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "description": "Machine unit, e.g. \"ppm\", \"degC\", \"GtCO2\", \"mm\", \"percent\".",
+            "title": "Code",
+            "type": "string"
+          },
+          "label": {
+            "description": "Words, e.g. \"parts per million\".",
+            "title": "Label",
+            "type": "string"
+          },
+          "short": {
+            "description": "Compact, e.g. \"ppm\", \"°C\", \"Gt CO₂\".",
+            "title": "Short",
+            "type": "string"
+          }
+        },
+        "required": ["code", "label", "short"],
+        "title": "Unit",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Static JSON files published with the site. Every value carries its origins (the exact raw files, by sha256), the processing applied and its licence.",
+    "license": {
+      "name": "Each indicator carries its own licence",
+      "url": "https://environmentdashboard.org/data"
+    },
+    "title": "Environment Dashboard data",
+    "version": "1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/data/v1/catalog.json": {
+      "get": {
+        "operationId": "getCatalog",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Catalog"
+                }
+              }
+            },
+            "description": "The catalogue."
+          }
+        },
+        "summary": "Every published indicator, without its observations",
+        "tags": ["data"]
+      }
+    },
+    "/data/v1/indicators/{id}.json": {
+      "get": {
+        "operationId": "getIndicator",
+        "parameters": [
+          {"description": "Indicator id, e.g. co2.noaa-gml.monthly-mlo", "in": "path", "name": "id", "required": true, "schema": {"pattern": "^[a-z0-9-]+(\\.[a-z0-9-]+){1,3}$", "type": "string"}}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Indicator"
+                }
+              }
+            },
+            "description": "The indicator."
+          },
+          "404": {
+            "description": "No such file."
+          }
+        },
+        "summary": "One indicator with its observations and provenance",
+        "tags": ["data"]
+      }
+    },
+    "/data/v1/sources.json": {
+      "get": {
+        "operationId": "getSources",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceList"
+                }
+              }
+            },
+            "description": "The sources."
+          }
+        },
+        "summary": "The source registry: licences, evidence, obligations and artifacts",
+        "tags": ["data"]
+      }
+    },
+    "/data/v1/status.json": {
+      "get": {
+        "operationId": "getStatus",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            },
+            "description": "The status."
+          }
+        },
+        "summary": "How each source fared in the latest pipeline run",
+        "tags": ["data"]
+      }
+    }
+  },
+  "servers": [
+    {"url": "https://environmentdashboard.org"}
+  ]
+}

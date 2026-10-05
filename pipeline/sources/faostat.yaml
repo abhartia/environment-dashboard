@@ -1,0 +1,130 @@
+# FAOSTAT (FAO Statistics Division): agrifood-system emissions (GT), livestock emissions (GLE), land use (RL) and the
+# SDG 12.3.1a food loss series (SDGB domain).
+# Evidence: docs/research/sources-food-land-nature.json ("FAOSTAT Climate Change: Agrifood systems emissions",
+# "FAOSTAT Land Use (RL)", "FAOSTAT SDG Indicators - 12.3.1a Food Loss Percentage") and
+# docs/research/sources-emissions.json ("FAOSTAT Climate Change: Agrifood systems emissions"); every verdict
+# "confirmed", final_redistribution open-attribution.
+# Terms checked 2026-10-04: the FAO Statistical Database Terms of Use page answers HTTP 200 and carries the CC BY 4.0
+# sentence quoted below, the citation format, the no-endorsement clause and Annex 1 naming FAOSTAT. The terms
+# incorporate FAO's "Terms and Conditions regarding the Reuse of Web content" (https://www.fao.org/contact-us/terms/en/,
+# HTTP 200), which say the FAO logo "is prohibited without prior permission"; hence no_logo.
+# Additional terms we meet: no use "in conjunction with the promotion of a commercial enterprise", no implied FAO
+# endorsement, no misrepresentation. The citation's date is "DD Month YYYY" (e.g. 4 October 2026).
+# Conflict noted, not adopted: the GT methodological note (files-faostat.fao.org/production/GT/GT_en.pdf, release
+# October 2023, Last-Modified 2025-09-18) ends with boilerplate "This work is made available under the Creative
+# Commons Attribution-NonCommercial-ShareAlike 3.0 IGO license". That refers to the note itself; its "Copyright" row
+# says FAOSTAT is in scope of the FAO Open Data Licensing Policy governed by the db-terms-of-use page (CC BY 4.0).
+# Third-party content in GT (from that note): "UNFCCC" source rows are country inventory submissions disseminated
+# "with permission, formalized via a FAO-UNFCCC Memorandum of Understanding"; energy, IPPU and waste totals come from
+# PRIMAP-hist v2.4 (CC BY 4.0); pre/post-production estimates use UNSD and IEA activity data. No dataset-specific
+# restriction is stated in the metadata. We use "FAO TIER 1" rows; never mix them with "UNFCCC" rows.
+# Artifacts checked 2026-10-04 (HEAD): GT 200, 20,501,708 bytes, Last-Modified 2025-12-06 (catalogue DateUpdate
+# 2025-10-28: the zip was re-uploaded after its DateUpdate, so vintage = sha256, not DateUpdate); GLE 200, 55,881,712
+# bytes, Last-Modified 2025-10-29; RL 200, 2,970,716 bytes, Last-Modified 2026-10-02; SDGB 200, 4,721,843 bytes,
+# Last-Modified 2026-09-29 (contains items 24044 "12.3.1a Food loss percentage" and 24045 "12.3.1a Global food loss
+# index", total and four commodity groups); datasets_E.json 200, 109,120 bytes. All serve ETag and Last-Modified.
+# FAO's 2026 release calendar lists FAOSTAT "Emissions totals" and "Emissions from Livestock" under October 2026,
+# without a day.
+id: faostat
+title: FAOSTAT agrifood emissions, livestock emissions, land use and food loss
+publisher: Food and Agriculture Organization of the United Nations (FAO), Statistics Division
+landing_url: https://www.fao.org/faostat/en/
+description: >-
+  Four FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes
+  for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and
+  region, 1961-2023, with two sources per value ("FAO TIER 1" estimates and "UNFCCC" country submissions) and projection
+  rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by
+  species, Tier 1. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA)
+  and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage
+  (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global
+  Food Loss Index (2015 = 100), total and by commodity group, 2015-2024.
+citation:
+  type: dataset
+  title: FAOSTAT
+  author:
+    - {literal: FAO}
+  issued: "{year}"
+  publisher: Food and Agriculture Organization of the United Nations
+  URL: https://www.fao.org/faostat/en/
+  # Format prescribed by the FAO Statistical Database Terms of Use, section 3, at database level ("Name of database").
+  # {year} is the year of the dataset's last update (DateUpdate in datasets_E.json).
+  text: >-
+    FAO. {year}. FAOSTAT. Accessed on {date_accessed}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+licence_class: open
+licence:
+  name: CC BY 4.0 (FAO Statistical Database Terms of Use)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.fao.org/contact-us/terms/db-terms-of-use/en/
+  licence_quote: >-
+    Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical
+    databases (see examples in Annex 1) are licensed under the Creative Commons Attribution-4.0 International licence
+    (CC BY 4.0)
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    FAO. {year}. FAOSTAT. Accessed on {date_accessed}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from FAO. {year}. FAOSTAT. Accessed on {date_accessed}.
+    https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+  mirror_raw: true
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: emissions-totals
+    url: https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      Climate Change: Agrifood systems emissions: Emissions totals (GT). Zipped normalized CSV (latin-1): Area, Item,
+      Element, Year, Source, Unit, Value, Flag. Elements include "Emissions (CO2eq) (AR5)" in kt. Rows run 1961-2023
+      plus projection years 2030 and 2050, which are not published.
+  - id: emissions-livestock
+    url: https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      Climate Change: Agrifood systems emissions: Emissions from Livestock (GLE). Zipped normalized CSV (latin-1) of
+      CH4 and N2O from enteric fermentation and manure (management, left on pasture, applied to soils) by species, with
+      livestock numbers, Tier 1.
+  - id: land-use
+    url: https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      Land, Inputs and Sustainability: Land Use (RL). Zipped normalized CSV (latin-1) of land-use areas in 1000 ha and
+      shares, 1961-2024; forest land to 2025 is taken by FAO from FRA 2025.
+  - id: sdg-indicators
+    url: https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      SDG Indicators (SDGB). Zipped normalized CSV (latin-1) of all SDG series under FAO custodianship; we use item
+      codes 24044 (12.3.1a food loss percentage, %) and 24045 (12.3.1a Global Food Loss Index), total and by commodity
+      group, 2015-2024.
+  - id: datasets-catalogue
+    url: https://bulks-faostat.fao.org/production/datasets_E.json
+    format: json
+    description: >-
+      FAOSTAT bulk-download catalogue: DatasetCode, DatasetName, DateUpdate, FileSize and FileLocation for every
+      domain. Supplies {year} (DateUpdate) for the citation.
+    max_bytes: 5000000
+status:
+  state: active
+  note: >-
+    Updated on FAO's annual cycle: Land Use on 2 October 2026 and SDG indicators on 29 September 2026; the emissions
+    domains (GT, GLE) were last updated 28 October 2025 with data to 2023. FAO is not on the January 2026 US withdrawal
+    memorandum (FR Doc 2026-00976); UNFCCC is, which concerns the "UNFCCC" source rows in GT.
+  us_federal: false
+update_cadence: >-
+  Annual per domain; emissions domains each October-November, Land Use and SDG indicators around late September.
+  DateUpdate in datasets_E.json changes with each release, but zips are sometimes re-uploaded later.
+next_release:
+  expected: 2026-10-31
+  note: >-
+    FAO's 2026 release calendar lists FAOSTAT Emissions totals and Emissions from Livestock (data to 2024) under
+    October 2026 without a day; 31 October is the end of that window.
+  url: https://www.fao.org/statistics/data-releases/upcoming-data-releases/en
+twins: []
+research_ref: >-
+  docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP,
+  EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage

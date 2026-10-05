@@ -1,0 +1,120 @@
+# World Bank World Development Indicators (WDI) via the Indicators API v2: country groups (region, income level) and the
+# indicators the site uses as context: population, GDP per capita (PPP) and access to electricity.
+# Evidence: docs/research/sources-country-and-local.json ("World Development Indicators (WDI) – population, GDP (PPP),
+# income groups, regions"; verdict "confirmed": cite the current dataset-terms URL) and
+# docs/research/sources-energy.json ("World Bank WDI – Access to electricity and clean cooking"; verdict "corrected":
+# the Tracking SDG7 report itself is CC BY-NC 3.0 IGO, so report text and figures are not covered by this entry).
+# final_redistribution open-attribution.
+# Checked 2026-10-04:
+#   - Dataset terms (https://www.worldbank.org/ext/en/legal/terms-conditions/datasets, HTTP 200): CC BY 4.0 "Unless
+#     specifically labeled otherwise", plus a mandatory mediation and arbitration clause for disputes, the attribution
+#     format "The World Bank: Dataset name: Data source (if known)", "Exceptions for Some Third-Party Data" ("Where
+#     applicable, these conditions are included in the dataset or indicator metadata"), "No Endorsement" and "No
+#     Association" (no use of the World Bank's name, marks or logo).
+#   - Per-indicator labels in the API metadata (api.worldbank.org/v2/sources/2/series/<code>/metadata): License_Type
+#     "CC BY-4.0" for SP.POP.TOTL, NY.GDP.PCAP.PP.KD and EG.ELC.ACCS.ZS. The data catalog lists WDI under "Creative
+#     Commons Attribution 4.0" (metadata last updated 2 Oct 2026).
+#   - Left out: EG.CFT.ACCS.ZS (access to clean cooking). Its License_Type says CC BY-4.0, but its source note reads
+#     "License: Creative Commons Attribution—NonCommercial 3.0 IGO (CC BY-NC 3.0 IGO)" for the underlying Tracking
+#     SDG7 report; under the third-party exception that note governs, so it would need its own noncommercial entry.
+#   - API: sources/2 lastupdated 2026-07-13 (the {version} used below). Each indicator query returns one page of
+#     17,490 rows (all economies and aggregates, 1960-2025). Last-Modified equals the request time and there is no
+#     ETag, so conditional is false. Country list: 295 entries (economies and aggregates) with region, income level
+#     and lending type.
+#   - Indicator sources from the API metadata: SP.POP.TOTL, UN World Population Prospects, national statistical
+#     offices, Eurostat and the UN Population and Vital Statistics Report; NY.GDP.PCAP.PP.KD, International Comparison
+#     Program (World Bank), the Eurostat and OECD PPP programmes, OECD national accounts, World Bank staff estimates
+#     and the IMF World Economic Outlook; EG.ELC.ACCS.ZS, SDG 7.1.1 Electrification Dataset (World Bank).
+#   - Years with values on 2026-10-04: SP.POP.TOTL 1960-2025 (World 2025: 8,215,424,893); NY.GDP.PCAP.PP.KD
+#     1990-2025; EG.ELC.ACCS.ZS 1990-2024.
+id: wb-wdi
+title: World Development Indicators
+publisher: World Bank
+landing_url: https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators
+description: >-
+  The World Bank's main collection of development indicators, used here for country groups (World Bank region and
+  income level) and three context series for all economies and aggregates: total population (people, from 1960),
+  GDP per capita at purchasing power parity (constant 2021 international dollars, from 1990) and access to
+  electricity (percent of population, from 1990). WDI population differs slightly from UN World Population Prospects
+  (for 2025, 8.215 against 8.232 billion people), so each chart uses one or the other and says which.
+citation:
+  type: dataset
+  title: World Development Indicators
+  author:
+    - {literal: The World Bank}
+  issued: "2026-07-13"
+  publisher: The World Bank
+  version: "{version}"
+  URL: https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators
+  # The World Bank's required attribution format, "The World Bank: Dataset name: Data source (if known)", with the
+  # API's last-updated date as the version; WDI publishes no other suggested citation.
+  text: The World Bank. World Development Indicators (last updated {version}). Accessed {date_accessed}.
+licence_class: open
+licence:
+  name: CC BY 4.0 (World Bank dataset terms, with their additional terms)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+  licence_quote: >-
+    Unless specifically labeled otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0
+    International License (CC BY 4.0), with the additional terms below.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # Dataset terms: "You agree to provide attribution to The World Bank and its data providers in the following format:
+  # The World Bank: Dataset name: Data source (if known)."
+  attribution: >-
+    The World Bank: World Development Indicators (last updated {version}): population from UN World Population
+    Prospects and national statistical offices; GDP per capita (PPP) from the International Comparison Program;
+    access to electricity from the SDG 7.1.1 Electrification Dataset. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from The World Bank: World Development Indicators (last updated {version}):
+    population from UN World Population Prospects and national statistical offices; GDP per capita (PPP) from the
+    International Comparison Program; access to electricity from the SDG 7.1.1 Electrification Dataset. CC BY 4.0.
+  mirror_raw: true
+  # "No Endorsement": "You may not publicly represent or imply that The World Bank is participating in, or has
+  # sponsored, approved or endorsed the manner or purpose of your use or reproduction of the Datasets." "No
+  # Association": no use of "the name, any trade-mark, official mark, official emblem or logo of The World Bank".
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: countries
+    url: https://api.worldbank.org/v2/country?format=json&per_page=400
+    format: json
+    description: >-
+      Every economy and aggregate in the API (295 entries) with its ISO3 id, ISO2 code, name, region, income level
+      and lending type; the source of the World Bank region and income groups.
+    access: {conditional: false}
+  - id: sp-pop-totl
+    url: https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=20000&source=2
+    format: json
+    description: SP.POP.TOTL, "Population, total" (people), all economies and aggregates, 1960-2025, one page.
+    access: {conditional: false}
+  - id: ny-gdp-pcap-pp-kd
+    url: https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.KD?format=json&per_page=20000&source=2
+    format: json
+    description: >-
+      NY.GDP.PCAP.PP.KD, "GDP per capita, PPP (constant 2021 international $)", all economies and aggregates, values
+      1990-2025, one page.
+    access: {conditional: false}
+  - id: eg-elc-accs-zs
+    url: https://api.worldbank.org/v2/country/all/indicator/EG.ELC.ACCS.ZS?format=json&per_page=20000&source=2
+    format: json
+    description: >-
+      EG.ELC.ACCS.ZS, "Access to electricity (% of population)", all economies and aggregates, values 1990-2024, one
+      page.
+    access: {conditional: false}
+status:
+  state: active
+  note: >-
+    Updated several times a year; last updated 13 July 2026 per the API. The World Bank is an international
+    organisation, not a US federal programme.
+  us_federal: false
+update_cadence: Several updates a year (the API's lastupdated date is the version)
+twins: []
+research_ref: >-
+  docs/research/sources-country-and-local.json#World Development Indicators (WDI) – population, GDP (PPP), income
+  groups, regions; docs/research/sources-energy.json#World Bank WDI – Access to electricity and clean cooking (from
+  Tracking SDG7 2026)

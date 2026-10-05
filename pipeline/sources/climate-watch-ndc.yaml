@@ -1,0 +1,103 @@
+# Climate Watch (World Resources Institute): NDC Tracker indicators for the 2025 round of nationally determined
+# contributions ("NDC 3.0"), from the Climate Watch API.
+# Evidence: docs/research/sources-solutions-and-action.json ("Climate Watch NDC data (WRI), including the 2025 'NDC 3.0'
+# tracker. Upstream: the UNFCCC NDC Registry."); verdict "confirmed", final_redistribution open-attribution, based on
+# the site-wide permissions text. That class is corrected here to noncommercial:
+#   - The site-wide permissions text (only readable in the JS bundle /packs/main-6bd318cccbe84490bdef.js; the
+#     /about/permissions route returns 404 to scripts) says "Except as noted below, data and visualizations on this
+#     site carry a Creative Commons CC BY 4.0 license", and adds that "Some data displayed on Climate Watch was
+#     developed by other organizations and may carry other open licenses or permissions."
+#   - Climate Watch's own per-dataset metadata (https://www.climatewatchdata.org/api/v1/metadata, HTTP 200, 46
+#     records) gives, for source "2025_ndc" (title "NDC Tracker", "Last updated January 2026") and for "ndc_cw"
+#     ("Climate Watch NDC Content", "Last updated Feburary 2026" [sic]), summary_of_licenses "Creative Commons
+#     Attribution-NonCommercial 4.0 International license". The metadata.csv inside the bulk download
+#     ClimateWatch_NDC_Tracker.zip says the same. The 2025_ndc record's terms_of_service_link points at the CC BY 4.0
+#     deed, so the metadata contradicts itself and the site-wide text. This entry takes the stricter, dataset-specific
+#     statement (CC BY-NC 4.0) until WRI clarifies; the quote below is that field.
+# Checked 2026-10-04:
+#   - The tracker query below: HTTP 200 application/json, 303,801 bytes, weak ETag; an If-None-Match request on the
+#     same API answered 304, so conditional requests work. Every indicator in it has source "Climate Watch".
+#     2025_status covers 153 locations: 151 "Submitted 2025 NDC", 1 "Withdrawn 2025 NDC" (USA) and 1 "Submitted 2025
+#     NDC (Not Party to the Paris Agreement)"; the EU is counted as EUU and as each member state. The latest 2025_date
+#     is 9/8/2026 (dates are M/D/YYYY).
+#   - The full overview query (/api/v1/ndcs?category=overview, 8.1 MB) mixes in indicators from other organisations
+#     (Net Zero Tracker, LSE, World Bank, UNICEF, NDC Explorer and others) under their own terms; it is not used.
+#   - The S3 bulk file ClimateWatch_NDC_Tracker.zip (Last-Modified 7 Jul 2026) lags the API (145 submitted), so the
+#     API is the artifact.
+#   - Deep links such as /ndc-tracker (the tracker's own "learn more" link, used in its citation) answer HTTP 404 to
+#     direct requests, even with a browser user agent; only the home page answers 200, so it is the landing_url.
+id: climate-watch-ndc
+title: Climate Watch NDC Tracker (2025 NDCs)
+publisher: World Resources Institute (Climate Watch)
+landing_url: https://www.climatewatchdata.org/
+description: >-
+  For each UNFCCC Party: whether it has submitted a 2025 NDC and when, with a link to the document on the UNFCCC
+  registry, and Climate Watch's coding of what the new NDC contains: a 2035 greenhouse gas target, an economy-wide
+  target, a quantified non-CO2 target, a strengthened 2030 target, strengthened adaptation, and added clarity and
+  transparency information. Also the latest submission of any kind and Paris Agreement ratification status.
+  Qualitative labels coded by WRI from the NDC texts; the EU's single NDC appears both for the EU and for each member
+  state.
+citation:
+  type: dataset
+  title: Climate Watch NDC Tracker
+  author:
+    - {literal: Climate Watch}
+  issued: "2026"
+  publisher: World Resources Institute
+  URL: https://www.climatewatchdata.org/ndc-tracker
+  # The "citation" field of the 2025_ndc record in Climate Watch's metadata API, verbatim.
+  text: >-
+    Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at:
+    https://www.climatewatchdata.org/ndc-tracker
+licence_class: noncommercial
+licence:
+  name: CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)
+  spdx: CC-BY-NC-4.0
+  url: https://creativecommons.org/licenses/by-nc/4.0/
+evidence:
+  terms_url: https://www.climatewatchdata.org/api/v1/metadata
+  licence_quote: Creative Commons Attribution-NonCommercial 4.0 International license
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  attribution: >-
+    Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at:
+    https://www.climatewatchdata.org/ndc-tracker. CC BY-NC 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute.
+    Available online at: https://www.climatewatchdata.org/ndc-tracker. CC BY-NC 4.0.
+  # The permissions text asks users to "also cite original data sources when used"; for NDCs it gives this line.
+  notice: >-
+    NDC documents: UNFCCC. 2026. NDC Registry. Available at: https://unfccc.int/NDCREG. Climate Watch data shared
+    under CC BY-NC 4.0, for non-commercial use only.
+  mirror_raw: true
+  # Permissions text: "You must not imply that Climate Watch, World Resources Institute, NDC Partnership or any other
+  # partner organizations endorse your use of the data."
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: ndc-tracker-2025
+    url: https://www.climatewatchdata.org/api/v1/ndcs?indicators=2025_status,2025_statement,2025_emissions_compare,2025_source,2025_date,2025_compare_1,2025_compare_2,2025_compare_3,2025_compare_4,2025_compare_5,2025_compare_6,submission,submission_date,pa_status
+    format: json
+    description: >-
+      The 2025 NDC Tracker indicators for every location: submission status, statement, source document link and date
+      (M/D/YYYY), the six content comparisons (2035 GHG target included; economy-wide GHG target for 2035; strengthened
+      2030 target; strengthened adaptation; added clarity, transparency and understanding; quantified non-CO2 target),
+      plus latest submission, its date and Paris Agreement status. About 0.3 MB.
+  - id: metadata
+    url: https://www.climatewatchdata.org/api/v1/metadata
+    format: json
+    description: >-
+      Climate Watch's dataset metadata (titles, dates of content, licence summaries, terms links and citations), kept
+      with each snapshot as the record of the terms in force. About 96 kB.
+status:
+  state: active
+  note: >-
+    Updated as Parties submit NDCs (latest recorded 2025 submission 8 September 2026). WRI is a non-profit; the UNFCCC
+    registry it links to blocks scripted access. Not a US federal programme.
+  us_federal: false
+update_cadence: Continuous (as NDCs are submitted and coded)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#Climate Watch NDC data (WRI), including the 2025 'NDC 3.0' tracker.
+  Upstream: the UNFCCC NDC Registry.

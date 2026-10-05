@@ -1,0 +1,94 @@
+# ICCT (Negri & Bieker, July 2025): life-cycle greenhouse gas emissions of medium-segment passenger cars in the EU.
+# Evidence: docs/research/sources-solutions-and-action.json ("ICCT: Life-cycle greenhouse gas emissions from passenger
+# cars in the European Union, 2025 update ..."). The verifier classed it restricted-no-redistribution because the PDF
+# carries only "© 2025 International Council on Clean Transportation (ID 392)" and theicct.org/terms-of-use and
+# /copyright return 404, and the plan made it display-only and manual on that basis. Both are corrected here:
+#   - The ICCT's terms of use are at https://theicct.org/legal/ (linked as "Legal" in every page footer; HTTP 200 on
+#     2026-10-04). They say material on the site is licensed CC BY-SA 4.0 "except as otherwise noted", linking
+#     http://creativecommons.org/licenses/by-sa/4.0/. The Internet Archive copy of 10 July 2025 (two days after this
+#     report was published) has the same paragraph. The report notes no other terms: its only rights line is the
+#     copyright notice above, which a CC licence does not displace. So the class is share-alike, not display-only.
+#   - The site footer also reads "© 2026 International Council on Clean Transportation. All Rights Reserved." That
+#     generic footer is read as the copyright notice under which the terms-of-use licence is granted. Because the two
+#     texts sit side by side, the PDF itself is not re-hosted (mirror_raw: false) and the class should be re-confirmed
+#     with ICCT (communications@theicct.org) before any bulk reuse.
+#   - The publication page and the PDF answer the pipeline's own user agent with HTTP 200 through Cloudflare
+#     (cf-cache-status HIT, no challenge), so acquisition is automatic. Not yet run from a GitHub runner.
+#   - PDF: 1,235,655 bytes, 38 pages, ETag "686bfbbd-12dac7", Last-Modified Mon, 07 Jul 2025 16:54:21 GMT, sha256
+#     5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c. Executive summary (PDF page 3): BEVs on the
+#     projected 2025-2044 average EU electricity mix 63 g CO2e/km, 73% lower than gasoline ICEVs at 235 g CO2e/km.
+#   - ICCT gives no suggested citation on the page or in the PDF; the citation below is built from the PDF's title
+#     page and the publication page (date, authors).
+id: icct-lca-2025
+title: Life-cycle greenhouse gas emissions from passenger cars in the European Union (ICCT 2025)
+publisher: International Council on Clean Transportation (ICCT)
+landing_url: https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/
+description: >-
+  Life-cycle greenhouse gas emissions (grams of CO2-equivalent per kilometre) of medium-segment passenger cars in the
+  EU, by powertrain: gasoline, diesel and natural gas combustion engines, hybrids, plug-in hybrids, battery electric
+  and fuel-cell cars. Vehicle characteristics are sales-weighted averages of medium-segment cars (SUVs excluded)
+  registered in the EU in 2023. Covers vehicle and battery production and recycling, fuel and electricity production,
+  fuel use and maintenance over a 20-year lifetime on the projected 2025-2044 EU electricity mix (and, as a variant,
+  on renewable electricity only). EU-specific; the result depends on that grid projection.
+citation:
+  type: report
+  title: >-
+    Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to
+    consider
+  author:
+    - {family: Negri, given: Marta}
+    - {family: Bieker, given: Georg}
+  issued: "2025-07-08"
+  publisher: International Council on Clean Transportation
+  URL: https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/
+  # No suggested citation is published; built from the PDF title page and the publication page.
+  text: >-
+    Negri, M., & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A
+    2025 update and key factors to consider. International Council on Clean Transportation.
+    https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/
+licence_class: share-alike
+licence:
+  name: CC BY-SA 4.0 (ICCT terms of use, "except as otherwise noted")
+  spdx: CC-BY-SA-4.0
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+evidence:
+  terms_url: https://theicct.org/legal/
+  licence_quote: >-
+    Except as otherwise noted, material on this site is the property of the International Council on Clean
+    Transportation, and is licensed under a Creative Commons Creative Commons Attribution-ShareAlike 4.0 International
+    License.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Negri, M. & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A
+    2025 update and key factors to consider. International Council on Clean Transportation. CC BY-SA 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Negri, M. & Bieker, G. (2025). Life-cycle greenhouse gas emissions from
+    passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean
+    Transportation. CC BY-SA 4.0.
+  notice: >-
+    Values and charts derived from this ICCT report are shared under CC BY-SA 4.0
+    (https://creativecommons.org/licenses/by-sa/4.0/).
+  # Allowed by CC BY-SA 4.0, but held back while the site footer's "All Rights Reserved" sits beside the licence.
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  - id: report-pdf
+    url: https://theicct.org/wp-content/uploads/2025/07/ID-392-%E2%80%93-Life-cycle-GHG_report_final.pdf
+    format: pdf
+    description: >-
+      The report (ICCT report ID 392, 38 pages): executive summary figure ES1 and the results chapters give life-cycle
+      g CO2e/km by powertrain and life-cycle stage. 1,235,655 bytes.
+status:
+  state: active
+  note: >-
+    Published 8 July 2025; ICCT updates its vehicle life-cycle assessments every few years (the previous EU estimate
+    was 2021). No newer EU passenger-car assessment was found on 4 October 2026. Non-profit, not exposed to US federal
+    cuts.
+  us_federal: false
+update_cadence: Irregular (previous edition 2021)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#ICCT: Life-cycle greenhouse gas emissions from passenger cars in the
+  European Union, 2025 update (plus 2021 global comparison)

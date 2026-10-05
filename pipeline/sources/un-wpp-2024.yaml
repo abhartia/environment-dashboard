@@ -1,0 +1,102 @@
+# UN World Population Prospects 2024 (UN DESA Population Division): demographic indicators, estimates 1950-2023 and
+# medium projection 2024-2100, plus the January 2026 interim update for Togo.
+# Evidence: docs/research/sources-country-and-local.json ("UN World Population Prospects 2024 (WPP 2024)"); verdict
+# "confirmed", final_redistribution open-attribution.
+# Checked 2026-10-04:
+#   - Licence and suggested citation: the "Footer" of every download group in
+#     https://population.un.org/wpp/assets/downloads.json (the file the WPP downloads page renders), HTTP 200
+#     application/json, quoted below.
+#   - WPP2024_Demographic_Indicators_Medium.csv.gz: HTTP 200 application/x-gzip, 16,557,272 bytes, ETag
+#     "0x8DD1BA9EBFD1565", Last-Modified Fri, 13 Dec 2024. Gzip-compressed CSV: Artifact.format has no gzip value, so
+#     it is declared csv and the transform decompresses it. Columns include LocID, ISO3_code, LocTypeName, Location,
+#     Variant, Time, TPopulation1Jan, TPopulation1July (thousands) and 50 more indicators.
+#   - Interim update (downloads.json "Interim Update" tab, "Release date: 19 January 2026"): Togo's estimates and
+#     medium projection were revised after a double census adjustment ("The following files have been updated to
+#     correct the population counts for Togo. Results for all other locations are unchanged, and aggregates are not
+#     updated in this interim update."). WPP2024_CSV_files_update.zip: HTTP 200, 943,827 bytes, ETag
+#     "0x8DE59DE03E038BF", Last-Modified Thu, 22 Jan 2026; its WPP2024_Demographic_Indicators_Medium_Update.csv holds
+#     151 rows, all Togo (1950-2100). Togo's values come from the update; regional and world aggregates stay as
+#     published in July 2024, as the UN says.
+#   - Same tab: "The next revision, originally planned for 2026, has been postponed for public release until 11 July
+#     2027."
+# No twin: the World Bank's population series (wb-wdi, SP.POP.TOTL) names World Population Prospects as its first
+# source, so it is not an independent measurement.
+id: un-wpp-2024
+title: World Population Prospects 2024
+publisher: United Nations, Department of Economic and Social Affairs, Population Division
+landing_url: https://population.un.org/wpp/
+description: >-
+  Population estimates for 1950-2023 and projections to 2100 for 237 countries and areas and for UN, SDG, World Bank
+  income and geographic aggregates: total population on 1 January and 1 July (thousands), density, age, births,
+  deaths, life expectancy, fertility and net migration. The medium projection is used. Used as the per-capita
+  denominator for projections and long histories; it differs slightly from World Bank population figures, so each
+  chart uses one or the other and says which.
+citation:
+  type: dataset
+  title: World Population Prospects 2024, Online Edition
+  author:
+    - {literal: "United Nations, Department of Economic and Social Affairs, Population Division"}
+  issued: "2024-07-11"
+  publisher: United Nations
+  URL: https://population.un.org/wpp/
+  # "Suggested citation" in the downloads page footer, verbatim.
+  text: >-
+    United Nations, Department of Economic and Social Affairs, Population Division (2024). World Population Prospects
+    2024, Online Edition.
+licence_class: open
+licence:
+  name: CC BY 3.0 IGO
+  spdx: CC-BY-3.0-IGO
+  url: http://creativecommons.org/licenses/by/3.0/igo/
+evidence:
+  terms_url: https://population.un.org/wpp/assets/downloads.json
+  licence_quote: Copyright © 2024 by United Nations, made available under a Creative Commons license CC BY 3.0 IGO
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    United Nations, Department of Economic and Social Affairs, Population Division (2024). World Population Prospects
+    2024, Online Edition. CC BY 3.0 IGO.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from United Nations, Department of Economic and Social Affairs, Population
+    Division (2024). World Population Prospects 2024, Online Edition (with the interim update for Togo of 19 January
+    2026). CC BY 3.0 IGO.
+  mirror_raw: true
+  # CC BY 3.0 IGO: "You may not implicitly or explicitly assert or imply any connection with, sponsorship or
+  # endorsement by the Licensor".
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: demographic-indicators-medium
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz
+    format: csv
+    description: >-
+      WPP2024_Demographic_Indicators_Medium.csv.gz (gzip-compressed CSV): one row per location and year, estimates
+      1950-2023 and medium projection 2024-2100, with total population (thousands) and the other demographic
+      indicators. 16,557,272 bytes compressed.
+  - id: demographic-indicators-definitions
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_notes.csv
+    format: csv
+    description: >-
+      WPP2024_Demographic_Indicators_notes.csv: each indicator's code, topic, full name and unit (for example
+      TPopulation1July, "Total Population, as of 1 July", thousands). 4,370 bytes.
+  - id: togo-interim-update
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/WPP2024_CSV_files_update.zip
+    format: zip
+    description: >-
+      WPP2024_CSV_files_update.zip (19 January 2026): eleven CSV files with Togo's revised estimates and medium
+      projection, including WPP2024_Demographic_Indicators_Medium_Update.csv (same columns as the main file). 943,827
+      bytes.
+status:
+  state: active
+  note: >-
+    WPP 2024 was released on 11 July 2024; an interim update for Togo followed on 19 January 2026. The next revision,
+    planned for 2026, has been postponed to 11 July 2027. A UN product, not a US federal programme.
+  us_federal: false
+update_cadence: Biennial revisions (the 2026 revision postponed to July 2027), with occasional interim updates
+next_release:
+  expected: 2027-07-11
+  note: Next World Population Prospects revision, as announced on the WPP downloads page (Interim Update tab).
+  url: https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=Interim%20Update
+twins: []
+research_ref: docs/research/sources-country-and-local.json#UN World Population Prospects 2024 (WPP 2024)

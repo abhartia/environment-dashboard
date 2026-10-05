@@ -1,0 +1,91 @@
+# SEI Emissions Inequality Dashboard: consumption CO2 by global income percentile, from its public JSON API.
+# Evidence: docs/research/sources-solutions-and-action.json ("SEI Emissions Inequality Dashboard"; verdict confirmed).
+# Checked 2026-10-04:
+#   - emissions-inequality.org/about/ -> 200 with the licence text quoted below. The verifier recorded the licence as
+#     unversioned "CC BY". In the page source, "CC BY" links to https://creativecommons.org/licenses/by/4.0/, so this
+#     entry records CC BY 4.0.
+#   - emissions-inequality.org/api/ (200) lists the endpoints on www.sei-eqtrans-dev.net. Without year parameters each
+#     returns all years: globalHistoricalDataByYear 200, 877,309 bytes, 4,318 records, 1990-2023;
+#     globalDataByYear 200, 3,359 bytes; countryTotals 200, 3,909 bytes. A query for 2024-2025 returns 404 "No products
+#     found." No ETag or Last-Modified headers, so conditional is false. CORS: access-control-allow-origin *.
+#   - Re-computed from the API for 2023: top 10% EmissionShare 0.4708, top 1% 0.1655, bottom 50% 0.0842 (matches the
+#     research). PercentileValue is the width of each slice (0.01, 0.001, ... 0.00001), not its upper bound.
+id: sei-emissions-inequality
+title: Emissions Inequality Dashboard
+publisher: Stockholm Environment Institute (SEI)
+landing_url: https://emissions-inequality.org/
+description: >-
+  Each global income percentile's share of world income, population and consumption-based carbon dioxide emissions,
+  for every year from 1990 to 2023, with the richest 1% split into finer slices down to the top 0.001%. Built from
+  national consumption emissions spread across each country's income distribution for 117 countries. Covers carbon
+  dioxide only, and the split depends on SEI's assumed link between income and emissions (its elasticity). Also
+  global and covered-country totals of emissions, population and GDP for each year.
+citation:
+  type: dataset
+  title: Emissions Inequality Dashboard
+  author:
+    - {family: Ghosh, given: Emily}
+    - {family: Nazareth, given: Anisha}
+    - {family: Wang, given: Guozhong}
+    - {family: Kartha, given: Sivan}
+    - {family: Kemp-Benedict, given: Eric}
+  issued: "2021"
+  publisher: Stockholm Environment Institute (SEI)
+  URL: https://emissions-inequality.org
+  text: >-
+    Emily Ghosh, Anisha Nazareth, Guozhong Wang, Sivan Kartha, Eric Kemp-Benedict (2021). Emissions Inequality
+    Dashboard. Stockholm Environment Institute (SEI). https://emissions-inequality.org
+licence_class: open
+licence:
+  name: CC BY 4.0 (the About page says "CC BY" and links the 4.0 licence)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://emissions-inequality.org/about/
+  licence_quote: >-
+    Stockholm Environment Institute (SEI) holds the copyright of the Emissions Inequality Dashboard. It is licensed
+    under Creative Commons and you are free to copy and redistribute material derived from the platform by following
+    the guidelines of the Creative Commons License: CC BY(full attribution).
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Stockholm Environment Institute, Emissions Inequality Dashboard (Ghosh, Nazareth, Wang, Kartha and Kemp-Benedict,
+    2021), https://emissions-inequality.org, accessed {date_accessed}, CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Stockholm Environment Institute data: Emissions Inequality Dashboard
+    (Ghosh, Nazareth, Wang, Kartha and Kemp-Benedict, 2021), https://emissions-inequality.org, accessed
+    {date_accessed}, CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: global-percentile-shares
+    url: https://www.sei-eqtrans-dev.net/api/globalHistoricalDataByYear/search.php
+    format: json
+    description: >-
+      Income, emission and population shares for each global income percentile and year (Year, PercentileLabel,
+      PercentileValue, IncomeShare, EmissionShare, PopulationShare, Elasticity), all years.
+    access:
+      conditional: false
+  - id: global-totals
+    url: https://www.sei-eqtrans-dev.net/api/globalDataByYear/search.php
+    format: json
+    description: Global emissions, GDP and population for each year, all years.
+    access:
+      conditional: false
+  - id: country-totals
+    url: https://www.sei-eqtrans-dev.net/api/countryTotals/search.php
+    format: json
+    description: Sum of national emissions, population and GDP over the countries in the database, for each year.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    The historical series ends in 2023 (2023 methodology update). The API has no versions or DOI, and it is served
+    from a host named sei-eqtrans-dev.net, which the dashboard's own API page links to. The address could change
+    without notice, so each response is kept as a dated snapshot. Figures differ from those printed in Oxfam's
+    releases because of method updates. Not a US federal product.
+  us_federal: false
+update_cadence: Irregular, roughly yearly alongside SEI and Oxfam publications
+research_ref: "docs/research/sources-solutions-and-action.json#SEI Emissions Inequality Dashboard (global consumption CO2 by income percentile)"

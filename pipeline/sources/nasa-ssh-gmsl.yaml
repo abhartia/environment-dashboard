@@ -1,0 +1,96 @@
+# NASA-SSH global mean sea level indicator (PO.DAAC), weekly from January 1993. Not corrected for glacial isostatic
+# adjustment (GIA), unlike AVISO.
+# Evidence: docs/research/sources-ocean-and-ice.json ("NASA-SSH Global Mean Sea Level from Simple Gridded Sea Surface
+# Height (NASA_SSH_GMSL_INDICATOR)"); verifier verdict "corrected": CMR release date 2025-04-19 (not 23 April); the
+# collection's UseConstraints field is empty, so the CC0 status rests on the Earthdata data-use guidance page quoted
+# below; the 78 granules are cumulative full-series snapshots, and the undated granule is the one to fetch.
+# Licence evidence checked 2026-10-04: the Earthdata "Data Use Guidance" page (HTTP 200) states the CC0 default quoted
+# below and also that NASA material "may not be used to suggest or imply endorsement by NASA" (hence no_endorsement).
+# The dataset's Earthdata catalogue page (where doi:10.5067/NSIND-GMSV1 resolves) says "This dataset is openly shared,
+# without restriction, in accordance with the EOSDIS Data Use and Citation Guidance". CMR collection C3478934705-POCLOUD
+# still has UseConstraints null. A NASA-led mission product, so CC0 applies.
+# Artifact checked 2026-10-04: CMR lists 78 granules; the undated NASA_SSH_GMSL_INDICATOR granule was revised
+# 2026-09-28T15:29Z and covers 1993-01-05 to 2026-09-22; the collection abstract says this file "is always the most
+# up-to-date time series". An unauthenticated GET returns HTTP 302 to urs.earthdata.nasa.gov (Earthdata Login), so the
+# fetch sends an Earthdata bearer token (Keychain item earthdata-envdash -> GitHub secret EARTHDATA_TOKEN, see
+# docs/runbook.md). An unauthenticated HEAD resolves through a 303 to the object store: HTTP 200, 70,286 bytes, ETag
+# "82a222d5bc9cf3ac67b1168d0348e3c5-1", Last-Modified 28 Sep 2026. The file's contents were not inspected because the
+# Keychain item does not exist yet; conditional GET through the login redirect is untested, so conditional: false.
+# The abstract also says the series is NOT adjusted for GIA, that a 60-day smoothed version is included, and that
+# "occasional improvements to data quality can result in mm level change in the historical portions".
+# citation.text: the PO.DAAC landing page's citation, verbatim, with [YYYY-MM-DD] filled by {date_accessed}.
+id: nasa-ssh-gmsl
+title: NASA-SSH global mean sea level from simple gridded sea surface height
+publisher: NASA Jet Propulsion Laboratory, Physical Oceanography Distributed Active Archive Center (PO.DAAC)
+landing_url: https://podaac.jpl.nasa.gov/dataset/NASA_SSH_GMSL_INDICATOR
+description: >-
+  Global mean sea level change (centimetres) as the area-weighted mean of NASA-SSH simple gridded sea surface height
+  from the reference altimetry missions (TOPEX/Poseidon, the Jason series and Sentinel-6), every 7 days from January
+  1993, between 66°S and 66°N, with a version smoothed over 60 days. Each map uses 10 days of observations, so
+  successive values overlap slightly. Not adjusted for glacial isostatic adjustment, so its long-term rate reads a
+  little below GIA-adjusted series such as AVISO's; the two are shown as separate lines, never spliced. Earlier values
+  can change by millimetres when the processing improves.
+citation:
+  type: dataset
+  title: NASA-SSH Global Mean Sea Level from Simple Gridded Sea Surface Height
+  author:
+    - {family: Willis, given: J. K.}
+    - {family: Fournier, given: S.}
+    - {family: Marlis, given: K.}
+    - {family: Killett, given: E.}
+  issued: "2025-04-19"
+  publisher: PO.DAAC
+  version: "1"
+  DOI: 10.5067/NSIND-GMSV1
+  URL: https://doi.org/10.5067/NSIND-GMSV1
+  text: >-
+    Willis, J. K., S. Fournier, K. Marlis, and E. Killett. 2025. NASA-SSH Global Mean Sea Level from Simple Gridded Sea
+    Surface Height. Ver. 1. PO.DAAC, CA, USA. Dataset accessed {date_accessed} at https://doi.org/10.5067/NSIND-GMSV1
+licence_class: open
+licence:
+  name: CC0 1.0 (NASA Earth science data default)
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+evidence:
+  terms_url: https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance
+  licence_quote: >-
+    Unless the content is marked with a use restriction or license, data provided from a NASA-led mission are licensed
+    as Creative Commons Zero (CC0). While there are no restrictions on the use of these data, data users are very
+    strongly urged to cite the data used in their work products.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    NASA-SSH Global Mean Sea Level indicator, version 1 (Willis, Fournier, Marlis & Killett 2025), NASA PO.DAAC,
+    doi:10.5067/NSIND-GMSV1, accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the NASA-SSH Global Mean Sea Level indicator, version 1 (Willis, Fournier,
+    Marlis & Killett 2025), NASA PO.DAAC, doi:10.5067/NSIND-GMSV1, accessed {date_accessed}.
+  mirror_raw: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: gmsl-indicator
+    url: https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/NASA_SSH_GMSL_INDICATOR/NASA_SSH_GMSL_INDICATOR.txt
+    format: txt
+    description: >-
+      ASCII time series of global mean sea level (cm), 7-day steps from 1993-01-05, with a 60-day smoothed column; the
+      undated cumulative granule that PO.DAAC replaces each week (70,286 bytes on 2026-09-28).
+    access:
+      auth: earthdata
+      auth_env: EARTHDATA_TOKEN
+      conditional: false
+status:
+  state: active
+  note: >-
+    A new cumulative granule is posted weekly (on 7, 14, 21 and 28 September 2026); the 28 September file runs to 22
+    September 2026. The FY2027 US budget request (April 2026) proposes cutting NASA's Science Mission Directorate by
+    46% and cancelling Earth science missions; Congress rejected a near-identical proposal for FY2026.
+  us_federal: true
+update_cadence: Weekly (cumulative file replaced, usually on Mondays)
+next_release:
+  expected: 2026-10-05
+  note: >-
+    Next weekly granule, if the Monday pattern of September 2026 (granules dated 7, 14, 21 and 28 September) holds.
+twins: [aviso-gmsl]
+research_ref: docs/research/sources-ocean-and-ice.json#NASA-SSH Global Mean Sea Level from Simple Gridded Sea Surface Height (NASA_SSH_GMSL_INDICATOR)

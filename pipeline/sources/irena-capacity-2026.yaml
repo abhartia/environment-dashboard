@@ -1,0 +1,85 @@
+# IRENA Renewable Capacity Statistics 2026 (published 31 March 2026): installed capacity by country and technology.
+# Evidence: docs/research/sources-energy.json ("IRENA – Renewable Capacity Statistics 2026 and IRENASTAT"), re-checked
+# 2026-10-04. irena.org HTML pages return 403 to scripts; files under /-/media/ return 200.
+# Licence: page 2 of the publication PDF (terms_url), read 2026-10-04. It also says: "Material contained in this
+# publication attributed to third parties may be subject to third party copyright and separate terms of use and
+# restrictions, including restrictions in relation to any commercial use." No table in the PDF is attributed to a
+# third party (the only "Source:" line credits the UN M49 country list).
+# IRENASTAT (PxWeb) is not registered as an artifact, for two reasons found on 2026-10-04:
+#   1. Its API (https://pxweb.irena.org/api/v1/en/IRENASTAT) returns data only to a POST query, and Artifact.access
+#      allows GET only. Its newer tables (Country_ELECSTAT_2026_H2_PX.px, updated 2026-09-28) put World renewable
+#      capacity for 2025 at 5,155,007 MW against 5,149,280 MW in this PDF.
+#   2. Its terms differ: the table metadata says "Copyright: No" and cites "IRENA (2026), Renewable Energy Statistics
+#      2026", while the site footer reads "© IRENA - International Renewable Energy Agency. All Rights Reserved."
+#      Adding it needs POST support in the fetcher and written confirmation of the terms from IRENA.
+id: irena-capacity-2026
+title: Renewable capacity statistics 2026
+publisher: International Renewable Energy Agency (IRENA)
+landing_url: https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026
+description: >-
+  Installed renewable electrical capacity (megawatts) by country, region and technology (hydropower and pure pumped
+  storage, marine, onshore and offshore wind, solar PV and concentrated solar, bioenergy by fuel, geothermal), 2016
+  to 2025, in trilingual tables (English, French, Spanish). Fossil capacity is not covered. World renewable
+  capacity at the end of 2025 is 5,149,280 MW (5,149 GW), up 692 GW (15.5%) in 2025. Capacity is maximum net
+  generating capacity at year end, rounded to the nearest megawatt; it is not generation. Figures marked "o" come
+  from official sources, "u" from unofficial sources such as industry associations and news, and "e" are IRENA
+  estimates; the flag is kept with each value. Values are revised between editions and in IRENASTAT's half-yearly tables, so every value
+  carries this edition's label. The renewable share of total electricity capacity is its own table (World 2025:
+  49.4%); the tables hold no fossil capacity to recompute it from.
+citation:
+  type: report
+  title: Renewable capacity statistics 2026
+  author:
+    - {literal: International Renewable Energy Agency}
+  issued: "2026-03-31"
+  publisher: International Renewable Energy Agency
+  URL: https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026
+  text: IRENA (2026), Renewable capacity statistics 2026, International Renewable Energy Agency, Abu Dhabi.
+licence_class: open
+licence:
+  name: IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)
+  spdx: null
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf
+evidence:
+  terms_url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf
+  licence_quote: >-
+    Material in this publication may be freely used, shared, copied, reproduced, printed and/or stored, provided that
+    all such material is clearly attributed to IRENA and bears a notation that it is subject to copyright (© IRENA),
+    with the year of the copyright.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: IRENA (2026), Renewable capacity statistics 2026. © IRENA 2026.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from IRENA (2026), Renewable capacity statistics 2026. © IRENA 2026.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-04: 1,681,315 bytes, application/pdf, no ETag or Last-Modified (Cache-Control: no-cache).
+  # 69 pages; PDF created 31 March 2026. ISBN 978-92-9260-725-8.
+  - id: capacity-statistics-pdf
+    url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf
+    format: pdf
+    description: >-
+      The full publication: capacity tables by technology for each country and region, 2016 to 2025, with the terms
+      and citation on page 2.
+    access:
+      conditional: false
+  # GET 200 on 2026-10-04: 1,973,926 bytes, no ETag or Last-Modified. Dated 31 March 2026 with the note "Updated
+  # July 2026" (PDF created 29 July 2026).
+  - id: capacity-highlights-pdf
+    url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
+    format: pdf
+    description: >-
+      Five-page highlights: 5,149 GW renewable capacity at end-2025, +692 GW in 2025, renewables 49.4% of total
+      capacity.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Published 31 March 2026. IRENA is an intergovernmental agency in Abu Dhabi; not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Annual, end of March (capacity statistics); IRENASTAT tables are refreshed every half-year
+# No twin: Ember's capacity column is compiled from IRENA (and GEM for fossil), so it is not independent.
+research_ref: docs/research/sources-energy.json#IRENA – Renewable Capacity Statistics 2026 and IRENASTAT

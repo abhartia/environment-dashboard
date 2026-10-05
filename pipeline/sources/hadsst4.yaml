@@ -1,0 +1,92 @@
+# Met Office Hadley Centre sea-surface temperature data set HadSST.4.2.0.0.
+# Evidence: docs/research/sources-ocean-and-ice.json (verification.missing_sources item 4, "Met Office HadSST.4.2.0.0").
+#
+# Checked 2026-10-04: landing, download and terms pages all "Last updated: 15/09/2026"; both CSVs HTTP 200
+# (Last-Modified 15 Sep 2026, ETag present); the annual GLOBE file's md5 (73f8fd76d949004cd5082bb681e06d9f) matches the
+# download page. Version 4.2.0.0 has been current since September 2025 (Product User Guide, section 5.1), so the
+# "[year of first publication]" in the acknowledgement is 2025 for this version. HadCRUT.5.2.0.0 is built on
+# HadSST.4.1.1.0, not this version; the two are separate releases.
+id: hadsst4
+title: HadSST.4 sea-surface temperature anomalies
+publisher: Met Office Hadley Centre
+landing_url: https://www.metoffice.gov.uk/hadobs/hadsst4/
+description: >-
+  Monthly and annual sea-surface temperature anomalies from January 1850, from ship and buoy measurements (ICOADS,
+  Met Office GTS ship data and Copernicus Marine drifting buoys) adjusted for changes in how SST was measured. Not
+  interpolated. Anomalies are in kelvin (equal to degrees Celsius) relative to 1961–1990, with uncertainty split into
+  measurement, sampling, bias and coverage parts. The global annual file holds complete years only (to 2025 on
+  2026-10-04).
+citation:
+  type: article-journal
+  title: "An Ensemble Data Set of Sea Surface Temperature Change from 1850: The Met Office Hadley Centre HadSST.4.0.0.0 Data Set"
+  author:
+    - {family: Kennedy, given: J. J.}
+    - {family: Rayner, given: N. A.}
+    - {family: Atkinson, given: C. P.}
+    - {family: Killick, given: R. E.}
+  issued: "2019"
+  container-title: "Journal of Geophysical Research: Atmospheres"
+  volume: "124"
+  version: "HadSST.{version}"
+  DOI: 10.1029/2018JD029867
+  URL: https://doi.org/10.1029/2018JD029867
+  # Both citations the terms page asks for, verbatim.
+  text: >-
+    Kennedy, J. J., Rayner, N. A., Atkinson, C. P., & Killick, R. E., 2019. An Ensemble Data Set of Sea Surface
+    Temperature Change from 1850: The Met Office Hadley Centre HadSST.4.0.0.0 Data Set. Journal of Geophysical
+    Research: Atmospheres, 124. https://doi.org/10.1029/2018JD029867. Sandford, C., and Rayner, N., 2026. Addressing
+    the World War 2 Warm Anomaly in HadSST.4.2.0.0. International Journal of Climatology.
+    https://doi.org/10.1002/joc.70388.
+licence_class: open
+licence:
+  name: Open Government Licence v3.0 (Crown copyright)
+  spdx: OGL-UK-3.0
+  url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+evidence:
+  terms_url: https://www.metoffice.gov.uk/hadobs/hadsst4/terms_and_conditions.html
+  licence_quote: >-
+    HadSST.4.2.0.0 is subject to Crown copyright protection and is provided under the Open Government Licence v3.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # The terms page's acknowledgement, verbatim, with the version, download date and the year the version was first
+  # published (2025 for 4.2.0.0) filled in by the build. OGL v3 requires "any attribution statement specified by the
+  # Information Provider(s)".
+  attribution: >-
+    HadSST.{version} data were obtained from http://www.metoffice.gov.uk/hadobs/hadsst4 on {date_accessed} and are ©
+    British Crown Copyright, Met Office {year}, provided under an Open Government Licence,
+    https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+  attribution_modified: >-
+    Calculated by Environment Dashboard from HadSST.{version}. HadSST.{version} data were obtained from
+    http://www.metoffice.gov.uk/hadobs/hadsst4 on {date_accessed} and are © British Crown Copyright, Met Office {year},
+    provided under an Open Government Licence, https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+  mirror_raw: true
+  # OGL v3 "Non-endorsement": "This licence does not grant you any right to use the Information in a way that suggests
+  # any official status or that the Information Provider and/or Licensor endorse you or your use of the Information."
+  # OGL v3 also excludes "departmental or public sector organisation logos, crests and the Royal Arms".
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: global-annual
+    url: https://www.metoffice.gov.uk/hadobs/hadsst4/data/data/HadSST.4.2.0.0_annual_GLOBE.csv
+    format: csv
+    description: >-
+      Global annual SST anomaly from 1850, K relative to 1961–1990, with total, uncorrelated, correlated, bias and
+      coverage uncertainties (1σ) and the 95% bias-uncertainty range. Complete years only.
+  - id: global-monthly
+    url: https://www.metoffice.gov.uk/hadobs/hadsst4/data/data/HadSST.4.2.0.0_monthly_GLOBE.csv
+    format: csv
+    description: >-
+      Global monthly SST anomaly from January 1850, K relative to 1961–1990, with the same uncertainty columns. Runs
+      to August 2026 on 2026-10-04.
+status:
+  state: active
+  note: >-
+    Updated monthly. UK government (Met Office) dataset, not exposed to US federal cuts, though its main input
+    (ICOADS) is maintained by NOAA and partners. The version is part of each file's URL, so a new version means a
+    registry edit.
+  us_federal: false
+update_cadence: Monthly; a new minor version about once a year
+twins: [oisst-v2]
+research_ref: docs/research/sources-ocean-and-ice.json#verification.missing_sources (4. Met Office HadSST.4.2.0.0)

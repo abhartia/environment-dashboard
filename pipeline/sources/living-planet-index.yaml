@@ -1,0 +1,141 @@
+# Living Planet Index (ZSL and WWF): published LPI trends from the Living Planet Report, global, by system and by
+# IPBES region, 1970 = 1, with 95% confidence limits. Vintage now: Living Planet Report 2024 (data 1970-2020).
+# Evidence: docs/research/sources-food-land-nature.json ("Living Planet Index (LPR 2024; LPR 2026 embargoed to
+# 2026-10-08)"); verdict "confirmed" (keep open-attribution, but every LPI export carries CC BY-SA 4.0).
+# Class share-alike, from the producer's Data Use Policy (data_agreement.pdf, HTTP 200, 159,513 bytes, Last-Modified
+# 2025-04-23), clause 3, quoted below. OWID's metadata labels the LPI "CC BY 4.0"; that is wrong and is not used.
+# Other clauses that bind us: 2 (citation format "LPI 2016. Living Planet Index database. 2016.
+# < www.livingplanetindex.org/>. Downloaded on 24 November 2016", "changing years and date accordingly"); 6 (derived
+# datasets carry the same terms, i.e. CC BY-SA 4.0 on our downloads); 7 (no endorsement; ZSL and WWF logos must not be
+# used); 9 asks that "A copy of all products using data supplied by LPI data will be sent electronically to
+# LivingPlanetIndex@ioz.ac.uk" (owner action after launch: send the page link; Claude does not send it). Clauses 1, 4
+# and 5 restrict the underlying Living Planet Database population records, which we never ingest.
+# Acquisition is manual. The producer's results files (the files clause 3 names) are served only by the Shiny app at
+# /latest_results: its "Download" button is a per-session link (session/<id>/download/downloadData), so there is no
+# stable URL and automating the session would be a scraping workaround. Checked 2026-10-04 in a browser: the Trend
+# selector offers Global, Terrestrial, Freshwater, Marine, Africa, Asia and the Pacific, Europe and Central Asia, Latin
+# America and Caribbean, North America; for Global the server answers HTTP 200 text/csv, content-disposition
+# "Global.csv", columns Year, LPI_final, CI_low, CI_high, Description, 1970-2020 (2020 = 0.2713406777801).
+# Cross-check copy (not used for values): OWID grapher global-living-planet-index.csv (HTTP 200) has World, the five
+# regions and Freshwater, x100, with CI; it lacks Terrestrial and Marine.
+# The citation and attribution name the 2024 report; update them with the LPR 2026 vintage after 8 October 2026.
+id: living-planet-index
+title: Living Planet Index
+publisher: Zoological Society of London (Indicators & Assessments Unit) and WWF International
+landing_url: https://www.livingplanetindex.org/latest_results
+description: >-
+  Average relative change in the size of monitored vertebrate wildlife populations since 1970 (index, 1970 = 1), with
+  95% confidence limits: global, terrestrial, freshwater and marine, and for five IPBES regions. The 2024 edition
+  covers 1970-2020 from 34,836 populations of 5,495 species, weighted by species richness and smoothed with a 3-year
+  running average. It measures average population change, not the share of animals lost or a count of extinctions.
+citation:
+  type: dataset
+  title: Living Planet Index database
+  author:
+    - {literal: LPI}
+  issued: "{year}"
+  publisher: Zoological Society of London and WWF
+  URL: https://www.livingplanetindex.org/
+  # Data citation in the format of Data Use Policy clause 2 ({year} = the Living Planet Report edition), then the
+  # report's own citation from its imprint page.
+  text: >-
+    LPI {year}. Living Planet Index database. {year}. < www.livingplanetindex.org/>. Downloaded on {date_accessed}.
+    WWF (2024) Living Planet Report 2024 – A System in Peril. WWF, Gland, Switzerland.
+licence_class: share-alike
+licence:
+  name: CC BY-SA 4.0 (published LPI trends)
+  spdx: CC-BY-SA-4.0
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+evidence:
+  terms_url: https://www.livingplanetindex.org/documents/data_agreement.pdf
+  licence_quote: >-
+    However, reproduction of the published Living Planet Index trends (e.g. the global, regional or system trends) is
+    permitted under creative commons CC BY-SA 4.0 license
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    LPI {year}. Living Planet Index database. {year}. www.livingplanetindex.org. Downloaded on {date_accessed}. WWF
+    (2024) Living Planet Report 2024 – A System in Peril. WWF, Gland, Switzerland. CC BY-SA 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from LPI {year}. Living Planet Index database. {year}. www.livingplanetindex.org.
+    Downloaded on {date_accessed}. WWF (2024) Living Planet Report 2024 – A System in Peril. WWF, Gland, Switzerland.
+    CC BY-SA 4.0.
+  notice: >-
+    Use of these data does not constitute endorsement by ZSL or WWF of any derived products, reports or analyses.
+  mirror_raw: true
+  no_logo: true
+  no_endorsement: true
+acquisition: manual
+artifacts:
+  - id: trend-global
+    url: null
+    format: csv
+    description: >-
+      Global LPI (Year, LPI_final, CI_low, CI_high, Description). A person opens
+      https://www.livingplanetindex.org/latest_results in a web browser, leaves Trend on "Global", presses "Download"
+      under "Download Data: Living Planet Report <edition>, WWF/ZSL", and records the saved Global.csv with
+      `uv run envdash snapshot add --source living-planet-index --file Global.csv`.
+  - id: trend-terrestrial
+    url: null
+    format: csv
+    description: >-
+      Terrestrial system LPI. Same page and button with Trend set to "Terrestrial"; record the saved CSV with
+      `envdash snapshot add --source living-planet-index`.
+  - id: trend-freshwater
+    url: null
+    format: csv
+    description: >-
+      Freshwater system LPI. Same page and button with Trend set to "Freshwater"; record the saved CSV with
+      `envdash snapshot add --source living-planet-index`.
+  - id: trend-marine
+    url: null
+    format: csv
+    description: >-
+      Marine system LPI. Same page and button with Trend set to "Marine"; record the saved CSV with
+      `envdash snapshot add --source living-planet-index`.
+  - id: trend-africa
+    url: null
+    format: csv
+    description: >-
+      Africa (IPBES region) LPI. Same page and button with Trend set to "Africa"; record the saved CSV with
+      `envdash snapshot add --source living-planet-index`.
+  - id: trend-asia-pacific
+    url: null
+    format: csv
+    description: >-
+      Asia and the Pacific (IPBES region) LPI. Same page and button with Trend set to "Asia and the Pacific"; record
+      the saved CSV with `envdash snapshot add --source living-planet-index`.
+  - id: trend-europe-central-asia
+    url: null
+    format: csv
+    description: >-
+      Europe and Central Asia (IPBES region) LPI. Same page and button with Trend set to "Europe and Central Asia";
+      record the saved CSV with `envdash snapshot add --source living-planet-index`.
+  - id: trend-latin-america-caribbean
+    url: null
+    format: csv
+    description: >-
+      Latin America and Caribbean (IPBES region) LPI. Same page and button with Trend set to "Latin America and
+      Caribbean"; record the saved CSV with `envdash snapshot add --source living-planet-index`.
+  - id: trend-north-america
+    url: null
+    format: csv
+    description: >-
+      North America (IPBES region) LPI. Same page and button with Trend set to "North America"; record the saved CSV
+      with `envdash snapshot add --source living-planet-index`.
+status:
+  state: active
+  note: >-
+    The Living Planet Report 2026 is embargoed until 8 October 2026 (OWID ETL pull request 6922, "DO NOT MERGE before
+    2026-10-08"); until then the published trends are those of the 2024 report, data 1970-2020. Keep the 2024 vintage
+    archived with its own citation after the switch. Not exposed to US federal programme cuts.
+  us_federal: false
+update_cadence: Every two years, with the Living Planet Report (October of even years)
+next_release:
+  expected: 2026-10-08
+  note: Living Planet Report 2026 and its LPI trends; embargo lifts on 8 October 2026.
+  url: https://www.livingplanetindex.org/latest_results
+twins: []
+research_ref: >-
+  docs/research/sources-food-land-nature.json#Living Planet Index (LPR 2024; LPR 2026 embargoed to 2026-10-08)

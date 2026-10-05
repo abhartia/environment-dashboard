@@ -1,0 +1,93 @@
+# NOAA Climate Data Record of Northern Hemisphere snow cover extent (Rutgers Global Snow Lab for the NOAA CDR
+# Program), weekly grids from October 1966, taken as the NetCDF that NCEI distributes.
+# Evidence: docs/research/sources-ocean-and-ice.json ("Northern Hemisphere Snow Cover Extent CDR (Rutgers Global Snow
+# Lab / NOAA NCEI)"); verifier verdict "confirmed", with the caveat that the "no restrictions" policy covers the NCEI
+# CDR only: the Rutgers moncov.*.txt tables are Rutgers derivatives with no stated licence, so they are not used here
+# (docs/research/plan-critique-2026-10-04.txt makes the same point).
+# Licence evidence checked 2026-10-04: the CDR use agreement UseAgreement_01B-12.pdf (HTTP 200, 22,053 bytes) states
+# the open data policy quoted below and gives acknowledgement and citation "examples" that it encourages rather than
+# requires. The NetCDF's own global attribute reads license = "No restrictions on access or use". The NCEI record
+# gov.noaa.ncdc:C00756 (where doi:10.7289/V5N014G9 resolves) lists update frequency "Monthly", the citation below and
+# a liability disclaimer. The data are made by Rutgers University for NOAA, so the licence is the CDR policy rather
+# than US-government public domain.
+# Artifact checked 2026-10-04: nhsce_v01r01_19661004_20260831.nc, HTTP 200, 24,602,081 bytes, ETag
+# "17765e1-65ab083eec103", Last-Modified 4 Sep 2026, answers If-None-Match with 304; date_created 2026-09-03T19:36:11Z,
+# time_coverage 1966-10-04 to 2026-08-31, 3,126 weekly maps on an 88 x 88 grid, product_version v01r01.
+# The URL is pinned to this file and must be bumped with each NCEI update. The file name carries the last week's date
+# and NCEI keeps only the newest file: the access directory and the THREDDS catalogue (cdr/snowcover) list just this
+# one, earlier names such as nhsce_v01r01_19661004_20260731.nc answer HTTP 404, and no "latest" alias exists. The AWS
+# Open Data copy (noaa-cdr-snow-cover-ext-north-pds) stops at nhsce_v01r01_19661004_20210405.nc. Until the URL is
+# updated, a fetch after NCEI's next release fails with HTTP 404 and the last validated vintage stays.
+# citation.text: the NCEI "Cite as" text, with "[indicate subset used]" filled and "[access date]" as {date_accessed}.
+# The file's references attribute points to Estilow, Young and Robinson (2015), doi:10.5194/essd-7-137-2015.
+id: rutgers-snow-cdr
+title: Northern Hemisphere snow cover extent climate data record
+publisher: NOAA National Centers for Environmental Information (data by the Rutgers University Global Snow Lab)
+landing_url: https://www.ncei.noaa.gov/products/climate-data-records/snow-cover-extent
+description: >-
+  Weekly maps of snow cover over Northern Hemisphere land from the week of 4 October 1966, on an 88 x 88 polar
+  stereographic grid whose cells cover 10,677 to 41,805 km2: one flag per cell and week (snow covered or not), with
+  each cell's area and a land mask. Snow cover extent in km2 is not in the file; it is the summed area of land cells
+  flagged as snow covered, computed by our transform. Before June 1999 the maps were drawn weekly by NOAA analysts from
+  satellite imagery; since then they come from the US National Ice Center's Interactive Multisensor Snow and Ice
+  Mapping System (IMS), processed at Rutgers. The early years are less reliable. The Rutgers Global Snow Lab's own monthly tables are not used because they carry no licence.
+citation:
+  type: dataset
+  title: >-
+    NOAA Climate Data Record (CDR) of Northern Hemisphere (NH) Snow Cover Extent (SCE), Version 1
+  author:
+    - {family: Robinson, given: David A.}
+    - {family: Estilow, given: Thomas W.}
+    - {literal: NOAA CDR Program}
+  issued: "2012"
+  publisher: NOAA National Centers for Environmental Information
+  version: v01r01
+  DOI: 10.7289/V5N014G9
+  URL: https://doi.org/10.7289/V5N014G9
+  text: >-
+    Robinson, David A.; Estilow, Thomas W.; and NOAA CDR Program (2012): NOAA Climate Data Record (CDR) of Northern
+    Hemisphere (NH) Snow Cover Extent (SCE), Version 1. Weekly snow cover grids, nhsce_v01r01 NetCDF. NOAA National
+    Centers for Environmental Information. doi:10.7289/V5N014G9 {date_accessed}.
+licence_class: open
+licence:
+  name: No restrictions on access or use (NOAA CDR Program Open Data Policy)
+  spdx: null
+  url: https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Snow_Cover_Extent_Northern_Hemisphere/UseAgreement_01B-12.pdf
+evidence:
+  terms_url: https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Snow_Cover_Extent_Northern_Hemisphere/UseAgreement_01B-12.pdf
+  licence_quote: >-
+    In line with these policies, the CDR data sets are non-proprietary, publicly available, and no restrictions are
+    placed upon their use.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: >-
+    Robinson, Estilow and NOAA CDR Program (2012), NOAA Climate Data Record of Northern Hemisphere Snow Cover Extent,
+    Version 1 (v01r01), NOAA National Centers for Environmental Information, doi:10.7289/V5N014G9, accessed
+    {date_accessed}. This CDR was originally developed by David Robinson and colleagues for NOAA's CDR Program.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Robinson, Estilow and NOAA CDR Program (2012), NOAA Climate Data Record
+    of Northern Hemisphere Snow Cover Extent, Version 1 (v01r01), NOAA National Centers for Environmental Information,
+    doi:10.7289/V5N014G9, accessed {date_accessed}. This CDR was originally developed by David Robinson and colleagues
+    for NOAA's CDR Program.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: nhsce-weekly-grid
+    url: https://www.ncei.noaa.gov/data/snow-cover-extent/access/nhsce_v01r01_19661004_20260831.nc
+    format: nc
+    description: >-
+      NetCDF (CF-1.7): snow_cover_extent(time, y, x) flags 0 = no snow, 1 = snow covered; land (land mask) and area
+      (km2) per cell; time in days since 1966-10-03, one map per week. Pinned to the release covering weeks to 31
+      August 2026; NCEI replaces the file under a new name at each update.
+status:
+  state: active
+  note: >-
+    NCEI updates the file about monthly (the 4 September 2026 release runs to the week of 31 August 2026) and removes
+    the previous one, so the URL here has to be updated with each release. The record depends on the US National Ice
+    Center's IMS charts and NOAA's CDR Program; the FY2027 US budget request (April 2026) proposes cutting NCEI by $17.8
+    million.
+  us_federal: true
+update_cadence: About monthly (weekly maps; each release replaces the file under a new name)
+twins: []
+research_ref: docs/research/sources-ocean-and-ice.json#Northern Hemisphere Snow Cover Extent CDR (Rutgers Global Snow Lab / NOAA NCEI)

@@ -1,0 +1,114 @@
+# Indicators of Global Climate Change 2025 (IGCC; Forster et al. 2026): human-induced warming, effective radiative
+# forcing by agent, GHG concentrations, observed GMST, GHG emissions and remaining carbon budgets.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("Indicators of Global Climate Change 2025");
+# verifier verdict "confirmed" (minor correction: the Zenodo record is titled "Indicators of Global Climate Change
+# 2025", creators Smith, Walsh, Gillett, Hauser et al.). Also docs/research/sources-emissions.json missing_sources 1.
+# Licence evidence checked 2026-10-04: DataCite record for the pinned version doi:10.5281/zenodo.21494229 has rights
+# "Creative Commons Attribution 4.0 International" (rightsIdentifier cc-by-4.0); the Zenodo API gives license cc-by-4.0;
+# the GitHub repo ClimateIndicator/data reports spdx CC-BY-4.0; the ESSD paper's Section 13 says "Data are provided
+# under the CC-BY 4.0 License." Exception inside the repo: HadEX3 extremes inputs are Crown Copyright under the Open
+# Government Licence v2 (ESSD Section 13); we do not use the extremes files.
+# Artifact checked 2026-10-04: Zenodo API file URL HTTP 200, 1,495,354 bytes, md5 0ad608c0adb5aed35136d7f1f318c80a
+# (matches the record), no ETag or Last-Modified (so conditional: false). IGCC-2025a (record 21494229, 22 Jul 2026)
+# is the latest version of concept doi:10.5281/zenodo.7883757. The zip unpacks to ClimateIndicator-data-0f2765d/.
+# The ESSD paper's data statement cites the earlier v2026.06.02 release; the verifier found the paper's headline
+# values (1.37 C SR15 row, ERF 3.1035 W/m2 anthropogenic in 2025) unchanged at IGCC-2025a.
+# citation.text: the ESSD "How to cite" text verbatim, then the data citation DataCite returns for the pinned DOI.
+id: igcc-2025
+title: Indicators of Global Climate Change 2025
+publisher: Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds
+landing_url: https://doi.org/10.5281/zenodo.21494229
+description: >-
+  Annual update of the IPCC AR6 assessment of key climate indicators. Human-induced warming relative to 1850-1900,
+  split into greenhouse gases, other human forcings and natural forcings; effective radiative forcing by agent from
+  1750 to 2025 (W/m2, best estimate with 5th and 95th percentiles); greenhouse gas concentrations 1750-2025; observed
+  global mean surface temperature (multi-dataset mean); global GHG emissions by gas (GtCO2e, AR6 GWP100, including
+  LULUCF); Earth's energy imbalance; and remaining carbon budgets in 0.1 degree steps. Pinned to data release
+  IGCC-2025a. The headline warming file has two rows per period; the paper's headline uses the row noted "SR15
+  definition".
+citation:
+  type: dataset
+  title: Indicators of Global Climate Change 2025
+  author:
+    - {family: Smith, given: Chris}
+    - {family: Walsh, given: Tristram}
+    - {family: Gillett, given: Nathan}
+    - {family: Hauser, given: Mattias}
+    - {family: Krummel, given: Paul}
+    - {family: Lamb, given: William}
+    - {family: Lamboll, given: Robin}
+    - {family: Mühle, given: Jens}
+    - {family: Palmer, given: Matthew}
+    - {family: Ribes, given: Aurélien}
+    - {family: Schumacher, given: Dominik}
+    - {family: Seneviratne, given: Sonia}
+    - {family: Slangen, given: Aimée}
+    - {family: Trewin, given: Blair}
+    - {family: von Schuckmann, given: Karina}
+    - {family: Forster, given: Piers}
+  issued: "2026-07-22"
+  publisher: Zenodo
+  version: IGCC-2025a
+  DOI: 10.5281/zenodo.21494229
+  URL: https://doi.org/10.5281/zenodo.21494229
+  text: >-
+    Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee,
+    J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P.,
+    Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M.,
+    Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P.,
+    Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow,
+    C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F.,
+    Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A.,
+    Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne,
+    P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y.,
+    Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of
+    the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933,
+    https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P.,
+    Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin,
+    B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a)
+    [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://api.datacite.org/dois/10.5281/zenodo.21494229
+  licence_quote: Creative Commons Attribution 4.0 International
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  attribution: >-
+    Indicators of Global Climate Change 2025: Forster et al. (2026), Earth Syst. Sci. Data 18, 3889–3933,
+    doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a, doi:10.5281/zenodo.21494229.
+    CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Indicators of Global Climate Change 2025: Forster et al. (2026), Earth
+    Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a,
+    doi:10.5281/zenodo.21494229. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: data-igcc-2025a
+    url: https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content
+    format: zip
+    description: >-
+      Snapshot of the ClimateIndicator/data repository at tag IGCC-2025a. Files used, under
+      ClimateIndicator-data-0f2765d/data/base/: anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv
+      (attributable warming, 5th/50th/95th percentiles), effective_radiative_forcing/ERF_best.csv and
+      ERF_best_aggregates.csv with ERF_p05*/ERF_p95* (W/m2 by agent, 1750-2025),
+      greenhouse_gas_concentrations/ghg_concentrations.csv, global_mean_temperatures/annual_averages.csv,
+      greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv (sic) and carbon_budget/*.csv (file names encode
+      the assumptions, e.g. hdT_1.24).
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Fourth annual edition. The paper was published on 11 June 2026 and data release IGCC-2025a on 22 July 2026; the
+    GitHub repository was last pushed on 16 September 2026 (main branch, not used). The IGCC 2026 update is expected
+    around mid-2027; no date is announced.
+  us_federal: false
+update_cadence: Annual (paper around June, tagged data release around July)
+twins: [noaa-aggi]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#Indicators of Global Climate Change 2025

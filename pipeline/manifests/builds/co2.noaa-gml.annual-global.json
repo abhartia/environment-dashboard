@@ -1,0 +1,21 @@
+{
+  "export": "data/v1/indicators/co2.noaa-gml.annual-global.json",
+  "export_sha256": "d5bcc0ec0c67d547f3e6747877d669b652130737599f85906f7863840ef19dff",
+  "indicator_id": "co2.noaa-gml.annual-global",
+  "key": "88e72400be0c4cd176de27cddd1591f3b89b0a02f16605551d7c20d25ae92fe9",
+  "key_parts": {
+    "inputs": {
+      "noaa-gml-trends/co2-annmean-gl": {
+        "manifest_sha256": "e34d410de435d129eee4e92813c17334aef188d2b369ac8e2e6032ed543270ee",
+        "sha256": "36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "noaa-gml-trends": "a7b11accb9b69304cd71e60887fc014beb9dabf595202dfd761ce3cc855cc48f"
+    },
+    "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
+  },
+  "publisher_checks": []
+}

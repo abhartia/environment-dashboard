@@ -1,0 +1,89 @@
+# HadCRUT5 global surface temperature (Met Office Hadley Centre and University of East Anglia Climatic Research Unit).
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("HadCRUT5 (Met Office Hadley Centre / UEA CRU)").
+id: hadcrut5
+title: HadCRUT5 near-surface temperature anomalies
+publisher: Met Office Hadley Centre and University of East Anglia Climatic Research Unit
+landing_url: https://www.metoffice.gov.uk/hadobs/hadcrut5/
+description: >-
+  Monthly and annual near-surface temperature anomalies from January 1850, blending the CRUTEM5 land air temperature
+  and HadSST4 sea-surface temperature datasets, with statistical infilling of data-sparse regions. Global and
+  hemispheric means come with the 2.5% and 97.5% limits of a 200-member ensemble plus a coverage uncertainty.
+  Anomalies are relative to 1961–1990.
+citation:
+  type: article-journal
+  title: "An updated assessment of near-surface temperature change from 1850: the HadCRUT5 data set"
+  author:
+    - {family: Morice, given: C. P.}
+    - {family: Kennedy, given: J. J.}
+    - {family: Rayner, given: N. A.}
+    - {family: Winn, given: J. P.}
+    - {family: Hogan, given: E.}
+    - {family: Killick, given: R. E.}
+    - {family: Dunn, given: R. J. H.}
+    - {family: Osborn, given: T. J.}
+    - {family: Jones, given: P. D.}
+    - {family: Simpson, given: I. R.}
+  issued: "2021"
+  container-title: "Journal of Geophysical Research: Atmospheres"
+  volume: "126"
+  page: e2019JD032361
+  version: "HadCRUT.{version}"
+  DOI: 10.1029/2019JD032361
+  URL: https://doi.org/10.1029/2019JD032361
+  text: >-
+    Morice, C. P., Kennedy, J. J., Rayner, N. A., Winn, J. P., Hogan, E., Killick, R. E., et al. (2021). An updated
+    assessment of near-surface temperature change from 1850: the HadCRUT5 data set. Journal of Geophysical Research:
+    Atmospheres, 126, e2019JD032361. https://doi.org/10.1029/2019JD032361
+licence_class: open
+licence:
+  name: Open Government Licence v3.0 (Crown copyright)
+  spdx: OGL-UK-3.0
+  url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+evidence:
+  terms_url: https://www.metoffice.gov.uk/hadobs/hadcrut5/terms_and_conditions.html
+  licence_quote: >-
+    A term of the licence is that users must include the following acknowledgement when the data are used:
+    HadCRUT.[version number] data were obtained from http://www.metoffice.gov.uk/hadobs/hadcrut5 on [date
+    downloaded] and are © British Crown Copyright, Met Office [year of first publication], provided under an Open
+    Government License, http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # The acknowledgement the terms require, verbatim, with the version, download date and the year the version was
+  # first published filled in by the build.
+  attribution: >-
+    HadCRUT.{version} data were obtained from http://www.metoffice.gov.uk/hadobs/hadcrut5 on {date_accessed} and are
+    © British Crown Copyright, Met Office {year}, provided under an Open Government License,
+    http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+  attribution_modified: >-
+    Calculated by Environment Dashboard from HadCRUT.{version}. HadCRUT.{version} data were obtained from
+    http://www.metoffice.gov.uk/hadobs/hadcrut5 on {date_accessed} and are © British Crown Copyright, Met Office
+    {year}, provided under an Open Government License,
+    http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+  mirror_raw: true
+  # OGL v3: "ensure that you do not use the Information in a way that suggests any official status or that the
+  # Information Provider and/or Licensor endorse you or your use of the Information."
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: global-annual
+    url: https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.annual.csv
+    format: csv
+    description: >-
+      Global (NH+SH)/2 annual mean anomaly, °C relative to 1961–1990, with the 2.5% and 97.5% limits, from 1850.
+      The last row is the current year so far.
+  - id: global-monthly
+    url: https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.monthly.csv
+    format: csv
+    description: >-
+      Global (NH+SH)/2 monthly mean anomaly, °C relative to 1961–1990, with the 2.5% and 97.5% limits, from
+      January 1850. Used to tell complete years from the partial current year.
+status:
+  state: active
+  note: >-
+    Version HadCRUT.5.2.0.0 since 18 September 2026 (CRUTEM.5.2.0.0 and HadSST.4.1.1.0). UK government funded; not
+    exposed to US federal cuts. The version is part of each file's URL, so a new version means a registry edit.
+  us_federal: false
+update_cadence: Monthly; a new minor version about once a year
+twins: [gistemp-v4, noaaglobaltemp-v6]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#HadCRUT5 (Met Office Hadley Centre / UEA CRU)

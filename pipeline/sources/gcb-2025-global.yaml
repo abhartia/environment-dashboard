@@ -1,0 +1,98 @@
+# Global Carbon Budget 2025: global carbon dioxide sources and sinks (the "bathtub"), final v1.0 data on ICOS.
+# Evidence: docs/research/sources-emissions.json ("Global Carbon Budget 2025: national fossil CO2 ..."). The verdict there
+# is "corrected": pin the ICOS v1.0 object PIDs, not the globalcarbonbudget.org/download links (Nov 2025 pre-release).
+# Checked 2026-10-04:
+#   - meta.icos-cp.eu/objects/qSjPBsV1drZnYdH-yCJMmkGn: Global_Carbon_Budget_2025_v1.0.xlsx, 480,363 bytes, submitted
+#     2026-05-17, latestVersion = itself, licence "ICOS CCBY4 Data Licence" (baseLicence CC BY 4.0).
+#   - GET data.icos-cp.eu/objects/<pid> -> 302 to /licence?ids=...; that page's "Yes, I accept" link is
+#     /licence_accept?ids=..., which answers 302 + Set-Cookie CpLicenseAcceptedFor=<pid>. GET with the cookie -> 200,
+#     480,363 bytes, sha256 a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9 (matches the PID hash).
+#     HEAD -> 404, but a GET with If-None-Match -> 304, so conditional GETs work.
+#   - Acquisition is automatic: the click-through is a plain GET with no login or captcha, ICOS says originals "can be
+#     performed anonymously" after licence acceptance (github.com/ICOS-Carbon-Portal/data README), and the licence
+#     accepted is the CC BY 4.0 quoted below. Not yet run from a GitHub runner.
+#   - Sheets: Summary, Global Carbon Budget (1959-2024), Historical Budget (1750-2024), Fossil Emissions by Category
+#     (1850-2024), Land-Use Change Emissions, Atmospheric Growth, Ocean Sink, Terrestrial Sink, Cement Carbonation Sink.
+#     The file has no 2025 projection; the 2025 figure (+1.0%) exists only in the ESSD paper.
+#   - The file's Summary still cites the ESSD discussion paper (essd-2025-659). The ICOS page and the object description
+#     cite the final paper (ESSD 18, 3211-3288, 2026), which is used here.
+#   - The GCP terms in the file and on the ICOS page: "The use of data is conditional on citing the original data
+#     sources. Full details on how to cite the data are given at the top of each page." Those per-sheet citations are in
+#     obligations.notice.
+id: gcb-2025-global
+title: "Global Carbon Budget 2025: global sources and sinks of carbon dioxide"
+publisher: Global Carbon Project
+landing_url: https://www.icos-cp.eu/GCP/2025
+description: >-
+  The yearly global carbon dioxide budget from 1959 to 2024: emissions from fossil fuels and industry (before the cement
+  carbonation sink is subtracted) and from land-use change, and where that carbon went (growth in the atmosphere, the
+  ocean sink, the land sink and the cement carbonation sink), with the budget imbalance. A historical budget runs from
+  1750, and fossil emissions are split by fuel from 1850. Values are in billion tonnes of carbon per year; multiply by
+  3.664 for carbon dioxide. The atmospheric growth comes from NOAA Global Monitoring Laboratory measurements, and from
+  Scripps Institution of Oceanography measurements at Mauna Loa and the South Pole for 1959 to 1980.
+citation:
+  type: dataset
+  title: Supplemental data of Global Carbon Budget 2025
+  author:
+    - {literal: Global Carbon Project}
+  issued: "2026"
+  publisher: Global Carbon Project
+  version: "1.0"
+  DOI: 10.18160/GCP-2025
+  URL: https://www.icos-cp.eu/GCP/2025
+  text: >-
+    Global Carbon Project. (2026). Supplemental data of Global Carbon Budget 2025 (Version 1.0) [Data set]. Global
+    Carbon Project. https://doi.org/10.18160/gcp-2025
+licence_class: open
+licence:
+  name: CC BY 4.0 (ICOS CCBY4 Data Licence)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://data.icos-cp.eu/licence
+  licence_quote: >-
+    By downloading this ICOS data product you agree to the licensing conditions that apply to this data (CC BY 4.0).
+    Under this licence derived products and redistribution are allowed, but you are required to always inform your
+    users of the original source of the data used, refer them to the licence text and the original source at ICOS for
+    possible updates or uploads.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Global Carbon Project, Supplemental data of Global Carbon Budget 2025 (Version 1.0), ICOS Carbon Portal,
+    doi:10.18160/GCP-2025, CC BY 4.0. Friedlingstein et al. (2026), Global Carbon Budget 2025, Earth Syst. Sci. Data
+    18, 3211–3288, doi:10.5194/essd-18-3211-2026.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Global Carbon Project data: Supplemental data of Global Carbon Budget 2025
+    (Version 1.0), ICOS Carbon Portal, doi:10.18160/GCP-2025, CC BY 4.0. Friedlingstein et al. (2026), Global Carbon
+    Budget 2025, Earth Syst. Sci. Data 18, 3211–3288, doi:10.5194/essd-18-3211-2026.
+  notice: >-
+    Atmospheric growth from 1959: NOAA Global Monitoring Laboratory (Lan et al.), with Scripps Institution of
+    Oceanography measurements for 1959 to 1980. Historical budget before 1959: atmospheric growth from Joos and Spahni
+    (2008), Proc. Natl. Acad. Sci. 105, 1425–1430; ocean sink from DeVries et al. (2014), Global Biogeochem. Cycles 28,
+    631–647, and Khatiwala et al. (2013), Biogeosciences 10, 2169–2191.
+  mirror_raw: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: global-budget
+    url: https://data.icos-cp.eu/objects/qSjPBsV1drZnYdH-yCJMmkGn
+    format: xlsx
+    description: >-
+      Global_Carbon_Budget_2025_v1.0.xlsx (ICOS PID 11676/qSjPBsV1drZnYdH-yCJMmkGn): the global budget 1959-2024, the
+      historical budget from 1750, fossil emissions by fuel from 1850, and one sheet per flux (GtC per year).
+    access:
+      cookie_accept_url: https://data.icos-cp.eu/licence_accept?ids=%5B%22qSjPBsV1drZnYdH-yCJMmkGn%22%5D
+      conditional: true
+status:
+  state: active
+  note: >-
+    Version 1.0 was deposited on ICOS on 17 May 2026 and replaced v0.1 of 13 November 2025. The pinned object never
+    changes; GCB 2026 will arrive as new ICOS objects, expected during COP31 (9-20 November 2026), with no date
+    announced on 4 October 2026. Not a US federal product, but its atmospheric growth term relies on NOAA Global
+    Monitoring Laboratory data, which is exposed to US budget cuts.
+  us_federal: false
+update_cadence: >-
+  Annual: preliminary data each November at the UN climate conference, final ICOS v1.0 objects about six months later
+twins: [edgar-2026-ghg]
+research_ref: "docs/research/sources-emissions.json#Global Carbon Budget 2025: national fossil CO2 (territorial, consumption-based, transfers), national land-use change CO2, and global budget"

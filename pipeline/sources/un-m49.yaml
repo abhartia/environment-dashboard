@@ -1,0 +1,79 @@
+# UN Statistics Division, Standard country or area codes for statistical use (M49): numeric codes, ISO alpha-2 and
+# alpha-3 codes, and the region, sub-region and intermediate-region hierarchy, with LDC, LLDC and SIDS flags.
+# Evidence: docs/research/sources-country-and-local.json ("UN M49 Standard country or area codes for statistical use
+# (and the SDG GeoArea tree API)"); verdict "confirmed", final_redistribution unclear, with the mitigation adopted
+# here: store only the factual code-to-region mapping, with citation.
+# Checked 2026-10-04:
+#   - https://unstats.un.org/unsd/methodology/m49/overview/: HTTP 200 text/html, 1,721,575 bytes, 1,494 <tr> rows (the
+#     table in six languages), no ETag or Last-Modified (conditional false). No dataset licence on the page; its footer
+#     links "© 2026 United Nations" and "Terms of Use" (http://www.un.org/en/aboutun/terms/, which redirects to the
+#     page quoted below).
+#   - UN website Terms of Use: permission is for "personal, non-commercial use, without any right to resell or
+#     redistribute them or to compile or create derivative works therefrom". So the class is display-only: the page is
+#     never mirrored or downloaded from the site, and no UN text or table is republished. The codes and the region each
+#     code belongs to are used as facts, inside the pipeline's entity crosswalk, credited to UNSD; as a display-only
+#     source, nothing from it is exported to data/ in its own right.
+#   - Not registered: the SDG GeoArea tree API (https://unstats.un.org/SDGAPI/v1/sdg/GeoArea/Tree, HTTP 200 JSON),
+#     which carries the same codes in SDG regional groupings; the M49 page alone gives the hierarchy the site uses.
+#   - UNSD publishes no recommended citation for the online table; the citation below uses the page title and URL.
+id: un-m49
+title: Standard country or area codes for statistical use (M49)
+publisher: United Nations Statistics Division
+landing_url: https://unstats.un.org/unsd/methodology/m49/
+description: >-
+  The United Nations standard list of countries and areas for statistics: three-digit M49 codes with ISO 3166-1
+  alpha-2 and alpha-3 codes, grouped into regions, sub-regions and intermediate regions (for example Africa >
+  Sub-Saharan Africa > Eastern Africa), with flags for Least Developed Countries, Landlocked Developing Countries and
+  Small Island Developing States. Used only as a join key and for "compare with your region" groupings; M49 regions
+  differ from World Bank regions.
+citation:
+  type: webpage
+  title: Standard country or area codes for statistical use (M49)
+  author:
+    - {literal: United Nations Statistics Division}
+  issued: "2026"
+  publisher: United Nations
+  URL: https://unstats.un.org/unsd/methodology/m49/overview/
+  # UNSD gives no recommended citation for the online table; built from the page title and URL.
+  text: >-
+    United Nations Statistics Division. Standard country or area codes for statistical use (M49).
+    https://unstats.un.org/unsd/methodology/m49/overview/ (accessed {date_accessed}).
+licence_class: display-only
+licence:
+  name: © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works)
+  spdx: null
+  url: https://www.un.org/en/about-us/terms-of-use
+evidence:
+  terms_url: https://www.un.org/en/about-us/terms-of-use
+  licence_quote: >-
+    The United Nations grants permission to Users to visit the Site and to download and copy the information,
+    documents and materials (collectively, “Materials”) from the Site for the User’s personal, non-commercial use,
+    without any right to resell or redistribute them or to compile or create derivative works therefrom
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Country and area codes and regions: United Nations Statistics Division, Standard country or area codes for
+    statistical use (M49), https://unstats.un.org/unsd/methodology/m49/.
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  - id: overview
+    url: https://unstats.un.org/unsd/methodology/m49/overview/
+    format: html
+    description: >-
+      The M49 overview page with the full table. The English table (id downloadTableEN, 248 countries and areas) has
+      global, region, sub-region and intermediate-region codes and names, country or area, M49 code, ISO-alpha2 and
+      ISO-alpha3 codes, and LDC, LLDC and SIDS flags. About 1.7 MB.
+    access: {conditional: false}
+status:
+  state: active
+  note: >-
+    Maintained by UNSD and changed when countries or areas change (no version date on the page). A UN product, not a
+    US federal programme.
+  us_federal: false
+update_cadence: Ad hoc (when countries or areas change)
+twins: []
+research_ref: >-
+  docs/research/sources-country-and-local.json#UN M49 Standard country or area codes for statistical use (and the SDG
+  GeoArea tree API)

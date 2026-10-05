@@ -1,0 +1,206 @@
+"""The transform framework.
+
+A transform module (envdash/transforms/<domain>/<name>.py) exposes `transforms(paths) -> list[Transform]`. Each
+Transform declares the indicator it produces (metadata), the (source, artifact) files it reads, a function from those
+files' cached bytes to observations, the validations the result must pass, and publisher cross-checks.
+
+A publisher cross-check compares one of our values with a number the publisher itself states, for one specific
+(source, vintage): the verbatim quote, the URL it is on, and the value as printed. The tolerance is half the last
+stated digit (427.55 -> ±0.005). A check for another vintage is reported as not applicable, never silently passed.
+Self-computed expectations (for example a re-based anomaly) are regression tests in pipeline/tests, not checks here.
+"""
+
+from __future__ import annotations
+
+import importlib
+import pkgutil
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from decimal import Decimal
+from pathlib import Path
+from typing import Literal
+
+from envdash.models import Dimension, Display, Observation, PublishedValueRef, Scope, Snapshot, Unit
+from envdash.paths import Paths
+
+
+@dataclass(frozen=True)
+class Input:
+    source_id: str
+    artifact_id: str
+
+    @property
+    def key(self) -> str:
+        return f"{self.source_id}/{self.artifact_id}"
+
+
+@dataclass(frozen=True)
+class InputFile:
+    path: Path
+    """The cached raw bytes (pipeline/.snapshots/<sha256>)."""
+    snapshot: Snapshot
+
+
+@dataclass(frozen=True)
+class Spec:
+    """Indicator metadata, as published."""
+
+    id: str
+    title: str
+    description: str
+    kind: Literal["series", "published-value", "derived"]
+    unit: Unit
+    display: Display
+    scope: Scope
+    geo_coverage: Literal["global-only", "country", "mixed"]
+    headline_entity: str
+    dimensions: tuple[Dimension, ...] = ()
+    headline_dims: tuple[tuple[str, str], ...] = ()
+
+
+@dataclass(frozen=True)
+class Validation:
+    min_rows: int
+    value_range: tuple[float, float]
+    """Inclusive bounds every non-null value (and lower/upper) must fall in: a unit or parsing error trips it."""
+    monotonic_periods: bool = True
+    """Periods strictly increase within each (entity, dims) series, in file order."""
+
+
+@dataclass(frozen=True)
+class PublisherCheck:
+    source_id: str
+    vintage: str
+    entity: str
+    period: str
+    stated: str
+    """The value exactly as the publisher prints it, e.g. "427.55"."""
+    quote: str
+    url: str
+    dims: tuple[tuple[str, str], ...] = ()
+
+    @property
+    def tolerance(self) -> float:
+        exp = Decimal(self.stated).as_tuple().exponent
+        assert isinstance(exp, int)
+        return float(Decimal(5) * Decimal(10) ** (exp - 1))
+
+
+@dataclass
+class Result:
+    observations: list[Observation]
+    vintage: str
+    steps: list[str]
+    """Plain-words descriptions of each processing step, in order."""
+    year: str | None = None
+    """Fills {year} in the source's credit line, when the source's terms ask for one."""
+    date_published: str | None = None
+    changes: str | None = None
+    """Set when values were changed (re-based, converted): selects attribution_modified and adds a Changes line."""
+    published_value: PublishedValueRef | None = None
+
+
+@dataclass(frozen=True)
+class Transform:
+    spec: Spec
+    inputs: tuple[Input, ...]
+    run: Callable[[dict[str, InputFile]], Result]
+    """Gets {"<source>/<artifact>": InputFile} for every declared input."""
+    module_file: Path
+    validation: Validation
+    checks: tuple[PublisherCheck, ...] = ()
+    key_files: tuple[Path, ...] = field(default=())
+    """Other files whose content decides the output (e.g. a literature YAML); hashed into the build key."""
+
+
+class ValidationFailed(Exception):
+    pass
+
+
+def validate(t: Transform, obs: list[Observation]) -> None:
+    v = t.validation
+    problems: list[str] = []
+    if len(obs) < v.min_rows:
+        problems.append(f"{len(obs)} rows, fewer than the minimum {v.min_rows}")
+    lo, hi = v.value_range
+    for o in obs:
+        for name, x in (("value", o.value), ("lower", o.lower), ("upper", o.upper)):
+            if x is not None and not (lo <= x <= hi):
+                problems.append(f"{o.entity} {o.period} {name} {x!r} outside the expected range [{lo}, {hi}]")
+        if o.lower is not None and o.value is not None and not (o.lower <= o.value <= o.upper):  # type: ignore[operator]
+            problems.append(f"{o.entity} {o.period}: value {o.value!r} not within [{o.lower!r}, {o.upper!r}]")
+    seen: set[tuple] = set()
+    last: dict[tuple, str] = {}
+    for o in obs:
+        series = (o.entity, tuple(sorted(o.dims.items())))
+        k = (*series, o.period)
+        if k in seen:
+            problems.append(f"duplicate observation {k}")
+        seen.add(k)
+        if v.monotonic_periods and series in last and not _period_after(o.period, last[series]):
+            problems.append(f"{o.entity} {o.period} does not follow {last[series]}")
+        last[series] = o.period
+    if problems:
+        shown = problems[:10] + ([f"... and {len(problems) - 10} more"] if len(problems) > 10 else [])
+        raise ValidationFailed(f"{t.spec.id}: " + "; ".join(shown))
+
+
+def _period_after(p: str, q: str) -> bool:
+    # ISO periods of the same shape compare correctly as strings; mixed shapes are an error in themselves.
+    if len(p) != len(q):
+        return False
+    return p > q
+
+
+@dataclass(frozen=True)
+class CheckOutcome:
+    check: PublisherCheck
+    status: Literal["pass", "fail", "not-applicable"]
+    ours: float | None
+    detail: str
+
+
+def run_checks(t: Transform, vintages: dict[str, str], obs: list[Observation]) -> list[CheckOutcome]:
+    """vintages: source_id -> the vintage this build used."""
+    out: list[CheckOutcome] = []
+    for c in t.checks:
+        used = vintages.get(c.source_id)
+        if used != c.vintage:
+            out.append(CheckOutcome(c, "not-applicable", None, f"check is for vintage {c.vintage}; built {used}"))
+            continue
+        match = [o for o in obs if o.entity == c.entity and o.period == c.period and o.dims == dict(c.dims)]
+        if len(match) != 1 or match[0].value is None:
+            out.append(CheckOutcome(c, "fail", None, f"no value for {c.entity} {c.period}"))
+            continue
+        ours = match[0].value
+        diff = abs(ours - float(c.stated))
+        ok = diff <= c.tolerance + 1e-12
+        out.append(
+            CheckOutcome(
+                c,
+                "pass" if ok else "fail",
+                ours,
+                f"ours {ours!r} vs stated {c.stated} (tolerance ±{c.tolerance:g}, difference {diff:.6g})",
+            )
+        )
+    return out
+
+
+def discover(paths: Paths) -> list[Transform]:
+    """Every Transform from every module under envdash.transforms, sorted by indicator id. Ids must be unique."""
+    import envdash.transforms as pkg
+
+    found: list[Transform] = []
+    for mod in pkgutil.walk_packages(pkg.__path__, prefix=pkg.__name__ + "."):
+        if mod.ispkg:
+            continue
+        m = importlib.import_module(mod.name)
+        factory = getattr(m, "transforms", None)
+        if factory is None:
+            raise RuntimeError(f"{mod.name} has no transforms(paths) function")
+        found.extend(factory(paths))
+    ids = [t.spec.id for t in found]
+    dupes = {i for i in ids if ids.count(i) > 1}
+    if dupes:
+        raise RuntimeError(f"indicator ids declared more than once: {sorted(dupes)}")
+    return sorted(found, key=lambda t: t.spec.id)

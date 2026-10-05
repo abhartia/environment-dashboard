@@ -1,0 +1,86 @@
+# Carbon Brief, "Mapped: How climate change affects extreme weather around the world": the attribution-studies table
+# behind the map, as the page's "Get the data (.csv)" link serves it.
+# Evidence: docs/research/sources-impacts.json ("Carbon Brief: Mapped ..."; verdict "corrected": the footer's "CC
+# license" link is explicitly CC BY-NC-ND 4.0; 967 extremes from 819 studies).
+# Checked 2026-10-04:
+#   - interactive.carbonbrief.org/attribution-studies/index.html -> 200. The footer reads the text quoted below; its
+#     "CC license" link points to https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode. The page says "Last
+#     updated: 19 March 2026", by Robert McSweeney and Ayesha Tandon, first published 18 November 2024, and "the map
+#     (above) contains 967 extremes from 819 studies".
+#   - papers-download.csv -> 200, text/csv, 593,316 bytes, ETag "8414fad0423690fa0b35d8bbbeebdaba", Last-Modified
+#     5 May 2026; If-None-Match -> 304. sha256 1270d5e6582ae893c692a2cd296fc5154f21e97c6cb44afdadfa72bacedab711.
+#     967 rows; Classification counts: 743 more severe or more likely, 81 no discernible human influence, 76 less
+#     severe or less likely, 67 insufficient data/inconclusive.
+#   - Class no-derivatives: only "unadapted material in full" may be reproduced. The site therefore shows Carbon
+#     Brief's own published values and individual rows verbatim, with the link, and never offers a filtered or modified
+#     copy of the table or a download. The verifier read counts we compute from the rows (e.g. studies per country) as
+#     acceptable with credit; that reading goes beyond this class and needs the owner's decision or Carbon Brief's
+#     permission before any such count is published.
+#   - Carbon Brief gives no suggested citation; the terms require crediting "Carbon Brief" with a link to the article.
+#     citation.text names the article as the page prints it.
+#   - Classifications are Carbon Brief's summaries of each paper; coverage is skewed towards Europe, East Asia and
+#     North America.
+id: carbon-brief-attribution
+title: "Mapped: How climate change affects extreme weather around the world"
+publisher: Carbon Brief
+landing_url: https://interactive.carbonbrief.org/attribution-studies/index.html
+description: >-
+  Carbon Brief's database of scientific studies that test whether human-caused climate change affected a specific
+  extreme weather event or trend: 967 extremes from 819 studies published from 2004 to 2025. Each row gives the event
+  or trend, its type (heat, rain and flooding, drought, storms, cold, wildfire and others), Carbon Brief's classification of
+  the finding (more severe or more likely, less severe or less likely, no discernible human influence, or
+  inconclusive), the study's citation, whether it was a rapid study, a link to the paper, a quoted summary sentence,
+  and region and country codes. Studies cluster in Europe, East Asia and North America.
+citation:
+  type: webpage
+  title: "Mapped: How climate change affects extreme weather around the world"
+  author:
+    - {family: McSweeney, given: Robert}
+    - {family: Tandon, given: Ayesha}
+  issued: "2026-03-19"
+  publisher: Carbon Brief
+  URL: https://interactive.carbonbrief.org/attribution-studies/index.html
+  text: >-
+    McSweeney, R. and Tandon, A. Mapped: How climate change affects extreme weather around the world. Carbon Brief,
+    18 November 2024, last updated 19 March 2026. https://interactive.carbonbrief.org/attribution-studies/index.html
+licence_class: no-derivatives
+licence:
+  name: CC BY-NC-ND 4.0
+  spdx: CC-BY-NC-ND-4.0
+  url: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+evidence:
+  terms_url: https://interactive.carbonbrief.org/attribution-studies/index.html
+  licence_quote: >-
+    You are welcome to reproduce unadapted material in full for non-commercial use, credited ‘Carbon Brief’ with a
+    link to the article. Please contact us for commercial use.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Carbon Brief, "Mapped: How climate change affects extreme weather around the world" (McSweeney and Tandon, last
+    updated 19 March 2026), https://interactive.carbonbrief.org/attribution-studies/index.html. CC BY-NC-ND 4.0.
+  attribution_modified: null
+  notice: >-
+    Reproduced unadapted from Carbon Brief for non-commercial use under CC BY-NC-ND 4.0
+    (https://creativecommons.org/licenses/by-nc-nd/4.0/). The full table is at
+    https://interactive.carbonbrief.org/attribution-studies/data/papers-download.csv.
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  - id: papers-download
+    url: https://interactive.carbonbrief.org/attribution-studies/data/papers-download.csv
+    format: csv
+    description: >-
+      One row per attributed extreme: Name, Event year/Trend, Event type, Classification, Publication year, Citation,
+      Rapid study?, Source, Link, Summary statement, cb-region, iso country code, iso sub region. 967 rows on
+      2026-10-04.
+status:
+  state: active
+  note: >-
+    Seventh update, 19 March 2026; Carbon Brief updates the map every one to two years with no announced date. Not a
+    US federal product.
+  us_federal: false
+update_cadence: Irregular, roughly every one to two years
+research_ref: >-
+  docs/research/sources-impacts.json#Carbon Brief: Mapped – how climate change affects extreme weather around the
+  world (attribution studies database)

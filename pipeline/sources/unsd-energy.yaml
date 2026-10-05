@@ -1,0 +1,95 @@
+# UN Statistics Division Energy Statistics Database, through the UNdata SDMX web service (dataflow DF_UNDATA_ENERGY).
+# Evidence: docs/research/sources-energy.json (verification.missing_sources, item 1, "UNSD Energy Statistics Database
+# / Energy Balances"), re-checked 2026-10-04. The independent, non-US twin of eia-international.
+# Licence: two UNSD statements apply and the stricter one is used.
+#   - UNSD's own Energy Statistics data page (terms_url, GET 200 on 2026-10-04) adds "the use is not for profit".
+#   - The UNdata terms (https://data.un.org/Host.aspx?Content=UNdataUse, GET 200) say: "All data and metadata provided
+#     on UNdata’s website are available free of charge and may be copied freely, duplicated and further distributed
+#     provided that UNdata is cited as the reference." The research verifier classed the source open on this text
+#     alone; the producer's dataset page is narrower, so the class is noncommercial.
+# UNSD publishes no citation string; the UNdata record page credits "Source: Energy Statistics Database | United
+# Nations Statistics Division", which citation.text reproduces. {version} is the "Last update in UNdata" date.
+# The UNdata bulk "Download" handler stops at 100,000 records (Total Electricity alone has 213,801), so the SDMX API
+# documented on the UNSD page (https://data.un.org/WS, dataflow DF_UNDATA_ENERGY, agency UNSD) is used instead.
+id: unsd-energy
+title: Energy Statistics Database
+publisher: United Nations Statistics Division
+landing_url: https://unstats.un.org/unsd/energystats/data/
+description: >-
+  Annual production, trade, transformation and consumption of 75 energy commodities for 245 countries and areas
+  (M49 codes), 1990 to 2024, compiled from the UNSD Annual Questionnaire on Energy Statistics. Values are in the
+  commodity's own unit (metric tons with a unit multiplier, terajoules, gigawatt-hours or cubic metres) with a
+  CONVERSION_FACTOR column to terajoules; OBS_STATUS is A (normal value) or E (estimated value). UNSD's energy
+  balances follow the UN International Recommendations for Energy Statistics (physical energy content); this
+  dataflow holds the flows of each commodity, not a total across fuels. The latest year is partial: total
+  energy supply has values for 227 areas in 2023 and 198 in 2024, total electricity production for 226 in 2023 and
+  114 in 2024, and some 2024 totals omit a component (China's 2024 "Total Electricity" production, 3,712,612 GWh, is
+  the sum of hydro, nuclear, solar and wind with no thermal value). Values are used as published, never filled.
+citation:
+  type: dataset
+  title: Energy Statistics Database
+  author:
+    - {literal: United Nations Statistics Division}
+  issued: "2025"
+  publisher: United Nations Statistics Division
+  version: "{version}"
+  URL: https://data.un.org/Explorer.aspx?d=EDATA
+  text: "Source: Energy Statistics Database | United Nations Statistics Division"
+licence_class: noncommercial
+licence:
+  name: UNSD terms of use (free redistribution with citation of UNSD, not for profit)
+  spdx: null
+  url: https://unstats.un.org/unsd/energystats/data/
+evidence:
+  terms_url: https://unstats.un.org/unsd/energystats/data/
+  licence_quote: >-
+    All data and metadata provided by UNSD may be copied freely, duplicated and further distributed provided that UNSD
+    is cited as the reference and the use is not for profit. Otherwise please contact UNSD.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    United Nations Statistics Division, Energy Statistics Database, via UNdata (last updated {version}). Free for
+    non-profit use with citation of UNSD.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the United Nations Statistics Division Energy Statistics Database, via
+    UNdata (last updated {version}). Free for non-profit use with citation of UNSD.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  # GET on 2026-10-04: 302 to https://data.un.org/legacy/ws/rest/..., then 200, 10,454,246 bytes,
+  # application/vnd.sdmx.data+csv, no ETag or Last-Modified. Two pulls the same day were byte-identical
+  # (sha256 7b119cab50a0346660a4b2ff6355bc25364a8d7fb7645857c8f832b3d2b049bb).
+  - id: total-energy-supply-by-commodity
+    url: https://data.un.org/ws/rest/data/UNSD,DF_UNDATA_ENERGY,1.2/A...GA/ALL/?format=csv
+    format: csv
+    description: >-
+      Transaction GA (total energy supply) for every commodity, country and year: 147,557 rows with columns
+      DATAFLOW, FREQ, REF_AREA, COMMODITY, TRANSACTION, TIME_PERIOD, OBS_VALUE, UNIT_MULT, UNIT_MEASURE, OBS_STATUS,
+      CONVERSION_FACTOR.
+    access:
+      conditional: false
+  # GET on 2026-10-04: 302 to the /legacy/ws/ path, then 200, 2,083,372 bytes, no ETag or Last-Modified
+  # (sha256 729bf4faf8681567d63f31ba03d83573a94b31f2f05d924157b4ee3e1bb16764).
+  - id: electricity-production-by-source
+    url: https://data.un.org/ws/rest/data/UNSD,DF_UNDATA_ENERGY,1.2/A..7000+7000N+7000H+7000W+7000S+7000G+7000O+7000T.01/ALL/?format=csv
+    format: csv
+    description: >-
+      Transaction 01 (production) of total, nuclear, hydro, wind, solar, geothermal, tide-wave-ocean and thermal
+      electricity, in gigawatt-hours (28,514 rows).
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    The UNdata record page says "Last update in UNdata: 2025/12/15" and "Next update in UNdata: 2027/01/15". The
+    data.un.org site is moving: the documented /ws/ API path now redirects to /legacy/ws/, and the old bulk download
+    handler path returns a placeholder page, so a broken redirect fails the run rather than being worked around.
+  us_federal: false
+update_cadence: Annual, each December to January
+next_release:
+  expected: 2027-01-15
+  note: '"Next update in UNdata: 2027/01/15", as stated on the UNdata Energy Statistics record page.'
+  url: https://data.un.org/Data.aspx?d=EDATA&f=cmID%3aEL
+twins: [eia-international]
+research_ref: docs/research/sources-energy.json#UNSD Energy Statistics Database (verification.missing_sources 1)

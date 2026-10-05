@@ -1,0 +1,120 @@
+# EDGAR 2026 GHG booklet ("GHG emissions of all world countries - 2026 Report") spreadsheets, JRC.
+# Evidence: docs/research/sources-emissions.json and docs/research/sources-country-and-local.json (EDGAR entries; the
+# emissions verdict is "corrected" to noncommercial-only with ND, and the country verdict notes the ND restriction).
+# Class no-derivatives: every GHG total, sector total, per-capita and per-GDP value in these files includes IEA-EDGAR
+# CO2, which is CC BY-NC-ND 4.0. Only verbatim published values may be shown: no shares, sums, per-capita or rebasing
+# computed by us, and no download or mirror. EDGAR CH4, N2O and F-gases on their own are EU-owned and CC BY 4.0.
+# Checked 2026-10-04:
+#   - dataset_ghg2026 and report_2026: HEAD -> 404, GET -> 200. Both pages carry the identical terms quoted below.
+#   - The booklet's own "Citations and references" sheet words the IEA part more strictly: "Users of IEA-EDGAR CO2 data
+#     should contact the IEA at compliance@iea.org for permission to use." The web page says to contact the IEA only
+#     "if they wish to use such data outside the terms of the CC-BY-NC-ND 4.0 licence". Verbatim display on this
+#     non-commercial site is within NC-ND.
+#   - jeodpp .../EDGAR_2026_GHG/copyright.txt is the generic EC notice (CC BY 4.0, no IEA carve-out). The more specific
+#     booklet and page terms govern.
+#   - Booklet: 200, 4,767,596 bytes, Last-Modified 3 Sep 2026, sha256
+#     bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c. Sheets: info, Citations and references,
+#     GHG_totals_by_country, GHG_by_sector_and_country (by substance: CO2, GWP_100_AR5_CH4, _N2O, _F-gases),
+#     GHG_per_GDP_by_country, GHG_per_capita_by_country, LULUCF_macroregions, LULUCF_countries. Fossil-CO2-only booklet:
+#     200, 1,550,592 bytes, Last-Modified 3 Sep 2026. If-Modified-Since -> 304 on both.
+#   - attribution_modified is deliberately null: this class allows no transformation beyond extracting the published
+#     values, so the plain attribution applies.
+id: edgar-2026-ghg
+title: "EDGAR 2026: greenhouse gas emissions of all world countries"
+publisher: European Commission, Joint Research Centre (JRC), with the International Energy Agency (IEA) for fossil CO2
+landing_url: https://edgar.jrc.ec.europa.eu/report_2026
+description: >-
+  Greenhouse gas emissions of every country from 1970 to 2025, in million tonnes of CO2-equivalent (IPCC AR5 GWP-100):
+  totals, totals by sector and gas, per person and per unit of GDP (from 1990), and land use, land-use change and
+  forestry by country and by region. A second workbook gives fossil carbon dioxide alone, by country and sector. Totals
+  exclude land use, land-use change and forestry. The values for 2025 are fast-track estimates. The fossil carbon dioxide
+  component is IEA-EDGAR CO2, licensed CC BY-NC-ND 4.0, so only the published values are used, exactly as published.
+citation:
+  type: report
+  title: GHG emissions of all world countries - 2026 Report
+  author:
+    - {family: Crippa, given: M.}
+    - {family: Guizzardi, given: D.}
+    - {family: Pagani, given: F.}
+    - {family: Banja, given: M.}
+    - {family: Ciarlantini, given: S.}
+    - {family: Muntean, given: M.}
+    - {family: Amici, given: L.}
+    - {family: Luini, given: C.}
+    - {family: Honavar Melo Pires, given: R.}
+    - {family: Quadrelli, given: R.}
+    - {family: Carvalho, given: P.}
+    - {family: Ruiz Ponsoda, given: D.}
+    - {family: Andrews, given: S.}
+    - {family: Köykkä, given: J.}
+    - {family: Grassi, given: G.}
+    - {family: Rossi, given: S.}
+    - {family: Melo, given: J.}
+    - {family: Branco, given: A.}
+    - {family: Suárez-Moreno, given: M.}
+    - {family: Sedano, given: F.}
+    - {family: Manca, given: G.}
+    - {family: Pisoni, given: E.}
+    - {family: Pekar, given: F.}
+  issued: "2026"
+  publisher: Publications Office of the European Union
+  DOI: 10.2760/7717504
+  URL: https://edgar.jrc.ec.europa.eu/report_2026
+  text: >-
+    Crippa, M., Guizzardi, D., Pagani, F., Banja, M., Ciarlantini, S., Muntean, M., Amici, L., Luini, C., Honavar Melo
+    Pires, R., Quadrelli, R., Carvalho, P., Ruiz Ponsoda, D., Andrews, S., Köykkä, J., Grassi, G., Rossi, S., Melo, J.,
+    Branco, A., Suárez-Moreno, M., Sedano, F., Manca, G., Pisoni, E., Pekar, F., GHG emissions of all world countries -
+    2026 Report, Publications Office of the European Union, Luxembourg, 2026, doi:10.2760/7717504, JRC147815.
+licence_class: no-derivatives
+licence:
+  name: CC BY-NC-ND 4.0 for IEA-EDGAR CO2 and every total that includes it; CC BY 4.0 for EU-owned EDGAR CH4, N2O and F-gases
+  spdx: CC-BY-NC-ND-4.0
+  url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+evidence:
+  terms_url: https://edgar.jrc.ec.europa.eu/dataset_ghg2026
+  licence_quote: >-
+    Unless otherwise noted, all material owned by the European Union is licensed under the Creative Commons
+    Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is allowed, provided that appropriate
+    credit is given and any changes are indicated. All emissions, except for CO2 emissions from fuel combustion, are
+    from the EDGAR (Emissions Database for Global Atmospheric Research) Community GHG database comprising IEA-EDGAR CO2,
+    EDGAR CH4, EDGAR N2O and EDGAR F-gases version EDGAR_2026_GHG (2026). IEA-EDGAR CO2, a component of the EDGAR
+    (Emissions Database for Global Atmospheric Research) Community GHG database version EDGAR_2026_GHG (2026) including
+    or based on data from IEA (2025) Greenhouse Gas Emissions from Energy, www.iea.org/data-and-statistics, as modified
+    by the Joint Research Centre. IEA-EDGAR CO2 (v5) data are based on data from IEA (2025) Greenhouse Gas Emissions
+    from Energy, www.iea.org/data-and-statistics, as modified by the Joint Research Centre, licensed under CC BY-NC-ND
+    4.0. Users of the IEA-EDGAR CO2 data should contact the IEA at compliance@iea.org if they wish to use such data
+    outside the terms of the CC-BY-NC-ND 4.0 licence.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    © European Union 2026. EDGAR Community GHG Database version EDGAR_2026_GHG (2026), European Commission, Joint
+    Research Centre (JRC) and International Energy Agency (IEA), comprising IEA-EDGAR CO2, EDGAR CH4, EDGAR N2O and
+    EDGAR F-gases. IEA-EDGAR CO2 includes or is based on data from IEA (2025) Greenhouse Gas Emissions from Energy,
+    www.iea.org/data-and-statistics, as modified by the Joint Research Centre, licensed CC BY-NC-ND 4.0; other EDGAR
+    material CC BY 4.0. Crippa et al., GHG emissions of all world countries - 2026 Report, doi:10.2760/7717504.
+    https://edgar.jrc.ec.europa.eu/report_2026 and https://edgar.jrc.ec.europa.eu/dataset_ghg2026.
+  attribution_modified: null
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  - id: ghg-booklet
+    url: https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026.xlsx
+    format: xlsx
+    description: >-
+      All-GHG booklet: totals, by sector and gas, per person, per GDP and LULUCF, by country, 1970-2025 (Mt CO2eq,
+      AR5 GWP-100).
+  - id: fossil-co2-booklet
+    url: https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026_fossilCO2only.xlsx
+    format: xlsx
+    description: >-
+      Fossil-CO2-only booklet: totals, by sector, per person and per GDP, by country, 1970-2025 (Mt CO2).
+status:
+  state: active
+  note: >-
+    EDGAR_2026_GHG was released in September 2026 (booklet files dated 3 September, dataset archives 18 September).
+    It replaces EDGAR_2025_GHG. Not a US federal product.
+  us_federal: false
+update_cadence: Annual, in September
+twins: [gcp-fossil-co2-2025]
+research_ref: "docs/research/sources-emissions.json#EDGAR 2026 GHG (Emissions Database for Global Atmospheric Research), Community GHG Database, and the 'GHG emissions of all world countries - 2026 Report'"

@@ -1,0 +1,41 @@
+# IPCC AR6 WGIII SPM statement C.12: mitigation options costing USD 100 per tonne CO2-eq or less by 2030.
+# The build checks that `quote` appears on PDF page 41 (printed page 37) of the snapshot of ipcc-ar6-wg3-spm/spm-pdf.
+id: ipcc-ar6-wg3-spm-c12
+indicator_id: mitigation.ipcc-ar6.cost-under-100-2030
+source_id: ipcc-ar6-wg3-spm
+artifact_id: spm-pdf
+title: Emission cuts available by 2030 from options costing up to 100 US dollars per tonne
+description: >-
+  The IPCC's assessment that mitigation options costing 100 US dollars per tonne of CO₂-equivalent or less could
+  reduce global greenhouse gas emissions in 2030 by at least half of the 2019 level.
+unit:
+  code: percent
+  label: percent of 2019 global greenhouse gas emissions
+  short: "%"
+display:
+  decimals: 0
+scope:
+  geography: World
+  basis: >-
+    An assessed potential for 2030, not a forecast of what will happen: the reduction that options costing
+    USD100 tCO₂-eq⁻¹ or less could deliver, from the sectoral literature. The statement is a lower bound ("at
+    least").
+geo_coverage: global-only
+headline_entity: WLD
+vintage: AR6 WGIII (2022)
+locator: SPM statement C.12, p. 37
+pdf_page: 41
+quote: >-
+  Mitigation options costing USD100 tCO₂-eq⁻¹ or less could reduce global GHG emissions by at least half the 2019
+  level by 2030 (high confidence).
+value_text: at least half the 2019 level
+value_reading: >-
+  "at least half the 2019 level" is published as 50 percent of 2019 global greenhouse gas emissions, the lower bound
+  the statement gives; the IPCC states no upper bound.
+observations:
+  - {entity: WLD, period: "2030", value: "50", status: projection}
+checked_on: 2026-10-04
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#IPCC AR6 WGIII Summary for Policymakers (Figure SPM.6
+  demand-side potential, Figure SPM.7 mitigation options cost and potential in 2030) and Chapter 5 (demand-side
+  mitigation)

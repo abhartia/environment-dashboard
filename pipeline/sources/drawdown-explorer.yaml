@@ -1,0 +1,417 @@
+# Project Drawdown, Drawdown Explorer: per-solution assessment spreadsheets and the assessment methodology, as
+# deposited by Project Drawdown on Zenodo (community "pdexplorer"), CC BY 4.0.
+# Evidence: docs/research/sources-solutions-and-action.json ("Drawdown Explorer: solutions table and per-solution
+# assessment spreadsheets"); verdict "corrected": cite methodology version 10.5281/zenodo.20865531 (June 2026,
+# concept 10.5281/zenodo.15692853), not the stale 18037237 the explorer page links; all community records are
+# cc-by-4.0. final_redistribution open-attribution.
+# Checked 2026-10-04:
+#   - Zenodo community pdexplorer: 39 records, every one licence cc-by-4.0 (all three API pages read): the methodology
+#     (record 20865531, "Web Version of Methodology - June 2026.pdf", 3,230,671 bytes, md5
+#     40683efb831dd76c65c781c4163aee11) and 38 solution spreadsheets. Each record below is its concept's latest
+#     version (/versions/latest resolves to itself), and each file URL answered a ranged GET with HTTP 206. Zenodo
+#     ignores If-Modified-Since, so conditional is false; pinned record versions never change.
+#   - DataCite for 10.5281/zenodo.20865531: rights "Creative Commons Attribution 4.0 International".
+#   - The licence quote is Project Drawdown's own FAQ (https://drawdown.org/explorer/faqs, HTTP 200), which also says
+#     "All of the data, spreadsheets, GIS map layers, and other resources powering the Drawdown Explorer are freely
+#     available" through each solution page's "Methods and Supporting Data" link (the Zenodo records).
+#   - drawdown.org's generic Terms of Use forbid reuse of "any Content not owned by you ... without the prior consent
+#     of the owner"; the FAQ grant and the CC BY 4.0 deposits are the producer's specific terms for these files.
+#   - The website's CSV export (drawdown.org/explorer-solutions-table-export.csv) is not registered: it carries no
+#     licence of its own, so only the Zenodo deposits are used.
+#   - Not mirrored: the spreadsheets embed third-party input tables (for example FAOSTAT series and literature values
+#     such as Poore & Nemecek 2018 in "Improve Diets"), which the CC BY deposit cannot relicense. The site uses the
+#     "results" sheet (Drawdown's own effectiveness, adoption, impact and cost results).
+#   - The FAQ asks users to "give credit to Project Drawdown, link to the appropriate page(s), and cite our work", so
+#     each solution card links to its Drawdown Explorer page and its Zenodo DOI.
+#   - The community grows (newest records 2026-08-18); re-list https://zenodo.org/api/communities/pdexplorer/records at
+#     each review and add new solutions as new artifacts.
+id: drawdown-explorer
+title: Drawdown Explorer solution assessments
+publisher: Project Drawdown
+landing_url: https://drawdown.org/explorer
+description: >-
+  Project Drawdown's assessments of climate solutions at global scale. Each solution spreadsheet gives the adoption
+  unit, effectiveness (tonnes of CO2-equivalent avoided or removed per adoption unit per year, on 100-year and 20-year
+  warming potentials, with percentiles), current and achievable adoption, the resulting climate impact range (gigatonnes
+  of CO2-equivalent per year), cost per tonne (US dollars of 2023) and the literature each value comes from, against a
+  2023 baseline. Potentials are ranges and are not additive across solutions; this methodology differs from the 2017
+  and 2020 Drawdown tables, which are not comparable. Used for system-level solution cards that sit behind personal
+  actions.
+citation:
+  type: report
+  title: Methodology for Project Drawdown Solutions Assessments
+  author:
+    - {literal: Project Drawdown}
+    - {family: Dioha, given: Michael}
+    - {family: Gleeson, given: Sarah}
+    - {family: Hoff, given: Mary}
+    - {family: Lam, given: Jason}
+    - {family: Matthews, given: Megan}
+    - {family: Smith, given: Amanda D.}
+    - {family: Swanson, given: Christina}
+    - {family: Farac, given: Nina F.}
+    - {family: Sweeney, given: Alex}
+    - {family: Gerber, given: James}
+    - {family: Toensmeier, given: Eric}
+  issued: "2026-06-25"
+  publisher: Zenodo
+  DOI: 10.5281/zenodo.20865531
+  URL: https://doi.org/10.5281/zenodo.20865531
+  # Zenodo's citation for the methodology version used, then the Explorer citation the Drawdown FAQ asks for, with
+  # its "(Year, Month Date)" filled with the year of the spreadsheets used.
+  text: >-
+    Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N.
+    F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments.
+    Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer.
+    http://drawdown.org/explorer.
+licence_class: open
+licence:
+  name: CC BY 4.0 (Zenodo deposits by Project Drawdown)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://drawdown.org/explorer/faqs
+  licence_quote: >-
+    Please use our materials – the numbers, the graphics, the maps, the analysis – in your work. That’s why we created
+    them! We have intentionally made all of this material freely available so it can be used to accelerate meaningful
+    climate action around the world. Everyone has access to it equally. We only ask that you give credit to Project
+    Drawdown, link to the appropriate page(s), and cite our work
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Project Drawdown, The Drawdown Explorer (http://drawdown.org/explorer): solution assessment spreadsheets on Zenodo,
+    CC BY 4.0; methodology doi:10.5281/zenodo.20865531.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Project Drawdown, The Drawdown Explorer (http://drawdown.org/explorer):
+    solution assessment spreadsheets on Zenodo, CC BY 4.0; methodology doi:10.5281/zenodo.20865531.
+  mirror_raw: false
+  # Footer of drawdown.org: "“Project Drawdown®”, “Drawdown®”, and the Drawdown logo are registered trademarks of
+  # Project Drawdown."
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: methodology-pdf
+    url: https://zenodo.org/api/records/20865531/files/Web%20Version%20of%20Methodology%20-%20June%202026.pdf/content
+    format: pdf
+    description: >-
+      "Methodology for Project Drawdown Solutions Assessments", June 2026: Zenodo record 20865531,
+      doi:10.5281/zenodo.20865531 (concept doi:10.5281/zenodo.15692853), published 2026-06-25. 3,230,671 bytes,
+      md5:40683efb831dd76c65c781c4163aee11.
+    access: {conditional: false}
+  - id: deploy-alternative-insulation-materials
+    url: https://zenodo.org/api/records/21231150/files/Deploy%20Alternative%20Insulation%20Materials-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Alternative Insulation Materials" solution assessment spreadsheet: Zenodo record 21231150,
+      doi:10.5281/zenodo.21231150 (concept doi:10.5281/zenodo.15750044), published 2026-07-07, creators Gleeson, Sarah.
+      2,636,585 bytes, md5:25afc5476a1df0a87af3209700a699c5.
+    access: {conditional: false}
+  - id: deploy-alternative-refrigerants
+    url: https://zenodo.org/api/records/21246134/files/Deploy%20Alternative%20Refrigerants-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Alternative Refrigerants" solution assessment spreadsheet: Zenodo record 21246134,
+      doi:10.5281/zenodo.21246134 (concept doi:10.5281/zenodo.17575398), published 2026-07-07, creators Gleeson, Sarah;
+      McDiarmid, Heather. 1,255,390 bytes, md5:7e29a13524da1a9261eb15f5acc64e10.
+    access: {conditional: false}
+  - id: deploy-building-automation-systems
+    url: https://zenodo.org/api/records/21876968/files/Deploy%20Building%20Automation%20Systems-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Building Automation Systems" solution assessment spreadsheet: Zenodo record 21876968,
+      doi:10.5281/zenodo.21876968 (concept doi:10.5281/zenodo.21876967), published 2026-08-10, creators McDiarmid,
+      Heather; Igugu, Henry. 1,064,844 bytes, md5:c89fd6a93b1272df2a7c7e6bf9b2a8f7.
+    access: {conditional: false}
+  - id: deploy-clean-cooking
+    url: https://zenodo.org/api/records/21231101/files/Deploy%20Clean%20Cooking-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Clean Cooking" solution assessment spreadsheet: Zenodo record 21231101, doi:10.5281/zenodo.21231101
+      (concept doi:10.5281/zenodo.15750006), published 2026-07-07, creators Jameel, Yusuf; Smith, Amanda D.. 360,926
+      bytes, md5:497312b712d4c750c17638180e456a59.
+    access: {conditional: false}
+  - id: deploy-distributed-solar-pv
+    url: https://zenodo.org/api/records/21246308/files/Deploy%20Distributed%20Solar%20PV-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Distributed Solar PV" solution assessment spreadsheet: Zenodo record 21246308, doi:10.5281/zenodo.21246308
+      (concept doi:10.5281/zenodo.20416200), published 2026-07-07, creators Dioha, Michael; matthews, megan. 610,138
+      bytes, md5:83b117d5ea93a29dd06871bf7905d6a8.
+    access: {conditional: false}
+  - id: deploy-industrial-green-hydrogen
+    url: https://zenodo.org/api/records/21246254/files/Deploy%20Industrial%20Green%20Hydrogen-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Industrial Green Hydrogen" solution assessment spreadsheet: Zenodo record 21246254,
+      doi:10.5281/zenodo.21246254 (concept doi:10.5281/zenodo.19054433), published 2026-07-07, creators McDiarmid,
+      Heather; Farac, Nina F.. 553,744 bytes, md5:6f185ad106f4dadd5dcece780ebabfd0.
+    access: {conditional: false}
+  - id: deploy-led-lighting
+    url: https://zenodo.org/api/records/21246185/files/Deploy%20LED%20Lighting-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy LED Lighting" solution assessment spreadsheet: Zenodo record 21246185, doi:10.5281/zenodo.21246185
+      (concept doi:10.5281/zenodo.15749763), published 2026-07-07, creators Igugu, Henry; Matthews, Megan. 568,731
+      bytes, md5:448b23b69c8ac20d2951974857b1ce1c.
+    access: {conditional: false}
+  - id: deploy-offshore-wind-turbines
+    url: https://zenodo.org/api/records/21246039/files/Deploy%20Offshore%20Wind%20Turbines-%20Solutions%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Offshore Wind Turbines" solution assessment spreadsheet: Zenodo record 21246039,
+      doi:10.5281/zenodo.21246039 (concept doi:10.5281/zenodo.17162356), published 2026-07-07, creators Dioha, Michael;
+      matthews, megan. 634,583 bytes, md5:79fe850027cfe3baf4dafeb22b697df2.
+    access: {conditional: false}
+  - id: deploy-onshore-wind-turbines
+    url: https://zenodo.org/api/records/21246129/files/Deploy%20Onshore%20Wind%20Turbines-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Onshore Wind Turbines" solution assessment spreadsheet: Zenodo record 21246129,
+      doi:10.5281/zenodo.21246129 (concept doi:10.5281/zenodo.17575379), published 2026-07-07, creators matthews, megan;
+      Dioha, Michael. 998,542 bytes, md5:9e55b79d9fca14cfa93aa143bacc990c.
+    access: {conditional: false}
+  - id: deploy-silvopasture
+    url: https://zenodo.org/api/records/21246087/files/Deploy%20Silvopasture-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Silvopasture" solution assessment spreadsheet: Zenodo record 21246087, doi:10.5281/zenodo.21246087
+      (concept doi:10.5281/zenodo.17180383), published 2026-07-07, creators Toensmeier, Eric. 192,957 bytes,
+      md5:8b2aa6304619fe27f4b40af7dd2af64b.
+    access: {conditional: false}
+  - id: deploy-utility-scale-solar-pv
+    url: https://zenodo.org/api/records/21246284/files/Deploy%20Utility-Scale%20Solar%20PV-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Deploy Utility-Scale Solar PV" solution assessment spreadsheet: Zenodo record 21246284,
+      doi:10.5281/zenodo.21246284 (concept doi:10.5281/zenodo.19700041), published 2026-07-07, creators Dioha, Michael;
+      matthews, megan; Bugaje, Al-Amin. 533,269 bytes, md5:2fe4eefa5bf4d7cd3f6a7c67e29f3655.
+    access: {conditional: false}
+  - id: enhance-public-transit
+    url: https://zenodo.org/api/records/21230992/files/Enhance%20Public%20Transit-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Enhance Public Transit" solution assessment spreadsheet: Zenodo record 21230992, doi:10.5281/zenodo.21230992
+      (concept doi:10.5281/zenodo.15746782), published 2026-07-07, creators Roberts, Cameron; Jones, Heather. 1,281,261
+      bytes, md5:e8c08eae247ac629b408eb5310efc850.
+    access: {conditional: false}
+  - id: improve-annual-cropping
+    url: https://zenodo.org/api/records/21246076/files/Improve%20Annual%20Cropping-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Annual Cropping" solution assessment spreadsheet: Zenodo record 21246076, doi:10.5281/zenodo.21246076
+      (concept doi:10.5281/zenodo.17180377), published 2026-07-07, creators Toensme, Eric; Nagy, Zoltan. 424,213 bytes,
+      md5:6b4459e5a5ab35d2cc33e90daf7af44f.
+    access: {conditional: false}
+  - id: improve-cement-production
+    url: https://zenodo.org/api/records/21231071/files/Improve%20Cement%20Production-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Cement Production" solution assessment spreadsheet: Zenodo record 21231071, doi:10.5281/zenodo.21231071
+      (concept doi:10.5281/zenodo.15749942), published 2026-07-07, creators Gleeson, Sarah. 1,006,975 bytes,
+      md5:fdc5116788252edde59decfb55b9f433.
+    access: {conditional: false}
+  - id: improve-diets
+    url: https://zenodo.org/api/records/21246101/files/Improve%20Diets-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Diets" solution assessment spreadsheet: Zenodo record 21246101, doi:10.5281/zenodo.21246101 (concept
+      doi:10.5281/zenodo.17456475), published 2026-07-07, creators Cassidy, Emily. 491,777 bytes,
+      md5:222fa5c41d4a790908a23c554718a291.
+    access: {conditional: false}
+  - id: improve-landfill-management
+    url: https://zenodo.org/api/records/21231060/files/Improve%20Landfill%20Management-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Landfill Management" solution assessment spreadsheet: Zenodo record 21231060, doi:10.5281/zenodo.21231060
+      (concept doi:10.5281/zenodo.15749824), published 2026-07-07, creators Lam, Jason; Igugu, Henry. 1,095,426 bytes,
+      md5:7fab54d1c111042b3b6d53592ce16c88.
+    access: {conditional: false}
+  - id: improve-nonmotorized-transportation
+    url: https://zenodo.org/api/records/21231018/files/Improve%20Nonmotorized%20Transportation-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Nonmotorized Transportation" solution assessment spreadsheet: Zenodo record 21231018,
+      doi:10.5281/zenodo.21231018 (concept doi:10.5281/zenodo.15749676), published 2026-07-07, creators Roberts,
+      Cameron; Jones, Heather. 1,761,230 bytes, md5:447dfa1ecaef06c5826ac87195fea68f.
+    access: {conditional: false}
+  - id: improve-nutrient-management
+    url: https://zenodo.org/api/records/21230979/files/Improve%20Nutrient%20Management-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Nutrient Management" solution assessment spreadsheet: Zenodo record 21230979, doi:10.5281/zenodo.21230979
+      (concept doi:10.5281/zenodo.15742274), published 2026-07-07, creators Driscoll, Avery. 540,037 bytes,
+      md5:2dc2330480fb7da5a3f876263bd3b214.
+    access: {conditional: false}
+  - id: improve-rice-production
+    url: https://zenodo.org/api/records/21246058/files/Improve%20Rice%20Production-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Rice Production" solution assessment spreadsheet: Zenodo record 21246058, doi:10.5281/zenodo.21246058
+      (concept doi:10.5281/zenodo.17178721), published 2026-07-07, creators Toensmeier, Eric; Nagy, Zoltan. 441,356
+      bytes, md5:6c2612277cd705415226a6ca067e737d.
+    access: {conditional: false}
+  - id: improve-windows-and-glass
+    url: https://zenodo.org/api/records/21246202/files/Improve%20Windows%20%26%20Glass-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Improve Windows and Glass" solution assessment spreadsheet: Zenodo record 21246202, doi:10.5281/zenodo.21246202
+      (concept doi:10.5281/zenodo.18274258), published 2026-07-07, creators Igugu, Henry; Gleeson, Sarah. 1,179,670
+      bytes, md5:51f5c69afc56a25ede8b6cf825ca95b7.
+    access: {conditional: false}
+  - id: increase-carpooling
+    url: https://zenodo.org/api/records/21246159/files/Increase%20Carpooling-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Increase Carpooling" solution assessment spreadsheet: Zenodo record 21246159, doi:10.5281/zenodo.21246159
+      (concept doi:10.5281/zenodo.17992105), published 2026-07-07, creators Jones, Heather; McDiarmid, Heather.
+      2,841,921 bytes, md5:028e41f1a1f066c6a4630d1564479035.
+    access: {conditional: false}
+  - id: increase-centralized-composting
+    url: https://zenodo.org/api/records/21246147/files/Increase%20Centralized%20Composting-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Increase Centralized Composting" solution assessment spreadsheet: Zenodo record 21246147,
+      doi:10.5281/zenodo.21246147 (concept doi:10.5281/zenodo.17162305), published 2026-07-07, creators matthews, megan;
+      Gleeson, Sarah. 777,792 bytes, md5:574337ec32895f76afbee8780c44e776.
+    access: {conditional: false}
+  - id: increase-recycling
+    url: https://zenodo.org/api/records/21246177/files/Increase%20Recycling-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Increase Recycling" solution assessment spreadsheet: Zenodo record 21246177, doi:10.5281/zenodo.21246177 (concept
+      doi:10.5281/zenodo.18024105), published 2026-07-07, creators Farac, Nina F.; matthews, megan. 5,966,755 bytes,
+      md5:5ce9658b4b066ddf39930d4cdefb02c7.
+    access: {conditional: false}
+  - id: manage-coal-mine-methane
+    url: https://zenodo.org/api/records/21231038/files/Manage%20Coal%20Mine%20Methane-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Manage Coal Mine Methane" solution assessment spreadsheet: Zenodo record 21231038, doi:10.5281/zenodo.21231038
+      (concept doi:10.5281/zenodo.15749719), published 2026-07-07, creators Lam, Jason; Gleeson, Sarah. 1,753,781 bytes,
+      md5:eb828142006219d63176dce0f715c3ad.
+    access: {conditional: false}
+  - id: manage-oil-and-gas-methane
+    url: https://zenodo.org/api/records/21230947/files/Manage%20Oil%20%26%20Gas%20Methane-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Manage Oil and Gas Methane" solution assessment spreadsheet: Zenodo record 21230947, doi:10.5281/zenodo.21230947
+      (concept doi:10.5281/zenodo.15742253), published 2026-07-07, creators Lam, Jason. 2,001,458 bytes,
+      md5:095996f5066f4f356e0502515c023f0b.
+    access: {conditional: false}
+  - id: mobilize-electric-bicycles
+    url: https://zenodo.org/api/records/21231092/files/Mobilize%20Electric%20Bicycles-%20Solutions%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Mobilize Electric Bicycles" solution assessment spreadsheet: Zenodo record 21231092, doi:10.5281/zenodo.21231092
+      (concept doi:10.5281/zenodo.15749969), published 2026-07-07, creators Roberts, Cameron; Nagy, Zoltan. 6,517,784
+      bytes, md5:fc1159f2f1e3f95df1ac548b66c5cea5.
+    access: {conditional: false}
+  - id: mobilize-electric-cars
+    url: https://zenodo.org/api/records/21231076/files/Mobilize%20Electric%20Cars-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Mobilize Electric Cars" solution assessment spreadsheet: Zenodo record 21231076, doi:10.5281/zenodo.21231076
+      (concept doi:10.5281/zenodo.15749956), published 2026-07-07, creators Roberts, Cameron; Lam, Jason. 1,080,912
+      bytes, md5:84f9b8dc313117c37f744eb9699e9e07.
+    access: {conditional: false}
+  - id: mobilize-electric-scooters-and-motorcycles
+    url: https://zenodo.org/api/records/21458487/files/Mobilize%20Electric%20Scooters%20%26%20Motorcycles-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Mobilize Electric Scooters and Motorcycles" solution assessment spreadsheet: Zenodo record 21458487,
+      doi:10.5281/zenodo.21458487 (concept doi:10.5281/zenodo.21458486), published 2026-07-20, creators Jones, Heather;
+      Farac, Nina F.. 208,486 bytes, md5:c2d352eedf28c54e3d4f663c53c2a8a8.
+    access: {conditional: false}
+  - id: mobilize-hybrid-cars
+    url: https://zenodo.org/api/records/20865760/files/Mobilize%20Hybrid%20Cars%20assessment%20spreadsheet_June2026.xlsx/content
+    format: xlsx
+    description: >-
+      "Mobilize Hybrid Cars" solution assessment spreadsheet: Zenodo record 20865760, doi:10.5281/zenodo.20865760
+      (concept doi:10.5281/zenodo.17178627), published 2026-06-25, creators Jones, Heather; Nagy, Zoltan. 2,957,142
+      bytes, md5:35cde3e19f966c9ff9744d1e4f12efdd.
+    access: {conditional: false}
+  - id: protect-coastal-wetlands
+    url: https://zenodo.org/api/records/21246009/files/Protect%20Coastal%20Wetlands-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Protect Coastal Wetlands" solution assessment spreadsheet: Zenodo record 21246009, doi:10.5281/zenodo.21246009
+      (concept doi:10.5281/zenodo.17162265), published 2026-07-07, creators Richardson, Christina; Driscoll, Avery.
+      886,573 bytes, md5:e9106ba134a7071ec8aa12f9eb4ce3f7.
+    access: {conditional: false}
+  - id: protect-forests
+    url: https://zenodo.org/api/records/21230935/files/Protect%20Forests-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Protect Forests" solution assessment spreadsheet: Zenodo record 21230935, doi:10.5281/zenodo.21230935 (concept
+      doi:10.5281/zenodo.15742159), published 2026-07-07, creators Driscoll, Avery; Matthews, Megan. 296,475 bytes,
+      md5:8403ff3ff1f415ab4f2a92bf0a9aedaa.
+    access: {conditional: false}
+  - id: protect-grasslands-and-savannas
+    url: https://zenodo.org/api/records/21246118/files/Protect%20Grasslands%20and%20Savannas-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Protect Grasslands and Savannas" solution assessment spreadsheet: Zenodo record 21246118,
+      doi:10.5281/zenodo.21246118 (concept doi:10.5281/zenodo.17575323), published 2026-07-07, creators Driscoll, Avery;
+      Richardson, Christina. 780,280 bytes, md5:88510cd94859854422665dcf6915bcb6.
+    access: {conditional: false}
+  - id: protect-peatlands
+    url: https://zenodo.org/api/records/21245970/files/Protect%20Peatlands-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Protect Peatlands" solution assessment spreadsheet: Zenodo record 21245970, doi:10.5281/zenodo.21245970 (concept
+      doi:10.5281/zenodo.17162245), published 2026-07-07, creators Driscoll, Avery; matthews, megan. 304,148 bytes,
+      md5:9d692cba7f51a212d223f42fcd17fce7.
+    access: {conditional: false}
+  - id: protect-seaweed-ecosystems
+    url: https://zenodo.org/api/records/21245985/files/Protect%20Seaweed%20Ecosystems-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Protect Seaweed Ecosystems" solution assessment spreadsheet: Zenodo record 21245985, doi:10.5281/zenodo.21245985
+      (concept doi:10.5281/zenodo.19239147), published 2026-07-07, creators Richardson, Christina; Driscoll, Avery.
+      771,358 bytes, md5:68e40f1474def8927a56a7a4f9558cb0.
+    access: {conditional: false}
+  - id: reduce-food-loss-and-waste
+    url: https://zenodo.org/api/records/21231175/files/Reduce%20Food%20Loss%20%26%20Waste-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Reduce Food Loss & Waste" solution assessment spreadsheet: Zenodo record 21231175, doi:10.5281/zenodo.21231175
+      (concept doi:10.5281/zenodo.16970167), published 2026-07-07, creators Luna, Erika; Venkat, Aishwarya. 3,266,177
+      bytes, md5:2ba61788d1d39bea1227ef21b66ea2a9.
+    access: {conditional: false}
+  - id: restore-forests
+    url: https://zenodo.org/api/records/22002754/files/Restore%20Forests-%20Solutions%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Restore Forests" solution assessment spreadsheet: Zenodo record 22002754, doi:10.5281/zenodo.22002754 (concept
+      doi:10.5281/zenodo.18625408), published 2026-08-18, creators Driscoll, Avery; matthews, megan. 420,516 bytes,
+      md5:f53c162a8440d40d9f2c0b8cae0053e9.
+    access: {conditional: false}
+  - id: use-heat-pumps
+    url: https://zenodo.org/api/records/21246268/files/Use%20Heat%20Pumps-%20Solution%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Use Heat Pumps" solution assessment spreadsheet: Zenodo record 21246268, doi:10.5281/zenodo.21246268 (concept
+      doi:10.5281/zenodo.16928606), published 2026-07-07, creators McDiarmid, Heather; Lam, Jason. 686,799 bytes,
+      md5:ebaead5240a40a2b3630c2fb1a760ab0.
+    access: {conditional: false}
+  - id: use-smart-and-programmable-thermostats
+    url: https://zenodo.org/api/records/22002791/files/Use%20Smart%20and%20Programmable%20Thermostats-%20Solutions%20Assessment%20Spreadsheet.xlsx/content
+    format: xlsx
+    description: >-
+      "Use Smart and Programmable Thermostats" solution assessment spreadsheet: Zenodo record 22002791,
+      doi:10.5281/zenodo.22002791 (concept doi:10.5281/zenodo.22002790), published 2026-08-18, creators McDiarmid,
+      Heather; Igugu, Henry. 518,500 bytes, md5:60c33558a81bf8dee72e43b0e50a6731.
+    access: {conditional: false}
+status:
+  state: active
+  note: >-
+    The Explorer launched in September 2025; on 4 October 2026 the Zenodo community held 38 solution spreadsheets and
+    the June 2026 methodology. The FAQ says "We aim to finish publishing all of the remaining solutions in 2026" and
+    that solutions will be revised along the way. Non-profit, not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Rolling (solutions added and revised as new Zenodo versions)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#Drawdown Explorer: solutions table and per-solution assessment
+  spreadsheets

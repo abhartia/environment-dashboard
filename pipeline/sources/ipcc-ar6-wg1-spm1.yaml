@@ -1,0 +1,108 @@
+# IPCC AR6 Working Group I Figure SPM.1 data, archived at CEDA: 2000 years of global surface temperature (panel a)
+# and observed versus simulated warming with and without human influence (panel b).
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("IPCC AR6 WGI Figure SPM.1 data"); verifier
+# verdict "confirmed", adding that panel b's model columns end in 2019 and the 2020 row holds the fill value 1.00E+20.
+# Licence evidence checked 2026-10-04: the CEDA catalogue record (HTTP 200) states the licence quoted below; every
+# BADC-CSV file repeats it in its "rights" row, the dataset's License.txt reads "This work is licensed under a
+# Creative Commons Attribution 4.0 International License", and 00README_catalogue_and_licence.txt says the same.
+# Artifacts checked 2026-10-04 (all HTTP 200 from dap.ceda.ac.uk with ETag; files dated 16 Nov 2022, version
+# directory v20221116, catalogue "This dataset has been completed"):
+#   panel_a/SPM1_1-2000_recon.csv 45,757 bytes; panel_a/SPM1_1850-2020_obs.csv 3,790 bytes;
+#   panel_a/spm1_6500_recon.csv 1,618 bytes; panel_b/gmst_changes_model_and_obs.csv 20,028 bytes.
+# citation.text: CEDA's "Citable as" text, then the report citation CEDA asks to include, both verbatim. The report
+# has since been published (Cambridge University Press, 2021, pp. 3-32, doi:10.1017/9781009157896.001); CEDA still
+# prints "In Press".
+id: ipcc-ar6-wg1-spm1
+title: IPCC AR6 WGI Figure SPM.1 data
+publisher: IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis
+landing_url: https://catalogue.ceda.ac.uk/uuid/0b2759059ad6474098e40dad73e0a8ec/
+description: >-
+  The data behind Figure SPM.1 of the IPCC Sixth Assessment Report (Working Group I). Panel a: global surface
+  temperature change relative to 1850-1900 for years 1-2000 CE, reconstructed from paleoclimate archives (PAGES2k
+  Consortium 2019, decadal smoothed, with 5th-95th percentile range), the observed 1850-2020 series (decadal smoothed),
+  and the very likely range for the warmest multi-century period in more than 100,000 years (around 6,500 years ago).
+  Panel b: annual observed warming 1850-2020 against CMIP6 simulations with human and natural forcings and with natural
+  forcings only (ensemble mean and 5-95% range; model columns end in 2019, and the 2020 model values are the fill value
+  1.00E+20). Model ranges are simulations, not observations. Files are BADC-CSV: metadata rows, then a data block.
+citation:
+  type: dataset
+  title: >-
+    Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure
+    SPM.1 (v20221116)
+  author:
+    - {family: Gillett, given: N. P.}
+    - {family: Malinina, given: E.}
+    - {family: Kaufman, given: D.}
+    - {family: Neukom, given: R.}
+  issued: "2023-07-03"
+  publisher: NERC EDS Centre for Environmental Data Analysis
+  version: v20221116
+  DOI: 10.5285/0b2759059ad6474098e40dad73e0a8ec
+  URL: https://catalogue.ceda.ac.uk/uuid/0b2759059ad6474098e40dad73e0a8ec/
+  text: >-
+    Gillett, N.P.; Malinina, E.; Kaufman, D.; Neukom, R. (2023): Summary for Policymakers of the Working Group I
+    Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.1 (v20221116). NERC EDS Centre for
+    Environmental Data Analysis, 03 July 2023. doi:10.5285/0b2759059ad6474098e40dad73e0a8ec. IPCC, 2021: Summary for
+    Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth
+    Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.
+    L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M. I. Gomis, M. Huang, K. Leitzell, E. Lonnoy,
+    J.B.R. Matthews, T. K. Maycock, T. Waterfield, O. Yelekçi, R. Yu and B. Zhou (eds.)]. Cambridge University Press.
+    In Press.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://catalogue.ceda.ac.uk/uuid/0b2759059ad6474098e40dad73e0a8ec/
+  licence_quote: >-
+    Use of these data is covered by the following licence(s): http://creativecommons.org/licenses/by/4.0/ When using
+    these data you must cite them correctly using the citation given on the CEDA Data Catalogue record.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Gillett, Malinina, Kaufman & Neukom (2023), data for IPCC AR6 WGI Figure SPM.1 (v20221116), NERC EDS Centre for
+    Environmental Data Analysis, doi:10.5285/0b2759059ad6474098e40dad73e0a8ec; IPCC, 2021: Summary for Policymakers,
+    in Climate Change 2021: The Physical Science Basis. Reconstruction: PAGES2k Consortium (2019). CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Gillett, Malinina, Kaufman & Neukom (2023), data for IPCC AR6 WGI Figure
+    SPM.1 (v20221116), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/0b2759059ad6474098e40dad73e0a8ec;
+    IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis. Reconstruction: PAGES2k
+    Consortium (2019). CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: panel-a-recon-1-2000
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/SPM1_1-2000_recon.csv
+    format: csv
+    description: >-
+      Reconstructed global surface temperature change relative to 1850-1900, decadal smoothed, for years centred on
+      5-1995 CE (degrees C, with 5th and 95th percentiles).
+  - id: panel-a-obs-1850-2020
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/SPM1_1850-2020_obs.csv
+    format: csv
+    description: >-
+      Observed global surface temperature change relative to 1850-1900, decadal smoothed, for years centred on
+      1855-2016 CE (AR6 Chapter 2 assessed mean, degrees C).
+  - id: panel-a-6500-recon
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/spm1_6500_recon.csv
+    format: csv
+    description: >-
+      Very likely range (5th and 95th percentiles, degrees C relative to 1850-1900) of the warmest multi-century period
+      in more than 100,000 years, around 6,500 years ago.
+  - id: panel-b-model-and-obs
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_b/gmst_changes_model_and_obs.csv
+    format: csv
+    description: >-
+      Annual global surface temperature change relative to 1850-1900, 1850-2020: CMIP6 historical-ssp245 (human and
+      natural) and hist-nat (natural only) ensemble means with 5-95% ranges, and observations. missing_value 1.00E+20.
+status:
+  state: archived
+  note: >-
+    Final archive of a published assessment figure (CEDA: "This dataset has been completed"). Ends in 2020. The IPCC
+    Seventh Assessment Report will supersede it.
+  us_federal: false
+update_cadence: Static (final; superseded only by the next IPCC assessment)
+twins: []
+research_ref: docs/research/sources-atmosphere-and-temperature.json#IPCC AR6 WGI Figure SPM.1 data

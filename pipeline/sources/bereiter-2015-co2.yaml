@@ -1,0 +1,90 @@
+# Antarctic ice-core CO2 composite, 805,669 years ago to 2001 (Bereiter et al. 2015), archived by NOAA NCEI Paleo.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("Antarctic Ice Cores Revised 800KYr CO2 composite");
+# verifier verdict "corrected": dataset DOI 10.25921/n8y4-bp27, Luthi et al. 2008 as a component, and the class is
+# free use with citation (open), not public domain, because the data were produced by Bern, CNRS and partners rather
+# than US federal employees.
+# Licence evidence checked 2026-10-04: the NCEI paleo API (search.json?NOAAStudyId=17975) returns
+# dataLicenseDescription = null and dataLicenseUrl = null. The only stated terms are the citation request quoted below
+# (a near-identical request sits in the ISO record's resource constraints, geoportal item noaa-icecore-17975) plus
+# NOAA/NCEI warranty and liability disclaimers. No clause restricts copying, modification or redistribution.
+# Artifact checked 2026-10-04: HTTP 200, 51,875 bytes, ETag "caa3-6204a387e9f70", Last-Modified 22 Aug 2024 (header
+# File_Last_Modified_Date 2024-08-16, Template Version 4.0). Its data rows are identical to the legacy file
+# antarctica2015co2composite.txt (HTTP 200, Last-Modified 12 Feb 2015); first row -51.03 yr BP 368.02 ppm, last row
+# 805668.87 yr BP 207.29 ppm. The -noaa.txt file is the one NCEI's study metadata lists for the composite.
+# citation.text: NCEI's "Cite as" template (ISO record) with "[indicate subset used]" filled by the file's NCEI link
+# text and "[date]" by {date_accessed}, followed by the two publications exactly as the NCEI study record lists them.
+id: bereiter-2015-co2
+title: Antarctic ice cores revised 800,000-year CO2 composite
+publisher: NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners)
+landing_url: https://www.ncei.noaa.gov/access/paleo-search/study/17975
+description: >-
+  Atmospheric CO2 (ppm, with one-sigma uncertainty) from air trapped in Antarctic ice, stitched together from Law Dome,
+  Dome C, WAIS Divide, Siple Dome, Talos Dome, EPICA Dronning Maud Land and Vostok, from 805,669 years before 1950 to
+  2001. Gas age is in years before 1950 (AD = 1950 - age); the most recent 1,800 years come from Law Dome (Rubino et
+  al. 2013). Ice-core air is smoothed over decades to centuries, so brief spikes would not show. Replaces the Luthi et
+  al. (2008) composite. Static: no updates expected.
+citation:
+  type: dataset
+  title: NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data
+  author:
+    - {family: Bereiter, given: B.}
+    - {family: Eggleston, given: S.}
+    - {family: Schmitt, given: J.}
+    - {family: Nehrbass-Ahles, given: C.}
+    - {family: Stocker, given: T. F.}
+    - {family: Fischer, given: H.}
+    - {family: Kipfstuhl, given: S.}
+    - {family: Chappellaz, given: J. A.}
+  issued: "2015-02-04"
+  publisher: NOAA National Centers for Environmental Information
+  DOI: 10.25921/n8y4-bp27
+  URL: https://www.ncei.noaa.gov/access/paleo-search/study/17975
+  text: >-
+    Bereiter, B.; Eggleston, S.; Schmitt, J.; Nehrbass-Ahles, C.; Stocker, T.F.; Fischer, H.; Kipfstuhl, S.;
+    Chappellaz, J.A. (2015-02-04): NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data. Antarctic
+    Ice Core Revised Composite CO2 Data. NOAA National Centers for Environmental Information.
+    https://doi.org/10.25921/n8y4-bp27. Accessed {date_accessed}. Bereiter, B., S. Eggleston, J. Schmitt, C.
+    Nehrbass-Ahles, T. F. Stocker, H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015. Revision of the EPICA Dome C CO2
+    record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), 542-549. doi:
+    10.1002/2014GL061957. Lüthi, D., M. Le Floch, B. Bereiter, T. Blunier, J.-M. Barnola, U. Siegenthaler, D.
+    Raynaud, J. Jouzel, H. Fischer, K. Kawamura, and T.F. Stocker. 2008. High-resolution carbon dioxide concentration
+    record 650,000-800,000 years before present. Nature, 453, 379-382. doi: 10.1038/nature06949
+licence_class: open
+licence:
+  name: No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)
+  spdx: null
+  url: null
+evidence:
+  terms_url: https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite-noaa.txt
+  licence_quote: >-
+    Please cite original publication, NOAA Landing Page URL, dataset and publication DOIs (where available), and date
+    accessed when using downloaded data.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Bereiter et al. (2015), Geophysical Research Letters, doi:10.1002/2014GL061957; data: NOAA/WDS Paleoclimatology,
+    Antarctic Ice Cores Revised 800KYr CO2 Data, doi:10.25921/n8y4-bp27,
+    https://www.ncei.noaa.gov/access/paleo-search/study/17975, accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Bereiter et al. (2015), Geophysical Research Letters,
+    doi:10.1002/2014GL061957; data: NOAA/WDS Paleoclimatology, Antarctic Ice Cores Revised 800KYr CO2 Data,
+    doi:10.25921/n8y4-bp27, https://www.ncei.noaa.gov/access/paleo-search/study/17975, accessed {date_accessed}.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: composite
+    url: https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite-noaa.txt
+    format: txt
+    description: >-
+      NOAA template v4 text file: '#' header lines, then tab-separated columns age_gas_calBP (years before 1950),
+      co2_ppm and co2_1s_ppm (one-sigma uncertainty), 1,901 rows.
+status:
+  state: archived
+  note: >-
+    Final dataset, contributed 4 February 2015; NCEI revised only the file header (16 August 2024). NCEI is a NOAA
+    office, so the hosting is exposed to US federal budget cuts; keep the snapshot.
+  us_federal: true
+update_cadence: Static (final dataset; no updates expected)
+twins: []
+research_ref: docs/research/sources-atmosphere-and-temperature.json#Antarctic Ice Cores Revised 800KYr CO2 composite

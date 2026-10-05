@@ -1,0 +1,98 @@
+# NASA GISS Surface Temperature Analysis, version 4 (GISTEMP v4).
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("NASA GISS Surface Temperature Analysis (GISTEMP v4)")
+# and docs/research/sources-country-and-local.json (same name; verifier corrected the licence basis to 17 U.S.C. §105).
+#
+# Baseline (checked 2026-10-04): GISS publishes no observed series referenced to 1850-1900. The tables are anomalies
+# from 1951-1980. The only GISS file on a 1850-1900 basis is the GMSTA page's forecast CSV
+# (https://data.giss.nasa.gov/gistemp/gmsta/data/Annual_GISTEMP_GMSTA_Predictions_202609.csv, HTTP 200): predictions
+# for 2026 and 2027, not observations. The GISTEMP FAQ gives a method instead: rebase 1951-1980 to 1880-1899, then add
+# "about 0.038ºC" taken from the average of HadCRUT, NOAA and Berkeley Earth ("equivalent (as of Jan 2025), of adding
+# ~0.19ºC"). The GMSTA page describes the same step as starting from "the GISTEMP anomaly for 1880-1900". Following the
+# plan, the site shows GISTEMP against its own late-19th-century mean, labelled with the exact years used.
+id: gistemp-v4
+title: GISS Surface Temperature Analysis, version 4 (GISTEMP v4)
+publisher: NASA Goddard Institute for Space Studies
+landing_url: https://data.giss.nasa.gov/gistemp/
+description: >-
+  Monthly, seasonal and annual global, hemispheric and zonal land-ocean temperature anomalies from 1880, combining
+  NOAA GHCN v4 weather-station data with NOAA ERSST v5 sea-surface temperatures. Anomalies are in degrees Celsius
+  relative to the 1951–1980 mean. GISS publishes no observed series relative to 1850–1900; its FAQ describes a
+  conversion through 1880–1899 plus about 0.038 °C borrowed from other datasets, so the site uses GISTEMP's own
+  late-19th-century mean, labelled with its years. Earlier months are revised slightly each month as late reports
+  arrive.
+citation:
+  type: dataset
+  title: GISS Surface Temperature Analysis (GISTEMP), version 4
+  author:
+    - {literal: GISTEMP Team}
+  issued: "2026"
+  publisher: NASA Goddard Institute for Space Studies
+  version: "4"
+  DOI: null  # The dataset has no DOI; the method paper's DOI is in the citation text.
+  URL: https://data.giss.nasa.gov/gistemp/
+  text: >-
+    GISTEMP Team, 2026: GISS Surface Temperature Analysis (GISTEMP), version 4. NASA Goddard Institute for Space
+    Studies. Dataset accessed {date_accessed} at https://data.giss.nasa.gov/gistemp/. Lenssen, N., G.A. Schmidt, M.
+    Hendrickson, P. Jacobs, M. Menne, and R. Ruedy, 2024: A GISTEMPv4 observational uncertainty ensemble. J. Geophys.
+    Res. Atmos., 129, no. 17, e2023JD040179, doi:10.1029/2023JD040179.
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  # GISS states no licence for the data tables. The class rests on 17 U.S.C. §105 (a NASA analysis led by NASA civil
+  # servants; its inputs GHCN v4 and ERSST v5 are NOAA federal works) and on NASA's science information policy SPD-41a
+  # ("If there are no other restrictions, SMD scientific data should be released with a Creative Commons Zero
+  # license", https://science.nasa.gov/spd-41). The quote below is the producer's own reuse statement on the landing
+  # page, which the weekly run can re-check.
+  terms_url: https://data.giss.nasa.gov/gistemp/
+  licence_quote: >-
+    Per those guidelines, graphics you may create using the website tools here do not require permission for you to
+    use elsewhere, but acknowledgment of their source should be given.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  # The landing page asks for "NASA's Goddard Institute for Space Studies" or, if space is limited, "NASA GISS/GISTEMP",
+  # and asks that citations include the date of access.
+  attribution: >-
+    NASA's Goddard Institute for Space Studies, GISTEMP v4 (GISTEMP Team), accessed {date_accessed}.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NASA's Goddard Institute for Space Studies GISTEMP v4 data (GISTEMP
+    Team), accessed {date_accessed}.
+  mirror_raw: true
+  # NASA Images and Media Usage Guidelines (linked from the landing page): content may be used "in a factual manner
+  # that does not imply endorsement"; "The NASA Insignia, Logotype, identifiers, and imagery are not in the public
+  # domain."
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  # HTTP 200 on 2026-10-04 for both, Last-Modified 08 Sep 2026, ETag present.
+  - id: glb-monthly
+    url: https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv
+    format: csv
+    description: >-
+      Global land-ocean temperature index: monthly, seasonal and annual (J-D) anomalies from January 1880, °C relative
+      to 1951–1980. Two header lines; "***" marks months not yet reported.
+  - id: zonal-annual
+    url: https://data.giss.nasa.gov/gistemp/tabledata_v4/ZonAnn.Ts+dSST.csv
+    format: csv
+    description: >-
+      Annual anomalies for the globe, both hemispheres and eight latitude bands (including 64N–90N) from 1880, °C
+      relative to 1951–1980. Complete years only.
+status:
+  state: at-risk
+  note: >-
+    Still publishing monthly (August 2026 data posted 8–11 September 2026). NASA cancelled the lease on GISS's New York
+    building from 31 May 2025 and staff work remotely. The inputs are NOAA GHCN v4 and ERSST v5, so cuts at NOAA NCEI
+    would also stop GISTEMP. GISTEMP still uses ERSST v5 while NOAAGlobalTemp 6.1 moved to ERSST v6.
+  us_federal: true
+update_cadence: Monthly, around the 10th, on the same day as NOAA NCEI's global analysis
+next_release:
+  expected: 2026-10-09
+  note: >-
+    September 2026 analysis. The GISS schedule reads "September Release: Fri, 9 Oct 2026, 11:00 AM EDT".
+  url: https://data.giss.nasa.gov/gistemp/release_dates.html
+twins: [hadcrut5, noaaglobaltemp-v6, c3s-era5-bulletin]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#NASA GISS Surface Temperature Analysis (GISTEMP v4)

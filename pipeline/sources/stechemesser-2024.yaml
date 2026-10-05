@@ -1,0 +1,136 @@
+# Stechemesser et al. (2024), Science 385:884-892, "Climate policies that achieved major emission reductions: Global
+# evidence from two decades": replication data and code on Zenodo (version v4), CC BY 4.0.
+# Evidence: docs/research/sources-solutions-and-action.json ("Stechemesser et al. 2024 (Science) ..."); verdict
+# "confirmed" (issue date 2024-08-23, online 2024-08-22; the PIK climate-policy-explorer host serves an expired TLS
+# certificate, so it is not linked). final_redistribution open-attribution.
+# Checked 2026-10-04:
+#   - Zenodo record 12773811: version v4, published 2024-07-18, licence cc-by-4.0, 41 files, the latest version of
+#     concept 10.5281/zenodo.10046709 (/versions/latest resolves to itself). Each file URL below answered a ranged GET
+#     with HTTP 206. Zenodo ignores If-Modified-Since, so conditional is false; the pinned version never changes.
+#   - The Science article itself carries no open licence (Crossref lists none; science.org answers HTTP 403 to
+#     scripts), so only the Zenodo deposit is used, never text or figures from the article.
+#   - The results that list the 63 successful policy interventions and their effect sizes are R data files
+#     (Policy_out.RDS 1,285,199 bytes, Break_detection_results.RDS 1,265,170 bytes). Artifact.format has no value for
+#     R's RDS format, so they are not registered here; registering them needs that format added to the data contract.
+#     The Zenodo "files-archive" zip is not a substitute: it is generated per request and its sha256 differs on every
+#     download (two downloads 3 seconds apart, 41,398,538 bytes each, different hashes).
+#   - Upstream terms. The policy data are the OECD Climate Actions and Policies Measurement Framework (CAPMF), a
+#     pre-release the authors obtained in July 2023 (README.txt), and OECD IPAC data for the US (March 2023). OECD
+#     terms for data (www.oecd.org/en/about/terms-conditions.html, read in the Internet Archive copy of 2026-10-04
+#     because the live page returns HTTP 403 to scripts): "you can extract from, download, copy, adapt, print,
+#     distribute, share and embed Data for any purpose, even for commercial use. You must give appropriate credit to
+#     the OECD". That is attribution-only, so the class stays open, with the OECD credit in the notice. 147 of the
+#     1,108 rows of OECD_data_preprocessed.csv (source "add-on") were coded by the authors from the IEA Policies and
+#     Measures Database and NewClimate Institute's Climate Policy Database (02_preprocess_oecd_data.R): facts of
+#     policy adoption (country, instrument, sector, year).
+id: stechemesser-2024
+title: Climate policies that achieved major emission reductions (Stechemesser et al. 2024), replication data
+publisher: >-
+  Stechemesser, Koch, Mark, Dilger, Klösel, Menicacci, Nachtigall, Pretis, Ritter, Schwarz, Vossen and Wenzel (PIK,
+  MCC Berlin, OECD and others); article in Science, data and code on Zenodo
+landing_url: https://doi.org/10.5281/zenodo.12773811
+description: >-
+  Replication package for an ex-post evaluation of about 1,500 climate policies in 41 countries from 1998 to 2022 in
+  four sectors (buildings, electricity, industry, transport). Structural breaks in sectoral emissions were detected
+  with machine learning and matched to policies adopted or tightened around them; the paper identifies 63 successful
+  interventions with total emission reductions of 0.6 to 1.8 billion tonnes of CO2 over the sample, and finds that
+  pricing within policy mixes did best. The registered files hold the coded policy adoptions and tightenings by
+  country, sector and year, the instrument names and categories, and the country lists. The policy coding is a July
+  2023 pre-release of the OECD CAPMF, which differs from the current OECD data.
+citation:
+  type: dataset
+  title: "Climate policies that achieved major emission reductions: Global evidence from two decades"
+  author:
+    - {family: Stechemesser, given: Annika}
+  issued: "2024-07-18"
+  publisher: Zenodo
+  version: v4
+  DOI: 10.5281/zenodo.12773811
+  URL: https://doi.org/10.5281/zenodo.12773811
+  # Zenodo's "Cite as" text for this record (APA), verbatim, then the article it accompanies.
+  text: >-
+    Stechemesser, A. (2024). Climate policies that achieved major emission reductions: Global evidence from two
+    decades. In Science (Version v4, Vol. 385, Issue 6711, pp. 884–892). Zenodo.
+    https://doi.org/10.5281/zenodo.12773811.
+    Article: Stechemesser, A., Koch, N., Mark, E., Dilger, E., Klösel, P., Menicacci, L., Nachtigall, D., Pretis, F.,
+    Ritter, N., Schwarz, M., Vossen, H., & Wenzel, A. (2024). Science, 385(6711), 884–892.
+    https://doi.org/10.1126/science.adl6547
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://zenodo.org/records/12773811
+  licence_quote: >-
+    Creative Commons Attribution 4.0 International The Creative Commons Attribution license allows re-distribution and
+    re-use of a licensed work on the condition that the creator is appropriately credited.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Stechemesser, A. et al. (2024), replication data for "Climate policies that achieved major emission reductions:
+    Global evidence from two decades", Science 385, 884–892 (doi:10.1126/science.adl6547), version v4,
+    doi:10.5281/zenodo.12773811, CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Stechemesser, A. et al. (2024), replication data for "Climate policies that
+    achieved major emission reductions: Global evidence from two decades", Science 385, 884–892
+    (doi:10.1126/science.adl6547), version v4, doi:10.5281/zenodo.12773811, CC BY 4.0.
+  # OECD data terms: credit the OECD with the dataset's citation, or "OECD (year), (dataset name),(data source) DOI or
+  # URL (accessed on (date))".
+  notice: >-
+    Policy data: OECD (2023), Climate Actions and Policies Measurement Framework (CAPMF), pre-release obtained by the
+    authors in July 2023 (current version: https://oe.cd/dx/capmf); US policies from the OECD IPAC Dashboard, March
+    2023.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: readme
+    url: https://zenodo.org/api/records/12773811/files/README.txt/content
+    format: txt
+    description: >-
+      README.txt: what each script and file does, and the note on the July 2023 CAPMF pre-release. 8,517 bytes,
+      md5:6c2f1219755d4cd84337b7ddee0b6558.
+    access: {conditional: false}
+  - id: oecd-data-preprocessed
+    url: https://zenodo.org/api/records/12773811/files/OECD_data_preprocessed.csv/content
+    format: csv
+    description: >-
+      OECD_data_preprocessed.csv: policy adoptions and tightenings by sector (Module), policy, country (ISO), year and
+      stringency value, with policy type, market or non-market, cluster category and source (OECD or add-on); 1,108
+      rows. Used to match emission breaks to policies. 217,234 bytes, md5:236e5f96702f375d5936e7278eb1fe4d.
+    access: {conditional: false}
+  - id: capmf-policies-names
+    url: https://zenodo.org/api/records/12773811/files/CAPMF_policies_names.csv/content
+    format: csv
+    description: >-
+      CAPMF_policies_names.csv (semicolon-separated): each CAPMF policy variable with its sector, instrument type,
+      the OECD's name and the short names used in the paper's figures. 11,368 bytes,
+      md5:fcedc8ce979982b2525c169e601ea9d4.
+    access: {conditional: false}
+  - id: country-groupings
+    url: https://zenodo.org/api/records/12773811/files/country_groupings.csv/content
+    format: csv
+    description: >-
+      country_groupings.csv: the countries the paper treats as developed (one name per line under a "Developed"
+      header). 392 bytes, md5:f4899d8f591d633ce28cd3daabe9add3.
+    access: {conditional: false}
+  - id: final-countries-in-analysis
+    url: https://zenodo.org/api/records/12773811/files/final_countries_in_analysis.csv/content
+    format: csv
+    description: >-
+      final_countries_in_analysis.csv: the 41 countries in the analysis, by name. 715 bytes,
+      md5:14c4df19a78e9fa678c755b848279f4e.
+    access: {conditional: false}
+status:
+  state: archived
+  note: >-
+    Replication package for a published article (Science, 23 August 2024 issue; online 22 August 2024); version v4 of
+    18 July 2024 is the latest. The OECD keeps updating CAPMF separately (OECD Data Explorer, data to 2023 on 4 October
+    2026). Not a US federal product.
+  us_federal: false
+update_cadence: One-off (replication data, 2024)
+twins: []
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#Stechemesser et al. 2024 (Science): climate policies that achieved
+  major emission reductions, with the OECD CAPMF policy database

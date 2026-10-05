@@ -1,0 +1,98 @@
+# Hawaii Ocean Time-series (HOT) surface CO2 system data product, Station ALOHA (22°45'N, 158°00'W), from 1988.
+# Evidence: docs/research/sources-ocean-and-ice.json ("Hawaii Ocean Time-series (HOT) Station ALOHA surface CO2 system
+# data product"); verifier verdict "confirmed" (file header, first and last rows, data policy text and NSF award
+# acknowledgement; the verifier prefers an OLS trend over 1989-vs-2024 endpoints because the endpoint result depends on
+# the base year).
+# Licence evidence checked 2026-10-04: the HOT Data Access page (HTTP 200) states the open-access commitment quoted
+# below and says "The following should be cited in publications:" the NSF award sentence carried here as the notice.
+# Its other requests are courtesies: contact the team to avoid duplicated effort, consider collaboration, send a
+# preprint and reprint. There is no formal licence and no clause restricting copying, modification or
+# redistribution, so the class is open with a raw mirror, as for other open data without a licence document
+# (compare bereiter-2015-co2). NSF award 2241005, "Hawaii Ocean Time-series (HOT): 2023-2028", University of Hawaii,
+# runs 1 August 2023 to 31 July 2028 (NSF award API, 2026-10-04).
+# Artifacts checked 2026-10-04: HOT_surface_CO2.txt HTTP 200, 46,975 bytes, ETag "b77f-647be0be1fe1b", Last-Modified
+# 6 Jan 2026, answers If-None-Match with 304; header "Last updated 1 January 2026 by J.E. Dore"; cruises 1 (31-Oct-88,
+# pHcalc_insitu 8.1097) to 355 (20-Dec-24, 8.0550). HOT_surface_CO2_readme.pdf HTTP 200, 573,080 bytes, Last-Modified
+# 6 Jan 2026. Per the readme, a few early DIC and TA values were filled from C. D. Keeling's parallel Station ALOHA
+# programme (notes codes a and b), pH is on the total scale, and missing values are -999.
+# citation.text: the "cite as adapted from" reference in the file header and readme, verbatim. Crossref confirms
+# doi:10.1073/pnas.0906044106 (PNAS 106(30), 12235-12240, 28 July 2009); pnas.org answers scripts with HTTP 403.
+id: hot-aloha
+title: Hawaii Ocean Time-series surface CO2 system data, Station ALOHA
+publisher: Hawaii Ocean Time-series, School of Ocean and Earth Science and Technology, University of Hawai'i at Mānoa
+landing_url: https://hahana.soest.hawaii.edu/hot/hotco2/hotco2.html
+description: >-
+  Surface seawater carbonate chemistry at Station ALOHA, north of Oahu, Hawaii: one mean (0-30 dbar) per HOT cruise,
+  roughly monthly from October 1988, of temperature, salinity, dissolved inorganic carbon, total alkalinity, measured
+  and calculated pH (total scale, at 25 °C and in situ), CO2 partial pressure, aragonite and calcite saturation states
+  and carbonate ion. Calculated pH (pHcalc_insitu) gives the longest continuous record; measured pH starts later. One
+  open-ocean station, so it shows the trend at that site, not a global average. Cruises per year vary (5 in 2022).
+  Some early carbon values were taken from Scripps' parallel ALOHA measurements, flagged in the notes column.
+citation:
+  type: article-journal
+  title: Physical and biogeochemical modulation of ocean acidification in the central North Pacific
+  author:
+    - {family: Dore, given: J. E.}
+    - {family: Lukas, given: R.}
+    - {family: Sadler, given: D. W.}
+    - {family: Church, given: M. J.}
+    - {family: Karl, given: D. M.}
+  issued: "2009"
+  container-title: Proceedings of the National Academy of Sciences
+  volume: "106"
+  page: 12235-12240
+  DOI: 10.1073/pnas.0906044106
+  URL: https://doi.org/10.1073/pnas.0906044106
+  text: >-
+    Dore, J.E., R. Lukas, D.W. Sadler, M.J. Church, and D.M. Karl. 2009. Physical and biogeochemical modulation of
+    ocean acidification in the central North Pacific. Proc Natl Acad Sci USA 106:12235-12240.
+licence_class: open
+licence:
+  name: No licence stated; free and open access with an NSF acknowledgement (HOT data policy)
+  spdx: null
+  url: null
+evidence:
+  terms_url: https://hahana.soest.hawaii.edu/hot/dataaccess.html
+  licence_quote: >-
+    The HOT project is committed to providing free and open access to its data set in a timely manner, and the use of
+    these data is encouraged.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Hawaii Ocean Time-series (HOT) surface CO2 system data product, Station ALOHA (J. E. Dore, University of Hawai'i at
+    Mānoa), last updated {version}; adapted from Dore et al. (2009), Proc Natl Acad Sci USA 106:12235-12240,
+    doi:10.1073/pnas.0906044106.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from the Hawaii Ocean Time-series (HOT) surface CO2 system data product,
+    Station ALOHA (J. E. Dore, University of Hawai'i at Mānoa), last updated {version}; adapted from Dore et al.
+    (2009), Proc Natl Acad Sci USA 106:12235-12240, doi:10.1073/pnas.0906044106.
+  notice: >-
+    This publication is based upon Hawaii Ocean Time-series observations supported by the U.S. National Science
+    Foundation under Award #2241005.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: hot-surface-co2
+    url: https://hahana.soest.hawaii.edu/hot/hotco2/HOT_surface_CO2.txt
+    format: txt
+    description: >-
+      Tab-delimited text: 7 header lines (title, created and last-updated dates, citation, contact), a blank line, then
+      22 columns from cruise, days, date, temp, sal, ... pHcalc_insitu, pCO2calc_insitu, ... carbonate_insitu, notes.
+      Missing = -999. The vintage is the "Last updated" date in the header.
+  - id: readme
+    url: https://hahana.soest.hawaii.edu/hot/hotco2/HOT_surface_CO2_readme.pdf
+    format: pdf
+    description: >-
+      The product's readme: methods, column definitions (units, pH scale, CO2SYS constants) and the notes codes for
+      non-standard sampling and filled values.
+status:
+  state: active
+  note: >-
+    Product last updated 1 January 2026, covering cruises 1-355 (October 1988 to December 2024); 2025 cruises appear
+    only as preliminary data on the HOT data system. Funded by the US National Science Foundation (award 2241005, to
+    July 2028); the FY2027 US budget request (April 2026) proposes deep cuts to NSF.
+  us_federal: true
+update_cadence: About yearly (this edition 1 January 2026)
+twins: []
+research_ref: docs/research/sources-ocean-and-ice.json#Hawaii Ocean Time-series (HOT) Station ALOHA surface CO2 system data product

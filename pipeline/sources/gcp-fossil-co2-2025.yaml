@@ -1,0 +1,87 @@
+# The Global Carbon Project's fossil CO2 emissions dataset, 2025v15 (Andrew & Peters), flat CSV files on Zenodo.
+# Evidence: docs/research/sources-emissions.json ("The Global Carbon Project's fossil CO2 emissions dataset 2025v15";
+# verdict confirmed).
+# Checked 2026-10-04:
+#   - Zenodo API record 17417124: version 2025v15, published 2025-10-22, license cc-by-4.0, 7 files.
+#     /api/records/17417124/versions/latest -> 301 to 17417124 itself, so no newer version exists.
+#   - DataCite 10.5281/zenodo.17417124 rights: "Creative Commons Attribution 4.0 International".
+#   - Every artifact URL: ranged GET -> 206 (sizes below). HEAD -> 200 with Last-Modified; a GET with If-Modified-Since
+#     -> 304. Zenodo's Last-Modified is the storage date (17 Sep 2026), not the publication date.
+#   - citation.text is the producer's own citation string, copied from the "Territorial Emissions" sheet of
+#     National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (gcb-2025-national). The per-field "citation" in the metadata
+#     JSON still reads "Friedlingstein et al 2020 (DOI: 10.5194/essd-12-3269-2020)", an older paper.
+id: gcp-fossil-co2-2025
+title: The Global Carbon Project's fossil CO2 emissions dataset, 2025 release
+publisher: Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO)
+landing_url: https://zenodo.org/records/17417124
+description: >-
+  Fossil carbon dioxide emissions by country and year from 1750 to 2024, in million tonnes of carbon dioxide, split into
+  coal, oil, gas, cement, flaring and other carbonates, with emissions per person and the population series used for
+  them. These are territorial emissions, the same national series as the Global Carbon Budget 2025, with international
+  aviation and international shipping as separate entries. The cement carbonation sink is not subtracted, so the world
+  total is higher than the Global Carbon Budget's headline fossil figure.
+citation:
+  type: dataset
+  title: The Global Carbon Project's fossil CO2 emissions dataset
+  author:
+    - {family: Andrew, given: Robbie M.}
+    - {family: Peters, given: Glen P.}
+  issued: "2025"
+  publisher: Zenodo
+  version: 2025v15
+  DOI: 10.5281/zenodo.17417124
+  URL: https://zenodo.org/records/17417124
+  text: >-
+    Andrew, R. M. and Peters, G. P.: The Global Carbon Project’s fossil CO2 emissions dataset (2025v15),
+    https://zenodo.org/records/17417124, 2025.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  # The licence field of the producer's own metadata file, repeated for every data column.
+  terms_url: https://zenodo.org/api/records/17417124/files/GCB2025v15_MtCO2_flat_metadata.json/content
+  licence_quote: Licensed under Creative Commons Attribution 4.0 International
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  attribution: >-
+    Andrew and Peters (2025), The Global Carbon Project's fossil CO2 emissions dataset, version 2025v15,
+    doi:10.5281/zenodo.17417124, CC BY 4.0. Part of the Global Carbon Budget 2025 (Friedlingstein et al., 2026, Earth
+    Syst. Sci. Data 18, 3211–3288).
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Global Carbon Project data: Andrew and Peters (2025), The Global Carbon
+    Project's fossil CO2 emissions dataset, version 2025v15, doi:10.5281/zenodo.17417124, CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: mtco2-flat
+    url: https://zenodo.org/api/records/17417124/files/GCB2025v15_MtCO2_flat.csv/content
+    format: csv
+    description: >-
+      Fossil CO2 by country and year, 1750-2024: total, coal, oil, gas, cement, flaring, other, per capita (million
+      tonnes CO2; tonnes per person). 3,147,221 bytes.
+  - id: percapita-flat
+    url: https://zenodo.org/api/records/17417124/files/GCB2025v15_percapita_flat.csv/content
+    format: csv
+    description: Fossil CO2 per person by country, year and fuel, 1750-2024 (tonnes CO2 per person). 2,732,085 bytes.
+  - id: population-flat
+    url: https://zenodo.org/api/records/17417124/files/GCB2025v15_population_flat.csv/content
+    format: csv
+    description: The population series behind the per-person values, by country, from 1950. 688,959 bytes.
+  - id: mtco2-metadata
+    url: https://zenodo.org/api/records/17417124/files/GCB2025v15_MtCO2_flat_metadata.json/content
+    format: json
+    description: Column definitions, units, version and licence for the MtCO2 flat file. 3,784 bytes.
+status:
+  state: active
+  note: >-
+    2025v15 (22 October 2025) is the latest version under concept DOI 10.5281/zenodo.5569234 on 4 October 2026; Zenodo
+    describes it as the initial release of the 2025 dataset. The next version is expected with GCB 2026 during COP31
+    (9-20 November 2026), with no date announced. Not a US federal product.
+  us_federal: false
+update_cadence: >-
+  Annual, in October or November, sometimes followed by corrected sub-versions; each version has its own DOI
+twins: [edgar-2026-ghg]
+research_ref: "docs/research/sources-emissions.json#The Global Carbon Project's fossil CO2 emissions dataset 2025v15 (by country and fuel, flat CSV)"

@@ -1,0 +1,97 @@
+# Systems Change Lab (World Resources Institute and Bezos Earth Fund): indicators of progress towards 1.5 °C-aligned
+# targets for each system shift, from the site's "Download all available data" export. IEA-sourced indicators excluded.
+# Evidence: docs/research/sources-solutions-and-action.json, verification.missing_sources item 1 (Systems Change Lab;
+# licence verified at /licensing: SCL's own data CC BY 4.0, third-party data under its own licence, IEA data excluded
+# from download), and docs/research/plan-critique-2026-10-04.txt (IEA-sourced indicators must be dropped; no implied
+# endorsement).
+# Checked 2026-10-04:
+#   - systemschangelab.org/licensing -> 200 with the CC BY 4.0 text quoted below, and: "You must not imply that Systems
+#     Change Lab, World Resources Institute, Bezos Earth Fund or any other partner organizations endorse your use of
+#     the data." (no_endorsement). It also says: "Some data displayed on the platform comes from sources developed by
+#     other organizations that may have restrictions or permissions requirements ... Please refer to the original
+#     licensing and cite the original sources for these datasets" and "Data by the International Energy Agency (IEA)
+#     is not available for download on the Systems Change Lab website and falls under the IEA Terms and Conditions".
+#   - The export does contain IEA data. /scl-download/all -> 200, application/zip, scl_data_all.zip, 2,924,342 bytes,
+#     sha256 332226929d801d91dd6f535f1105b2c3495da8edd7562e8b13e91506efd13c15: 438 indicators, each a <code>/<code>.csv
+#     (year, geo, value, sometimes projections and benchmark_low/mid/high) and a <code>_metadata.csv that lists its
+#     "Data source(s)" (Name, Provider, URL). In 45 of the 438 metadata files a provider is or includes "IEA" (e.g.
+#     PWR-23, BLDG-11, TRNS-4, CTY-21, IN-2), and those files hold values. Rule: an indicator is used only if no
+#     provider in its metadata names the IEA, and only after the licence of each provider it does name has been read
+#     and recorded; SCL's CC BY 4.0 covers SCL's own compilations, not the upstream data.
+#   - mirror_raw is false: the unmodified zip carries IEA data under IEA terms and other third-party data.
+#   - Every download differs: each metadata file starts "Data downloaded from the Systems Change Lab at <timestamp>",
+#     Last-Modified is the time of the request, and the zip also holds four stray server files (named file*, e.g. a
+#     GitHub API listing of wri/wri-scl-data-prod-public, the repository the export is built from). conditional is
+#     false; a new sha256 each run does not by itself mean new data. Not yet run from a GitHub runner.
+#   - citation.text is the platform citation on /licensing ("2025"); the metadata files inside the zip still print
+#     "Systems Change Lab. 2024." The site's own GitHub repository has no licence file and no metadata, so the export
+#     is used rather than a pinned commit.
+id: systems-change-lab
+title: "Systems Change Lab: indicators of progress on the shifts needed for 1.5 °C"
+publisher: Systems Change Lab (World Resources Institute and Bezos Earth Fund)
+landing_url: https://systemschangelab.org/download
+description: >-
+  Indicators that track the shifts needed across power, buildings, industry, transport, cities, forests and land,
+  food and agriculture, freshwater, the circular economy, technological carbon removal, finance, economics and
+  governance to stay in line with limiting warming to 1.5 °C.
+  Each indicator has yearly values for the world and for countries where available, often with 2030 and 2050
+  benchmarks and projected trajectories, and metadata naming its unit, method, status and original data sources.
+  Indicators built from International Energy Agency data are never used, and every other indicator is used only after
+  the licence of its original source has been checked.
+citation:
+  type: webpage
+  title: Systems Change Lab
+  author:
+    - {literal: Systems Change Lab}
+  issued: "2025"
+  publisher: World Resources Institute, Bezos Earth Fund
+  URL: https://www.systemschangelab.org
+  text: >-
+    Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund. Available online at:
+    https://www.systemschangelab.org.
+licence_class: open
+licence:
+  name: CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://systemschangelab.org/licensing
+  licence_quote: >-
+    Data, maps and visualizations on the Systems Change Lab website are under a Creative Commons Attribution 4.0
+    International (CC BY 4.0) license, which allows for any commercial or non-commercial use as long as you cite
+    Systems Change Lab.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund.
+    https://www.systemschangelab.org, accessed {date_accessed}. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Systems Change Lab data. Systems Change Lab. 2025. Washington, DC: World
+    Resources Institute, Bezos Earth Fund. https://www.systemschangelab.org, accessed {date_accessed}. CC BY 4.0.
+  notice: >-
+    Each indicator also credits the original data source named in its Systems Change Lab metadata, under that
+    source's own licence.
+  mirror_raw: false
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: scl-data-all
+    url: https://systemschangelab.org/scl-download/all
+    format: zip
+    description: >-
+      scl_data_all.zip: one folder per indicator code (BLDG, CE, CR, CTY, FA, FIN, FW, GOV, IN, NE, PWR, TRNS and
+      X-/XP- variants), each with <code>.csv (year, geo, value and, for some, projections and benchmark_low/mid/high)
+      and <code>_metadata.csv (title, units, last updated, indicator type, system, shift, description, methodology
+      and data sources). 438 indicators on 2026-10-04.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Indicator files are updated one at a time through the year (the underlying repository had commits on 29 September
+    and 1 and 2 October 2026). The State of Climate Action 2025 report (22 October 2025) assesses 45 of the
+    indicators. Not a US federal product.
+  us_federal: false
+update_cadence: Continuous, indicator by indicator; State of Climate Action report about once a year
+research_ref: "docs/research/sources-solutions-and-action.json#verification.missing_sources (1) Systems Change Lab"

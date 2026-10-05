@@ -1,0 +1,107 @@
+# Poore & Nemecek (2018), Science 360:987-992: global mean life-cycle footprints of about 40 food products, as
+# published by Our World in Data (OWID) grapher CSVs.
+# Evidence: docs/research/sources-food-land-nature.json ("Poore & Nemecek (2018) food footprints via Our World in
+# Data", final_redistribution unclear) and docs/research/sources-emissions.json (verdict "corrected": the ORA link is
+# the accepted manuscript, not a dataset; cite the erratum doi:10.1126/science.aaw9908).
+# Class display-only, from the producer's own terms: no open licence has been granted for these data. The paper and
+# its supplementary data (Data S2) are published by AAAS; the authors' repository record (ORA, HTTP 200 on
+# 2026-10-04) states the rights quoted below and governs the file under "Terms and Conditions of Use for Oxford
+# University Research Archive". science.org (article and supplement) answered HTTP 403 on 2026-10-04, as in research.
+# OWID is only the conduit: its metadata for every series used here has license null and no origins, and OWID's FAQ
+# says third-party data are "subject to the license terms of those providers". So values are shown with citation,
+# never downloaded, mirrored or archived.
+# Some per-100 g protein and per-1000 kcal values are OWID's own conversions with FAO/INFOODS composition factors;
+# label them as processed by Our World in Data.
+# Artifacts checked 2026-10-04: all five grapher CSVs answer HTTP 200 text/csv (ghg-per-kg-poore 844 bytes, e.g.
+# "Apples,2010,0.43"; ghg-per-protein-poore 825; ghg-kcal-poore 1,010; land-use-per-kg-poore 843;
+# food-emissions-supply-chain 4,194). Last-Modified equals the request time and there is no ETag, so conditional is
+# false. Grapher metadata: lastUpdated 2019-10-08 (2018-01-01 for the supply-chain stages), timespan 2010 (2018 for
+# the supply-chain chart), nextUpdate null.
+# An openly licensed alternative for per-food footprints is SU-EATABLE LIFE (Petersson et al. 2021, Sci Data 8:127,
+# doi:10.1038/s41597-021-00909-8, CC BY 4.0 per Crossref); not registered here.
+id: poore-nemecek-2018
+title: Environmental footprints of food products (Poore & Nemecek 2018)
+publisher: Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data
+landing_url: https://ourworldindata.org/environmental-impacts-of-food
+description: >-
+  Global mean greenhouse gas emissions (kg CO2-equivalent, GWP100) per kilogram, per 100 g of protein and per 1,000
+  kcal, land use (m2 per kilogram) and the split of emissions across supply-chain stages (land-use change, farm, animal
+  feed, processing, transport, retail, packaging, losses) for about 40 food products. A meta-analysis of about 570
+  life-cycle studies covering about 38,700 farms in 119 countries, reference year about 2010; not a time series.
+  Global means hide wide producer variation, and beef from beef herds and from dairy herds are separate products.
+citation:
+  type: article-journal
+  title: Reducing food's environmental impacts through producers and consumers
+  author:
+    - {family: Poore, given: J.}
+    - {family: Nemecek, given: T.}
+  issued: "2018-06-01"
+  publisher: American Association for the Advancement of Science
+  container-title: Science
+  volume: "360"
+  page: 987-992
+  DOI: 10.1126/science.aaq0216
+  URL: https://doi.org/10.1126/science.aaq0216
+  # APA form given on the authors' ORA record; OWID's citation for its processed series follows.
+  text: >-
+    Poore, J., & Nemecek, T. (2018). Reducing food’s environmental impacts through producers and consumers. Science,
+    360(6392), 987–992. https://doi.org/10.1126/science.aaq0216 (erratum: https://doi.org/10.1126/science.aaw9908).
+    Poore and Nemecek (2018) – processed by Our World in Data.
+licence_class: display-only
+licence:
+  name: All rights reserved (Science, exclusive licensee AAAS); no data licence
+  spdx: null
+  url: null
+evidence:
+  terms_url: https://ora.ox.ac.uk/objects/uuid:b0b53649-5e93-4415-bf07-6b0b1227172f
+  licence_quote: >-
+    Copyright © 2018 The Authors, some rights reserved; exclusive licensee American Association for the Advancement of
+    Science.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Poore, J. & Nemecek, T. (2018). Reducing food’s environmental impacts through producers and consumers. Science
+    360(6392), 987–992, doi:10.1126/science.aaq0216 (erratum doi:10.1126/science.aaw9908). Values as processed by Our
+    World in Data.
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  - id: ghg-per-kg
+    url: https://ourworldindata.org/grapher/ghg-per-kg-poore.csv?v=1&csvType=full&useColumnShortNames=true
+    format: csv
+    description: Greenhouse gas emissions per kilogram of food product (kg CO2e per kg), reference year 2010.
+    access: {conditional: false}
+  - id: ghg-per-protein
+    url: https://ourworldindata.org/grapher/ghg-per-protein-poore.csv?v=1&csvType=full&useColumnShortNames=true
+    format: csv
+    description: Greenhouse gas emissions per 100 grams of protein (kg CO2e per 100 g protein), reference year 2010.
+    access: {conditional: false}
+  - id: ghg-per-kcal
+    url: https://ourworldindata.org/grapher/ghg-kcal-poore.csv?v=1&csvType=full&useColumnShortNames=true
+    format: csv
+    description: Greenhouse gas emissions per 1,000 kilocalories (kg CO2e per 1000 kcal), reference year 2010.
+    access: {conditional: false}
+  - id: land-use-per-kg
+    url: https://ourworldindata.org/grapher/land-use-per-kg-poore.csv?v=1&csvType=full&useColumnShortNames=true
+    format: csv
+    description: Land use per kilogram of food product (m2 per kg), reference year 2010.
+    access: {conditional: false}
+  - id: ghg-supply-chain
+    url: https://ourworldindata.org/grapher/food-emissions-supply-chain.csv?v=1&csvType=full&useColumnShortNames=true
+    format: csv
+    description: >-
+      Greenhouse gas emissions per kilogram split by supply-chain stage (land-use change, farm, animal feed,
+      processing, transport, retail, packaging, losses), kg CO2e per kg; OWID labels the year 2018.
+    access: {conditional: false}
+status:
+  state: archived
+  note: >-
+    Published paper (June 2018) with an erratum (Science 363, 22 February 2019); no newer edition. OWID's series were
+    last updated in 2019 and are maintained as published.
+  us_federal: false
+update_cadence: One-off (published 2018)
+twins: []
+research_ref: >-
+  docs/research/sources-food-land-nature.json#Poore & Nemecek (2018) food footprints via Our World in Data;
+  docs/research/sources-emissions.json#Poore & Nemecek (2018) food footprints via OWID

@@ -1,0 +1,101 @@
+# Copernicus Climate Change Service (C3S) Climate Bulletin: monthly global-mean surface air temperature from ERA5.
+# Evidence: docs/research/sources-atmosphere-and-temperature.json (verification.missing_sources item 1, "C3S Climate
+# Bulletin monthly global ERA5 CSV", and the corrections to "Copernicus C3S ERA5 global temperature and Climate Pulse").
+#
+# The file moves every month. Pattern seen on the bulletin pages:
+#   https://climate.copernicus.eu/sites/default/files/{upload YYYY-MM}/C3S_Bulletin_temp_{data YYYYMM}_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA.csv
+# The folder is the month the file was uploaded (normally the month after the data month), and the site's CMS
+# sometimes appends "_0" to a re-uploaded file name (the August 2026 Fig8 file is "..._DATA_0.csv"), so the fetcher
+# should take the link from the month's bulletin page (https://climate.copernicus.eu/surface-air-temperature-{month}-{year},
+# e.g. surface-air-temperature-august-2026, under "Data (all months)") rather than build it. Current file: data to
+# August 2026, "Last updated: 03 Sep 2026", HTTP 200 on 2026-10-04 (Last-Modified 09 Sep 2026, ETag present). The
+# September 2026 name under 2026-10/ returned HTTP 404 on 2026-10-04 (not yet published).
+#
+# Licence: the CSV and climate.copernicus.eu carry no licence statement of their own. The file header names its data
+# source as ERA5 monthly averaged data on the C3S Climate Data Store, whose catalogue entry is licensed CC BY 4.0 (the
+# quote below). The CDS "Citation and attribution" text for that dataset adds, "In addition to the requirements of the
+# applicable license(s)", a Copernicus attribution and the EC/ECMWF disclaimer, so both are obligations here. Those
+# two lines also satisfy clause 5 of the Licence to use Copernicus Products (rev. 12), should C3S treat the Bulletin
+# file as a Copernicus Product under that licence instead.
+id: c3s-era5-bulletin
+title: C3S Climate Bulletin global surface air temperature (ERA5)
+publisher: Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission
+landing_url: https://climate.copernicus.eu/climate-bulletin
+description: >-
+  Monthly global-mean surface air temperature from the ERA5 reanalysis since January 1940, as published with each
+  monthly C3S Climate Bulletin: the absolute value, the 1991–2020 monthly climatology, the anomaly from 1991–2020, the
+  C3S offset between 1991–2020 and 1850–1900 (offset_pi, 0.80 to 0.96 °C depending on the month) and the anomaly from
+  1850–1900 (ano_pi). The offset is C3S's estimate from HadCRUT5, NOAAGlobalTemp and Berkeley Earth, because ERA5
+  starts in 1940; the site uses ano_pi as published and says so. The latest months come from preliminary ERA5 data.
+citation:
+  type: dataset
+  title: ERA5 monthly averaged data on single levels from 1940 to present
+  author:
+    - {family: Hersbach, given: H.}
+    - {family: Bell, given: B.}
+    - {family: Berrisford, given: P.}
+    - {family: Biavati, given: G.}
+    - {family: Horányi, given: A.}
+    - {family: Muñoz Sabater, given: J.}
+    - {family: Nicolas, given: J.}
+    - {family: Peubey, given: C.}
+    - {family: Radu, given: R.}
+    - {family: Rozum, given: I.}
+    - {family: Schepers, given: D.}
+    - {family: Simmons, given: A.}
+    - {family: Soci, given: C.}
+    - {family: Dee, given: D.}
+    - {family: Thépaut, given: J-N.}
+  issued: "2023"
+  publisher: Copernicus Climate Change Service (C3S) Climate Data Store (CDS)
+  DOI: 10.24381/cds.f17050d7
+  URL: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means
+  # "Citing the data" from the CDS Citation and attribution panel, with DD-MMM-YYYY filled in by the build.
+  text: >-
+    Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C.,
+    Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2023): ERA5 monthly averaged
+    data on single levels from 1940 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI:
+    10.24381/cds.f17050d7 (Accessed on {date_accessed})
+licence_class: open
+licence:
+  name: CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  # The CDS catalogue API's licence field for the dataset named in the CSV header (also links
+  # https://spdx.org/licenses/CC-BY-4.0, title "CC-BY licence", rev 1).
+  terms_url: https://cds.climate.copernicus.eu/api/catalogue/v1/collections/reanalysis-era5-single-levels-monthly-means
+  licence_quote: '"license":"CC-BY-4.0"'
+  checked_on: 2026-10-04
+  terms_check: api
+obligations:
+  # CDS: "Generated using or contains modified Copernicus Climate Change Service information <YYYY>." Bulletin pages
+  # credit every figure and data file "Data source: ERA5. Credit: C3S/ECMWF."
+  attribution: >-
+    Generated using Copernicus Climate Change Service information {year}. Data source: ERA5 (Hersbach et al. 2023,
+    doi:10.24381/cds.f17050d7), C3S Climate Bulletin. Credit: C3S/ECMWF.
+  attribution_modified: >-
+    Contains modified Copernicus Climate Change Service information {year}. Data source: ERA5 (Hersbach et al. 2023,
+    doi:10.24381/cds.f17050d7), C3S Climate Bulletin. Credit: C3S/ECMWF.
+  notice: >-
+    Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information
+    or data it contains.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: global-allmonths
+    url: https://climate.copernicus.eu/sites/default/files/2026-09/C3S_Bulletin_temp_202608_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA.csv
+    format: csv
+    description: >-
+      Global (0–360°E, 90°S–90°N) monthly ERA5 surface air temperature from January 1940: columns month, 2t,
+      clim_91-20, ano_91-20, offset_pi, ano_pi, in °C, after a "#" header ending "Last updated: <date>". This copy runs
+      to August 2026; the URL changes every month (see header comment).
+status:
+  state: active
+  note: >-
+    Published with each monthly Climate Bulletin; the August 2026 highlights appeared on 10 September 2026. EU
+    Copernicus programme, implemented by ECMWF; not exposed to US federal cuts.
+  us_federal: false
+update_cadence: Monthly, with the C3S Climate Bulletin in the first two weeks of the following month
+twins: [hadcrut5, gistemp-v4, noaaglobaltemp-v6]
+research_ref: docs/research/sources-atmosphere-and-temperature.json#verification.missing_sources (1. C3S Climate Bulletin monthly global ERA5 CSV)

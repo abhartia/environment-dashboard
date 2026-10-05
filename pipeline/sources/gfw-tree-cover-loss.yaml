@@ -1,0 +1,152 @@
+# UMD/Hansen Global Forest Change v1.13 tree cover loss (2001-2025), tabulated by country by World Resources Institute
+# and served through the Global Forest Watch (now Global Nature Watch) Data API, with the WRI/Google DeepMind
+# dominant-driver classes, UMD/GLAD loss due to fire and the UMD primary humid tropical forest mask.
+# Evidence: docs/research/sources-food-land-nature.json ("Global Forest Change v1.13 (Hansen/UMD) via GFW / Global
+# Nature Watch Data API"); verdict "corrected" (pin the table version; /latest is an older version; new landing URL),
+# final_redistribution open-attribution.
+# Terms checked 2026-10-04:
+# - Hansen download page (GFC-2025-v1.13/download.html): HTTP 200, Last-Modified 2026-04-29; quote below, plus "Use the
+#   following credit when these data are displayed: Source: Hansen/UMD/Google/USGS/NASA".
+# - GFW Data API metadata (api): umd_tree_cover_loss license "[CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)",
+#   versions v1.8-v1.13; umd_tree_cover_loss_from_fires "CC by 4.0"; wri_google_tree_cover_loss_drivers "CC by 4.0"
+#   (v1.13, is_latest true) with display credit "Tree cover loss by dominant driver". WRI/Google DeepMind. The
+#   gadm__tcl__iso_change table itself carries no licence field; its columns derive from those datasets.
+# - umd_regional_primary_forest_2001 has an empty licence field in the API. GLAD's page
+#   (glad.umd.edu/dataset/primary-forest-humid-tropics, HTTP 200) asks only for the Turubanova et al. (2018) credit;
+#   the Earth Engine catalogue entry UMD/GLAD/PRIMARY_HUMID_TROPICAL_FORESTS/v1 states "The data may be used by anyone,
+#   anywhere, anytime without permission, license or royalty payment. Attribution using the recommended citation is
+#   requested." We credit Turubanova et al. wherever primary-forest loss appears.
+# - Global Nature Watch terms (globalforestwatch.org/terms 301 -> globalnaturewatch.org/terms/, HTTP 200): "each
+#   dataset carries its own license and restrictions" and "each request to an API must include one of Your Account's
+#   unique API keys". So every request sends the key (header x-api-key, per the API's openapi.json). The keyless
+#   requests that worked in research and in this check are not a documented entitlement. The Keychain item
+#   gfw-api-key (GitHub secret GFW_API_KEY, docs/runbook.md) did not exist on 2026-10-04: owner action before the
+#   first fetch. The terms also point to Resource Watch "Attribution Requirements" (resourcewatch.org, a site WRI says
+#   is being archived), which ask websites built on the Resource Watch API for a "powered by Resource Watch" logo; the
+#   GFW Data API is a separate service, so we credit Global Nature Watch in the attribution instead. Owner to confirm
+#   with WRI if in doubt.
+# - The country breakdown uses GADM boundaries inside WRI's table; we take only the tabulated statistics, never GADM
+#   polygons. The table also has WDPA, KBA, Landmark and other third-party columns, which we do not query.
+# Artifacts checked 2026-10-04 (GET, no key): all four return HTTP 200 text/csv, cache-control max-age=7200, no ETag or
+# Last-Modified (conditional false). Global: 26 lines, 2025 loss 25,528,555.5 ha, fire 10,751,917.9 ha, 2024
+# 29,592,479.1 ha. Country: 4,976 lines. Primary forest at >=30% canopy: 2025 4,286,331.3 ha, 2024 6,731,252.7 ha.
+# Drivers: 32,015 lines, 2001-2025 total 542.8 Mha (permanent agriculture 172.3, wildfire 162.7, logging 134.6,
+# shifting cultivation 52.9, other natural 8.4, hard commodities 5.1, settlements 4.9, unknown 1.9). These reproduce the
+# verified research figures. The table version v20260424 has is_latest false; /latest 307-redirects to v20250515,
+# which stops at 2024 (2024 loss 29,594,885 ha there). Pin and cite the version.
+id: gfw-tree-cover-loss
+title: Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)
+publisher: University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute
+landing_url: https://globalnaturewatch.org/dashboards/global/
+description: >-
+  Annual tree cover loss (stand-replacing disturbance of vegetation taller than 5 m) from Landsat at 30 m, 2001-2025,
+  summed by country by WRI for areas with at least 30% tree canopy cover in 2000. Includes the share caused by fire,
+  loss inside humid tropical primary forest, and the dominant driver of loss in each 1 km cell (permanent agriculture,
+  hard commodities, shifting cultivation, logging, wildfire, settlements and infrastructure, other natural
+  disturbances). Tree cover loss is not deforestation: it includes plantation harvest, fire and natural disturbance.
+  Method changes from 2011 and 2015 onward make early and late years less comparable.
+citation:
+  type: article-journal
+  title: High-Resolution Global Maps of 21st-Century Forest Cover Change
+  author:
+    - {family: Hansen, given: M. C.}
+    - {family: Potapov, given: P. V.}
+    - {family: Moore, given: R.}
+    - {family: Hancher, given: M.}
+    - {family: Turubanova, given: S. A.}
+    - {family: Tyukavina, given: A.}
+    - {family: Thau, given: D.}
+    - {family: Stehman, given: S. V.}
+    - {family: Goetz, given: S. J.}
+    - {family: Loveland, given: T. R.}
+    - {family: Kommareddy, given: A.}
+    - {family: Egorov, given: A.}
+    - {family: Chini, given: L.}
+    - {family: Justice, given: C. O.}
+    - {family: Townshend, given: J. R. G.}
+  issued: "2013"
+  container-title: Science
+  volume: "342"
+  page: 850-853
+  version: GFC-2025-v1.13
+  DOI: 10.1126/science.1244693
+  URL: https://glad.earthengine.app/view/global-forest-change
+  # Verbatim "cite" credits from the Hansen download page and the drivers dataset metadata.
+  text: >-
+    Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J.
+    Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013.
+    High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available
+    on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M.
+    Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton,
+    D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. "Global Drivers of Forest Loss at 1 Km Resolution."
+    Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2025-v1.13/download.html
+  # The page continues: ". You are free to copy and redistribute the material in any medium or format, and to
+  # transform and build upon the material for any purpose, even commercially." The quote stops before the period
+  # because the licence name is a link (<a>...</a>.), which some tag-stripping normalisers split with a space.
+  licence_quote: This work is licensed under a Creative Commons Attribution 4.0 International License
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Source: Hansen/UMD/Google/USGS/NASA (Global Forest Change v1.13), accessed through Global Nature Watch (WRI table
+    gadm__tcl__iso_change v20260424) on {date_accessed}. Tree cover loss due to fire: UMD/GLAD (Tyukavina et al. 2022).
+    Tree cover loss by dominant driver: WRI/Google DeepMind (Sims et al. 2025). Primary humid tropical forest: Turubanova
+    et al. (2018). CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Hansen/UMD/Google/USGS/NASA (Global Forest Change v1.13), accessed through
+    Global Nature Watch (WRI table gadm__tcl__iso_change v20260424) on {date_accessed}. Tree cover loss due to fire:
+    UMD/GLAD (Tyukavina et al. 2022). Tree cover loss by dominant driver: WRI/Google DeepMind (Sims et al. 2025).
+    Primary humid tropical forest: Turubanova et al. (2018). CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: loss-global-annual
+    url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20umd_tree_cover_loss__year%20ORDER%20BY%20umd_tree_cover_loss__year
+    format: csv
+    description: >-
+      World tree cover loss and loss due to fire by year (ha), 2001-2025, at >=30% canopy cover in 2000; the sum of
+      WRI's country table.
+    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+  - id: loss-country-annual
+    url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year
+    format: csv
+    description: >-
+      Tree cover loss and loss due to fire by country (GADM ISO3 code) and year (ha), 2001-2025, at >=30% canopy cover
+      in 2000.
+    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+  - id: loss-primary-forest-country-annual
+    url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20AND%20is__umd_regional_primary_forest_2001%20%3D%20true%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year
+    format: csv
+    description: >-
+      Tree cover loss inside the 2001 humid tropical primary forest extent (Turubanova et al. 2018) by country and year
+      (ha), 2001-2025, at >=30% canopy cover in 2000. Without the canopy filter the table double-counts across
+      thresholds.
+    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+  - id: loss-drivers-country-annual
+    url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year
+    format: csv
+    description: >-
+      Tree cover loss by country, WRI/Google DeepMind dominant driver class (eight classes including "Unknown") and
+      year (ha), 2001-2025, at >=30% canopy cover in 2000. WRI counts permanent agriculture, hard commodities and
+      settlements and infrastructure as permanent conversion to non-forest land use.
+    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+status:
+  state: active
+  note: >-
+    GFC v1.13 (2025 loss) was released with WRI's analysis on 29 April 2026; GFC-2026-v1.14 does not exist yet. The
+    pinned country table v20260424 is not flagged latest by the API. Global Forest Watch is rebranding as Global Nature
+    Watch (the dashboard and terms URLs already redirect), so URLs may change. The product depends on Landsat (USGS and
+    NASA), which is exposed to US science funding cuts; UMD's GLAD lab is not itself a federal programme.
+  us_federal: false
+update_cadence: Annual, around April-May (2025 loss released 29 April 2026)
+twins: []
+research_ref: >-
+  docs/research/sources-food-land-nature.json#Global Forest Change v1.13 (Hansen/UMD) via GFW / Global Nature Watch Data
+  API

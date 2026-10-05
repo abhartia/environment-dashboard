@@ -1,0 +1,120 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/datapackage.json",
+  "description": "Indicators published on environmentdashboard.org, each traceable to its primary source. Every resource carries its own licence; there is no package-wide licence.",
+  "homepage": "https://environmentdashboard.org/data",
+  "name": "environment-dashboard",
+  "resources": [
+    {
+      "bytes": 4071,
+      "description": "Annual mean carbon dioxide in dry air averaged over NOAA's global network of marine surface sites, since 1979.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:cac57b82b2de303cd7abd1f70fdd0b73d576f1937b14b5924ab559b34490a2a3",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "co2.noaa-gml.annual-global",
+      "path": "v1/indicators/co2.noaa-gml.annual-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "parts per million (ppm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide, methane and nitrous oxide"}
+      ],
+      "title": "Carbon dioxide, global annual mean"
+    },
+    {
+      "bytes": 80304,
+      "description": "Monthly mean carbon dioxide in dry air measured at Mauna Loa Observatory, Hawaii, since March 1958: the Keeling Curve. Values before May 1974 were measured by the Scripps Institution of Oceanography.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c60b58abb04ce9104890dd924ad57c7281cc13bb50c5226f4995512c05637b48",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "co2.noaa-gml.monthly-mlo",
+      "path": "v1/indicators/co2.noaa-gml.monthly-mlo.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "parts per million (ppm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide, methane and nitrous oxide"}
+      ],
+      "title": "Carbon dioxide at Mauna Loa, monthly mean"
+    },
+    {
+      "bytes": 16878,
+      "description": "Global mean near-surface temperature for each complete year since 1850, as the difference from the 1850–1900 average of the same dataset, with the 95% range.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:15477193784da3c7bb4456a08b7d700dd26ab9f07115e57019bcf5421089d561",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.hadcrut5.annual-1850-1900",
+      "path": "v1/indicators/temp.hadcrut5.annual-1850-1900.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.metoffice.gov.uk/hadobs/hadcrut5/", "title": "Met Office Hadley Centre and University of East Anglia Climatic Research Unit: HadCRUT5 near-surface temperature anomalies"}
+      ],
+      "title": "Global surface temperature above 1850–1900 (HadCRUT5)"
+    }
+  ],
+  "title": "Environment Dashboard data"
+}

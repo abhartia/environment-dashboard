@@ -1,0 +1,74 @@
+# IRENA Renewable Power Generation Costs in 2025 (published July 2026): the report's data file.
+# Evidence: docs/research/sources-energy.json ("IRENA – Renewable Power Generation Costs in 2025"), re-checked
+# 2026-10-04. irena.org HTML pages return 403 to scripts; files under /-/media/ return 200.
+# Licence: page 2 of the executive summary PDF (terms_url), read 2026-10-04. It continues: "Material in this
+# publication that is attributed to third parties may be subject to separate terms of use and restrictions, and
+# appropriate permissions from these third parties may need to be secured before any use of such material." In the
+# data file, sheets "Fig. 9.5" and "Fig. 9.7" (energy storage costs) are labelled "Based on BNEF data": they are never
+# ingested, and for that reason the unmodified workbook is not mirrored.
+# citation.text is verbatim from both the PDF and the workbook's Contents sheet ("This data should be cited as: ...").
+id: irena-costs-2025
+title: Renewable power generation costs in 2025
+publisher: International Renewable Energy Agency (IRENA)
+landing_url: https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025
+description: >-
+  Global and country levelised cost of electricity (LCOE), total installed costs, capacity factors and auction
+  prices for solar PV, onshore and offshore wind, concentrated solar, hydropower, geothermal and bioenergy, mostly
+  2010 to 2025, in real 2025 US dollars. The workbook has one sheet per report figure or table ("Fig 1.1",
+  "Table 2.1", ...), not a tidy table, and its layout changes each edition, so each sheet is parsed by a transform
+  written for this vintage and checked against the report. Headline values from the executive summary: solar PV
+  LCOE USD 44 per MWh in 2025 (unchanged from 2024), onshore wind USD 33, offshore wind USD 78, solar down 89%
+  since 2010. Global weighted averages hide wide differences between countries, and LCOE excludes system
+  integration costs.
+citation:
+  type: report
+  title: Renewable power generation costs in 2025
+  author:
+    - {literal: International Renewable Energy Agency}
+  issued: "2026"
+  publisher: International Renewable Energy Agency
+  URL: https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025
+  text: IRENA (2026), Renewable power generation costs in 2025, International Renewable Energy Agency, Abu Dhabi.
+licence_class: open
+licence:
+  name: IRENA publication terms (free use with acknowledgement of IRENA as source and copyright holder)
+  spdx: null
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
+evidence:
+  terms_url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
+  licence_quote: >-
+    Unless otherwise stated, material in this publication may be freely used, shared, copied, reproduced, printed
+    and/or stored, provided that appropriate acknowledgement is given of IRENA as the source and copyright holder.
+  checked_on: 2026-10-04
+  terms_check: pdf
+obligations:
+  attribution: IRENA (2026), Renewable power generation costs in 2025. Source and copyright holder © IRENA 2026.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from IRENA (2026), Renewable power generation costs in 2025. Source and
+    copyright holder © IRENA 2026.
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-04: 12,908,268 bytes, Last-Modified Thu 02 Jul 2026, ETag 76f027738bf84e0491e6c0ab0bb332d0
+  # (sha256 44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172).
+  - id: data-file
+    url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx
+    format: xlsx
+    description: >-
+      Data behind every figure and table of the report, one sheet each (108 sheets including section dividers).
+      Sheets "Fig. 9.5" and "Fig. 9.7" are BNEF-based and excluded.
+  # GET 200 on 2026-10-04: 2,737,306 bytes, no ETag or Last-Modified. ISBN 978-92-9260-749-4.
+  - id: executive-summary-pdf
+    url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
+    format: pdf
+    description: Executive summary with the terms and citation on page 2 and the headline cost figures.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Data file last modified 2 July 2026. IRENA is an intergovernmental agency in Abu Dhabi; not exposed to US
+    federal cuts.
+  us_federal: false
+update_cadence: Annual, mid-year
+research_ref: docs/research/sources-energy.json#IRENA – Renewable Power Generation Costs in 2025

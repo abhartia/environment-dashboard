@@ -1,0 +1,224 @@
+# IMBIE 2026: reconciled mass balance of the Greenland and Antarctic ice sheets, 1971/1979 to 2023 (IMBIE3).
+# Evidence: docs/research/sources-ocean-and-ice.json ("IMBIE 2026: Mass balance of the Greenland and Antarctic Ice
+# Sheets from the 1970s to 2023 (IMBIE3)"); verifier verdict "confirmed" (OGL v3.0, no access restrictions; 10 files
+# dated 2026-07-06; Greenland -6196.15 +/- 467.35 Gt and Antarctica -4779.47 +/- 513.03 Gt cumulative to December 2023;
+# the mm files use the mass-balance sign, so the site flips it for "added to sea level"; the C3S ice-sheet figure CSV
+# repeats IMBIE rows and is an extension, not an independent series).
+# Licence evidence checked 2026-10-04: the UK Polar Data Centre record GB/NERC/BAS/PDC/02074 (HTTP 200) states the
+# constraints quoted below; DataCite for doi:10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0 gives rights "Open Government
+# Licence V3.0" (version 1.0, DOI created 2026-07-07); every CSV repeats "# license:" with the OGL v3 URL. OGL v3 asks
+# for the provider's attribution statement (the citation below) or, failing one, "Contains public sector information
+# licensed under the Open Government Licence v3.0", and a link to the licence; it also forbids implying official status
+# or endorsement (hence no_endorsement). The data paper (Otosaka et al. 2026, Scientific Data 13, 1301,
+# doi:10.1038/s41597-026-08088-0, published 16 Sep 2026) is CC BY 4.0 per Crossref.
+# Artifacts checked 2026-10-04: the RAMADDA JSON listing (entry 128c5e33-5224-4197-82f0-19dcc95b80a0) has 10 files,
+# all created 2026-07-06T10:07:40Z; each URL below returned HTTP 200 text/csv with the listed byte count and
+# Last-Modified 6 Jul 2026, no ETag, and the server ignores If-Modified-Since (HTTP 200), so conditional: false.
+# Rows are monthly (Greenland from 1971-07-01, Antarctic regions from 1979-01-01, all to 2023-12-01).
+# The CSV headers credit ESA EOEP-5, the ESA Climate Change Initiative and the NASA Cryosphere Program.
+# citation.text: the "# citation:" line of the CSVs (the same as the UK Polar Data Centre record), verbatim.
+id: imbie-2026
+title: Mass balance of the Greenland and Antarctic ice sheets from the 1970s to 2023 (IMBIE 2026)
+publisher: IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre
+landing_url: https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074
+description: >-
+  Reconciled estimates of ice sheet mass change from 45 independent satellite surveys (altimetry, gravimetry and the
+  input-output method): monthly rate of mass change (Gt per year), cumulative mass anomaly (Gt) and its split into
+  surface mass balance and ice dynamics, each with a one-sigma uncertainty, for Greenland (July 1971 to December 2023)
+  and for Antarctica as a whole, West and East Antarctica and the Antarctic Peninsula (January 1979 to December 2023).
+  A parallel set of files gives the same in millimetres of sea level equivalent, signed as mass balance (negative
+  means sea level rise). Ends in December 2023; anything later would come from another source, shown separately.
+citation:
+  type: dataset
+  title: Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023
+  author:
+    - {family: "Otosaka", given: "Inès"}
+    - {family: "Shepherd", given: "Andrew"}
+    - {family: "Amory", given: "Charles"}
+    - {family: "Horwath", given: "Martin"}
+    - {family: "King", given: "Michalea"}
+    - {family: "Nowicki", given: "Sophie"}
+    - {family: "Payne", given: "Antony"}
+    - {family: "Rignot", given: "Eric"}
+    - {family: "Sørensen", given: "Louise Sandberg"}
+    - {family: "Schlegel", given: "Nicole-Jeanne"}
+    - {family: "Simon", given: "Karen"}
+    - {family: "Smith", given: "Benjamin"}
+    - {family: "Sutterley", given: "Tyler"}
+    - {family: "van den Broeke", given: "Michiel"}
+    - {family: "Velicogna", given: "Isabella"}
+    - {family: "A", given: "Geruo"}
+    - {family: "Agosta", given: "Cécile"}
+    - {family: "Ditmar", given: "Pavel"}
+    - {family: "Döhne", given: "Thorben"}
+    - {family: "Engdahl", given: "Marcus"}
+    - {family: "Fettweis", given: "Xavier"}
+    - {family: "Forsberg", given: "Rene"}
+    - {family: "Gardner", given: "Alex"}
+    - {family: "Gilbert", given: "Linda"}
+    - {family: "Goelzer", given: "Heiko"}
+    - {family: "Gourmelen", given: "Noel"}
+    - {family: "Groh", given: "Andreas"}
+    - {family: "Hansen", given: "Nicolaj"}
+    - {family: "Harig", given: "Christopher"}
+    - {family: "Helm", given: "Veit"}
+    - {family: "Khan", given: "Shfaqat"}
+    - {family: "Kittel", given: "Christoph"}
+    - {family: "Langen", given: "Peter"}
+    - {family: "Larsen", given: "Mathias"}
+    - {family: "Loomis", given: "Bryant"}
+    - {family: "McMillan", given: "Malcolm"}
+    - {family: "Medley", given: "Brooke"}
+    - {family: "Melini", given: "Daniele"}
+    - {family: "Mottram", given: "Ruth"}
+    - {family: "Muir", given: "Alan"}
+    - {family: "Nilsson", given: "Johan"}
+    - {family: "Noël", given: "Brice"}
+    - {family: "Pattle", given: "Mark"}
+    - {family: "Roca i Aparici", given: "Mònica"}
+    - {family: "Sasgen", given: "Ingo"}
+    - {family: "Save", given: "Himanshu"}
+    - {family: "Scheuchl", given: "Bernd"}
+    - {family: "Schrama", given: "Ernst"}
+    - {family: "Schröder", given: "Ludwig"}
+    - {family: "Seo", given: "Ki-Weon"}
+    - {family: "Simonsen", given: "Sebastian"}
+    - {family: "Slater", given: "Thomas"}
+    - {family: "Spada", given: "Giorgio"}
+    - {family: "Vishwakarma", given: "Bramha Dutt"}
+    - {family: "Wever", given: "Nander"}
+    - {family: "Wiese", given: "David"}
+    - {family: "Wouters", given: "Bert"}
+  issued: "2026"
+  publisher: NERC EDS UK Polar Data Centre
+  version: "1.0"
+  DOI: 10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0
+  URL: https://doi.org/10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0
+  text: >-
+    Otosaka, I., Shepherd, A., Amory, C., Horwath, M., King, M., Nowicki, S., Payne, A., Rignot, E., Sørensen, L.,
+    Schlegel, N., Simon, K., Smith, B., Sutterley, T., van den Broeke, M., Velicogna, I., A, G., Agosta, C., Ditmar,
+    P., Döhne, T., … Wouters, B. (2026). Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023
+    (Version 1.0) [Data set]. NERC EDS UK Polar Data Centre. https://doi.org/10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0
+licence_class: open
+licence:
+  name: Open Government Licence v3.0
+  spdx: OGL-UK-3.0
+  url: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+evidence:
+  terms_url: https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074
+  licence_quote: >-
+    Access Constraints: No restrictions apply. Use Constraints: Data supplied under Open Government Licence v3.0
+    http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    IMBIE: Otosaka et al. (2026), Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023
+    (Version 1.0), NERC EDS UK Polar Data Centre, doi:10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0; Otosaka et al.
+    (2026), Scientific Data 13, 1301, doi:10.1038/s41597-026-08088-0. Contains public sector information licensed
+    under the Open Government Licence v3.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from IMBIE: Otosaka et al. (2026), Mass balance of the Greenland and Antarctic
+    Ice Sheets from the 1970s to 2023 (Version 1.0), NERC EDS UK Polar Data Centre,
+    doi:10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0; Otosaka et al. (2026), Scientific Data 13, 1301,
+    doi:10.1038/s41597-026-08088-0. Contains public sector information licensed under the Open Government Licence
+    v3.0.
+  mirror_raw: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: greenland-gt
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_greenland_Gt_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19ncmVlbmxhbmRfR3RfcGFydGl0aW9uZWQuY3N2"
+    format: csv
+    description: >-
+      Greenland Ice Sheet, July 1971 to December 2023: monthly mass balance (Gt/yr), cumulative mass anomaly (Gt), and
+      their surface mass balance and ice dynamics parts, each with a 1-sigma uncertainty. CF-style '#' header (101,046
+      bytes).
+    access:
+      conditional: false
+  - id: greenland-mm
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_greenland_mm_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19ncmVlbmxhbmRfbW1fcGFydGl0aW9uZWQuY3N2"
+    format: csv
+    description: >-
+      Greenland Ice Sheet, July 1971 to December 2023: the same quantities in millimetres of sea level equivalent,
+      with the mass-balance sign (negative = sea level rise). CF-style '#' header (104,333 bytes).
+    access:
+      conditional: false
+  - id: antarctica-gt
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_antarctica_Gt_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19hbnRhcmN0aWNhX0d0X3BhcnRpdGlvbmVkLmNzdg%3D%3D"
+    format: csv
+    description: >-
+      Antarctic Ice Sheet (whole), January 1979 to December 2023: monthly mass balance (Gt/yr), cumulative mass
+      anomaly (Gt), and their surface mass balance and ice dynamics parts, each with a 1-sigma uncertainty. CF-style
+      '#' header (83,257 bytes).
+    access:
+      conditional: false
+  - id: antarctica-mm
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_antarctica_mm_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19hbnRhcmN0aWNhX21tX3BhcnRpdGlvbmVkLmNzdg%3D%3D"
+    format: csv
+    description: >-
+      Antarctic Ice Sheet (whole), January 1979 to December 2023: the same quantities in millimetres of sea level
+      equivalent, with the mass-balance sign (negative = sea level rise). CF-style '#' header (89,834 bytes).
+    access:
+      conditional: false
+  - id: west-antarctica-gt
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_west_antarctica_Gt_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM193ZXN0X2FudGFyY3RpY2FfR3RfcGFydGl0aW9uZWQuY3N2"
+    format: csv
+    description: >-
+      West Antarctic Ice Sheet, January 1979 to December 2023: monthly mass balance (Gt/yr), cumulative mass anomaly
+      (Gt), and their surface mass balance and ice dynamics parts, each with a 1-sigma uncertainty. CF-style '#'
+      header (82,665 bytes).
+    access:
+      conditional: false
+  - id: west-antarctica-mm
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_west_antarctica_mm_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM193ZXN0X2FudGFyY3RpY2FfbW1fcGFydGl0aW9uZWQuY3N2"
+    format: csv
+    description: >-
+      West Antarctic Ice Sheet, January 1979 to December 2023: the same quantities in millimetres of sea level
+      equivalent, with the mass-balance sign (negative = sea level rise). CF-style '#' header (89,875 bytes).
+    access:
+      conditional: false
+  - id: east-antarctica-gt
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_east_antarctica_Gt_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19lYXN0X2FudGFyY3RpY2FfR3RfcGFydGl0aW9uZWQuY3N2"
+    format: csv
+    description: >-
+      East Antarctic Ice Sheet, January 1979 to December 2023: monthly mass balance (Gt/yr), cumulative mass anomaly
+      (Gt), and their surface mass balance and ice dynamics parts, each with a 1-sigma uncertainty. CF-style '#'
+      header (81,531 bytes).
+    access:
+      conditional: false
+  - id: east-antarctica-mm
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_east_antarctica_mm_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19lYXN0X2FudGFyY3RpY2FfbW1fcGFydGl0aW9uZWQuY3N2"
+    format: csv
+    description: >-
+      East Antarctic Ice Sheet, January 1979 to December 2023: the same quantities in millimetres of sea level
+      equivalent, with the mass-balance sign (negative = sea level rise). CF-style '#' header (88,966 bytes).
+    access:
+      conditional: false
+  - id: antarctic-peninsula-gt
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_antarctic_peninsula_Gt_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19hbnRhcmN0aWNfcGVuaW5zdWxhX0d0X3BhcnRpdGlvbmVkLmNzdg%3D%3D"
+    format: csv
+    description: >-
+      Antarctic Peninsula, January 1979 to December 2023: monthly mass balance (Gt/yr), cumulative mass anomaly (Gt),
+      and their surface mass balance and ice dynamics parts, each with a 1-sigma uncertainty. CF-style '#' header
+      (82,196 bytes).
+    access:
+      conditional: false
+  - id: antarctic-peninsula-mm
+    url: "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_antarctic_peninsula_mm_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19hbnRhcmN0aWNfcGVuaW5zdWxhX21tX3BhcnRpdGlvbmVkLmNzdg%3D%3D"
+    format: csv
+    description: >-
+      Antarctic Peninsula, January 1979 to December 2023: the same quantities in millimetres of sea level equivalent,
+      with the mass-balance sign (negative = sea level rise). CF-style '#' header (90,021 bytes).
+    access:
+      conditional: false
+status:
+  state: archived
+  note: >-
+    Complete (the Polar Data Centre record says "Dataset Progress: Complete"): version 1.0, files of 6 July 2026,
+    data to December 2023. A later IMBIE assessment would be a new dataset with its own DOI. Funded by ESA and NASA,
+    led from Northumbria University and archived in the UK.
+  us_federal: false
+update_cadence: Static (IMBIE assessments are irregular, several years apart)
+twins: []
+research_ref: "docs/research/sources-ocean-and-ice.json#IMBIE 2026: Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023 (IMBIE3)"
