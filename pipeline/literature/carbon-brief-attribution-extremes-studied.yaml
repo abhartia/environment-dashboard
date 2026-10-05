@@ -1,0 +1,43 @@
+# Carbon Brief, "Mapped: How climate change affects extreme weather around the world" (last updated 19 March 2026):
+# the number of extreme events and trends in its attribution map, as Carbon Brief itself states it.
+# Source class no-derivatives (CC BY-NC-ND 4.0): only Carbon Brief's own published total is shown, verbatim, with
+# its sentence. We do not count rows of papers-download.csv ourselves; the CSV's 967 rows agree with this sentence
+# but are not the source of the number.
+# The build checks that `quote` appears in the visible text of the snapshot of carbon-brief-attribution/article-page
+# (sha256 bb784eb01e72…, first fetched 2026-10-05; HTML, so no PDF page).
+id: carbon-brief-attribution-extremes-studied
+indicator_id: attribution.carbon-brief.extremes-studied
+source_id: carbon-brief-attribution
+artifact_id: article-page
+title: Extreme weather events and trends studied for a human fingerprint (Carbon Brief map)
+description: >-
+  The number of extreme weather events and trends in Carbon Brief's map of attribution studies, which test whether
+  human-caused climate change affected a specific extreme: 967 extremes from 819 studies, as of the update of 19
+  March 2026. Studies cluster in Europe, East Asia and North America, so the map is not a sample of all extremes.
+unit:
+  code: extremes
+  label: extreme events and trends studied
+  short: extremes
+display:
+  decimals: 0
+scope:
+  geography: World (studies of extremes anywhere, as collected by Carbon Brief)
+  basis: >-
+    Peer-reviewed attribution studies and rapid studies collected by Carbon Brief since the first such study in 2004.
+    An extreme is an individual event (a heatwave, a flood) or a trend in extremes; one study can cover several.
+geo_coverage: global-only
+headline_entity: WLD
+vintage: Seventh update, 19 March 2026
+locator: '"Extremes across the world", first sentence (page last updated 19 March 2026)'
+pdf_page: null
+quote: In total, the map (above) contains 967 extremes from 819 studies.
+value_text: 967 extremes
+value_reading: >-
+  "967 extremes" is published as 967 extreme events and trends, the count Carbon Brief states for its map as last
+  updated on 19 March 2026.
+observations:
+  - {entity: WLD, period: "2026-03-19", value: 967}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-impacts.json#Carbon Brief: Mapped – how climate change affects extreme weather around the
+  world (attribution studies database)

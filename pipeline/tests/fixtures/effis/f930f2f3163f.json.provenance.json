@@ -1,0 +1,13 @@
+{
+  "artifact_id": "estimates-eu",
+  "command": "uv run python tests/fixtures/make_fixture.py --source effis --artifact estimates-eu --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 872,
+  "fixture_sha256": "f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87",
+  "full_bytes": 872,
+  "full_sha256": "f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87",
+  "licence": "CC BY 4.0 (European Commission reuse policy)",
+  "rows_kept": "the whole file (872 bytes)",
+  "source_id": "effis",
+  "url": "https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=EU"
+}
