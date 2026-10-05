@@ -1,0 +1,13 @@
+{
+  "artifact_id": "timeseries-readme",
+  "command": "uv run python tests/fixtures/make_fixture.py --source noaaglobaltemp-v6 --artifact timeseries-readme --whole",
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 1032,
+  "fixture_sha256": "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f",
+  "full_bytes": 1032,
+  "full_sha256": "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f",
+  "licence": "Public domain (work of the US federal government)",
+  "rows_kept": "the whole file (1,032 bytes)",
+  "source_id": "noaaglobaltemp-v6",
+  "url": "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/00_Readme_timeseries.txt"
+}

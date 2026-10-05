@@ -1,0 +1,15 @@
+{
+  "artifact_id": "global-allmonths",
+  "command": "uv run python tests/fixtures/make_fixture.py --source c3s-era5-bulletin --artifact global-allmonths --first 12 --last 20",
+  "data_rows_total": 1040,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 2473,
+  "fixture_sha256": "1e0c36616560bbd303911332accdf864091c1e9855fd80f1eb3a580b021dcc9b",
+  "full_bytes": 51658,
+  "full_sha256": "3702df655287919f77ae09e62826b7874634cd0751f331cd604ac136c89fd144",
+  "header_lines": 12,
+  "licence": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)",
+  "rows_kept": "data rows 1-12 and 1021-1040 of 1040",
+  "source_id": "c3s-era5-bulletin",
+  "url": "https://climate.copernicus.eu/sites/default/files/2026-09/C3S_Bulletin_temp_202608_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA.csv"
+}

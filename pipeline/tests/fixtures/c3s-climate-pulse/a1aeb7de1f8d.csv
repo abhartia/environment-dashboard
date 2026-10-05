@@ -1,0 +1,32 @@
+# Description: This file contains daily mean sea surface temperature (SST) data from
+#  ERA5 averaged over 60°S-60°N from 1979 to 2026 as well as daily temperature anomalies
+#  relative to the 1991-2020 reference period.
+# Data source: The original ERA5 gridded hourly data used to generate the time series can be
+#  downloaded from the C3S Climate Data Store (CDS) at the following link:
+#  https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels
+# Data availability: The ERA5 data available in the CDS are updated with a 5-day delay (120 hours)
+#  behind real-time. Note that the time series below includes values based on ERA5 data not yet
+#  available in the CDS (for days 2 to 5 behind real-time).
+# Status: Can be preliminary or final. If preliminary, the values will likely change (slightly)
+#  once the final ERA5 data for the day are available (typically 3 days behind real-time).
+# Columns:
+#  sst: Daily mean absolute SST
+#  clim_91-20: Daily climatology for 1991-2020
+#  ano_91-20: Daily anomaly relative to the 1991-2020 daily climatology
+#  status: Preliminary or final
+# Units: deg. C
+# Last updated: 05 Oct 2026
+date,sst,clim_91-20,ano_91-20,status
+1979-01-01,20.084,20.238,-0.154,FINAL
+1979-01-02,20.081,20.242,-0.161,FINAL
+1979-01-03,20.087,20.247,-0.160,FINAL
+2026-09-24,21.031,20.308,0.722,FINAL
+2026-09-25,21.024,20.303,0.722,FINAL
+2026-09-26,21.028,20.297,0.731,FINAL
+2026-09-27,21.038,20.291,0.747,FINAL
+2026-09-28,21.028,20.286,0.743,FINAL
+2026-09-29,21.027,20.280,0.747,FINAL
+2026-09-30,21.015,20.274,0.741,FINAL
+2026-10-01,21.005,20.269,0.736,FINAL
+2026-10-02,20.992,20.264,0.729,FINAL
+2026-10-03,20.987,20.258,0.728,FINAL
