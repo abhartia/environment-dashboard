@@ -1,0 +1,18 @@
+{
+  "artifact_id": "emissions-totals",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact emissions-totals --member 'Emissions_Totals_E_All_Data_(Normalized).csv' --area-code 5000 --item-element 6518:723113 --item-element 6996:723113 --item-element 6516:723113 --item-element 6517:723113 --item-element 5058:723113 --item-element 5059:723113 --item-element 5063:723113 --item-element 5062:723113 --item-element 5061:723113 --item-element 5060:723113 --item-element 5064:723113 --item-element 5066:723113 --item-element 6729:723113 --item-element 6994:723113 --item-element 6795:723113 --item-element 6750:723113 --item-element 69921:723113 --item-element 6993:723113 --item-element 6504:723113 --item-element 6997:723113 --item-element 6507:723113 --item-element 6506:723113 --item-element 6815:723113 --item-element 6508:723113 --item-element 6505:723113 --item-element 6991:723113 --suffix .stages-world",
+  "data_rows_total": 2500090,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 218048,
+  "fixture_sha256": "3b33b4acfa49e8660c6df5fc381fcfb68b38b42dc3e8c64424df042e06b59391",
+  "full_bytes": 20501708,
+  "full_sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Emissions_Totals_E_All_Data_(Normalized).csv",
+  "member_bytes": 364012291,
+  "member_sha256": "88b044d08e0f851d34c76acbe802b91ebcd2da635223718d89581a50e2f8d048",
+  "rows_kept": "1488 of 2500090 data rows: Area Code 5000, (Item Code:Element Code) in 6518:723113, 6996:723113, 6516:723113, 6517:723113, 5058:723113, 5059:723113, 5063:723113, 5062:723113, 5061:723113, 5060:723113, 5064:723113, 5066:723113, 6729:723113, 6994:723113, 6795:723113, 6750:723113, 69921:723113, 6993:723113, 6504:723113, 6997:723113, 6507:723113, 6506:723113, 6815:723113, 6508:723113, 6505:723113, 6991:723113",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip"
+}
