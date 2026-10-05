@@ -1,0 +1,15 @@
+{
+  "artifact_id": "methods",
+  "command": "uv run python tests/fixtures/make_fixture.py --source defra-uk-carbon-footprint --artifact methods --first 1000000 --last 0",
+  "data_rows_total": 12964,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 1032209,
+  "fixture_sha256": "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5",
+  "full_bytes": 1032209,
+  "full_sha256": "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5",
+  "header_lines": 1,
+  "licence": "Open Government Licence v3.0 (Crown copyright)",
+  "rows_kept": "all 12964 data rows",
+  "source_id": "defra-uk-carbon-footprint",
+  "url": "https://assets.publishing.service.gov.uk/media/6a3ce626eaee00074150f449/UK_and_England_s_Carbon_Footprint_Summary_of_Methods_2026.pdf"
+}

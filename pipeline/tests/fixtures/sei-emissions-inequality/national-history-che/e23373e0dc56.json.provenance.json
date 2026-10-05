@@ -1,0 +1,14 @@
+{
+  "artifact_id": "national-history-che",
+  "command": "uv run python tests/fixtures/sei-emissions-inequality/make_json_fixture.py --artifact national-history-che --year 2022 --year 2023",
+  "data_rows_total": 34,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 457,
+  "fixture_sha256": "4a9f81a2019383751e253a19f9d41911a70c2fc8add588a573b08cf477d65947",
+  "full_bytes": 7538,
+  "full_sha256": "e23373e0dc5636820764920383da434f5c51c66ced61a032d2d299cf63f39d38",
+  "licence": "CC BY 4.0 (the About page says \"CC BY\" and links the 4.0 licence)",
+  "rows_kept": "2 of 34 records: Year in 2022, 2023",
+  "source_id": "sei-emissions-inequality",
+  "url": "https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=CHE&startyear=1990&endyear=2023"
+}

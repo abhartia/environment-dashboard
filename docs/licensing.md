@@ -9,6 +9,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `c3s-climate-pulse` | Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission | CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store) | open | yes | automatic | 2026-10-04 (api) |
 | `c3s-era5-bulletin` | Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission | CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store) | open | yes | automatic | 2026-10-04 (api) |
 | `desnz-ghg-factors-2026` | Department for Energy Security and Net Zero (UK Government) | Open Government Licence v3.0 (Crown copyright) | open | yes | automatic | 2026-10-04 (page) |
+| `defra-uk-carbon-footprint` | Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds | Open Government Licence v3.0 (Crown copyright) | open | yes | automatic | 2026-10-05 (manual) |
 | `osisaf-sea-ice-index` | EUMETSAT Ocean and Sea Ice SAF (OSI SAF), produced by the Norwegian Meteorological Institute | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `ember-monthly` | Ember | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `ember-yearly` | Ember | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
@@ -46,6 +47,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `rutgers-snow-cdr` | NOAA National Centers for Environmental Information (data by the Rutgers University Global Snow Lab) | No restrictions on access or use (NOAA CDR Program Open Data Policy) | open | yes | automatic | 2026-10-04 (pdf) |
 | `nsidc-sea-ice-index` | NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder) | No licence stated; free use with citation as a condition of use (NSIDC) | open | yes | automatic | 2026-10-04 (page) |
 | `natural-earth` | Natural Earth (NACIS volunteers; Tom Patterson and Nathaniel Vaughn Kelso, primary authors) | Public domain (Natural Earth terms of use) | open | yes | automatic | 2026-10-04 (page) |
+| `naturvardsverket-consumption-footprint` | Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB) | Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0 | open | no | automatic | 2026-10-05 (manual) |
 | `ourairports` | OurAirports (David Megginson and contributors) | Public domain (OurAirports terms of use; The Unlicense on the data repository) | open | yes | automatic | 2026-10-04 (page) |
 | `andre-2024` | Peter Andre, Teodora Boneva, Felix Chopra and Armin Falk (SAFE and Goethe University Frankfurt, University of Bonn, University of Copenhagen); published in Nature Climate Change | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `drawdown-explorer` | Project Drawdown | CC BY 4.0 (Zenodo deposits by Project Drawdown) | open | no | automatic | 2026-10-04 (page) |
@@ -64,6 +66,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `wgms-amce` | World Glacier Monitoring Service (WGMS), University of Zurich | CC BY 4.0 (WGMS data policy, open access on condition of correct citation) | open | yes | automatic | 2026-10-04 (page) |
 | `icct-lca-2025` | International Council on Clean Transportation (ICCT) | CC BY-SA 4.0 (ICCT terms of use, "except as otherwise noted") | share-alike | no | automatic | 2026-10-04 (page) |
 | `living-planet-index` | Zoological Society of London (Indicators & Assessments Unit) and WWF International | CC BY-SA 4.0 (published LPI trends) | share-alike | yes | manual | 2026-10-04 (pdf) |
+| `faostat-all-sectors` | Food and Agriculture Organization of the United Nations (FAO), Statistics Division | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0) | noncommercial | yes | automatic | 2026-10-05 (page) |
 | `idmc-gidd` | Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council | CC BY-NC-SA 3.0 IGO (IDMC API documentation; the export's own README states CC BY-NC) | noncommercial | yes | manual | 2026-10-04 (page) |
 | `jones-2025-national-contributions` | Jones et al. (University of East Anglia, CICERO and others) | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (page) |
 | `lancet-countdown-2025` | Lancet Countdown on Health and Climate Change (led by University College London) | CC BY-NC-SA 4.0 | noncommercial | yes | automatic | 2026-10-04 (page) |
@@ -80,4 +83,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `unep-egr-2025` | United Nations Environment Programme (UNEP) | © 2025 United Nations Environment Programme; reproduction allowed for educational or non-profit services with acknowledgement, no commercial use | display-only | no | manual | 2026-10-04 (manual) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-75 sources: 58 open, 2 share-alike, 6 noncommercial, 3 no-derivatives, 6 display-only.
+78 sources: 60 open, 2 share-alike, 7 noncommercial, 3 no-derivatives, 6 display-only.

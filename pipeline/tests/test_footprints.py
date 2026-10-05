@@ -3,8 +3,9 @@ Sweden by consumption area (envdash/transforms/footprints/naturvardsverket.py) a
 (envdash/transforms/footprints/defra_uk.py).
 
 Fixtures:
-- Defra: the whole UK dataset ODS (98,019 bytes, OGL v3), cut with make_fixture.py --whole, so the full build runs in
-  CI.
+- Defra: the whole UK dataset ODS (98,019 bytes, OGL v3), cut with make_fixture.py --whole, and the whole methods PDF
+  (1,032,209 bytes, OGL v3; every Defra indicator reads it for its global warming potentials), so the full build runs
+  in CI.
 - Naturvårdsverket: only the bytes of the chart's data.csv inside the page snapshot (881 bytes), cut by
   tests/fixtures/naturvardsverket-consumption-footprint/make_payload_fixture.py. The page itself is not committed
   (mirror_raw false: the open terms cover the statistics, not the page's prose), so tests of the whole page read the
@@ -144,12 +145,33 @@ def test_nv_transforms_declare_their_registered_input():
     for t in ts:
         assert t.inputs == (nv.PAGE,) and nv.PAGE.artifact_id in {a.id for a in src.artifacts}
         assert t.spec.headline_entity == "SWE" and t.spec.scope.gwp is None
-        assert "not stated" in (t.spec.scope.basis or "")
+        # The page shows AR4 values in a general table without tying them to this series: said, not recorded.
+        assert nv.GWP_WORDS in (t.spec.scope.basis or "")
+        assert "AR4" in t.spec.description and "without saying they apply to this series" in t.spec.description
+        assert "not stated" not in t.spec.description
     by_area = ts[0].spec
     labels = {v.id: v.label for v in by_area.dimensions[0].values}
     for _, sv, _ in nv.AREAS:  # the Swedish original is kept in every label
         assert any(f"({sv})" in label for label in labels.values())
+    assert labels["investment"] == (
+        "Investment: buildings including new homes, machinery, computers, valuables and changes in inventories "
+        "(Investeringar)"
+    )
+    assert "stocks" not in labels["investment"] and "stocks" not in by_area.description
+    # The page does not say where meals eaten out go, so the label does not claim all food.
+    assert labels["food"] == "Households: food products (Livsmedel)"
+    assert "meals eaten out" in by_area.description
     assert "not personal choices" in by_area.description and "0.01 t" in by_area.description
+
+
+@pytest.mark.snapshot
+def test_nv_gwp_table_is_checked_on_the_page():
+    model = nv.page_model(_current_file(nv.SOURCE, nv.PAGE.artifact_id).path.read_bytes())
+    assert "AR4" in nv.gwp_table(model["content"])
+    tab = next(t for t in model["content"]["tabItems"] if t.get("heading") == nv.GWP_TAB)
+    changed = {**model["content"], "tabItems": [{**tab, "text": tab["text"].replace("<td>298</td>", "<td>265</td>")}]}
+    with pytest.raises(nv.NaturvardsverketFormatError, match="298"):
+        nv.gwp_table(changed)
 
 
 @pytest.mark.snapshot
@@ -162,6 +184,7 @@ def test_nv_every_value_from_the_real_page():
     assert r.vintage == "2008-2023 series, page reviewed 2025-10-28"
     got = {(o.dims["area"], o.period): o.value for o in r.observations}
     assert got[("food", "2023")] == 1.35 and got[("investment", "2008")] == 3.3
+    assert any("'Koldioxidekvivalenter'" in s and "CH4 25" in s for s in r.steps)
     r = total.run({nv.PAGE.key: f})
     validate(total, r.observations)
     assert {o.period: o.value for o in r.observations}["2023"] == 7.62
@@ -236,25 +259,54 @@ def test_defra_note_markers_split_from_labels():
     assert defra.split_label("Food and beverages") == ("Food and beverages", [])
 
 
+def _defra_files() -> dict[str, InputFile]:
+    return {
+        defra.DATASET.key: InputFile(fixture(defra.SOURCE, "uk-dataset")[0], _defra_snapshot()),
+        defra.METHODS.key: InputFile(fixture(defra.SOURCE, "methods")[0], _defra_snapshot("methods")),
+    }
+
+
+def test_defra_titles_and_descriptions():
+    specs = {t.spec.id: t.spec for t in defra.transforms(Paths.default())}
+    assert specs["footprint.defra.per-capita"].title == "UK carbon footprint per resident, average (Defra)"
+    end_use = specs["footprint.defra.by-end-use"].description
+    assert "1990 to 1996" not in end_use  # a 2023-only table
+    assert "households' spending on flights is inside 'Transportation'" in end_use
+    assert "business and government travel sits in the supply chains of the other rows" in end_use
+    for t in defra.transforms(Paths.default()):
+        assert t.inputs == (defra.DATASET, defra.METHODS) and t.spec.scope.gwp == "AR5-GWP100"
+
+
+def test_defra_gwp_is_cited_from_the_methods_pdf():
+    f = _defra_files()[defra.METHODS.key]
+    step = defra.gwp_step(f)
+    assert defra.GWP_QUOTE in step and f"page {defra.GWP_PAGE}" in step and f.snapshot.sha256[:12] in step
+    # Another PDF (a CC BY supplementary information fixture) does not carry the sentence: refused.
+    other, _ = fixture("andre-2024", "supplementary-information")
+    with pytest.raises(defra.DefraFormatError, match="no longer says"):
+        defra.gwp_step(InputFile(other, f.snapshot))
+
+
 def test_defra_run_converts_to_million_tonnes_and_notes_early_years():
-    f = InputFile(fixture(defra.SOURCE, "uk-dataset")[0], _defra_snapshot())
+    files = _defra_files()
     per_capita, by_end_use, households = (
         next(t for t in defra.transforms(Paths.default()) if t.spec.id == i)
         for i in ("footprint.defra.per-capita", "footprint.defra.by-end-use", "footprint.defra.households-by-product")
     )
-    r = per_capita.run({defra.DATASET.key: f})
+    r = per_capita.run(files)
     validate(per_capita, r.observations)
     pc = {o.period: o for o in r.observations}
     assert pc["2023"].value == 10.2034271610218 and pc["2023"].note is None
     assert all(pc[str(y)].note and "1990 to 1996" in pc[str(y)].note for y in range(1990, 1997))
     assert pc["1997"].note is None and r.changes is None
-    r = by_end_use.run({defra.DATASET.key: f})
+    assert any("Fifth Assessment Report (AR5)" in s for s in r.steps)
+    r = by_end_use.run(files)
     validate(by_end_use, r.observations)
     assert {o.period for o in r.observations} == {"2023"}
     eu = {o.dims["end_use"]: o.value for o in r.observations}
     assert eu["food-and-beverages"] == float(Decimal("74731.841880585023") / 1000)
     assert r.changes and "million tonnes" in r.changes
-    r = households.run({defra.DATASET.key: f})
+    r = households.run(files)
     validate(households, r.observations)
     assert len(r.observations) == 34 * 34
     hp = {(o.dims["product"], o.period): o for o in r.observations}
@@ -262,9 +314,9 @@ def test_defra_run_converts_to_million_tonnes_and_notes_early_years():
     assert "1990 to 1996" in (hp[("food", "1990")].note or "")
 
 
-def _defra_snapshot():
+def _defra_snapshot(artifact_id: str = "uk-dataset"):
     p = Paths.default()
-    _, meta = fixture(defra.SOURCE, "uk-dataset")
+    _, meta = fixture(defra.SOURCE, artifact_id)
     snap = snapshots.read_manifest(p, meta["full_sha256"])
     assert snap is not None
     return snap
@@ -283,6 +335,8 @@ def test_defra_build_exports_publicly(tmp_paths):
     shutil.copy(REPO_ROOT / "pipeline" / "sources" / f"{defra.SOURCE}.yaml", tmp_paths.sources)
     sha = load_fixture_snapshot(tmp_paths, defra.SOURCE, "uk-dataset")
     assert sha == fixture(defra.SOURCE, "uk-dataset")[1]["full_sha256"]  # the whole file
+    sha = load_fixture_snapshot(tmp_paths, defra.SOURCE, "methods")
+    assert sha == fixture(defra.SOURCE, "methods")[1]["full_sha256"]
     reg = load_registry(tmp_paths)
     ts = [t for t in discover(tmp_paths) if t.spec.id in DEFRA_IDS]
     report = build_and_export(tmp_paths, reg, ts)
@@ -292,6 +346,7 @@ def test_defra_build_exports_publicly(tmp_paths):
     assert ind["latest"]["dims"] == {"end_use": "food-and-beverages"} and ind["latest"]["period"] == "2023"
     assert "Open Government Licence v3.0" in ind["attribution"]
     assert "Changes: converted from thousand tonnes to million tonnes" in ind["attribution"]
+    assert {o["artifact_id"] for o in ind["origins"]} == {"uk-dataset", "methods"}
     pc = exported(tmp_paths.public_indicators / "footprint.defra.per-capita.json")
     assert pc["latest"]["value"] == 10.2034271610218 and pc["vintage"].endswith("published 30 June 2026")
     assert validate_all(tmp_paths, reg) == []

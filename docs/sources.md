@@ -37,6 +37,106 @@ above all what was rejected and why. The research behind the first registry is d
 | `display-only` | No licence, all rights reserved, no re-hosting | Shown with citation; no download, no mirror |
 | `excluded` | Terms forbid what we need | Not ingested; listed under Rejected |
 
+## Decision on FAOSTAT all-sector emissions (2026-10-05)
+
+Evidence: docs/research/sources-ghg-food-personal-2026-10-05.json (research[0] candidate 1 and verification[1]).
+
+- **FAOSTAT all-sector emissions are a separate, noncommercial source (`faostat-all-sectors`).** FAO labels FAOSTAT
+  CC BY 4.0 ("Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate
+  statistical databases (see examples in Annex 1) are licensed under the Creative Commons Attribution-4.0
+  International licence (CC BY 4.0)", https://www.fao.org/contact-us/terms/db-terms-of-use/en/), but its section 2
+  'Third party exceptions' says "It is your responsibility to act in compliance with the terms and conditions of the
+  third-party data providers." The Emissions totals (GT) items Energy, IPPU, Waste and Other are PRIMAP-hist
+  third-party-priority (HISTTP) data. FAO's GT note and Analytical Brief 115 name PRIMAP-hist v2.4 (CC BY), but the
+  values in the October 2025 release are v2.7: Germany energy CO2 2023 is 550,000 kt in GT and in v2.7 HISTTP against
+  558,000 in v2.6.1; USA IPPU CO2 2022 is 139,000 against 136,000; India energy CO2 2022 is 2,670,000 against
+  2,680,000. PRIMAP-hist v2.7 (https://zenodo.org/records/17090760) says "Since v2.7 PRIMAP-hist is published under a
+  non-commercial license (CC BY-NC-SA). This means that commercial users can not use it freely and have to obtain a
+  commercial license.", and its commercial licence does not cover the TP series. As with
+  jones-2025-national-contributions, a downstream CC BY label cannot lift upstream NC-SA terms, so FAOSTAT's non-farm
+  sectors, the all-sector totals and every Emissions indicators (EM) share or per-capita value whose denominator
+  includes them are published under CC BY-NC-SA 4.0 with PRIMAP-hist credited. The open `faostat` entry keeps the
+  agrifood and livestock items; the agrifood share (food.faostat.agrifood-emissions-world.share) moved to the new
+  entry and is now FAO's own published value.
+- **Open questions, not yet asked.** Nothing has been sent to FAO. The owner is to ask FAO (faostat@fao.org; see
+  docs/runbook.md) which PRIMAP-hist version and terms apply to GT's non-farm items, and whether the IEA activity data
+  behind the pre- and post-production estimates carries restrictions. Re-check at FAO's October 2026 release, which
+  will probably use PRIMAP-hist v2.8 (also CC BY-NC-SA; its record warns "Do not use the TP scenario data without
+  proper checks.").
+
+## Decisions on FAOSTAT food breakdowns (2026-10-05)
+
+Evidence: docs/research/sources-ghg-food-personal-2026-10-05.json (need B and its verification).
+
+- **FAOSTAT Emissions intensities (EI)** is registered as artifact `emissions-intensities` of `faostat`
+  (https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip). Its
+  methodological note (https://files-faostat.fao.org/production/EI/EI_e.pdf, release October 2025) gives "Owner FAO
+  Provider FAO Source FAO" and no licence of its own, so the FAO Statistical Database Terms of Use (CC BY 4.0) apply
+  and the class is open. EI counts only farm-gate emissions: enteric CH4, manure management CH4 and N2O, N2O from
+  manure left on pasture and applied to soils, and, for rice and cereals, N2O from crop residues and synthetic
+  fertiliser, N2O and CH4 from burning crop residues, plus rice paddy CH4. It leaves out on-farm energy, drained
+  organic soils, savanna fires, land-use change and all pre- and post-production, and FAO says its values "should not
+  be compared" with life-cycle assessments. Its intensities are per kilogram of FAOSTAT production: carcass weight for
+  meat, raw whole milk, eggs in shell. Its 14 products leave out soy, palm oil, fruit, vegetables, sugar, pulses and
+  fish and add up to no FAO total, so they are shown as ranked bars, never as a stack, and no share of food's emissions
+  is computed from them (it would divide an EI value by a GT value of another vintage).
+- **Why the agrifood items of GT stay open while its non-farm items are noncommercial.** GT's energy, IPPU, waste and
+  other items are PRIMAP-hist values used directly, an adaptation of NC-SA data, so they follow PRIMAP-hist's terms
+  (see the all-sector decision above). FAO's pre- and post-production estimates are FAO's own calculations from
+  several inputs (UNSD, IEA, and emission information from PRIMAP-hist), so they keep FAO's CC BY label. Whether that
+  holds is the open question for FAO, together with the next point.
+- **Open question: third-party inputs in FAOSTAT Emissions totals (GT).** FAO's GPP note says pre- and
+  post-production energy emissions use IEA data (China and Russia) and IEA grid electricity emission factors, and that
+  cold-chain F-gases come from EDGAR v7; the GN note says on-farm energy use applies IEA grid electricity and heat
+  factors and IEA fisheries energy data. FAO's metadata states no restriction on them, so `faostat` stays open under
+  FAO's own clause. Because this registry treats EDGAR's IEA-derived CO2 as restricted, permission to redistribute
+  these GT items is to be confirmed with FAO (faostat@fao.org) by the owner. Not yet asked.
+- **GT and GPP are not mixed.** FAOSTAT GPP (DateUpdate 2026-05-22) has newer pre- and post-production values than GT
+  (2025-10-28): World 2023 pre- and post-production is 5,303,012 kt in GPP against 5,247,971 kt in GT. Stacking GPP
+  parts under GT's agrifood total would break its equality with FAO's published total, so only GT is used until the
+  vintages align.
+- **FAOSTAT Emissions from crops (GCE)** is not used: synthetic-fertiliser N2O is not split by crop, so its per-crop
+  values do not add to its total, and EI already publishes CO2-equivalent per cereal and rice.
+- **GLEAM 3 dashboard** (life-cycle livestock emissions, 2015) is not registered yet: its own terms say CC BY 4.0, but
+  the data can only be downloaded by hand from a Shiny app and its structure and additivity are unverified.
+- **FAOSTAT GLE catalogue row count.** datasets_E.json gives GLE FileRows 6,941,916 while the CSV has 6,650,421 data
+  rows, so the GLE transform ties the catalogue's DateUpdate to the zip by FileLocation and FileSize (kilobytes
+  rounded up) instead, and says so in a processing step.
+
+## Decisions on personal footprints (2026-10-05)
+
+The owner read "per person" as one person's footprint, not a country's territorial average. No openly licensed
+producer publishes a world-average footprint split by consumption category, or tonnes per person by global income
+group (docs/research/sources-ghg-food-personal-2026-10-05.json). The site therefore shows only what producers publish
+themselves, and never divides a total by population or multiplies an income share by a total.
+
+- **Naturvårdsverket per-person footprint (Sweden)** (`naturvardsverket-consumption-footprint`): open on two quotes,
+  Naturvårdsverket's "Öppna data får användas fritt" and SCB's CC0 for the official statistics behind it. The quote
+  spans two pages, so the terms are re-read by hand each quarter (`terms_check: manual`). The series exists only as
+  the chart payload inside the statistics page, so the whole page is snapshotted and parsed strictly. The page is not
+  re-hosted (`mirror_raw: false`): the open terms cover the statistics, and the page names its photographs and
+  illustrations as copyright-protected. Its test fixture is therefore only the bytes of the data payload. Public
+  consumption and investment (2.92 of 7.62 t in 2023) are shown apart from the household parts because they are not
+  personal choices; investment includes new homes. The parts are rounded by the producer and may differ from the
+  total by 0.01 t. The page shows the IPCC AR4 global warming potentials (methane 25, nitrous oxide 298) in a general
+  conversion table without saying they apply to this series, so no GWP is recorded and the scope says why. The page
+  does not say whether meals eaten out are under food. Naturvårdsverket's 'Övrigt' cannot be rebuilt from SCB's
+  COICOP tables, so SCB tonnes are never used to recompute it.
+- **Defra UK carbon footprint** (`defra-uk-carbon-footprint`): OGL v3, stated on the dataset's own cover sheet, which
+  the transform re-reads on every build. The registry declares the OpenDocument files as `zip`, which is what they
+  are as packages, because the artifact formats have no `ods`. The release's Summary of Methods PDF is registered as
+  artifact `methods` and read by every Defra indicator, which cites its AR5 sentence for the global warming
+  potentials. Per-person values exist only for the total, which is an average per resident. Categories are in
+  kilotonnes and are shown in million tonnes, never per person. 'Food and beverages' excludes 'Hotels and restaurants'
+  and 'Alcohol and tobacco', and flights have no figure of their own: households' flights are inside transport, and
+  business and government travel sit in the supply chains of other rows.
+- **SEI income-group shares end at 2022** (`co2-share.sei-inequality.income-groups-global`): not a licence issue. The
+  API's 2023 national values are territorial while 1990-2022 are consumption-based (historicalDataByCountry, registered
+  as artifacts national-history-che, -usa and -gbr and snapshotted on 2026-10-05: Switzerland 121,979,300 t in 2022
+  and 32,737,300 t in 2023; United States 5,642,856,100 t and 4,911,391,000 t; United Kingdom 488,532,000 t and
+  305,146,300 t). The world top-10% share falls from 48.99% to 47.08% at that change of basis, so 2023 is not
+  published. The indicator is labelled as shares of world emissions, not tonnes per person.
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be
@@ -83,3 +183,13 @@ re-checked if the terms change.
 - **Carbon Majors database**: its terms forbid republishing and derivatives.
 - **GADM boundaries**: "Redistribution or commercial use is not allowed without prior permission." Climate TRACE's
   admin ids are crosswalked to Natural Earth instead.
+
+Recorded on 2026-10-05 while researching personal footprints (docs/research/sources-ghg-food-personal-2026-10-05.json):
+
+- **WID.world per-capita emissions by income group (wid_all_data.zip, lpfghg* variables)** (https://wid.world/): on 2026-10-05 every wid.world path returned a 114-byte page redirecting to /lander (a parked domain), so the data licence cannot be read from the producer. The world-inequality-database GitHub repositories carry no data licence. Revisit when wid.world is restored.
+- **Hot or Cool Institute (2021), 1.5-Degree Lifestyles; Sitra/IGES/Aalto (2019), 1.5-Degree Lifestyles**: the only rights statements are 'Copyright Hot or Cool Institute, Berlin. October 2021.' and '© Sitra 2019', with no licence (display-only). iges.or.jp returns HTTP 403 to scripts.
+- **OECD Greenhouse Gas Footprints 2025 (DSD_ICIO_GHG_MAIN_2025, demand-based GHG per person) — deferred, not registered** (https://www.oecd.org/en/about/terms-conditions.html): www.oecd.org returns 403 to scripts, so the dataset terms could not be read. The methodology paper is CC BY 4.0 'except third-party material', and the model uses IEA 'Greenhouse Gas Emissions from Energy'. A person must read the OECD terms in a browser first.
+- **Eurostat env_ac_ghgfp (GHG footprints, FIGARO)**: the metadata says the non-European footprints use EDGAR, which uses IEA data 'licensed under CC BY-NC-ND 4.0', and those emissions feed every EU footprint. It is also split by emitting industry, not by consumption purpose.
+- **JRC Consumption Footprint, breakdown by area of consumption — deferred** (https://eplca.jrc.ec.europa.eu/ConsumptionFootprintPlatform.html): licence COM_REUSE (open), but the breakdown sits behind a JSF dashboard form (manual acquisition), runs only to 2021, and is a life-cycle model of household products that is not comparable with input-output footprints.
+- **NTNU Environmental Footprint Explorer (environmentalfootprints.org)**: the terms say its materials are 'protected by applicable copyright', with no open licence.
+- **Chancel (2022), Global carbon inequality over 1990-2019, Nature Sustainability; Bruckner et al. (2022); Ivanova et al. (2016), Journal of Industrial Ecology**: Crossref gives only publisher TDM or Wiley terms licences, not open.

@@ -96,11 +96,37 @@ def test_labels_say_what_is_and_is_not_counted():
     assert share.kind == "series"
     assert "FAO's own total of all sectors" in share.description and "land use" in share.description
     assert "not a sector of their own" in share.description
+    # The share's unit and title, shown next to the big number, name the denominator.
+    assert share.unit.label == "percent of FAO's all-sector total (net land use, no international transport)"
+    assert "FAO's all-sector" in share.title and "global" not in share.title
+    assert "not a share of gross global emissions" in share.description
     by_sector = _transform("ghg.faostat.by-sector").spec
     assert "Food is not a seventh sector" in by_sector.description
     assert "never set to zero" in by_sector.description
     assert "Tokelau, Nauru and Tuvalu" in by_sector.description
-    assert "carbon dioxide counts as itself" in _transform("ghg.faostat.by-gas").spec.description
+    total = _transform("ghg.faostat.total").spec
+    for spec in (by_sector, total):
+        assert "agriculture plus land use only" in spec.description
+        assert fas.ZERO_TOTALS in spec.description and "not comparable with countries'" in spec.description
+    by_gas = _transform("ghg.faostat.by-gas").spec
+    assert "carbon dioxide counts as itself" in by_gas.description
+    assert "net carbon dioxide of land use" in by_gas.description and "below zero" in by_gas.description
+    per_capita_words = (
+        "Mayotte has no energy, industry, waste or other emissions, Tokelau no energy or other, and Nauru and Tuvalu "
+        "no other"
+    )
+    assert per_capita_words in per_capita.description and "94 of the values" in per_capita.description
+
+
+def test_methane_land_use_is_fires_not_net():
+    ch4 = _transform("ghg.faostat.ch4-share-by-sector").spec
+    labels = {v.id: v.label for v in ch4.dimensions[0].values}
+    assert labels["land-use"] == "Land use (fires)"
+    assert "(net" not in ch4.scope.basis and "can be negative" not in ch4.scope.basis
+    # The CO2-equivalent indicators keep the net label and say it can be negative.
+    co2e = _transform("ghg.faostat.by-sector").spec
+    assert {v.id: v.label for v in co2e.dimensions[0].values}["land-use"].endswith("(net)")
+    assert "can be negative" in co2e.scope.basis
 
 
 def test_china_group_is_never_an_entity():
@@ -131,7 +157,7 @@ def _files() -> dict[str, InputFile]:
 
 
 @pytest.fixture(scope="module")
-def built() -> dict[str, list]:
+def results() -> dict:
     files = _files()
     out = {}
     for t in fas.transforms(Paths.default()):
@@ -139,8 +165,13 @@ def built() -> dict[str, list]:
         validate(t, r.observations)
         assert r.vintage == "2025-10-28" and r.year == "2025"
         assert {c.status for c in run_checks(t, {fas.SOURCE: r.vintage}, r.observations)} <= {"pass"}
-        out[t.spec.id] = r.observations
+        out[t.spec.id] = r
     return out
+
+
+@pytest.fixture(scope="module")
+def built(results) -> dict[str, list]:
+    return {i: r.observations for i, r in results.items()}
 
 
 def _by(obs, dim: str | None = None) -> dict[tuple, float]:
@@ -242,6 +273,54 @@ def test_absent_items_stay_absent(built):
     assert abs(total[("BMU", "2023")] - by[("BMU", "2023", "agriculture")] - by[("BMU", "2023", "land-use")]) < 1e-9
     # The parent country carries the territory's energy (PRIMAP-hist), not its agriculture.
     assert ("GBR", "2023", "energy") in by and ("BMU", "2023", "energy") not in by
+
+
+@pytest.mark.snapshot
+def test_zero_totals_negative_values_and_gaps_match_the_descriptions(built, results):
+    """The counts and lists the descriptions give for the October 2025 release, from the snapshot."""
+    total = _by(built["ghg.faostat.total"])
+    zeros = {e for (e, _), v in total.items() if v == 0}
+    assert zeros == {"ASM", "CHI", "GIB", "GRL", "GUM", "MNP", "NFK", "PCN", "SJM", "SPM"}
+    assert sum(1 for v in total.values() if v == 0) == 275
+    names = {e: n for e, n in (("ASM", "American Samoa"), ("CHI", "Channel Islands"), ("GIB", "Gibraltar"))}
+    assert all(n in fas.ZERO_TOTALS for n in names.values())
+    for i in ("ghg.faostat.total", "ghg.faostat.by-sector"):
+        assert any(
+            s.startswith(f'FAO prints a "{fas.ALL_SECTORS.name}" total of exactly 0 kt') and "275" in s
+            for s in results[i].steps
+        ), i
+    per_capita = _by(built["ghg.faostat.per-capita"])
+    assert sum(1 for v in per_capita.values() if v < 0) == 94
+    assert any(
+        s.startswith("94 published per-person values are below zero") for s in results["ghg.faostat.per-capita"].steps
+    )
+    # The per-person gaps the description names: of the EM entities, only these lack sectors in GT.
+    sectors = defaultdict(set)
+    for o in built["ghg.faostat.by-sector"]:
+        if o.period == "2023":
+            sectors[o.entity].add(o.dims["sector"])
+    em = {e for e, _ in per_capita}
+    gaps = {
+        e: {"energy", "industry", "agriculture", "land-use", "waste", "other"} - sectors[e] for e in em if e in sectors
+    }
+    assert {e: g for e, g in gaps.items() if g} == {
+        "MYT": {"energy", "industry", "waste", "other"},
+        "TKL": {"energy", "other"},
+        "NRU": {"other"},
+        "TUV": {"other"},
+    }
+
+
+@pytest.mark.snapshot
+def test_em_indicators_name_the_em_page(results):
+    for i, r in results.items():
+        if any(inp == fas.INDICATORS for inp in _transform(i).inputs):
+            assert {k: m.url_main for k, m in r.origin_meta.items()} == {
+                fas.INDICATORS.key: fas.EM_PAGE,
+                fas.CATALOGUE.key: fas.EM_PAGE,
+            }, i
+        else:
+            assert r.origin_meta == {}, i
 
 
 @pytest.mark.snapshot

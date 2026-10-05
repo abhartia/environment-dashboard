@@ -1,0 +1,14 @@
+{
+  "artifact_id": "national-history-gbr",
+  "command": "uv run python tests/fixtures/sei-emissions-inequality/make_json_fixture.py --artifact national-history-gbr --year 2022 --year 2023",
+  "data_rows_total": 34,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 466,
+  "fixture_sha256": "6033501ad50961531da627da8f4b1f9e437f70b67ddfba65f17348d656020f45",
+  "full_bytes": 7638,
+  "full_sha256": "fde2cd775620ab9e3c9f7edd6659638174e5efbb14ebfa0a8fcbdeae16889629",
+  "licence": "CC BY 4.0 (the About page says \"CC BY\" and links the 4.0 licence)",
+  "rows_kept": "2 of 34 records: Year in 2022, 2023",
+  "source_id": "sei-emissions-inequality",
+  "url": "https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=GBR&startyear=1990&endyear=2023"
+}

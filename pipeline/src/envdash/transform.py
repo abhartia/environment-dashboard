@@ -95,10 +95,14 @@ class PublisherCheck:
 @dataclass(frozen=True)
 class OriginMeta:
     """Facts about one input file that differ from the rest of the result: a paper published on another day than
-    the data release, with its own DOI. Unset fields fall back to Result.date_published and the source's DOI."""
+    the data release, with its own DOI, or a file whose dataset page is not the source's landing page. Unset fields
+    fall back to Result.date_published, the source's DOI and the source's landing_url."""
 
     date_published: str | None = None
     doi: str | None = None
+    url_main: str | None = None
+    """The page of the dataset this file belongs to, when a source registers files of several datasets (FAOSTAT's
+    Emissions indicators beside its Emissions totals)."""
 
 
 @dataclass

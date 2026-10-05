@@ -1,5 +1,5 @@
 {
-  "attribution": "FAO. 2026. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.",
+  "attribution": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.",
   "description": "The part of each country's land area, and of the world's, that is cropland, permanent meadows and pastures (together, agricultural land) or forest, each year since 1961 (forest since 1990), as calculated by FAO.",
   "dimensions": [
     {
@@ -39,41 +39,41 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "land-use", "bytes": 2970716, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2026-10-02", "doi": null, "etag": "\"0c5cd521652ac5535fff638d867f975c\"", "last_modified": "Fri, 02 Oct 2026 08:15:20 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-10-02", "wayback_url": null},
-    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2026-10-02", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-10-02", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "land-use", "bytes": 2970716, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2026-10-02", "doi": null, "etag": "\"0c5cd521652ac5535fff638d867f975c\"", "last_modified": "Fri, 02 Oct 2026 08:15:20 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-10-02", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2026-10-02", "doi": null, "etag": "W/\"157c9ec8e5eea09a02497cc10f67bcdb\"", "last_modified": "Mon, 05 Oct 2026 12:49:35 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-10-02", "wayback_url": null}
   ],
   "processing": [
     {
       "description": "Read Inputs_LandUse_E_All_Data_(Normalized).csv from FAOSTAT's RL bulk zip. The vintage is the domain's DateUpdate, 2 October 2026, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 421,850, the number of data rows in this file. The zip was last modified on the server on Fri, 02 Oct 2026 08:15:20 GMT.",
-      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_land_use.py",
       "transform_sha256": "534fd841c2025e33540546bb006b112a181cf353bafcddc6c22133957d0fbb53"
     },
     {
       "description": "Kept the rows of element \"Share in Land area\" (code 7209, unit \"%\") for items \"Agricultural land\" (6610), \"Cropland\" (6620), \"Permanent meadows and pastures\" (6655), \"Forest land\" (6646), 1961–2024, for every area FAO reports; values are published as printed.",
-      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_land_use.py",
       "transform_sha256": "534fd841c2025e33540546bb006b112a181cf353bafcddc6c22133957d0fbb53"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Netherlands Antilles (former), Pacific Islands Trust Territory, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Sub-Saharan Africa, Western Africa, Western Asia, Western Europe). Their values are never re-assigned to other entities.",
-      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_land_use.py",
       "transform_sha256": "534fd841c2025e33540546bb006b112a181cf353bafcddc6c22133957d0fbb53"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
-      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_land_use.py",
       "transform_sha256": "534fd841c2025e33540546bb006b112a181cf353bafcddc6c22133957d0fbb53"
     },
     {
       "description": "8 values are empty in the file and are published as null, with FAO's flag as the reason.",
-      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "inputs": ["39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_land_use.py",
       "transform_sha256": "534fd841c2025e33540546bb006b112a181cf353bafcddc6c22133957d0fbb53"

@@ -1,0 +1,14 @@
+{
+  "artifact_id": "national-history-usa",
+  "command": "uv run python tests/fixtures/sei-emissions-inequality/make_json_fixture.py --artifact national-history-usa --year 2022 --year 2023",
+  "data_rows_total": 34,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 456,
+  "fixture_sha256": "4df04f82e5ab90220b49c592ffb4959a98a621c8c02a0042544913c404d00441",
+  "full_bytes": 7673,
+  "full_sha256": "ed93564c2981e1279ea88d5ac22b4efe2284c4e7b14cd970a7cca9460b0ec365",
+  "licence": "CC BY 4.0 (the About page says \"CC BY\" and links the 4.0 licence)",
+  "rows_kept": "2 of 34 records: Year in 2022, 2023",
+  "source_id": "sei-emissions-inequality",
+  "url": "https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=USA&startyear=1990&endyear=2023"
+}

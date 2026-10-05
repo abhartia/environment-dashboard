@@ -1,0 +1,104 @@
+{
+  "attribution": "Naturvårdsverket, Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2023 series, page reviewed 2025-10-28); official statistics of Sweden, responsible authority Statistics Sweden (SCB). Open data; SCB data CC0 1.0.",
+  "description": "The consumption-based greenhouse gas footprint of an average person in Sweden: emissions in Sweden and abroad from producing everything used in Sweden, divided by the population, in tonnes of carbon dioxide equivalent per person per year, as published by Naturvårdsverket from Statistics Sweden's official statistics. Split into the six parts the producer publishes. Four are household consumption (transport, food products, housing, and other goods and services); the page does not say whether meals eaten out count under food products or under other goods and services. The other two, public consumption (schools, hospitals, agencies) and investment (buildings including new homes, machinery, computers, valuables and changes in inventories), are shared out per person but are not personal choices; buying a new home counts under investment, not housing. The parts are rounded by the producer and may differ from the published total by 0.01 t. International flights are undercounted: only jet fuel bought in Sweden is counted, without stopovers or the high-altitude effect. The page shows the IPCC Fourth Assessment Report (AR4) global warming potentials (methane 25, nitrous oxide 298) in a general conversion table, without saying they apply to this series. Sweden only; it is not a world average or a measure of any one person.",
+  "dimensions": [
+    {
+      "id": "area",
+      "label": "Consumption area",
+      "values": [
+        {"id": "transport", "label": "Households: transport (Transporter)"},
+        {"id": "food", "label": "Households: food products (Livsmedel)"},
+        {"id": "housing", "label": "Households: housing (Boende)"},
+        {"id": "other-household", "label": "Households: other goods and services, such as recreation and culture, clothing and shoes, health, post and telecommunications (Övrigt)"},
+        {"id": "public-consumption", "label": "Public consumption: schools, hospitals, agencies (Offentlig konsumtion)"},
+        {"id": "investment", "label": "Investment: buildings including new homes, machinery, computers, valuables and changes in inventories (Investeringar)"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "country",
+  "headline_entity": "SWE",
+  "id": "footprint.naturvardsverket.per-person-by-area",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "area": "food"
+    },
+    "entity": "SWE",
+    "period": "2023",
+    "status": "final",
+    "value": 1.35
+  },
+  "licence": {
+    "name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0",
+    "spdx": null,
+    "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "per-person-page", "bytes": 231605, "citation_full": "Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2023 series, page reviewed 2025-10-28). Official statistics of Sweden; responsible authority Statistics Sweden (SCB). https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0", "spdx": null, "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"}, "producer": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)", "r2_url": null, "sha256": "da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30", "source_id": "naturvardsverket-consumption-footprint", "title": "Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)", "url_download": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "url_main": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "version_producer": "2008-2023 series, page reviewed 2025-10-28", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the statistics page 'Konsumtionsbaserade växthusgasutsläpp per person och år' (sha256 da4e1b4dd620…, retrieved 2026-10-05, reviewed by the producer on 2025-10-28). The series is the CSV inside the page's chart options (page model <script id=\"__model_data\">, content.highChartsOptions, data.csv): 16 years, 2008–2023, in tonnes of carbon dioxide equivalent per person ('Ton koldioxidekvivalenter per person'). Checked the page heading, the responsible authority (SCB), the axis title, the series names and the CSV header before reading any value.",
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
+      "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
+    },
+    {
+      "description": "Selected the six parts as published, each with its Swedish column name kept in its label: Transporter = transport; Livsmedel = food; Boende = housing; Övrigt = other-household; Offentlig konsumtion = public-consumption; Investeringar = investment. The first four are households' consumption; public consumption and investment are not household spending.",
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
+      "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
+    },
+    {
+      "description": "Checked that in every year the six parts add up to the published Totalt within 0.01 t (the producer rounds each value to two decimals). Years where they differ by 0.01 t: 2009 (+0.01 t), 2010 (+0.01 t), 2020 (+0.01 t), 2021 (-0.01 t), 2022 (-0.01 t). No value was changed.",
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
+      "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
+    },
+    {
+      "description": "Checked the page's tab 'Koldioxidekvivalenter': its general conversion table ('Omräkningstabell') gives CO2 1, CH4 25 and N2O 298, the IPCC Fourth Assessment Report (AR4) 100-year values, and links that report ('Koldioxidekvivalenter för ytterligare växthusgaser i IPCC:s fjärde utvärderingsrapport'), but the page does not say that this series uses them. So no global warming potential is recorded in the scope; the basis says what the page shows.",
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
+      "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Consumption-based footprint: greenhouse gas emissions in Sweden and abroad from producing the goods and services used in Sweden (by households, the public sector and investment), divided by the population; emissions from producing Sweden's exports are not counted. International flights are undercounted: only jet fuel bought in Sweden is counted, stopovers are missed and the high-altitude effect is not included. Global warming potentials: the page shows the IPCC Fourth Assessment Report (AR4) values (methane 25, nitrous oxide 298) in a general conversion table, without saying they apply to this series.",
+    "bunkers": null,
+    "geography": "Sweden: the average person in Sweden's population",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "area": ["transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "transport", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "housing", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "other-household", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "public-consumption", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment", "investment"]
+    },
+    "entity": ["SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE"],
+    "period": ["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [2.44, 2.2, 2.31, 2.4, 2.27, 2.14, 2.04, 1.93, 1.89, 1.84, 1.81, 1.68, 1.29, 1.38, 1.4, 1.37, 1.75, 1.65, 1.73, 1.75, 1.73, 1.71, 1.66, 1.59, 1.55, 1.51, 1.5, 1.43, 1.43, 1.45, 1.46, 1.35, 1.68, 1.57, 1.89, 1.72, 1.55, 1.56, 1.34, 1.28, 1.27, 1.23, 1.26, 1.12, 1.05, 1.15, 1.1, 1.0, 1.5, 1.39, 1.44, 1.44, 1.36, 1.36, 1.27, 1.18, 1.13, 1.09, 1.08, 1.0, 0.95, 1.03, 1.1, 0.98, 1.25, 1.21, 1.27, 1.27, 1.21, 1.21, 1.08, 1.08, 1.08, 1.01, 1.02, 0.93, 0.89, 0.87, 0.85, 0.83, 3.3, 1.96, 2.63, 3.17, 2.66, 2.71, 2.55, 2.67, 2.77, 2.67, 2.69, 2.57, 2.17, 2.32, 2.54, 2.09]
+  },
+  "time_basis": "calendar",
+  "title": "Greenhouse gas footprint of an average person in Sweden, by consumption area (Naturvårdsverket)",
+  "unit": {
+    "code": "tCO2e/person/yr",
+    "label": "tonnes of carbon dioxide equivalent per person per year",
+    "short": "t CO₂e/person/yr"
+  },
+  "vintage": "2008-2023 series, page reviewed 2025-10-28"
+}

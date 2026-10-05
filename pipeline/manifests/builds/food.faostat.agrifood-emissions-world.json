@@ -1,14 +1,14 @@
 {
   "export": "data/v1/indicators/food.faostat.agrifood-emissions-world.json",
-  "export_sha256": "bcd8ffaf4eb1b23e3a998b983c0ac4ed4566d34fdfc00aaa1569ea690be6d528",
+  "export_sha256": "98b72f8a4a38edf8d30a53a838fffb09c2bf9966c5d83ee969b61f0ac364a3b6",
   "indicator_id": "food.faostat.agrifood-emissions-world",
-  "key": "4396e2892aabc3edec0b68862b941e60b0adb1377ee7c4632accb33d2c4d4705",
+  "key": "c83774806a116f2de2f47dc30c9d5bc94880d57481174105117d65f144974372",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
       "faostat/datasets-catalogue": {
-        "manifest_sha256": "bc646412c97139536878e748e171502090aa722995a1de8f6fff062c1b7e3383",
-        "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"
+        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
       },
       "faostat/emissions-totals": {
         "manifest_sha256": "2f92e3d602ab91252a331544ab10a3301dab569559ba69710dfa6942f9d42da7",
@@ -18,9 +18,9 @@
     "key_files": {},
     "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
-      "faostat": "83c5397350b6684b0cd1dd419ffd8fe799366487bc9976d926e36f82b4bb8193"
+      "faostat": "687ee254e2acc507e2df2b0107ef798cf69aed41a25c9bd0b21a363a84c0b86e"
     },
-    "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
+    "transform_sha256": "ba01ed68c7b4c466eb1989dca4e0bc74f28411d3e01004816bb081b2900bcb2f"
   },
   "publisher_checks": [
     {"detail": "ours 16.5350723737 vs stated 16.5 (tolerance ±0.05, difference 0.0350724)", "entity": "WLD", "period": "2023", "quote": "According to the latest data available, global agrifood systems emissions reached 16.5 billion tonnes of carbon dioxide equivalent (Gt CO2eq) in 2023, up 21 percent since 2001.", "source_id": "faostat", "stated": "16.5", "status": "pass", "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en", "vintage": "2025-10-28"}

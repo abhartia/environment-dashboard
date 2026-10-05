@@ -235,11 +235,15 @@ def transforms(paths: Paths) -> list[Transform]:
                 "from their digestion (enteric fermentation) and from manure management, for each of the 16 kinds "
                 "of animal FAO estimates separately: dairy and non-dairy cattle, buffalo, sheep, goats, market and "
                 "breeding pigs, broiler and laying chickens, ducks, turkeys, horses, asses, mules and hinnies, "
-                "camels and llamas. They add up exactly to FAO's total for all animals. In tonnes of methane, not "
-                "carbon dioxide equivalent; nitrous oxide from manure, and manure left on pasture or spread on "
-                "fields (which emit nitrous oxide, not methane), are not included.",
+                "camels and llamas. They add up exactly to FAO's total for all animals. Manure here is only the "
+                "methane from managing manure (storing and handling it); nitrous oxide from manure, and manure "
+                "left on pasture or spread on fields (which emit nitrous oxide, not methane), are not included. In "
+                "tonnes of methane, not carbon dioxide equivalent, so these values cannot be added to or compared "
+                "with values in carbon dioxide equivalent.",
                 kind="series",
-                unit=Unit(code="MtCH4", label="million tonnes of methane", short="Mt CH₄"),
+                unit=Unit(
+                    code="MtCH4", label="million tonnes of methane (not carbon dioxide equivalent)", short="Mt CH₄"
+                ),
                 display=Display(decimals=2),
                 scope=Scope(
                     geography="Countries and territories, and the world",

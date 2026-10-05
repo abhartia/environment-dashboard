@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/footprint.defra.by-end-use.json",
+  "export_sha256": "2d783995f81887b7ac57469fbae937c2d4eb41900d91bb2ecf285866db265d1e",
+  "indicator_id": "footprint.defra.by-end-use",
+  "key": "6c0e701564f12d8bd724dfb551302a928af0cc88b6c82b32dd0a723df6e59411",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "defra-uk-carbon-footprint/methods": {
+        "manifest_sha256": "6404f173ec153f432690e8402b531c461df7b8cfa0cda924428711aaf8556d09",
+        "sha256": "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"
+      },
+      "defra-uk-carbon-footprint/uk-dataset": {
+        "manifest_sha256": "12677df980e34b3f363fe8216e3bafe1dcc2759fc8ef788005b8b0490edaf4ad",
+        "sha256": "a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "defra-uk-carbon-footprint": "ce6a95d8beab69f19a98c3b95dae6969946d93a67088fd64b51ea25be3251fe0"
+    },
+    "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+  },
+  "publisher_checks": []
+}

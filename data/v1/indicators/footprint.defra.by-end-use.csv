@@ -1,0 +1,21 @@
+# UK carbon footprint by end use, latest year (Defra)
+# Indicator: footprint.defra.by-end-use (vintage UK carbon footprint 1990 to 2023, published 30 June 2026); unit: million tonnes of carbon dioxide equivalent per year (MtCO2e/yr)
+# Source: Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds <https://www.gov.uk/government/statistics/uks-carbon-footprint>
+# Credit: Adapted by Environment Dashboard from Department for Environment, Food & Rural Affairs, UK and England's carbon footprint to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026), data produced by the University of Leeds. Contains public sector information licensed under the Open Government Licence v3.0. Changes: converted from thousand tonnes to million tonnes of carbon dioxide equivalent.
+# Licence: Open Government Licence v3.0 (Crown copyright) <https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>
+# Provenance and processing: https://environmentdashboard.org/data/footprint/defra/by-end-use
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,end_use
+footprint.defra.by-end-use,GBR,2023,74.73184188058502,,,,final,,,,food-and-beverages
+footprint.defra.by-end-use,GBR,2023,4.438870157725585,,,,final,,,,alcohol-and-tobacco
+footprint.defra.by-end-use,GBR,2023,12.021405910972746,,,,final,,,,clothing-and-footwear
+footprint.defra.by-end-use,GBR,2023,134.4954601665665,,,,final,,,,housing-and-power
+footprint.defra.by-end-use,GBR,2023,32.488660435138215,,,,final,,,,furnishing-appliances
+footprint.defra.by-end-use,GBR,2023,5.709501864531224,,,,final,"Defra note 3: For some product categories such as health and education, only the portion of these services directly paid for by households are captured under household expenditure. The actual consumption and associated GHG emissions from these services are larger and the remaining balance is captured under central and local government expenditure.",,,health
+footprint.defra.by-end-use,GBR,2023,150.43605758655775,,,,final,,,,transportation
+footprint.defra.by-end-use,GBR,2023,49.57559855888473,,,,final,,,,recreation-and-communication
+footprint.defra.by-end-use,GBR,2023,2.463804290983441,,,,final,"Defra note 3: For some product categories such as health and education, only the portion of these services directly paid for by households are captured under household expenditure. The actual consumption and associated GHG emissions from these services are larger and the remaining balance is captured under central and local government expenditure.",,,education
+footprint.defra.by-end-use,GBR,2023,36.73415628547541,,,,final,,,,hotels-and-restaurants
+footprint.defra.by-end-use,GBR,2023,25.53074431040498,,,,final,,,,other-consumption
+footprint.defra.by-end-use,GBR,2023,79.26342559069056,,,,final,Defra note 4: Central government includes emissions from central government spending on public administration (including defence) and health services. Defra note 5: Local government includes emissions from local government spending on public administration and health services.,,,central-and-local-government
+footprint.defra.by-end-use,GBR,2023,84.25847060994766,,,,final,"Defra note 6: Gross fixed capital formation relates principally to emissions from industry investment in tangible fixed assets such as plant and machinery, transport equipment, dwellings and other buildings and structures. However, it also includes emissions from investment in intangible fixed assets, improvements to land, the costs associated with the transfer of assets, and the costs to households of buying a house and major house works.",,,gross-fixed-capital-formation
+footprint.defra.by-end-use,GBR,2023,7.053919214886717,,,,final,"Defra note 7: Other includes emissions from the 'non-profit institutions serving households' (see note 9), 'valuables' (see note 10) and 'changes in inventories' (see note 11) categories of end use.",,,other

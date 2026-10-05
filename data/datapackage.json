@@ -543,15 +543,15 @@
       "title": "Methane, global annual mean"
     },
     {
-      "bytes": 10547,
-      "description": "The share of the world's consumption-based carbon dioxide emissions caused by the richest 10%, the richest 1% and the poorest 50% of people, ranked by income across the world, each year from 1990. Consumption emissions count what a country's people buy, including imports, and exclude what it makes for export. The split between people depends on the Stockholm Environment Institute's assumptions about how emissions rise with income.",
+      "bytes": 10309,
+      "description": "The share of the world's consumption-based carbon dioxide emissions caused by the richest 10%, the richest 1% and the poorest 50% of people, ranked by income across the world, each year from 1990 to 2022. Consumption emissions count what a country's people buy, including imports, and exclude what it makes for export. The split between people depends on the Stockholm Environment Institute's assumptions about how emissions rise with income. These are shares of the world total, not tonnes per person. SEI also serves 2023, but builds it on territorial national emissions (where emissions happen) instead of consumption, so 2023 is not comparable and is not shown.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
         "commentChar": "#"
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:5ad7ae975b861c44276bd1d5f4ee259840b7a3a0fe89587db623167b9c96ff69",
+      "hash": "sha256:0df569914513a3c541f865205ae2f0eb9783d8025c3904578066d2ef8812ddaf",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (the About page says \"CC BY\" and links the 4.0 licence)"}
       ],
@@ -1738,7 +1738,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:b8f733f6b359bb9c474bc19e845246d6626ddca03eafe0b8086f53f5084257fa",
+      "hash": "sha256:45b996cfad7561ec8febdd1f1a05b7626ac88302b3d13ea31deda58504d06c7a",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -1764,7 +1764,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
       ],
       "title": "Food lost between harvest and retail (SDG 12.3.1a)"
     },
@@ -1777,7 +1777,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:39b24fb147f6988f4f77ff55fbb3a703b2b58ee39b1411e88e3a4821e03e46fc",
+      "hash": "sha256:54bf055a19ace9e7973e0a9cb9d8572a47bfde736b163521003a639f7a72e605",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -1802,9 +1802,88 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
       ],
       "title": "Greenhouse gas emissions from agrifood systems, by country"
+    },
+    {
+      "bytes": 15264405,
+      "description": "Greenhouse gas emissions from food and farming each year since 1990, for the world and each country, in carbon dioxide equivalent, split into the 22 processes FAO estimates, within its three stages. Farm gate (11): enteric fermentation, manure management, manure left on pasture, manure applied to soils, synthetic fertilizers, rice cultivation, crop residues, burning crop residues, drained organic soils, on-farm energy use and savanna fires. Land-use change (3): net forest conversion, fires in humid tropical forests and fires in organic soils. Pre- and post-production (8): fertilizers manufacturing, pesticides manufacturing, food processing, food packaging, food transport, food retail, food household consumption and agrifood systems waste disposal. Within each stage the processes add up exactly to FAO's stage total. Where FAO gives no value for a process in a country and year, it is absent, not zero.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:66d09ab32d0917331fde2600d5702fbc3e8c10ae03eb317c36859b716977206b",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.agrifood-emissions-by-process",
+      "path": "v1/indicators/food.faostat.agrifood-emissions-by-process.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "stage", "title": "Stage", "type": "string"},
+          {"name": "process", "title": "Process", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+      ],
+      "title": "Greenhouse gas emissions from agrifood systems, by process"
+    },
+    {
+      "bytes": 2023589,
+      "description": "Greenhouse gas emissions from food and farming each year since 1990, for the world and each country, in carbon dioxide equivalent, split into FAO's three stages: within the farm gate (animals, manure, fertilisers, rice fields, crop residues, drained peat soils, savanna fires and energy used on farms), land-use change (clearing forests for farming, fires in humid tropical forests and fires in peat soils), and pre- and post-production (making fertilisers and pesticides, processing, packaging, transport, retail, household food consumption and waste disposal). The three stages add up exactly to FAO's agrifood systems total. The forest carbon sink is not part of that total and is not shown.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:39c1aeea22f876e1534ecb043b23bfaa1d245292dc700692a439ffd2d7772c28",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.agrifood-emissions-by-stage",
+      "path": "v1/indicators/food.faostat.agrifood-emissions-by-stage.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "stage", "title": "Stage", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+      ],
+      "title": "Greenhouse gas emissions from agrifood systems, by stage: within the farm gate (including savanna fires and drained peat soils), land-use change, and before and after the farm"
     },
     {
       "bytes": 3321,
@@ -1815,7 +1894,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:c1046720917e571a62d1175614333951001b46bb2345ccd3448ffe057a610f56",
+      "hash": "sha256:131065de039ad7dc93967e4fc78b3d4b965461f3ab32b3c1362f6e793abc98ba",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -1840,22 +1919,22 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
       ],
       "title": "Greenhouse gas emissions from agrifood systems, world"
     },
     {
-      "bytes": 3764,
-      "description": "The part of the world's greenhouse gas emissions, including land use, land-use change and forestry, that comes from food and farming systems, each year since 1990, as estimated by FAO.",
+      "bytes": 3974,
+      "description": "The part of FAO's all-sector greenhouse gas total that comes from food and farming systems each year since 1990, as published by FAO: FAO's agrifood-systems emissions (on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food) as a percentage of FAO's own total of all sectors, which includes net land use, land-use change and forestry and excludes international aviation and shipping. The agrifood figure counts clearing land for farming without subtracting what forests take up, while the total's land use is net of that uptake, so this is not a share of gross global emissions. Food's emissions run across the agriculture, land-use, energy, industry and waste sectors; they are not a sector of their own.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
         "commentChar": "#"
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:15f6a07c37b4aa20f0c102457000c1f985a990ee4f8660368dfc7bd90aca4faf",
+      "hash": "sha256:9e656cd88a6f9cbe6a5fac2fec808ad7d0e2bb15a2b46a7574d1f05e1276428f",
       "licenses": [
-        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
       "mediatype": "text/csv",
       "name": "food.faostat.agrifood-emissions-world.share",
@@ -1866,7 +1945,7 @@
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
           {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
-          {"description": "percent of global greenhouse gas emissions (percent)", "name": "value", "type": "number"},
+          {"description": "percent of FAO's all-sector total (net land use, no international transport) (percent)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
@@ -1878,9 +1957,126 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/#data/EM", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)"}
       ],
-      "title": "Agrifood systems' share of global greenhouse gas emissions"
+      "title": "Agrifood systems' share of FAO's all-sector greenhouse gas total (net land use, no international transport)"
+    },
+    {
+      "bytes": 8464486,
+      "description": "Methane and nitrous oxide emitted on farms each year since 1961 in producing each of 14 farm products, for the world and each country, in carbon dioxide equivalent, as allocated by FAO. Counts only emissions on the farm from: methane from animals' digestion (enteric fermentation) and from manure management; nitrous oxide from manure management, from manure applied to soils and from manure left on pasture; and, for rice and other cereals, nitrous oxide from crop residues and from synthetic fertiliser, methane and nitrous oxide from burning crop residues, plus methane from flooded rice paddies. Not counted: energy used on farms, drained organic (peat) soils, savanna fires, clearing land (land-use change), and everything before and after the farm (making fertiliser and feed, processing, packaging, transport, retail, cooking and waste). Only 14 products: meat of cattle, buffalo, sheep, goats, pigs and chickens; raw milk of cattle, buffalo, sheep, goats and camels; hen eggs; rice; and other cereals together. Soy, palm oil, fruit, vegetables, sugar, pulses, fish and other farm animals are not covered, so the products do not add up to food's emissions. These are farm-gate values, not life-cycle footprints: FAO says they should not be compared with life-cycle assessment figures. FAO's split of sheep, goat, buffalo and camel emissions between meat and milk makes 75 meat values negative in the February 2026 release, all goat, buffalo or sheep meat and most of them in Mali and Bhutan, down to about -6.3 million tonnes for goat meat in Mali in 2011. They are published as printed.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5b27ad8f00e4ee7890dcf840e9d1588b85d29c14dfd07394e6a12775d3cde672",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.commodity-emissions",
+      "path": "v1/indicators/food.faostat.commodity-emissions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "commodity", "title": "Farm product", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+      ],
+      "title": "On-farm methane and nitrous oxide from animals, manure, fertiliser and rice fields, by farm product (14 products)"
+    },
+    {
+      "bytes": 7788634,
+      "description": "Methane and nitrous oxide emitted on farms per kilogram of each of 14 farm products, each year since 1961, for the world and each country, in kilograms of carbon dioxide equivalent, as published by FAO (the product's farm emissions divided by its production). The kilogram is FAO's production weight: carcass weight for meat (FAO's items are meat 'with the bone'), raw whole milk, eggs in shell and harvested cereals. It is not a kilogram of boneless meat or of food as bought, so these values are not comparable with retail or life-cycle figures per kilogram of food. Counts only emissions on the farm from: methane from animals' digestion (enteric fermentation) and from manure management; nitrous oxide from manure management, from manure applied to soils and from manure left on pasture; and, for rice and other cereals, nitrous oxide from crop residues and from synthetic fertiliser, methane and nitrous oxide from burning crop residues, plus methane from flooded rice paddies. Not counted: energy used on farms, drained organic (peat) soils, savanna fires, clearing land (land-use change), and everything before and after the farm (making fertiliser and feed, processing, packaging, transport, retail, cooking and waste). Only 14 products: meat of cattle, buffalo, sheep, goats, pigs and chickens; raw milk of cattle, buffalo, sheep, goats and camels; hen eggs; rice; and other cereals together. Soy, palm oil, fruit, vegetables, sugar, pulses, fish and other farm animals are not covered, so the products do not add up to food's emissions. These are farm-gate values, not life-cycle footprints: FAO says they should not be compared with life-cycle assessment figures. Where a country produces little of a product the value can be very large, and where FAO gives no production figure there is no value. FAO's split of sheep, goat, buffalo and camel emissions between meat and milk makes 72 meat values negative in the February 2026 release, most of them in Mali and Bhutan, down to about -854 kilograms per kilogram for goat meat in Mali in 2010. They are published as printed.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5436097a992ffa0cec3d0611d46f8c7f773cf86af8bc2025642db43a949b64fe",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.commodity-intensity",
+      "path": "v1/indicators/food.faostat.commodity-intensity.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilograms of carbon dioxide equivalent per kilogram produced (carcass weight for meat, raw whole milk, eggs in shell) (kgCO2e/kg)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "commodity", "title": "Farm product", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+      ],
+      "title": "On-farm methane and nitrous oxide per kilogram of farm product, from animals, manure, fertiliser and rice fields (14 products)"
+    },
+    {
+      "bytes": 9719299,
+      "description": "Methane released each year since 1961 by farm animals, for the world and each country, from their digestion (enteric fermentation) and from manure management, for each of the 16 kinds of animal FAO estimates separately: dairy and non-dairy cattle, buffalo, sheep, goats, market and breeding pigs, broiler and laying chickens, ducks, turkeys, horses, asses, mules and hinnies, camels and llamas. They add up exactly to FAO's total for all animals. Manure here is only the methane from managing manure (storing and handling it); nitrous oxide from manure, and manure left on pasture or spread on fields (which emit nitrous oxide, not methane), are not included. In tonnes of methane, not carbon dioxide equivalent, so these values cannot be added to or compared with values in carbon dioxide equivalent.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d05f37e0378b9265db712b91321aa81c9d4277db6dead5ce4f5b6c818653a83a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.livestock-ch4-by-animal",
+      "path": "v1/indicators/food.faostat.livestock-ch4-by-animal.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of methane (not carbon dioxide equivalent) (MtCH4)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "animal", "title": "Animal", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+      ],
+      "title": "Methane from farm animals' digestion and manure, by animal"
     },
     {
       "bytes": 4892,
@@ -1891,7 +2087,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:470f2fcbd200452eb93965ffa11a69fffce8c43b986a9467aa3735a118ba08f3",
+      "hash": "sha256:c435f43a23571c1a22050ae1c80a0d1b97446c3f886d9c4d3d93907c27fff266",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -1916,7 +2112,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
       ],
       "title": "Methane from livestock, world"
     },
@@ -1958,6 +2154,199 @@
         {"path": "https://doi.org/10.1038/s43016-023-00795-w", "title": "University of Oxford (Scarborough, Clark, Springmann et al.), published in Nature Food: Environmental impacts of UK diet groups (Scarborough et al. 2023)"}
       ],
       "title": "Greenhouse gas emissions of UK diets, by diet group"
+    },
+    {
+      "bytes": 3964,
+      "description": "The UK's whole consumption-based greenhouse gas footprint in the latest year of Defra's release, split into the 14 broad categories of end use Defra publishes for that year only, in million tonnes of carbon dioxide equivalent. The first eleven are households' spending and their direct emissions from heating and driving; 'Central and local government', 'Gross fixed capital formation' (investment, including buying houses) and 'Other' (charities, valuables, inventories) are not. 'Food and beverages' covers food and non-alcoholic drinks bought by households; it excludes 'Hotels and restaurants' and 'Alcohol and tobacco', which are separate rows. Flights have no row of their own: households' spending on flights is inside 'Transportation', while business and government travel sits in the supply chains of the other rows. Health and education paid for by government are under government. The rows add up to the published total. Defra revises earlier years in every annual release. UK only.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2a033105124c018f428beae287b2b8b4d6fe61b69f841d35b00eee0141cd034c",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "footprint.defra.by-end-use",
+      "path": "v1/indicators/footprint.defra.by-end-use.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent per year (MtCO2e/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "end_use", "title": "Broad category of end use", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "title": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds: UK and England's carbon footprint to 2023"}
+      ],
+      "title": "UK carbon footprint by end use, latest year (Defra)"
+    },
+    {
+      "bytes": 197453,
+      "description": "The consumption-based greenhouse gas footprint of UK households' own spending and their direct emissions from heating fuels and private vehicles, split into the 34 COICOP product groups Defra publishes, in million tonnes of carbon dioxide equivalent per year. Government spending, investment (including buying houses) and charities are not included, so these add up to the households' part of the UK footprint, not to the whole. 'Food' and 'Non-alcoholic beverages' do not include meals and drinks bought in restaurants, cafés and hotels, which are in 'Restaurants and hotels'. Flights have no group of their own; they are inside 'Transport services'. Defra revises earlier years in every annual release, and says the estimates for 1990 to 1996 are more uncertain. UK only.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b3d64b0face9fdc582db23fb3c9b9d98ed57c3b85875099399b5cd8fb75790e2",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "footprint.defra.households-by-product",
+      "path": "v1/indicators/footprint.defra.households-by-product.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent per year (MtCO2e/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "product", "title": "Product group (COICOP)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "title": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds: UK and England's carbon footprint to 2023"}
+      ],
+      "title": "UK households' carbon footprint by product (Defra)"
+    },
+    {
+      "bytes": 4261,
+      "description": "The UK's consumption-based greenhouse gas footprint divided by its population, as published by Defra, in tonnes of carbon dioxide equivalent per person per year. It counts emissions anywhere in the world from producing what is used in the UK, by households, government and investment, plus households' own emissions from heating and driving; it is an average over everyone in the UK, not a measure of any one person's choices. Defra revises earlier years in every annual release, and says the estimates for 1990 to 1996 are more uncertain. UK only.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:8d976dc85c9e0e1786d2926293167fc8eaf85fa3346ce07de8ad9d2e008a76f4",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "footprint.defra.per-capita",
+      "path": "v1/indicators/footprint.defra.per-capita.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "tonnes of carbon dioxide equivalent per person per year (tCO2e/person/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "title": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds: UK and England's carbon footprint to 2023"}
+      ],
+      "title": "UK carbon footprint per resident, average (Defra)"
+    },
+    {
+      "bytes": 9186,
+      "description": "The consumption-based greenhouse gas footprint of an average person in Sweden: emissions in Sweden and abroad from producing everything used in Sweden, divided by the population, in tonnes of carbon dioxide equivalent per person per year, as published by Naturvårdsverket from Statistics Sweden's official statistics. Split into the six parts the producer publishes. Four are household consumption (transport, food products, housing, and other goods and services); the page does not say whether meals eaten out count under food products or under other goods and services. The other two, public consumption (schools, hospitals, agencies) and investment (buildings including new homes, machinery, computers, valuables and changes in inventories), are shared out per person but are not personal choices; buying a new home counts under investment, not housing. The parts are rounded by the producer and may differ from the published total by 0.01 t. International flights are undercounted: only jet fuel bought in Sweden is counted, without stopovers or the high-altitude effect. The page shows the IPCC Fourth Assessment Report (AR4) global warming potentials (methane 25, nitrous oxide 298) in a general conversion table, without saying they apply to this series. Sweden only; it is not a world average or a measure of any one person.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c3e766e5faad5c27281d08360339b5ee5f200c64fe6a7273784f74bb9b2ca3a1",
+      "licenses": [
+        {"path": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/", "title": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "footprint.naturvardsverket.per-person-by-area",
+      "path": "v1/indicators/footprint.naturvardsverket.per-person-by-area.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "tonnes of carbon dioxide equivalent per person per year (tCO2e/person/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "area", "title": "Consumption area", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "title": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB): Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)"}
+      ],
+      "title": "Greenhouse gas footprint of an average person in Sweden, by consumption area (Naturvårdsverket)"
+    },
+    {
+      "bytes": 2275,
+      "description": "The consumption-based greenhouse gas footprint of an average person in Sweden: emissions in Sweden and abroad from producing everything used in Sweden, divided by the population, in tonnes of carbon dioxide equivalent per person per year, as published by Naturvårdsverket from Statistics Sweden's official statistics. This is the producer's published total (Totalt). It includes household consumption and also public consumption and investment, which are shared out per person but are not personal choices. International flights are undercounted: only jet fuel bought in Sweden is counted, without stopovers or the high-altitude effect. The page shows the IPCC Fourth Assessment Report (AR4) global warming potentials (methane 25, nitrous oxide 298) in a general conversion table, without saying they apply to this series. Sweden only; it is not a world average or a measure of any one person.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f3d9c8e466be72c386f5b30d2db9bec2514f0f46ce2655f6f01ea7a6d2a09b20",
+      "licenses": [
+        {"path": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/", "title": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "footprint.naturvardsverket.per-person-total",
+      "path": "v1/indicators/footprint.naturvardsverket.per-person-total.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "tonnes of carbon dioxide equivalent per person per year (tCO2e/person/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "title": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB): Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)"}
+      ],
+      "title": "Greenhouse gas footprint of an average person in Sweden (Naturvårdsverket)"
     },
     {
       "bytes": 487851,
@@ -2073,6 +2462,199 @@
         {"path": "https://fra-data.fao.org/assessments/fra/2025/WO/home/overview", "title": "Food and Agriculture Organization of the United Nations (FAO), Forestry Division: Global Forest Resources Assessment 2025"}
       ],
       "title": "Annual net change in forest area"
+    },
+    {
+      "bytes": 1632196,
+      "description": "Each year's emissions from all sectors, including net land use and excluding international aviation and shipping, split by gas: carbon dioxide, methane, nitrous oxide and fluorinated gases, each in carbon dioxide equivalent (carbon dioxide counts as itself), as published by FAO for the world and each country since 1990. The four gases add up to the all-gas total. Carbon dioxide includes the net carbon dioxide of land use, land-use change and forestry, so it can be below zero for a country whose forests take up more carbon than it emits. Where FAO publishes no fluorinated-gas row (67 countries and territories in the October 2025 release) the gas is left missing, never set to zero.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d1a0ae510777614cec5d838ec386b666a2984e2399b3de8fc2654cdb92dff5b3",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.faostat.by-gas",
+      "path": "v1/indicators/ghg.faostat.by-gas.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide equivalent (GtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "gas", "title": "Gas", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/GT", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)"}
+      ],
+      "title": "Greenhouse gas emissions by gas, all sectors including land use"
+    },
+    {
+      "bytes": 2704788,
+      "description": "Each year's emissions of all greenhouse gases, in carbon dioxide equivalent, split into six sectors that do not overlap and add up to the total: energy, industrial processes and product use, agriculture, land use (net, which can be below zero where forests take up more carbon than land clearing releases), waste and other, as published by FAO for the world and each country since 1990. Food is not a seventh sector: its emissions run across agriculture, land use, energy, industry and waste. Where FAO publishes no row for a sector (28 territories in the October 2025 release, whose energy, industry and waste are counted in their parent country; Tokelau, Nauru and Tuvalu in part) the sector is left missing, never set to zero, so for those 28 territories the total is agriculture plus land use only. For 10 of them (American Samoa, the Channel Islands, Gibraltar, Greenland, Guam, the Northern Mariana Islands, Norfolk Island, Pitcairn, Svalbard and Jan Mayen, and Saint Pierre and Miquelon) FAO prints agriculture, land use and the total as exactly 0 in some or all years, where it has no estimate. These territories' values are not comparable with countries'. International aviation and shipping are not included.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:ec2431f3c2d0986dcc2401e1d4ab046d5ef84508e1725290fb15b4411e402622",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.faostat.by-sector",
+      "path": "v1/indicators/ghg.faostat.by-sector.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide equivalent (GtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "IPCC sector", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/GT", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)"}
+      ],
+      "title": "Greenhouse gas emissions by sector, all gases including land use"
+    },
+    {
+      "bytes": 2165738,
+      "description": "Each sector's methane emissions as a percentage of all methane emitted by the world or a country in a year, since 1990, as published by FAO, for the six sectors that make up FAO's total: energy (fossil fuel production and use), industrial processes and product use, agriculture (livestock, rice, manure), land use (fires), waste and other. Where FAO publishes all six, they add up to 100. Food systems' methane runs across several of these sectors.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:a4219c81043efd6e866cfbb7a6c2aab10f959a91183f1a1a387865d3b5f0c711",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.faostat.ch4-share-by-sector",
+      "path": "v1/indicators/ghg.faostat.ch4-share-by-sector.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of all methane emissions (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "IPCC sector", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/EM", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)"}
+      ],
+      "title": "Where methane comes from: each sector's share of all methane emissions"
+    },
+    {
+      "bytes": 334091,
+      "description": "Each country's emissions of all greenhouse gases from all sectors on its territory, including net land use and excluding international aviation and shipping, divided by its population, in tonnes of carbon dioxide equivalent per person per year, as published by FAO since 1990. This is a national average where emissions happen, not one person's footprint: it does not follow what people buy (emissions in imported goods count where they are made) and says nothing about how emissions differ between people in a country. FAO has no row for some sectors of four territories (October 2025 release), so their values leave those sectors out: Mayotte has no energy, industry, waste or other emissions, Tokelau no energy or other, and Nauru and Tuvalu no other. Values can be below zero where forests take up more carbon than the country emits: 94 of the values in the October 2025 release are.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4eb8f3eee7d3f666d041260f71e7894268fd80341c53340a43c111d46296ae4c",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.faostat.per-capita",
+      "path": "v1/indicators/ghg.faostat.per-capita.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "tonnes of carbon dioxide equivalent per person (tCO2e-per-person)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/EM", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)"}
+      ],
+      "title": "Greenhouse gas emissions per person: each country's emissions divided by its population"
+    },
+    {
+      "bytes": 405903,
+      "description": "Each year's emissions of all greenhouse gases (carbon dioxide, methane, nitrous oxide and fluorinated gases) from all sectors, in carbon dioxide equivalent, including net land use, land-use change and forestry and excluding international aviation and shipping, as published by FAO for the world and each country since 1990. For 28 territories in the October 2025 release, whose energy, industry and waste emissions are counted in their parent country, the total is agriculture plus land use only, and for 10 of them (American Samoa, the Channel Islands, Gibraltar, Greenland, Guam, the Northern Mariana Islands, Norfolk Island, Pitcairn, Svalbard and Jan Mayen, and Saint Pierre and Miquelon) FAO prints a total of exactly 0 in some or all years, where it has no estimate. These territories' values are not comparable with countries'.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5b5bc49dca20d30f32aa0e86f233060d6659be94a6f0e80482a2a4beb8d99a38",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.faostat.total",
+      "path": "v1/indicators/ghg.faostat.total.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide equivalent (GtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/GT", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)"}
+      ],
+      "title": "Greenhouse gas emissions, all gases and all sectors including land use"
     },
     {
       "bytes": 4831,
@@ -2466,7 +3048,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:9e7f9a6a7f008135f15f205f87577390a5c534dc036ae63c2a492540c7ba02a5",
+      "hash": "sha256:d4df73f96d3bba27eb67036aaa594f819bdee9766899e92f08a8536b5d7b867f",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2492,7 +3074,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
       ],
       "title": "Agricultural land, cropland, pasture and forest area"
     },
@@ -2505,7 +3087,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:d96592df8be421417a4e6baee7e347e98bd55c015aedf221cb397ed7f69cc9f4",
+      "hash": "sha256:44d52a0ee563f862f6568c7e2249e82fc2f5b08e21bf3e6dac8240f8c797873d",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2531,7 +3113,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
       ],
       "title": "Agricultural land, cropland, pasture and forest as a share of land area"
     },

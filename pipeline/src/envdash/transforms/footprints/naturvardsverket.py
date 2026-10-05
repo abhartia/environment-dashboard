@@ -12,23 +12,28 @@ Checks on every build, so that a change to the page stops the transform rather t
 model; the page heading, the responsible authority (Statistikmyndigheten SCB), the y-axis title ('Ton
 koldioxidekvivalenter per person') and the chart's seven series names are the ones above; the CSV header is exactly
 the seven columns above; every row is a year followed by seven numbers; the years run without a gap; and in every year
-the six parts add up to Totalt within 0.01 t. The parts are rounded by the producer to two decimals, so they differ
-from Totalt by 0.01 t in some years (2009, 2010, 2020, 2021 and 2022 in the page reviewed 2025-10-28); the transform
-names those years in a processing step. Nothing is computed: the values are published as printed.
+the six parts add up to Totalt within 0.01 t; and the page's tab 'Koldioxidekvivalenter' still holds the conversion
+table described below. The parts are rounded by the producer to two decimals, so they differ from Totalt by 0.01 t in
+some years (2009, 2010, 2020, 2021 and 2022 in the page reviewed 2025-10-28); the transform names those years in a
+processing step. Nothing is computed: the values are published as printed.
 
 The six parts, from the page: the four household consumption areas (Transporter, Livsmedel, Boende and Övrigt, which
 "består av rekreation och kultur, kläder och skor, hälso- och sjukvård, post- och telekommunikationer med mera"), then
-Offentlig konsumtion (goods and services bought by schools, hospitals and agencies) and Investeringar (buildings,
-machinery, computers, valuables and stocks). The last two are not personal choices. The per-person split is
-Naturvårdsverket's own processing of SCB's official statistics (the verifier could not rebuild 'Övrigt' from SCB's
-COICOP tables), so Naturvårdsverket is credited as the publisher of these values and SCB as the responsible authority.
+Offentlig konsumtion (goods and services bought by schools, hospitals and agencies) and Investeringar ("byggnader,
+maskiner, datorer, värdeföremål och lagerinvesteringar", and elsewhere on the page "byggnader, maskiner, bostäder och
+värdeföremål": buildings including new homes, machinery, computers, valuables and changes in inventories). The last
+two are not personal choices. The page does not say whether meals eaten out are under Livsmedel (food products) or
+Övrigt, so the food label does not claim to cover all food. The per-person split is Naturvårdsverket's own
+processing of SCB's official statistics (the verifier could not rebuild 'Övrigt' from SCB's COICOP tables), so
+Naturvårdsverket is credited as the publisher of these values and SCB as the responsible authority.
 
 Scope, from the page: emissions from goods and services used in Sweden wherever they happen, by an environmentally
 extended input-output model (SCB's environmental accounts). Household transport does not capture the full effect of
 international flights: emissions are based on jet fuel bought in Sweden for flights leaving the country, stopovers are
-missed and the high-altitude effect is not counted. The page does not state which global warming potentials the series
-uses (its explanatory conversion table, with CH4 25 and N2O 298, dates from 2017 reporting and is not said to apply to
-this series), so the scope records the basis as not stated.
+missed and the high-altitude effect is not counted. Global warming potentials: the page's tab 'Koldioxidekvivalenter'
+shows a general conversion table ('Omräkningstabell': CO2 1, CH4 25, N2O 298, the IPCC Fourth Assessment Report (AR4)
+100-year values, linked to that report and sourced to Sweden's 2017 reporting to the UNFCCC), but does not say that
+this series uses it. So the scope records no GWP and says why; the transform checks the table is still there.
 
 Vintage: the years covered and the page's own review date (content.lastReviewed, shown as 'Granskad').
 """
@@ -41,6 +46,7 @@ from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
+from envdash import textmatch
 from envdash.models import Dimension, DimensionValue, Display, Observation, Scope, Unit
 from envdash.paths import Paths
 from envdash.transform import Input, InputFile, Result, Spec, Transform, Validation
@@ -57,7 +63,7 @@ TOTAL = "Totalt"
 # (dimension value id, producer's Swedish column name, label). The order is the page's.
 AREAS: tuple[tuple[str, str, str], ...] = (
     ("transport", "Transporter", "Households: transport (Transporter)"),
-    ("food", "Livsmedel", "Households: food (Livsmedel)"),
+    ("food", "Livsmedel", "Households: food products (Livsmedel)"),
     ("housing", "Boende", "Households: housing (Boende)"),
     (
         "other-household",
@@ -70,10 +76,24 @@ AREAS: tuple[tuple[str, str, str], ...] = (
         "Offentlig konsumtion",
         "Public consumption: schools, hospitals, agencies (Offentlig konsumtion)",
     ),
-    ("investment", "Investeringar", "Investment: buildings, machinery, valuables and stocks (Investeringar)"),
+    (
+        "investment",
+        "Investeringar",
+        "Investment: buildings including new homes, machinery, computers, valuables and changes in inventories "
+        "(Investeringar)",
+    ),
 )
 COLUMNS = ("null", *(sv for _, sv, _ in AREAS), TOTAL)
 PART_TOLERANCE = Decimal("0.01")
+GWP_TAB = "Koldioxidekvivalenter"
+GWP_TABLE = ("Omräkningstabell", "CO2 (koldioxid) 1", "CH4 (metan) 25", "N2O (dikväveoxid) 298")
+"""The page's general conversion table, as its visible text reads (subscripts as plain digits; textmatch ignores
+spaces), in the order it appears; these are the IPCC AR4 100-year values."""
+GWP_AR4_LINK = "Koldioxidekvivalenter för ytterligare växthusgaser i IPCC:s fjärde utvärderingsrapport"
+GWP_WORDS = (
+    "Global warming potentials: the page shows the IPCC Fourth Assessment Report (AR4) values (methane 25, nitrous "
+    "oxide 298) in a general conversion table, without saying they apply to this series."
+)
 
 T_CO2E_PERSON_YR = Unit(
     code="tCO2e/person/yr",
@@ -88,8 +108,7 @@ SCOPE = Scope(
     basis="Consumption-based footprint: greenhouse gas emissions in Sweden and abroad from producing the goods and "
     "services used in Sweden (by households, the public sector and investment), divided by the population; emissions "
     "from producing Sweden's exports are not counted. International flights are undercounted: only jet fuel bought in "
-    "Sweden is counted, stopovers are missed and the high-altitude effect is not included. Global warming potentials: "
-    "not stated by the producer.",
+    "Sweden is counted, stopovers are missed and the high-altitude effect is not included. " + GWP_WORDS,
 )
 
 
@@ -101,6 +120,8 @@ class NaturvardsverketFormatError(ValueError):
 class Chart:
     csv: str
     last_reviewed: str
+    gwp_step: str
+    """The processing step stating what the page says about global warming potentials (gwp_table)."""
 
 
 def page_model(raw: bytes) -> dict:
@@ -135,7 +156,31 @@ def chart(model: dict) -> Chart:
     csv = (opts.get("data") or {}).get("csv")
     if not isinstance(csv, str):
         raise NaturvardsverketFormatError("the chart options have no data.csv string")
-    return Chart(csv=csv, last_reviewed=reviewed)
+    return Chart(csv=csv, last_reviewed=reviewed, gwp_step=gwp_table(c))
+
+
+def gwp_table(content: dict) -> str:
+    """The page's tab GWP_TAB must still hold the conversion table GWP_TABLE and its link to the IPCC's fourth
+    assessment, which the scope and description describe; returns the step that says so."""
+    tabs = [t for t in content.get("tabItems") or [] if isinstance(t, dict) and t.get("heading") == GWP_TAB]
+    if len(tabs) != 1 or not isinstance(tabs[0].get("text"), str):
+        raise NaturvardsverketFormatError(f"expected one tab {GWP_TAB!r} with text, found {len(tabs)}")
+    text = textmatch.html_to_text(tabs[0]["text"])
+    key = textmatch.match_key(text)
+    at = 0
+    for cell in GWP_TABLE:
+        found = key.find(textmatch.match_key(cell), at)
+        if found < 0:
+            raise NaturvardsverketFormatError(f"tab {GWP_TAB!r} no longer shows {cell!r} after the cells before it")
+        at = found
+    if not textmatch.contains(text, GWP_AR4_LINK):
+        raise NaturvardsverketFormatError(f"tab {GWP_TAB!r} no longer links {GWP_AR4_LINK!r}")
+    return (
+        f"Checked the page's tab '{GWP_TAB}': its general conversion table ('Omräkningstabell') gives CO2 1, CH4 25 "
+        "and N2O 298, the IPCC Fourth Assessment Report (AR4) 100-year values, and links that report "
+        f"('{GWP_AR4_LINK}'), but the page does not say that this series uses them. So no global warming potential "
+        "is recorded in the scope; the basis says what the page shows."
+    )
 
 
 def _number(text: str, where: str) -> Decimal:
@@ -226,6 +271,7 @@ def _run_by_area(files: dict[str, InputFile]) -> Result:
             "spending.",
             "Checked that in every year the six parts add up to the published Totalt within 0.01 t (the producer "
             f"rounds each value to two decimals). Years where they differ by 0.01 t: {differ}. No value was changed.",
+            c.gwp_step,
         ],
     )
 
@@ -242,6 +288,7 @@ def _run_total(files: dict[str, InputFile]) -> Result:
             _read_step(f, c, rows),
             "Selected the column Totalt as published (the producer's own total, not a sum of ours). No value was "
             "changed.",
+            c.gwp_step,
         ],
     )
 
@@ -253,8 +300,9 @@ DESCRIPTION = (
 )
 CAVEATS = (
     " International flights are undercounted: only jet fuel bought in Sweden is counted, without stopovers or the "
-    "high-altitude effect. The producer does not state which global warming potentials it uses. Sweden only; it is "
-    "not a world average or a measure of any one person."
+    "high-altitude effect. The page shows the IPCC Fourth Assessment Report (AR4) global warming potentials (methane "
+    "25, nitrous oxide 298) in a general conversion table, without saying they apply to this series. Sweden only; it "
+    "is not a world average or a measure of any one person."
 )
 
 
@@ -265,11 +313,13 @@ def transforms(paths: Paths) -> list[Transform]:
                 id="footprint.naturvardsverket.per-person-by-area",
                 title="Greenhouse gas footprint of an average person in Sweden, by consumption area (Naturvårdsverket)",
                 description=DESCRIPTION
-                + "Split into the six parts the producer publishes. Four are household consumption (transport, food, "
-                "housing, and other goods and services). The other two, public consumption (schools, hospitals, "
-                "agencies) and investment (buildings, machinery, valuables, stocks), are shared out per person but "
-                "are not personal choices. The parts are rounded by the producer and may differ from the published "
-                "total by 0.01 t." + CAVEATS,
+                + "Split into the six parts the producer publishes. Four are household consumption (transport, food "
+                "products, housing, and other goods and services); the page does not say whether meals eaten out "
+                "count under food products or under other goods and services. The other two, public consumption "
+                "(schools, hospitals, agencies) and investment (buildings including new homes, machinery, computers, "
+                "valuables and changes in inventories), are shared out per person but are not personal choices; "
+                "buying a new home counts under investment, not housing. The parts are rounded by the producer and "
+                "may differ from the published total by 0.01 t." + CAVEATS,
                 kind="series",
                 unit=T_CO2E_PERSON_YR,
                 display=Display(decimals=2),

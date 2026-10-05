@@ -16,6 +16,9 @@
 #   - Methods (UK_and_England_s_Carbon_Footprint_Summary_of_Methods_2026.pdf, per the verifier): GWP100 from the IPCC
 #     Fifth Assessment Report (AR5); produced by the University of Leeds with a multi-regional input-output model
 #     (EXIOBASE v3.8.3 and FIGARO v2025 for the rest of the world); no third-party licence exception is stated.
+#     Registered as artifact `methods` on 2026-10-05 (the release's attachment "UK consumption account methodology",
+#     application/pdf, 1,032,209 bytes, Last-Modified 25 June 2026), so the scope's AR5-GWP100 is backed by a
+#     snapshot: every Defra transform reads it and refuses to build unless its AR5 sentence is on the stated page.
 # ArtifactFormat has no 'ods': an OpenDocument spreadsheet is a zip package (its first member is 'mimetype'), so the
 # artifacts are declared as zip and read member by member (content.xml).
 id: defra-uk-carbon-footprint
@@ -86,6 +89,14 @@ artifacts:
       "Carbon footprint for the UK and England to 2023: Figures and tables dataset", an OpenDocument spreadsheet (a zip
       package) with the data behind the statistical release's figures and tables (for example Table_2: 11 broad
       household categories for 1996, 2022 and 2023). 36,646 bytes on 2026-10-05.
+  - id: methods
+    url: https://assets.publishing.service.gov.uk/media/6a3ce626eaee00074150f449/UK_and_England_s_Carbon_Footprint_Summary_of_Methods_2026.pdf
+    format: pdf
+    description: >-
+      "UK and England's Carbon Footprint: Summary of Methods 2026", listed on the release page as "UK consumption
+      account methodology" (PDF). Read for the global warming potentials the footprint uses (IPCC Fifth Assessment
+      Report, AR5). 1,032,209 bytes on 2026-10-05.
+    max_bytes: 10000000
 status:
   state: active
   note: >-

@@ -85,7 +85,14 @@ uv run envdash private push && uv run envdash archive
 | `cmems-envdash` | Copernicus Marine (ocean pH) | `CMEMS_CREDENTIALS` |
 | `zenodo-envdash` | Zenodo token with `deposit:write`, `deposit:actions` | `ZENODO_TOKEN` |
 
-Also: email ch.datainfo@idmc.ch to request an IDMC API key. Until it arrives, IDMC is a manual source.
+Also (owner), by email:
+- ch.datainfo@idmc.ch: request an IDMC API key. Until it arrives, IDMC is a manual source.
+- faostat@fao.org (not yet sent): ask which PRIMAP-hist version and terms apply to the non-farm items of Emissions
+  totals (GT: Energy, IPPU, Waste, Other), which FAO's note says are PRIMAP-hist v2.4 (CC BY) while the October 2025
+  values match v2.7 (CC BY-NC-SA); and whether the IEA and other third-party inputs behind pre- and post-production
+  and on-farm energy use (IEA activity data and grid emission factors, EDGAR v7 cold-chain F-gases) carry
+  restrictions. Record the answer in `docs/sources.md` and in `pipeline/sources/faostat.yaml` and
+  `faostat-all-sectors.yaml`.
 
 ### 5. GitHub
 

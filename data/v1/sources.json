@@ -526,6 +526,67 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"Carbon footprint for the UK dataset, 1990 to 2023\", an OpenDocument spreadsheet (a zip package). Sheets used: Cover_sheet (licence, notes), Summary_1990_to_2023 (greenhouse gases in ktCO2e and in tCO2e per capita), Summary_product (household emissions by 34 COICOP product groups, ktCO2e) and Summary_2023 (Table 3, 2023 emissions by 14 broad categories of end use, ktCO2e). 98,019 bytes on 2026-10-05.", "discover": null, "format": "zip", "id": "uk-dataset", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a3ce5c930b491f55b3c494c/UK_carbon_footprint_dataset_1990_to_2023.ods"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"Carbon footprint for the UK and England to 2023: Figures and tables dataset\", an OpenDocument spreadsheet (a zip package) with the data behind the statistical release's figures and tables (for example Table_2: 11 broad household categories for 1996, 2022 and 2023). 36,646 bytes on 2026-10-05.", "discover": null, "format": "zip", "id": "figures-and-tables", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a3ce5ee33bc5beefd3c4981/carbon_footprint_for_the_UK_and_England_to_2023_figures_and_tables_dataset.ods"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"UK and England's Carbon Footprint: Summary of Methods 2026\", listed on the release page as \"UK consumption account methodology\" (PDF). Read for the global warming potentials the footprint uses (IPCC Fifth Assessment Report, AR5). 1,032,209 bytes on 2026-10-05.", "discover": null, "format": "pdf", "id": "methods", "max_bytes": 10000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a3ce626eaee00074150f449/UK_and_England_s_Carbon_Footprint_Summary_of_Methods_2026.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
+        "author": [
+          {"family": null, "given": null, "literal": "Department for Environment, Food & Rural Affairs"}
+        ],
+        "container-title": null,
+        "issued": "2026-06-30",
+        "page": null,
+        "publisher": "GOV.UK",
+        "text": "Department for Environment, Food & Rural Affairs (2026). UK and England's carbon footprint to 2023: Carbon footprint for the UK dataset, 1990 to 2023 ({version}). GOV.UK. https://www.gov.uk/government/statistics/uks-carbon-footprint",
+        "title": "Carbon footprint for the UK dataset, 1990 to 2023",
+        "type": "dataset",
+        "version": "{version}",
+        "volume": null
+      },
+      "description": "The UK's carbon footprint: greenhouse gas emissions caused by what UK residents, government and businesses' capital investment consume, wherever in the world the emissions happen, plus households' own emissions from heating homes and driving. In thousand tonnes of carbon dioxide equivalent (and tonnes per person for the total), 1990-2023, split by final demand, by household product (34 COICOP groups) and, for 2023, by broad category of end use. Estimated by the University of Leeds with a multi-regional input-output model; 1990-1996 are more uncertain, and every annual release revises earlier years. Flights have no separate figure. UK only.",
+      "evidence": {
+        "checked_on": "2026-10-05",
+        "licence_quote": "This data is licensed under the Open Government Licence 3.0.",
+        "terms_check": "manual",
+        "terms_url": "https://assets.publishing.service.gov.uk/media/6a3ce5c930b491f55b3c494c/UK_carbon_footprint_dataset_1990_to_2023.ods"
+      },
+      "id": "defra-uk-carbon-footprint",
+      "landing_url": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
+      "licence": {
+        "name": "Open Government Licence v3.0 (Crown copyright)",
+        "spdx": "OGL-UK-3.0",
+        "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Department for Environment, Food & Rural Affairs, UK and England's carbon footprint to 2023 ({version}), data produced by the University of Leeds. Contains public sector information licensed under the Open Government Licence v3.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Department for Environment, Food & Rural Affairs, UK and England's carbon footprint to 2023 ({version}), data produced by the University of Leeds. Contains public sector information licensed under the Open Government Licence v3.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds",
+      "research_ref": "docs/research/sources-ghg-food-personal-2026-10-05.json#NEED C rank 2: UK and England's carbon footprint to 2023 (consumption-based GHG by product category and end use)",
+      "status": {
+        "note": "Official statistics published by Defra each year; the release to 2023 came out on 30 June 2026 (corrected on 7 and 24 July 2026). Each annual update revises earlier years (the 2026 release switched trade data to FIGARO v2025 from 2010), so every vintage is kept as its own snapshot. UK Government statistics, not exposed to US federal cuts.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "UK and England's carbon footprint to 2023",
+      "twins": [],
+      "update_cadence": "Annual, usually in May or June; earlier years are revised in every release"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"Conversion factors 2026: flat file (for automatic processing only)\", version 1.2. Sheet \"Factors by Category\": ID, Scope, Level 1 to Level 4, Column Text, UOM, GHG/Unit and \"GHG Conversion Factor 2026\" (for example 21_316_3170_11_1, long-haul flight to or from the UK, economy class, with RF: 0.11704 kg CO2e per passenger-km). 515,426 bytes.", "discover": null, "format": "xlsx", "id": "flat-file", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"2026 Government greenhouse gas conversion factors for company reporting: Methodology paper\" (152 pages), which states how each factor is derived, including the distance and radiative-forcing uplifts for flights. 1,761,487 bytes.", "discover": null, "format": "pdf", "id": "methodology-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a2940543b15d05a7ce3202e/2026-GHG-conversion-factors-methodology-report.pdf"}
       ],
@@ -1163,6 +1224,7 @@
       "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Climate Change: Agrifood systems emissions: Emissions totals (GT). Zipped normalized CSV (latin-1): Area, Item, Element, Year, Source, Unit, Value, Flag. Elements include \"Emissions (CO2eq) (AR5)\" in kt. Rows run 1961-2023 plus projection years 2030 and 2050, which are not published.", "discover": null, "format": "zip", "id": "emissions-totals", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Climate Change: Agrifood systems emissions: Emissions from Livestock (GLE). Zipped normalized CSV (latin-1) of CH4 and N2O from enteric fermentation and manure (management, left on pasture, applied to soils) by species, with livestock numbers, Tier 1.", "discover": null, "format": "zip", "id": "emissions-livestock", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Climate Change: Agrifood systems emissions: Emissions intensities (EI). Zipped normalized CSV: Area, Item Code, Item Code (CPC), Item, Element, Year, Unit, Value, Flag (no Source column). Elements 723113 \"Emissions (CO2eq) (AR5)\" in kt, 71761 \"Emissions intensity\" in kg CO2eq/kg of product and 5510 \"Production\" in t, for 14 commodities, 1961-2023. Farm-gate emissions only: enteric CH4, manure management CH4 and N2O, N2O from manure left on pasture and applied to soils, and N2O from crop residues, their burning and synthetic fertiliser allocated to crops, plus rice paddy CH4; no on-farm energy, drained organic soils, savanna fires, land-use change or pre- and post-production. Methodological note: https://files-faostat.fao.org/production/EI/EI_e.pdf (release October 2025), which says the values should not be compared with life-cycle assessments.", "discover": null, "format": "zip", "id": "emissions-intensities", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Land, Inputs and Sustainability: Land Use (RL). Zipped normalized CSV (latin-1) of land-use areas in 1000 ha and shares, 1961-2024; forest land to 2025 is taken by FAO from FRA 2025.", "discover": null, "format": "zip", "id": "land-use", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "SDG Indicators (SDGB). Zipped normalized CSV (latin-1) of all SDG series under FAO custodianship; we use item codes 24044 (12.3.1a food loss percentage, %) and 24045 (12.3.1a Global Food Loss Index), total and by commodity group, 2015-2024.", "discover": null, "format": "zip", "id": "sdg-indicators", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "FAOSTAT bulk-download catalogue: DatasetCode, DatasetName, DateUpdate, FileSize and FileLocation for every domain. Supplies {year} (DateUpdate) for the citation.", "discover": null, "format": "json", "id": "datasets-catalogue", "max_bytes": 5000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/datasets_E.json"}
@@ -1183,7 +1245,7 @@
         "version": null,
         "volume": null
       },
-      "description": "Four FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and region, 1961-2023, with two sources per value (\"FAO TIER 1\" estimates and \"UNFCCC\" country submissions) and projection rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by species, Tier 1. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA) and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global Food Loss Index (2015 = 100), total and by commodity group, 2015-2024.",
+      "description": "Five FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and region, 1961-2023, with two sources per value (\"FAO TIER 1\" estimates and \"UNFCCC\" country submissions) and projection rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by species, Tier 1. Emissions intensities (EI): farm-gate emissions (kt CO2eq, AR5) and emissions per kg of product for 14 commodities (meat and milk of cattle, buffalo, sheep and goats, pig and chicken meat, camel milk, hen eggs, rice and cereals excluding rice), 1961-2023. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA) and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global Food Loss Index (2015 = 100), total and by commodity group, 2015-2024.",
       "evidence": {
         "checked_on": "2026-10-04",
         "licence_quote": "Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical databases (see examples in Annex 1) are licensed under the Creative Commons Attribution-4.0 International licence (CC BY 4.0)",
@@ -1215,15 +1277,80 @@
         "rounding": null
       },
       "publisher": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division",
-      "research_ref": "docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP, EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage",
+      "research_ref": "docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP, EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage; docs/research/sources-ghg-food-personal-2026-10-05.json#NEED B (GT by stage and process, EI, GLE by animal)",
       "status": {
         "note": "Updated on FAO's annual cycle: Land Use on 2 October 2026 and SDG indicators on 29 September 2026; the emissions domains (GT, GLE) were last updated 28 October 2025 with data to 2023. FAO is not on the January 2026 US withdrawal memorandum (FR Doc 2026-00976); UNFCCC is, which concerns the \"UNFCCC\" source rows in GT.",
         "state": "active",
         "us_federal": false
       },
-      "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss",
+      "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss",
       "twins": [],
       "update_cadence": "Annual per domain; emissions domains each October-November, Land Use and SDG indicators around late September. DateUpdate in datasets_E.json changes with each release, but zips are sometimes re-uploaded later."
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Climate Change: Agrifood systems emissions: Emissions totals (GT). Zipped normalized CSV (latin-1): Area, Item, Element, Year, Source, Unit, Value, Flag, Note. The same file as faostat/emissions-totals; here we read the IPCC sector items (6821, 6817, 1711, 1707, 6818, 6819) and the all-sector total (6825), \"FAO TIER 1\" rows only.", "discover": null, "format": "zip", "id": "emissions-totals", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Climate Change: Agrifood systems emissions: Emissions indicators (EM). Zipped normalized CSV: Area, Item, Element, Year, Unit, Value, Flag. FAO's shares of each item in the all-sector total including LULUCF (by CO2-equivalent and by gas, percent) and emissions per capita (t CO2eq per person), per value of agricultural production and per hectare of agricultural land, 1990-2023.", "discover": null, "format": "zip", "id": "emissions-indicators", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Climate_change_Emissions_indicators_E_All_Data_(Normalized).zip"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "FAOSTAT bulk-download catalogue: DatasetCode, DateUpdate, FileRows and FileLocation for every domain. The same file as faostat/datasets-catalogue. Supplies the vintage (DateUpdate) and {year} for the citation, after its FileRows is matched against the data rows of the GT or EM file.", "discover": null, "format": "json", "id": "datasets-catalogue", "max_bytes": 5000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/datasets_E.json"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.fao.org/faostat/en/",
+        "author": [
+          {"family": null, "given": null, "literal": "FAO"}
+        ],
+        "container-title": null,
+        "issued": "{year}",
+        "page": null,
+        "publisher": "Food and Agriculture Organization of the United Nations",
+        "text": "FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions: Gütschow, J., Busch, D. & Pflüger, M. (2025). The PRIMAP-hist national historical emissions time series (1750-2024) v2.7. Zenodo. https://doi.org/10.5281/zenodo.17090760 Licence: CC BY-NC-SA 4.0.",
+        "title": "FAOSTAT",
+        "type": "dataset",
+        "version": null,
+        "volume": null
+      },
+      "description": "Two FAOSTAT domains of the Climate Change: Agrifood systems emissions group. Emissions totals (GT): emissions of CO2, CH4, N2O and F-gases, and their CO2-equivalent (AR5 GWP100), in kilotonnes, for the IPCC sectors Energy, Industrial processes and product use (IPPU), Agriculture, Land use, land-use change and forestry (LULUCF, net of the forest sink), Waste and Other, their total with and without LULUCF, and the agrifood-system items, by country and region, 1990-2023 for the totals. FAO computes Agriculture and LULUCF itself (Tier 1); Energy, IPPU, Waste and Other are the PRIMAP-hist v2.7 third-party-priority series (Gütschow, Busch and Pflüger, 2025). Emissions indicators (EM): FAO's own shares of each item in the all-sector total (by CO2-equivalent and by gas) and emissions per person, per value of agricultural production and per hectare of agricultural land, 1990-2023.",
+      "evidence": {
+        "checked_on": "2026-10-05",
+        "licence_quote": "Since v2.7 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users can not use it freely and have to obtain a commercial license.",
+        "terms_check": "page",
+        "terms_url": "https://zenodo.org/records/17090760"
+      },
+      "id": "faostat-all-sectors",
+      "landing_url": "https://www.fao.org/faostat/en/#data/GT",
+      "licence": {
+        "name": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)",
+        "spdx": "CC-BY-NC-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "licence_class": "noncommercial",
+      "next_release": {
+        "expected": "2026-10-31",
+        "note": "FAO's 2026 release calendar lists FAOSTAT Emissions totals (data to 2024) under October 2026 without a day; 31 October is the end of that window. The PRIMAP-hist version and its terms must be re-checked at that release.",
+        "url": "https://www.fao.org/statistics/data-releases/upcoming-data-releases/en"
+      },
+      "obligations": {
+        "attribution": "FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions from Gütschow, J., Busch, D. & Pflüger, M. (2025), The PRIMAP-hist national historical emissions time series (1750-2024) v2.7, doi:10.5281/zenodo.17090760, licensed CC BY-NC-SA 4.0; method in Gütschow et al. (2016), Earth System Science Data 8, 571-603, doi:10.5194/essd-8-571-2016.",
+        "attribution_modified": "Calculated by Environment Dashboard from FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions from Gütschow, J., Busch, D. & Pflüger, M. (2025), The PRIMAP-hist national historical emissions time series (1750-2024) v2.7, doi:10.5281/zenodo.17090760, licensed CC BY-NC-SA 4.0; method in Gütschow et al. (2016), Earth System Science Data 8, 571-603, doi:10.5194/essd-8-571-2016.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": "FAOSTAT's energy, industrial processes, waste and other emissions, and every total, share or per-person value that includes them, are PRIMAP-hist v2.7 data (Gütschow, Busch and Pflüger, 2025, doi:10.5281/zenodo.17090760), licensed CC BY-NC-SA 4.0. Values from this source are shared under CC BY-NC-SA 4.0, for non-commercial use only.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division",
+      "research_ref": "docs/research/sources-ghg-food-personal-2026-10-05.json#research[0] FAOSTAT Emissions totals (GT) + Emissions indicators (EM); #verification[1] ghg-by-sector",
+      "status": {
+        "note": "The emissions domains (GT, EM) were last updated 28 October 2025 with data to 2023. FAO's documentation names PRIMAP-hist v2.4 for the non-farm sectors, but the values are v2.7 (see the registry file's header); which version and terms apply is a question still to be asked of FAO. FAO is not on the January 2026 US withdrawal memorandum (FR Doc 2026-00976).",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)",
+      "twins": [],
+      "update_cadence": "Annual, each October-November. DateUpdate in datasets_E.json changes with each release, but zips are sometimes re-uploaded later."
     },
     {
       "acquisition": "automatic",
@@ -3378,6 +3505,65 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The statistics page \"Konsumtionsbaserade växthusgasutsläpp per person och år\". The series is embedded in the page model (<script id=\"__model_data\">, content.highChartsOptions, data.csv): one row per year 2008-2023 with Transporter, Livsmedel, Boende, Övrigt, Offentlig konsumtion, Investeringar and Totalt, in tonnes of carbon dioxide equivalent per person. There is no separate data file. 231,605 bytes on 2026-10-05.", "discover": null, "format": "html", "id": "per-person-page", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/",
+        "author": [
+          {"family": null, "given": null, "literal": "Naturvårdsverket"}
+        ],
+        "container-title": null,
+        "issued": "2025-10-28",
+        "page": null,
+        "publisher": "Naturvårdsverket",
+        "text": "Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år ({version}). Official statistics of Sweden; responsible authority Statistics Sweden (SCB). https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/",
+        "title": "Konsumtionsbaserade växthusgasutsläpp per person och år",
+        "type": "webpage",
+        "version": "{version}",
+        "volume": null
+      },
+      "description": "The greenhouse gas footprint of an average person in Sweden, in tonnes of carbon dioxide equivalent per person per year, 2008-2023: the emissions, in Sweden and abroad, from producing everything used in Sweden, divided among its population. Split into six parts that do not overlap: household transport, food products, housing and other household consumption, plus public consumption (schools, hospitals, agencies) and investment (buildings including new homes, machinery, computers, valuables and changes in inventories), which are not personal choices. Built by SCB's environmental accounts with an environmentally extended input-output model. International flights are undercounted (only jet fuel bought in Sweden, no stopovers, no high-altitude effect). Sweden only.",
+      "evidence": {
+        "checked_on": "2026-10-05",
+        "licence_quote": "Öppna data får användas fritt men ange gärna Naturvårdsverket som källa. (Statistics Sweden, https://www.scb.se/vara-tjanster/oppna-data/: \"Vi använder licensen CC0 för dessa data, vilket innebär att du får använda och sprida eller tillgängliggöra sådana data utan krav på att ange källa.\")",
+        "terms_check": "manual",
+        "terms_url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"
+      },
+      "id": "naturvardsverket-consumption-footprint",
+      "landing_url": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/",
+      "licence": {
+        "name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0",
+        "spdx": null,
+        "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Naturvårdsverket, Konsumtionsbaserade växthusgasutsläpp per person och år ({version}); official statistics of Sweden, responsible authority Statistics Sweden (SCB). Open data; SCB data CC0 1.0.",
+        "attribution_modified": null,
+        "derived_disclaimer": null,
+        "mirror_raw": false,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)",
+      "research_ref": "docs/research/sources-ghg-food-personal-2026-10-05.json#NEED C rank 1: Consumption-based greenhouse gas emissions per person and year, by consumption area (Sweden)",
+      "status": {
+        "note": "Official statistics of Sweden, updated each autumn with data two years behind. The page reviewed on 28 October 2025 holds 2008-2023 and announces the next update for autumn 2026 with data to 2024, so the values may change soon. The series exists only inside the page's chart payload, so each fetch keeps the whole page as a snapshot and the transform stops if the payload's shape changes. Not a US federal product.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)",
+      "twins": [],
+      "update_cadence": "Annual, each autumn (data two years behind)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "World Ocean 0-700 m heat content anomaly, yearly from 1955 (10^22 J), fixed-width columns YEAR WO WOse NH NHse SH SHse (year + 0.5; World, Northern and Southern Hemisphere values with standard errors).", "discover": null, "format": "txt", "id": "world-0-700m-yearly", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-700m.dat"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "World Ocean 0-2000 m heat content anomaly, yearly from 2005 (10^22 J), same column layout.", "discover": null, "format": "txt", "id": "world-0-2000m-yearly", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-2000m.dat"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "World Ocean 0-700 m heat content anomaly as five-year means from 1955-59 (first column is the middle year, e.g. 1957.5), same column layout.", "discover": null, "format": "txt", "id": "world-0-700m-pentadal", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-700m.dat"},
@@ -4304,7 +4490,10 @@
       "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Income, emission and population shares for each global income percentile and year (Year, PercentileLabel, PercentileValue, IncomeShare, EmissionShare, PopulationShare, Elasticity), all years.", "discover": null, "format": "json", "id": "global-percentile-shares", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/globalHistoricalDataByYear/search.php"},
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Global emissions, GDP and population for each year, all years.", "discover": null, "format": "json", "id": "global-totals", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/globalDataByYear/search.php"},
-        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Sum of national emissions, population and GDP over the countries in the database, for each year.", "discover": null, "format": "json", "id": "country-totals", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/countryTotals/search.php"}
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Sum of national emissions, population and GDP over the countries in the database, for each year.", "discover": null, "format": "json", "id": "country-totals", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/countryTotals/search.php"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Switzerland's national series used by the dashboard, one record a year 1990-2023 (CountryName, CountryISOCode, Year, EmissionsPerCap, GDPPerCap, Population, NatEmisions, NatGDP).", "discover": null, "format": "json", "id": "national-history-che", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=CHE&startyear=1990&endyear=2023"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The United States' national series used by the dashboard, one record a year 1990-2023 (same fields as national-history-che).", "discover": null, "format": "json", "id": "national-history-usa", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=USA&startyear=1990&endyear=2023"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The United Kingdom's national series used by the dashboard, one record a year 1990-2023 (same fields as national-history-che).", "discover": null, "format": "json", "id": "national-history-gbr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=GBR&startyear=1990&endyear=2023"}
       ],
       "citation": {
         "DOI": null,
@@ -4356,7 +4545,7 @@
       "publisher": "Stockholm Environment Institute (SEI)",
       "research_ref": "docs/research/sources-solutions-and-action.json#SEI Emissions Inequality Dashboard (global consumption CO2 by income percentile)",
       "status": {
-        "note": "The historical series ends in 2023 (2023 methodology update). The API has no versions or DOI, and it is served from a host named sei-eqtrans-dev.net, which the dashboard's own API page links to. The address could change without notice, so each response is kept as a dated snapshot. Figures differ from those printed in Oxfam's releases because of method updates. Not a US federal product.",
+        "note": "The historical series ends in 2023 (2023 methodology update), but its 2023 national values are territorial carbon dioxide while 1990-2022 are consumption-based (Switzerland 122.0 Mt in 2022, 32.7 Mt in 2023; the historicalDataByCountry responses for Switzerland, the United States and the United Kingdom are kept as snapshots), so the site publishes 1990-2022 only. The API has no versions or DOI, and it is served from a host named sei-eqtrans-dev.net, which the dashboard's own API page links to. The address could change without notice, so each response is kept as a dated snapshot. Figures differ from those printed in Oxfam's releases because of method updates. Not a US federal product.",
         "state": "active",
         "us_federal": false
       },

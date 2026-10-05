@@ -86,14 +86,14 @@ def test_stages_add_up_to_the_published_agrifood_total():
     assert len(totals) == 34 + 31 + 34
     for (code, year), total in totals.items():
         ours = sums.pop((GT_AREAS[code], f"{year}"))
-        assert abs(ours - total / Decimal(1_000_000)) <= Decimal("0.00000001"), (code, year)
+        assert abs(ours - total / Decimal(1000)) <= Decimal("0.00001"), (code, year)
     assert not sums, "a published stage year without FAO's agrifood total"
     by = {(o.entity, o.dims["stage"], o.period): o.value for o in obs}
-    # World 2023 as printed (kt): Farm gate 8,096,973.4689; Land-use change 3,190,127.728; Pre- and post-production
-    # 5,247,971.1768; together FAO's Agrifood systems 16,535,072.3737.
-    assert by[("WLD", "farm-gate", "2023")] == 8.0969734689
-    assert by[("WLD", "land-use-change", "2023")] == 3.190127728
-    assert by[("WLD", "pre-post-production", "2023")] == 5.2479711768
+    # World 2023 as printed (kt), published in million tonnes: Farm gate 8,096,973.4689; Land-use change
+    # 3,190,127.728; Pre- and post-production 5,247,971.1768; together FAO's Agrifood systems 16,535,072.3737.
+    assert by[("WLD", "farm-gate", "2023")] == 8096.9734689
+    assert by[("WLD", "land-use-change", "2023")] == 3190.127728
+    assert by[("WLD", "pre-post-production", "2023")] == 5247.9711768
     assert {o.entity for o in obs} == {"WLD", "ETH", "SOM"}
 
 
@@ -175,6 +175,12 @@ def test_stage_scope_names_what_is_outside_the_total():
         s = by_id[i].spec.scope
         assert (s.gwp, s.lulucf, s.bunkers) == ("AR5-GWP100", "included", "excluded")
         assert "Forestland" in s.basis and "2001" in s.basis and "savanna fires" in s.basis
+        # Million tonnes for both: billion tonnes with two decimals would show most countries' stages as 0.00.
+        assert by_id[i].spec.unit.code == "MtCO2e"
+    stage = by_id["food.faostat.agrifood-emissions-by-stage"].spec
+    assert "on the farm" not in stage.title
+    assert "savanna fires" in stage.title and "drained peat soils" in stage.title
+    assert "fires in humid tropical forests" in stage.description
 
 
 # --- farm-gate emissions and intensities of 14 products (EI) -------------------------------------------------------
@@ -240,15 +246,41 @@ def test_ei_meat_and_milk_equal_the_gle_species_co2eq():
 
 
 def test_ei_coverage_stated_in_the_description():
-    """The descriptions say the 14 products cover 32 percent of FAO's agrifood systems emissions in 2023."""
-    e = _printed(_ei_lines(), ei.EMISSIONS, source=None)
-    products = sum(e[("5000", i, 2023)] for i in ei.COMMODITIES)
-    agrifood = _printed(_gt_lines(), gt.CO2EQ_AR5)[("5000", gt.AGRIFOOD[0], 2023)]
-    assert round(products / agrifood * 100) == 32
+    """The descriptions name the foods the 14 products leave out. They give no coverage percentage: one would divide an
+    EI value by a GT value of another vintage, which is our own computation."""
     for t in ei.transforms(Paths.default()):
-        assert "32 percent in 2023" in t.spec.description
-        assert "should not be compared" in t.spec.description
-        assert "savanna fires" in t.spec.description and "land-use change" in t.spec.description
+        d = t.spec.description
+        assert "Soy, palm oil, fruit, vegetables, sugar, pulses, fish" in d and "percent" not in d
+        assert "should not be compared" in d
+        assert "savanna fires" in d and "land-use change" in d
+        # Burning crop residues emits methane as well as nitrous oxide (and EI's values include both).
+        assert "methane and nitrous oxide from burning crop residues" in d
+    intensity = next(t.spec for t in ei.transforms(Paths.default()) if t.spec.id == "food.faostat.commodity-intensity")
+    assert "carcass weight" in intensity.unit.label and "carcass weight" in intensity.description
+    assert "not comparable with retail or life-cycle figures" in intensity.description
+
+
+def test_ei_negative_values_are_counted_and_published():
+    # The fixture holds Mali's goat-meat emissions (negative in 2010-2012 as printed), not its intensities.
+    obs, steps = _ei(ei.EMISSIONS)
+    neg = [o for o in obs if o.value < 0]
+    assert neg and {o.entity for o in neg} == {"MLI"}
+    (step,) = [s for s in steps if "below zero" in s]
+    assert step.startswith(f"{len(neg):,} published values are below zero (goat-meat; MLI)")
+    assert "the lowest is MLI goat-meat 2011 (-6.3167537 million tonnes)" in step
+    _, steps = _ei(ei.INTENSITY)
+    assert "No published value is below zero." in steps
+
+
+def test_ei_absent_intensities_count_published_areas_only():
+    """FAO's "China" group (351) has emissions rows; its missing intensities are not counted, as it is not published."""
+    _, steps = _ei(ei.INTENSITY)
+    e = _printed(_ei_lines(), ei.EMISSIONS, source=None)
+    i = _printed(_ei_lines(), ei.INTENSITY, source=None)
+    expected = sum(1 for k in e if k[0] != "351" and k not in i)
+    assert any(s for s in e if s[0] == "351")
+    (step,) = [s for s in steps if "no intensity row" in s]
+    assert f"{expected:,} product-years of the published areas" in step
 
 
 def test_ei_vintage_from_catalogue():
@@ -288,6 +320,9 @@ def test_animals_add_up_to_all_animals():
     # World 2023 as printed (kt CH4): non-dairy cattle 58,489.9138; dairy cattle 21,532.4326; All Animals 115,211.2597.
     assert by[("WLD", "cattle-non-dairy", "2023")] == 58.4899138
     assert by[("WLD", "cattle-dairy", "2023")] == 21.5324326
+    (t,) = gle.transforms(Paths.default())
+    assert t.spec.unit.label == "million tonnes of methane (not carbon dioxide equivalent)"
+    assert "only the methane from managing manure" in t.spec.description
     assert len({o.dims["animal"] for o in obs if o.entity == "WLD"}) == 16
     periods = {o.period for o in obs}
     assert min(periods) == "1961" and max(periods) == "2023"
@@ -344,6 +379,7 @@ def test_full_snapshots_build_every_breakdown():
     p = Paths.default()
     cur = snapshots.read_current(p)
     built = {}
+    steps: dict[str, list[str]] = {}
     for mod in (gt, ei, gle):
         for t in mod.transforms(p):
             files = {}
@@ -354,8 +390,17 @@ def test_full_snapshots_build_every_breakdown():
             r = t.run(files)
             validate(t, r.observations)
             built[t.spec.id] = {(o.entity, tuple(sorted(o.dims.items())), o.period): o.value for o in r.observations}
+            steps[t.spec.id] = r.steps
     stage = built["food.faostat.agrifood-emissions-by-stage"]
-    assert stage[("WLD", (("stage", "farm-gate"),), "2023")] == 8.0969734689
+    assert stage[("WLD", (("stage", "farm-gate"),), "2023")] == 8096.9734689
+    # The counts the EI descriptions give for the February 2026 release.
+    for i, n in (("food.faostat.commodity-emissions", 75), ("food.faostat.commodity-intensity", 72)):
+        assert sum(1 for v in built[i].values() if v < 0) == n, i
+        assert any(s.startswith(f"{n} published values are below zero") for s in steps[i]), i
+    assert min(built["food.faostat.commodity-emissions"].values()) == -6.3167537
+    assert built["food.faostat.commodity-emissions"][("MLI", (("commodity", "goat-meat"),), "2011")] == -6.3167537
+    assert built["food.faostat.commodity-intensity"][("MLI", (("commodity", "goat-meat"),), "2010")] == -854.2702
+    assert any("5,239 product-years of the published areas" in s for s in steps["food.faostat.commodity-intensity"])
     animals = built["food.faostat.livestock-ch4-by-animal"]
     assert abs(sum(v for (e, _, y), v in animals.items() if e == "WLD" and y == "2023") - 115.2112597) < 1e-6
     # FAO's "China" (351) is never published beside China, mainland (41 -> CHN).

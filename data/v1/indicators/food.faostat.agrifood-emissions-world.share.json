@@ -1,6 +1,6 @@
 {
-  "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: share calculated as agrifood systems emissions divided by all-sector emissions including land use, land-use change and forestry.",
-  "description": "The part of the world's greenhouse gas emissions, including land use, land-use change and forestry, that comes from food and farming systems, each year since 1990, as estimated by FAO.",
+  "attribution": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions from Gütschow, J., Busch, D. & Pflüger, M. (2025), The PRIMAP-hist national historical emissions time series (1750-2024) v2.7, doi:10.5281/zenodo.17090760, licensed CC BY-NC-SA 4.0; method in Gütschow et al. (2016), Earth System Science Data 8, 571-603, doi:10.5194/essd-8-571-2016.",
+  "description": "The part of FAO's all-sector greenhouse gas total that comes from food and farming systems each year since 1990, as published by FAO: FAO's agrifood-systems emissions (on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food) as a percentage of FAO's own total of all sectors, which includes net land use, land-use change and forestry and excludes international aviation and shipping. The agrifood figure counts clearing land for farming without subtracting what forests take up, while the total's land use is net of that uptake, so this is not a share of gross global emissions. Food's emissions run across the agriculture, land-use, energy, industry and waste sectors; they are not a sector of their own.",
   "dimensions": [],
   "display": {
     "decimals": 1
@@ -8,62 +8,55 @@
   "geo_coverage": "global-only",
   "headline_entity": "WLD",
   "id": "food.faostat.agrifood-emissions-world.share",
-  "kind": "derived",
+  "kind": "series",
   "latest": {
     "age_bp": null,
     "dims": {},
     "entity": "WLD",
     "period": "2023",
     "status": "final",
-    "value": 31.733690435677588
+    "value": 31.73
   },
   "licence": {
-    "name": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
-    "spdx": "CC-BY-4.0",
-    "url": "https://creativecommons.org/licenses/by/4.0/"
+    "name": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)",
+    "spdx": "CC-BY-NC-SA-4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
-  "licence_class": "open",
+  "licence_class": "noncommercial",
   "notes": [],
-  "notice": null,
+  "notice": "FAOSTAT's energy, industrial processes, waste and other emissions, and every total, share or per-person value that includes them, are PRIMAP-hist v2.7 data (Gütschow, Busch and Pflüger, 2025, doi:10.5281/zenodo.17090760), licensed CC BY-NC-SA 4.0. Values from this source are shared under CC BY-NC-SA 4.0, for non-commercial use only.",
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
-    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "emissions-indicators", "bytes": 4655416, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions: Gütschow, J., Busch, D. & Pflüger, M. (2025). The PRIMAP-hist national historical emissions time series (1750-2024) v2.7. Zenodo. https://doi.org/10.5281/zenodo.17090760 Licence: CC BY-NC-SA 4.0.", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": "\"09064d9dbb13662b004da75f13044915\"", "last_modified": "Wed, 29 Oct 2025 11:06:06 GMT", "licence": {"name": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "source_id": "faostat-all-sectors", "title": "FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)", "url_download": "https://bulks-faostat.fao.org/production/Climate_change_Emissions_indicators_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/#data/EM", "version_producer": "2025-10-28", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions: Gütschow, J., Busch, D. & Pflüger, M. (2025). The PRIMAP-hist national historical emissions time series (1750-2024) v2.7. Zenodo. https://doi.org/10.5281/zenodo.17090760 Licence: CC BY-NC-SA 4.0.", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": "W/\"157c9ec8e5eea09a02497cc10f67bcdb\"", "last_modified": "Mon, 05 Oct 2026 12:49:35 GMT", "licence": {"name": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda", "source_id": "faostat-all-sectors", "title": "FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/#data/EM", "version_producer": "2025-10-28", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read Emissions_Totals_E_All_Data_(Normalized).csv from FAOSTAT's Emissions totals (GT) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 2,500,090, the number of data rows in this file. The zip was last modified on the server on Sat, 06 Dec 2025 15:13:44 GMT.",
-      "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "description": "Read Climate_change_Emissions_indicators_E_All_Data_(Normalized).csv from FAOSTAT's Emissions indicators (EM) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 678,370, the number of data rows in this file. The zip was last modified on the server on Wed, 29 Oct 2025 11:06:06 GMT.",
+      "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
-      "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-      "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
+      "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
+      "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
-      "description": "Kept the World (area code 5000), \"FAO TIER 1\" rows of element \"Emissions (CO2eq) (AR5)\" (code 723113) for items \"Agrifood systems\" (code 6518) and \"All sectors with LULUCF\" (code 6825), 1990–2023, in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global warming potentials). Both items cover the same years.",
-      "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "description": "Kept the World (area code 5000) rows of item \"Agrifood systems\" (code 6518), element \"Emissions Share (CO2eq) (AR5)\" (code 726313), unit \"%\", 1990–2023, as FAO prints them: FAO's own share of agrifood-system emissions in its \"All sectors with LULUCF\" total. Nothing is computed here.",
+      "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
-      "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-      "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
-    },
-    {
-      "description": "Share = \"Agrifood systems\" divided by \"All sectors with LULUCF\" for the same year, times 100 (exact decimal arithmetic on the printed values). The denominator is FAO's total of all IPCC sectors including land use, land-use change and forestry.",
-      "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
-      "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-      "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
+      "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
+      "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
-      "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
-      "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-      "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
+      "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
+      "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     }
   ],
   "published_value": null,
   "schema_version": 1,
   "scope": {
     "baseline": null,
-    "basis": "FAOSTAT item \"Agrifood systems\": emissions within the farm gate (crops and livestock), from land-use change, and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal). Land-use change counts only what FAO attributes to agriculture: its item \"Land-use change\" is net forest conversion (deforestation) plus fires in humid tropical forests and fires in organic soils (peat). The carbon taken up by forests (FAOSTAT item \"Forestland\", a net removal) is not subtracted. FAO Tier 1 estimates, not country inventory submissions. Denominator: FAOSTAT item \"All sectors with LULUCF\", the total of all IPCC sectors including land use, land-use change and forestry (energy, industrial processes, waste, other, agriculture and LULUCF, with the forest sink netted in); international aviation and shipping bunkers are a separate FAOSTAT item (\"International bunkers\") and are not in it.",
+    "basis": "FAO's published share (FAOSTAT Emissions indicators, item \"Agrifood systems\", element \"Emissions Share (CO2eq) (AR5)\"). Numerator: emissions within the farm gate, from land-use change and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal); its land-use change counts only what FAO attributes to agriculture (deforestation and fires in humid tropical forests and organic soils), with the carbon taken up by forests not subtracted. Denominator: FAO's \"All sectors with LULUCF\" total of the six IPCC sectors, in which land use is net of the forest sink; international aviation and shipping bunkers are a separate item and are not in it.",
     "bunkers": "excluded",
     "geography": "World",
     "gwp": "AR5-GWP100",
@@ -75,13 +68,13 @@
     "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
     "period": ["1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
     "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
-    "value": [43.16704913185659, 43.01196824362682, 43.134738371244616, 42.99455110693147, 43.0398340437324, 42.889717882935734, 42.03991740276989, 43.42994609771817, 42.637597892150495, 41.98811264713018, 41.360664953654926, 38.37156028007063, 38.802648315326955, 36.941804898672686, 37.02658367922577, 35.968764418941596, 36.00894728148849, 34.81658662322436, 34.374569884595545, 35.38148392258628, 33.860335192622834, 33.48109903774501, 33.20635088096398, 33.40295787957597, 33.80337153231346, 33.844770955365796, 32.517112779778074, 32.135930636764655, 31.795912619113896, 31.834829314289948, 32.69307725563115, 31.862422520625113, 31.63541104682777, 31.733690435677588]
+    "value": [43.17, 43.01, 43.13, 42.99, 43.04, 42.89, 42.04, 43.43, 42.64, 41.99, 41.36, 38.37, 38.8, 36.94, 37.03, 35.97, 36.01, 34.82, 34.37, 35.38, 33.86, 33.48, 33.21, 33.4, 33.8, 33.84, 32.52, 32.14, 31.8, 31.83, 32.69, 31.86, 31.64, 31.73]
   },
   "time_basis": "calendar",
-  "title": "Agrifood systems' share of global greenhouse gas emissions",
+  "title": "Agrifood systems' share of FAO's all-sector greenhouse gas total (net land use, no international transport)",
   "unit": {
     "code": "percent",
-    "label": "percent of global greenhouse gas emissions",
+    "label": "percent of FAO's all-sector total (net land use, no international transport)",
     "short": "%"
   },
   "vintage": "2025-10-28"

@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/food.faostat.commodity-emissions.json",
+  "export_sha256": "6802f8b6af97f8910a46e8b2bfee36b57f70352f59ee79ba75d1ad8909666d7e",
+  "indicator_id": "food.faostat.commodity-emissions",
+  "key": "c518cd357a92d653e8a44f7f7f3b775955e598655b52d7d795a9c34ac0942614",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "faostat/datasets-catalogue": {
+        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
+      },
+      "faostat/emissions-intensities": {
+        "manifest_sha256": "210bf6955871ee5a972ddc4c9dc102669f0a6b502252a72204dd9e9d998bca42",
+        "sha256": "1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "faostat": "687ee254e2acc507e2df2b0107ef798cf69aed41a25c9bd0b21a363a84c0b86e"
+    },
+    "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+  },
+  "publisher_checks": []
+}

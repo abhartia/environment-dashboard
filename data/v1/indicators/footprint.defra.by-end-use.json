@@ -1,0 +1,121 @@
+{
+  "attribution": "Adapted by Environment Dashboard from Department for Environment, Food & Rural Affairs, UK and England's carbon footprint to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026), data produced by the University of Leeds. Contains public sector information licensed under the Open Government Licence v3.0. Changes: converted from thousand tonnes to million tonnes of carbon dioxide equivalent.",
+  "description": "The UK's whole consumption-based greenhouse gas footprint in the latest year of Defra's release, split into the 14 broad categories of end use Defra publishes for that year only, in million tonnes of carbon dioxide equivalent. The first eleven are households' spending and their direct emissions from heating and driving; 'Central and local government', 'Gross fixed capital formation' (investment, including buying houses) and 'Other' (charities, valuables, inventories) are not. 'Food and beverages' covers food and non-alcoholic drinks bought by households; it excludes 'Hotels and restaurants' and 'Alcohol and tobacco', which are separate rows. Flights have no row of their own: households' spending on flights is inside 'Transportation', while business and government travel sits in the supply chains of the other rows. Health and education paid for by government are under government. The rows add up to the published total. Defra revises earlier years in every annual release. UK only.",
+  "dimensions": [
+    {
+      "id": "end_use",
+      "label": "Broad category of end use",
+      "values": [
+        {"id": "food-and-beverages", "label": "Food and beverages"},
+        {"id": "alcohol-and-tobacco", "label": "Alcohol and tobacco"},
+        {"id": "clothing-and-footwear", "label": "Clothing and footwear"},
+        {"id": "housing-and-power", "label": "Housing and power"},
+        {"id": "furnishing-appliances", "label": "Furnishing, appliances"},
+        {"id": "health", "label": "Health"},
+        {"id": "transportation", "label": "Transportation"},
+        {"id": "recreation-and-communication", "label": "Recreation and communication"},
+        {"id": "education", "label": "Education"},
+        {"id": "hotels-and-restaurants", "label": "Hotels and restaurants"},
+        {"id": "other-consumption", "label": "Other consumption"},
+        {"id": "central-and-local-government", "label": "Central and local government"},
+        {"id": "gross-fixed-capital-formation", "label": "Gross fixed capital formation"},
+        {"id": "other", "label": "Other"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "country",
+  "headline_entity": "GBR",
+  "id": "footprint.defra.by-end-use",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "end_use": "food-and-beverages"
+    },
+    "entity": "GBR",
+    "period": "2023",
+    "status": "final",
+    "value": 74.73184188058502
+  },
+  "licence": {
+    "name": "Open Government Licence v3.0 (Crown copyright)",
+    "spdx": "OGL-UK-3.0",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "licence_class": "open",
+  "notes": ["Defra note 3: For some product categories such as health and education, only the portion of these services directly paid for by households are captured under household expenditure. The actual consumption and associated GHG emissions from these services are larger and the remaining balance is captured under central and local government expenditure.", "Defra note 4: Central government includes emissions from central government spending on public administration (including defence) and health services. Defra note 5: Local government includes emissions from local government spending on public administration and health services.", "Defra note 6: Gross fixed capital formation relates principally to emissions from industry investment in tangible fixed assets such as plant and machinery, transport equipment, dwellings and other buildings and structures. However, it also includes emissions from investment in intangible fixed assets, improvements to land, the costs associated with the transfer of assets, and the costs to households of buying a house and major house works.", "Defra note 7: Other includes emissions from the 'non-profit institutions serving households' (see note 9), 'valuables' (see note 10) and 'changes in inventories' (see note 11) categories of end use."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "uk-dataset", "bytes": 98019, "citation_full": "Department for Environment, Food & Rural Affairs (2026). UK and England's carbon footprint to 2023: Carbon footprint for the UK dataset, 1990 to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026). GOV.UK. https://www.gov.uk/government/statistics/uks-carbon-footprint", "date_accessed": "2026-10-05", "date_published": "2026-06-30", "doi": null, "etag": "\"6a3ce5c9-17ee3\"", "last_modified": "Thu, 25 Jun 2026 08:24:41 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds", "r2_url": null, "sha256": "a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "source_id": "defra-uk-carbon-footprint", "title": "UK and England's carbon footprint to 2023", "url_download": "https://assets.publishing.service.gov.uk/media/6a3ce5c930b491f55b3c494c/UK_carbon_footprint_dataset_1990_to_2023.ods", "url_main": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "version_producer": "UK carbon footprint 1990 to 2023, published 30 June 2026", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "methods", "bytes": 1032209, "citation_full": "Department for Environment, Food & Rural Affairs (2026). UK and England's carbon footprint to 2023: Carbon footprint for the UK dataset, 1990 to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026). GOV.UK. https://www.gov.uk/government/statistics/uks-carbon-footprint", "date_accessed": "2026-10-05", "date_published": "2026-06-30", "doi": null, "etag": "\"6a3ce627-fc011\"", "last_modified": "Thu, 25 Jun 2026 08:26:15 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds", "r2_url": null, "sha256": "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5", "source_id": "defra-uk-carbon-footprint", "title": "UK and England's carbon footprint to 2023", "url_download": "https://assets.publishing.service.gov.uk/media/6a3ce626eaee00074150f449/UK_and_England_s_Carbon_Footprint_Summary_of_Methods_2026.pdf", "url_main": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "version_producer": "UK carbon footprint 1990 to 2023, published 30 June 2026", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read 'Carbon footprint for the UK dataset, 1990 to 2023' (OpenDocument spreadsheet, sha256 a2fa54f975ca…, retrieved 2026-10-05; the cover sheet says the tables were published on 30 June 2026 and are licensed under the Open Government Licence 3.0). Cells were read from the file's content.xml as written.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Selected the 14 rows of sheet Summary_2023, Table 3 'Greenhouse gas emissions by broad category of end use, UK, 2023' (ktCO2e), with their labels as published; note markers such as '[note 3]' were moved from the label to the value's note, which quotes that note from the Notes sheet.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Checked that the 14 rows add up to the table's Total (699201.91686335055 kt) and that this Total equals the 2023 greenhouse gas footprint in Summary_1990_to_2023, both within 0.001 kt.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Converted kilotonnes to million tonnes (divided by 1,000, exact decimal arithmetic).",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Global warming potentials: Defra's 'Consumption-based accounts for the UK, 1990 to 2023: Summary of methods' (University of Leeds; PDF, sha256 1bd24a507911…, retrieved 2026-10-05), section 1.4, page 6: 'Non-CO2 gasses are converted to CO2e using the Global Warming Potential values from the IPCC Fifth Assessment Report (AR5).' The quote was found in the text of that page before publishing; the scope records AR5 100-year values from it.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Consumption-based footprint: greenhouse gas emissions anywhere in the world from producing the goods and services used in the UK, plus households' own emissions from heating fuels and private vehicles; emissions from producing UK exports are not counted. Estimated by the University of Leeds with a multi-regional input-output model. Flights have no separate figure; they are inside transport.",
+    "bunkers": null,
+    "geography": "United Kingdom",
+    "gwp": "AR5-GWP100",
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "end_use": ["food-and-beverages", "alcohol-and-tobacco", "clothing-and-footwear", "housing-and-power", "furnishing-appliances", "health", "transportation", "recreation-and-communication", "education", "hotels-and-restaurants", "other-consumption", "central-and-local-government", "gross-fixed-capital-formation", "other"]
+    },
+    "entity": ["GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR"],
+    "note": [null, null, null, null, null, 0, null, null, 0, null, null, 1, 2, 3],
+    "period": ["2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [74.73184188058502, 4.438870157725585, 12.021405910972746, 134.4954601665665, 32.488660435138215, 5.709501864531224, 150.43605758655775, 49.57559855888473, 2.463804290983441, 36.73415628547541, 25.53074431040498, 79.26342559069056, 84.25847060994766, 7.053919214886717]
+  },
+  "time_basis": "calendar",
+  "title": "UK carbon footprint by end use, latest year (Defra)",
+  "unit": {
+    "code": "MtCO2e/yr",
+    "label": "million tonnes of carbon dioxide equivalent per year",
+    "short": "Mt CO₂e/yr"
+  },
+  "vintage": "UK carbon footprint 1990 to 2023, published 30 June 2026"
+}

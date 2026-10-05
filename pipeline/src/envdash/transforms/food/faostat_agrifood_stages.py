@@ -7,7 +7,8 @@ Code, Item, Element Code, Element, Year Code, Year, Source Code, Source, Unit, V
 Emissions_Totals_E_Flags.csv. Rows used: element 723113 "Emissions (CO2eq) (AR5)", unit "kt", Source "FAO TIER 1"
 (FAO's own estimates; the "UNFCCC" rows, country inventory submissions, are never mixed in), and the items in STAGES
 and PROCESSES below, matched by code with FAO's names checked. Nothing is added up or subtracted: each published value
-is one row of the file, converted from kilotonnes (to billion tonnes for stages, million tonnes for processes).
+is one row of the file, converted from kilotonnes to million tonnes (both indicators; billion tonnes with two decimals
+would show most countries' stages as 0.00).
 
 The parts are FAO's own. In every area and year from 1990, item 6518 "Agrifood systems" equals the sum of the three
 stage items, and each stage item equals the sum of its process items present, to within 0.01 kilotonnes (FAO prints
@@ -160,15 +161,13 @@ def gathered(table: Table) -> tuple[Gathered, list[str]]:
     return g, steps
 
 
+THOUSAND = Decimal(1000)
+
+
 def observations(table: Table, flags: dict[str, str], level: str) -> tuple[list[Observation], list[str]]:
-    """level "stage" (billion tonnes) or "process" (million tonnes)."""
+    """level "stage" or "process", both in million tonnes."""
     g, steps = gathered(table)
-    if level == "stage":
-        wanted = list(STAGES)
-        divisor, unit_words = Decimal(1_000_000), "billion tonnes by dividing by 1,000,000"
-    else:
-        wanted = list(PROCESSES)
-        divisor, unit_words = Decimal(1000), "million tonnes by dividing by 1,000"
+    wanted = list(STAGES) if level == "stage" else list(PROCESSES)
     left_out: set[str] = set()
     rows: list[tuple[str, int, int, dict[str, str], Decimal, str, str]] = []
     for (area, _, item), series in g.values.items():
@@ -184,7 +183,7 @@ def observations(table: Table, flags: dict[str, str], level: str) -> tuple[list[
             dims = {"stage": STAGES[stage][0], "process": pid}
         for year, cell in series.items():
             if year >= FIRST_YEAR:
-                rows.append((entity, wanted.index(item), year, dims, cell.value / divisor, cell.flag, cell.note))
+                rows.append((entity, wanted.index(item), year, dims, cell.value / THOUSAND, cell.flag, cell.note))
     if not any(r[0] == "WLD" for r in rows):
         raise FaostatBulkError("no World rows")
     rows.sort(key=lambda r: (r[0], r[1], r[2]))
@@ -205,7 +204,7 @@ def observations(table: Table, flags: dict[str, str], level: str) -> tuple[list[
         f"Published the {'three stage' if level == 'stage' else '22 process'} items, {all_years[0]}–{all_years[-1]}, "
         "each value exactly as one row of the file.",
         areas_step(left_out),
-        f"Converted kilotonnes to {unit_words} (exact decimal arithmetic on the printed values).",
+        "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed values).",
         flag_step(words, counts),
     ]
     return obs, steps
@@ -227,14 +226,13 @@ def _runner(level: str):
         table, flags = _read_zip(files[TOTALS.key].path)
         updated, vintage_step = vintage_of(files, TOTALS, DATASET_CODE, table.data_rows, DATA_MEMBER)
         obs, steps = observations(table, flags, level)
-        unit = "billion" if level == "stage" else "million"
         return Result(
             observations=obs,
             vintage=updated.isoformat(),
             year=str(updated.year),
             date_published=updated.isoformat(),
             steps=[vintage_step, *steps],
-            changes=f"converted from kilotonnes to {unit} tonnes of CO₂-equivalent.",
+            changes="converted from kilotonnes to million tonnes of CO₂-equivalent.",
         )
 
     return run
@@ -269,18 +267,19 @@ def transforms(paths: Paths) -> list[Transform]:
         Transform(
             spec=Spec(
                 id="food.faostat.agrifood-emissions-by-stage",
-                title="Greenhouse gas emissions from agrifood systems, by stage: on the farm, land-use change, "
-                "and before and after the farm",
+                title="Greenhouse gas emissions from agrifood systems, by stage: within the farm gate (including "
+                "savanna fires and drained peat soils), land-use change, and before and after the farm",
                 description="Greenhouse gas emissions from food and farming each year since 1990, for the world "
                 "and each country, in carbon dioxide equivalent, split into FAO's three stages: within the farm "
                 "gate (animals, manure, fertilisers, rice fields, crop residues, drained peat soils, savanna fires "
-                "and energy used on farms), land-use change (clearing forests and burning peat for farming), and "
-                "pre- and post-production (making fertilisers and pesticides, processing, packaging, transport, "
-                "retail, household food consumption and waste disposal). The three stages add up exactly to FAO's "
-                "agrifood systems total. The forest carbon sink is not part of that total and is not shown.",
+                "and energy used on farms), land-use change (clearing forests for farming, fires in humid tropical "
+                "forests and fires in peat soils), and pre- and post-production (making fertilisers and pesticides, "
+                "processing, packaging, transport, retail, household food consumption and waste disposal). The "
+                "three stages add up exactly to FAO's agrifood systems total. The forest carbon sink is not part of "
+                "that total and is not shown.",
                 kind="series",
-                unit=Unit(code="GtCO2e", label="billion tonnes of carbon dioxide equivalent", short="Gt CO₂e"),
-                display=Display(decimals=2),
+                unit=Unit(code="MtCO2e", label="million tonnes of carbon dioxide equivalent", short="Mt CO₂e"),
+                display=Display(decimals=1),
                 scope=Scope(
                     geography="Countries and territories, and the world",
                     gwp="AR5-GWP100",
@@ -297,7 +296,7 @@ def transforms(paths: Paths) -> list[Transform]:
             inputs=(TOTALS, CATALOGUE),
             run=_runner("stage"),
             module_file=here,
-            validation=Validation(min_rows=20_000, value_range=(-1.0, 30.0)),
+            validation=Validation(min_rows=20_000, value_range=(-1_000.0, 30_000.0)),
         ),
         Transform(
             spec=Spec(

@@ -26,14 +26,16 @@ the world. The split rests on SEI's assumptions (an emissions floor and ceiling 
 every record of the file gives Elasticity "1").
 
 The series ends in 2022. SEI's national inputs switch basis in 2023, from consumption-based to territorial carbon
-dioxide: the API's own national values (historicalDataByCountry, read 2026-10-05) give Switzerland NatEmisions
-121,979,300 t in 2022 and 32,737,300 t in 2023, the United States 5,642,856,100 t and 4,911,391,000 t, and the United
-Kingdom 488,532,000 t and 305,146,300 t. The research of 2026-10-05
+dioxide: the API's own national values (historicalDataByCountry, artifacts national-history-che, -usa and -gbr, read
+from their snapshots at every build and quoted in a processing step) give Switzerland NatEmisions 121,979,300 t in 2022
+and 32,737,300 t in 2023, the United States 5,642,856,100 t and 4,911,391,000 t, and the United Kingdom 488,532,000 t
+and 305,146,300 t (rounded to the tonne; as served, for example, 32737299.999999996). The research of 2026-10-05
 (docs/research/sources-ghg-food-personal-2026-10-05.json) matched the 2023 values to territorial emissions (Global
 Carbon Budget 2025: Switzerland consumption 118.3 Mt, territorial 32.0 Mt; United States 5,432 Mt and 4,918 Mt). The
 world top-10% share drops from 48.99% in 2022 to 47.08% in 2023 at that break. So 2023 is not comparable with
 1990-2022 and is not published. The global shares response carries no basis field, so the cut is a declared year
-(LAST_CONSUMPTION_YEAR), not a test of the data; the transform stops if the response no longer reaches that year.
+(LAST_CONSUMPTION_YEAR), not a test of the data; the transform stops if the response no longer reaches that year, or
+if a national series no longer gives NatEmisions for that year and the next.
 
 Vintage. The API has no version or release date. The series is labelled by the years it covers and the date the
 bytes were first fetched (the snapshot's date_accessed).
@@ -53,6 +55,22 @@ from envdash.transform import Input, InputFile, Result, Spec, Transform, Validat
 
 SOURCE = "sei-emissions-inequality"
 SHARES = Input(SOURCE, "global-percentile-shares")
+# The national series quoted in the processing step on the 2023 cut: (input, ISO code, name in the step).
+NATIONAL: tuple[tuple[Input, str, str], ...] = (
+    (Input(SOURCE, "national-history-che"), "CHE", "Switzerland"),
+    (Input(SOURCE, "national-history-usa"), "USA", "the United States"),
+    (Input(SOURCE, "national-history-gbr"), "GBR", "the United Kingdom"),
+)
+NATIONAL_FIELDS = (
+    "CountryName",
+    "CountryISOCode",
+    "Year",
+    "EmissionsPerCap",
+    "GDPPerCap",
+    "Population",
+    "NatEmisions",
+    "NatGDP",
+)
 FIELDS = ("Year", "PercentileLabel", "PercentileValue", "IncomeShare", "EmissionShare", "PopulationShare", "Elasticity")
 LABEL = re.compile(r"p(?P<lo>\d+(?:\.\d+)?)p(?P<hi>\d+(?:\.\d+)?)")
 SUM_TOLERANCE = Decimal("1e-9")
@@ -154,6 +172,48 @@ def consumption_years(by_year: dict[int, list[Slice]]) -> dict[int, list[Slice]]
     return {y: v for y, v in by_year.items() if y <= LAST_CONSUMPTION_YEAR}
 
 
+def national_emissions(raw: bytes, iso: str, years: tuple[int, ...]) -> dict[int, Decimal]:
+    """{year: NatEmisions in tonnes as served} for the given years of one historicalDataByCountry response."""
+    doc = json.loads(raw)
+    if not isinstance(doc, dict) or set(doc) != {"records"} or not isinstance(doc["records"], list):
+        raise SeiFormatError(f"{iso}: expected one object with a 'records' list")
+    out: dict[int, Decimal] = {}
+    for n, rec in enumerate(doc["records"]):
+        if not isinstance(rec, dict) or tuple(rec) != NATIONAL_FIELDS:
+            raise SeiFormatError(f"{iso} record {n}: fields {list(rec) if isinstance(rec, dict) else rec!r}")
+        if rec["CountryISOCode"] != iso:
+            raise SeiFormatError(f"{iso} record {n}: CountryISOCode {rec['CountryISOCode']!r}")
+        year = int(rec["Year"])
+        if year in years:
+            if year in out:
+                raise SeiFormatError(f"{iso}: {year} twice")
+            out[year] = _decimal(rec["NatEmisions"], f"{iso} {year} NatEmisions")
+    missing = sorted(set(years) - set(out))
+    if missing:
+        raise SeiFormatError(f"{iso}: no NatEmisions for {missing}")
+    return out
+
+
+def basis_break_step(files: dict[str, InputFile]) -> str:
+    """The step explaining the cut after LAST_CONSUMPTION_YEAR with the national values of NATIONAL, from snapshots."""
+    years = (LAST_CONSUMPTION_YEAR, LAST_CONSUMPTION_YEAR + 1)
+    parts = []
+    for inp, iso, name in NATIONAL:
+        f = files[inp.key]
+        nat = national_emissions(f.path.read_bytes(), iso, years)
+        a, b = (f"{nat[y].quantize(Decimal(1)):,} t" for y in years)
+        parts.append(f"{name} {a} in {years[0]} and {b} in {years[1]} (sha256 {f.snapshot.sha256[:12]}…)")
+    accessed = max(files[inp.key].snapshot.date_accessed for inp, _, _ in NATIONAL).isoformat()
+    return (
+        f"SEI's national inputs are consumption-based up to {LAST_CONSUMPTION_YEAR} and territorial (where emissions "
+        f"happen) from {years[1]}, so later shares are not comparable. The API's own national values show the break "
+        f"(historicalDataByCountry, NatEmisions as served, rounded here to the tonne; snapshots retrieved {accessed}): "
+        + "; ".join(parts)
+        + f". The {years[1]} values match Global Carbon Budget 2025 territorial emissions, not consumption (research "
+        "of 2026-10-05, docs/research/sources-ghg-food-personal-2026-10-05.json)."
+    )
+
+
 def in_group(group: str, s: Slice) -> bool:
     if group == "top-10":
         return s.lower >= 90
@@ -194,12 +254,7 @@ def _run(files: dict[str, InputFile]) -> Result:
             f"{' or '.join(str(n) for n in sorted(slices))} income slices a year. Checked for every year that the "
             "slices run from 0 to 100% of people with no gap or overlap, that each slice's width matches its label, "
             "and that the emission shares add up to 1 (within one billionth).",
-            f"Kept {first}–{last} and left out {', '.join(map(str, dropped)) or 'no year'}. SEI's national inputs are "
-            f"consumption-based up to {LAST_CONSUMPTION_YEAR} and territorial (where emissions happen) from 2023, so "
-            "later shares are not comparable. The API's own national values show the break (historicalDataByCountry, "
-            "read 2026-10-05): Switzerland 121,979,300 t in 2022 and 32,737,300 t in 2023, the United States "
-            "5,642,856,100 t and 4,911,391,000 t, the United Kingdom 488,532,000 t and 305,146,300 t; the 2023 values "
-            "match Global Carbon Budget 2025 territorial emissions, not consumption.",
+            f"Kept {first}–{last} and left out {', '.join(map(str, dropped)) or 'no year'}. " + basis_break_step(files),
             "For each year, added up the EmissionShare of the slices in each group with exact decimal arithmetic on "
             "the values as served: the poorest 50% (slices up to the 50th percentile), the richest 10% (from the 90th) "
             "and the richest 1% (from the 99th, which SEI splits into finer slices). The richest 1% are part of the "
@@ -248,7 +303,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 ),
                 headline_dims=(("group", "top-10"),),
             ),
-            inputs=(SHARES,),
+            inputs=(SHARES, *(inp for inp, _, _ in NATIONAL)),
             run=_run,
             module_file=Path(__file__),
             validation=Validation(min_rows=3 * 33, value_range=(0.0, 100.0)),

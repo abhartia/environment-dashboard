@@ -1,29 +1,29 @@
 {
   "export": "data/v1/indicators/food.faostat.agrifood-emissions-world.share.json",
-  "export_sha256": "cb5b137d6b9c698a0f11038e7917a627e206df395d3f380eb64d0ccc87ee656e",
+  "export_sha256": "64f8c2fdf995ad278b224e56976de2ae869b30e8ddf2db11746d67e364472c20",
   "indicator_id": "food.faostat.agrifood-emissions-world.share",
-  "key": "4396e2892aabc3edec0b68862b941e60b0adb1377ee7c4632accb33d2c4d4705",
+  "key": "ac7e1a59df46d0c63a1227be2f8ecd5fe793f77e2a2287fd1d978cd8de3fc981",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
-      "faostat/datasets-catalogue": {
-        "manifest_sha256": "bc646412c97139536878e748e171502090aa722995a1de8f6fff062c1b7e3383",
-        "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"
+      "faostat-all-sectors/datasets-catalogue": {
+        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
       },
-      "faostat/emissions-totals": {
-        "manifest_sha256": "2f92e3d602ab91252a331544ab10a3301dab569559ba69710dfa6942f9d42da7",
-        "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9"
+      "faostat-all-sectors/emissions-indicators": {
+        "manifest_sha256": "1bc3592c78618975df25969d1880637d32b2406910facbb8f64200aab3a8c89c",
+        "sha256": "d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34"
       }
     },
     "key_files": {},
     "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
-      "faostat": "83c5397350b6684b0cd1dd419ffd8fe799366487bc9976d926e36f82b4bb8193"
+      "faostat-all-sectors": "7d9479ee2940dcc44895996922964cbe953b0478912b27aec342c2bfa1c8cb8e"
     },
-    "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
+    "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
   },
   "publisher_checks": [
-    {"detail": "ours 38.37156028007063 vs stated 38 (tolerance ±0.5, difference 0.37156)", "entity": "WLD", "period": "2001", "quote": "Their share in total emissions fell from 38 to 32 percent in 2023.", "source_id": "faostat", "stated": "38", "status": "pass", "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en", "vintage": "2025-10-28"},
-    {"detail": "ours 31.733690435677588 vs stated 32 (tolerance ±0.5, difference 0.26631)", "entity": "WLD", "period": "2023", "quote": "Their share in total emissions fell from 38 to 32 percent in 2023.", "source_id": "faostat", "stated": "32", "status": "pass", "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en", "vintage": "2025-10-28"}
+    {"detail": "ours 38.37 vs stated 38 (tolerance ±0.5, difference 0.37)", "entity": "WLD", "period": "2001", "quote": "The share of agrifood systems emissions in global anthropogenic emissions has decreased from 38 percent in 2001 to 32 percent in 2023.", "source_id": "faostat-all-sectors", "stated": "38", "status": "pass", "url": "https://openknowledge.fao.org/server/api/core/bitstreams/7278290b-334e-457e-a589-439a971ecc84/content", "vintage": "2025-10-28"},
+    {"detail": "ours 31.73 vs stated 32 (tolerance ±0.5, difference 0.27)", "entity": "WLD", "period": "2023", "quote": "The share of agrifood systems emissions in global anthropogenic emissions has decreased from 38 percent in 2001 to 32 percent in 2023.", "source_id": "faostat-all-sectors", "stated": "32", "status": "pass", "url": "https://openknowledge.fao.org/server/api/core/bitstreams/7278290b-334e-457e-a589-439a971ecc84/content", "vintage": "2025-10-28"}
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/ghg.faostat.total.json",
+  "export_sha256": "e2f2018f2dc39d07f578e7723ae0fb1d90cb6dd0e63802cc320a1d001a36541d",
+  "indicator_id": "ghg.faostat.total",
+  "key": "4e6b7d4cfcff2a18cf6ca2f63083458f8b2661af88b255846ff636e473f499f8",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "faostat-all-sectors/datasets-catalogue": {
+        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
+      },
+      "faostat-all-sectors/emissions-totals": {
+        "manifest_sha256": "2f92e3d602ab91252a331544ab10a3301dab569559ba69710dfa6942f9d42da7",
+        "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "faostat-all-sectors": "7d9479ee2940dcc44895996922964cbe953b0478912b27aec342c2bfa1c8cb8e"
+    },
+    "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
+  },
+  "publisher_checks": [
+    {"detail": "ours 52.1057341478 vs stated 52.1 (tolerance ±0.05, difference 0.00573415)", "entity": "WLD", "period": "2023", "quote": "By comparison, global anthropogenic emissions reached 52.1 Gt CO2eq in 2023, the highest level on record and a 47 percent increase since 2001.", "source_id": "faostat-all-sectors", "stated": "52.1", "status": "pass", "url": "https://openknowledge.fao.org/server/api/core/bitstreams/7278290b-334e-457e-a589-439a971ecc84/content", "vintage": "2025-10-28"}
+  ]
+}

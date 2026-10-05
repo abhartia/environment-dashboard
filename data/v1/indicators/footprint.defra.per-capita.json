@@ -1,0 +1,89 @@
+{
+  "attribution": "Department for Environment, Food & Rural Affairs, UK and England's carbon footprint to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026), data produced by the University of Leeds. Contains public sector information licensed under the Open Government Licence v3.0.",
+  "description": "The UK's consumption-based greenhouse gas footprint divided by its population, as published by Defra, in tonnes of carbon dioxide equivalent per person per year. It counts emissions anywhere in the world from producing what is used in the UK, by households, government and investment, plus households' own emissions from heating and driving; it is an average over everyone in the UK, not a measure of any one person's choices. Defra revises earlier years in every annual release, and says the estimates for 1990 to 1996 are more uncertain. UK only.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "country",
+  "headline_entity": "GBR",
+  "id": "footprint.defra.per-capita",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "GBR",
+    "period": "2023",
+    "status": "final",
+    "value": 10.2034271610218
+  },
+  "licence": {
+    "name": "Open Government Licence v3.0 (Crown copyright)",
+    "spdx": "OGL-UK-3.0",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "licence_class": "open",
+  "notes": ["Defra cover sheet: There is a higher degree of uncertainty around the estimates for 1990 to 1996, so they should be interpreted with caution."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "uk-dataset", "bytes": 98019, "citation_full": "Department for Environment, Food & Rural Affairs (2026). UK and England's carbon footprint to 2023: Carbon footprint for the UK dataset, 1990 to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026). GOV.UK. https://www.gov.uk/government/statistics/uks-carbon-footprint", "date_accessed": "2026-10-05", "date_published": "2026-06-30", "doi": null, "etag": "\"6a3ce5c9-17ee3\"", "last_modified": "Thu, 25 Jun 2026 08:24:41 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds", "r2_url": null, "sha256": "a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "source_id": "defra-uk-carbon-footprint", "title": "UK and England's carbon footprint to 2023", "url_download": "https://assets.publishing.service.gov.uk/media/6a3ce5c930b491f55b3c494c/UK_carbon_footprint_dataset_1990_to_2023.ods", "url_main": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "version_producer": "UK carbon footprint 1990 to 2023, published 30 June 2026", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "methods", "bytes": 1032209, "citation_full": "Department for Environment, Food & Rural Affairs (2026). UK and England's carbon footprint to 2023: Carbon footprint for the UK dataset, 1990 to 2023 (UK carbon footprint 1990 to 2023, published 30 June 2026). GOV.UK. https://www.gov.uk/government/statistics/uks-carbon-footprint", "date_accessed": "2026-10-05", "date_published": "2026-06-30", "doi": null, "etag": "\"6a3ce627-fc011\"", "last_modified": "Thu, 25 Jun 2026 08:26:15 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Environment, Food & Rural Affairs (Defra); data produced by the University of Leeds", "r2_url": null, "sha256": "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5", "source_id": "defra-uk-carbon-footprint", "title": "UK and England's carbon footprint to 2023", "url_download": "https://assets.publishing.service.gov.uk/media/6a3ce626eaee00074150f449/UK_and_England_s_Carbon_Footprint_Summary_of_Methods_2026.pdf", "url_main": "https://www.gov.uk/government/statistics/uks-carbon-footprint", "version_producer": "UK carbon footprint 1990 to 2023, published 30 June 2026", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read 'Carbon footprint for the UK dataset, 1990 to 2023' (OpenDocument spreadsheet, sha256 a2fa54f975ca…, retrieved 2026-10-05; the cover sheet says the tables were published on 30 June 2026 and are licensed under the Open Government Licence 3.0). Cells were read from the file's content.xml as written.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Selected the column 'Greenhouse gases (tCO2e per capita)' of sheet Summary_1990_to_2023, 1990–2023, as published (Defra's own per-person figure). No value was changed.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Copied the cover sheet's sentence on 1990 to 1996 ('There is a higher degree of uncertainty around the estimates for 1990 to 1996, so they should be interpreted with caution.') as the note of each of those years.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    },
+    {
+      "description": "Global warming potentials: Defra's 'Consumption-based accounts for the UK, 1990 to 2023: Summary of methods' (University of Leeds; PDF, sha256 1bd24a507911…, retrieved 2026-10-05), section 1.4, page 6: 'Non-CO2 gasses are converted to CO2e using the Global Warming Potential values from the IPCC Fifth Assessment Report (AR5).' The quote was found in the text of that page before publishing; the scope records AR5 100-year values from it.",
+      "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
+      "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Consumption-based footprint: greenhouse gas emissions anywhere in the world from producing the goods and services used in the UK, plus households' own emissions from heating fuels and private vehicles; emissions from producing UK exports are not counted. Estimated by the University of Leeds with a multi-regional input-output model. Flights have no separate figure; they are inside transport.",
+    "bunkers": null,
+    "geography": "United Kingdom: average per resident",
+    "gwp": "AR5-GWP100",
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR"],
+    "note": [0, 0, 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    "period": ["1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [16.09366860713632, 16.24991508518551, 15.44961810380753, 14.98343622934489, 14.71430084741253, 14.01164793690366, 14.20534840652041, 14.35545599522342, 15.13055783010454, 14.92333617966452, 14.77018249278694, 14.60581630871202, 15.30835110909153, 15.39403857314886, 16.14048063056641, 15.83323482525861, 15.79067508279227, 16.04393138990944, 14.78622538451492, 13.16953620565886, 13.37278888191873, 12.99106216281766, 13.12601375728807, 12.85586709957424, 12.61450318101432, 12.0622081281219, 11.61942978767164, 10.81298553534516, 11.26355375618684, 10.96352124155494, 9.451721546099101, 10.18311161916101, 10.74239857630368, 10.2034271610218]
+  },
+  "time_basis": "calendar",
+  "title": "UK carbon footprint per resident, average (Defra)",
+  "unit": {
+    "code": "tCO2e/person/yr",
+    "label": "tonnes of carbon dioxide equivalent per person per year",
+    "short": "t CO₂e/person/yr"
+  },
+  "vintage": "UK carbon footprint 1990 to 2023, published 30 June 2026"
+}

@@ -16,9 +16,12 @@
 # Commons Attribution-NonCommercial-ShareAlike 3.0 IGO license". That refers to the note itself; its "Copyright" row
 # says FAOSTAT is in scope of the FAO Open Data Licensing Policy governed by the db-terms-of-use page (CC BY 4.0).
 # Third-party content in GT (from that note): "UNFCCC" source rows are country inventory submissions disseminated
-# "with permission, formalized via a FAO-UNFCCC Memorandum of Understanding"; energy, IPPU and waste totals come from
-# PRIMAP-hist v2.4 (CC BY 4.0); pre/post-production estimates use UNSD and IEA activity data. No dataset-specific
-# restriction is stated in the metadata. We use "FAO TIER 1" rows; never mix them with "UNFCCC" rows.
+# "with permission, formalized via a FAO-UNFCCC Memorandum of Understanding"; pre/post-production estimates use UNSD
+# and IEA activity data. No dataset-specific restriction is stated in the metadata. We use "FAO TIER 1" rows; never mix
+# them with "UNFCCC" rows. The note names PRIMAP-hist v2.4 (CC BY 4.0) for GT's energy, IPPU, waste and other items,
+# but the October 2025 values of those items are PRIMAP-hist v2.7 (CC BY-NC-SA 4.0): see
+# pipeline/sources/faostat-all-sectors.yaml, which registers them and the all-sector totals as noncommercial, and the
+# version evidence in docs/research/sources-ghg-food-personal-2026-10-05.json. This open entry does not publish them.
 # Artifacts checked 2026-10-04 (HEAD): GT 200, 20,501,708 bytes, Last-Modified 2025-12-06 (catalogue DateUpdate
 # 2025-10-28: the zip was re-uploaded after its DateUpdate, so the date alone does not identify the bytes; the GT
 # transform takes DateUpdate as the vintage only after checking that the catalogue entry's FileLocation is this zip's
@@ -41,7 +44,8 @@
 # electricity emission factors (to 2022), and that cold-chain F-gases come from EDGAR v7; the GN note says on-farm
 # energy use applies IEA grid electricity and heat factors and IEA fisheries energy data. FAO states no restriction for
 # them, so the class stays open under FAO's own clause; docs/sources.md treats EDGAR's IEA-derived CO2 as restricted,
-# so permission to redistribute these GT items should be confirmed with FAO (open question, not yet asked).
+# so permission to redistribute these GT items should be confirmed with FAO (open question, not yet asked: the owner
+# is to ask faostat@fao.org; see docs/runbook.md).
 id: faostat
 title: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss
 publisher: Food and Agriculture Organization of the United Nations (FAO), Statistics Division

@@ -1,7 +1,7 @@
 # Share of world consumption carbon dioxide by income group (SEI)
-# Indicator: co2-share.sei-inequality.income-groups-global (vintage 1990-2023 historical series, retrieved 2026-10-04); unit: percent of world consumption carbon dioxide emissions (percent)
+# Indicator: co2-share.sei-inequality.income-groups-global (vintage 1990-2022 consumption-based years of the 1990-2023 historical series, retrieved 2026-10-04); unit: percent of world consumption carbon dioxide emissions (percent)
 # Source: Stockholm Environment Institute (SEI) <https://emissions-inequality.org/>
-# Credit: Calculated by Environment Dashboard from Stockholm Environment Institute data: Emissions Inequality Dashboard (Ghosh, Nazareth, Wang, Kartha and Kemp-Benedict, 2021), https://emissions-inequality.org, accessed 2026-10-04, CC BY 4.0. Changes: emission shares of income slices added up into three groups (poorest 50%, richest 10%, richest 1%) and converted from fractions to percent.
+# Credit: Calculated by Environment Dashboard from Stockholm Environment Institute data: Emissions Inequality Dashboard (Ghosh, Nazareth, Wang, Kartha and Kemp-Benedict, 2021), https://emissions-inequality.org, accessed 2026-10-05, CC BY 4.0. Changes: emission shares of income slices added up into three groups (poorest 50%, richest 10%, richest 1%) and converted from fractions to percent.
 # Licence: CC BY 4.0 (the About page says "CC BY" and links the 4.0 licence) <https://creativecommons.org/licenses/by/4.0/>
 # Provenance and processing: https://environmentdashboard.org/data/co2-share/sei-inequality/income-groups-global
 indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,group
@@ -38,7 +38,6 @@ co2-share.sei-inequality.income-groups-global,WLD,2019,48.81617256707752,,,,fina
 co2-share.sei-inequality.income-groups-global,WLD,2020,48.46865933630874,,,,final,,,,top-10
 co2-share.sei-inequality.income-groups-global,WLD,2021,48.78093637161367,,,,final,,,,top-10
 co2-share.sei-inequality.income-groups-global,WLD,2022,48.992907074468484,,,,final,,,,top-10
-co2-share.sei-inequality.income-groups-global,WLD,2023,47.07544857094307,,,,final,,,,top-10
 co2-share.sei-inequality.income-groups-global,WLD,1990,14.491619690149705,,,,final,,,,top-1
 co2-share.sei-inequality.income-groups-global,WLD,1991,14.579384062494304,,,,final,,,,top-1
 co2-share.sei-inequality.income-groups-global,WLD,1992,15.16329159884281,,,,final,,,,top-1
@@ -72,7 +71,6 @@ co2-share.sei-inequality.income-groups-global,WLD,2019,16.739981212366896,,,,fin
 co2-share.sei-inequality.income-groups-global,WLD,2020,16.55245855820032,,,,final,,,,top-1
 co2-share.sei-inequality.income-groups-global,WLD,2021,16.58884733016993,,,,final,,,,top-1
 co2-share.sei-inequality.income-groups-global,WLD,2022,16.83069592664831,,,,final,,,,top-1
-co2-share.sei-inequality.income-groups-global,WLD,2023,16.549954271160725,,,,final,,,,top-1
 co2-share.sei-inequality.income-groups-global,WLD,1990,8.693080083916344,,,,final,,,,bottom-50
 co2-share.sei-inequality.income-groups-global,WLD,1991,8.397777631406043,,,,final,,,,bottom-50
 co2-share.sei-inequality.income-groups-global,WLD,1992,8.456861661056227,,,,final,,,,bottom-50
@@ -106,4 +104,3 @@ co2-share.sei-inequality.income-groups-global,WLD,2019,8.073701317677505,,,,fina
 co2-share.sei-inequality.income-groups-global,WLD,2020,8.115677080769435,,,,final,,,,bottom-50
 co2-share.sei-inequality.income-groups-global,WLD,2021,7.9755651752207735,,,,final,,,,bottom-50
 co2-share.sei-inequality.income-groups-global,WLD,2022,7.959763477732884,,,,final,,,,bottom-50
-co2-share.sei-inequality.income-groups-global,WLD,2023,8.419959966084065,,,,final,,,,bottom-50

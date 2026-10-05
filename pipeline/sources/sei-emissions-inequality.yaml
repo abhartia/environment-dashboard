@@ -79,12 +79,40 @@ artifacts:
     description: Sum of national emissions, population and GDP over the countries in the database, for each year.
     access:
       conditional: false
+  # The three national series below are read only to state, from snapshots, why the published shares end in 2022:
+  # their 2023 national emissions (NatEmisions) are territorial, while 1990-2022 are consumption-based. About 7.6 kB
+  # each on 2026-10-05 (HTTP 200, application/json, no ETag or Last-Modified).
+  - id: national-history-che
+    url: https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=CHE&startyear=1990&endyear=2023
+    format: json
+    description: >-
+      Switzerland's national series used by the dashboard, one record a year 1990-2023 (CountryName, CountryISOCode,
+      Year, EmissionsPerCap, GDPPerCap, Population, NatEmisions, NatGDP).
+    access:
+      conditional: false
+  - id: national-history-usa
+    url: https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=USA&startyear=1990&endyear=2023
+    format: json
+    description: >-
+      The United States' national series used by the dashboard, one record a year 1990-2023 (same fields as
+      national-history-che).
+    access:
+      conditional: false
+  - id: national-history-gbr
+    url: https://www.sei-eqtrans-dev.net/api/historicalDataByCountry/search.php?country=GBR&startyear=1990&endyear=2023
+    format: json
+    description: >-
+      The United Kingdom's national series used by the dashboard, one record a year 1990-2023 (same fields as
+      national-history-che).
+    access:
+      conditional: false
 status:
   state: active
   note: >-
     The historical series ends in 2023 (2023 methodology update), but its 2023 national values are territorial
-    carbon dioxide while 1990-2022 are consumption-based (Switzerland 122.0 Mt in 2022, 32.7 Mt in 2023;
-    historicalDataByCountry, read 2026-10-05), so the site publishes 1990-2022 only. The API has no versions or DOI,
+    carbon dioxide while 1990-2022 are consumption-based (Switzerland 122.0 Mt in 2022, 32.7 Mt in 2023; the
+    historicalDataByCountry responses for Switzerland, the United States and the United Kingdom are kept as snapshots),
+    so the site publishes 1990-2022 only. The API has no versions or DOI,
     and it is served
     from a host named sei-eqtrans-dev.net, which the dashboard's own API page links to. The address could change
     without notice, so each response is kept as a dated snapshot. Figures differ from those printed in Oxfam's

@@ -135,7 +135,7 @@ def assemble(
                 title=src.title,
                 version_producer=result.vintage,
                 citation_full=_render_for(src, result, accessed[src.id], src.citation.text) or "",
-                url_main=src.landing_url,
+                url_main=meta.url_main if meta is not None and meta.url_main is not None else src.landing_url,
                 url_download=snap.url,
                 date_published=meta.date_published
                 if meta is not None and meta.date_published is not None

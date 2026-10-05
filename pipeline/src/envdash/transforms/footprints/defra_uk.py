@@ -24,15 +24,18 @@ read as spaces). Four sheets are used:
 Kilotonnes are divided by 1,000 to give million tonnes (exact decimal arithmetic on the values as written). Nothing
 else is computed: no shares, sums or per-person values of our own.
 
-Scope, from the dataset and the methods paper (per the verifier): consumption-based, so emissions anywhere in the
-world from producing what UK residents, government and capital investment use, plus households' own emissions from
-heating fuels and private vehicles; UK exports are excluded. GWP100 values from the IPCC Fifth Assessment Report
-(AR5). The cover sheet says "there are no specific results available for air travel": flights are inside transport.
-Every annual release revises earlier years.
+Scope, from the dataset and the methods paper: consumption-based, so emissions anywhere in the world from producing
+what UK residents, government and capital investment use, plus households' own emissions from heating fuels and
+private vehicles; UK exports are excluded. GWP100 values from the IPCC Fifth Assessment Report (AR5): artifact
+methods, the release's "Summary of methods" PDF, is an input of every indicator here, and each build refuses it unless
+GWP_QUOTE is in the text of its page GWP_PAGE (section 1.4), then cites it in a processing step. The cover sheet says
+"there are no specific results available for air travel": households' flights are inside transport, and business and
+government travel sit in the supply chains of other rows. Every annual release revises earlier years.
 """
 
 from __future__ import annotations
 
+import functools
 import io
 import re
 import zipfile
@@ -42,13 +45,22 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+from envdash import textmatch
 from envdash.models import Dimension, DimensionValue, Display, Observation, Scope, Unit
 from envdash.paths import Paths
 from envdash.transform import Input, InputFile, Result, Spec, Transform, Validation
 
 SOURCE = "defra-uk-carbon-footprint"
 DATASET = Input(SOURCE, "uk-dataset")
+METHODS = Input(SOURCE, "methods")
 ENTITY = "GBR"
+GWP_QUOTE = (
+    "Non-CO2 gasses are converted to CO2e using the Global Warming Potential values from the IPCC Fifth Assessment "
+    "Report (AR5)."
+)
+GWP_PAGE = 6
+"""Page of the methods PDF (1-based) whose text holds GWP_QUOTE, in section 1.4 'Greenhouse gasses included in the
+UK's consumption-based emissions'."""
 
 _TABLE = "{urn:oasis:names:tc:opendocument:xmlns:table:1.0}"
 _OFFICE = "{urn:oasis:names:tc:opendocument:xmlns:office:1.0}"
@@ -446,6 +458,27 @@ def read_workbook(raw: bytes) -> Workbook:
     return Workbook(read_cover(sheets), read_annual(sheets), read_notes(sheets), sheets)
 
 
+@functools.lru_cache(maxsize=2)
+def _gwp_found(path: Path) -> bool:
+    # Snapshot paths are content-addressed, so caching by path is caching by content: the three indicators parse the
+    # PDF once.
+    pages = textmatch.pdf_pages_text(path.read_bytes())
+    return len(pages) >= GWP_PAGE and textmatch.contains(pages[GWP_PAGE - 1], GWP_QUOTE)
+
+
+def gwp_step(f: InputFile) -> str:
+    """The step citing the methods PDF for the scope's AR5 100-year global warming potentials; refuses a PDF that no
+    longer says so on GWP_PAGE."""
+    if not _gwp_found(f.path):
+        raise DefraFormatError(f"the methods PDF no longer says {GWP_QUOTE!r} on page {GWP_PAGE}")
+    return (
+        "Global warming potentials: Defra's 'Consumption-based accounts for the UK, 1990 to 2023: Summary of methods' "
+        f"(University of Leeds; PDF, sha256 {f.snapshot.sha256[:12]}…, retrieved {f.snapshot.date_accessed.isoformat()}"
+        f"), section 1.4, page {GWP_PAGE}: '{GWP_QUOTE}' The quote was found in the text of that page before "
+        "publishing; the scope records AR5 100-year values from it."
+    )
+
+
 def _uncertain_note(year: int) -> str | None:
     return f"Defra cover sheet: {UNCERTAIN_SENTENCE}" if year in UNCERTAIN_YEARS else None
 
@@ -486,6 +519,7 @@ def _run_per_capita(files: dict[str, InputFile]) -> Result:
             "Copied the cover sheet's sentence on 1990 to 1996 ('There is a higher degree of uncertainty around the "
             "estimates for 1990 to 1996, so they should be interpreted with caution.') as the note of each of those "
             "years.",
+            gwp_step(files[METHODS.key]),
         ],
     )
 
@@ -513,6 +547,7 @@ def _run_by_end_use(files: dict[str, InputFile]) -> Result:
             f"Checked that the 14 rows add up to the table's Total ({total} kt) and that this Total equals the "
             f"{wb.last} greenhouse gas footprint in Summary_{wb.first}_to_{wb.last}, both within 0.001 kt.",
             "Converted kilotonnes to million tonnes (divided by 1,000, exact decimal arithmetic).",
+            gwp_step(files[METHODS.key]),
         ],
         changes="converted from thousand tonnes to million tonnes of carbon dioxide equivalent.",
     )
@@ -557,13 +592,15 @@ def _run_households(files: dict[str, InputFile]) -> Result:
             f"{wb.last}: Total {totals[wb.last]} kt.",
             "Copied the cover sheet's sentence on 1990 to 1996 as the note of each of those years.",
             "Converted kilotonnes to million tonnes (divided by 1,000, exact decimal arithmetic).",
+            gwp_step(files[METHODS.key]),
         ],
         changes="converted from thousand tonnes to million tonnes of carbon dioxide equivalent.",
     )
 
 
 def transforms(paths: Paths) -> list[Transform]:
-    revised = (
+    revised = " Defra revises earlier years in every annual release. UK only."
+    uncertain = (
         " Defra revises earlier years in every annual release, and says the estimates for 1990 to 1996 are more "
         "uncertain. UK only."
     )
@@ -571,12 +608,12 @@ def transforms(paths: Paths) -> list[Transform]:
         Transform(
             spec=Spec(
                 id="footprint.defra.per-capita",
-                title="UK carbon footprint per person (Defra)",
+                title="UK carbon footprint per resident, average (Defra)",
                 description="The UK's consumption-based greenhouse gas footprint divided by its population, as "
                 "published by Defra, in tonnes of carbon dioxide equivalent per person per year. It counts emissions "
                 "anywhere in the world from producing what is used in the UK, by households, government and "
                 "investment, plus households' own emissions from heating and driving; it is an average over everyone "
-                "in the UK, not a measure of any one person's choices." + revised,
+                "in the UK, not a measure of any one person's choices." + uncertain,
                 kind="series",
                 unit=T_CO2E_PERSON_YR,
                 display=Display(decimals=1),
@@ -584,7 +621,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 geo_coverage="country",
                 headline_entity=ENTITY,
             ),
-            inputs=(DATASET,),
+            inputs=(DATASET, METHODS),
             run=_run_per_capita,
             module_file=Path(__file__),
             validation=Validation(min_rows=34, value_range=(0.0, 40.0)),
@@ -600,9 +637,10 @@ def transforms(paths: Paths) -> list[Transform]:
                 "'Gross fixed capital formation' (investment, including buying houses) and 'Other' (charities, "
                 "valuables, inventories) are not. 'Food and beverages' covers food and non-alcoholic drinks bought "
                 "by households; it excludes 'Hotels and restaurants' and 'Alcohol and tobacco', which are separate "
-                "rows. Flights have no row of their own: household spending on flights is inside 'Transportation'. "
-                "Health and education paid for by government are under government. The rows add up to the "
-                "published total." + revised,
+                "rows. Flights have no row of their own: households' spending on flights is inside 'Transportation', "
+                "while business and government travel sits in the supply chains of the other rows. Health and "
+                "education paid for by government are under government. The rows add up to the published total."
+                + revised,
                 kind="series",
                 unit=MT_CO2E_YR,
                 display=Display(decimals=1),
@@ -618,7 +656,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 ),
                 headline_dims=(("end_use", "food-and-beverages"),),
             ),
-            inputs=(DATASET,),
+            inputs=(DATASET, METHODS),
             run=_run_by_end_use,
             module_file=Path(__file__),
             validation=Validation(min_rows=14, value_range=(0.0, 1000.0)),
@@ -634,7 +672,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 "households' part of the UK footprint, not to the whole. 'Food' and 'Non-alcoholic beverages' do not "
                 "include meals and drinks bought in restaurants, cafés and hotels, which are in 'Restaurants and "
                 "hotels'. Flights have no "
-                "group of their own; they are inside 'Transport services'." + revised,
+                "group of their own; they are inside 'Transport services'." + uncertain,
                 kind="series",
                 unit=MT_CO2E_YR,
                 display=Display(decimals=1),
@@ -650,7 +688,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 ),
                 headline_dims=(("product", "food"),),
             ),
-            inputs=(DATASET,),
+            inputs=(DATASET, METHODS),
             run=_run_households,
             module_file=Path(__file__),
             validation=Validation(min_rows=34 * 34, value_range=(0.0, 1000.0)),

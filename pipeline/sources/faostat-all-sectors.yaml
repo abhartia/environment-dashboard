@@ -25,10 +25,11 @@
 # are classed noncommercial and carry BY-NC-SA downloads. The evidence below quotes the upstream terms, which decide
 # the class; FAO's CC BY 4.0 sentence and third-party clause are quoted above.
 #
-# Open questions put to FAO (faostat@fao.org), not yet answered: which PRIMAP-hist version and terms apply; whether
-# the IEA activity data behind the pre- and post-production estimates carries restrictions (GT_en.pdf: those
-# estimates "are calculated based on data from the UN Statistical Division (UNSD), the International Energy Agency
-# (IEA) and other third-party as well as by integrating emission information from the PRIMAP-hist dataset v2.4").
+# Open questions, not yet asked: the owner is to ask FAO (faostat@fao.org; see docs/runbook.md) which PRIMAP-hist
+# version and terms apply, and whether the IEA activity data behind the pre- and post-production estimates carries
+# restrictions (GT_en.pdf: those estimates "are calculated based on data from the UN Statistical Division (UNSD), the
+# International Energy Agency (IEA) and other third-party as well as by integrating emission information from the
+# PRIMAP-hist dataset v2.4").
 #
 # Artifacts. emissions-totals is the same URL and the same bytes as faostat/emissions-totals (sha256 d2c47e11...a89a9,
 # 20,501,708 bytes, Last-Modified 6 December 2025). emissions-indicators (EM) was GET 200, 4,655,416 bytes,
@@ -130,8 +131,9 @@ status:
   state: active
   note: >-
     The emissions domains (GT, EM) were last updated 28 October 2025 with data to 2023. FAO's documentation names
-    PRIMAP-hist v2.4 for the non-farm sectors, but the values are v2.7 (see the registry file's header); the question
-    is with FAO. FAO is not on the January 2026 US withdrawal memorandum (FR Doc 2026-00976).
+    PRIMAP-hist v2.4 for the non-farm sectors, but the values are v2.7 (see the registry file's header); which version
+    and terms apply is a question still to be asked of FAO. FAO is not on the January 2026 US withdrawal memorandum
+    (FR Doc 2026-00976).
   us_federal: false
 update_cadence: >-
   Annual, each October-November. DateUpdate in datasets_E.json changes with each release, but zips are sometimes

@@ -1,10 +1,12 @@
 """SEI Emissions Inequality Dashboard: share of world consumption CO2 by income group
 (envdash/transforms/emissions/sei_inequality.py).
 
-The fixture is a byte-exact cut of the real Historical Global Shares API response (CC BY 4.0): the 127 records of each
-of 1990, 2022 and 2023, cut by tests/fixtures/sei-emissions-inequality/make_json_fixture.py. It sits one directory lower
-than make_fixture.py's, so the two sidecar checks of test_fixtures_provenance.py are repeated here with the JSON cutter.
-The response is one line of JSON, so a line slice could not hold a readable part of it.
+The fixtures are byte-exact cuts of the real API responses (CC BY 4.0), made by
+tests/fixtures/sei-emissions-inequality/make_json_fixture.py: the 127 records of each of 1990, 2022 and 2023 of the
+Historical Global Shares response, and the 2022 and 2023 records of the historicalDataByCountry responses for
+Switzerland, the United States and the United Kingdom (quoted in the step that explains the 2023 cut). They sit one
+directory lower than make_fixture.py's, so the two sidecar checks of test_fixtures_provenance.py are repeated here with
+the JSON cutter. A response is one line of JSON, so a line slice could not hold a readable part of it.
 """
 
 from __future__ import annotations
@@ -32,9 +34,24 @@ SIDECARS = sorted(FIXTURES.glob("*/*.provenance.json"))
 ID = "co2-share.sei-inequality.income-groups-global"
 
 
+def _fixture(artifact_id: str) -> tuple[Path, dict]:
+    (side,) = [s for s in SIDECARS if json.loads(s.read_text())["artifact_id"] == artifact_id]
+    return side.with_name(side.name.removesuffix(".provenance.json")), json.loads(side.read_text())
+
+
 def _raw() -> bytes:
-    (side,) = [s for s in SIDECARS if json.loads(s.read_text())["artifact_id"] == "global-percentile-shares"]
-    return side.with_name(side.name.removesuffix(".provenance.json")).read_bytes()
+    return _fixture("global-percentile-shares")[0].read_bytes()
+
+
+def _national_files() -> dict[str, InputFile]:
+    """The national fixtures as inputs, each with the manifest of the snapshot it was cut from."""
+    out = {}
+    for inp, _, _ in sei.NATIONAL:
+        path, meta = _fixture(inp.artifact_id)
+        snap = snapshots.read_manifest(Paths.default(), meta["full_sha256"])
+        assert snap is not None
+        out[inp.key] = InputFile(path, snap)
+    return out
 
 
 def _edited(edit) -> bytes:
@@ -169,6 +186,20 @@ def test_a_response_without_the_last_consumption_year_is_refused():
         sei.consumption_years({y: v for y, v in by_year.items() if y != 2022})
 
 
+def test_the_2023_cut_cites_the_national_snapshots():
+    files = _national_files()
+    che = sei.national_emissions(files[sei.NATIONAL[0][0].key].path.read_bytes(), "CHE", (2022, 2023))
+    assert che == {2022: Decimal("121979299.99999993"), 2023: Decimal("32737299.999999996")}
+    step = sei.basis_break_step(files)
+    assert "Switzerland 121,979,300 t in 2022 and 32,737,300 t in 2023 (sha256 e23373e0dc56…)" in step
+    assert "the United States 5,642,856,100 t in 2022 and 4,911,391,000 t in 2023" in step
+    assert "the United Kingdom 488,532,000 t in 2022 and 305,146,300 t in 2023" in step
+    with pytest.raises(sei.SeiFormatError, match="CountryISOCode"):
+        sei.national_emissions(files[sei.NATIONAL[0][0].key].path.read_bytes(), "USA", (2022, 2023))
+    with pytest.raises(sei.SeiFormatError, match="no NatEmisions"):
+        sei.national_emissions(files[sei.NATIONAL[0][0].key].path.read_bytes(), "CHE", (2021, 2022))
+
+
 def test_description_says_what_is_counted():
     (t,) = sei.transforms(Paths.default())
     assert "1990 to 2022" in t.spec.description and "not tonnes per person" in t.spec.description
@@ -179,7 +210,8 @@ def test_transform_declares_its_registered_input():
     (t,) = sei.transforms(Paths.default())
     assert t.spec.id == ID and t.spec.kind == "derived"
     src = load_registry(Paths.default()).sources[sei.SOURCE]
-    assert t.inputs == (sei.SHARES,) and sei.SHARES.artifact_id in {a.id for a in src.artifacts}
+    assert t.inputs == (sei.SHARES, *(i for i, _, _ in sei.NATIONAL))
+    assert {i.artifact_id for i in t.inputs} <= {a.id for a in src.artifacts}
     assert t.spec.scope.lulucf == "excluded"
     assert [v.id for v in t.spec.dimensions[0].values] == ["top-10", "top-1", "bottom-50"]
 
@@ -187,18 +219,22 @@ def test_transform_declares_its_registered_input():
 # --- the full real response (snapshot cache) ----------------------------------------------------------------------
 
 
-def _current_file() -> InputFile:
+def _current_files() -> dict[str, InputFile]:
     p = Paths.default()
-    sha = snapshots.read_current(p)[snapshots.key(sei.SOURCE, sei.SHARES.artifact_id)]
-    snap = snapshots.read_manifest(p, sha)
-    assert snap is not None
-    return InputFile(snapshots.cache_path(p, sha), snap)
+    (t,) = sei.transforms(p)
+    out = {}
+    for i in t.inputs:
+        sha = snapshots.read_current(p)[i.key]
+        snap = snapshots.read_manifest(p, sha)
+        assert snap is not None
+        out[i.key] = InputFile(snapshots.cache_path(p, sha), snap)
+    return out
 
 
 @pytest.mark.snapshot
 def test_every_year_from_the_real_response():
     (t,) = sei.transforms(Paths.default())
-    result = t.run({sei.SHARES.key: _current_file()})
+    result = t.run(_current_files())
     validate(t, result.observations)
     shares = _shares(result.observations)
     assert len(shares) == 3 * 33
@@ -209,7 +245,7 @@ def test_every_year_from_the_real_response():
     assert (
         result.vintage == "1990-2022 consumption-based years of the 1990-2023 historical series, retrieved 2026-10-04"
     )
-    assert any("left out 2023" in s for s in result.steps)
+    assert any("left out 2023" in s and "Switzerland 121,979,300 t in 2022" in s for s in result.steps)
     assert result.changes is not None
 
 
@@ -219,10 +255,13 @@ def test_build_exports_publicly(tmp_paths):
     paths = tmp_paths.with_(cache=real.cache)
     shutil.copy(REPO_ROOT / "pipeline" / "sources" / f"{sei.SOURCE}.yaml", paths.sources)
     paths.snapshot_manifests.mkdir(parents=True)
-    k = sei.SHARES.key
-    sha = snapshots.read_current(real)[k]
-    shutil.copy(snapshots.manifest_path(real, sha), snapshots.manifest_path(paths, sha))
-    snapshots.set_current(paths, {k: sha})
+    (t,) = sei.transforms(real)
+    current = {}
+    for i in t.inputs:
+        sha = snapshots.read_current(real)[i.key]
+        shutil.copy(snapshots.manifest_path(real, sha), snapshots.manifest_path(paths, sha))
+        current[i.key] = sha
+    snapshots.set_current(paths, current)
     reg = load_registry(paths)
     report = build_and_export(paths, reg, [t for t in discover(paths) if t.spec.id == ID])
     assert [o.state for o in report.outcomes] == ["built"], [o.reason for o in report.outcomes]
