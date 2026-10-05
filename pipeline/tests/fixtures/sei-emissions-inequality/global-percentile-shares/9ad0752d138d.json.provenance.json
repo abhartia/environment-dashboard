@@ -1,14 +1,14 @@
 {
   "artifact_id": "global-percentile-shares",
-  "command": "uv run python tests/fixtures/sei-emissions-inequality/make_json_fixture.py --artifact global-percentile-shares --year 1990 --year 2023",
+  "command": "uv run python tests/fixtures/sei-emissions-inequality/make_json_fixture.py --artifact global-percentile-shares --year 1990 --year 2022 --year 2023",
   "data_rows_total": 4318,
   "date_accessed": "2026-10-04",
-  "fixture_bytes": 51127,
-  "fixture_sha256": "5e69c29a4518c745dd0b25455b40dc0f66850b7802b6a10064d8106aef1c5dc5",
+  "fixture_bytes": 77059,
+  "fixture_sha256": "a272bccf39e46a6cbd1867cb78ca9aa88fe3f783ca8cd5271f634c362ff49d38",
   "full_bytes": 877309,
   "full_sha256": "9ad0752d138df5969a5b5b1069dab34ea2da07de35b18398bfc2fe9360c437f7",
   "licence": "CC BY 4.0 (the About page says \"CC BY\" and links the 4.0 licence)",
-  "rows_kept": "254 of 4318 records: Year in 1990, 2023",
+  "rows_kept": "381 of 4318 records: Year in 1990, 2022, 2023",
   "source_id": "sei-emissions-inequality",
   "url": "https://www.sei-eqtrans-dev.net/api/globalHistoricalDataByYear/search.php"
 }
