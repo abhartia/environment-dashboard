@@ -1,0 +1,226 @@
+"""SEI Emissions Inequality Dashboard: the share of the world's consumption carbon dioxide emitted by the richest 10%,
+the richest 1% and the poorest 50% of people, each year 1990-2023.
+
+Input: the Historical Global Shares API (artifact global-percentile-shares, CC BY 4.0), one JSON object
+{"records": [...]}. Each record is one slice of the world's population ranked by income for one year: Year,
+PercentileLabel ("p{lower}p{upper}", in percent of people), PercentileValue (the slice's width as a fraction),
+IncomeShare, EmissionShare and PopulationShare (fractions of the world total), and Elasticity. All values are strings.
+The slices are whole percentiles up to p98p99, then the top 1% split into tenths, hundredths and thousandths of a
+percent (127 slices a year).
+
+Checks on every build, so that the sums below mean what their names say: every record has exactly these fields; for
+each year the slices run from p0 to p100 with no gap or overlap; each slice's PercentileValue equals its upper minus
+lower bound, divided by 100; no slice straddles 50, 90 or 99; the year's EmissionShare values add up to 1 within
+1e-9; every record gives Elasticity "1"; and the years run without a gap. Anything else stops the transform.
+
+Groups. SEI publishes slices, not these groups, so each group's share is the sum of its slices' EmissionShare, with
+exact decimal arithmetic on the strings as served, times 100 for percent: bottom 50% is every slice whose upper bound is
+at most 50, top 10% every slice whose lower bound is at least 90, top 1% every slice whose lower bound is at least 99.
+The top 1% is part of the top 10%. The dashboard's own "Emission Summary by Global Income Group" table, which this API
+backs, groups the same slices (bottom 50%, middle 40%, next 9%, next 0.9%, top 0.1%).
+
+Scope, from SEI's FAQ (https://emissions-inequality.org/faq/, read 2026-10-05): national consumption emissions are
+territorial emissions plus net emissions embodied in trade, of fossil carbon dioxide only ("We do not consider non-CO2
+emissions and emissions from land-use change"), shared among each country's people by income and then ranked across
+the world. The split rests on SEI's assumptions (an emissions floor and ceiling and an elasticity of 1 between them;
+every record of the file gives Elasticity "1").
+
+Vintage. The API has no version or release date. The series is labelled by the years it covers and the date the
+bytes were first fetched (the snapshot's date_accessed).
+"""
+
+from __future__ import annotations
+
+import json
+import re
+from dataclasses import dataclass
+from decimal import Decimal
+from pathlib import Path
+
+from envdash.models import Dimension, DimensionValue, Display, Observation, Scope, Unit
+from envdash.paths import Paths
+from envdash.transform import Input, InputFile, Result, Spec, Transform, Validation
+
+SOURCE = "sei-emissions-inequality"
+SHARES = Input(SOURCE, "global-percentile-shares")
+FIELDS = ("Year", "PercentileLabel", "PercentileValue", "IncomeShare", "EmissionShare", "PopulationShare", "Elasticity")
+LABEL = re.compile(r"p(?P<lo>\d+(?:\.\d+)?)p(?P<hi>\d+(?:\.\d+)?)")
+SUM_TOLERANCE = Decimal("1e-9")
+HUNDRED = Decimal(100)
+
+# (dimension value id, label); in_group says which slices each one adds up.
+GROUPS: tuple[tuple[str, str], ...] = (
+    ("top-10", "Richest 10%"),
+    ("top-1", "Richest 1%"),
+    ("bottom-50", "Poorest 50%"),
+)
+BOUNDARIES = (Decimal(50), Decimal(90), Decimal(99))
+
+PERCENT = Unit(code="percent", label="percent of world consumption carbon dioxide emissions", short="%")
+
+
+class SeiFormatError(ValueError):
+    pass
+
+
+@dataclass(frozen=True)
+class Slice:
+    year: int
+    lower: Decimal
+    upper: Decimal
+    emission_share: Decimal
+
+
+def _decimal(v: object, where: str) -> Decimal:
+    if not isinstance(v, str):
+        raise SeiFormatError(f"{where}: {v!r} is not a string")
+    try:
+        d = Decimal(v)
+    except ArithmeticError:
+        raise SeiFormatError(f"{where}: {v!r} is not a number") from None
+    if not d.is_finite():
+        raise SeiFormatError(f"{where}: {v!r} is not a finite number")
+    return d
+
+
+def read_slices(raw: bytes) -> dict[int, list[Slice]]:
+    """The slices of each year, sorted by lower bound, after checking that they partition 0-100%."""
+    doc = json.loads(raw)
+    if not isinstance(doc, dict) or set(doc) != {"records"} or not isinstance(doc["records"], list):
+        raise SeiFormatError("expected one object with a 'records' list")
+    by_year: dict[int, list[Slice]] = {}
+    elasticities: set[str] = set()
+    for n, rec in enumerate(doc["records"]):
+        if not isinstance(rec, dict) or tuple(rec) != FIELDS:
+            raise SeiFormatError(f"record {n}: fields {list(rec) if isinstance(rec, dict) else rec!r} != {FIELDS}")
+        where = f"record {n} ({rec['Year']} {rec['PercentileLabel']})"
+        if not re.fullmatch(r"\d{4}", str(rec["Year"])):
+            raise SeiFormatError(f"{where}: Year is not a four-digit year")
+        m = LABEL.fullmatch(str(rec["PercentileLabel"]))
+        if m is None:
+            raise SeiFormatError(f"{where}: PercentileLabel is not p<lower>p<upper>")
+        lo, hi = Decimal(m["lo"]), Decimal(m["hi"])
+        if _decimal(rec["PercentileValue"], where) * HUNDRED != hi - lo:
+            raise SeiFormatError(f"{where}: PercentileValue {rec['PercentileValue']} is not ({hi} - {lo}) / 100")
+        elasticities.add(rec["Elasticity"])
+        by_year.setdefault(int(rec["Year"]), []).append(
+            Slice(int(rec["Year"]), lo, hi, _decimal(rec["EmissionShare"], where))
+        )
+    if not by_year:
+        raise SeiFormatError("no records")
+    if elasticities != {"1"}:
+        raise SeiFormatError(f"Elasticity values {sorted(elasticities)}: the scope note says every record has 1")
+    for year in sorted(by_year):
+        slices = sorted(by_year[year], key=lambda s: s.lower)
+        edge = Decimal(0)
+        for s in slices:
+            if s.lower != edge:
+                raise SeiFormatError(f"{year}: slice p{s.lower}p{s.upper} does not start where the last ended ({edge})")
+            if any(s.lower < b < s.upper for b in BOUNDARIES):
+                raise SeiFormatError(f"{year}: slice p{s.lower}p{s.upper} straddles a group boundary")
+            edge = s.upper
+        if edge != HUNDRED:
+            raise SeiFormatError(f"{year}: slices end at {edge}, not 100")
+        total = sum((s.emission_share for s in slices), Decimal(0))
+        if abs(total - 1) > SUM_TOLERANCE:
+            raise SeiFormatError(f"{year}: emission shares add up to {total}, not 1")
+        by_year[year] = slices
+    return by_year
+
+
+def check_years(by_year: dict[int, list[Slice]]) -> None:
+    """The API serves every year of the series: a gap means a changed or truncated response."""
+    years = sorted(by_year)
+    if years != list(range(years[0], years[-1] + 1)):
+        raise SeiFormatError(f"years {years[0]}-{years[-1]} have gaps")
+
+
+def in_group(group: str, s: Slice) -> bool:
+    if group == "top-10":
+        return s.lower >= 90
+    if group == "top-1":
+        return s.lower >= 99
+    if group == "bottom-50":
+        return s.upper <= 50
+    raise KeyError(group)
+
+
+def group_shares(by_year: dict[int, list[Slice]]) -> list[Observation]:
+    obs: list[Observation] = []
+    for gid, _ in GROUPS:
+        for year in sorted(by_year):
+            share = sum((s.emission_share for s in by_year[year] if in_group(gid, s)), Decimal(0))
+            obs.append(
+                Observation(entity="WLD", period=f"{year:04d}", value=float(share * HUNDRED), dims={"group": gid})
+            )
+    return obs
+
+
+def _run(files: dict[str, InputFile]) -> Result:
+    f = files[SHARES.key]
+    by_year = read_slices(f.path.read_bytes())
+    check_years(by_year)
+    first, last = min(by_year), max(by_year)
+    slices = {len(v) for v in by_year.values()}
+    accessed = f.snapshot.date_accessed.isoformat()
+    return Result(
+        observations=group_shares(by_year),
+        vintage=f"{first}-{last} historical series, retrieved {accessed}",
+        steps=[
+            f"Read the Historical Global Shares API response (sha256 {f.snapshot.sha256[:12]}…, retrieved {accessed}): "
+            f"{sum(len(v) for v in by_year.values())} records, {first}–{last}, "
+            f"{' or '.join(str(n) for n in sorted(slices))} income slices a year. Checked for every year that the "
+            "slices run from 0 to 100% of people with no gap or overlap, that each slice's width matches its label, "
+            "and that the emission shares add up to 1 (within one billionth).",
+            "For each year, added up the EmissionShare of the slices in each group with exact decimal arithmetic on "
+            "the values as served: the poorest 50% (slices up to the 50th percentile), the richest 10% (from the 90th) "
+            "and the richest 1% (from the 99th, which SEI splits into finer slices). The richest 1% are part of the "
+            "richest 10%.",
+            "Multiplied by 100 to give percent.",
+        ],
+        changes="emission shares of income slices added up into three groups (poorest 50%, richest 10%, richest 1%) "
+        "and converted from fractions to percent.",
+    )
+
+
+def transforms(paths: Paths) -> list[Transform]:
+    return [
+        Transform(
+            spec=Spec(
+                id="co2-share.sei-inequality.income-groups-global",
+                title="Share of world consumption carbon dioxide by income group (SEI)",
+                description="The share of the world's consumption-based carbon dioxide emissions caused by the "
+                "richest 10%, the richest 1% and the poorest 50% of people, ranked by income across the world, each "
+                "year from 1990. Consumption emissions count what a country's people buy, including imports, and "
+                "exclude what it makes for export. The split between people depends on the Stockholm Environment "
+                "Institute's assumptions about how emissions rise with income.",
+                kind="derived",
+                unit=PERCENT,
+                display=Display(decimals=1),
+                scope=Scope(
+                    geography="World: everyone in the world, ranked by income per person (2021 US dollars at "
+                    "purchasing power parity)",
+                    lulucf="excluded",
+                    basis="Fossil carbon dioxide only, consumption-based (territorial emissions plus net emissions "
+                    "embodied in trade); other greenhouse gases and land-use change are not included. Each country's "
+                    "emissions are shared among its people in proportion to income between a floor and a ceiling "
+                    "(SEI's elasticity of 1). SEI's pages do not say how international aviation and shipping are "
+                    "allocated.",
+                ),
+                geo_coverage="global-only",
+                headline_entity="WLD",
+                dimensions=(
+                    Dimension(
+                        id="group",
+                        label="Income group",
+                        values=[DimensionValue(id=i, label=label) for i, label in GROUPS],
+                    ),
+                ),
+                headline_dims=(("group", "top-10"),),
+            ),
+            inputs=(SHARES,),
+            run=_run,
+            module_file=Path(__file__),
+            validation=Validation(min_rows=3 * 34, value_range=(0.0, 100.0)),
+        )
+    ]
