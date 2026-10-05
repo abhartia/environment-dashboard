@@ -33,6 +33,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${newsreader.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        {process.env.NODE_ENV === "development" ? (
+          // Design-direction prototypes only (dev): ?direction=night|atlas sets <html data-direction>.
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(()=>{const d=new URLSearchParams(location.search).get("direction");if(d)document.documentElement.dataset.direction=d})()`,
+            }}
+          />
+        ) : null}
         <JsonLd data={siteGraph()} />
         {children}
         {CF_BEACON ? (

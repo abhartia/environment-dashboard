@@ -35,7 +35,8 @@ export default function Home() {
           </p>
           <p className="text-xs text-muted-foreground">
             Stripes: one per year from <Link href={dataPath(TEMPERATURE)} className="underline">HadCRUT5</Link>, blue
-            cooler and red warmer than the 1850–1900 average. Design after Ed Hawkins&apos; warming stripes
+            cooler and red warmer than the 1850–1900 average; the darkest blue is the coolest year and the darkest red
+            the warmest. Design after Ed Hawkins&apos; warming stripes
             (showyourstripes.info, CC BY 4.0).
           </p>
         </Container>

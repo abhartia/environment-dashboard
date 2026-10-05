@@ -191,3 +191,74 @@
     scroll-behavior: auto !important;
   }
 }
+
+/*
+ * Design-direction prototypes (milestone 4). The same pages under three directions, switched by
+ * <html data-direction="…"> (dev only, ?direction=night|atlas). The owner picks one; the others are removed.
+ * "paper" is the default above.
+ */
+[data-direction="night"] {
+  color-scheme: dark;
+  --background: #0b1220;
+  --foreground: #e8edf5;
+  --card: #111a2c;
+  --card-foreground: #e8edf5;
+  --popover: #131d31;
+  --popover-foreground: #e8edf5;
+  --primary: #e8edf5;
+  --primary-foreground: #0b1220;
+  --secondary: #182338;
+  --secondary-foreground: #e8edf5;
+  --muted: #182338;
+  --muted-foreground: #9fb0c8;
+  --accent: #1b2840;
+  --accent-foreground: #e8edf5;
+  --border: #22304a;
+  --input: #5b6f8f;
+  --ring: #7cc4ff;
+  --link: #8fd0ff;
+  --faint: #8396b3;
+  --grid: #1a2539;
+  --paper: #0e1626;
+  --chart-1: #6cc3ff;
+  --chart-2: #ffb054;
+  --chart-3: #4fd1a5;
+  --chart-4: #f28bc4;
+  --chart-5: #ffd666;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+[data-direction="night"] h1,
+[data-direction="night"] h2,
+[data-direction="night"] h3 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+[data-direction="atlas"] {
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --card: #f6f6f4;
+  --muted: #efefec;
+  --muted-foreground: #4a4a4a;
+  --border: #d9d9d4;
+  --paper: #f3f3ef;
+  --link: #b2182b;
+  --faint: #5f5f5f;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+[data-direction="atlas"] h1 {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-transform: none;
+}
+[data-direction="atlas"] h2,
+[data-direction="atlas"] h3 {
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+[data-direction="atlas"] .font-serif {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}

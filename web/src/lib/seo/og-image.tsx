@@ -13,8 +13,10 @@ const STRIPES_ID = "temp.hadcrut5.annual-1850-1900";
 function stripes(): string[] {
   const ind = indicator(STRIPES_ID);
   const values = ind.observations.filter((o) => o.entity === ind.headline_entity && o.value !== null).map((o) => o.value as number);
-  const extent = Math.max(...values.map(Math.abs));
-  return values.map((v) => RDBU[Math.round(((Math.max(-1, Math.min(1, v / extent)) + 1) / 2) * (RDBU.length - 1))]);
+  const lo = Math.min(...values);
+  const hi = Math.max(...values);
+  // Same scale as WarmingStripes: darkest blue = coolest year, darkest red = warmest year.
+  return values.map((v) => RDBU[Math.round((((v < 0 ? -Math.min(1, v / lo) : Math.min(1, v / hi)) + 1) / 2) * (RDBU.length - 1))]);
 }
 
 function titleSize(title: string): number {
