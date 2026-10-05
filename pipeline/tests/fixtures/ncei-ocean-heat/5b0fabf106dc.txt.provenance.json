@@ -1,0 +1,13 @@
+{
+  "artifact_id": "world-0-2000m-yearly",
+  "command": "uv run python tests/fixtures/make_fixture.py --source ncei-ocean-heat --artifact world-0-2000m-yearly --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 1254,
+  "fixture_sha256": "5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4",
+  "full_bytes": 1254,
+  "full_sha256": "5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4",
+  "licence": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)",
+  "rows_kept": "the whole file (1,254 bytes)",
+  "source_id": "ncei-ocean-heat",
+  "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-2000m.dat"
+}
