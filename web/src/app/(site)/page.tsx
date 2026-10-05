@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { Num } from "@/components/data/num";
+import { PeriodOf } from "@/components/data/period-of";
 import { Container } from "@/components/site/container";
+import { WarmingStripes } from "@/components/viz/warming-stripes";
+import { dataPath } from "@/lib/routes";
 import { SECTIONS } from "@/lib/sections";
+
+const TEMPERATURE = "temp.hadcrut5.annual-1850-1900";
 
 /**
  * Home. The causal chain (emissions → concentrations → warming → sea level → budget left) renders here from data/
@@ -12,14 +18,24 @@ export default function Home() {
   return (
     <>
       <section className="border-b border-border">
-        <Container className="grid gap-8 py-16 sm:py-24">
+        <WarmingStripes id={TEMPERATURE} className="h-28 w-full sm:h-40" />
+        <Container className="grid gap-8 py-14 sm:py-20">
           <p className="eyebrow">Climate data, traced to its source</p>
           <h1 className="max-w-4xl text-[clamp(2.5rem,1.6rem+4vw,5rem)]">
             What is changing the climate, what it is doing, and what can be done
           </h1>
-          <p className="max-w-2xl text-lg text-muted-foreground sm:text-xl">
+          <p className="max-w-2xl font-serif text-2xl leading-snug sm:text-3xl">
+            In <PeriodOf id={TEMPERATURE} />, the planet&apos;s surface was <Num id={TEMPERATURE} decimals={1} /> warmer
+            than in 1850–1900.
+          </p>
+          <p className="max-w-2xl text-lg text-muted-foreground">
             Follow the evidence from cause to consequence to choice. Every number links to the file it came from: who
             published it, which version, when we fetched it, what we did to it, and the terms it is shared under.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Stripes: one per year from <Link href={dataPath(TEMPERATURE)} className="underline">HadCRUT5</Link>, blue
+            cooler and red warmer than the 1850–1900 average. Design after Ed Hawkins&apos; warming stripes
+            (showyourstripes.info, CC BY 4.0).
           </p>
         </Container>
       </section>
