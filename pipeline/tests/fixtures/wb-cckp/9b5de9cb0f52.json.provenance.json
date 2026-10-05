@@ -1,0 +1,13 @@
+{
+  "artifact_id": "cmip6-hd35-1995-2014-median",
+  "command": "uv run python tests/fixtures/make_fixture.py --source wb-cckp --artifact cmip6-hd35-1995-2014-median --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 5496,
+  "fixture_sha256": "9b5de9cb0f52a46f02eafe26c7f156c380b7d45766ca3fcdb36a537da235908d",
+  "full_bytes": 5496,
+  "full_sha256": "9b5de9cb0f52a46f02eafe26c7f156c380b7d45766ca3fcdb36a537da235908d",
+  "licence": "CC BY 4.0 with the World Bank Dataset Terms",
+  "rows_kept": "the whole file (5,496 bytes)",
+  "source_id": "wb-cckp",
+  "url": "https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_1995-2014_median_historical_ensemble_all_mean/all_countries?_format=json"
+}
