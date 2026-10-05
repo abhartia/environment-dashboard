@@ -1,0 +1,80 @@
+# IPCC Sixth Assessment Report, Working Group I (the physical science basis), Summary for Policymakers.
+# Registered for statement B.5.3 (global mean sea level rise by 2100 and 2150 by SSP scenario, relative to 1995-2014),
+# quoted while the CC BY 4.0 quantile files behind it (ipcc-ar6-sea-level-projections) are only in the 890 MB ar6.zip,
+# which is acquisition manual. Evidence: docs/research/sources-ocean-and-ice.json ("IPCC AR6 Sea Level Projections
+# (FACTS; NASA/IPCC Sea Level Projection Tool)"), which verified the B.5.3 text against this PDF.
+# Licence evidence checked 2026-10-05: https://www.ipcc.ch/copyright/ (HTTP 200, 46,066 bytes) states the terms quoted
+# below and adds "Permission can only be granted to use the material exactly as it is in the report". This is the
+# same page and class as ipcc-ar6-wg3-spm: display-only. Only the statement's own numbers are shown, verbatim, with
+# the statement number and page; nothing is redrawn, converted or recalculated.
+# Artifact checked 2026-10-05: IPCC_AR6_WGI_SPM.pdf, HTTP 200, 3,361,797 bytes, ETag "334c05-5e19fcc0ce4c0",
+# Last-Modified 17 Jun 2022, 32 PDF pages; printed page numbers equal PDF page numbers (B.5.3 is on page 21). Page 3
+# carries the citation used below ("This Summary for Policymakers should be cited as:").
+id: ipcc-ar6-wg1-spm
+title: "Climate Change 2021: The Physical Science Basis. Summary for Policymakers"
+publisher: Intergovernmental Panel on Climate Change (IPCC), Working Group I
+landing_url: https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/
+description: >-
+  The approved summary of the IPCC's latest assessment of the physical science of climate change (2021). Statements
+  carry paragraph identifiers (for example B.5.3) and confidence levels. Only short quoted statements and the numbers
+  in them are shown, with the paragraph and page; IPCC figures are never reproduced or redrawn from the report.
+citation:
+  type: chapter
+  title: Summary for Policymakers
+  author:
+    - {literal: IPCC}
+  issued: "2021"
+  publisher: Cambridge University Press
+  container-title: >-
+    Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of
+    the Intergovernmental Panel on Climate Change
+  page: 3-32
+  DOI: 10.1017/9781009157896.001
+  URL: https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/
+  text: >-
+    IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working
+    Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P.
+    Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K.
+    Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)].
+    Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32,
+    doi:10.1017/9781009157896.001.
+licence_class: display-only
+licence:
+  name: © IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works)
+  spdx: null
+  url: https://www.ipcc.ch/copyright/
+evidence:
+  terms_url: https://www.ipcc.ch/copyright/
+  licence_quote: >-
+    You may freely download and copy the material contained on this website for your personal, non-commercial use,
+    without any right to resell or redistribute it or to compile or create derivative works there from, subject to
+    more specific restrictions that may apply to specific materials.
+  checked_on: 2026-10-05
+  terms_check: page
+obligations:
+  attribution: >-
+    IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working
+    Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University
+    Press, pp. 3−32. doi:10.1017/9781009157896.001
+  notice: >-
+    Quoted from the IPCC report with its statement number and page. IPCC material may not be redistributed or
+    altered; the full report is at https://www.ipcc.ch/report/ar6/wg1/.
+  mirror_raw: false
+  # The copyright page lists logos among the IPCC's property and says permission is required for any other use.
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: spm-pdf
+    url: https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf
+    format: pdf
+    description: >-
+      The Summary for Policymakers as published (32 pages, Last-Modified 17 June 2022), with the printed page
+      numbers 3 to 32 of the Cambridge University Press volume.
+status:
+  state: archived
+  note: >-
+    AR6 WGI (2021) is a completed assessment; only the IPCC's seventh-cycle Working Group I report will supersede it.
+  us_federal: false
+update_cadence: IPCC assessment cycle, about 6 to 8 years
+research_ref: >-
+  docs/research/sources-ocean-and-ice.json#IPCC AR6 Sea Level Projections (FACTS; NASA/IPCC Sea Level Projection Tool)
