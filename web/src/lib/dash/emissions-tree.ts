@@ -4,12 +4,15 @@ import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
 import { area, bars, type Built, chapter, credit, headline, latestPeriod, line, points as allPoints, ranking } from "@/lib/dash/kit";
 import type { Dims } from "@/lib/dash/kit";
+import { buildGhg, ghgIds } from "@/lib/dash/ghg-nodes";
 import type { Drill, Series } from "@/lib/dash/types";
 
 /**
  * The emissions chapter as a drill-down tree. Every node is one idea (one chart, one traced headline) and each
- * child is one more disaggregation: world total → by source → by fuel → one fuel → which countries → one country →
- * its fuels, per person, or counting its imports. Values are only selected and ordered here, never computed.
+ * child is one more disaggregation. It opens on all greenhouse gases by sector (ghg-nodes.ts: food and farming, by
+ * gas, by country, per person, one person's footprint); carbon dioxide alone ("co2", Global Carbon Project) then goes
+ * by source → by fuel → one fuel → which countries → one country → its fuels, per person, or counting its imports.
+ * Values are only selected and ordered here, never computed.
  */
 
 const TOTAL = "emissions.gcb-2025.total-co2-global"; // fossil + land use, Gt CO2/yr, 1959–
@@ -47,16 +50,17 @@ function points(id: string, entity: string, dims: Dims = {}, from = FROM) {
 
 // --- nodes ---------------------------------------------------------------------------------------------------
 
-function root(): Built {
+/** Carbon dioxide alone, on the Global Carbon Project's basis: one level under all greenhouse gases (ghg-nodes.ts). */
+function co2(): Built {
   const ind = indicator(TOTAL);
   const year = latestYear(TOTAL);
   return {
-    id: "root",
-    parent: null,
-    crumb: "World",
-    kicker: "Carbon dioxide we put into the air",
+    id: "co2",
+    parent: "root",
+    crumb: "Carbon dioxide",
+    kicker: "Carbon dioxide from fuel and from clearing land",
     headline: headline(TOTAL, "WLD"),
-    sentence: `from fossil fuels, cement and clearing land, in ${year}.`,
+    sentence: `from fossil fuels, cement and clearing land in ${year} (Global Carbon Budget). It counts land use differently from FAO's total one level up, so the two are never added together.`,
     chart: area([{ key: "total", label: "Fossil fuels, cement and land use", colour: FOSSIL_COLOUR, points: points(TOTAL, "WLD", {}, 0), drill: "sources" }], ind.unit.short, ind.display.decimals, false),
     drills: [
       { label: "Split by source", to: "sources" },
@@ -76,7 +80,7 @@ function sources(): Built {
   ];
   return {
     id: "sources",
-    parent: "root",
+    parent: "co2",
     crumb: "By source",
     kicker: "Carbon dioxide from burning fuel, or from clearing land",
     headline: headline(BUDGET, "WLD", { component: "fossil" }),
@@ -158,7 +162,7 @@ function countries(): Built {
   const top = ranked.slice(0, TOP);
   return {
     id: "countries",
-    parent: "root",
+    parent: "co2",
     crumb: "By country",
     kicker: "Which countries emit the most carbon dioxide",
     headline: headline(BY_COUNTRY, top[0].entity, {}, year),
@@ -183,7 +187,7 @@ function perPerson(): Built {
   const rows = ranking(PER_CAPITA, year).filter((r) => biggest.includes(r.entity));
   return {
     id: "per-person",
-    parent: "root",
+    parent: "co2",
     crumb: "Average per person",
     kicker: "Each country's average per person",
     headline: headline(PER_CAPITA, "WLD", {}, year),
@@ -322,7 +326,7 @@ function countryCodes(): string[] {
 }
 
 function ids(): string[] {
-  const out = ["root", "sources", "fuels", "countries", "per-person"];
+  const out = [...ghgIds(), "co2", "sources", "fuels", "countries", "per-person"];
   for (const f of FUELS) out.push(`fuel-${f.id}`, `fuel-${f.id}-countries`);
   for (const iso of countryCodes()) {
     out.push(`c-${iso}`);
@@ -334,7 +338,9 @@ function ids(): string[] {
 }
 
 function build(id: string): Built {
-  if (id === "root") return root();
+  const ghg = buildGhg(id, (iso) => countryCodes().includes(iso));
+  if (ghg) return ghg;
+  if (id === "co2") return co2();
   if (id === "sources") return sources();
   if (id === "fuels") return fuels();
   if (id === "countries") return countries();

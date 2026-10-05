@@ -2,18 +2,18 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
+import { buildFood, countryStages, foodNodeIds } from "@/lib/dash/food-nodes";
 import { area, bars, type Built, chapter, credit, dimLabel, headline, latestPeriod, line, points, ranking } from "@/lib/dash/kit";
 
 /**
- * The food and land chapter: what feeding ourselves does to the climate and the land. Agrifood emissions → their
- * share of all emissions → by country → methane from livestock → food lost before it reaches shops → diets compared →
- * land we farm → species at risk.
+ * The food and land chapter: what feeding ourselves does to the climate and the land. Agrifood emissions → where they
+ * come from (stage, process, food, animal; food-nodes.ts) → their share of all emissions → by country → food lost before
+ * it reaches shops → diets compared → land we farm → species at risk.
  */
 
 const AGRIFOOD = "food.faostat.agrifood-emissions-world";
 const SHARE = "food.faostat.agrifood-emissions-world.share";
 const BY_COUNTRY = "food.faostat.agrifood-emissions-by-country";
-const LIVESTOCK = "food.faostat.livestock-ch4-world";
 const LOSS = "food-loss.faostat.sdg-12-3-1a";
 const DIETS = "food.scarborough-2023.diet-ghg-per-day";
 const LAND_SHARE = "land-use.faostat.share-of-land-area";
@@ -51,11 +51,13 @@ function root(): Built {
     kicker: "Greenhouse gases from food and farming",
     headline: headline(AGRIFOOD, "WLD"),
     sentence: `in ${latestPeriod(AGRIFOOD)}: on farms, from clearing land for farming, and from processing, transport, shops, kitchens and waste (FAO).`,
-    chart: area([{ key: "agrifood", label: "Agrifood systems", colour: FARM, points: points(AGRIFOOD, "WLD"), drill: "share" }], short, decimals, false),
+    chart: area([{ key: "agrifood", label: "Agrifood systems", colour: FARM, points: points(AGRIFOOD, "WLD"), drill: "stages" }], short, decimals, false),
     drills: [
+      { label: "Where food's emissions come from", to: "stages" },
+      { label: "Which foods", to: "foods" },
+      { label: "Methane from farm animals", to: "animals" },
       { label: "Share of all emissions", to: "share" },
-      { label: "By country", to: "countries" },
-      { label: "Methane from livestock", to: "livestock" },
+      { label: "Which countries", to: "countries" },
       { label: "Food lost before the shops", to: "loss" },
       { label: "Diets compared", to: "diets" },
       { label: "The land we farm", to: "land" },
@@ -103,39 +105,6 @@ function countries(): Built {
     drills: [],
     credit: credit(BY_COUNTRY),
     indicators: [BY_COUNTRY],
-  };
-}
-
-function country(iso: string): Built {
-  const { short, decimals } = u(BY_COUNTRY);
-  const name = entityName(iso);
-  return {
-    id: `c-${iso}`,
-    parent: "countries",
-    crumb: name,
-    kicker: `${name}: food and farming emissions`,
-    headline: headline(BY_COUNTRY, iso),
-    sentence: `from ${name}'s food and farming system in ${headline(BY_COUNTRY, iso).period}, by FAO.`,
-    chart: area([{ key: iso, label: name, colour: FARM, points: points(BY_COUNTRY, iso) }], short, decimals, false),
-    drills: [],
-    credit: credit(BY_COUNTRY),
-    indicators: [BY_COUNTRY],
-  };
-}
-
-function livestock(): Built {
-  const { short, decimals } = u(LIVESTOCK);
-  return {
-    id: "livestock",
-    parent: "root",
-    crumb: "Livestock methane",
-    kicker: "Methane from farm animals",
-    headline: headline(LIVESTOCK, "WLD"),
-    sentence: `a year from livestock worldwide (digestion and manure) in ${latestPeriod(LIVESTOCK)}, by FAO.`,
-    chart: area([{ key: "livestock", label: "Methane from livestock", colour: "#c75400", points: points(LIVESTOCK, "WLD") }], short, decimals, false),
-    drills: [{ label: "Diets compared", to: "diets" }],
-    credit: credit(LIVESTOCK),
-    indicators: [LIVESTOCK],
   };
 }
 
@@ -240,20 +209,21 @@ function countryCodes(): string[] {
 }
 
 function ids(): string[] {
-  return ["root", "share", "countries", "livestock", "loss", "diets", "land", "species", ...countryCodes().map((c) => `c-${c}`)];
+  return ["root", ...foodNodeIds(), "share", "countries", "loss", "diets", "land", "species", ...countryCodes().map((c) => `c-${c}`)];
 }
 
 function build(id: string): Built {
   if (id === "root") return root();
   if (id === "share") return share();
   if (id === "countries") return countries();
-  if (id === "livestock") return livestock();
   if (id === "loss") return loss();
   if (id === "diets") return diets();
   if (id === "land") return land();
   if (id === "species") return species();
   const c = id.match(/^c-([A-Z0-9_]+)$/);
-  if (c) return country(c[1]);
+  if (c) return countryStages(c[1], BY_COUNTRY);
+  const node = buildFood(id);
+  if (node) return node;
   throw new Error(`unknown food node ${id}`);
 }
 

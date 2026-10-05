@@ -27,6 +27,22 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
   header menu holds the reference links and the disclaimers, every page links to `/about`, and `/about` carries the
   disclaimers (check-build enforces both).
 
+## What each chapter opens on
+
+- **Emissions** opens on all greenhouse gases by FAO's six IPCC sectors (they add up to FAO's all-sector total, the
+  same total behind food's share). Food and farming is not a seventh band: its emissions run through several bands,
+  so it is its own view, linked to the food chapter. Below come the split by gas (carbon dioxide, methane, nitrous
+  oxide, fluorinated gases), methane by sector, countries, each country's average per person (labelled as a national
+  average), one person's footprint (Sweden, by what households and the public sector consume) and the UK's footprint
+  by use. Carbon dioxide alone (Global Carbon Project) is the `co2` view, on its own basis: never added to or
+  subtracted from FAO's totals.
+- **Food and land** opens on food's emissions and splits them by stage (on the farm, clearing land for farming,
+  before and after the farm), by process within each stage, by food (farm-gate emissions of FAO's 14 commodities, and
+  per kilogram) and methane by animal; each stack adds up to FAO's published total.
+
+A drill target written `chapter:node` opens another chapter's view (`crossDrill` in `kit.ts` carries its title and
+chart shape).
+
 ## How a node is made
 
 `web/src/lib/dash/<chapter>-tree.ts` builds every node at build time from `data/` through `web/src/lib/dash/kit.ts`

@@ -129,11 +129,15 @@ function span(series: Series[]): { from: number; to: number } {
 
 /**
  * An area chart. A stacked chart orders its bands by the first year each has data, oldest at the bottom: a band with
- * no data in a year (the producer starts it later) then has nothing stacked on it, so no gap is ever filled in.
+ * no data in a year (the producer starts it later) then has nothing stacked on it, so no gap is ever filled in. A band
+ * that can be negative goes first, against zero.
  */
 export function area(series: Series[], unit: string, decimals: number, stacked: boolean): Chart {
   const first = (s: Series) => s.points.find((p) => p[1] !== null)?.[0] ?? Number.POSITIVE_INFINITY;
-  const ordered = stacked ? [...series].sort((a, b) => first(a) - first(b)) : series;
+  // A band that is ever negative (a net sink) goes next to zero: higher up, each change of sign would jump it across
+  // the whole stack.
+  const crosses = (s: Series) => (s.points.some((p) => p[1] !== null && p[1] < 0) ? 0 : 1);
+  const ordered = stacked ? [...series].sort((a, b) => crosses(a) - crosses(b) || first(a) - first(b)) : series;
   return { kind: "area", stacked, series: ordered, unit, decimals, ...span(series) };
 }
 

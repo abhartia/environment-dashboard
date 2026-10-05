@@ -3,7 +3,7 @@
  * (no data): the header, the home grid and the chapter pages share it. The trees are in lib/dash/<slug>-tree.ts.
  */
 export const CHAPTER_META = [
-  { slug: "emissions", title: "Emissions", question: "How much carbon dioxide do we put into the air, and from where?" },
+  { slug: "emissions", title: "Emissions", question: "How much greenhouse gas do we put into the air, and from where?" },
   { slug: "energy", title: "Energy", question: "How fast is the switch to clean energy?" },
   { slug: "air", title: "Greenhouse gases", question: "How much has built up in the air?" },
   { slug: "heat", title: "Heat", question: "How much warmer is it, and who caused it?" },
