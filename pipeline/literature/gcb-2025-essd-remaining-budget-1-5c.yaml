@@ -1,0 +1,44 @@
+# Global Carbon Budget 2025 (Friedlingstein et al. 2026, ESSD 18, 3211-3288), executive summary: the remaining carbon
+# budget for a 50 % likelihood of limiting warming to 1.5 C, from the beginning of 2026.
+# The build checks that `quote` appears on PDF page 5 (printed page 3215) of the snapshot of gcb-2025-essd/article-pdf.
+# docs/research/sources-emissions.json (headline_number_checks 10): the paper states both 50 GtC and 170 GtCO2 (the
+# GtC figure is rounded, so 50 x 3.664 is not the published value). The same check notes that IGCC 2025 (Forster et al.
+# 2026, source igcc-2025) gives 130 GtCO2 from the beginning of 2026 by the IPCC method; a page showing this value
+# shows that one too.
+id: gcb-2025-essd-remaining-budget-1-5c
+indicator_id: emissions.gcb-2025.remaining-budget-1-5c
+source_id: gcb-2025-essd
+artifact_id: article-pdf
+title: Remaining carbon budget for 1.5 °C from the start of 2026 (Global Carbon Budget)
+description: >-
+  How much more carbon dioxide could be emitted from the beginning of 2026 for an even (50 percent) chance of
+  limiting global warming to 1.5 °C, according to the Global Carbon Budget 2025: 170 billion tonnes, which the paper
+  puts at around 4 years of emissions at the 2025 level.
+unit:
+  code: GtCO2
+  label: billion tonnes of carbon dioxide
+  short: Gt CO₂
+display:
+  decimals: 0
+scope:
+  geography: World
+  basis: >-
+    Cumulative carbon dioxide emissions from 1 January 2026 for a 50 percent likelihood of limiting warming to
+    1.5 °C above 1850–1900, as assessed in the Global Carbon Budget 2025. Assessments made with other methods, such
+    as Indicators of Global Climate Change 2025, give different values from the same date.
+geo_coverage: global-only
+headline_entity: WLD
+vintage: Global Carbon Budget 2025 (ESSD 18, 3211–3288, 2026)
+locator: Executive summary, p. 3215
+pdf_page: 5
+quote: >-
+  The remaining carbon budget from the beginning of 2026 for a 50 % likelihood to limit warming to 1.5 °C is nearly
+  exhausted (50 GtC, 170 GtCO₂ left, equivalent to around 4 years at the 2025 emissions levels)
+value_text: 170 GtCO₂ left
+value_reading: >-
+  "170 GtCO₂ left" is published as 170 billion tonnes of carbon dioxide, dated 2026-01-01 because the paper counts the
+  budget "from the beginning of 2026".
+observations:
+  - {entity: WLD, period: "2026-01-01", value: "170", status: final}
+checked_on: 2026-10-04
+research_ref: "docs/research/sources-emissions.json#Global Carbon Budget 2025: national fossil CO2 (territorial, consumption-based, transfers), national land-use change CO2, and global budget"

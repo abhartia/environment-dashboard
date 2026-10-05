@@ -1,0 +1,227 @@
+# Friedlingstein et al. (2026), Global Carbon Budget 2025, Earth Syst. Sci. Data 18, 3211-3288: the peer-reviewed
+# paper behind gcb-2025-global and gcb-2025-national. Used for statements the data files do not carry: the 2025
+# projection of fossil CO2 emissions (+1.0 %, 38.1 GtCO2) and the remaining carbon budget for 1.5 C (170 GtCO2), and as
+# the publisher statement that the gcb-2025-global series are cross-checked against.
+# Evidence: docs/research/sources-emissions.json (headline_number_checks 1 and 10: use the ESSD +1.0 %, not the press
+# release's +1.1 %; the 170 GtCO2 is stated in both units in the paper) and the "Global Carbon Budget 2025" entry
+# ("The ESSD article itself is CC BY 4.0").
+# Checked 2026-10-04:
+#   - Article page https://essd.copernicus.org/articles/18/3211/2026/: HTTP 200, 1,294,260 bytes. The citation header
+#     carries the licence quoted below; "How to cite" gives citation.text verbatim. Received 31 Oct 2025, discussion
+#     started 13 Nov 2025, revised 27 Mar 2026, accepted 1 May 2026, published 13 May 2026.
+#   - PDF: HTTP 200 application/pdf, 13,426,392 bytes, 78 pages, sha256
+#     166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12, Last-Modified 8 Sep 2026. Two requests gave two
+#     ETags for the same bytes (the server farm's ETags differ), so If-None-Match is not relied on: conditional false.
+#     The PDF's first page repeats the licence statement. The executive summary is on PDF page 5 (printed page 3215).
+#   - No login, cookie or captcha: automatic.
+id: gcb-2025-essd
+title: "Global Carbon Budget 2025 (Friedlingstein et al. 2026, Earth System Science Data)"
+publisher: Global Carbon Project; published by Copernicus Publications in Earth System Science Data
+landing_url: https://doi.org/10.5194/essd-18-3211-2026
+description: >-
+  The peer-reviewed description of the Global Carbon Budget 2025: how each part of the global carbon dioxide budget is
+  estimated, the results to 2024, a projection for 2025 made from data for part of that year, and the remaining carbon
+  budgets for limiting warming to 1.5, 1.7 and 2 °C. The yearly values themselves are in the Global Carbon Budget 2025
+  data files; this paper is quoted for the statements those files do not carry.
+citation:
+  type: article-journal
+  title: Global Carbon Budget 2025
+  author:
+    # All 133 authors, from "How to cite" on the article page.
+    - {family: "Friedlingstein", given: "P."}
+    - {family: "O'Sullivan", given: "M."}
+    - {family: "Jones", given: "M. W."}
+    - {family: "Andrew", given: "R. M."}
+    - {family: "Bakker", given: "D. C. E."}
+    - {family: "Hauck", given: "J."}
+    - {family: "Landschützer", given: "P."}
+    - {family: "Le Quéré", given: "C."}
+    - {family: "Li", given: "H."}
+    - {family: "Luijkx", given: "I. T."}
+    - {family: "Peters", given: "G. P."}
+    - {family: "Peters", given: "W."}
+    - {family: "Pongratz", given: "J."}
+    - {family: "Schwingshackl", given: "C."}
+    - {family: "Sitch", given: "S."}
+    - {family: "Canadell", given: "J. G."}
+    - {family: "Ciais", given: "P."}
+    - {family: "Aas", given: "K."}
+    - {family: "Alin", given: "S. R."}
+    - {family: "Anthoni", given: "P."}
+    - {family: "Barbero", given: "L."}
+    - {family: "Bates", given: "N. R."}
+    - {family: "Bellouin", given: "N."}
+    - {family: "Benoit-Cattin", given: "A."}
+    - {family: "Berghoff", given: "C. F."}
+    - {family: "Bernardello", given: "R."}
+    - {family: "Bopp", given: "L."}
+    - {family: "Brasika", given: "I. B. M."}
+    - {family: "Chamberlain", given: "M. A."}
+    - {family: "Chandra", given: "N."}
+    - {family: "Chevallier", given: "F."}
+    - {family: "Chini", given: "L. P."}
+    - {family: "Collier", given: "N. O."}
+    - {family: "Colligan", given: "T. H."}
+    - {family: "Cronin", given: "M."}
+    - {family: "Djeutchouang", given: "L. M."}
+    - {family: "Dou", given: "X."}
+    - {family: "Enright", given: "M. P."}
+    - {family: "Enyo", given: "K."}
+    - {family: "Erb", given: "M."}
+    - {family: "Evans", given: "W."}
+    - {family: "Feely", given: "R. A."}
+    - {family: "Feng", given: "L."}
+    - {family: "Ford", given: "D. J."}
+    - {family: "Foster", given: "A."}
+    - {family: "Fransner", given: "F."}
+    - {family: "Gasser", given: "T."}
+    - {family: "Gehlen", given: "M."}
+    - {family: "Gkritzalis", given: "T."}
+    - {family: "Goncalves De Souza", given: "J."}
+    - {family: "Grassi", given: "G."}
+    - {family: "Gregor", given: "L."}
+    - {family: "Gruber", given: "N."}
+    - {family: "Guenet", given: "B."}
+    - {family: "Gürses", given: "Ö."}
+    - {family: "Harrington", given: "K."}
+    - {family: "Harris", given: "I."}
+    - {family: "Heinke", given: "J."}
+    - {family: "Hurtt", given: "G. C."}
+    - {family: "Iida", given: "Y."}
+    - {family: "Ilyina", given: "T."}
+    - {family: "Ito", given: "A."}
+    - {family: "Jacobson", given: "A. R."}
+    - {family: "Jain", given: "A. K."}
+    - {family: "Jarníková", given: "T."}
+    - {family: "Jersild", given: "A."}
+    - {family: "Jiang", given: "F."}
+    - {family: "Jones", given: "S. D."}
+    - {family: "Kato", given: "E."}
+    - {family: "Keeling", given: "R. F."}
+    - {family: "Klein Goldewijk", given: "K."}
+    - {family: "Knauer", given: "J."}
+    - {family: "Kong", given: "Y."}
+    - {family: "Korsbakken", given: "J. I."}
+    - {family: "Koven", given: "C."}
+    - {family: "Kunimitsu", given: "T."}
+    - {family: "Lan", given: "X."}
+    - {family: "Liu", given: "J."}
+    - {family: "Liu", given: "Z."}
+    - {family: "Liu", given: "Z."}
+    - {family: "Lo Monaco", given: "C."}
+    - {family: "Ma", given: "L."}
+    - {family: "Marland", given: "G."}
+    - {family: "McGuire", given: "P. C."}
+    - {family: "McKinley", given: "G. A."}
+    - {family: "Melton", given: "J. R."}
+    - {family: "Monacci", given: "N."}
+    - {family: "Monier", given: "E."}
+    - {family: "Morgan", given: "E. J."}
+    - {family: "Munro", given: "D. R."}
+    - {family: "Müller", given: "J. D."}
+    - {family: "Nakaoka", given: "S.-I."}
+    - {family: "Nayagam", given: "L. R."}
+    - {family: "Niwa", given: "Y."}
+    - {family: "Nutzel", given: "T."}
+    - {family: "Olsen", given: "A."}
+    - {family: "Omar", given: "A. M."}
+    - {family: "Pan", given: "N."}
+    - {family: "Pandey", given: "S."}
+    - {family: "Pierrot", given: "D."}
+    - {family: "Qin", given: "Z."}
+    - {family: "Regnier", given: "P."}
+    - {family: "Rehder", given: "G."}
+    - {family: "Resplandy", given: "L."}
+    - {family: "Roobaert", given: "A."}
+    - {family: "Rosan", given: "T. M."}
+    - {family: "Rödenbeck", given: "C."}
+    - {family: "Schwinger", given: "J."}
+    - {family: "Skjelvan", given: "I."}
+    - {family: "Smallman", given: "T. L."}
+    - {family: "Spada", given: "V."}
+    - {family: "Sreeush", given: "M. G."}
+    - {family: "Sun", given: "Q."}
+    - {family: "Sutton", given: "A. J."}
+    - {family: "Sweeney", given: "C."}
+    - {family: "Swingedouw", given: "D."}
+    - {family: "Séférian", given: "R."}
+    - {family: "Takao", given: "S."}
+    - {family: "Tatebe", given: "H."}
+    - {family: "Tian", given: "H."}
+    - {family: "Tian", given: "X."}
+    - {family: "Tilbrook", given: "B."}
+    - {family: "Tsujino", given: "H."}
+    - {family: "Tubiello", given: "F."}
+    - {family: "van Ooijen", given: "E."}
+    - {family: "van der Werf", given: "G. R."}
+    - {family: "van de Velde", given: "S. J."}
+    - {family: "Walker", given: "A. P."}
+    - {family: "Wanninkhof", given: "R."}
+    - {family: "Yang", given: "X."}
+    - {family: "Yuan", given: "W."}
+    - {family: "Yue", given: "X."}
+    - {family: "Zeng", given: "J."}
+  issued: "2026-05-13"
+  publisher: Copernicus Publications
+  container-title: Earth System Science Data
+  volume: "18"
+  page: 3211-3288
+  DOI: 10.5194/essd-18-3211-2026
+  URL: https://doi.org/10.5194/essd-18-3211-2026
+  # "How to cite" on the article page, verbatim.
+  text: >-
+    Friedlingstein, P., O'Sullivan, M., Jones, M. W., Andrew, R. M., Bakker, D. C. E., Hauck, J., Landschützer, P., Le
+    Quéré, C., Li, H., Luijkx, I. T., Peters, G. P., Peters, W., Pongratz, J., Schwingshackl, C., Sitch, S., Canadell,
+    J. G., Ciais, P., Aas, K., Alin, S. R., Anthoni, P., Barbero, L., Bates, N. R., Bellouin, N., Benoit-Cattin, A.,
+    Berghoff, C. F., Bernardello, R., Bopp, L., Brasika, I. B. M., Chamberlain, M. A., Chandra, N., Chevallier, F.,
+    Chini, L. P., Collier, N. O., Colligan, T. H., Cronin, M., Djeutchouang, L. M., Dou, X., Enright, M. P., Enyo, K.,
+    Erb, M., Evans, W., Feely, R. A., Feng, L., Ford, D. J., Foster, A., Fransner, F., Gasser, T., Gehlen, M.,
+    Gkritzalis, T., Goncalves De Souza, J., Grassi, G., Gregor, L., Gruber, N., Guenet, B., Gürses, Ö., Harrington,
+    K., Harris, I., Heinke, J., Hurtt, G. C., Iida, Y., Ilyina, T., Ito, A., Jacobson, A. R., Jain, A. K., Jarníková,
+    T., Jersild, A., Jiang, F., Jones, S. D., Kato, E., Keeling, R. F., Klein Goldewijk, K., Knauer, J., Kong, Y.,
+    Korsbakken, J. I., Koven, C., Kunimitsu, T., Lan, X., Liu, J., Liu, Z., Liu, Z., Lo Monaco, C., Ma, L., Marland,
+    G., McGuire, P. C., McKinley, G. A., Melton, J. R., Monacci, N., Monier, E., Morgan, E. J., Munro, D. R., Müller,
+    J. D., Nakaoka, S.-I., Nayagam, L. R., Niwa, Y., Nutzel, T., Olsen, A., Omar, A. M., Pan, N., Pandey, S.,
+    Pierrot, D., Qin, Z., Regnier, P., Rehder, G., Resplandy, L., Roobaert, A., Rosan, T. M., Rödenbeck, C.,
+    Schwinger, J., Skjelvan, I., Smallman, T. L., Spada, V., Sreeush, M. G., Sun, Q., Sutton, A. J., Sweeney, C.,
+    Swingedouw, D., Séférian, R., Takao, S., Tatebe, H., Tian, H., Tian, X., Tilbrook, B., Tsujino, H., Tubiello, F.,
+    van Ooijen, E., van der Werf, G. R., van de Velde, S. J., Walker, A. P., Wanninkhof, R., Yang, X., Yuan, W., Yue,
+    X., and Zeng, J.: Global Carbon Budget 2025, Earth Syst. Sci. Data, 18, 3211–3288,
+    https://doi.org/10.5194/essd-18-3211-2026, 2026.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://essd.copernicus.org/articles/18/3211/2026/
+  licence_quote: >-
+    © Author(s) 2026. This work is distributed under the Creative Commons Attribution 4.0 License.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    Friedlingstein et al. (2026), Global Carbon Budget 2025, Earth Syst. Sci. Data 18, 3211–3288,
+    doi:10.5194/essd-18-3211-2026. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Friedlingstein et al. (2026), Global Carbon Budget 2025, Earth Syst. Sci.
+    Data 18, 3211–3288, doi:10.5194/essd-18-3211-2026. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-pdf
+    url: https://essd.copernicus.org/articles/18/3211/2026/essd-18-3211-2026.pdf
+    format: pdf
+    description: >-
+      Version of record (78 pages). The executive summary, with the 2025 projection and the remaining carbon budgets,
+      is on PDF page 5 (printed page 3215). 13,426,392 bytes.
+    access: {conditional: false}
+status:
+  state: active
+  note: >-
+    Published 13 May 2026; the current edition of the Global Carbon Budget paper. The Global Carbon Budget 2026 is
+    expected during COP31 (9-20 November 2026) with its paper months later; it will be a new registry entry.
+  us_federal: false
+update_cadence: Annual edition (paper about six months after the November data release)
+twins: [igcc-2025]
+research_ref: "docs/research/sources-emissions.json#Global Carbon Budget 2025: national fossil CO2 (territorial, consumption-based, transfers), national land-use change CO2, and global budget"
