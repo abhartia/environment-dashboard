@@ -1,0 +1,42 @@
+# World Bank, State and Trends of Carbon Pricing 2026, section 2.3: government revenues from carbon taxes and
+# emissions trading systems in 2025.
+# The build checks that `quote` appears on PDF page 29 (printed page 25) of the snapshot of
+# wb-carbon-pricing-2026/report-pdf. The key messages (printed page 5) say "over US$ 107 billion"; section 2.3 states
+# the value without the bound, so it is quoted.
+id: wb-carbon-pricing-2026-revenue
+indicator_id: carbon-pricing.wb-2026.revenue
+source_id: wb-carbon-pricing-2026
+artifact_id: report-pdf
+title: Government revenue from carbon taxes and emissions trading (World Bank)
+description: >-
+  The money governments raised in 2025 from carbon taxes and emissions trading systems worldwide: 107 billion US
+  dollars, about 2 percent more than in 2024 in real terms. The report says almost all of it is raised in high-income
+  countries.
+unit:
+  code: USD-billion
+  label: billion US dollars
+  short: US$ bn
+display:
+  decimals: 0
+scope:
+  geography: World
+  basis: >-
+    Revenues of governments from carbon taxes and from emissions trading systems (mostly allowance auctions) in
+    calendar year 2025, as the World Bank estimates them. The report compares years in real terms; it does not state
+    the price base of this figure on that page.
+geo_coverage: global-only
+headline_entity: WLD
+vintage: State and Trends of Carbon Pricing 2026 (World Bank, May 2026)
+locator: Section 2.3, p. 25
+pdf_page: 29
+quote: >-
+  In 2025 carbon pricing revenues reached US$ 107 billion, an increase of around two percent from 2024 levels in real
+  terms (Figure 8).
+value_text: US$ 107 billion
+value_reading: '"US$ 107 billion" is published as 107 billion US dollars for 2025.'
+observations:
+  - {entity: WLD, period: "2025", value: "107"}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#World Bank State and Trends of Carbon Pricing 2026 and the Carbon
+  Pricing Dashboard

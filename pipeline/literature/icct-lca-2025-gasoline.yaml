@@ -1,0 +1,41 @@
+# ICCT (Negri & Bieker, July 2025), executive summary: life-cycle greenhouse gas emissions of a medium-segment petrol
+# (gasoline) car sold in the EU in 2025, on the average blend of fossil gasoline and ethanol.
+# The build checks that `quote` appears on PDF page 3 (printed page i) of the snapshot of icct-lca-2025/report-pdf.
+# The same 235 g CO2e/km is repeated in the results (printed page 16) and conclusions (printed page 23).
+id: icct-lca-2025-gasoline
+indicator_id: cars.icct-2025.lifecycle-gasoline-eu
+source_id: icct-lca-2025
+artifact_id: report-pdf
+title: Life-cycle emissions of a petrol car in the EU (ICCT)
+description: >-
+  Greenhouse gas emissions over the whole life of a medium-size petrol car sold in the European Union in 2025, per
+  kilometre driven: making the car, producing and burning its fuel (the average EU blend of fossil petrol and
+  ethanol), and maintenance. The ICCT estimates it at 235 grams of CO2-equivalent per kilometre.
+unit:
+  code: gCO2e/km
+  label: grams of CO2-equivalent per kilometre
+  short: g CO₂e/km
+display:
+  decimals: 0
+scope:
+  geography: European Union
+  basis: >-
+    Sales-weighted average medium-segment car (SUVs excluded) registered in the EU in 2023, sold in 2025 and driven
+    for 20 years on the average blend of fossil gasoline and ethanol; vehicle production and recycling, fuel
+    production, tailpipe emissions and maintenance.
+geo_coverage: country
+headline_entity: EU27
+vintage: ICCT report ID 392 (July 2025)
+locator: Executive summary, p. i
+pdf_page: 3
+quote: >-
+  This is 73% lower than the emissions of gasoline ICEVs running on the average blend of fossil gasoline and ethanol,
+  estimated at 235 g CO2e/km.
+value_text: estimated at 235 g CO2e/km
+value_reading: '"estimated at 235 g CO2e/km" is published as 235 grams of CO2-equivalent per kilometre for cars sold in 2025.'
+observations:
+  - {entity: EU27, period: "2025", value: "235", status: projection}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-solutions-and-action.json#ICCT: Life-cycle greenhouse gas emissions from passenger cars in the
+  European Union, 2025 update (plus 2021 global comparison)

@@ -1,0 +1,15 @@
+{
+  "artifact_id": "policy-out",
+  "command": "uv run python tests/fixtures/make_fixture.py --source stechemesser-2024 --artifact policy-out --first 1000000 --last 0",
+  "data_rows_total": 8284,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 1285199,
+  "fixture_sha256": "a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6",
+  "full_bytes": 1285199,
+  "full_sha256": "a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 8284 data rows",
+  "source_id": "stechemesser-2024",
+  "url": "https://zenodo.org/api/records/12773811/files/Policy_out.RDS/content"
+}
