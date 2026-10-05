@@ -1,0 +1,15 @@
+{
+  "artifact_id": "generation-yearly-global",
+  "command": "uv run python tests/fixtures/make_fixture.py --source ember-yearly --artifact generation-yearly-global --first 1 --last 1691",
+  "data_rows_total": 104203,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 245828,
+  "fixture_sha256": "90157cb46f4c19750768ac71a158e7aed8df0e4f71c2e9bccc5aa81631230b3b",
+  "full_bytes": 16084305,
+  "full_sha256": "ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-1 and 102513-104203 of 104203",
+  "source_id": "ember-yearly",
+  "url": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv"
+}

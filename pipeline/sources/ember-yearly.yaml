@@ -57,6 +57,19 @@ artifacts:
       One row per area, year and source, with generation, share, capacity, emissions and intensity as columns
       (wide release format). The Europe-only file (release_generation_yearly_lower.csv) and the legacy long-format
       file (last modified 23 June 2026) are not used.
+  # GET 200 on 2026-10-04: 1,487,777 bytes, Last-Modified Tue 22 Sep 2026 (the same day as the CSV above). Linked as
+  # "Download methodology (PDF)" from the landing page. The electricity transforms read it to confirm, at every build,
+  # that Ember still says how it fills the latest years (page 10: "For the most recent years, data is often not
+  # available. In these cases we use monthly data, which is reported on a shorter lag, to estimate the latest annual
+  # generation."; page 12: "Values for missing years for a given country are estimated based on historical trends of
+  # demand and generation from individual sources by country.").
+  - id: methodology-pdf
+    url: https://files.ember-energy.org/public-downloads/ember_electricity_data_methodology.pdf
+    format: pdf
+    description: >-
+      Ember's data methodology for generation, net imports, demand, capacity and emissions, with country-specific
+      notes. States how the latest year is estimated from monthly data and how missing country years enter the
+      regional and world totals.
 status:
   state: active
   note: >-
