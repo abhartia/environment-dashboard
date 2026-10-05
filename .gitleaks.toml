@@ -1,0 +1,12 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public identifiers and checksums"
+paths = [
+  # The IndexNow key is public by design (served at /<key>.txt).
+  '''web/public/[0-9a-f]{32}\.txt''',
+  # sha256 digests of public data files, not secrets.
+  '''data/SHA256SUMS''',
+  '''pipeline/manifests/.*''',
+]

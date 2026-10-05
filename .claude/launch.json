@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "web", "run", "dev", "--", "--port", "3200"],
+      "port": 3200
+    },
+    {
+      "name": "web-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve@14", "web/out", "--listen", "3201", "--no-clipboard"],
+      "port": 3201
+    }
+  ]
+}

@@ -1,0 +1,645 @@
+{
+ "research": {
+  "domain": "Food, land use, forests and biodiversity",
+  "sources": [
+   {
+    "name": "FAOSTAT Climate Change: Agrifood systems emissions (Emissions totals GT, plus sub-domains GLE livestock, GCE crops, GPP pre/post-production, EI intensities)",
+    "publisher": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division",
+    "measures": "Annual GHG emissions by gas: CO2, CH4 and N2O in kt, and CO2eq in kt using AR5 GWP100. Broken down by agrifood item: farm gate (enteric fermentation, manure, rice, synthetic fertilizers, drained organic soils, on-farm energy), land-use change (net forest conversion, forestland sink, fires), and pre/post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption, waste disposal). It also carries economy-wide totals ('All sectors with/without LULUCF'), which act as the denominator for shares. GLE adds livestock stocks and emissions by species.",
+    "coverage": "1961-2023 (land-use and pre/post items from 1990 or 2000). About 200+ countries and territories plus FAO regions and World. Annual. Two sources per value: 'FAO TIER 1' and 'UNFCCC' country submissions. The GT file also contains years up to 2050 for some series, so filter to historical years.",
+    "latest_release": "GT bulk file DateUpdate 2025-10-28 (datasets_E.json), with data through 2023. The zip on S3 shows Last-Modified 2025-12-06. GLE/GCE: 2025-10-28. GPP: 2026-05-22. EI: 2026-02-20. The companion FAO analytical brief 'Greenhouse gas emissions from agrifood systems. Global, regional and country trends, 2001-2023' came out 2025-10-28/29. The next release, with 2024 data, is expected around Q4 2026 based on past annual cadence (not confirmed in a release calendar).",
+    "update_cadence": "Annual (Oct-Nov), with occasional mid-year sub-domain updates",
+    "landing_url": "https://www.fao.org/faostat/en/#data/GT",
+    "download_urls": [
+     "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Emissions_crops_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Emissions_Pre_Post_Production_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/datasets_E.json"
+    ],
+    "format": "ZIP containing a normalized long CSV (latin-1 encoding). Columns: Area Code, Area Code (M49), Area, Item Code, Item, Element Code, Element, Year, Source Code, Source, Unit, Value, Flag, Note. Also ships AreaCodes, ItemCodes, Flags and Sources CSVs. datasets_E.json is a machine-readable catalog with DateUpdate and FileLocation per domain.",
+    "license": "CC BY 4.0, under the FAO Statistical Database Terms of Use (https://www.fao.org/contact-us/terms/db-terms-of-use/en/). Quote: 'Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical databases ... are licensed under the Creative Commons Attribution-4.0 International licence (CC BY 4.0)'. FAOSTAT and FRA are both named in Annex 1. Additional terms: data may not be used 'in conjunction with the promotion of a commercial enterprise', nor in a way that suggests FAO endorsement, nor 'in a manner that falsifies or misrepresents their content'. Third-party data may carry other terms. Attribution must follow the format 'FAO. [YYYY]. [Database: Dataset]. [Accessed on DD Month YYYY]. [URL] Licence: CC-BY-4.0.'",
+    "redistribution": "open-attribution",
+    "citation": "FAO. 2025. FAOSTAT: Climate Change: Agrifood systems emissions: Emissions totals. Accessed on [DD Month YYYY]. https://www.fao.org/faostat/en/#data/GT. Licence: CC-BY-4.0. Companion brief: FAO. 2025. Greenhouse gas emissions from agrifood systems. Global, regional and country trends, 2001-2023. FAOSTAT Analytical Brief. Rome. https://doi.org/10.4060/cd7300en",
+    "doi": "10.4060/cd7300en (analytical brief; the dataset itself has no DOI)",
+    "status": "Active. FAO is a UN agency, and the domain was updated in late 2025 and again in 2026 (GPP, EI). No sign of discontinuation. It is not exposed to the US federal agency cuts.",
+    "url_check": "Fetched datasets_E.json: GT DateUpdate 2025-10-28, GLE 2025-10-28, GPP 2026-05-22. HEAD on the GT zip returned 200, application/x-zip-compressed, 20,501,708 bytes, last-modified 2025-12-06. Streamed and parsed the zip in memory. World 2023, Element 'Emissions (CO2eq) (AR5)', Source 'FAO TIER 1': Agrifood systems 16,535,072 kt; Farm gate 8,096,973; Land-use change 3,190,128; Pre- and post-production 5,247,971; Emissions from livestock 4,316,077; Enteric Fermentation 2,947,205; Net Forest conversion 2,814,056; Food Household Consumption 1,273,208; Agrifood Systems Waste Disposal 1,452,727; All sectors with LULUCF 52,105,734 kt. Emissions (CH4) World 2023: Agrifood systems 200,931 kt; Emissions from livestock 115,211 kt; All sectors with LULUCF 336,803 kt. Year range in the file is 1961-2050. Parsed the GLE zip: World 2023 enteric CH4 for Cattle is 75,919 kt out of 105,257 kt for All Animals. WebFetch of the FAO highlights page confirmed the 2025-10-29 brief: 16.5 Gt, 32%, +21% since 2001. Fetched and read the FAO DB terms page with curl (WebFetch returned 503).",
+    "site_use": "This is the backbone of the 'What does food do to the climate?' story. Planned charts: (1) global agrifood total as a share of all anthropogenic GHG; (2) a stage breakdown (farm gate / land-use change / pre-post) drawn as a stacked area from 2000 to 2023; (3) an item treemap (enteric, deforestation, household consumption, waste, fertilizer and so on); (4) a country drill-down with per-capita values using FAOSTAT OA population; (5) a gas toggle (CO2/CH4/N2O). Store Element, Source, Flag and DateUpdate with every value so the CSV export reproduces it exactly.",
+    "caveats": "Default to 'FAO TIER 1' rows. Do not mix them with 'UNFCCC' rows. Filter years to 2023 or earlier, because the file contains rows up to 2050. The agrifood share uses FAO's own 'All sectors with LULUCF' denominator; this differs from EDGAR or PRIMAP totals. 'Forestland' is a net sink (negative). Show it separately and never net it silently. GWP is AR5 GWP100, so a GWP20 view would roughly double the weight of methane. FAO's +21% since 2001 and 2000 vs 2001 values differ noticeably (2000 = 15.43 Gt, 2001 = 13.61 Gt), so always name the base year. Values are estimates (flag 'E').",
+    "priority": "core"
+   },
+   {
+    "name": "EDGAR-FOOD_2025 (food-system GHG emissions, 1990-2023)",
+    "publisher": "European Commission Joint Research Centre (JRC), EDGAR team",
+    "measures": "Food-system GHG emissions in kt CO2eq (AR5 GWP100) by country and compartment (Landbased, Energy, Industry, Waste). Also the food-system share of each country's total GHG.",
+    "coverage": "1990-2023, about 220 countries plus international aviation/shipping and a 'Totals' row. Annual.",
+    "latest_release": "EDGAR-FOOD_2025, based on EDGAR_2024_GHG with data through 2023. The XLSX shows Last-Modified 2025-06-05. No newer EDGAR-FOOD file is listed on the landing page as of 2026-10-04.",
+    "update_cadence": "Irregular, roughly annual since 2021 (v5, v6, v6.1, 2025)",
+    "landing_url": "https://edgar.jrc.ec.europa.eu/edgar_food",
+    "download_urls": [
+     "https://edgar.jrc.ec.europa.eu/datasets/EDGAR-FOOD_2025.xlsx",
+     "https://edgar.jrc.ec.europa.eu/datasets/EDGAR-FOOD_v6.xlsx",
+     "https://doi.org/10.6084/m9.figshare.17067449"
+    ],
+    "format": "XLSX with sheets: readme, 'EDGAR-FOOD GHG by compartment', 'FOOD GHG emissions by country', 'FOOD system shares', 'country definition'",
+    "license": "The EDGAR site states: 'Unless otherwise noted, all material owned by the European Union is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence'. The same page says IEA-EDGAR CO2 (fossil fuel combustion CO2) is 'licensed under CC BY-NC-ND 4.0' and that users 'should contact the IEA at compliance@iea.org' for use outside those terms. EDGAR-FOOD's Energy compartment is built on EDGAR GHG data that include IEA-EDGAR CO2. The XLSX readme gives no explicit license.",
+    "redistribution": "unclear",
+    "citation": "Crippa, M., Banja, M., Guizzardi, D., Tubiello, F.: EDGAR-FOOD_2025 dataset, 2025 (as given in the file's readme). Method: Crippa, M., Solazzo, E., Guizzardi, D. et al. Food systems are responsible for a third of global anthropogenic GHG emissions. Nat Food 2, 198-209 (2021). doi:10.1038/s43016-021-00225-9",
+    "doi": "10.1038/s43016-021-00225-9 (method paper); the dataset itself has no DOI. Older v6: 10.6084/m9.figshare.17067449",
+    "status": "Active (JRC). The last file is dated 2025-06; no 2026 edition was found.",
+    "url_check": "Fetched the landing page; it lists 'EDGAR-FOOD_2025 GHG data (1990-2023) based on EDGAR_2024_GHG' and gives the how-to-cite text. HEAD on the XLSX returned 200, 615,061 bytes, Last-Modified 2025-06-05. Parsed it in memory. 'Totals' row: 2023 = 17,728,900 kt CO2eq; 1990 = 14,430,869 kt. 'FOOD system shares' Totals 2023 = 0.3304. Compartments 2023: Landbased 11.38 Gt, Energy 3.85 Gt, Industry 1.40 Gt, Waste 1.08 Gt. Read the CC BY and IEA CC BY-NC-ND text on edgar.jrc.ec.europa.eu/report_2025.",
+    "site_use": "Use as an independent cross-check next to FAOSTAT: 'Two independent inventories: FAO 31.7% (16.5 Gt), JRC 33.0% (17.7 Gt) in 2023'. Show both side by side with their methods. Do not average them. The lifecycle compartments support a 'farm to fork' view. The Energy compartment carries the NC-ND licensing question, so prefer displaying totals and Landbased/Waste values as published, without recomputing.",
+    "caveats": "Country shares can exceed 1 or go negative because LULUCF sinks and sources enter the denominator; for example, Angola and Anguilla show negative shares. The 2025 version changed method: new rice CH4 factors, GWIS wildfires, EDGAR-LULUCF instead of FAO land-use data, and new deforestation food shares. So it is not comparable with v6 or with Crippa 2021's 2015 figures. The NC-ND part needs legal review before publishing CSVs that re-aggregate the Energy compartment.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Poore & Nemecek (2018) food environmental footprints, as published by Our World in Data",
+    "publisher": "Joseph Poore and Thomas Nemecek (University of Oxford / Agroscope), Science 360(6392):987-992. Redistributed and processed by Our World in Data (Global Change Data Lab).",
+    "measures": "Global mean footprints per food product across about 570 LCA studies (~38,700 farms, 119 countries, 40 products): GHG emissions (kgCO2eq per kg, per 100 g protein, per 1000 kcal), land use (m2), freshwater withdrawals, scarcity-weighted water, and eutrophication. It also gives a supply-chain stage breakdown (land-use change, farm, feed, processing, transport, retail, packaging).",
+    "coverage": "About 43 food products, global means. Reference year is around 2010 (median study year), so this is not a time series.",
+    "latest_release": "Paper published 2018-06-01, with an erratum (doi 10.1126/science.aaw9908). OWID indicator lastUpdated is 2019-10-08 (dateAccessed 2019-08-10). There is no newer edition. Oxford's later foodDB work (Clark et al. 2022 PNAS; Scarborough 2023) builds on it.",
+    "update_cadence": "One-off (static)",
+    "landing_url": "https://ourworldindata.org/environmental-impacts-of-food",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/ghg-per-kg-poore.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/ghg-per-protein-poore.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/land-use-per-kg-poore.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1206176.metadata.json",
+     "https://ora.ox.ac.uk/objects/uuid:b0b53649-5e93-4415-bf07-6b0b1227172f"
+    ],
+    "format": "CSV (entity, year, value) plus JSON metadata from OWID. The original Data S2 Excel is a Science supplementary file.",
+    "license": "Not clearly open. The OWID origin metadata has 'license: null' for the Poore & Nemecek origin. OWID's FAQ says third-party data are 'subject to the license terms of those providers', and only OWID-produced data are CC BY. The ORA record (accepted manuscript) says 'Copyright (c) 2018 The Authors, some rights reserved; exclusive licensee American Association for the Advancement of Science' and points to ORA terms, which allow 'one copy ... for private study or research for non-commercial purposes' unless otherwise indicated. The Science supplementary Data S2 returned HTTP 403, so its terms could not be checked.",
+    "redistribution": "unclear",
+    "citation": "Poore, J., & Nemecek, T. (2018). Reducing food's environmental impacts through producers and consumers. Science, 360(6392), 987-992. https://doi.org/10.1126/science.aaq0216 (erratum: https://doi.org/10.1126/science.aaw9908). When using OWID's processed series: 'Poore and Nemecek (2018) - processed by Our World in Data'.",
+    "doi": "10.1126/science.aaq0216",
+    "status": "Static and archived (published paper). The OWID mirror is maintained and active.",
+    "url_check": "Fetched OWID grapher CSVs and metadata. ghg-per-kg-poore: unit 'kgCO2eq per kilogram', timespan 2010-2010, lastUpdated 2019-10-08. Values: Beef (beef herd) 99.48; Beef (dairy herd) 33.3; Lamb & Mutton 39.72; Cheese 23.88; Pig Meat 12.31; Poultry Meat 9.87; Eggs 4.67; Rice 4.45; Tofu 3.16; Milk 3.15; Peas 0.98. The full metadata JSON (indicator 1206176) shows the origin citation, with license null and urlDownload null. The ORA record was fetched: an accepted-manuscript PDF only, with the rights statement quoted above. The Science article and supplement URLs returned 403.",
+    "site_use": "Feeds the 'Your plate' explorer: a sortable bar chart of kgCO2eq per kg, per 100 g protein and per 1000 kcal, with a toggle for land use and water. It also feeds the supply-chain stage chart ('transport is a small share for most foods'). Display these values as cited facts with a link to the DOI and to the OWID chart. Hold back the bulk CSV export until the license is cleared, or export only the OWID-processed values with full attribution after legal review.",
+    "caveats": "OWID fills gaps for non-protein foods (per 100 g protein, per 1000 kcal) using FAO/INFOODS composition factors, so some per-protein and per-kcal values are OWID-computed rather than published by Poore & Nemecek. Mark those as 'OWID-derived'. All values are global means; the paper stresses large producer variation (the 90th percentile for beef is much higher than the 10th). Reference year is around 2010. The 'Beef (beef herd)' vs 'Beef (dairy herd)' split matters, so never show a single 'beef' figure without saying which.",
+    "priority": "core"
+   },
+   {
+    "name": "Scarborough et al. (2023) diet-group environmental impacts (vegans, vegetarians, fish-eaters, low/medium/high meat-eaters), Nature Food",
+    "publisher": "Peter Scarborough, Michael Clark, Marco Springmann et al., University of Oxford. Published in Nature Food 4, 565-574.",
+    "measures": "Daily dietary footprints per person, standardized to 2,000 kcal: GHG (kg CO2e/day under GWP100, GTP100 and GWP20), land use (m2/day), water use (m3/day), eutrophication (g PO4e/day), and biodiversity (\u00d710^-12 species extinctions/day). Medians with 95% uncertainty intervals from a 1,000-iteration Monte Carlo.",
+    "coverage": "55,504 UK adults (EPIC-Oxford cohort) linked to LCA data from about 570 studies (Poore & Nemecek). UK diets with global sourcing variation. Cross-sectional.",
+    "latest_release": "Published 2023-07-20. The dataset 'Results_21Mar2022.csv' is deposited on ORA (2023). No update since.",
+    "update_cadence": "One-off",
+    "landing_url": "https://doi.org/10.1038/s43016-023-00795-w",
+    "download_urls": [
+     "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10365988/fullTextXML",
+     "https://ora.ox.ac.uk/objects/uuid:ca441840-db5a-48c8-9b82-1ec1d77c2e9c"
+    ],
+    "format": "Article tables (JATS XML via Europe PMC; HTML/PDF). The ORA dataset is two 17.9 MB CSVs.",
+    "license": "Article: CC BY 4.0. Crossref license metadata gives https://creativecommons.org/licenses/by/4.0 for both the version of record and TDM, and Europe PMC reports 'cc by'. ORA dataset: the licence is 'Terms and Conditions of Use for Oxford University Research Archive', which by default allows only downloading 'one copy ... for private study or research for non-commercial purposes' and forbids profit-making use. That is not a redistribution license.",
+    "redistribution": "open-attribution",
+    "citation": "Scarborough, P., Clark, M., Cobiac, L., Papier, K., Knuppel, A., Lynch, J., Harrington, R., Key, T., & Springmann, M. (2023). Vegans, vegetarians, fish-eaters and meat-eaters in the UK show discrepant environmental impacts. Nature Food, 4, 565-574. https://doi.org/10.1038/s43016-023-00795-w",
+    "doi": "10.1038/s43016-023-00795-w (article); 10.5287/ora-5zebayaog (ORA dataset, restricted terms)",
+    "status": "Static (published 2023)",
+    "url_check": "Crossref API confirmed the CC BY 4.0 license. Pulled the Europe PMC full-text XML (PMC10365988) and extracted Table 3 (GWP100 kg CO2e/day): Vegans 2.47 (2.09-3.36); Vegetarians 4.16; Fish-eaters 4.74; Low meat-eaters 5.37; Medium 7.04; High meat-eaters 10.24 (7.04-15.95). Table 4 land use: vegans 4.37 m2/d vs vegetarians 6.01 and so on. Abstract: vegan GHG impact '25.1% (95% uncertainty interval, 15.1-37.0%) of high meat-eaters'. The ORA dataset page lists two CSVs under ORA terms. nature.com redirected to a login wall (303), so the publisher HTML was not fetched.",
+    "site_use": "Feeds the 'What can I do?' diet comparison: a 6-bar chart of kg CO2e/day by diet group with uncertainty whiskers, plus toggles for land, water, eutrophication and biodiversity. Show the published table values only (CC BY). Do not redistribute the ORA CSV.",
+    "caveats": "These are UK diets (EPIC-Oxford, a health-conscious cohort), not a global average. Values are standardized to 2,000 kcal. Diet groups are self-reported. Uncertainty ranges are wide and must be shown. GWP100 vs GWP20 changes the ratios (high meat-eaters are 5.1x vegans under GWP20).",
+    "priority": "core"
+   },
+   {
+    "name": "FAOSTAT Food Balances (FBS, 2010-)",
+    "publisher": "FAO Statistics Division",
+    "measures": "Per-capita food supply by commodity: kg/capita/yr, kcal/capita/day, and protein and fat g/capita/day. Also production, imports, exports, feed, losses and food use in 1000 t.",
+    "coverage": "2010-2023, about 185 countries plus regions and World. Annual. Older methodology series (FBSH) cover 1961-2013.",
+    "latest_release": "DateUpdate 2025-10-28 (datasets_E.json), with data through 2023",
+    "update_cadence": "Annual",
+    "landing_url": "https://www.fao.org/faostat/en/#data/FBS",
+    "download_urls": [
+     "https://bulks-faostat.fao.org/production/FoodBalanceSheets_E_All_Data_(Normalized).zip"
+    ],
+    "format": "ZIP containing a normalized CSV (latin-1)",
+    "license": "CC BY 4.0 under the FAO Statistical Database Terms of Use (same terms and quote as FAOSTAT emissions)",
+    "redistribution": "open-attribution",
+    "citation": "FAO. 2025. FAOSTAT: Food Balances (2010-). Accessed on [DD Month YYYY]. https://www.fao.org/faostat/en/#data/FBS. Licence: CC-BY-4.0.",
+    "doi": "none (dataset has no DOI)",
+    "status": "Active",
+    "url_check": "Streamed the 53.6 MB zip into memory; max year 2023. World 2023: Meat food supply 45.28 kg/cap/yr; Bovine meat 9.39 kg/cap/yr; Grand Total 3,016 kcal/cap/day; Animal Products 536.18 kcal/cap/day; Meat production 370,103 kt. USA 2023: Meat 122.06 kg/cap/yr. India 2023: Meat 8.12 kg/cap/yr.",
+    "site_use": "Country diet drill-down: 'How much meat does your country eat?' (kg/cap/yr). Pair it with Poore & Nemecek per-kg footprints to show an indicative 'diet footprint' explorer. Label any such multiplication as an illustrative calculation, show the formula, and never present it as an official statistic. Also gives animal-product share of calories by country.",
+    "caveats": "'Food supply' is availability at retail/household level, not intake. It includes household waste, so it overstates consumption. Methodology changed in 2010 (FBS vs FBSH), so do not splice the two series without flagging the break.",
+    "priority": "core"
+   },
+   {
+    "name": "Global Forest Change v1.13 (Hansen/UMD/Google/USGS/NASA) tree cover loss, served via the Global Forest Watch / Global Nature Watch Data API",
+    "publisher": "University of Maryland GLAD Lab (Hansen et al.), with Google. Tabulated and served by World Resources Institute (Global Forest Watch, now Global Nature Watch).",
+    "measures": "Annual tree cover loss in hectares at 30 m resolution for vegetation \u22655 m tall, stratified by canopy-density threshold (0-75%). Also loss from fires, humid tropical primary forest loss, loss by dominant driver (WRI/Google 1 km driver model: permanent agriculture, hard commodities, shifting cultivation, logging, wildfire, settlements and infrastructure, other natural disturbances), plus gross emissions and removals.",
+    "coverage": "2001-2025, global land except Antarctica and Arctic islands. Country (GADM ISO), subnational and pixel levels. Annual (calendar year).",
+    "latest_release": "GFC-2025-v1.13 (2025 loss), released with WRI's analysis on 2026-04-29. The GFW Data API table gadm__tcl__iso_change version v20260424 contains 2025. Raster tiles show Last-Modified 2026-03-16.",
+    "update_cadence": "Annual (around April-May)",
+    "landing_url": "https://www.globalforestwatch.org/dashboards/global/",
+    "download_urls": [
+     "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20umd_tree_cover_loss__year%2C%20SUM(umd_tree_cover_loss__ha)%20AS%20loss_ha%2C%20SUM(umd_tree_cover_loss_from_fires__ha)%20AS%20fire_ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%3D30%20GROUP%20BY%20umd_tree_cover_loss__year%20ORDER%20BY%20umd_tree_cover_loss__year",
+     "https://data-api.globalforestwatch.org/dataset/umd_tree_cover_loss",
+     "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change",
+     "https://storage.googleapis.com/earthenginepartners-hansen/GFC-2025-v1.13/download.html",
+     "https://storage.googleapis.com/earthenginepartners-hansen/GFC-2025-v1.13/lossyear.txt"
+    ],
+    "format": "CSV via SQL against the REST download/csv endpoint. JSON metadata. GeoTIFF 10x10-degree raster tiles.",
+    "license": "CC BY 4.0. GFW Data API metadata for umd_tree_cover_loss gives 'license': '[CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)'. The Hansen download page says the data are under a 'Creative Commons Attribution 4.0 International License' and asks for display attribution 'Source: Hansen/UMD/Google/USGS/NASA'. The GFW/Global Nature Watch terms of service add that 'Each dataset carries its own license and restrictions'.",
+    "redistribution": "open-attribution",
+    "citation": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. 'High-Resolution Global Maps of 21st-Century Forest Cover Change.' Science 342 (15 November): 850-53. doi:10.1126/science.1244693. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Accessed through Global Nature Watch on [date]. Drivers: Sims, M. et al. 2025. Global drivers of forest loss at 1 km resolution. Environ. Res. Lett. doi:10.1088/1748-9326/add606.",
+    "doi": "10.1126/science.1244693 (drivers: 10.1088/1748-9326/add606)",
+    "status": "Active. 2025 data were released in April 2026. The GFW brand is moving to Global Nature Watch: globalforestwatch.org/terms now 301-redirects to globalnaturewatch.org/terms. The Data API still answers at data-api.globalforestwatch.org. The '/latest' version pointer for gadm__tcl__iso_change returned no data, so pin an explicit version. Moderate risk: the product credits USGS/NASA (Landsat), so it depends on continued Landsat and US science funding.",
+    "url_check": "GET data-api.globalforestwatch.org/dataset/umd_tree_cover_loss returned JSON with versions [v1.8 ... v1.12, v1.13] and license CC BY 4.0. gadm__tcl__iso_change versions run up to v20260424. The /query endpoint returned 'Request is missing valid API key', but the /download/csv endpoint worked without a key. Global \u226530% canopy results: 2025 loss 25,528,556 ha; fire 10,751,918 ha; 2024 29,592,479 ha. Humid tropical primary forest (is__umd_regional_primary_forest_2001=true): 2025 4,286,331 ha vs 2024 6,731,253 ha. Top 2025 primary loss: BRA 1.63 Mha, BOL 0.62, COD 0.56, IDN 0.30, PER 0.17. Drivers 2001-2025 sum to 542.8 Mha: Permanent agriculture 172.3, Wildfire 162.7, Logging 134.6, Shifting cultivation 52.9, Other natural 8.4, Hard commodities 5.1, Settlements 4.9, Unknown 1.9. The Hansen download.html confirms v1.13, 2000-2025 and CC BY 4.0. HEAD on the 00N_060W lossyear tile returned 200, 117 MB, last-modified 2026-03-16. The WRI press release (2026-04-29) matches: 25.5 Mha, fire 42%, tropical primary 4.3 Mha, -36%.",
+    "site_use": "Forests chapter. Charts: a global annual loss bar chart, split fire vs non-fire, 2001-2025; a tropical primary forest loss line; a driver donut (what replaces the forest); a country choropleth with drill-down to the country time series; and a country driver mix. Pre-compute country and year CSVs nightly or annually from the pinned API version, and store the SQL string as provenance so any activist can re-run it.",
+    "caveats": "Tree cover loss is not deforestation. It includes plantation harvest, fire and natural disturbance; only about 34% (permanent agriculture + hard commodities + settlements, 2001-2025) is likely permanent land-use change. The canopy threshold changes totals a lot, so always state '\u226530% canopy'. GFW cautions about comparing early and later years because of algorithm updates (notably 2011+ and 2015+). Gross emissions columns (e.g. ~11.9 Gt CO2e in 2025 at \u226530%) are gross, not net, and are not comparable to GCB/FAO net land-use fluxes; do not headline them without that context. The keyless CSV endpoint is an observed behaviour, not a documented guarantee, so register a free API key as a backup (store it in the Keychain).",
+    "priority": "core"
+   },
+   {
+    "name": "FAO Global Forest Resources Assessment 2025 (FRA 2025)",
+    "publisher": "FAO Forestry Division (country reporting through national correspondents)",
+    "measures": "Forest area (1000 ha), share of land, naturally regenerating vs planted, primary forest, deforestation, forest expansion and afforestation (annual averages per interval), growing stock, biomass, carbon stocks (Gt C), protected forest, ownership, disturbances (fire, insects), restoration.",
+    "coverage": "236 countries and territories. Reporting years 1990, 2000, 2010, 2015, 2020 and 2025. Intervals 1990-2000 through 2020-2025. Disturbances annual from 2000.",
+    "latest_release": "FRA 2025 main report published 2025-10-21 (doi 10.4060/cd6709en). The FRA platform bulk download is generated live; the files I pulled were stamped 2026-10-04.",
+    "update_cadence": "Every 5 years (next is FRA 2030), with ad hoc country revisions on the platform",
+    "landing_url": "https://fra-data.fao.org/assessments/fra/2025/WO/home/overview",
+    "download_urls": [
+     "https://fra-data.fao.org/api/file/bulk-download?assessmentName=fra&cycleName=2025&countryIso=WO",
+     "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"
+    ],
+    "format": "ZIP (1.38 MB) of CSVs: FRA_Years_variables/*.csv, Intervals_variables/*.csv, Annual_variables/*.csv, plus README.txt with flags and tiers",
+    "license": "CC BY 4.0. 'Global Forest Resources Assessments (FRA)' is listed in Annex 1 of the FAO Statistical Database Terms of Use (CC BY 4.0 plus FAO additional terms). The FAO data catalog entry 'Global Forest Resources Assessment' has license_id CC-BY-4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Data: 'FAO. 2026. Global Forest Resources Assessment. https://fra-data.fao.org. Accessed on: [date]' (format required by the bulk README). Report: FAO. 2025. Global Forest Resources Assessment 2025. Rome. https://doi.org/10.4060/cd6709en",
+    "doi": "10.4060/cd6709en",
+    "status": "Active (FAO). The platform was serving live bulk downloads on 2026-10-04.",
+    "url_check": "GET on the bulk-download URL with countryIso=WO returned 200 application/zip (1,377,091 bytes) with 150+ CSVs and a README. Without countryIso it returned HTTP 500. Summing the 236 country rows: forest area 2025 = 4,140,444 kha (1990: 4,343,534); land area 2025 = 13,031,193 kha (31.8% forest); primary forest 2025 = 1,175,819 kha. Summed reported deforestation (kha/yr): 1990-2000 15,819; 2015-2020 9,478; 2020-2025 8,484. These sums cover reporting countries only. FAO's published global estimate (seen via search snippets of the FAO key-findings page and FAO statistics slides; the openknowledge HTML returned 403) is 17.6 Mha/yr (1990-2000), 13.6 (2000-2015) and 10.9 (2015-2025), with net loss of 4.12 Mha/yr for 2015-2025. Crossref confirms the FRA 2025 DOI (published 2025-10-21). Also cross-checked FAOSTAT RL: Forest land World 2025 = 4,140,215 kha (flag X, sourced from FRA).",
+    "site_use": "The official, country-reported forest baseline: forest area trend 1990-2025, deforestation rate by decade (use FAO's published global figures, not our sums), and a primary forest share by country. Pair it with GFW satellite loss to explain 'official vs satellite' and why the numbers differ, which is a key clarity-of-thought lesson.",
+    "caveats": "Deforestation is reported by only some countries, so summing the country files undercounts. Use FAO's published global estimates, which include FAO modelling and the remote sensing survey, and cite the report. FRA forest is a land-use definition (\u22650.5 ha, >10% canopy, >5 m, not mainly agricultural), unlike GFW's tree cover. Country data quality varies; see 'Tiers' and the Desk study flags.",
+    "priority": "core"
+   },
+   {
+    "name": "FAOSTAT Land Use (RL)",
+    "publisher": "FAO Statistics Division",
+    "measures": "Land area, agricultural land, cropland (arable plus permanent crops), permanent meadows and pastures, forest land, and related shares and per-capita values, in 1000 ha",
+    "coverage": "1961-2024 for most items (forest land to 2025 from FRA 2025). About 200+ countries plus World and regions. Annual.",
+    "latest_release": "DateUpdate 2026-10-02 (datasets_E.json), max year 2025",
+    "update_cadence": "Annual",
+    "landing_url": "https://www.fao.org/faostat/en/#data/RL",
+    "download_urls": [
+     "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"
+    ],
+    "format": "ZIP containing a normalized CSV (latin-1)",
+    "license": "CC BY 4.0 under the FAO Statistical Database Terms of Use",
+    "redistribution": "open-attribution",
+    "citation": "FAO. 2026. FAOSTAT: Land Use. Accessed on [DD Month YYYY]. https://www.fao.org/faostat/en/#data/RL. Licence: CC-BY-4.0.",
+    "doi": "none",
+    "status": "Active (updated two days before this check)",
+    "url_check": "Streamed the zip and parsed World, Element 'Area'. 2024: Agricultural land 4,689,512 kha; Cropland 1,587,711; Permanent meadows and pastures 3,103,183; Land area 13,015,904; Forest land 4,145,220. Forest land 2025: 4,140,215. Agricultural land 1961: 4,518,546; 2000: 4,792,272.",
+    "site_use": "Feeds a 'How the world's land is used' waffle chart (forest / pasture / cropland / other), a country drill-down, and a cropland vs pasture trend since 1961. Combine with Poore & Nemecek m2/kg to explain why pasture-based foods use so much land.",
+    "caveats": "FAO 'agricultural land' (4.69 bn ha, 2024) differs from HYDE's 4.79 bn ha (2023) because definitions and methods differ. Use one series per chart and label it. Many values are flagged E (estimated).",
+    "priority": "core"
+   },
+   {
+    "name": "HYDE 3.5 (History Database of the Global Environment): long-run cropland and grazing land, via Our World in Data",
+    "publisher": "Utrecht University (Copernicus Land Change Lab) / PBL Netherlands Environmental Assessment Agency, Kees Klein Goldewijk et al. Processed by Our World in Data.",
+    "measures": "Cropland, grazing land (pasture and rangeland), total agricultural land, and population, in hectares, on a 5-arcmin grid and aggregated by country",
+    "coverage": "10,000 BCE to 2025 CE. Global and by country (OWID aggregates). Millennial, then centennial, then decadal, then annual resolution.",
+    "latest_release": "HYDE 3.5, issued 2025-06-11 as 'HYDE data for the Global Carbon Budget (2025)', DOI 10.24416/UU01-F45D44 (DataCite updated 2026-09-28). OWID imported it on 2026-06-08 (timespan -10000 to 2025).",
+    "update_cadence": "Roughly annual, alongside the Global Carbon Budget (3.3 in 2023/24, 3.4 in 2024/25, 3.5 in 2025)",
+    "landing_url": "https://doi.org/10.24416/UU01-F45D44",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/total-agricultural-area-over-the-long-term.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1269915.metadata.json",
+     "https://public.yoda.uu.nl/geo/UU01/F45D44.html"
+    ],
+    "format": "OWID CSV and JSON. Primary data are ASCII/NetCDF grids and text tables on the Yoda repository.",
+    "license": "Conflicting records. DataCite metadata for 10.24416/UU01-F45D44 lists 'Creative Commons Attribution 4.0 International'. OWID's origin metadata for the same HYDE 3.5 lists 'CC BY-NC 4.0' (https://creativecommons.org/licenses/by-nc/4.0/). Treat it as CC BY-NC 4.0 until the producer confirms. That is fine for this non-commercial site.",
+    "redistribution": "noncommercial-only",
+    "citation": "Utrecht University/PBL Netherlands Environmental Assessment Agency - History Database of the Global Environment (HYDE v 3.5, 2025). Klein Goldewijk, C.G.M., Beusen, A., Doelman, J., Stehfest, E., 2017, Anthropogenic land use estimates for the Holocene - HYDE 3.2, Earth Syst. Sci. Data, 9, 927-953. When using OWID: 'HYDE (2025) - with minor processing by Our World in Data'.",
+    "doi": "10.24416/UU01-F45D44 (method: 10.5194/essd-9-927-2017)",
+    "status": "Active (Utrecht University; annual GCB-linked updates)",
+    "url_check": "DataCite API returned title 'HYDE data for the Global Carbon Budget (2025)', issued 2025-06-11, rights CC BY 4.0. The Yoda landing page and the geo.public.data.uu.nl file directory both returned an 'Anubis' bot-challenge page (proof-of-work JavaScript), so automated download from the primary source is blocked. OWID CSV fetched: World agricultural land 1700 = 944,245,760 ha; 1900 = 2,432,612,400; 1961 = 4,303,410,000; 2023 = 4,788,965,400; 2025 = 4,796,820,500. OWID metadata gives versionProducer 3.5 and license CC BY-NC 4.0.",
+    "site_use": "Feeds a 'Deep time' hero chart: agriculture's spread from about 1700 (0.94 bn ha) to 2025 (4.80 bn ha), a 5x expansion that drove most historical forest and habitat loss. Ingest via the OWID CSV, recording both the OWID and HYDE citations.",
+    "caveats": "Pre-1960 values are model reconstructions with large uncertainty, so show an uncertainty note. HYDE grazing land includes rangeland and is defined differently from FAO pasture. The license discrepancy must be resolved. The primary repository blocks scripted access.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Carbon Budget 2025: net CO2 emissions from land-use change (bookkeeping models), via OWID",
+    "publisher": "Global Carbon Project (Friedlingstein et al.). Processed by Our World in Data.",
+    "measures": "Net CO2 flux from land use, land-use change and forestry (ELUC) in tonnes CO2. Global and by country.",
+    "coverage": "1850-2024 (OWID series), with a 2025 projection in the paper. Global and country. Annual.",
+    "latest_release": "GCB 2025 (v15) released November 2025. Peer-reviewed paper in ESSD 18, 3211, published 2026-05-13. OWID lastUpdated 2025-11-13, with next update 2026-11-13 (GCB 2026).",
+    "update_cadence": "Annual (November, around COP)",
+    "landing_url": "https://globalcarbonbudget.org/datahub/",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/co2-land-use.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/co2-land-use.metadata.json"
+    ],
+    "format": "CSV and JSON (OWID). The primary is XLSX on the GCB data hub / ICOS.",
+    "license": "The GCB 2025 paper is CC BY 4.0 (Crossref license URL creativecommons.org/licenses/by/4.0). GCB data are distributed via ICOS under the ICOS CC BY 4.0 data licence (the GCP CH4 files on ICOS show 'ICOS CCBY4 Data Licence'). OWID processing is CC BY.",
+    "redistribution": "open-attribution",
+    "citation": "Friedlingstein, P., et al. (2026). Global Carbon Budget 2025. Earth System Science Data, 18, 3211-. https://doi.org/10.5194/essd-18-3211-2026",
+    "doi": "10.5194/essd-18-3211-2026",
+    "status": "Active",
+    "url_check": "OWID metadata: 'Annual CO2 emissions from land-use change', unit tonnes, timespan 1850-2024, citation 'Global Carbon Budget (2025) - with major processing by Our World in Data ... Global Carbon Budget v15'. CSV World: 2021 4.657 Gt; 2022 4.785; 2023 4.746; 2024 4.586 Gt CO2. Crossref confirms the ESSD 2026 paper and its CC BY 4.0 license. Search snippets of the paper give ELUC 2015-2024 = 5.0 \u00b1 2.6 GtCO2/yr and a 2025 projection of about 4.1 GtCO2. The globalcarbonbudgetdata.org latest-data page loaded but only linked to globalcarbonbudget.org/datahub/, so the primary XLSX link was not verified.",
+    "site_use": "Use as the net land-use CO2 figure in the 'Forests and climate' bridge: 'Clearing land emits about 4.6 Gt CO2 a year (2024), about 11% of total CO2'. Place it next to FAOSTAT land-use change (3.19 Gt CO2eq) with method notes. This is likely shared with the CO2/energy domain, so ingest it once.",
+    "caveats": "Bookkeeping ELUC has about \u00b150% uncertainty. It is net (it includes regrowth) and is defined differently from FAO and national inventories (which count managed-land sinks), so the numbers will not match. Country allocation is more uncertain than the global figure.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Methane Budget 2000-2020 (Global Carbon Project), with supplemental data on ICOS",
+    "publisher": "Global Carbon Project (Saunois et al. 2025, ESSD). Data hosted by the ICOS Carbon Portal (Martinez et al. 2024).",
+    "measures": "CH4 sources and sinks in Tg CH4/yr, from top-down and bottom-up estimates: agriculture and waste (enteric fermentation and manure, rice, landfills and waste), fossil fuels, biomass/biofuel burning, wetlands. Global, latitudinal and regional.",
+    "coverage": "2000-2020, with decadal means (2000-2009, 2010-2019), the year 2020, and brief 2021-2023 notes. Global plus about 19 regions.",
+    "latest_release": "Paper ESSD 17, 1873-1958, published 2025-05-09. Data: 'Supplemental data of the Global Carbon Project Methane Budget 2024 v1' (DOI 10.18160/GKQ9-2RHT). The ICOS xlsx was submitted 2024-05-16 and the zip 2024-12-20. No newer methane budget was found as of 2026-10-04.",
+    "update_cadence": "About every 3-4 years (2016, 2020, 2025)",
+    "landing_url": "https://www.icos-cp.eu/GCP-CH4-2024",
+    "download_urls": [
+     "https://meta.icos-cp.eu/objects/-MqGCn38zUlEi4_aQm-1_w2I",
+     "https://data.icos-cp.eu/licence_accept?ids=%5B%22-MqGCn38zUlEi4_aQm-1_w2I%22%5D",
+     "https://doi.org/10.18160/GKQ9-2RHT"
+    ],
+    "format": "XLSX (Global_methane_budget_2023_2000_2020_v1.xlsx, 698 KB), NetCDF region mask, and a 167 MB ZIP",
+    "license": "ICOS CC BY 4.0 Data Licence. ICOS object metadata gives 'ICOS CCBY4 Data Licence'; the ICOS licence page says 'ICOS data is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0)'. The DataCite rights text adds: 'The use of data is conditional on citing the original data sources ... co-authorship may need to be considered' for research. The paper is CC BY 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Saunois, M., Martinez, A., Poulter, B., et al. (2025). Global Methane Budget 2000-2020. Earth Syst. Sci. Data, 17, 1873-1958. https://doi.org/10.5194/essd-17-1873-2025. Data: Martinez, A., et al. (2024). Supplemental data of the Global Carbon Project Methane Budget 2024 v1. ICOS. https://doi.org/10.18160/GKQ9-2RHT",
+    "doi": "10.5194/essd-17-1873-2025; data 10.18160/GKQ9-2RHT",
+    "status": "Active, but releases are infrequent. Note: NOAA GML (co-author Lan, Dlugokencky) supplies the atmospheric CH4 observations used in top-down budgets, and NOAA is exposed to the 2025-26 US federal cuts. That risk is indirect for this data product.",
+    "url_check": "Fetched the ESSD article page: 'agriculture and waste contributed an estimated 228 [213-242] Tg CH4 yr-1 in the top-down budget and 211 [195-231] ... bottom-up' (2010-2019), and the data DOI 10.18160/GKQ9-2RHT. Crossref confirms CC BY 4.0 and a 2025-05-09 publication date. ICOS metadata API: Global_methane_budget_2023_2000_2020_v1.xlsx, 698,487 bytes, ICOS CCBY4 licence. The download link is behind a licence_accept click-through (not fetched). The DataCite record is titled 'Supplemental data of the Global Carbon Project Methane Budget 2024 v1'. Search snippet: livestock about 112 Tg CH4/yr, about one-third of anthropogenic emissions.",
+    "site_use": "Provides independent scientific context for the methane story: 'Agriculture and waste \u2248 211-228 Mt CH4/yr (2010-2019)'. Use it as a cross-check on FAOSTAT's livestock methane share. Methane only partly belongs to this domain, so coordinate with the atmosphere/methane domain.",
+    "caveats": "The data end in 2020, so they are older than FAOSTAT (2023). Bottom-up and top-down ranges differ, so show ranges, not single numbers. The ICOS click-through licence acceptance needs a one-time manual step or a cookie in the ETL.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Living Planet Index (LPI) - Living Planet Report 2024 (2026 edition under embargo until 2026-10-08)",
+    "publisher": "WWF International and the Zoological Society of London (ZSL), Indicators & Assessments Unit",
+    "measures": "Average relative change in the size of monitored vertebrate wildlife populations, as an index with 1970 = 1, with 95% confidence intervals. Global, by IPBES region (Africa; Asia-Pacific; Europe and Central Asia; Latin America and Caribbean; North America) and by system (terrestrial, freshwater, marine).",
+    "coverage": "1970-2020 (LPR 2024). 34,836 populations of 5,495 species in OWID's description; the LPI site says 5,570 species and 41,994 populations in the database. Global, five regions, three systems.",
+    "latest_release": "LPR 2024 (15th edition), published 2024-10-10, data to 2020. The LPR 2026 data release is embargoed until 2026-10-08, per the OWID ETL PR #6922 (opened 2026-09-30, 'DO NOT MERGE before 2026-10-08'). OWID's chart nextUpdate is 2026-11-04.",
+    "update_cadence": "Biennial (October of even years)",
+    "landing_url": "https://www.livingplanetindex.org/latest_results",
+    "download_urls": [
+     "https://www.livingplanetindex.org/latest_results",
+     "https://ourworldindata.org/grapher/living-planet-index-by-region.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/990513.metadata.json",
+     "https://www.livingplanetindex.org/documents/data_agreement.pdf"
+    ],
+    "format": "Shiny-style results page with a 'Download Data: Living Planet Report 2024' control (no static file URL was exposed). OWID provides CSV and JSON.",
+    "license": "Published trends are CC BY-SA 4.0; the underlying population data are restricted. Data Use Policy PDF, clause 3: 'reproduction of the published Living Planet Index trends (e.g. the global, regional or system trends) is permitted under creative commons CC BY-SA 4.0 license'. For the Living Planet Database populations: 'The recipient will not pass the original datasets on to third parties' and 'will not publish the data in their original format ... on a website'. Reproduction 'for direct financial gain is prohibited'. ZSL/WWF logos may not be used. OWID's metadata labels the LPI 'CC BY 4.0', which is inconsistent with the producer's CC BY-SA 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "WWF (2024) Living Planet Report 2024 - A System in Peril. WWF, Gland, Switzerland. Data: 'LPI 2024. Living Planet Index database. 2024. <www.livingplanetindex.org/>. Downloaded on [date]' (format from the Data Use Policy).",
+    "doi": "none (LPR has no DOI)",
+    "status": "Active. A new edition (LPR 2026) is days away, with the embargo lifting 2026-10-08.",
+    "url_check": "Fetched livingplanetindex.org (homepage links /data_portal and /documents/data_agreement.pdf) and /latest_results (lists trend views and 'Download Data: Living Planet Report 2024, WWF/ZSL'; the data load dynamically). Read data_agreement.pdf in memory and quoted it above. OWID CSV: World 1970 = 100, 2020 = 27.134067 (lpi_final, conversionFactor 100). OWID metadata: lastUpdated 2024-09-30, nextUpdate 2026-11-04, origin license 'CC BY 4.0', citationFull 'WWF (2024) Living Planet Report 2024 - A System in Peril'. GitHub API for owid/etl PR 6922: state open; the body confirms the embargo to 2026-10-08 and three new datasets (index with CI for World, 5 IPBES regions and freshwater; trend shares; completeness).",
+    "site_use": "The 'Consequences: wildlife' chapter: a global LPI line with CI band (1970 = 100), regional small multiples (Latin America and Caribbean shows the steepest decline), and a freshwater vs terrestrial vs marine comparison. Mark any CSV export of these series CC BY-SA 4.0 and say so on the download. Plan to swap to the LPR 2026 vintage after 2026-10-08, keeping the 2024 vintage archived with its own citation. Do not interpolate or project.",
+    "caveats": "The LPI measures average population change, not species loss or a count of animals lost. '-73%' is widely misread as '73% of animals gone'; the site must explain this. Results are sensitive to weighting and data coverage (see Science Advances 2026 critiques and the Ecological Indicators 2026 paper on monitoring thresholds). Vertebrates only. ShareAlike obligations apply to derived LPI series.",
+    "priority": "core"
+   },
+   {
+    "name": "IUCN Red List of Threatened Species v2026-1, checklist published by IUCN on GBIF (taxon + global category)",
+    "publisher": "International Union for Conservation of Nature (IUCN), published as a GBIF checklist dataset (GBIF publisher: IUCN)",
+    "measures": "For each assessed taxon: scientific name, higher taxonomy (kingdom to genus), rank, assessment citation, and global Red List category (EX, EW, CR, EN, VU, NT, LC, DD). Also vernacular names. Enough to compute counts and shares of threatened species by group.",
+    "coverage": "175,909 species (plus 2,102 infraspecific taxa), global category. Snapshot of version 2026-1.",
+    "latest_release": "Red List version 2026-1, released 2026-07-09. The GBIF archive was downloaded from IUCN on 2026-07-28 (archive Last-Modified 2026-07-28; GBIF pubDate 2026-07-28).",
+    "update_cadence": "Red List: 1-2 versions a year. GBIF snapshot refreshed after each version.",
+    "landing_url": "https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3",
+    "download_urls": [
+     "https://hosted-datasets.gbif.org/datasets/iucn/iucn-latest.zip",
+     "https://api.gbif.org/v1/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3"
+    ],
+    "format": "Darwin Core Archive (ZIP, 21.1 MB): taxon.txt, distribution.txt (category in column 5), vernacularname.txt, meta.xml, eml.xml. Tab-separated, no header.",
+    "license": "CC BY 4.0. The eml.xml intellectualRights says 'This work is licensed under a Creative Commons Attribution (CC-BY) 4.0 License', with licenseName 'Creative Commons Attribution 4.0 International', identifier CC-BY-4.0. GBIF API: license http://creativecommons.org/licenses/by/4.0/legalcode. The publishing organization is IUCN itself.",
+    "redistribution": "open-attribution",
+    "citation": "IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on 2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on [date].",
+    "doi": "10.15468/0qnb58",
+    "status": "Active (2026-1 released July 2026). Risk: IUCN is on the US withdrawal list in the 2026-01-07 Presidential memorandum (Federal Register 2026-00976), per news reports; funding pressure, but no sign of output disruption.",
+    "url_check": "GBIF dataset API: title 'The IUCN Red List of Threatened Species', license CC BY 4.0, endpoint iucn-latest.zip, citation includes 'Version 2026-1'; publishing organization d44af9a3... is 'International Union for Conservation of Nature'. HEAD on the zip returned 200, 21,140,648 bytes, last-modified 2026-07-28. Parsed in memory, joining distribution.txt to taxon.txt on rank = 'species', Global only: total 175,909; CR 10,947; EN 20,372; VU 18,186 (threatened 49,505); EX 951; EW 83; DD 23,037; LC 91,357 (+160 lower-case 'least concern'); NT 10,259 (+442). This exactly matches IUCN's 2026-1 press release (175,909 species, 49,505 threatened).",
+    "site_use": "The 'Who is at risk?' chart: threatened share by group (amphibians, mammals, birds, conifers, reef corals and so on) using a kingdom/class drill-down, CR/EN/VU stacked bars, and an extinctions count. This is the safe, CC BY route to Red List numbers; use it instead of the IUCN website or API.",
+    "caveats": "Exclude infraspecific rows (rank != 'species') to match IUCN totals. Normalize lower-case legacy categories ('least concern', 'near threatened', 'conservation dependent' = old LR/cd). Assessed species are a biased sample: groups like birds, mammals, amphibians, corals and conifers are comprehensively assessed, insects barely. '28% of assessed species' is not '28% of all species'. Use the comprehensively assessed groups for share charts. The archive has no threat or habitat data, so 'threatened by agriculture' cannot be computed from it.",
+    "priority": "core"
+   },
+   {
+    "name": "IUCN Red List website, API v4 and Summary Statistics tables (iucnredlist.org)",
+    "publisher": "IUCN",
+    "measures": "Full assessments (threats, habitats, population trend, range maps), summary statistics tables (Table 1a and others), and threats classification",
+    "coverage": "Global, all assessed species. Version 2026-1.",
+    "latest_release": "2026-1 (2026-07-09)",
+    "update_cadence": "1-2 times a year",
+    "landing_url": "https://www.iucnredlist.org/",
+    "download_urls": [
+     "https://api.iucnredlist.org/api/v4/information/red_list_version"
+    ],
+    "format": "Web pages and a JSON REST API (token required)",
+    "license": "Restrictive. The IUCN Red List Terms and Conditions (v3.1, June 2024; seen via search snippets because the site returned 403 to direct fetches) say users may not 'repost, redistribute, transmit or sub-license the data in any way, part or form, including in derivative products'. Commercial use of data or Derivative Works needs IUCN's prior written permission. API use needs a registered token.",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "IUCN 2026. The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Accessed on [date].",
+    "doi": "none for the website (the GBIF snapshot has 10.15468/0qnb58)",
+    "status": "Active (Cloudflare-protected; scripted fetches blocked). Same IUCN funding note as the GBIF entry.",
+    "url_check": "WebFetch and curl of iucnredlist.org/resources/summary-statistics and /terms/terms-of-use returned HTTP 403, even with a browser user-agent. api.iucnredlist.org/api/v4/information/red_list_version returned {\"error\":\"Forbidden\"} without a token. Terms text was confirmed only via search-result snippets. The 2026-1 totals were confirmed via the iucn.org press release (search) and the GBIF snapshot.",
+    "site_use": "Do not ingest. Link out to species pages for 'learn more'. Use the GBIF CC BY snapshot for all counts.",
+    "caveats": "The no-redistribution terms conflict with the site's CSV-download promise. Threats-by-driver analyses (e.g. agriculture as a threat) would need permission from IUCN.",
+    "priority": "avoid"
+   },
+   {
+    "name": "Red List Index (SDG indicator 15.5.1), via the UN SDG Global Database API",
+    "publisher": "BirdLife International and IUCN (custodians), disseminated by the UN Statistics Division (UNSD) SDG Global Database",
+    "measures": "Red List Index of species survival, aggregate extinction risk, from 1 (all species Least Concern) to 0 (all extinct). Covers mammals, birds, amphibians, corals and cycads.",
+    "coverage": "1993-2025, World and regions/countries (national disaggregation). Annual (interpolated between assessments).",
+    "latest_release": "SDG database release 2026.Q3.G.01, with values through 2025",
+    "update_cadence": "Annual (SDG database quarterly releases)",
+    "landing_url": "https://unstats.un.org/sdgs/dataportal",
+    "download_urls": [
+     "https://unstats.un.org/sdgapi/v1/sdg/Series/Data?seriesCode=ER_RSK_LST&areaCode=1&pageSize=200",
+     "https://unstats.un.org/sdgapi/v1/sdg/Series/List?allreleases=false"
+    ],
+    "format": "JSON REST API (CSV export available on the portal)",
+    "license": "UNdata terms (data.un.org): 'All data and metadata provided on UNdata's website are available free of charge and may be copied freely, duplicated and further distributed provided that UNdata is cited as the reference.' There is no explicit CC license for the SDG API; some UNSD pages add 'the use is not for profit'.",
+    "redistribution": "open-attribution",
+    "citation": "BirdLife International and IUCN (2025). Red List Index (SDG indicator 15.5.1). United Nations Global SDG Indicators Database, release 2026.Q3.G.01. https://unstats.un.org/sdgs/dataportal. Accessed [date].",
+    "doi": "none",
+    "status": "Active (2026 Q3 release)",
+    "url_check": "Series/List API: ER_RSK_LST 'Red List Index', release 2026.Q3.G.01. Series/Data for World: 1993 = 0.8064 ... 2020 = 0.75612; 2023 = 0.74902; 2024 = 0.74692; 2025 = 0.74491 (33 annual points). The source string reads 'BirdLife International and IUCN (2020), based on global estimates of the extinction risk ... of all mammals, birds, amphibians, corals and cycads'. Fetched the UNdata terms with curl.",
+    "site_use": "A small trend sparkline beside the IUCN counts: 'Extinction risk is rising: the Red List Index fell from 0.806 (1993) to 0.745 (2025)'. Country drill-down via the national RLI.",
+    "caveats": "The source string still says '(2020)' even though values run to 2025, so confirm the vintage with BirdLife before headlining 2025. Annual values are interpolated or extrapolated between reassessments, and small year-to-year changes are not meaningful. It covers only 5 groups.",
+    "priority": "secondary"
+   },
+   {
+    "name": "FAOSTAT SDG Indicators - 12.3.1a Food Loss Percentage and Global Food Loss Index",
+    "publisher": "FAO (SDG 12.3.1a custodian), via FAOSTAT SDG bulk downloads",
+    "measures": "Percentage of food lost from post-harvest up to, but not including, retail. Total and by commodity group: cereals and pulses; fruits and vegetables; roots, tubers and oil-bearing crops; meat and animal products. Also the Global Food Loss Index (2015 = 100).",
+    "coverage": "2015-2024, World, regions and countries. Annual.",
+    "latest_release": "FAOSTAT SDGB DateUpdate 2026-09-29, with data through 2024. The UN SDG API (release 2026.Q3) only reaches 2023.",
+    "update_cadence": "Annual",
+    "landing_url": "https://www.fao.org/faostat/en/#data/SDGB",
+    "download_urls": [
+     "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip",
+     "https://unstats.un.org/sdgapi/v1/sdg/Series/Data?seriesCode=AG_FLS_PCT&areaCode=1&pageSize=200"
+    ],
+    "format": "ZIP containing a normalized CSV (FAOSTAT). JSON from the UN SDG API.",
+    "license": "CC BY 4.0 under the FAO Statistical Database Terms of Use",
+    "redistribution": "open-attribution",
+    "citation": "FAO. 2026. FAOSTAT: SDG Indicators. Accessed on [DD Month YYYY]. https://www.fao.org/faostat/en/#data/SDGB. Licence: CC-BY-4.0.",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "Streamed the SDGB zip. World '12.3.1a Food loss percentage: total': 2022 13.2%, 2023 13.3%, 2024 13.4%. Fruits and vegetables 2024: 26.4%. Meat and animal products 2024: 14.1%. Cereals and pulses: 8.4%. The UN SDG API AG_FLS_PCT for World ALP gives 2015 13 ... 2023 13.3, consistent with FAOSTAT.",
+    "site_use": "Upstream half of the 'Food that never gets eaten' chain: loss % by commodity group, then country. Pair it with UNEP food waste (downstream) for a farm-to-bin Sankey, labelling the two halves as separate indicators with different methods.",
+    "caveats": "Loss % is economic-value weighted and excludes retail and consumption, so do not add it to the UNEP waste tonnage. Many country values are model-imputed.",
+    "priority": "core"
+   },
+   {
+    "name": "UNEP Food Waste Index Report 2024 (SDG 12.3.1b food waste), via the UN SDG Global Database API",
+    "publisher": "United Nations Environment Programme (UNEP), with WRAP. Disseminated by the UNSD SDG Global Database.",
+    "measures": "Food waste (tonnes; kg/capita/yr) at retail, food service (out-of-home consumption) and household levels, including inedible parts",
+    "coverage": "Reference year 2022 (the 2021 report used 2019). Global and country estimates (measured or extrapolated).",
+    "latest_release": "Food Waste Index Report 2024, published March 2024 (2022 data). No 2025 or 2026 edition was found as of 2026-10-04 (searches return only the 2024 edition). The SDG API release 2026.Q3 still carries the 2024 report's values.",
+    "update_cadence": "Irregular (2021, 2024)",
+    "landing_url": "https://wedocs.unep.org/handle/20.500.11822/45230",
+    "download_urls": [
+     "https://unstats.un.org/sdgapi/v1/sdg/Series/Data?seriesCode=AG_FOOD_WST&areaCode=1&pageSize=200",
+     "https://unstats.un.org/sdgapi/v1/sdg/Series/Data?seriesCode=AG_FOOD_WST_PC&areaCode=1&pageSize=200"
+    ],
+    "format": "JSON REST API (report PDF on wedocs)",
+    "license": "Report: per the publication notice quoted in search results, 'may be reproduced in whole or in part ... for educational or non-profit services without special permission ... No use ... for resale or any other commercial purpose' without prior permission. That makes it non-commercial only. The same numbers redistributed via UNSD fall under UNdata terms (free copying and redistribution with citation).",
+    "redistribution": "noncommercial-only",
+    "citation": "United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi. https://wedocs.unep.org/20.500.11822/45230",
+    "doi": "none (handle 20.500.11822/45230)",
+    "status": "Active programme. The report series is infrequent.",
+    "url_check": "unep.org and wedocs.unep.org returned 403 to both WebFetch and curl (bot protection), so the report license was confirmed only via search snippets. UN SDG API AG_FOOD_WST World 2022 (source 'Food Waste Index Report 2024'): ALL 1,051,962,676 t; HHS 630,960,738 t; OOHC 289,778,690 t; RTL 131,223,248 t. AG_FOOD_WST_PC World 2022: ALL 131.9 kg; HHS 79.1 kg; OOHC 36.3 kg; RTL 16.5 kg.",
+    "site_use": "Downstream half of the food chain: 'Households waste 79 kg per person per year', plus a country drill-down with an explicit 'measured vs modelled' confidence badge. Strong 'what you can do' link. Ingest via the UNSD API rather than scraping UNEP.",
+    "caveats": "Includes inedible parts (bones, peels). Many country estimates are extrapolated (low confidence). 2019 and 2022 figures are not a trend because methods and data changed. Do not add these to FAO loss %.",
+    "priority": "core"
+   },
+   {
+    "name": "IPBES Global Assessment Report on Biodiversity and Ecosystem Services (2019), Summary for Policymakers, plus later IPBES assessments",
+    "publisher": "Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services (IPBES)",
+    "measures": "Synthesized assessment findings, not a dataset: drivers of nature loss ranked (land/sea-use change first, then direct exploitation, climate change, pollution, invasive species), around 1 million species threatened with extinction, share of land surface significantly altered, agriculture's footprint",
+    "coverage": "Global synthesis; literature to about 2018. Later: Nexus and Transformative Change assessments (Dec 2024) and the Business & Biodiversity assessment (approved Feb 2026, IPBES-12 Manchester).",
+    "latest_release": "The 2019 Global Assessment SPM is on Zenodo (published 2019-11-25). The latest IPBES output is the Business and Biodiversity assessment SPM, approved at IPBES-12 (3-8 Feb 2026). The second global assessment is not yet published.",
+    "update_cadence": "Irregular (multi-year assessments)",
+    "landing_url": "https://zenodo.org/records/3553579",
+    "download_urls": [
+     "https://zenodo.org/records/3553579",
+     "https://zenodo.org/api/records/3553579"
+    ],
+    "format": "PDF (Zenodo), plus Zenodo JSON metadata",
+    "license": "CC BY 4.0 (Zenodo record 3553579 metadata: license 'cc-by-4.0')",
+    "redistribution": "open-attribution",
+    "citation": "IPBES (2019). Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services. S. D\u00edaz, J. Settele, E. S. Brond\u00edzio et al. (eds.). IPBES secretariat, Bonn, Germany. https://doi.org/10.5281/zenodo.3553579",
+    "doi": "10.5281/zenodo.3553579",
+    "status": "Active. Risk: the US is listed among organizations in the 2026-01-07 withdrawal memorandum (news reports; the IPBES site has a notice page 'United States' Announced Intention to Withdraw from Participation in IPBES' but returned 403 to fetch). IPBES-12 still met and approved an assessment in Feb 2026.",
+    "url_check": "Zenodo API record 3553579 returned title 'Summary for policymakers of the global assessment report on biodiversity and ecosystem services', publication_date 2019-11-25, license cc-by-4.0, file ipbes_global_assessment_report_summary_for_policymakers.pdf. Zenodo record 3831673 returned non-JSON (not verified). ipbes.net pages returned 403. The Business & Biodiversity approval date was confirmed via search (IISD ENB 8 Feb 2026, IUCN news 202602).",
+    "site_use": "Frames the 'causes' narrative: land-use change (mostly agriculture) is the No. 1 driver of biodiversity loss. Quote SPM statements with page references as context cards next to charts. Do not chart these as data series.",
+    "caveats": "These are assessment statements, not time-series data, and are aging (2019). The '1 million species' figure is an extrapolation with stated assumptions, so present it with that caveat.",
+    "priority": "secondary"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "Food and farming (agrifood systems) caused 16.5 billion tonnes of CO2-equivalent in 2023, about 32% of all human-caused greenhouse gas emissions.",
+    "value_as_of_latest": "16.54 Gt CO2eq = 31.7% (2023)",
+    "source_name": "FAOSTAT Emissions totals (GT), FAO 2025",
+    "derivation": "Bulk file Emissions_Totals_E_All_Data_(Normalized).zip (DateUpdate 2025-10-28). Filter Area='World', Year=2023, Element='Emissions (CO2eq) (AR5)', Source='FAO TIER 1'. Item 'Agrifood systems' = 16,535,072 kt; Item 'All sectors with LULUCF' = 52,105,734 kt. Share = 16,535,072 / 52,105,734 = 0.3173. Independent cross-check: EDGAR-FOOD_2025.xlsx, sheet 'FOOD GHG emissions by country', row 'Totals', 2023 = 17,728,900 kt, and sheet 'FOOD system shares' Totals 2023 = 0.3304 (33.0%)."
+   },
+   {
+    "statement": "Livestock produce about a third of all human-caused methane, and cattle alone account for 72% of the methane from animals' digestion.",
+    "value_as_of_latest": "115.2 Mt CH4 = 34.2% of anthropogenic CH4; cattle 72.1% of enteric CH4 (2023)",
+    "source_name": "FAOSTAT Emissions totals (GT) and Emissions from Livestock (GLE), FAO 2025",
+    "derivation": "GT: Area='World', Year=2023, Element='Emissions (CH4)', Source='FAO TIER 1'. Item 'Emissions from livestock' = 115,211 kt; Item 'All sectors with LULUCF' = 336,803 kt; 115,211 / 336,803 = 0.342. GLE (Emissions_livestock_E_All_Data_(Normalized).zip): Element='Enteric fermentation (Emissions CH4)', World 2023, Item 'Cattle' = 75,919 kt; 'All Animals' = 105,257 kt; ratio = 0.721. Consistent with Saunois et al. 2025 (livestock about 112 Tg CH4/yr, about one-third of anthropogenic)."
+   },
+   {
+    "statement": "A kilogram of beef from a beef herd emits about 100 times more greenhouse gas than a kilogram of peas.",
+    "value_as_of_latest": "99.48 vs 0.98 kg CO2eq per kg (\u2248101x); reference year around 2010",
+    "source_name": "Poore & Nemecek (2018), Science, via Our World in Data",
+    "derivation": "OWID grapher ghg-per-kg-poore.csv, column ghg_emissions_per_kilogram__poore__and__nemecek__2018. Entity 'Beef (beef herd)' = 99.48; 'Peas' = 0.98; 99.48 / 0.98 = 101.5. (Tofu 3.16; Poultry Meat 9.87.) These are global means across studies (doi 10.1126/science.aaq0216)."
+   },
+   {
+    "statement": "A vegan diet's greenhouse gas footprint is about a quarter of a high meat-eater's diet.",
+    "value_as_of_latest": "2.47 vs 10.24 kg CO2e per person per day (25.1%; 95% UI 15.1-37.0%)",
+    "source_name": "Scarborough et al. (2023), Nature Food 4:565-574 (CC BY 4.0)",
+    "derivation": "Table 3 (GWP100, standardized to 2,000 kcal; medians from 1,000 Monte Carlo runs): Vegans 2.47 (2.09-3.36); High meat-eaters (\u2265100 g meat/day) 10.24 (7.04-15.95). The ratio 25.1% (15.1-37.0%) is stated in the abstract. Retrieved from Europe PMC PMC10365988 full-text XML."
+   },
+   {
+    "statement": "In 2025 the world lost 25.5 million hectares of tree cover, 42% of it to fire. Tropical primary rainforest loss fell 36% from 2024's record but was still 4.3 million hectares.",
+    "value_as_of_latest": "25.53 Mha total; 10.75 Mha fire (42.1%); 4.29 Mha humid tropical primary (2025)",
+    "source_name": "UMD GLAD / Hansen GFC v1.13 via Global Forest Watch Data API (gadm__tcl__iso_change v20260424)",
+    "derivation": "GET https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv with SQL: SUM(umd_tree_cover_loss__ha), SUM(umd_tree_cover_loss_from_fires__ha) WHERE umd_tree_cover_density_2000__threshold=30 GROUP BY umd_tree_cover_loss__year. 2025: 25,528,556 ha; fire 10,751,918 ha; 10,751,918 / 25,528,556 = 0.421. Same query with AND is__umd_regional_primary_forest_2001=true: 2025 = 4,286,331 ha vs 2024 = 6,731,253 ha, giving (4,286,331 - 6,731,253) / 6,731,253 = -36.3%. Matches the WRI release of 2026-04-29."
+   },
+   {
+    "statement": "About a third of tree cover lost since 2001 was cleared for permanent land uses, mostly farming. The rest is wildfire, logging and shifting cultivation, which can regrow.",
+    "value_as_of_latest": "33.6% permanent (31.7% permanent agriculture) of 542.8 Mha, 2001-2025",
+    "source_name": "GFW Data API (UMD loss \u00d7 WRI/Google drivers, Sims et al. 2025)",
+    "derivation": "Same table and version. SUM(umd_tree_cover_loss__ha) WHERE threshold=30 GROUP BY wri_google_tree_cover_loss_drivers__driver: Permanent agriculture 172,279,627; Hard commodities 5,137,322; Settlements & Infrastructure 4,914,809; Wildfire 162,658,042; Logging 134,602,551; Shifting cultivation 52,927,194; Other natural disturbances 8,431,154; Unknown 1,857,356. Total 542,808,055 ha. Permanent = (172,279,627 + 5,137,322 + 4,914,809) / 542,808,055 = 0.336."
+   },
+   {
+    "statement": "Forests cover 4.14 billion hectares, 32% of Earth's land. Deforestation has slowed but still averaged 10.9 million hectares a year in 2015-2025.",
+    "value_as_of_latest": "4,140 Mha = 31.8% of land (2025); 10.9 Mha/yr gross deforestation (2015-2025 average)",
+    "source_name": "FAO Global Forest Resources Assessment 2025 (doi 10.4060/cd6709en)",
+    "derivation": "FRA bulk download (fra-data.fao.org/api/file/bulk-download?assessmentName=fra&cycleName=2025&countryIso=WO). Sum column '2025' of FRA_Years_variables/1a_forestArea_*.csv over 236 countries = 4,140,444 kha. Sum of 1a_landArea '2025' = 13,031,193 kha. Ratio 0.318. The 10.9 Mha/yr is FAO's published global estimate from FRA 2025 key findings; do not compute it from country rows, which sum to only 8.48 Mha/yr for 2020-2025 because of non-reporting countries. Cross-check: FAOSTAT RL Forest land World 2025 = 4,140,215 kha."
+   },
+   {
+    "statement": "Agriculture uses 36% of the world's land, and two-thirds of that is pasture for grazing animals.",
+    "value_as_of_latest": "4,690 Mha = 36.0% of land; pasture 3,103 Mha = 66.2% of agricultural land (2024)",
+    "source_name": "FAOSTAT Land Use (RL), FAO 2026",
+    "derivation": "Inputs_LandUse_E_All_Data_(Normalized).zip (DateUpdate 2026-10-02), Area='World', Element='Area', Year=2024. 'Agricultural land' 4,689,512 kha / 'Land area' 13,015,904 kha = 0.360. 'Permanent meadows and pastures' 3,103,183 / 4,689,512 = 0.662. Long-run context: HYDE 3.5 via OWID, agricultural land 1700 = 0.944 bn ha vs 2025 = 4.797 bn ha."
+   },
+   {
+    "statement": "Monitored wildlife populations fell by an average of 73% between 1970 and 2020.",
+    "value_as_of_latest": "LPI 2020 = 0.271 (1970 = 1), i.e. -73% (LPR 2024). LPR 2026 update due 2026-10-08.",
+    "source_name": "WWF/ZSL Living Planet Index, Living Planet Report 2024 (trends CC BY-SA 4.0)",
+    "derivation": "OWID living-planet-index-by-region.csv, entity 'World', column lpi_final: 1970 = 100, 2020 = 27.134067. 1 - 27.134 / 100 = 0.729. This must be re-derived from the LPR 2026 producer CSV once the embargo lifts on 2026-10-08. It is an average change in population size, not 73% of animals lost."
+   },
+   {
+    "statement": "28% of the species scientists have assessed are threatened with extinction: 49,505 of 175,909.",
+    "value_as_of_latest": "49,505 / 175,909 = 28.1% (IUCN Red List v2026-1)",
+    "source_name": "IUCN Red List v2026-1, GBIF-hosted checklist (CC BY 4.0, doi 10.15468/0qnb58)",
+    "derivation": "hosted-datasets.gbif.org/datasets/iucn/iucn-latest.zip. Join distribution.txt (col 0 id, col 2 locality = 'Global', col 5 category) to taxon.txt (col 10 rank). Keep rank = 'species': CR 10,947 + EN 20,372 + VU 18,186 = 49,505 out of 175,909 species with a category. 49,505 / 175,909 = 0.2814. Matches the IUCN 2026-1 press release (2026-07-09)."
+   },
+   {
+    "statement": "13% of food is lost between harvest and the shop, and another 1.05 billion tonnes is wasted in shops, restaurants and homes, 60% of it in households.",
+    "value_as_of_latest": "Food loss 13.4% (2024); food waste 1.052 bn t, 132 kg/person, households 631 Mt = 60.0% (2022)",
+    "source_name": "FAOSTAT SDG 12.3.1a (FAO 2026) and UNEP Food Waste Index Report 2024 via UN SDG API (AG_FOOD_WST)",
+    "derivation": "FAOSTAT SDG_BulkDownloads zip: World, Item '12.3.1a Food loss percentage: total', Year 2024 = 13.4%. UN SDG API seriesCode=AG_FOOD_WST, areaCode=1, 2022: 'Food Waste Sector' ALL = 1,051,962,676 t; HHS = 630,960,738 t; 630,960,738 / 1,051,962,676 = 0.600. AG_FOOD_WST_PC ALL = 131.9 kg/capita. These are separate indicators; do not add them together."
+   }
+  ],
+  "drilldown_paths": [
+   "Your plate to the planet: food item (Poore & Nemecek footprints per kg, per 100 g protein and per 1000 kcal via OWID) \u2192 supply-chain stage for that food (OWID stage breakdown: land-use change vs farm vs transport) \u2192 diet type (Scarborough 2023 Table 3/4, kg CO2e/day by diet group with uncertainty) \u2192 your country's actual diet (FAOSTAT FBS meat kg/cap/yr, animal-product kcal share) \u2192 what you can do (shift protein sources, cut household waste). Series: OWID ghg-per-kg-poore, ghg-per-protein-poore, land-use-per-kg-poore; Scarborough Tables 3-4; FAOSTAT FBS Items 'Meat', 'Bovine Meat', 'Animal Products'.",
+   "World food emissions to source: global agrifood total vs all anthropogenic GHG (FAOSTAT GT 'Agrifood systems' / 'All sectors with LULUCF', with an EDGAR-FOOD_2025 cross-check shown side by side) \u2192 stage (Farm gate / Land-use change / Pre- and post-production) \u2192 item (Enteric Fermentation, Net Forest conversion, Food Household Consumption, Agrifood Systems Waste Disposal, Synthetic Fertilizers, Rice Cultivation, ...) \u2192 country and per capita (GT by Area \u00f7 FAOSTAT OA population) \u2192 gas toggle (CO2 / CH4 / N2O, AR5 GWP100).",
+   "Methane from animals: anthropogenic CH4 total \u2192 agrifood share (GT Element 'Emissions (CH4)') \u2192 livestock (GT 'Emissions from livestock') \u2192 species (GLE 'Enteric fermentation (Emissions CH4)' by Item: Cattle non-dairy/dairy, Buffalo, Sheep, Goats) \u2192 country herds (GLE Element 'Stocks') \u2192 scientific context range (Global Methane Budget 2000-2020: agriculture and waste 211-228 Tg/yr) \u2192 action (diet, Global Methane Pledge).",
+   "Forests, from satellite to official: global annual tree cover loss 2001-2025 split fire vs non-fire (GFW gadm__tcl__iso_change, \u226530% canopy) \u2192 tropical primary forest loss (is__umd_regional_primary_forest_2001) \u2192 what replaced it (wri_google_tree_cover_loss_drivers__driver: permanent agriculture vs wildfire vs logging) \u2192 country choropleth and country time series (iso) \u2192 the official FAO view (FRA 2025 forest area 1990-2025, deforestation by decade) \u2192 climate consequence (GCB 2025 net land-use CO2, FAOSTAT 'Net Forest conversion'). Includes a 'why satellite and official numbers differ' explainer.",
+   "Land, from 10,000 years to today: agricultural land since 10,000 BCE (HYDE 3.5 via OWID, cropland vs grazing) \u2192 today's land budget (FAOSTAT RL: forest / pasture / cropland / other as a waffle) \u2192 country drill-down (RL by Area, per capita) \u2192 land per kg of food (Poore & Nemecek land-use-per-kg) \u2192 consequence: habitat loss (IPBES SPM: land-use change is the No. 1 driver).",
+   "Consequences for wildlife: Living Planet Index global trend with CI (LPR 2024, swapping to LPR 2026 after 2026-10-08) \u2192 by IPBES region and system (freshwater vs terrestrial vs marine) \u2192 which species are at risk (IUCN 2026-1 GBIF checklist: threatened share by class or kingdom, CR/EN/VU) \u2192 trend in extinction risk (Red List Index SDG 15.5.1, World and country) \u2192 drivers card (IPBES Global Assessment) \u2192 back to causes (forest loss drivers, agricultural land expansion).",
+   "Food that is never eaten: post-harvest loss % by commodity group (FAOSTAT SDG 12.3.1a: fruits and vegetables 26.4%, meat 14.1%, cereals 8.4%) \u2192 food waste by sector (UNEP via UN SDG API AG_FOOD_WST: household / food service / retail) \u2192 per capita by country with a measured-vs-modelled confidence badge (AG_FOOD_WST_PC) \u2192 emissions from waste disposal (FAOSTAT GT 'Agrifood Systems Waste Disposal') \u2192 what you can do (household waste is 60% of the total)."
+  ],
+  "action_links": "How each chapter leads to something people can do (each claim tied to a source above; the policy links at the end were not fetched in this session and need checking before launch):\n\nINDIVIDUALS\n- What you eat matters more than where it comes from. Scarborough et al. 2023 (doi 10.1038/s43016-023-00795-w) find vegan diets have about 25% of high meat-eaters' GHG and land footprints. Even moving from high to low meat cuts impact by at least 30% on most indicators. Poore & Nemecek 2018 (doi 10.1126/science.aaq0216) show that variation between foods (beef vs legumes, about 100x per kg) dwarfs transport emissions. The site should present this as 'compare and choose', with the uncertainty shown, not as a prescription.\n- Waste less at home. Households waste 79 kg per person per year, 60% of all food waste (UNEP Food Waste Index 2024, SDG 12.3 target to halve per-capita food waste by 2030). Link the UNEP report handle 20.500.11822/45230.\n- The 2025 EAT-Lancet Commission (Lancet 406:1625-1700, doi 10.1016/S0140-6736(25)01201-2) is the reference for a 'planetary health diet'. It reports that dietary shifts could prevent up to about 15 million premature deaths a year. Use it as context for diet choices rather than as a charted dataset.\n\nCOMMUNITIES AND ACTIVISTS\n- Forest monitoring: GFW / Global Nature Watch (CC BY 4.0 data) lets anyone check loss in a named place. The site's country pages should deep-link to the GFW dashboard for that ISO code and expose the exact SQL used, so activists can reproduce every figure.\n- Institutional procurement (school, hospital and municipal catering) is where diet-shift levers sit. Use the FAOSTAT FBS country diet profile together with the Poore & Nemecek footprints to show a community's food emissions hotspots.\n- Composting and food rescue tie to FAOSTAT 'Agrifood Systems Waste Disposal' emissions (1.45 Gt CO2eq in 2023).\n\nPOLICYMAKERS\n- Country agrifood profile (FAOSTAT GT by Area) shows which lever dominates: enteric methane, deforestation (Net Forest conversion), fertilizer, or household and retail energy. That points to different policies: methane in the NDC and the Global Methane Pledge (globalmethanepledge.org, -30% CH4 by 2030 vs 2020); deforestation-free supply chains (e.g. EU Deforestation Regulation, environment.ec.europa.eu); nitrogen management.\n- Biodiversity commitments: Kunming-Montreal Global Biodiversity Framework targets (cbd.int/gbf; e.g. 30x30, halving food waste and excess nutrients). Track them with LPI, the Red List Index (SDG 15.5.1) and FRA forest area.\n- 2030 forest goal: WRI reports 2025 loss was still about 70% above the trajectory needed for the Glasgow 2030 zero-deforestation commitment (WRI release 2026-04-29). Show the gap explicitly.\n\nEvery 'what you can do' card should carry the same citation and derivation footer as the charts.",
+  "gaps_and_risks": "LICENSING (decide before launch):\n1. Living Planet Index trends are CC BY-SA 4.0 (producer's Data Use Policy, clause 3), not CC BY as OWID's metadata says. Any CSV or chart derived from LPI must carry CC BY-SA 4.0. The Living Planet Database population data must not be republished at all.\n2. The IUCN website and API forbid redistribution ('may not ... repost, redistribute ... including in derivative products'), and scripted access gets a 403. Use only the IUCN-published GBIF checklist (CC BY 4.0, v2026-1). That source has no threat or habitat fields, so 'species threatened by agriculture' cannot be shown without IUCN permission.\n3. Poore & Nemecek 2018 has no explicit open data license. OWID origin license is null, and the Science supplement returned 403 so it could not be checked. Showing these values with citation is standard practice, but bulk CSV redistribution is legally unclear and needs a quick legal read, or written permission from the authors or OWID.\n4. Scarborough 2023: the paper is CC BY 4.0, so its tables are fine. The ORA dataset is under restrictive ORA terms (private study only), so do not redistribute it.\n5. HYDE 3.5: DataCite says CC BY 4.0, but OWID's origin metadata says CC BY-NC 4.0. That is acceptable for a non-commercial site, but record it and ask Utrecht which is correct.\n6. EDGAR-FOOD_2025: EU material is CC BY 4.0, but the Energy compartment rests on IEA-EDGAR CO2, which is CC BY-NC-ND 4.0. The no-derivatives clause conflicts with re-aggregation, so treat EDGAR-FOOD as a displayed cross-check only.\n7. UNEP Food Waste Index report is non-commercial reuse only. Ingest the numbers through the UNSD SDG API (UNdata terms: free redistribution with citation).\n8. FAO data are CC BY 4.0 with extra terms: no commercial promotion, no implied endorsement, and no misrepresentation.\n\nDATA FRESHNESS AND TIMING:\n- LPR 2026 is embargoed until 2026-10-08, four days from now. Launch with the 2024 vintage clearly labelled and swap after the embargo. No interpolation.\n- FAOSTAT emissions with 2024 data are likely in Oct-Dec 2026 (not confirmed). Build the ETL to detect DateUpdate in datasets_E.json.\n- The OWID tree-cover-loss mirror still ends in 2024 (nextUpdate 2026-11-04), so go direct to the GFW API for 2025.\n- The Global Methane Budget ends in 2020, and the UNEP food waste baseline is 2022 with no newer edition.\n\nMETHOD TRAPS THE SITE MUST EXPLAIN (clarity of thought):\n- FAO (31.7%, 16.5 Gt) vs EDGAR-FOOD (33.0%, 17.7 Gt): show both and do not average.\n- GFW tree cover loss vs FAO deforestation: different definitions. Summing FRA country deforestation (8.5 Mha/yr for 2020-25) undercounts FAO's global 10.9 Mha/yr because of non-reporting countries.\n- GFW gross forest emissions (about 12 Gt CO2e at \u226530% canopy) are not comparable to net land-use CO2 (GCB 4.6 Gt; FAO LUC 3.2 Gt CO2eq).\n- The LPI -73% is an average population change, not 73% of animals gone.\n- IUCN's 28% applies to assessed species only.\n- FAO loss % and UNEP waste tonnes must never be summed.\n- FAOSTAT GT contains rows to 2050; filter them out.\n- Red List Index source text says '(2020)' while values run to 2025, so confirm the vintage.\n\nACCESS FRAGILITY (ETL design):\n- Bot walls returned 403 or a challenge at iucnredlist.org, unep.org/wedocs, science.org, ipbes.net, the openknowledge.fao.org HTML, and Utrecht Yoda/HYDE (Anubis proof-of-work). The ETL must rely on APIs and mirrors that worked: FAOSTAT bulks, GFW Data API, the FRA bulk API, GBIF, UNSD SDG API, OWID grapher CSVs, Europe PMC, and Crossref/DataCite for license metadata.\n- The GFW /query endpoint needs an API key. The /download/csv endpoint worked without one, but that is undocumented, so register a free key and store it in the macOS Keychain.\n- GFW has no 'latest' version pointer, so pin explicit versions (v20260424) for provenance.\n- ICOS (methane) downloads need a click-through licence acceptance.\n- GFW is rebranding to Global Nature Watch (terms URL already redirects), so expect URL changes.\n\nINSTITUTIONAL AND FUNDING RISK:\n- IUCN and IPBES are on the US 2026-01-07 withdrawal list (Federal Register 2026-00976, per news reports; full list not fetched). Both are still producing: IUCN 2026-1 in July 2026, IPBES-12 in Feb 2026.\n- Hansen/GFC depends on Landsat (USGS/NASA) and US science funding, which is exposed to 2025-26 federal cuts. The 2025 release went ahead.\n- Global Methane Budget top-down estimates rely on NOAA GML observations (at risk). FAO, JRC, WWF/ZSL and OWID are not exposed to US federal cuts.\n\nGAPS NOT COVERED:\n- No open, global, time-series dataset on pesticide or nitrogen biodiversity impacts suitable for public charts. FAOSTAT RFN fertilizer use (updated 2026-07-30, CC BY) could be added.\n- Fisheries and ocean biodiversity (FAO FishStat, CC BY) are likely another domain's scope.\n- Species threatened by agriculture needs IUCN threats data, which is restricted.\n- No open global per-product footprint database newer than Poore & Nemecek. The foodDB / Clark 2022 PNAS data sit under ORA terms."
+ },
+ "verification": {
+  "domain": "Food, land use, forests and biodiversity",
+  "verdicts": [
+   {
+    "name": "FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP, EI)",
+    "verdict": "confirmed",
+    "corrections": "All claims check out. datasets_E.json (fetched 2026-10-04) gives GT, GLE and GCE 2025-10-28, GPP 2026-05-22 and EI 2026-02-20. All five zips return 200. GT is 20,501,708 bytes with Last-Modified 2025-12-06. Year range is 1961-2050 and the sources are FAO TIER 1 and UNFCCC. Re-parsing World 2023 (FAO TIER 1, AR5) reproduced every value exactly: Agrifood 16,535,072 kt; All sectors with LULUCF 52,105,734; CH4 200,931 / 115,211 / 336,803; 2000 = 15.43 Gt and 2001 = 13.61 Gt. GLE: Cattle 75,919 kt and All Animals 105,257 kt.\n\nOne addition. Several zips were re-uploaded after their catalog DateUpdate: GT on 2025-12-06, GCE on 2025-11-13, GLE on 2025-10-29. So the ETL must hash file contents and cannot rely on DateUpdate alone.\n\nThe brief's DOI 10.4060/cd7300en resolves in Crossref (published 2025-10-28). The OpenKnowledge DSpace API (pid/find?id=20.500.14283/cd7300en) shows dc.rights.license 'CC BY 4.0'. Its abstract confirms 16.5 Gt in 2023, up 21% since 2001, with the share falling from 38% to 32%.\n\nFAO DB terms page (fetched): the CC BY 4.0 wording, the no-commercial-promotion, no-endorsement and no-misrepresentation clauses, the attribution format and the Annex 1 listing of FAOSTAT and FRA are all confirmed.\n\nRisk note: FAO is not on the US withdrawal memo (FR Doc 2026-00976), but UNFCCC is, at (b)(xxii). That is relevant to the 'UNFCCC' source rows.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "EDGAR-FOOD_2025 (food-system GHG emissions, 1990-2023)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed. The landing page lists only EDGAR-FOOD_2025 (based on EDGAR_2024_GHG), plus the v6.1 air-pollutant file, v6 and v5. EDGAR-FOOD_2025.xlsx returns 200: 615,061 bytes, Last-Modified 2025-06-05. EDGAR-FOOD_2026.xlsx returns 404.\n\nParsed in memory:\n- Sheets: readme, EDGAR-FOOD GHG by compartment, FOOD GHG emissions by country, FOOD system shares, country definition.\n- Totals: 1990 = 14,430,869 kt; 2023 = 17,728,900 kt.\n- Share 2023 = 0.33042.\n- Readme cite string: 'Monica Crippa, Manjola Banja, Diego Guizzardi, Francesco Tubiello: EDGAR-FOOD_2025 dataset, 2025.'\n- The readme has no licence string.\n\nThe edgar.jrc.ec.europa.eu/report_2025 text confirms CC BY 4.0 for EU-owned material and CC BY-NC-ND 4.0 for IEA-EDGAR CO2.\n\nAddition: EDGAR-FOOD is one vintage behind EDGAR's main GHG release. report_2025 refers to EDGAR_2025_GHG, but EDGAR-FOOD is still built on EDGAR_2024_GHG. 'Unclear' redistribution is the right call.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Poore & Nemecek (2018) food footprints via Our World in Data",
+    "verdict": "confirmed",
+    "corrections": "Confirmed.\n\n- Values (ghg-per-kg-poore.csv): Beef (beef herd) 99.48; Beef (dairy herd) 33.3; Lamb & Mutton 39.72; Cheese 23.88; Poultry 9.87; Tofu 3.16; Peas 0.98.\n- Grapher metadata: unit kgCO2eq per kilogram, timespan 2010-2010, lastUpdated 2019-10-08, license null.\n- Indicator 1206176 metadata: origin license null, urlDownload null, dateAccessed 2019-08-10. The indicator's updatedAt is 2026-05-18, but that is a metadata refresh, not new data.\n- Crossref: Science 360(6392):987-992 (2018-06), with no licence asserted. The erratum 10.1126/science.aaw9908 is Science 363, published 2019-02-22.\n- OWID FAQ (fetched): third-party data 'is subject to the license terms of those providers'.\n- The ghg-per-protein-poore and land-use-per-kg-poore CSVs and the ORA record all return 200.\n\nThe 'unclear' licence classification stands.",
+    "final_redistribution": "unclear",
+    "final_priority": "core"
+   },
+   {
+    "name": "Scarborough et al. (2023) diet-group impacts, Nature Food",
+    "verdict": "corrected",
+    "corrections": "Mostly confirmed, with one numeric error.\n\nConfirmed:\n- Crossref: CC BY 4.0 (both vor and tdm), Nature Food 4:565-574, published 2023-07-20.\n- Europe PMC XML, Table 3 GWP100: Vegans 2.47 (2.09-3.36); Vegetarians 4.16; Fish-eaters 4.74; Low 5.37; Medium 7.04; High 10.24 (7.04-15.95). Table 4 land: vegans 4.37, vegetarians 6.01.\n- Abstract: 25.1% (15.1-37.0%).\n\nError: the caveat says high meat-eaters are '5.1x vegans under GWP20'. Table 3 GWP20 gives High 14.77 and Vegans 2.73, so the ratio is 5.4x. Under GWP100 it is 4.1x.\n\nAddition on licensing:\n- The ORA dataset DOI 10.5287/ora-5zebayaog is confirmed, but its DataCite rights are 'http://www.rioxx.net/licenses/all-rights-reserved'.\n- The linked code repo, github.com/PeteScarbs/environment-impact-of-diets, has no licence.\n\nUse only the CC BY article tables.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "FAOSTAT Food Balances (FBS, 2010-)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed. DateUpdate is 2025-10-28. The zip returns 200 (54,840,802 bytes, Last-Modified 2025-10-28) and the max year is 2023.\n\nParsed World 2023 values match: Meat 45.28 kg/cap/yr; Bovine 9.39; Grand Total 3,016 kcal; Animal Products 536.18 kcal; Meat production 370,103 kt. USA Meat 122.06 and India Meat 8.12 also match.\n\nUnder FAO's year-of-last-update rule, the citation year 2025 is correct.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Global Forest Change v1.13 (Hansen/UMD) via GFW / Global Nature Watch Data API",
+    "verdict": "corrected",
+    "corrections": "All numbers reproduced exactly with the stated SQL against v20260424:\n- 2025: 25,528,556 ha total; fire 10,751,918 ha; 2024: 29,592,479 ha.\n- Primary forest: 4,286,331 vs 6,731,253 ha.\n- Drivers sum to 542.8 Mha, with the breakdown as stated.\n\nThe WRI release is confirmed at gfr.wri.org/gfr/latest-analysis-deforestation-trends (published 2026-04-29): 25.5 Mha, 42% fire, 4.3 Mha tropical primary (-36%), and 'Deforestation in 2025 was 70% higher than the level needed'.\n\nOther checks:\n- Hansen download.html confirms the v1.13 2025 update, CC BY 4.0, and the display credit 'Source: Hansen/UMD/Google/USGS/NASA'.\n- umd_tree_cover_loss metadata: license CC BY 4.0; versions v1.8 to v1.13.\n- Sims et al. 2025: Crossref confirms ERL vol 20, published 2025-06-12, CC BY 4.0.\n\nCorrections:\n1. The '/latest' pointer for gadm__tcl__iso_change does not 'return no data'. It 307-redirects to v20250515, which has is_latest=True and data only to 2024. v20260424 (created 2026-04-24) has is_latest=False. So the 2025 figures come from a version GFW has not flagged as latest. Pin it, and record that status in provenance. The 2024 totals also differ slightly between versions: 29,594,885 ha in v20250515 vs 29,592,479 ha in v20260424. Always cite the version.\n2. umd_tree_cover_loss/latest correctly redirects to v1.13.\n3. landing_url www.globalforestwatch.org/dashboards/global/ now 301-redirects to https://globalnaturewatch.org/dashboards/global/. Use the new URL.\n4. lossyear.txt has Last-Modified 2026-05-11. The 2026-03-16 date belongs to the raster tile.\n5. GFC-2026-v1.14 does not exist yet (404).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "FAO Global Forest Resources Assessment 2025 (FRA 2025)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed.\n\nBulk download (countryIso=WO) returns 200, application/zip, 1,377,091 bytes, with files date-stamped 2026-10-04. Sums over the 236 rows:\n- Forest 2025: 4,140,444 kha. Forest 1990: 4,343,534.\n- Land 2025: 13,031,193 kha. Primary forest 2025: 1,175,819 kha.\n- Deforestation 1990-2000: 15,819; 2015-2020: 9,478; 2020-2025: 8,484 kha/yr.\n- The README's required citation is 'FAO. Year of the download. Global Forest Resources Assessment. URL. Accessed on: date'.\n\nI also verified FAO's published global figures directly, which the researcher had only seen in search snippets. The report text came from the OpenKnowledge DSpace TEXT bitstream (api/core/bitstreams/ba39670a-.../content). It says '4.14 billion hectares ... 32 percent of total land area'. Deforestation was '17.6 million ha in 1990-2000, 13.6 million ha in 2000-2015 and 10.9 million ha in 2015-2025'. Net loss was 4.12 Mha/yr in 2015-2025.\n\nThe report's dc.rights.license is 'CC BY 4.0'. Crossref confirms the DOI 10.4060/cd6709en with publication date 2025-10-21.\n\nFor scripted access, use the OpenKnowledge REST API rather than the HTML. The doi.org link redirects to an HTML handle page that is JavaScript-gated.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "FAOSTAT Land Use (RL)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed. DateUpdate is 2026-10-02. The zip returns 200 (Last-Modified 2026-10-02) and the max year is 2025.\n\nWorld values match:\n- 2024: Agricultural land 4,689,512; Cropland 1,587,711; Pastures 3,103,183; Land area 13,015,904; Forest 4,145,220 kha.\n- Forest 2025: 4,140,215 (flag X).\n- Agricultural land 1961: 4,518,546. 2000: 4,792,272.\n\nThe 2024 values carry flag E (estimated).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "HYDE 3.5 long-run cropland/grazing via OWID",
+    "verdict": "corrected",
+    "corrections": "The values and dates are confirmed, but the licence call should change.\n\nConfirmed:\n- DataCite 10.24416/UU01-F45D44: 'HYDE data for the Global Carbon Budget (2025)', issued 2025-06-11, updated 2026-09-28, rights CC BY 4.0.\n- OWID indicator 1269915: versionProducer 3.5, dateAccessed 2026-06-08, origin license 'CC BY-NC 4.0'.\n- OWID CSV values: 1700 = 944,245,760 ha; 1900 = 2,432,612,400; 1961 = 4,303,410,000; 2023 = 4,788,965,400; 2025 = 4,796,820,500.\n- The Yoda landing page is behind an Anubis bot wall.\n\nLicence: every Utrecht DataCite record for HYDE lists CC BY 4.0. That covers 3.1, 3.2 and 3.3, and the GCB 2021, 2022, 2023, 2024 and 2025 releases. The producer's DOI metadata is the licence of record, so the NC label looks like OWID's own. Classify as open-attribution and note OWID's conflicting label, rather than noncommercial-only.\n\nWatch: no HYDE release for GCB 2026 has a DOI yet. However, LUH2-GCB2026 (10.5281/zenodo.21307170, 2026) says it 'incorporates new HYDE land-use data', so a new HYDE vintage is imminent.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Carbon Budget 2025 land-use change CO2 (ELUC) via OWID",
+    "verdict": "corrected",
+    "corrections": "The values are confirmed, but the licence evidence and the data citation needed correcting.\n\nConfirmed:\n- OWID co2-land-use World: 2021 4.657 Gt; 2022 4.785; 2023 4.746; 2024 4.586 Gt CO2.\n- Metadata: timespan 1850-2024, lastUpdated 2025-11-13, nextUpdate 2026-11-13, citing 'Global Carbon Budget v15'.\n- Crossref: ESSD 18, pages 3211-3288, published 2026-05-13, CC BY 4.0.\n- The abstract gives ELUC 2024 = 1.3 \u00b1 0.7 GtC and total CO2 42.4 GtCO2, so about 11% is right.\n\nCorrections:\n1. The licence claim rested on the wrong evidence (the GCP CH4 files). The actual data DOI is 10.18160/GCP-2025, 'Supplemental data of Global Carbon Budget 2025', created 2025-11-07. DataCite gives its rights as CC BY 4.0, and the paper says the data are at that DOI. The licence is vintage-specific: GCP-2024 and earlier carry only a 'use conditional on citing' rights text, not CC BY.\n2. The primary XLSX links (verified on globalcarbonbudget.org/data-hub/the-latest-gcb-data-2025/):\n   - Global budget: /download/2341\n   - National fossil: /download/2345\n   - National LUC: /download/2348\n3. Add the data citation: Friedlingstein et al. (2025) Supplemental data of Global Carbon Budget 2025, ICOS, doi:10.18160/GCP-2025.\n\nicos-cp.eu pages returned 502 during the check.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Methane Budget 2000-2020 (GCP) with ICOS supplemental data",
+    "verdict": "confirmed",
+    "corrections": "Confirmed.\n\n- ICOS object metadata: Global_methane_budget_2023_2000_2020_v1.xlsx, 698,487 bytes, submitted 2024-05-16, licence 'ICOS CCBY4 Data Licence' (base CC BY 4.0).\n- DataCite 10.18160/GKQ9-2RHT: title 'Supplemental data of the Global Carbon Project Methane Budget 2024 v1', with the co-authorship rights text quoted.\n- Crossref: ESSD 17:1873-1958, published 2025-05-09, CC BY 4.0.\n- Abstract: agriculture and waste 228 [213-242] Tg top-down and 211 [195-231] bottom-up.\n- No newer methane budget appears in Crossref (only EGU26 abstracts).\n\nAddition: the abstract gives direct anthropogenic emissions for 2010-2019 as 369 Tg CH4/yr (range 350-391), top-down. That is a better cross-check denominator than FAO's 336.8 Mt: livestock at 115 Mt is about 31% of 369.\n\nwww.icos-cp.eu returned 502 during the check, so treat it as fragile.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Living Planet Index (LPR 2024; LPR 2026 embargoed to 2026-10-08)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed.\n\nData Use Policy PDF (parsed in memory), clause 3: 'reproduction of the published Living Planet Index trends (e.g. the global, regional or system trends) is permitted under creative commons CC BY -SA 4.0 license'. Clauses 4-5 bar passing on or publishing the original data. Clause 6 imposes the same terms on derived datasets. Clause 7 bars use of the ZSL/WWF logos.\n\nOWID:\n- Indicator 990513 origin license is 'CC BY 4.0', which conflicts with the producer's terms.\n- CSV: World 1970 = 100, 2020 = 27.134067. Latin America and Caribbean 2020 = 5.38. Freshwater = 14.78.\n- Chart lastUpdated 2024-09-30, nextUpdate 2026-11-04.\n\nGitHub owid/etl PR #6922 is open (created 2026-09-30), titled 'DO NOT MERGE before 2026-10-08'.\n\nNote 1: the PR's new 2026 index dataset covers World, the 5 IPBES regions and freshwater only. Terrestrial and marine system trends may not be on OWID, so get them from livingplanetindex.org/latest_results.\n\nNote 2: clause 1 ('only for conservation purposes, scientific analysis or research') applies to the underlying database.\n\nKeep open-attribution, but every LPI export must carry CC BY-SA 4.0.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IUCN Red List v2026-1 checklist on GBIF",
+    "verdict": "confirmed",
+    "corrections": "Confirmed exactly.\n\n- Zip returns 200: 21,140,648 bytes, Last-Modified 2026-07-28.\n- GBIF API: CC BY 4.0, DOI 10.15468/0qnb58, citation 'Version 2026-1 ... Downloaded on 2026-07-28'.\n- eml.xml intellectualRights: CC-BY 4.0.\n- Parsed counts (rank = species, Global): total 175,909; CR 10,947; EN 20,372; VU 18,186 (threatened 49,505, 28.14%); EX 951; EW 83; DD 23,037; LC 91,357 (+160 lower-case); NT 10,259 (+442 lower-case); 'conservation dependent' 115.\n\nThe US withdrawal memo (FR Doc 2026-00976, signed 2026-01-07, published 2026-01-16) lists IUCN at (a)(xxvii).\n\nUseful addition: the IUCN Terms (v3.1), read via the Wayback Machine, say IUCN 'places no restrictions on use of the IUCN Red List Categories associated with each named taxonomic entity'.\n\nWatch for a Red List 2026-2 release. A newer IUCN version would make 2026-1 stale.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IUCN Red List website / API v4 / summary statistics",
+    "verdict": "confirmed",
+    "corrections": "Confirmed. Direct fetches of iucnredlist.org and the terms PDF return 403, and api.iucnredlist.org returns {\"error\":\"Forbidden\"} without a token. I read the terms through a Wayback capture (web.archive.org/web/2026id_/https://www.iucnredlist.org/terms/terms-of-use), which shows 'The IUCN Red List Terms and Conditions of Use (version 3.1, June 2024)'.\n\nSection 4 ('No Reposting and/or Redistribution') prohibits redistribution 'in whole or in part, alone or combined with other data, including within Derivative Works' without IUCN's written permission. Section 3 bars commercial use.\n\nThe 'avoid' classification is correct.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "Red List Index (SDG 15.5.1) via UN SDG Global Database API",
+    "verdict": "corrected",
+    "corrections": "The values are confirmed but the licence is wrong.\n\nConfirmed values:\n- ER_RSK_LST release 2026.Q3.G.01, 33 World points: 1993 0.8064; 2020 0.75612; 2023 0.74902; 2024 0.74692; 2025 0.74491.\n- The source string does still say 'BirdLife International and IUCN (2020)'.\n- OWID's red-list-index chart (lastUpdated 2026-07-31) matches.\n\nLicence correction: the quoted UNdata terms ('copied freely ... provided that UNdata is cited') apply to data.un.org. UNdata search returns 0 results for 'red list index', so this series is not hosted there. The SDG site (unstats.un.org/sdgs/) footer links its 'Terms of Use' to un.org/en/aboutun/terms. Those terms grant 'personal, non-commercial use, without any right to resell or redistribute them or to compile or create derivative works therefrom'. So redistribution is unclear, not open-attribution. Get written confirmation from UNSD or BirdLife before republishing CSVs.\n\nNew risk: the US withdrawal memo lists the UN Department of Economic and Social Affairs at (b)(i). UNSD, which runs the SDG Global Database and API, sits inside DESA.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "FAOSTAT SDG 12.3.1a Food Loss Percentage",
+    "verdict": "confirmed",
+    "corrections": "Confirmed. SDGB DateUpdate is 2026-09-29. The zip returns 200 (Last-Modified 2026-09-29).\n\nWorld values match:\n- Total loss: 2022 13.2%, 2023 13.3%, 2024 13.4%.\n- 2024 by group: fruits and vegetables 26.4%; meat and animal products 14.1%; cereals and pulses 8.4%; roots, tubers and oil crops 12.2%.\n- Global Food Loss Index 2024: 103.08.\n\nThe UN SDG API AG_FLS_PCT carries release 2026.Q3.G.01. Ingest from FAOSTAT, which is CC BY, rather than through the SDG API.\n\nPresentation note: the loss % is value-weighted, so the headline should read '13% (by economic value)'.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "UNEP Food Waste Index Report 2024 (SDG 12.3.1b) via UN SDG API",
+    "verdict": "corrected",
+    "corrections": "Values confirmed exactly from AG_FOOD_WST and AG_FOOD_WST_PC (release 2026.Q3.G.01), World 2022, source 'Food Waste Index Report 2024':\n- ALL 1,051,962,676 t; HHS 630,960,737.7; OOHC 289,778,690; RTL 131,223,248.1.\n- Per capita: ALL 131.91 kg; HHS 79.12 kg.\n- The API also carries the 2019 vintage ('Food Waste Index Report 2021': ALL 930.9 Mt, 119.9 kg).\n\nPublication date: 27 March 2024, confirmed from an archived copy of the unep.org page. The live unep.org and wedocs pages return 403.\n\nCorrection: 'ingest via UNSD API (UNdata terms: free redistribution)' is wrong. UNdata terms do not cover unstats.un.org. The SDG site footer points to the general UN Terms of Use (personal, non-commercial, no redistribution). The licence basis has to be UNEP's own publication notice, which allows non-profit reproduction with acknowledgement. That notice could not be fetched directly, so it remains snippet-level evidence. Noncommercial-only stands.\n\nThe UN DESA/UNSD withdrawal risk applies to the API route as well.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "IPBES Global Assessment (2019) SPM and later IPBES assessments",
+    "verdict": "confirmed",
+    "corrections": "Confirmed.\n\n- Zenodo API record 3553579: SPM published 2019-11-25, licence cc-by-4.0.\n- The full report's concept DOI is 10.5281/zenodo.3831673, which the researcher had not verified. It resolves to Zenodo record 6417333 and DataCite gives CC BY 4.0.\n- The Business and Biodiversity Assessment chapter figure and table packages are on Zenodo, published 2026-06-17 under CC BY 4.0 (e.g. 10.5281/zenodo.20735276). So that assessment is out and openly licensed.\n- The US withdrawal memo lists IPBES at (a)(xv) and IPCC at (a)(xiv).\n- ipbes.net returns 403 to scripted access.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   }
+  ],
+  "headline_number_checks": "1. Agrifood 16.5 Gt = 31.7% (2023): CONFIRMED.\n- GT zip re-parsed: World 2023, FAO TIER 1, Emissions (CO2eq) (AR5). Agrifood systems 16,535,072.37 kt; All sectors with LULUCF 52,105,734.15 kt; ratio 0.3173.\n- FAO's brief abstract (OpenKnowledge API, cd7300en) states 16.5 Gt, up 21% since 2001, with the share falling from 38% to 32%.\n- EDGAR-FOOD_2025 cross-check, re-parsed: Totals 2023 = 17,728,900 kt; share 0.33042.\n\n2. Livestock 115.2 Mt CH4 = 34.2%; cattle 72.1% of enteric: CONFIRMED.\n- GT CH4 2023: Emissions from livestock 115,211.26 kt; All sectors with LULUCF 336,803.30 kt; ratio 0.342.\n- GLE 2023: Cattle 75,919.00 kt (dairy 19,362 + non-dairy 56,557) out of All Animals 105,257.31 kt; ratio 0.7213.\n- Cross-check: Saunois et al. 2025 give direct anthropogenic CH4 as 369 (350-391) Tg/yr for 2010-2019. On that denominator livestock is about 31%, so 'about a third' holds.\n\n3. Beef (beef herd) 99.48 vs peas 0.98 kg CO2eq/kg, about 101x: CONFIRMED from OWID ghg-per-kg-poore.csv (timespan 2010).\n\n4. Vegan 2.47 vs high meat-eater 10.24 kg CO2e/day; 25.1% (15.1-37.0%): CONFIRMED from Europe PMC PMC10365988 (Table 3 and the abstract).\n- Correction to a supporting caveat: the GWP20 ratio is 14.77/2.73 = 5.4x, not 5.1x.\n\n5. 2025 tree cover loss 25.53 Mha, fire 10.75 Mha (42.1%), primary 4.29 Mha (-36.3%): CONFIRMED exactly, re-run on gadm__tcl__iso_change v20260424.\n- Results: 25,528,555.5 ha; fire 10,751,917.9 ha; primary 4,286,331.3 ha vs 6,731,252.7 ha.\n- WRI (gfr.wri.org, 2026-04-29): '42% of the 25.5 million hectares'; 4.3 Mha; -36%; and 'Deforestation in 2025 was 70% higher than the level needed'.\n- Caveat: v20260424 is flagged is_latest=False. The API's /latest points to v20250515, which only runs to 2024. Cite the version explicitly.\n\n6. 33.6% permanent drivers of 542.8 Mha, 2001-2025: CONFIRMED.\n- Drivers query: Permanent agriculture 172,279,627; Hard commodities 5,137,322; Settlements and infrastructure 4,914,809; total 542,808,055.\n- (182,331,758 / 542,808,055) = 0.3359.\n\n7. Forests 4.14 bn ha = 32% of land; deforestation 10.9 Mha/yr (2015-2025): CONFIRMED.\n- FRA 2025 report text: '4.14 billion hectares ... 32 percent'; '10.9 million ha in 2015-2025' (13.6 for 2000-2015, 17.6 for 1990-2000); net loss 4.12 Mha/yr.\n- The bulk-zip sums reproduce: forest 4,140,444 kha and land 13,031,193 kha (31.8%). Country-reported deforestation sums to only 8,484 kha/yr for 2020-25.\n\n8. Agriculture 36.0% of land; pasture 66.2% of agricultural land (2024): CONFIRMED.\n- RL zip (Last-Modified 2026-10-02): 4,689,511.95 / 13,015,904.01 = 0.3603.\n- Pasture: 3,103,183.33 / 4,689,511.95 = 0.6617.\n- The denominator is FAO 'Land area'. OWID's 'half of habitable land' framing uses a different denominator, so label which one is used.\n\n9. LPI -73% (1970-2020): CONFIRMED. OWID World 2020 = 27.134067 (1970 = 100). The LPR 2026 embargo to 2026-10-08 is confirmed via owid/etl PR #6922 (open).\n\n10. 49,505 / 175,909 = 28.1% of assessed species threatened: CONFIRMED by parsing iucn-latest.zip (v2026-1).\n\n11. Food loss 13.4% (2024); food waste 1.052 bn t, 131.9 kg/cap, households 60.0% (2022): CONFIRMED.\n- FAOSTAT SDGB: 13.4%.\n- SDG API AG_FOOD_WST: ALL 1,051,962,676 t; HHS 630,960,737.7 t; ratio 0.5998. AG_FOOD_WST_PC ALL = 131.91 kg.\n- Wording fix: the 13.4% is value-weighted, not tonnage. The headline should read '13% of food (by economic value) is lost'.\n\nSupporting numbers also re-verified:\n- GCB ELUC 2024 = 4.586 Gt CO2 (OWID). ESSD abstract: 1.3 \u00b1 0.7 GtC; total 42.4 GtCO2, so about 11%.\n- RLI 1993 0.8064 to 2025 0.74491.\n- FBS World meat 45.28 kg/cap; USA 122.06; India 8.12.\n- HYDE agricultural land 1700 = 0.944 bn ha; 2025 = 4.797 bn ha.",
+  "missing_sources": "1. Trase Supply Chains (SEI and Global Canopy): links deforestation and emissions for soy, beef, palm oil and other commodities to the countries and companies that import them. This is the strongest open link from 'what I eat' to 'which forest'.\n- URL: https://trase.earth\n- DOI: 10.48650/xwcn-4413\n- Licence: CC BY 4.0 per DataCite.\n\n2. DeDuCE v2.1 (Singh & Persson): deforestation and carbon emissions attributed to individual agricultural and forestry commodities, by country, 2001-2023. Released 2026-03-11.\n- URL: https://doi.org/10.5281/zenodo.19133750\n- Licence: CC BY-NC 4.0 per Zenodo. Acceptable for this non-commercial site.\n\n3. PRIMAP-hist v2.8: national emissions by sector, including agriculture, for 1750-2025. Released 2026-09-29. Gives an independent country-level cross-check on FAOSTAT.\n- URL: https://doi.org/10.5281/zenodo.22876287\n- Licence: CC BY-NC-SA 4.0 per Zenodo. Earlier versions were CC BY, so record the change.\n\n4. GCB 2025 national land-use-change emissions: country-level ELUC to sit alongside the global series.\n- XLSX: https://globalcarbonbudget.org/download/2348/\n- Data DOI: 10.18160/GCP-2025, CC BY 4.0.\n\n5. Other FAOSTAT domains the site will need. All are CC BY 4.0 under the FAO DB terms and all URLs were verified in datasets_E.json:\n- OA Population (DateUpdate 2026-03-09): the per-capita denominator.\n- RFN Fertilizers by Nutrient (2026-07-30): https://bulks-faostat.fao.org/production/Inputs_FertilizersNutrient_E_All_Data_(Normalized).zip\n- FO Forestry (2026-01-09).\n- GN Energy use in agriculture (2025-10-28).\n\n6. FAO GLEAM, 'Pathways towards lower emissions' (2023): FAO's own lifecycle estimate of livestock emissions, including feed and processing.\n- URL: https://doi.org/10.4060/cc9029en\n- Licence: CC BY-NC-SA 3.0 IGO per the OpenKnowledge record.\n\n7. NHM Biodiversity Intactness Index: a land-use-driven biodiversity indicator by country and year that complements the LPI.\n- v2.1.1: https://doi.org/10.5519/k33reyb6 (DataCite rights 'other-nc').\n- 1970-2050 country and region summaries: https://doi.org/10.5519/he1eqmg1 (CC BY-NC 4.0).\n\n8. Protected Planet WDPA (UNEP-WCMC and IUCN): needed to track the 30x30 target.\n- URL: https://www.protectedplanet.net\n- Restricted. The terms (protectedplanet.net/en/legal) forbid redistributing the data 'in whole or in part', but allow publishing derived statistics with the citation 'UNEP-WCMC and IUCN (year), Protected Planet'.\n- Use published coverage statistics only, or SDG 15.1.2 (which carries the same UN terms issue as the Red List Index).\n\n9. INPE PRODES and DETER via TerraBrasilis: Brazil's official Amazon and Cerrado deforestation series. Needed for the largest country in the drill-down.\n- URL: https://terrabrasilis.dpi.inpe.br (returns 200)\n- Licence not verified in this check.\n\n10. EAT-Lancet 2025: Lancet 406:1625-1700, doi 10.1016/S0140-6736(25)01201-2, confirmed in Crossref. Also cite the 2026 'issues and responses' correspondence (Lancet 407:758-762) if diet claims are made. Licence not verified.\n\n11. IPCC AR6 WGIII Chapter 7 (AFOLU) and the Special Report on Climate Change and Land: the authoritative assessment framing for land-sector emissions. The IPCC copyright policy was not checked. Note that the IPCC is on the US withdrawal list at (a)(xiv).\n\nContext for the gaps:\n- UN-REDD is also on the US withdrawal list, at (b)(xvii).\n- FAO and UNEP are not on the list."
+ }
+}

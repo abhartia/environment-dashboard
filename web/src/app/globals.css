@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
+
+/*
+ * Foundation tokens (stock shadcn structure, calm editorial palette). The design-direction milestone replaces the
+ * palette and type scale in docs/design-spec.md; components only ever use these variables, never raw colours.
+ */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Semantic tokens */
+  --color-link: var(--link);
+  --color-faint: var(--faint);
+  --color-grid: var(--grid);
+  --color-paper: var(--paper);
+  --color-warm: var(--warm);
+  --color-cool: var(--cool);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* Contrast on --background #faf9f6 (WCAG): foreground 16.9, muted-foreground 7.1, faint 5.2, link 8.2, input 3.1 (non-text),
+   warm 6.5, cool 5.6; chart series all >= 3:1 (non-text graphics, WCAG 1.4.11). */
+:root {
+  color-scheme: light;
+  --background: #faf9f6;
+  --foreground: #16181d;
+  --card: #ffffff;
+  --card-foreground: #16181d;
+  --popover: #ffffff;
+  --popover-foreground: #16181d;
+  --primary: #16181d;
+  --primary-foreground: #faf9f6;
+  --secondary: #efede7;
+  --secondary-foreground: #16181d;
+  --muted: #efede7;
+  --muted-foreground: #4f5560;
+  --accent: #efede7;
+  --accent-foreground: #16181d;
+  --destructive: #b42318;
+  --border: #dedad1;
+  --input: #8b8f97;
+  --ring: #1f4e79;
+  --radius: 0.5rem;
+  --link: #1f4e79;
+  --faint: #636975;
+  --grid: #e9e6de;
+  --paper: #f3f1ea;
+  /* Warming-stripes ends (ColorBrewer RdBu 11, colour-blind safe diverging). */
+  --warm: #b2182b;
+  --cool: #2166ac;
+  /* Categorical series: Okabe–Ito hues, darkened where needed to reach 3:1 on the background. */
+  --chart-1: #0072b2;
+  --chart-2: #c75400;
+  --chart-3: #007a5a;
+  --chart-4: #a8447f;
+  --chart-5: #946200;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: 4.5rem;
+  }
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  h1 {
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  a {
+    text-underline-offset: 3px;
+  }
+}
+
+/* Numbers: tabular figures so columns and changing values don't jitter. */
+@utility num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+/* A traced number in running text: dotted underline (not colour) says "this opens its source". */
+@utility traced {
+  font-variant-numeric: tabular-nums lining-nums;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: color-mix(in oklab, currentColor 55%, transparent);
+  text-underline-offset: 4px;
+}
+/* Small caps labels above headings and on figures. */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+/* Hashes, ids and file names on provenance pages. */
+@utility code-id {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+/* Long-form reading. Use with `prose`: className="prose article-ed". */
+@utility article-ed {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground);
+  --tw-prose-links: var(--link);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  max-width: 68ch;
+  @media (width >= 40rem) {
+    font-size: 1.125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

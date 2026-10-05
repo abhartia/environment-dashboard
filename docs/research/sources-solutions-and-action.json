@@ -1,0 +1,716 @@
+{
+ "research": {
+  "domain": "Solutions and what people can do (individual, community and policy levers; carbon inequality; whether the world is on track; which policies have worked)",
+  "sources": [
+   {
+    "name": "Drawdown Explorer: solutions table and per-solution assessment spreadsheets",
+    "publisher": "Project Drawdown",
+    "measures": "More than 100 climate solutions, each with a classification (Highly Recommended, Worthwhile, Keep Watching, Not Recommended, Coming Soon), sector, adoption unit, effectiveness (t CO2-eq (100-yr) per unit), current adoption, achievable adoption range, GHG impact (Gt CO2-eq (100-yr)/yr, low to high), cost (US$2023 per t CO2-eq), speed of action (Emergency Brake, Gradual, Delayed), pollutants, and co-benefits.",
+    "coverage": "Global, by solution. Achievable potential relative to a 2023 baseline. 165 rows in the CSV export: 58 Highly Recommended, 16 Worthwhile, 29 Keep Watching, 14 Not Recommended, 48 Coming Soon.",
+    "latest_release": "Explorer launched September 2025 and is updated continuously. Methodology v3 was published on Zenodo on 2025-12-23. CSV export Last-Modified was 2026-10-02. Solution pages show their own dates, e.g. Mobilize Electric Cars 'Last updated September 8, 2026'. Per-solution spreadsheets were published on Zenodo through 2026, e.g. Improve Diets and Use Heat Pumps on 2026-07-07.",
+    "update_cadence": "Rolling. Solutions are added and revised continuously, and the FAQ says all remaining solutions are expected during 2026.",
+    "landing_url": "https://drawdown.org/explorer",
+    "download_urls": [
+     "https://drawdown.org/explorer-solutions-table-export.csv",
+     "https://zenodo.org/api/communities/pdexplorer/records?size=100",
+     "https://zenodo.org/records/18037237/files/Drawdown%20Explorer%20Methodology%20-%20Dec%202025.pdf?download=1",
+     "https://zenodo.org/records/21246101",
+     "https://zenodo.org/records/21246268"
+    ],
+    "format": "CSV (UTF-8 with BOM; values use Unicode superscripts such as 1.4\u00d710\u2077 and ranges like '0.05 to 0.12', so a parser is needed). Per-solution XLSX on Zenodo. Methodology PDF.",
+    "license": "Explorer FAQ (https://drawdown.org/explorer/faqs): 'Please use our materials \u2013 the numbers, the graphics, the maps, the analysis \u2013 in your work.' and 'We only ask that you give credit to Project Drawdown, link to the appropriate page(s), and cite our work'. The per-solution assessment spreadsheets and the methodology on Zenodo are CC BY 4.0: all 25 sampled records in the pdexplorer community were cc-by-4.0, and the community has 39 records. Caveat: the generic site Terms of Use (https://drawdown.org/terms-of-use) contain restrictive boilerplate ('you won't use, copy, reproduce ... any Content not owned by you ... without the prior consent of the owner'). Build from the CC BY Zenodo spreadsheets to avoid that ambiguity.",
+    "redistribution": "open-attribution",
+    "citation": "Project Drawdown. (Year, Month Date). The Drawdown Explorer. http://drawdown.org/explorer. For methods: Project Drawdown et al. (2025). Methodology for Project Drawdown Solutions Assessments (v3). Zenodo. https://doi.org/10.5281/zenodo.18037237. Per-solution example: 'Improve Diets- Solution Assessment Spreadsheet', Zenodo, https://doi.org/10.5281/zenodo.21246101.",
+    "doi": "10.5281/zenodo.18037237 (methodology). Per-solution DOIs, e.g. 10.5281/zenodo.21246101 (Improve Diets) and 10.5281/zenodo.21246268 (Use Heat Pumps).",
+    "status": "Active and expanding (48 of 165 rows are still 'Coming Soon'). It is a non-profit and not exposed to US federal cuts.",
+    "url_check": "The FAQ page loaded and confirmed the September 2025 launch, 'over 100 solutions', the data-reuse wording and the citation format. The explorer page HTML links to /explorer-solutions-table-export.csv and to zenodo.org/records/18037237. The CSV returned HTTP 200 text/csv (34,720 bytes, Last-Modified 2026-10-02). Header: Action, Solution, Solution Classification, Mode, Sector, Cluster, Adoption Unit, Effectiveness..., Adoption Current, Adoption Achievable Range, GHG Impact Gt CO\u2082-eq (100-yr)/yr, Cost US$ per t CO\u2082-eq, ... Top rows by upper GHG impact: Utility-Scale Solar PV 9.20 to 11.00 Gt/yr; Onshore Wind 5.40 to 7.50; Diets 1.40 to 2.80 (cost -8.54 $/t); Food Loss & Waste 1.23 to 2.47; Electric Cars 1.26 to 2.30 (-1019 $/t). The Zenodo API for record 18037237 returned v3, 2025-12-23, cc-by-4.0. The Zenodo community pdexplorer API returned total 39 records, all cc-by-4.0 in the first 25. /explorer/mobilize-electric-cars returned 200, with a 'Methods and Supporting Data' section linking to the Zenodo community.",
+    "site_use": "Main 'what can be done at scale' view: a bubble or bar chart of solutions by GHG impact range against cost, filterable by sector and speed (Emergency Brake vs Gradual), linking each personal action to its system-scale solution (e.g. Diets, Electric Cars, Heat Pumps). Each solution card should link to its Zenodo spreadsheet DOI for traceability.",
+    "caveats": "Potentials are ranges and not strictly additive across solutions. Costs are relative to a 2023 baseline and some are hugely negative (e.g. Nonmotorized Transportation -1771 $/t). The CSV is regenerated as solutions change, so snapshot it with a hash and an access date. Do not compare it with the older 2017/2020 Drawdown 'Table of Solutions' numbers because the methodology changed.",
+    "priority": "core"
+   },
+   {
+    "name": "IPCC AR6 WGIII Summary for Policymakers (Figure SPM.6 demand-side potential, Figure SPM.7 mitigation options cost and potential in 2030) and Chapter 5 (demand-side mitigation)",
+    "publisher": "Intergovernmental Panel on Climate Change, Working Group III (Cambridge University Press). Figure data archived by the IPCC Data Distribution Centre on MetadataWorks.",
+    "measures": "SPM.7: net GHG emission reduction potential in 2030 (GtCO2-eq/yr) of 43 mitigation options, split by cost band (USD/tCO2-eq, from below 0 to 200). SPM.6 and Ch5: demand-side (avoid-shift-improve) potential by end-use sector in 2050, in % against a baseline.",
+    "coverage": "Global, by sector and option. Target year 2030 (SPM.7) and 2050 (SPM.6). Assessment based on literature up to about 2021, with about 175 underlying sources for SPM.7.",
+    "latest_release": "AR6 WGIII was published in 2022 and is still the latest IPCC mitigation assessment. The AR7 WGIII report has not been published as of 2026-10. SPM.7 figure data was published 2022-05-13 (DataCite).",
+    "update_cadence": "IPCC assessment cycle of roughly 6 to 8 years.",
+    "landing_url": "https://www.ipcc.ch/report/ar6/wg3/figures/summary-for-policymakers/figure-spm-7/",
+    "download_urls": [
+     "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_SummaryForPolicymakers.pdf",
+     "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Chapter05.pdf",
+     "https://doi.org/10.48490/ayfg-tv12 (SPM.7 data; currently resolves to a 404)",
+     "https://ipcc-data.climate.columbia.edu/content/ar6-wgiii-spm7 (Columbia mirror behind a Cloudflare challenge)"
+    ],
+    "format": "PDF (report). The figure data is described as an Excel workbook but was not retrievable.",
+    "license": "Report text and figures follow IPCC copyright (https://www.ipcc.ch/copyright/): 'You may freely download and copy the material ... for your personal, non-commercial use, without any right to resell or redistribute it or to compile or create derivative works', and 'figures cannot be altered in any way'. For any other use 'permission is required'. The figure data: a web snippet claimed CC BY 4.0, but the DataCite record for 10.48490/ayfg-tv12 has an empty rightsList, so the license is unverified.",
+    "redistribution": "unclear",
+    "citation": "IPCC, 2022: Summary for Policymakers. In: Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [P.R. Shukla, J. Skea, R. Slade, A. Al Khourdajie, R. van Diemen, D. McCollum, M. Pathak, S. Some, P. Vyas, R. Fradera, M. Belkacemi, A. Hasija, G. Lisboa, S. Luz, J. Malley (eds.)]. Cambridge University Press, Cambridge, UK and New York, NY, USA. doi:10.1017/9781009157926.001. Data: Babiker, M.; Sugiyama, M.; Cohen, B.; Toribio Ramirez, D.; Blok, K. (2022). Data for Figure SPM.7 - Summary for Policymakers of the Working Group III Contribution to the IPCC Sixth Assessment Report. MetadataWorks. doi:10.48490/ayfg-tv12.",
+    "doi": "10.1017/9781009157926.001 (SPM). 10.48490/ayfg-tv12 (SPM.7 data).",
+    "status": "The report is active (the PDFs return 200). The figure-data archive is at risk or broken. The DOI 10.48490/ayfg-tv12 redirects to ipcc-browser.ipcc-data.org/browser/dataset?id=447, which returns HTTP 404. ipcc-data.org returns 503. The former NASA SEDAC IPCC-DDC host (sedac.ciesin.columbia.edu) did not connect. The Columbia mirror serves a Cloudflare bot challenge.",
+    "url_check": "ipcc.ch figure pages returned 403 to WebFetch. With curl, the SPM.7 page HTML links to ipcc-browser.ipcc-data.org/browser/dataset?id=447, which returns 404. IPCC_AR6_WGIII_SummaryForPolicymakers.pdf returned 200 application/pdf (1.30 MB). Chapter05.pdf returned 200 (5.66 MB). Extracted SPM text: C.12 'Mitigation options costing USD100 tCO2-eq\u20131 or less could reduce global GHG emissions by at least half the 2019 level by 2030' and C.12.1 '(options costing less than USD20 tCO2-eq\u20131 are estimated to make up more than half of this potential)'. C.10: demand-side measures 'can reduce global GHG emissions in end-use sectors by 40\u201370% by 2050 compared to baseline scenarios'. DataCite API for 10.48490/ayfg-tv12 lists creators Babiker, Sugiyama, Cohen, Toribio Ramirez, Blok, publisher MetadataWorks, 2022, rightsList [], url pointing to the 404 page. The IPCC copyright page text was quoted directly.",
+    "site_use": "Authoritative framing statements, e.g. 'Options under $100/t could halve emissions by 2030' and 'Demand-side change could cut end-use emissions 40\u201370% by 2050'. Redraw SPM.7 as an original chart from the numbers, not a copy of the IPCC graphic, once the data workbook is recovered. Until then, show quoted SPM statements with page and paragraph references (C.10, C.12).",
+    "caveats": "Do not reproduce IPCC figures as images (no alteration permitted, non-commercial only, and permission needed for other uses). Restating facts and numbers with citation is fine. The SPM.7 potentials are not additive across options. The data is about 4 years old. Try to recover the SPM.7 workbook manually (e.g. via a human browser on the Columbia mirror, or by contacting the IPCC WGIII TSU) before relying on it.",
+    "priority": "core"
+   },
+   {
+    "name": "Ivanova et al. 2020: Quantifying the potential for climate change mitigation of consumption options (ERL systematic review)",
+    "publisher": "IOP Publishing / Environmental Research Letters (authors at Leeds, MCC Berlin, BOKU, SEI)",
+    "measures": "Mean (and range) GHG mitigation potential of 61 household consumption options in tCO2eq per capita per year, synthesised from 53 studies (about 7,000 data points). Covers mobility, housing/energy and food. Also reports average footprints (about 6 tCO2eq/cap global, 13.4 North America, 7.5 Europe, 1.7 Africa and Middle East).",
+    "coverage": "Mainly high-income countries (literature up to about 2019). Per-capita, annual.",
+    "latest_release": "Published 2020 (ERL 15, 093001). No updated edition.",
+    "update_cadence": "One-off peer-reviewed paper.",
+    "landing_url": "https://iopscience.iop.org/article/10.1088/1748-9326/ab8589",
+    "download_urls": [
+     "https://zenodo.org/api/records/4106717/files/ERL%20Ivanova%20etal%202020%20Potential%20consumption%20options%20climate%20change%20mitigation.pdf/content",
+     "https://iopscience.iop.org/article/10.1088/1748-9326/ab8589 (supplementary spreadsheet; IOP blocks automated download)"
+    ],
+    "format": "PDF (article). XLSX supplementary spreadsheet on IOP.",
+    "license": "CC BY 4.0. The article states: 'Original content from this work may be used under the terms of the Creative Commons Attribution 4.0 license. Any further distribution of this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI.' The Zenodo copy (record 4106717) is also cc-by-4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Ivanova, D., Barrett, J., Wiedenhofer, D., Macura, B., Callaghan, M., & Creutzig, F. (2020). Quantifying the potential for climate change mitigation of consumption options. Environmental Research Letters, 15(9), 093001. https://doi.org/10.1088/1748-9326/ab8589",
+    "doi": "10.1088/1748-9326/ab8589",
+    "status": "Active (static peer-reviewed article).",
+    "url_check": "WebFetch of the IOP article page succeeded. It gave the license text and the top options, with means in tCO2eq/cap/yr: living car-free 2.0; battery electric vehicle 2.0; one less long-haul flight 1.9; renewable electricity 1.5; refurbishment/renovation 0.9; vegan diet 0.9; heat pump 0.8; renewable-based heating 0.7; one less medium-haul flight 0.6; improved cooking equipment 0.6. Curl to IOP returned a 'Radware Bot Manager Captcha' page, so the supplementary xlsx URL could not be retrieved. The Zenodo API for record 4106717 returned 200 with cc-by-4.0 and a 2.0 MB PDF.",
+    "site_use": "Core 'What can I do?' ranking: a horizontal bar chart of mean potential with min\u2013max whiskers, colour-coded by domain (mobility, home, food). Each bar links to the matching Drawdown solution and to the calculators (DESNZ flights, Poore food, Ember grid).",
+    "caveats": "These are literature means, not additive, and depend on context (grid mix, baseline car, diet). They mostly reflect high-income consumers. Transcribe values from the paper's table or figure, record the table and figure number, and get the supplementary xlsx manually.",
+    "priority": "core"
+   },
+   {
+    "name": "Wynes & Nicholas 2017: The climate mitigation gap (high-impact individual actions), with the 2018 comment and reply",
+    "publisher": "IOP Publishing / Environmental Research Letters",
+    "measures": "Annual emission reductions (tCO2e/yr) of individual lifestyle actions for high-income individuals, compared with what textbooks and government guidance recommend. Values: one fewer child 58.6; live car-free 2.4; avoid one transatlantic return flight 1.6; plant-based diet 0.8.",
+    "coverage": "Developed countries (data from 39 sources). Annual, per person.",
+    "latest_release": "Published 2017 (ERL 12, 074024). Comment and reply published in ERL 13 (2018).",
+    "update_cadence": "One-off.",
+    "landing_url": "https://iopscience.iop.org/article/10.1088/1748-9326/aa7541",
+    "download_urls": [
+     "https://iopscience.iop.org/article/10.1088/1748-9326/aa7541",
+     "https://iopscience.iop.org/article/10.1088/1748-9326/aab213/pdf",
+     "https://eprints.lse.ac.uk/101023/1/Comment_on_The_climate_mitigation_gapeducation_and_government_recommendations_missthe_most_effective_individual_actions_.pdf",
+     "https://iopscience.iop.org/article/10.1088/1748-9326/aab210"
+    ],
+    "format": "HTML/PDF article. Supplementary material at stacks.iop.org/ERL/12/074024/mmedia.",
+    "license": "CC BY 3.0: 'Original content from this work may be used under the terms of the Creative Commons Attribution 3.0 licence.'",
+    "redistribution": "open-attribution",
+    "citation": "Wynes, S., & Nicholas, K. A. (2017). The climate mitigation gap: education and government recommendations miss the most effective individual actions. Environmental Research Letters, 12(7), 074024. https://doi.org/10.1088/1748-9326/aa7541. Critique: van Basshuysen, P., & Brandstedt, E. (2018). Comment on 'The climate mitigation gap...'. ERL 13, 048001. https://doi.org/10.1088/1748-9326/aab213",
+    "doi": "10.1088/1748-9326/aa7541 (critique: 10.1088/1748-9326/aab213; reply: 10.1088/1748-9326/aab210)",
+    "status": "Active (static).",
+    "url_check": "WebFetch of the IOP article page succeeded: CC BY 3.0 text and values 58.6, 2.4, 1.6 and 0.8 tCO2e/yr. The LSE eprints PDF of the critique returned 200 application/pdf. The critique's main point, confirmed in its abstract: the 'one fewer child' figure relies on multiple counting of descendants' emissions and assumes trajectories that never reach net zero.",
+    "site_use": "Secondary comparison with Ivanova. Most useful for the 'recommendations miss the big actions' story (e.g. recycling or bulbs versus car-free living). Show the critique next to it.",
+    "caveats": "Do not headline '58.6 t per child'. It uses the Murtaugh & Schlax descendant-legacy accounting, which is contested (multiple counting, no net-zero scenarios). The values are older than Ivanova's. Prefer Ivanova as the default ranking.",
+    "priority": "secondary"
+   },
+   {
+    "name": "SEI Emissions Inequality Dashboard (global consumption CO2 by income percentile)",
+    "publisher": "Stockholm Environment Institute (SEI), in partnership with Oxfam",
+    "measures": "Shares of global income, population and consumption-based CO2 emissions for each global income percentile, with finer slices of the top 1% (down to p99.999\u2013p100). Also country-level shares and totals, Theil decomposition (between and within countries), and SSP/RCP scenario projections.",
+    "coverage": "Historical 1990\u20132023 (the API returned 2023 records). Built from national consumption emissions combined with income distributions. The About page says 117 countries; the API country totals sum to a population of 7.87 billion in 2023.",
+    "latest_release": "Historical series through 2023, using the 2023 methodology update ('Climate Equality' 2023 and later). The figures Oxfam used in its 2025 releases come from this SEI research.",
+    "update_cadence": "Irregular (about yearly alongside Oxfam/SEI releases).",
+    "landing_url": "https://emissions-inequality.org/",
+    "download_urls": [
+     "https://www.sei-eqtrans-dev.net/api/globalHistoricalDataByYear/search.php?startyear=2023&endyear=2023",
+     "https://www.sei-eqtrans-dev.net/api/historicalData/search.php?country=USA&startyear=1990&endyear=2023",
+     "https://www.sei-eqtrans-dev.net/api/countryTotals/search.php?startyear=1990&endyear=2023",
+     "https://www.sei-eqtrans-dev.net/api/theilsDataByYear/search.php?startyear=1990&endyear=2023",
+     "https://emissions-inequality.org/api/"
+    ],
+    "format": "JSON REST (records arrays with string-typed numbers).",
+    "license": "About page: 'Stockholm Environment Institute (SEI) holds the copyright of the Emissions Inequality Dashboard. It is licensed under Creative Commons and you are free to copy and redistribute material derived from the platform by following the guidelines of the Creative Commons License: CC BY'.",
+    "redistribution": "open-attribution",
+    "citation": "Emily Ghosh, Anisha Nazareth, Guozhong Wang, Sivan Kartha, Eric Kemp-Benedict (2021). Emissions Inequality Dashboard. Stockholm Environment Institute (SEI). https://emissions-inequality.org",
+    "doi": "none (no DOI found)",
+    "status": "Active. Risk: the API is served from a domain named 'sei-eqtrans-dev.net' ('dev'), which could change without notice. Snapshot the responses.",
+    "url_check": "emissions-inequality.org/api/ listed 10 endpoints. GET globalHistoricalDataByYear?startyear=2023&endyear=2023 returned 200 JSON with 127 percentile records (p0p1 ... p99.999p100), fields Year, PercentileLabel, IncomeShare, EmissionShare, PopulationShare, Elasticity. Sums for 2023: top 10% EmissionShare 0.4708, top 1% 0.1655, bottom 50% 0.0842. For 2019: top 10% 0.4882, top 1% 0.1674, bottom 50% 0.0807. countryTotals for 2022\u20132023 returned SumPopulation 7,874,803,317 and SumNatEmisions 36,098,021,418 for 2023.",
+    "site_use": "Carbon-inequality drilldown: a 'carbon staircase' (emissions share against population share by global income percentile), a toggle for year 1990\u20132023, and a click into top 10%, top 1% and top 0.1%. Supports the message that both systemic policy and high-emitter lifestyle change matter.",
+    "caveats": "These are consumption-based CO2 only (not all GHGs). The figures depend on an income\u2013emissions elasticity assumption and an emissions ceiling (Oxfam 2025 raised the ceiling from 300 to 3,000 tCO2/cap). Dashboard numbers differ from Oxfam's printed ones (e.g. top 1% in 2019 is 16.7% here versus 15.9% in Oxfam's Jan 2025 release), so always state the access date.",
+    "priority": "core"
+   },
+   {
+    "name": "Oxfam/SEI 'Climate Equality: A planet for the 99%' (2023) and Oxfam 2025 carbon-inequality releases",
+    "publisher": "Oxfam International (analysis by SEI)",
+    "measures": "Narrative report and datasets on emissions by income group (e.g. richest 1% = 16% of 2019 consumption emissions), billionaire and investment emissions, and heat-related deaths attributed to the emissions of the rich.",
+    "coverage": "Global, 1990\u20132019 (2023 report). 2025 releases ('Carbon Inequality Kills', Jan 2025; 'Climate Plunder', Oct 2025).",
+    "latest_release": "Climate Equality published 2023-11-20 (DOI 10.21201/2023.000001), with 'Dataset one' (113 KB) and 'Dataset two' (61 MB). The Oxfam press release of 2025-01-10 gives the top 1% at 15.9% of 2019 CO2 and 76 t/yr per capita, against 0.7 t/yr for the poorest 50%.",
+    "update_cadence": "Irregular, campaign-driven.",
+    "landing_url": "https://policy-practice.oxfam.org/resources/climate-equality-a-planet-for-the-99-621551/",
+    "download_urls": [
+     "https://oxfamilibrary.openrepository.com/bitstreams/4f078a19-e349-4c18-8f53-4ccc1d1d2611/download",
+     "https://oxfamilibrary.openrepository.com/server/api/pid/find?id=10546/621551"
+    ],
+    "format": "PDF report, methodology note, XLSX datasets.",
+    "license": "Oxfam copyright & permissions: use for advocacy, education and research with attribution is allowed, but 'If you wish to make commercial use of any of our material, or if you wish to make any alterations or modifications (including translations), you must contact us for permission.' The DSpace record has no rights metadata.",
+    "redistribution": "noncommercial-only",
+    "citation": "Khalfan, A., Nilsson Lewis, A., Aguilar, C., Lawson, M., Jayoussi, S., Persson, J., Dabi, N., Acharya, S. (2023). Climate Equality: A planet for the 99%. Oxford: Oxfam International. https://doi.org/10.21201/2023.000001",
+    "doi": "10.21201/2023.000001",
+    "status": "Active.",
+    "url_check": "The policy-practice.oxfam.org page returned 200. It lists the date 20/11/2023, the authors, the DOI, and the documents (English paper 9 MB, methodology note 609 KB, Dataset one 113 KB, Dataset two 61 MB) with oxfamilibrary bitstream links. The DSpace API pid/find returned dc.date.issued 2023-11-20 and the DOI, but no rights field. The copyright page text was quoted. WebFetch of the Oxfam press release (2025-01-10) gave: top 1% share of 2019 = 15.9%, 76 t/yr; poorest 50% = 0.7 t/yr; per-capita 1.5\u00b0C budget 2.1 t.",
+    "site_use": "Cite only for context and link out. Do not redistribute Oxfam's datasets or modified figures. Use the SEI dashboard (CC BY) for the numbers instead.",
+    "caveats": "Advocacy publication. The no-modification clause conflicts with offering derived CSVs. Its numbers differ from current SEI dashboard values because the methodology was updated.",
+    "priority": "avoid"
+   },
+   {
+    "name": "World Inequality Lab: Chancel (2022) 'Global carbon inequality over 1990\u20132019' (WID.world carbon series)",
+    "publisher": "World Inequality Lab (Paris School of Economics). Paper in Nature Sustainability.",
+    "measures": "Per-capita GHG footprints (consumption plus wealth/investment-based) by global and national income group. 2019: bottom 50% about 1.6 t (12% of total), middle 40% 6.6 t (40.4%), top 10% 31 t (47.6%), top 1% about 17%. In 2019, 63% of individual-emission inequality was within countries.",
+    "coverage": "Global and national, 1990\u20132019.",
+    "latest_release": "Nature Sustainability 5, 931\u2013938 (2022). Replication 'Codes & Data' are on Dropbox via lucaschancel.com. WID.world updates its carbon series periodically, but the latest vintage could not be verified because the wid.world pages return JS-only shells to automated fetch.",
+    "update_cadence": "Irregular (World Inequality Report editions; WID.world updates).",
+    "landing_url": "https://lucaschancel.com/global-carbon-inequality-1990-2019/",
+    "download_urls": [
+     "https://www.dropbox.com/s/uioswzvlmo3p0iw/Codes%20%26%20Data%20-%20Nat%20Sust%202022.zip?dl=1",
+     "https://www.dropbox.com/scl/fi/tfyk1z7grdii3vehlusx8/Chancel2022NatSust-Figures-01.xlsx?rlkey=zqr4ka5qixsuiah3wz534osaf&dl=1",
+     "https://wid.world/data/"
+    ],
+    "format": "ZIP (Stata code and data), XLSX figure data, PDF.",
+    "license": "Unverified. The Nature Sustainability article is not under a CC license (no licence field on nature.com). The Dropbox replication files carry no license. WID.world's terms page returned an empty or JS-only body, so its data license could not be confirmed.",
+    "redistribution": "unclear",
+    "citation": "Chancel, L. (2022). Global carbon inequality over 1990\u20132019. Nature Sustainability, 5, 931\u2013938. https://doi.org/10.1038/s41893-022-00955-z",
+    "doi": "10.1038/s41893-022-00955-z",
+    "status": "Active, but the data is on personal Dropbox, which is fragile hosting.",
+    "url_check": "nature.com article page returned 200. Data availability: 'available at https://lucaschancel.com/global-carbon-inequality-1990-2019/ and on request'. No CC licence field found. lucaschancel.com returned 200 with four Dropbox links (codes & data zip, figures xlsx, SI pdf, main pdf). wid.world/terms-of-use, /world/ and /data/ returned tiny JS shells (114 bytes), so the license could not be read. wir2026.wid.world and wir2022.wid.world did not connect.",
+    "site_use": "Methodological cross-check for the SEI dashboard, and a quote for 'inequality within countries now dominates'. Do not offer as CSV until the license is confirmed with WIL.",
+    "caveats": "Includes investment-based emissions, which SEI does not, so its numbers are not interchangeable with SEI's. License is unclear.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Carbon Budget 2025: national fossil CO2 emissions, territorial and consumption-based (with the Our World in Data processed version)",
+    "publisher": "Global Carbon Project (ICOS Carbon Portal). Derived charts by Our World in Data.",
+    "measures": "National territorial and consumption-based (trade-adjusted) fossil CO2 emissions (MtC, converted to MtCO2 by \u00d73.664), and per-capita values.",
+    "coverage": "About 220 countries and regional aggregates. Consumption-based 1990\u20132023 for countries; the OWID World series runs to 2024.",
+    "latest_release": "GCB 2025 (v15). ICOS object National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (DOI 10.18160/GCP-2025). The GCB 2025 paper is in ESSD 18, 3211 (2026), Zenodo 22748763. OWID last updated 2025-11-13, with the next update expected 2026-11-13 (GCB 2026).",
+    "update_cadence": "Annual (November, around COP).",
+    "landing_url": "https://www.icos-cp.eu/impact/science/global-carbon-budget/2025",
+    "download_urls": [
+     "https://data.icos-cp.eu/licence_accept?ids=%5B%22loCXyssaalv6DPdO6Qdj90qQ%22%5D",
+     "https://meta.icos-cp.eu/objects/loCXyssaalv6DPdO6Qdj90qQ",
+     "https://zenodo.org/api/records/17417124/files/GCB2025v15_MtCO2_flat.csv/content",
+     "https://ourworldindata.org/grapher/consumption-co2-per-capita.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/consumption-co2-per-capita.metadata.json"
+    ],
+    "format": "XLSX (ICOS; download needs a click-through licence acceptance, no account). CSV (Zenodo territorial flat files; OWID).",
+    "license": "ICOS metadata for all three GCB 2025 objects: 'ICOS CCBY4 Data Licence' (CC BY 4.0). Zenodo record 17417124 (fossil CO2 2025v15) is cc-by-4.0. OWID's indicator metadata lists origin license 'CC BY 4.0' (https://www.icos-cp.eu/data-services/about-data-portal/data-license).",
+    "redistribution": "open-attribution",
+    "citation": "Friedlingstein, P. et al. (2026). Global Carbon Budget 2025. Earth System Science Data, 18, 3211. https://doi.org/10.5194/essd-18-3211-2026. Data: Global Carbon Project (2025). National Fossil Carbon Emissions 2025 v1.0, ICOS. https://doi.org/10.18160/GCP-2025. If using OWID: 'Global Carbon Budget (2025); Population based on various sources (2024) \u2013 with major processing by Our World in Data'. Territorial flat files: Andrew, R. M., & Peters, G. P. (2025). The Global Carbon Project's fossil CO2 emissions dataset (2025v15). Zenodo. https://doi.org/10.5281/zenodo.17417124",
+    "doi": "10.18160/GCP-2025 (data). 10.5194/essd-18-3211-2026 (paper). 10.5281/zenodo.17417124 (territorial v15).",
+    "status": "Active. Not a US federal product. Next release expected around November 2026.",
+    "url_check": "doi.org/10.18160/GCP-2025 redirected to icos-cp.eu/impact/science/global-carbon-budget/2025 (200), which links three ICOS objects. The meta.icos-cp.eu JSON returned fileName National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (755,198 bytes), doi 10.18160/GCP-2025, licence 'ICOS CCBY4 Data Licence'. The Zenodo API for 17417124 returned v15 (2025-10-22, cc-by-4.0) with GCB2025v15_MtCO2_flat.csv and percapita/population files. The OWID CSV returned columns entity, code, year, consumption_emissions_per_capita. Latest values: World 2024 4.73 t; United States 2023 15.81; China 2023 7.63; EU-27 2023 7.33; UK 2023 7.09; India 2023 1.77; Africa 2023 0.99; high-income 2023 11.09; low-income 2023 0.09. OWID metadata: lastUpdated 2025-11-13, nextUpdate 2026-11-13.",
+    "site_use": "The 'my country's footprint' entry point: a map and ranking of consumption-based per-capita CO2, a toggle between territorial and consumption-based, and a compare-to-world-average marker. It feeds the 'what can I do' page by showing where a visitor starts.",
+    "caveats": "OWID's processing changes values. OWID converts C to CO2 with \u00d73.664 (which GCB also recommends) but divides by OWID's own population series, not GCB's, so per-capita values can differ slightly from GCB's percapita files. Consumption data lags territorial data by one year. Fossil CO2 only (no land use, no non-CO2). Store the exact ICOS file hash.",
+    "priority": "core"
+   },
+   {
+    "name": "Poore & Nemecek (2018) food life-cycle emissions (via the Our World in Data processed series)",
+    "publisher": "University of Oxford / Agroscope (Science 2018). Processed series by Our World in Data.",
+    "measures": "Median life-cycle GHG emissions (kgCO2eq) per kg of product, per 100 g protein, and per 1,000 kcal, for about 40 food products (farm to retail, including land-use change).",
+    "coverage": "Global meta-analysis of about 38,700 farms and 1,600 processors in 119 countries. Reference year 2010.",
+    "latest_release": "Science 2018. ORA dataset deposit 'LCA Meta-Analysis of Food Products - Full Model v0' (DOI 10.5287/bodleian:0z9MYbMyZ). OWID indicator lastUpdated 2019-10-08.",
+    "update_cadence": "Static.",
+    "landing_url": "https://ourworldindata.org/grapher/ghg-per-protein-poore",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/ghg-per-protein-poore.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/ghg-per-kg-poore.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1206176.metadata.json",
+     "https://ora.ox.ac.uk/objects/uuid:a63fb28c-98f8-4313-add6-e9eca99320a5"
+    ],
+    "format": "CSV (OWID). XLSX full model (17.4 MB) on ORA.",
+    "license": "OWID publishes its charts and data under CC BY 4.0, but third-party data remains subject to the original terms. The ORA deposit shows 'Licence: Terms and Conditions of Use for Oxford University Research Archive' (not CC). The Science article is paywalled.",
+    "redistribution": "unclear",
+    "citation": "Poore, J., & Nemecek, T. (2018). Reducing food's environmental impacts through producers and consumers. Science, 360(6392), 987\u2013992. https://doi.org/10.1126/science.aaq0216. Data via 'Poore and Nemecek (2018) \u2013 processed by Our World in Data'. Dataset: Poore, J. (2018). LCA Meta-Analysis of Food Products. University of Oxford. https://doi.org/10.5287/bodleian:0z9MYbMyZ",
+    "doi": "10.1126/science.aaq0216 (paper). 10.5287/bodleian:0z9MYbMyZ (dataset).",
+    "status": "Active (static).",
+    "url_check": "The OWID ghg-per-kg-poore CSV returned 200: beef (beef herd) 99.48, dark chocolate 46.65, lamb & mutton 39.72, beef (dairy herd) 33.3, coffee 28.53 kgCO2eq/kg; potatoes 0.46, apples 0.43. Metadata: unit kgCO2eq per kilogram, lastUpdated 2019-10-08, citation 'Poore and Nemecek (2018) \u2013 processed by Our World in Data'. The ghg-per-protein-poore CSV returned (per 100 g protein): beef herd 49.89, lamb 19.85, cheese 10.82, pig 7.61, poultry 5.70, eggs 4.21, tofu 1.975, other pulses 0.836, peas 0.441, nuts 0.263. The ORA page returned 200, showing DOI 10.5287/bodleian:0z9MYbMyZ, the full-model xlsx (17.4 MB), and the ORA Terms licence.",
+    "site_use": "Food drilldown: ranked bars per 100 g protein and per kg, a 'swap' explorer (beef to beans, dairy milk to soy), and links to Drawdown 'Improve Diets' (1.4\u20132.8 Gt/yr) and Ivanova 'vegan diet 0.9 t/cap/yr'.",
+    "caveats": "These are global medians with large spread (the 10th\u201390th percentile range matters, e.g. low-impact beef is still far above plant proteins). Reference year 2010. Before offering CSV downloads, confirm reuse with OWID and the Oxford authors, or offer only a link to OWID's download rather than re-hosting.",
+    "priority": "core"
+   },
+   {
+    "name": "UK Government GHG Conversion Factors for Company Reporting 2026 (DESNZ), for flight, home-energy and travel calculators. US EPA equivalents noted.",
+    "publisher": "UK Department for Energy Security and Net Zero (DESNZ) / DEFRA. For comparison: US EPA GHG Emission Factors Hub and eGRID.",
+    "measures": "Emission factors in kg CO2e per unit (passenger.km for flights by haul and seat class, with and without radiative forcing (RF); kWh for electricity and natural gas; litres of fuel; vehicle km for cars by size and powertrain; hotel nights, etc.), with gas-by-gas splits and separate well-to-tank (WTT) factors.",
+    "coverage": "UK-focused factors, plus international flights to and from the UK, overseas electricity, and hotel stays by country. Annual vintages since 2002.",
+    "latest_release": "Conversion factors 2026: first published 2026-06-11. The flat file was revised to version 1.2 (updated 2026-07-10, republished 2026-07-31) to fix values wrongly shown as 0. Next publication June 2027.",
+    "update_cadence": "Annual (June).",
+    "landing_url": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+    "download_urls": [
+     "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx",
+     "https://assets.publishing.service.gov.uk/media/6a29392bade52dc0882218a8/ghg-conversion-factors-2026-full-set.xlsx",
+     "https://assets.publishing.service.gov.uk/media/6a2940543b15d05a7ce3202e/2026-GHG-conversion-factors-methodology-report.pdf",
+     "https://www.gov.uk/api/content/government/publications/greenhouse-gas-reporting-conversion-factors-2026"
+    ],
+    "format": "XLSX (flat file, one row per factor with ID, Scope, Level 1\u20134, Column Text, UOM, GHG/Unit, value). PDF methodology. JSON via the GOV.UK content API.",
+    "license": "Open Government Licence v3.0. The GOV.UK page footer says: 'All content is available under the Open Government Licence v3.0, except where otherwise stated \u00a9 Crown copyright'. OGL allows commercial and non-commercial reuse and adaptation with attribution ('Contains public sector information licensed under the Open Government Licence v3.0').",
+    "redistribution": "open-attribution",
+    "citation": "Department for Energy Security and Net Zero (2026). Greenhouse gas reporting: conversion factors 2026 (flat file v1.2). GOV.UK. https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026. Contains public sector information licensed under the Open Government Licence v3.0.",
+    "doi": "none",
+    "status": "Active, annual, latest published June 2026. By contrast, the US EPA GHG Emission Factors Hub's latest edition is '2025' (January 2025), with no 2026 edition on a page last updated 2026-01-12. EPA eGRID's latest is eGRID2023 on a page last updated 2026-09-21. Treat EPA factors as stale or at risk and use them only for US-specific cross-checks (EPA content is US public domain).",
+    "url_check": "GOV.UK content API (collection) returned 200, listing 'Greenhouse gas reporting: conversion factors 2026' (public_updated_at 2026-07-31). The publication API listed 4 attachments with asset URLs and sizes (full set 2.11 MB, flat file 515 KB, methodology 1.76 MB). The flat xlsx parsed. Its front page says 'Version: 1.2 ... Next publication date: 2027-06-01'. Row 21_316_3170_11_1 (Long-haul, to/from UK, Economy class, With RF): 0.11704 kg CO2e/passenger.km. Row 21_316_3171_11_1 (Without RF): 0.06926. Domestic average With RF: 0.22928. The methodology PDF says the published factors already include the 8% great-circle uplift and the RF uplift ('The figures in Table 38 DO NOT include the 8% uplift for Great Circle distance NOR the uplift ... which are applied to the conversion factors provided in the 2026 GHG Conversion Factors set'). It recommends an RF multiplier of 1.7 (Lee et al. 2021). EPA hub page returned 200 and lists '2025 GHG Emission Factors Hub (xlsx) ... January 2025'. eGRID page returned 200 and references eGRID2023.",
+    "site_use": "Powers transparent calculators: 'your flight' (great-circle distance \u00d7 factor, showing both the with-RF and without-RF values), 'your car' per km, and 'your gas boiler vs heat pump' per kWh, combined with Ember grid intensity for non-UK countries. Every calculator output should show the factor ID (e.g. 21_316_3170_11_1) and the vintage.",
+    "caveats": "Factors are UK reporting averages and not universal. Do not add another 8% distance uplift (it is already included). WTT emissions are separate rows. The RF choice changes flight results by about 1.7\u00d7, so always show both. Calculators must use these documented factors directly, with no invented defaults.",
+    "priority": "core"
+   },
+   {
+    "name": "Ember Yearly Electricity Data (electricity generation mix and CO2 intensity by country)",
+    "publisher": "Ember (Ember Energy Research CIC)",
+    "measures": "Electricity generation by source (TWh and %), capacity, demand, power-sector emissions (MtCO2) and CO2 intensity (gCO2/kWh) by country and region.",
+    "coverage": "About 215 countries plus aggregates. Annual 2000\u20132025.",
+    "latest_release": "The yearly full-release CSV was Last-Modified 2026-06-23 and contains 2025 values. The Ember data page says 'Last Updated: 15/09/2026'.",
+    "update_cadence": "Annual major release (Global Electricity Review, about April\u2013June) plus monthly data.",
+    "landing_url": "https://ember-energy.org/data/yearly-electricity-data/",
+    "download_urls": [
+     "https://storage.googleapis.com/emb-prod-bkt-publicdata/public-downloads/yearly_full_release_long_format.csv"
+    ],
+    "format": "CSV, long format (Area, ISO 3 code, Year, Area type, Continent, Ember region, EU, OECD, G20, G7, ASEAN, Category, Subcategory, Variable, Unit, Value, YoY changes). About 49 MB.",
+    "license": "Site footer: 'All content is released under a Creative Commons Attribution Licence (CC-BY-4.0).'",
+    "redistribution": "open-attribution",
+    "citation": "Ember (2026). Yearly Electricity Data. https://ember-energy.org/data/yearly-electricity-data/ (accessed 2026-10-04). Licensed under CC BY 4.0.",
+    "doi": "none",
+    "status": "Active (non-profit, UK).",
+    "url_check": "HEAD on the GCS CSV returned 200, content-length 49,079,981, last-modified 2026-06-23. Parsed 'CO2 intensity' for 2025 (gCO2/kWh): World 458.49; China 526.19; India 670.55; United States 384.4; Germany 329.65; Poland 590.8; United Kingdom 217.41; France 41.45; Norway 28.1. The data page returned 200 with the CC-BY-4.0 footer and 'Last Updated: 15/09/2026'.",
+    "site_use": "Gives country context for 'does an EV or heat pump help where I live?': grid intensity map and trend, used inside the EV and heat-pump explainer next to ICCT and Knobloch results.",
+    "caveats": "Ember's CO2 intensity appears to use lifecycle emission factors. The UK value of 217 g is above typical direct-combustion estimates, so check Ember's methodology note before mixing it with DESNZ's UK electricity factor. Do not combine the two in a single calculation without stating the basis.",
+    "priority": "core"
+   },
+   {
+    "name": "ICCT: Life-cycle greenhouse gas emissions from passenger cars in the European Union, 2025 update (plus 2021 global comparison)",
+    "publisher": "International Council on Clean Transportation (ICCT)",
+    "measures": "Life-cycle GHG emissions (g CO2e/km) of medium-segment cars by powertrain (gasoline, diesel and CNG ICEV, HEV, PHEV, BEV, FCEV), covering vehicle and battery production and recycling, fuel and electricity production, use, and maintenance.",
+    "coverage": "EU, cars registered in 2025, electricity mix projected for 2025\u20132044. The 2021 report also covers the US, China and India.",
+    "latest_release": "Published 2025-07-08 (report ID 392, Negri & Bieker).",
+    "update_cadence": "Irregular (about every 2\u20134 years).",
+    "landing_url": "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/",
+    "download_urls": [
+     "https://theicct.org/wp-content/uploads/2025/07/ID-392-%E2%80%93-Life-cycle-GHG_report_final.pdf",
+     "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/"
+    ],
+    "format": "PDF (38 pages). No machine-readable data file found.",
+    "license": "The report shows '\u00a9 2025 International Council on Clean Transportation (ID 392)'. No Creative Commons license was found in the PDF or on the page.",
+    "redistribution": "unclear",
+    "citation": "Negri, M., & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/",
+    "doi": "none",
+    "status": "Active.",
+    "url_check": "WebFetch returned 403. Curl with a full browser user agent returned 200 for the publication page and the PDF (1,235,655 bytes, 38 pages, read with pypdf). Page text: 'BEVs operating on the projected 2025\u20132044 average EU electricity mix had estimated life-cycle GHG emissions of 63 g CO2e/km. This is 73% lower than the emissions of gasoline ICEVs ... estimated at 235 g CO2e/km'. Key findings: '73% to 78%' (up to 78% with renewables only). The press release of 2025-07-08 said this is '24% improvement over our 2021 estimates'. PDF page 2 shows only '\u00a9 2025 International Council on Clean Transportation'. The WP JSON search API worked and listed related posts.",
+    "site_use": "Transport drilldown: show the 63 vs 235 g/km comparison as a cited fact, redrawn as a simple original chart from the stated numbers, with a link to ICCT. Pair with Ember grid intensity for other regions.",
+    "caveats": "EU-specific and depends on assumptions about future grid decarbonisation. With no open license, cite the numbers but do not re-host the PDF or redistribute derived tables in bulk. Ask ICCT for permission if CSV export is wanted.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Knobloch et al. 2020: net emission reductions from electric cars and heat pumps in 59 world regions",
+    "publisher": "Nature Sustainability (Springer Nature)",
+    "measures": "Life-cycle emissions of electric cars and heat pumps compared with fossil alternatives, by world region, now and to 2050. Main finding: they are already lower-emitting in 53 of 59 regions, which cover 95% of global transport and heating demand.",
+    "coverage": "59 world regions. 2015 to 2050 projections.",
+    "latest_release": "Nature Sustainability 3, 437\u2013447 (published 2020-03-23).",
+    "update_cadence": "One-off.",
+    "landing_url": "https://www.nature.com/articles/s41893-020-0488-7",
+    "download_urls": [
+     "https://www.nature.com/articles/s41893-020-0488-7 (supplementary tables)"
+    ],
+    "format": "HTML/PDF article. Supplementary tables.",
+    "license": "No CC license found (no licence field on nature.com; Europe PMC shows isOpenAccess N). The data availability statement says 'The main data that support the findings of this study are available as supplementary tables.'",
+    "redistribution": "unclear",
+    "citation": "Knobloch, F., Hanssen, S. V., Lam, A., Pollitt, H., Salas, P., Chewpreecha, U., Huijbregts, M. A. J., & Mercure, J.-F. (2020). Net emission reductions from electric cars and heat pumps in 59 world regions over time. Nature Sustainability, 3, 437\u2013447. https://doi.org/10.1038/s41893-020-0488-7",
+    "doi": "10.1038/s41893-020-0488-7",
+    "status": "Active (static).",
+    "url_check": "The Europe PMC REST API returned the title, authors, Nature Sustainability 3:437-447, 2020-03-23 and the abstract ('already under current carbon intensities ... less emission-intensive than fossil fuel-based alternatives in 53 world regions, representing 95% of global transport and heating demand'). The nature.com page returned 200 with the data availability statement and no CC licence.",
+    "site_use": "Gives the global answer to 'is it true everywhere?' in the EV and heat-pump explainer, as a cited sentence plus a link.",
+    "caveats": "Based on data from 2015 and earlier; grids have since decarbonised further. Paywalled, so cite and link, and do not re-host the supplementary tables.",
+    "priority": "secondary"
+   },
+   {
+    "name": "UNEP Emissions Gap Report 2025: 'Off Target'",
+    "publisher": "United Nations Environment Programme (UNEP), with the UNEP Copenhagen Climate Centre",
+    "measures": "Global GHG emissions (GtCO2e incl. LULUCF), the gap between NDC or policy trajectories and 1.5\u00b0C and 2\u00b0C pathways in 2030 and 2035 (GtCO2e), and warming projections for 2100 by scenario.",
+    "coverage": "Global, with G20 detail. Emissions through 2024. Projections to 2100.",
+    "latest_release": "16th edition, published November 2025 (Crossref issued 2025-11). ISBN 9789280742398.",
+    "update_cadence": "Annual (before COP, about October\u2013November). The 2026 edition should come out around November 2026.",
+    "landing_url": "https://www.unep.org/resources/emissions-gap-report-2025",
+    "download_urls": [
+     "https://wedocs.unep.org/bitstream/handle/20.500.11822/48854/EGR2025.pdf?sequence=3&isAllowed=y",
+     "https://doi.org/10.59117/20.500.11822/48854",
+     "https://unepccc.org/publications/emissions-gap-report-2025/"
+    ],
+    "format": "PDF (76 pages). No figure-data files were found on the UNEP-CCC page.",
+    "license": "Not verified this session: wedocs.unep.org and unep.org serve a Cloudflare 'Just a moment...' challenge and returned 403. Earlier EGR editions carried UNEP's standard 'reproduced ... for educational or non-profit services without special permission ... provided acknowledgement' and 'no use ... for resale or any other commercial purpose' wording. Confirm on the imprint page of the 2025 PDF.",
+    "redistribution": "unclear",
+    "citation": "United Nations Environment Programme (2025). Emissions Gap Report 2025: Off Target \u2013 Continued collective inaction puts global temperature goal at risk. Nairobi. https://doi.org/10.59117/20.500.11822/48854",
+    "doi": "10.59117/20.500.11822/48854",
+    "status": "Active, annual.",
+    "url_check": "The Crossref CSL-JSON for 10.59117/20.500.11822/48854 returned the title, publisher UNEP, issued 2025-11, ISBN 9789280742398, and the abstract: 'warming projections ... based on full implementation of NDCs, are now 2.3-2.5\u00b0C, while those based on current policies are 2.8\u00b0C', and 'Reductions ... of 35 per cent and 55 per cent, compared with 2019 levels, are needed in 2035 to align with the Paris Agreement 2\u00b0C and 1.5\u00b0C pathways'. doi.org redirects to wedocs.unep.org, which returned a Cloudflare challenge (403) to curl and WebFetch. Carbon Brief (2025-11-04, via WebFetch) reported 2024 emissions of 57.7 GtCO2e (+2.3% on 2023). That figure is secondary until checked against the PDF.",
+    "site_use": "'Is the world on track?' header: a gap chart (current policies vs NDCs vs 2\u00b0C and 1.5\u00b0C in 2035) and a thermometer, cross-checked against CAT. Quote the 35% and 55% cuts needed by 2035.",
+    "caveats": "Download the PDF by hand and archive it, because the server blocks automation. The license is probably non-commercial, which is acceptable here but must be confirmed. The numbers include LULUCF and differ from GCB's fossil-CO2-only totals.",
+    "priority": "core"
+   },
+   {
+    "name": "Climate Action Tracker: CAT Thermometer, emissions gaps and country ratings",
+    "publisher": "Climate Analytics and NewClimate Institute",
+    "measures": "Warming in 2100 (\u00b0C, MAGICC7 median and range) under policies & action, 2030/2035 targets, pledges & targets, and optimistic net-zero scenarios. 2030 and 2035 emissions gaps (GtCO2e). Country ratings (1.5\u00b0C compatible through to Critically insufficient). Sector indicators via a data-portal API.",
+    "coverage": "Global, plus about 40 countries and the EU. Projections to 2100.",
+    "latest_release": "COP30 Global Temperature Update, published 2025-11-13 (file CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx). Country ratings are updated on a rolling basis.",
+    "update_cadence": "Global update about twice a year (June and November). Country updates are rolling.",
+    "landing_url": "https://climateactiontracker.org/global/emissions-pathways/",
+    "download_urls": [
+     "https://climateactiontracker.org/documents/1349/CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx",
+     "https://climateactiontracker.org/data-portal/api/records/?format=json",
+     "https://climateactiontracker.org/data-portal/api/country-emissions/records/?format=json",
+     "https://climateactiontracker.org/cat-data-explorer/country-ratings/"
+    ],
+    "format": "XLSX (sheets: Info, CAT Thermometer, 2030 Emissions Gap, Global Emissions time series, GMT time series). JSON REST (paginated; 6,677 sector-indicator records, edition 18).",
+    "license": "Legal page (https://climateactiontracker.org/about/legal/): 'Copyright \u00a9 2009-2026 by Climate Analytics and NewClimate Institute. All rights reserved. ... You are authorised to view, download, print and distribute the copyrighted content ... subject to the following condition: Any reproduction, in full or in part, must credit Climate Analytics and NewClimate Institute and must include a copyright notice and must not be used for commercial purposes.'",
+    "redistribution": "noncommercial-only",
+    "citation": "Climate Action Tracker (Climate Analytics and NewClimate Institute) (2025). CAT Thermometer \u2013 COP30 Global Temperature Update, 13 November 2025. https://climateactiontracker.org/global/cat-thermometer/ . \u00a9 2025 Climate Analytics and NewClimate Institute.",
+    "doi": "none",
+    "status": "Active (European non-profits).",
+    "url_check": "The emissions-pathways page returned 200: 'Current policies ... projected to result in about 2.6\u00b0C', 'pledges and targets ... about 2.2\u00b0C', optimistic 1.9\u00b0C, and 'See our November 2025 briefing'. The xlsx returned 200 (1,165,847 bytes, last-modified 2025-11-13). Parsed CAT Thermometer sheet: Policies & action median 2.6 (2.1\u20133.3); 2030 & 2035 targets only 2.6 (2.1\u20133.2); Pledges & targets 2.2 (1.8\u20132.8); Optimistic 1.9 (1.5\u20132.4). 2030 targets gap 26\u201329 GtCO2e; implementation gap 29\u201332 (2030) and 31\u201337 (2035). Sheet footer: 'Copyright \u00a9 2025 ... All rights reserved.' /data-portal/api/records/?format=json returned count 6677 with fields scenario, sector, indicator, country, year, value, unit, edition. The legal page text was quoted.",
+    "site_use": "Country drilldown: rating badge plus a policies-vs-targets thermometer per country, and the global thermometer next to UNEP. The site is non-commercial, so display is allowed with credit and a copyright notice on every chart and CSV.",
+    "caveats": "NC terms must flow through to the CSV downloads (add a notice inside the CSV). Do not combine CAT values into CC BY-labelled bundles. Ratings involve normative fair-share judgements, so explain the method.",
+    "priority": "core"
+   },
+   {
+    "name": "Climate Watch NDC data (WRI), including the 2025 'NDC 3.0' tracker. Upstream: the UNFCCC NDC Registry.",
+    "publisher": "World Resources Institute (Climate Watch). Upstream: the UNFCCC secretariat.",
+    "measures": "Structured NDC content per country: 2025 NDC submission status and date, 2035 GHG target included (yes/no), economy-wide target, comparison with the previous NDC, strengthened adaptation, net-zero target status, long-term strategies, sectoral measures (429 indicators).",
+    "coverage": "All UNFCCC Parties. The 2025 NDC indicators cover 153 locations, with the EU counted both as 'EUU' and as its member states.",
+    "latest_release": "Live database. The latest 2025-NDC submission date recorded in the API was 2026-09-08. The in-app citation says 'Climate Watch. 2026'.",
+    "update_cadence": "Continuous (as NDCs are submitted).",
+    "landing_url": "https://www.climatewatchdata.org/ndcs-explore",
+    "download_urls": [
+     "https://www.climatewatchdata.org/api/v1/ndcs?category=overview",
+     "https://www.climatewatchdata.org/api/v1/data/ndc_content/indicators?per_page=50",
+     "https://www.climatewatchdata.org/api/v1/data/ndc_content/data_sources",
+     "https://wri-sites.s3.us-east-1.amazonaws.com/climatewatch.org/www.climatewatch.org/climate-watch/wri_metadata/NDC_methodology.pdf",
+     "https://unfccc.int/NDCREG"
+    ],
+    "format": "JSON REST. PDF methodology.",
+    "license": "Permissions text (from the site bundle): 'Except as noted below, data and visualizations on this site carry a Creative Commons CC BY 4.0 license ... for non-commercial or commercial uses.' Also: 'Some data displayed on Climate Watch was developed by other organizations and may carry other open licenses ... Please refer to the original licensing' and 'You must not imply that Climate Watch, World Resources Institute, NDC Partnership or any other partner organizations endorse your use of the data.' The UNFCCC registry terms could not be fetched.",
+    "redistribution": "open-attribution",
+    "citation": "Climate Watch. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org. Also cite: UNFCCC. 2026. NDC Registry. Available at: https://unfccc.int/NDCREG.",
+    "doi": "none",
+    "status": "Active. WRI is a non-profit, but some partner funding has been US-linked, so monitor it. The UNFCCC registry blocks automated access (Incapsula).",
+    "url_check": "The ndcs?category=overview API returned 200 with 144 indicators, including 2025_status, 2025_date, 2025_compare_1 ('2035 GHG target included'), 2025_source (links to unfccc.int PDFs) and nz_status. Counting 2025_status gave 151 'Submitted 2025 NDC', 1 'Withdrawn 2025 NDC' (USA) and 1 'Submitted ... (Not Party to the Paris Agreement)' (YEM), across 153 locations including EUU and individual EU members. Max 2025_date = 2026-09-08. The data_sources API returned Climate Watch, Pledges, LSE, WB, UNICEF, NDC Explorer. The license text was extracted from main-6bd318cccbe84490bdef.js. unfccc.int/NDCREG returned an Incapsula 'Request unsuccessful' page.",
+    "site_use": "Policy drilldown: a 'my country's pledge' card (2035 target? stronger than before? net-zero year?) with a link to the actual NDC PDF on UNFCCC, plus a world map of NDC 3.0 status.",
+    "caveats": "Count Parties carefully: the EU's single NDC covers 27 member states, which are also listed individually. Indicator labels are qualitative and coded by WRI. The LSE CCLW-derived fields follow CCLW's terms.",
+    "priority": "core"
+   },
+   {
+    "name": "World Bank State and Trends of Carbon Pricing 2026 and the Carbon Pricing Dashboard",
+    "publisher": "World Bank Group",
+    "measures": "Implemented and planned carbon taxes and ETSs: share of global GHG emissions covered, prices (US$/tCO2e), revenues, carbon-crediting issuances.",
+    "coverage": "Global, by jurisdiction. Time series from about 1990 to 2026.",
+    "latest_release": "State and Trends of Carbon Pricing 2026, issued 2026-05-19 (13th edition). Key messages: 'nearly 30% of global greenhouse gas emissions are covered by a direct carbon price across 87 implemented policies', and 'Carbon pricing mobilized over $107 billion for public budgets in 2025'.",
+    "update_cadence": "Annual (May\u2013June) for the report, with the dashboard updated alongside.",
+    "landing_url": "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing",
+    "download_urls": [
+     "https://hdl.handle.net/10986/44787",
+     "https://openknowledge.worldbank.org/server/api/pid/find?id=10986/44787",
+     "https://carbonpricingdashboard.worldbank.org/"
+    ],
+    "format": "PDF report (OKR). The dashboard offers XLSX data downloads, but these could not be reached (Cloudflare).",
+    "license": "OKR metadata: dc.rights 'CC BY 3.0 IGO' (https://creativecommons.org/licenses/by/3.0/igo/), rights holder World Bank. The dashboard data license could not be verified (Cloudflare challenge), though World Bank data is generally CC BY 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "World Bank. 2026. State and Trends of Carbon Pricing 2026. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO",
+    "doi": "10.1596/978-1-4648-2348-0",
+    "status": "Active (annual edition published May 2026).",
+    "url_check": "worldbank.org publication page returned 200 with the 2026 key messages ('nearly 30% ... across 87 implemented policies'; '$107 billion ... in 2025') and links to hdl 10986/44787 and the OKR bitstreams. The OKR DSpace API pid/find returned name 'State and Trends of Carbon Pricing 2026', dc.date.issued 2026-05-19, dc.rights CC BY 3.0 IGO, DOI 10.1596/978-1-4648-2348-0, and the citation string. carbonpricingdashboard.worldbank.org returned a Cloudflare 'Just a moment' 403. datacatalogapi returned 429.",
+    "site_use": "Policy-lever view: 'how much of the world's emissions has a price?' as a stacked area over time and a map of instruments, linked to the Stechemesser evidence that pricing inside policy mixes works.",
+    "caveats": "Coverage is not the same as stringency: most covered emissions are priced well below the levels needed for Paris goals. Dashboard downloads must be fetched manually because of bot protection. Keep the report's CC BY 3.0 IGO attribution text verbatim.",
+    "priority": "core"
+   },
+   {
+    "name": "Climate Change Laws of the World (Grantham Research Institute, LSE, and Climate Policy Radar)",
+    "publisher": "Grantham Research Institute on Climate Change and the Environment (LSE) with Climate Policy Radar. Litigation is covered with the Sabin Center.",
+    "measures": "Searchable database of national climate laws, policies and litigation cases, with full texts and metadata (instrument type, sector, date, targets).",
+    "coverage": "Laws and policies for all countries. Continuously updated.",
+    "latest_release": "Live database (latest vintage could not be read; the site is client-rendered).",
+    "update_cadence": "Continuous.",
+    "landing_url": "https://climate-laws.org/",
+    "download_urls": [
+     "https://app.climatepolicyradar.org/",
+     "https://huggingface.co/datasets/ClimatePolicyRadar/all-document-text-data (gated, needs login)",
+     "https://huggingface.co/datasets/ClimatePolicyRadar/national-climate-targets (cc-by-4.0)"
+    ],
+    "format": "Web app. The Hugging Face datasets are parquet or JSON.",
+    "license": "Not verified. The climate-laws.org /terms-of-use page is rendered client-side, and its JS chunks contained no license strings. On Hugging Face, ClimatePolicyRadar/national-climate-targets is tagged cc-by-4.0, and all-document-text-data is tagged cc-by-4.0 but gated (login required).",
+    "redistribution": "unclear",
+    "citation": "Climate Change Laws of the World database. Grantham Research Institute on Climate Change and the Environment and Climate Policy Radar. Available at: https://climate-laws.org/ (Climate Watch's citation of an earlier vintage reads: 'Climate Change Laws of the World database. 2020. Grantham Research Institute on Climate Change and the Environment and Sabin Center for Climate Change Law.')",
+    "doi": "none",
+    "status": "Active.",
+    "url_check": "climate-laws.org returned 200. /terms-of-use returned 200 but is client-rendered (4,970-byte shell; WebFetch saw only the cookie notice). /methodology and /about gave the same result. JS chunks from cclw.production.climatepolicyradar.org were searched with no license text found. The Hugging Face API listed 4 ClimatePolicyRadar datasets with license tags. The raw README for all-document-text-data returned 'Access ... is restricted'.",
+    "site_use": "Link out from country pages ('laws and policies in force') with counts only after the license is confirmed. Prefer deep links over re-hosting.",
+    "caveats": "License and bulk access are unclear and registration-gated. Email Climate Policy Radar before redistributing counts or metadata.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Stechemesser et al. 2024 (Science): climate policies that achieved major emission reductions, with the OECD CAPMF policy database",
+    "publisher": "Science (AAAS). Data and code by PIK/MCC authors on Zenodo. Policy data from the OECD Climate Actions and Policies Measurement Framework (CAPMF).",
+    "measures": "Ex-post evaluation of about 1,500 climate policies (1998\u20132022, 41 countries, buildings, electricity, industry and transport). Detected structural breaks in sectoral emissions matched to policies. Effect sizes for single policies against policy mixes (pricing helps). CAPMF gives a 0\u201310 policy-stringency index by country, sector and instrument.",
+    "coverage": "41 countries, 1998\u20132022 (paper). CAPMF on the OECD SDMX API includes 2022\u20132023 (no 2024 records yet).",
+    "latest_release": "Paper: Science 385(6711):884\u2013892, published 2024-08-22. Replication data on Zenodo v4, 2024-07-18 (CC BY 4.0). CAPMF: the OECD Data Explorer dataflow DSD_CAPMF@DF_CAPMF v1.0 has data to 2023.",
+    "update_cadence": "Paper is one-off. CAPMF is updated about yearly by the OECD.",
+    "landing_url": "https://doi.org/10.1126/science.adl6547",
+    "download_urls": [
+     "https://zenodo.org/api/records/12773811/files/README.txt/content",
+     "https://zenodo.org/api/records/12773811/files/Forward_causal_step_shift_numbers.csv/content",
+     "https://zenodo.org/api/records/12773811/files/OECD_data_preprocessed.csv/content",
+     "https://sdmx.oecd.org/public/rest/data/OECD.ENV.EPI,DSD_CAPMF@DF_CAPMF,1.0/DEU.A.POL_STRINGENCY.LEV1_SEC..?startPeriod=2022",
+     "https://oe.cd/dx/capmf"
+    ],
+    "format": "CSV and RDS (Zenodo). SDMX-CSV or JSON (OECD API).",
+    "license": "Zenodo record 12773811: cc-by-4.0. The README notes that the CAPMF data was 'obtained in July 2023 before the official release by the OECD'. The OECD terms page returned 403, so the OECD data license (stated by the OECD as CC BY 4.0 from July 2024) is unverified this session.",
+    "redistribution": "open-attribution",
+    "citation": "Stechemesser, A., Koch, N., Mark, E., Dilger, E., Kl\u00f6sel, P., Menicacci, L., Nachtigall, D., Pretis, F., Ritter, N., Schwarz, M., Vossen, H., & Wenzel, A. (2024). Climate policies that achieved major emission reductions: Global evidence from two decades. Science, 385(6711), 884\u2013892. https://doi.org/10.1126/science.adl6547. Data/code: Stechemesser, A. et al. (2024). Zenodo. https://doi.org/10.5281/zenodo.12773811. OECD (2026). Climate Actions and Policies Measurement Framework (CAPMF), OECD Data Explorer, https://oe.cd/dx/capmf.",
+    "doi": "10.1126/science.adl6547 (paper). 10.5281/zenodo.12773811 (data and code).",
+    "status": "Active. The PIK 'climate-policy-explorer.pik-potsdam.de' host did not connect.",
+    "url_check": "science.org returned 403. The Europe PMC API returned the full abstract: 'out of 1500 climate policies implemented between 1998 and 2022 across 41 countries ... We identified 63 successful policy interventions with total emission reductions between 0.6 billion and 1.8 billion metric tonnes CO2 ... important role of price-based instruments in well-designed policy mixes'. The Zenodo API for 12773811 returned v4, cc-by-4.0, and 40+ files (README.txt, CAPMF_Policy.csv 8.1 MB, Forward_causal_step_shift_numbers.csv with header ISO, Module, Unique_Years, ...). The OECD SDMX query returned 200 SDMX-CSV, e.g. DEU POL_STRINGENCY LEV1_SEC 2023 = 5.699 and GBR 2023 = 6.330. USA 2022\u20132023 had empty values. startPeriod=2024 returned NoRecordsFound.",
+    "site_use": "'What actually worked?' page: a gallery of the 63 successful interventions by country and sector with effect sizes, and a chart of mixes vs single instruments. This gives evidence-based civic asks (e.g. support pricing within policy packages). A CAPMF stringency chart sits on country pages.",
+    "caveats": "Covers 41 mostly OECD and G20 countries, and break detection finds only large effects. The 0.6\u20131.8 Gt is cumulative over the sample, not annual. The CAPMF version differs between the paper (July 2023 pre-release) and the live OECD data.",
+    "priority": "core"
+   },
+   {
+    "name": "Andre, Boneva, Chopra & Falk 2024: Global Climate Change Survey (actual vs perceived support for climate action)",
+    "publisher": "Nature Climate Change (paper). Microdata via the IZA Data Service Center / University of Bonn.",
+    "measures": "Share of people willing to contribute 1% of income to fight climate change, approval of pro-climate norms, demand for more political action, and the perceived share of fellow citizens willing to contribute (the perception gap).",
+    "coverage": "125 countries, nearly 130,000 respondents, globally representative.",
+    "latest_release": "Paper published 2024-02-09. Data: IZA Dataverse doi:10.15185/gccs.1, version 5.0, released 2024-04-30.",
+    "update_cadence": "One-off, possibly repeated.",
+    "landing_url": "https://www.nature.com/articles/s41558-024-01925-3",
+    "download_urls": [
+     "https://gccs.econ.uni-bonn.de/",
+     "https://dataverse.iza.org/api/datasets/:persistentId/?persistentId=doi:10.15185/gccs.1"
+    ],
+    "format": "Article (HTML/PDF). Microdata ZIPs on Dataverse (Country_data.zip 19 MB, Replication.zip 6.8 MB). The website has maps and rankings.",
+    "license": "The paper is CC BY 4.0: 'This article is licensed under a Creative Commons Attribution 4.0 International License'. The microdata uses IZA licence IIL-1.0: 'researchers are required to register ... Users are prohibited from using data acquired from the IDSC in the pursuit of any commercial or private ventures. The data will be used only for scholarly, research, educational purposes or replications.'",
+    "redistribution": "open-attribution",
+    "citation": "Andre, P., Boneva, T., Chopra, F., & Falk, A. (2024). Globally representative evidence on the actual and perceived support for climate action. Nature Climate Change. https://doi.org/10.1038/s41558-024-01925-3. Data: Global Climate Change Survey, https://doi.org/10.15185/gccs.1",
+    "doi": "10.1038/s41558-024-01925-3 (paper). 10.15185/gccs.1 (data).",
+    "status": "Active.",
+    "url_check": "nature.com returned 200 with the webtrendsLicenceType creativecommons.org/licenses/by/4.0, published 2024-02-09. Abstract: '69% of the global population expresses a willingness to contribute 1% of their personal income, 86% endorse pro-climate social norms and 89% demand intensified political action', plus pluralistic ignorance. doi.org/10.15185/gccs.1 resolved to gccs.econ.uni-bonn.de (200). The Dataverse API returned version 5.0 (2024-04-30), license IIL-1.0, the terms of access quoted above, and the file list.",
+    "site_use": "Civic-action page: 'you are not alone'. Show actual support next to what people think others support, by country, because closing this perception gap is itself an action (talk about it). Use paper-reported aggregates (CC BY) and do not redistribute the microdata.",
+    "caveats": "The microdata is registration-gated and NC, so only publish aggregates as reported in the paper or its CC BY supplementary material. Survey data is from 2021\u20132022.",
+    "priority": "core"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "The richest 10% of people on Earth (by income) caused about 47% of consumption-based CO2 emissions in 2023, the richest 1% about 16.5%, and the poorest half about 8%.",
+    "value_as_of_latest": "Top 10%: 47.1%. Top 1%: 16.5%. Bottom 50%: 8.4% (year 2023; accessed 2026-10-04).",
+    "source_name": "SEI Emissions Inequality Dashboard",
+    "derivation": "GET https://www.sei-eqtrans-dev.net/api/globalHistoricalDataByYear/search.php?startyear=2023&endyear=2023 returns 127 records. Sum EmissionShare over rows whose PercentileLabel lower bound is \u226590 (p90p91 \u2026 p99.999p100): 0.47075. Lower bound \u226599: 0.16550. Lower bound <50: 0.08420. Round to 1 decimal place as a percentage."
+   },
+   {
+    "statement": "Per person, the average American's consumption causes about 3.3 times the world average CO2, and about 9 times the average Indian's.",
+    "value_as_of_latest": "United States 15.81 t (2023). World 4.73 t (2024). India 1.77 t (2023). EU-27 7.33 t (2023). Low-income countries 0.09 t (2023).",
+    "source_name": "Global Carbon Budget 2025 (consumption-based) via Our World in Data",
+    "derivation": "OWID CSV https://ourworldindata.org/grapher/consumption-co2-per-capita.csv?v=1&csvType=full&useColumnShortNames=true, column consumption_emissions_per_capita, latest year per entity. Ratios: 15.81/4.73 = 3.34 (uses World 2024, so for a like-for-like ratio use World 2023 from the same file); 15.81/1.77 = 8.9. OWID processing: GCB consumption MtC \u00d7 3.664 \u00f7 OWID population."
+   },
+   {
+    "statement": "The largest everyday actions in high-income settings are living car-free (about 2.0 tCO2e per person per year), switching to an electric car (about 2.0), skipping one long-haul flight (about 1.9) and switching to renewable electricity (about 1.5). A vegan diet saves about 0.9 and a heat pump about 0.8.",
+    "value_as_of_latest": "Mean tCO2eq/cap/yr: car-free 2.0; battery EV 2.0; one less long-haul flight 1.9; renewable electricity 1.5; vegan diet 0.9; refurbishment 0.9; heat pump 0.8 (published 2020).",
+    "source_name": "Ivanova et al. 2020, Environmental Research Letters 15:093001 (CC BY 4.0)",
+    "derivation": "Transcribed mean values from the paper's ranking of 61 consumption options (the synthesis of 53 studies), as returned by the article page. Record the figure or table number when building. Values are not additive."
+   },
+   {
+    "statement": "One return economy flight London\u2013New York emits about 1.3 tonnes CO2e including non-CO2 warming effects (about 0.77 t counting CO2 alone), which is more than a quarter of the average person's annual consumption CO2 (4.7 t).",
+    "value_as_of_latest": "1.30 tCO2e with RF. 0.77 tCO2e without RF (DESNZ 2026 factors).",
+    "source_name": "UK DESNZ GHG Conversion Factors 2026 (OGL v3.0)",
+    "derivation": "Haversine great-circle distance LHR (51.4700, -0.4543) to JFK (40.6413, -73.7781) = 5,540 km. Return = 11,080 km. \u00d7 factor ID 21_316_3170_11_1 (Long-haul, to/from UK, Economy class, With RF) 0.11704 kg CO2e/pkm = 1,297 kg. \u00d7 21_316_3171_11_1 (Without RF) 0.06926 = 767 kg. Per the 2026 methodology report, the 8% great-circle uplift is already included in the published factors, so do not add it again. WTT emissions are excluded (separate factor). Comparison: 1.30 / 4.73 t (OWID World 2024) = 27%."
+   },
+   {
+    "statement": "Per 100 g of protein, beef from beef herds emits about 113 times more greenhouse gas than peas (49.9 vs 0.44 kgCO2e) and 25 times more than tofu.",
+    "value_as_of_latest": "Beef (beef herd) 49.89. Lamb 19.85. Cheese 10.82. Poultry 5.70. Tofu 1.98. Peas 0.44 kgCO2eq per 100 g protein (global medians, reference year 2010).",
+    "source_name": "Poore & Nemecek 2018 (Science) via Our World in Data",
+    "derivation": "OWID CSV https://ourworldindata.org/grapher/ghg-per-protein-poore.csv?v=1&csvType=full&useColumnShortNames=true, column ghg_emissions_per_100g_protein__poore__and__nemecek__2018. 49.889668 / 0.4410441 = 113.1. 49.889668 / 1.975 = 25.3."
+   },
+   {
+    "statement": "A battery-electric car registered in the EU in 2025 is estimated to emit 73% less greenhouse gas over its life than a petrol car (63 vs 235 g CO2e/km), including battery manufacturing.",
+    "value_as_of_latest": "BEV 63 g CO2e/km against gasoline ICEV 235 g CO2e/km, a 73% reduction (up to 78% on renewable-only electricity). Published 2025-07-08.",
+    "source_name": "ICCT (Negri & Bieker 2025), Life-cycle GHG emissions from passenger cars in the EU: 2025 update",
+    "derivation": "Values quoted from the report text (medium-segment cars, projected 2025\u20132044 average EU electricity mix). 1 \u2212 63/235 = 0.732. Cite as an ICCT figure. ICCT holds the copyright (no open license), so present it as a cited fact."
+   },
+   {
+    "statement": "The world is heading for about 2.6\u20132.8\u00b0C of warming by 2100 under current policies. Global emissions must fall 55% below 2019 levels by 2035 to align with 1.5\u00b0C (35% for 2\u00b0C).",
+    "value_as_of_latest": "UNEP EGR 2025: current policies 2.8\u00b0C; full NDCs 2.3\u20132.5\u00b0C; 2035 cuts needed 35% (2\u00b0C) and 55% (1.5\u00b0C) vs 2019. CAT (2025-11-13): policies & action median 2.6\u00b0C (range 2.1\u20133.3); pledges & targets 2.2\u00b0C; optimistic 1.9\u00b0C.",
+    "source_name": "UNEP Emissions Gap Report 2025 (DOI 10.59117/20.500.11822/48854); Climate Action Tracker COP30 update",
+    "derivation": "UNEP values are from the Crossref abstract for DOI 10.59117/20.500.11822/48854; check them against the PDF executive summary when downloaded manually. CAT values are from CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx, sheet 'CAT Thermometer', row 'Policies & action | Combined' (Lower 2.1, Median 2.6, Upper 3.3) and row 'Pledges & targets' (1.8, 2.2, 2.8)."
+   },
+   {
+    "statement": "The IPCC found that mitigation options costing USD 100 per tonne or less could cut global greenhouse gas emissions by at least half of 2019 levels by 2030, and more than half of that potential costs under USD 20 per tonne.",
+    "value_as_of_latest": "\u226550% of 2019 GHG emissions by 2030 at \u2264USD100/tCO2-eq. More than half of that potential at <USD20/tCO2-eq (AR6 WGIII, 2022; still the latest IPCC assessment).",
+    "source_name": "IPCC AR6 WGIII Summary for Policymakers, statements C.12 and C.12.1 (Figure SPM.7)",
+    "derivation": "Text extracted from https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_SPM.pdf, paragraphs C.12 and C.12.1. Companion: C.10, 'Demand-side measures ... can reduce global GHG emissions in end-use sectors by 40\u201370% by 2050 compared to baseline scenarios'. Quote with paragraph IDs. Do not reproduce the figure image."
+   },
+   {
+    "statement": "Of about 1,500 climate policies introduced in 41 countries between 1998 and 2022, researchers identified 63 that caused large, measurable emission drops. Together these cut 0.6\u20131.8 billion tonnes of CO2, and policy packages that included carbon pricing worked best.",
+    "value_as_of_latest": "63 successful interventions out of about 1,500 policies. Total reductions 0.6\u20131.8 GtCO2 (published 2024-08-22).",
+    "source_name": "Stechemesser et al. 2024, Science 385:884\u2013892 (data CC BY 4.0, Zenodo 10.5281/zenodo.12773811)",
+    "derivation": "Quoted from the abstract (via the Europe PMC API). The per-country and per-sector list can be rebuilt from the Zenodo files Policy_out.RDS and Forward_causal_step_shift_numbers.csv using the provided R scripts (03_policy_matching.R, 06_Fig_4.R)."
+   },
+   {
+    "statement": "69% of people worldwide say they would give 1% of their income to fight climate change, and 89% want their government to do more, but most people think their neighbours care less than they actually do.",
+    "value_as_of_latest": "69% willing to contribute 1% of income. 86% endorse pro-climate norms. 89% demand more political action (125 countries, about 130,000 respondents; published 2024-02-09).",
+    "source_name": "Andre, Boneva, Chopra & Falk 2024, Nature Climate Change (CC BY 4.0)",
+    "derivation": "Quoted from the article abstract (nature.com, CC BY 4.0). For country-level values, use figures or tables in the CC BY paper and supplement, not the IIL-licensed microdata."
+   }
+  ],
+  "drilldown_paths": [
+   "Where do I stand? \u2192 What moves the needle? Country consumption CO2 per capita (GCB 2025 via OWID, or ICOS xlsx) \u2192 where that sits in the global income distribution (SEI dashboard percentiles) \u2192 ranked personal actions with ranges (Ivanova 2020; Wynes & Nicholas shown with critique) \u2192 personal calculators (DESNZ 2026 flight and energy factors, Poore & Nemecek food, Ember grid intensity) \u2192 the system-scale version of the same action (Drawdown solution card with Gt/yr and $/t, linked to its Zenodo spreadsheet DOI).",
+   "Food: from plate to planet. Drawdown 'Improve Diets' (1.40\u20132.80 Gt CO2-eq/yr; cost -8.54 $/t) \u2192 product footprints per kg, per 100 g protein and per 1,000 kcal (Poore & Nemecek via OWID) \u2192 swap explorer (beef to beans) \u2192 Ivanova vegan or vegetarian diet potential (0.9 t/cap/yr) \u2192 IPCC SPM C.10 demand-side 40\u201370% context.",
+   "Transport: is an EV really better where I live? ICCT 2025 EU lifecycle (63 vs 235 g/km) \u2192 Knobloch 2020 (53 of 59 regions already better) \u2192 Ember 2025 grid CO2 intensity for the visitor's country \u2192 Ivanova car-free (2.0) and BEV (2.0) \u2192 flights calculator (DESNZ factors with and without RF) \u2192 Drawdown 'Mobilize Electric Cars' and 'Nonmotorized Transportation'.",
+   "Home energy: heat pumps and clean power. Ivanova heat pump (0.8) and renewable electricity (1.5) \u2192 Ember grid intensity and trend \u2192 Drawdown 'Use Heat Pumps' spreadsheet (Zenodo 10.5281/zenodo.21246268) and 'Distributed Solar PV' \u2192 DESNZ kWh factors for a gas-boiler vs heat-pump comparison with every assumption shown.",
+   "The solutions menu (system level). IPCC AR6 SPM C.12 (\u2264$100/t options can halve 2019 emissions by 2030) \u2192 Drawdown Explorer table: filter by sector, speed (Emergency Brake) and classification \u2192 solution detail (adoption now vs achievable, Gt/yr range, $/t, co-benefits) \u2192 source spreadsheet DOI. The IPCC SPM.7 bar chart is redrawn only once its data workbook is recovered.",
+   "Is the world on track? UNEP EGR 2025 global gap (current policies 2.8\u00b0C; 35% and 55% cuts needed by 2035) \u2194 CAT thermometer (2.6\u00b0C policies; 2.2\u00b0C pledges) \u2192 country: CAT rating, then the Climate Watch 2025 NDC card (2035 target? strengthened? net-zero status? link to the UNFCCC PDF), then OECD CAPMF policy stringency, then the World Bank carbon-pricing coverage of that jurisdiction, then links out to Climate Change Laws of the World.",
+   "What actually worked (evidence for citizens and policymakers). Stechemesser 2024: 63 successful interventions out of about 1,500, filterable by country and sector \u2192 policy mixes vs single instruments (pricing in mixes) \u2192 World Bank: nearly 30% of global emissions priced, 87 instruments, $107 bn revenue (2025) \u2192 the visitor's country CAPMF stringency trend.",
+   "Fairness and responsibility. SEI percentile 'carbon staircase' 1990\u20132023 (top 10%, 1%, 0.1%) \u2192 between-country vs within-country inequality (SEI Theil API; Chancel 2022 as a cross-check) \u2192 country consumption vs territorial emissions (GCB) \u2192 what high emitters can change most (flights, cars, investments), linked back to the action ranking.",
+   "You are not alone (civic action). Andre et al. 2024: actual support (69%, 86%, 89%) vs perceived support by country \u2192 why talking about it matters (pluralistic ignorance) \u2192 the policies that worked (Stechemesser) \u2192 your country's pledge and rating (Climate Watch, CAT) \u2192 link out to the official NDC and law texts so visitors can cite them to representatives."
+  ],
+  "action_links": "Individual. Rank actions by evidence, not by intuition. Ivanova et al. 2020 (CC BY 4.0, doi:10.1088/1748-9326/ab8589) puts car-free living (2.0 t/yr), switching to an EV (2.0), skipping long-haul flights (1.9 per flight avoided), renewable electricity (1.5), a vegan diet (0.9) and heat pumps (0.8) at the top, well above recycling or light bulbs (Wynes & Nicholas 2017, CC BY 3.0, used with its critique). Personal calculators should use documented factors only. For flights and energy use DESNZ 2026 (OGL v3.0), showing factor IDs; for food, Poore & Nemecek via OWID; for country grid intensity when judging EVs and heat pumps, Ember 2025 (CC BY 4.0). Every number must be shown with its source and vintage.\n\nHigh emitters. The SEI dashboard (CC BY) shows the top 10% caused about 47% of consumption CO2 in 2023. Actions by the affluent (flying, car ownership, home energy, and where they invest) carry outsized weight, so the site should show visitors where they sit on the global distribution.\n\nCommunity. Andre et al. 2024 (Nature Climate Change, CC BY 4.0) finds 69% of people would give 1% of income and 89% want more government action, yet people underestimate each other. Talking openly about climate action is a concrete, evidence-based lever. Drawdown solution pages (credit and link required; the spreadsheets are CC BY 4.0) give local-scale options such as distributed solar, heat pumps, food waste, and walking or cycling.\n\nPolicymakers and civic asks. Stechemesser et al. 2024 (Science; data CC BY 4.0) shows that well-designed policy mixes including carbon pricing produced the large emission cuts. The World Bank 2026 report (CC BY 3.0 IGO) shows pricing covers nearly 30% of emissions with over $107 bn of revenue in 2025. IPCC AR6 WGIII SPM C.12 says options at \u2264$100/t could halve 2019 emissions by 2030, and C.10 says demand-side measures could cut end-use emissions 40\u201370% by 2050. Country accountability: CAT ratings and thermometer (non-commercial, credit plus copyright notice), Climate Watch NDC 3.0 content (CC BY 4.0, linking the UNFCCC NDC PDF), the UNEP EGR 2025 gap (35% and 55% cuts needed by 2035), and OECD CAPMF stringency. These let a visitor turn 'what can I do?' into a specific, cited request to their representative, e.g. 'our 2035 NDC target is X; CAT rates our policies Y; policy mixes with pricing are what worked elsewhere (Stechemesser 2024)'.",
+  "gaps_and_risks": "1. Bot protection on primary hosts blocks automated verification and scheduled fetching. UNEP (unep.org, wedocs) serves a Cloudflare challenge and 403. UNFCCC (NDC Registry) returns an Incapsula 'Request unsuccessful' page. The World Bank Carbon Pricing Dashboard serves a Cloudflare challenge, and datacatalogapi returned 429. The IPCC DDC Columbia mirror serves a Cloudflare challenge. IOP (supplementary files) serves a Radware captcha. The OECD terms page and IEA reports returned 403. In those cases I used fallback routes rather than the publisher pages: Crossref and DataCite metadata, the DSpace REST APIs at the World Bank and Oxfam, Europe PMC abstracts, and Zenodo. The ingest pipeline should be a manual or semi-manual monthly snapshot (download by a human, SHA-256 hash, archive to the repo or R2 with the access date). It should not be a Cloudflare Worker cron hitting these hosts, which also keeps cost under $20/month.\n\n2. The IPCC AR6 WGIII figure data is at risk. The SPM.7 data DOI (10.48490/ayfg-tv12) resolves to a 404 on the IPCC MetadataWorks browser. ipcc-data.org returns 503, and the old NASA SEDAC IPCC-DDC host does not connect. The DataCite rightsList is empty, so the data license is unconfirmed. The report PDFs are fine. IPCC figure images cannot be altered or reused beyond personal non-commercial use without permission, so redraw from the numbers.\n\n3. License conflicts to respect in CSV downloads:\n- Climate Action Tracker: non-commercial, credit, copyright notice required.\n- Oxfam: non-commercial, no modifications without permission (avoid as a data source).\n- ICCT: \u00a9 with no open license (cite numbers only).\n- Poore & Nemecek raw data: Oxford ORA Terms; OWID re-publishes it but third-party terms still apply.\n- Global Climate Change Survey microdata: IIL-1.0, registration and non-commercial (use paper aggregates only).\n- WID.world, Chancel data on Dropbox, and Climate Change Laws of the World: license unverified.\n- Drawdown: the explorer FAQ permits reuse with credit, but the generic site ToS is restrictive, so build from the CC BY 4.0 Zenodo spreadsheets.\n\nThe site should store a per-dataset license field and stamp each CSV with source, license, DOI and access date.\n\n4. Version and methodology drift:\n- SEI dashboard values differ from Oxfam's printed figures (2019 top 1%: 16.7% from the API vs 15.9% in Oxfam's January 2025 release), and its API lives on a domain named 'sei-eqtrans-dev.net'.\n- The Drawdown CSV is regenerated continuously (48 of 165 rows 'Coming Soon'; Last-Modified 2026-10-02).\n- OWID per-capita values use OWID's population series, not GCB's.\n- Ember CO2 intensity appears to be lifecycle-based and should not be mixed with DESNZ direct factors.\n- DESNZ factors already include the 8% great-circle uplift; do not double-apply it.\n\n5. Contested numbers. Wynes & Nicholas' 'one fewer child = 58.6 t/yr' is disputed (van Basshuysen & Brandstedt 2018, ERL 13 048001) and should not be a headline. Ivanova potentials are literature means, not additive, and skewed to high-income contexts.\n\n6. Staleness and US federal risk:\n- EPA GHG Emission Factors Hub: latest edition '2025' (January 2025) with no 2026 edition on a page updated 2026-01-12.\n- EPA eGRID: still eGRID2023 on a page updated 2026-09-21.\nTreat both as at-risk and prefer DESNZ (OGL) plus Ember (CC BY). AR6 dates from 2022 and AR7 WGIII is not yet out. UNEP EGR 2026 and GCB 2026 are both due around November 2026, so update the headline numbers then.\n\n7. Not verified this session (web search budget was exhausted mid-task):\n- the UNEP EGR 2025 license and the 57.7 GtCO2e figure (taken from Carbon Brief);\n- the World Bank dashboard data license;\n- OECD's CC BY 4.0 data policy;\n- CCLW terms;\n- an official count of Parties with 2025 NDCs from UNFCCC. Climate Watch shows 151 'Submitted 2025 NDC' locations, counting the EU both as a bloc and as members, so do not publish that as a Party count.\nNo open-licensed heat-pump lifecycle dataset was found. The IEA 'Future of Heat Pumps' returned 403 and Knobloch 2020 is paywalled. Use Ivanova plus Drawdown 'Use Heat Pumps' (CC BY) and present a heat-pump calculator only with explicit DESNZ factors and stated efficiency inputs.\n\n8. Process note: during verification one copy of the Drawdown CSV was saved to the session scratchpad (dd.csv). No project files were created or modified."
+ },
+ "verification": {
+  "domain": "Solutions and what people can do (individual, community and policy levers; carbon inequality; whether the world is on track; which policies have worked)",
+  "verdicts": [
+   {
+    "name": "Drawdown Explorer: solutions table and per-solution assessment spreadsheets",
+    "verdict": "corrected",
+    "corrections": "Most claims check out. On 2026-10-04 the CSV (https://drawdown.org/explorer-solutions-table-export.csv) returned 200 text/csv, 34,720 bytes, Last-Modified Fri 02 Oct 2026. It has 165 rows: 58 Highly Recommended, 48 Coming Soon, 29 Keep Watching, 16 Worthwhile, 14 Not Recommended. Diets 1.40 to 2.80 Gt at -8.54 $/t, Electric Cars 1.26 to 2.30 at -1019, Food Loss & Waste 1.23 to 2.47, Nonmotorized Transportation -1771 $/t, and Heat Pumps 0.58 to 0.93 at -200 all match. Utility-Scale Solar (9.20 to 11.00) and Onshore Wind (5.40 to 7.50) have a BLANK cost field, so the parser must allow nulls and not impute a value. The 'Mobilize Electric Cars' page does show 'Last updated September 8, 2026'. The FAQ wording on reuse and credit, and the restrictive generic Terms of Use, are both confirmed verbatim.\n\nCORRECTION 1: the methodology is not 'v3, 2025-12-23'. The Zenodo versions API shows 5 versions under concept DOI 10.5281/zenodo.15692853: 2025-06-18 (15692854), 2025-09-22 (17180356), 2025-12-23 (18037237), 2026-05-13 (20171486) and 2026-06-25 (20865531, 'Web Version of Methodology - June 2026.pdf', is_last=true). The explorer page HTML still links to the stale 18037237. Cite 10.5281/zenodo.20865531 for the exact version used, plus the concept DOI 10.5281/zenodo.15692853.\n\nCORRECTION 2: all 39 records in the pdexplorer community are cc-by-4.0 (pages 1 and 2 were both checked), not just 25 sampled. The newest records are dated 2026-08-18 (Smart Thermostats, Restore Forests), so solutions are still being added.\n\n21246101 (Diets) and 21246268 (Heat Pumps) are each the latest version (is_last=true). Also store their concept DOIs, 10.5281/zenodo.17456475 and 10.5281/zenodo.16928606, so citations survive future revisions.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IPCC AR6 WGIII Summary for Policymakers (Figure SPM.6 demand-side potential, Figure SPM.7 mitigation options cost and potential in 2030) and Chapter 5 (demand-side mitigation)",
+    "verdict": "corrected",
+    "corrections": "The bibliographic details and status are confirmed. Two SPM PDFs resolve: IPCC_AR6_WGIII_SummaryForPolicymakers.pdf (200, 1,304,166 bytes, 56 pages) and IPCC_AR6_WGIII_SPM.pdf (200, 2,159,848 bytes, 53 pages). Both carry doi 10.1017/9781009157926.001 and both contain C.12 on PDF page index 40. The headline derivation cites the _SPM.pdf file but the source entry lists the other one, so pick one canonical file and record its hash and page numbers. C.10, C.12 and C.12.1 were re-extracted and match verbatim. Chapter05.pdf returns 200 (5,664,115 bytes). The SPM.7 data DOI 10.48490/ayfg-tv12 still redirects to ipcc-browser.ipcc-data.org/browser/dataset?id=447, which returns 404. DataCite shows state 'findable', rightsList [] and last update 2022-05-13. www.ipcc-data.org returns 503 and ipcc-data.org returns 502. The CEDA catalogue has no WGIII SPM.7 record ('No matching records found'), so no mirror was found.\n\nCORRECTION (classification): the report's text and figures should be classed 'restricted-no-redistribution', not 'unclear'. ipcc.ch/copyright says use is limited to 'personal, non-commercial use, without any right to resell or redistribute it or to compile or create derivative works', and 'figures cannot be altered in any way'. Only the SPM.7 data workbook's licence is unknown, because its host is down. Quoting statements with paragraph IDs and citing the numbers is fine.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Ivanova et al. 2020: Quantifying the potential for climate change mitigation of consumption options (ERL systematic review)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: CC BY 4.0. Crossref lists by/4.0, and the PDF says 'Original content from this work may be used under the terms of the Creative Commons Attribution 4.0 licence'. Zenodo 4106717 is cc-by-4.0. Bibliographic details are ERL 15, 093001, published 2020-08-20. Values re-extracted from the PDF:\n- Living car-free: median 2.0, range 0.6 to 3.6.\n- BEV: 'average and median of 2.0'.\n- One less long return flight: mean 1.9, median 1.7, range 0.7 to 4.5.\n- Renewable electricity: mean 1.5, median 1.6.\n- Refurbishment: 0.9. Vegan diet: mean 0.9, median 0.8. Heat pump: 0.8. Renewable-based heating: 0.7. Improved cooking equipment: 0.6.\n- The top ten options together come to 9.2 t (accounting for overlap).\n\nCORRECTIONS:\n(a) 'About 7,000 data points' does not appear in the paper. The method is 53 studies, 771 original options, summarised into 61 consumption options. Remove the 7,000 figure.\n(b) The 'global average of about 6 tCO2eq/cap' and the regional footprints (13.4 North America, 7.5 Europe, 1.7 Africa and Middle East) refer to 2011 MRIO data, so state that year.\n(c) The paper's figures rank options by MEDIAN while the site plans to show MEANS. Label which statistic is used, because the order can differ (e.g. renewable electricity: mean 1.5, median 1.6).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Wynes & Nicholas 2017: The climate mitigation gap (high-impact individual actions), with the 2018 comment and reply",
+    "verdict": "confirmed",
+    "corrections": "Crossref confirms all three items are CC BY 3.0:\n- aa7541: ERL 12, 074024, 2017.\n- aab213: van Basshuysen & Brandstedt, ERL 13, 048001, 2018-03-26.\n- aab210: the reply, Wynes & Nicholas, 'Reply to Comment on ...', ERL 13, 048002, 2018-03-26.\nAdd the reply's article number (048002) and authors to the citation, which the research left out.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "SEI Emissions Inequality Dashboard (global consumption CO2 by income percentile)",
+    "verdict": "confirmed",
+    "corrections": "The API was re-queried. 2023 returns 127 records with fields Year, PercentileLabel, PercentileValue, IncomeShare, EmissionShare, PopulationShare, Elasticity. EmissionShare sums to 1.0 exactly, so the fine top-1% slices do not overlap.\n- 2023: top 10% 0.4708, top 1% 0.1655, bottom 50% 0.0842.\n- 2019: 0.4882, 0.1674, 0.0807.\nA query for 2024 to 2025 returns 'No products found', so 2023 really is the latest year. The About page confirms '117 countries', 'historical emissions cover the period between 1990 and 2023', the CC BY wording and the citation. One nuance: the licence is stated as 'CC BY (full attribution)' without a version number, so record it as CC BY (unversioned) and keep the quote. The API host is still www.sei-eqtrans-dev.net.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Oxfam/SEI 'Climate Equality: A planet for the 99%' (2023) and Oxfam 2025 carbon-inequality releases",
+    "verdict": "corrected",
+    "corrections": "The policy-practice page (200) confirms DOI 10.21201/2023.000001, the 8 authors and the bitstream links.\n\nCORRECTIONS:\n(a) The listed download URLs now fail. oxfamilibrary bitstream .../4f078a19-.../download and the DSpace API pid/find both returned HTTP 403 to automated requests on 2026-10-04.\n(b) The licence should be 'restricted-no-redistribution', not 'noncommercial-only'. The copyright page (https://policy-practice.oxfam.org/copyright-permissions/) states 'All rights are reserved'. It waives permission only for 'copying the document for personal use only in its entirety' or 'quoting short extracts' in review, comment or reports, and requires permission for 'any alterations or modifications' and for commercial use. Re-hosting the datasets is not covered by either waiver.\n(c) The 2025-01-10 press release figures (15.9%, 76 t, 0.7 t) could not be re-verified: a guessed oxfam.org press-release URL returned 404 and no correct URL was found. Keep them out of any comparison until a working URL is found. The 'avoid' priority stands.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "World Inequality Lab: Chancel (2022) 'Global carbon inequality over 1990\u20132019' (WID.world carbon series)",
+    "verdict": "corrected",
+    "corrections": "CORRECTION (status, important): the researcher's '114-byte JS shell' at wid.world is not a client-rendered app. It is a domain-parking redirect. Every wid.world path returns script window.location.href='/lander', and /lander is a GoDaddy parking page (window._trfd ap:'parking', img1.wsimg.com/parking-lander). RDAP for wid.world shows:\n- status 'auto renew period' plus client delete/renew/transfer/update prohibited;\n- registration 2015-09-29;\n- expiration now 2027-09-29;\n- 'last changed' 2026-10-04T17:28Z;\n- nameservers ns55/ns56.domaincontrol.com.\nThe domain appears to have lapsed around 2026-09-29 and is parked during the registrar's grace period. wir2026.wid.world is a CNAME to wid.world, so it is also down. Treat WID.world as OFFLINE or AT RISK and do not link to it until it is restored.\n\nOther checks: the nature.com dc.rights is '2022 The Author(s), under exclusive licence to Springer Nature Limited' (not open access). The paper is Nature Sustainability 5(11), 931\u2013938, online 2022-09-29. The Dropbox 'Codes & Data' zip still resolves (200, 26.8 MB). The data licence remains unknown, and the wid-r-tool GitHub repo licence is 'Other/NOASSERTION'.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Carbon Budget 2025: national fossil CO2 emissions, territorial and consumption-based (with the Our World in Data processed version)",
+    "verdict": "corrected",
+    "corrections": "Data and licence are confirmed. ICOS object loCXyssaalv6DPdO6Qdj90qQ is National_Fossil_Carbon_Emissions_2025_v1.0.xlsx, 755,198 bytes, licence 'ICOS CCBY4 Data Licence' (base CC BY 4.0), nextVersion null (latest), and was re-submitted 2026-05-17. Zenodo 17417124 is 2025v15, 2025-10-22, cc-by-4.0, is_last=true. OWID metadata gives lastUpdated 2025-11-13 and nextUpdate 2026-11-13. All per-capita values re-pulled match: US 2023 15.81, China 7.63, India 1.77, EU-27 7.33, UK 7.09, World 2024 4.73.\n\nCITATION CORRECTIONS:\n(a) The paper is ESSD 18, 3211\u20133288, published 2026-05-13, CC BY 4.0 (doi 10.5194/essd-18-3211-2026). Add the page range.\n(b) DataCite and ICOS title 10.18160/GCP-2025 'Supplemental data of Global Carbon Budget 2025', creator Global Carbon Project; DataCite publicationYear is 2026. It is not 'National Fossil Carbon Emissions 2025 v1.0' (that is the file name). ICOS's own citation string reads 'Global Carbon Project, 2025. Supplemental data of Global Carbon Budget 2025. https://doi.org/10.18160/GCP-2025'.\n(c) Zenodo 22748763 is a deposit of the paper PDF, not data.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Poore & Nemecek (2018) food life-cycle emissions (via the Our World in Data processed series)",
+    "verdict": "corrected",
+    "corrections": "Values re-pulled from the OWID CSVs match.\n- Per 100 g protein: beef herd 49.889668, lamb 19.850075, cheese 10.815217, poultry 5.698614, tofu 1.975, peas 0.4410441.\n- Per kg: beef herd 99.48, dark chocolate 46.65, lamb 39.72, beef dairy 33.3, coffee 28.53.\nThe ORA page confirms 'Licence: Terms and Conditions of Use for Oxford University Research Archive', copyright 2018, and the 17.4 MB xlsx. Crossref shows no licence for the Science paper (360(6392):987\u2013992).\n\nCITATION CORRECTION: DataCite's title for 10.5287/bodleian:0z9MYbMyZ is 'Full Excel model: Life-cycle environmental impacts of food & drink products' (Poore, J., University of Oxford, 2018). 'LCA Meta-Analysis of Food Products - Full Model v0' is only the file name.\n\nThe OWID indicator metadata API (1206176) returned lastUpdated null and origin licence null, so the claimed lastUpdated 2019-10-08 was not reproduced from that endpoint. The redistribution status stays unclear: link to OWID or re-host only after permission.",
+    "final_redistribution": "unclear",
+    "final_priority": "core"
+   },
+   {
+    "name": "UK Government GHG Conversion Factors for Company Reporting 2026 (DESNZ), for flight, home-energy and travel calculators. US EPA equivalents noted.",
+    "verdict": "confirmed",
+    "corrections": "The GOV.UK content API confirms first_published 2026-06-11, public_updated 2026-07-31, and the change note 'Updated the conversion factors 2026: flat file to correct a number of values that were initially reported as 0'. All three asset URLs return 200:\n- full set: 2,109,334 bytes;\n- flat file: 515,426 bytes;\n- methodology: 1,761,487 bytes.\nThere is also a 'major changes' PDF (.../6a2940653b15d05a7ce3202f/2026-GHG-conversion-factors-major-changes-report.pdf) that the research did not list. The flat file front page shows Version 1.2 and next publication 2027-06-01. These rows match exactly: 21_316_3170_11_1 = 0.11704, 21_316_3171_11_1 = 0.06926, 21_316_3160_11_1 (domestic average, with RF) = 0.22928; the with/without-RF ratio is 1.69. EPA is confirmed too: the Hub's latest is '2025 ... January 2025' on a page last updated January 12, 2026, and eGRID is still eGRID2023 on a page last updated September 21, 2026.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Ember Yearly Electricity Data (electricity generation mix and CO2 intensity by country)",
+    "verdict": "confirmed",
+    "corrections": "The GCS CSV returned 200 with content-length 49,079,981 and last-modified 2026-06-23. Max year is 2025. 2025 CO2 intensity values match exactly: World 458.49, China 526.19, India 670.55, USA 384.4, Germany 329.65, Poland 590.8, UK 217.41, France 41.45, Norway 28.1. The footer says 'All content is released under a Creative Commons Attribution Licence (CC-BY-4.0)'. Nuance: 'Last Updated: 15/09/2026' on the page belongs to the Electricity Data Explorer tool, not to the yearly CSV. Record the CSV's own Last-Modified (2026-06-23) as its vintage.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "ICCT: Life-cycle greenhouse gas emissions from passenger cars in the European Union, 2025 update (plus 2021 global comparison)",
+    "verdict": "corrected",
+    "corrections": "The PDF returned 200 (1,235,655 bytes, 38 pages). These figures are confirmed verbatim: 63 g CO2e/km BEV, 235 g gasoline (and 234 g diesel), 73% lower, 52 g and 78% lower on renewables only, HEV 188 g, PHEV 163 g. The only rights text is '\u00a9 2025 International Council on Clean Transportation (ID 392)'. The publication page has no licence text, and theicct.org/terms-of-use and /copyright both return 404.\n\nCORRECTION (classification): copyright with no licence grant means all rights are reserved, so classify as 'restricted-no-redistribution' rather than 'unclear'. Citing individual numbers is fine; do not re-host the PDF or tables. No newer EU or global passenger-car LCA turned up in the ICCT WordPress search API.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Knobloch et al. 2020: net emission reductions from electric cars and heat pumps in 59 world regions",
+    "verdict": "corrected",
+    "corrections": "Confirmed as not open access. nature.com dc.rights reads '2020 The Author(s), under exclusive licence to Springer Nature Limited' and webtrendsLicenceType is null. Crossref lists only text-and-data-mining licences.\n\nCORRECTIONS: the citation should include issue 6. Volume 3 is the June 2020 issue, pages 437\u2013447, published online 2020-03-23. The licence class should be 'restricted-no-redistribution' for the supplementary tables, not 'unclear'. The abstract (Europe PMC) confirms the 59-region framing.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "UNEP Emissions Gap Report 2025: 'Off Target'",
+    "verdict": "confirmed",
+    "corrections": "Crossref confirms the DOI, title, issued 2025-11, ISBN 9789280742398, and the abstract numbers: NDCs 2.3\u20132.5\u00b0C, current policies 2.8\u00b0C, cuts of 35% (2\u00b0C) and 55% (1.5\u00b0C) vs 2019 by 2035, 'sixteenth edition'. Crossref lists no licence. EGR 2026 has not appeared: unepccc.org/publications/emissions-gap-report-2026/ returns 404, so 2025 is still the latest. The PDF, unep.org, the wedocs DSpace REST and the pid/find API all return a Cloudflare 403, and the Wayback API returned 429, so the 2025 imprint licence is still UNVERIFIED. Keep it as 'unclear' and do not assert NC terms until the PDF imprint has been read by hand. The 57.7 GtCO2e figure is still unverified (secondary source only).",
+    "final_redistribution": "unclear",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate Action Tracker: CAT Thermometer, emissions gaps and country ratings",
+    "verdict": "confirmed",
+    "corrections": "The xlsx was re-parsed. The Info sheet shows Date Published 2025-11-13. On the CAT Thermometer sheet:\n- Policies & action (combined): 2.1 / 2.6 / 3.3.\n- 2030 & 2035 targets only: 2.1 / 2.6 / 3.2.\n- Pledges & targets: 1.8 / 2.2 / 2.8.\n- Optimistic: 1.5 / 1.9 / 2.4.\nThe file carries 'Copyright \u00a9 2025 ... All rights reserved' and asks users to reproduce the rounded values. The API returns count 6677, edition 18. The legal page NC clause is confirmed verbatim. The publications page shows no newer global temperature update: the latest items are country power-sector memos dated 2026-08-27 and 2026-09-18, and a 2026-06-11 energy-crisis briefing. Minor: use CAT's own suggested citation, 'Climate Action Tracker (2025). The CAT Thermometer. November 2025. Available at: https://climateactiontracker.org/global/cat-thermometer/'.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate Watch NDC data (WRI), including the 2025 'NDC 3.0' tracker. Upstream: the UNFCCC NDC Registry.",
+    "verdict": "confirmed",
+    "corrections": "The ndcs?category=overview API was re-queried: 144 indicators. 2025_status has 153 locations: 151 'Submitted 2025 NDC', 1 'Withdrawn 2025 NDC' and 1 'Submitted ... (Not Party to the Paris Agreement)'. The latest 2025_date is 9/8/2026; note the format is M/D/YYYY, so parse it explicitly. The licence text is confirmed in /packs/main-6bd318cccbe84490bdef.js: 'Except as noted below, data and visualizations on this site carry a Creative Commons CC BY 4.0 license ... for non-commercial or commercial uses', the third-party exception, and the no-endorsement clause. The citation 'Climate Watch. 2026. Washington, DC: World Resources Institute' is confirmed. /about/permissions returns 404, so the licence is only readable in the JS bundle; snapshot it.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "World Bank State and Trends of Carbon Pricing 2026 and the Carbon Pricing Dashboard",
+    "verdict": "confirmed",
+    "corrections": "The OKR API for hdl 10986/44787 shows:\n- dc.date.issued 2026-05-19;\n- dc.rights 'CC BY 3.0 IGO' (https://creativecommons.org/licenses/by/3.0/igo/);\n- DOI 10.1596/978-1-4648-2348-0;\n- citation 'World Bank. 2026. State and Trends of Carbon Pricing 2026 ... License: Creative Commons Attribution CC BY 3.0 IGO'.\nThe worldbank.org page key messages 'nearly 30% ... across 87 implemented policies' and 'over $107 billion for public budgets in 2025' are confirmed; the 2025 messages were around 28% and $100bn. The dashboard still returns a Cloudflare 403 and datacatalogapi returns 429, so the dashboard data licence remains unverified. Do not assume CC BY 4.0 for the dashboard XLSX until it has been checked by hand.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate Change Laws of the World (Grantham Research Institute, LSE, and Climate Policy Radar)",
+    "verdict": "corrected",
+    "corrections": "CORRECTION: the licence IS verifiable, and it is CC BY 4.0. The live CCLW terms page is client-rendered, but its source is public in climatepolicyradar/navigator-frontend at themes/cclw/pages/terms-of-use.tsx (last commit 2025-09-30). It says: 'Climate Policy Radar is pleased to make the content of the CPR Database available as open data under the Creative Commons Attribution Licence (CC-BY)', linking to creativecommons.org/licenses/by/4.0/. It requires appropriate credit, a link to the licence and an indication of changes. It adds that anyone wishing to 'use, copy, redistribute, publish, or exploit a substantial amount ... for commercial purposes' should contact partners@climatepolicyradar.org. That does not affect a non-commercial site.\n\nCorrect recommended citation: 'Grantham Research Institute at the London School of Economics and Climate Policy Radar (2023) Climate Change Laws of the World. https://climate-laws.org and https://app.climatepolicyradar.org/search'.\n\nCaveats: the full texts of laws are government documents with their own rights. Bulk text on Hugging Face is still login-gated. Confirm the live page matches the repo before relying on it.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Stechemesser et al. 2024 (Science): climate policies that achieved major emission reductions, with the OECD CAPMF policy database",
+    "verdict": "confirmed",
+    "corrections": "Zenodo 12773811 is v4, 2024-07-18, cc-by-4.0, 41 files, is_last=true, concept DOI 10.5281/zenodo.10046709. Its README confirms the July 2023 CAPMF pre-release note. The Europe PMC abstract confirms 1500 policies, 41 countries, 63 successful interventions and 0.6\u20131.8 Gt. The OECD SDMX gives DEU LEV1_SEC 2022 = 5.7148 and 2023 = 5.6994, and startPeriod=2024 returns NoRecordsFound.\n\nMinor corrections:\n(a) Crossref lists the issue date as 2024-08-23. The online release was 2024-08-22.\n(b) The PIK 'climate-policy-explorer.pik-potsdam.de' does resolve but serves an EXPIRED TLS certificate (curl error 60), so do not link it.\n(c) The OECD terms page is still behind Cloudflare (403), so the claim that OECD data is CC BY 4.0 remains unverified.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Andre, Boneva, Chopra & Falk 2024: Global Climate Change Survey (actual vs perceived support for climate action)",
+    "verdict": "corrected",
+    "corrections": "The licence is confirmed: Crossref and nature.com both list CC BY 4.0, with dc.rights '2024 The Author(s)'. The abstract numbers (69%, 86%, 89%, 125 countries, nearly 130,000 individuals) are confirmed verbatim. Dataverse doi:10.15185/gccs.1 is version 5.0, released 2024-04-30, licence IIL-1.0 with registration and no commercial use, files Country_data.zip and Replication.zip.\n\nCITATION CORRECTION: add the volume and pages: Nature Climate Change 14(3), 253\u2013259 (2024; online 2024-02-09). The open-attribution class applies only to the paper and its CC BY figures and supplement. The microdata, including the country-level zip, is IIL-licensed and must not be redistributed.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   }
+  ],
+  "headline_number_checks": "1) SEI carbon inequality, 2023 (top 10% 47.1%, top 1% 16.5%, bottom 50% 8.4%): CONFIRMED.\n- Re-summed from the API: 0.47075, 0.16550 and 0.08420. All 127 shares sum to exactly 1.0, so there is no double counting.\n- 2024 data does not exist yet: the API returned 'No products found'.\n\n2) US consumption CO2 '3.3\u00d7 world, about 9\u00d7 India': MINOR CORRECTION.\n- Values: US 2023 15.813734; World 2023 4.707772; World 2024 4.729075; India 2023 1.7684926.\n- The like-for-like 2023 ratio is 15.81/4.71 = 3.36, which rounds to about 3.4\u00d7, not 3.3\u00d7. The 3.34 figure mixes a 2023 numerator with a 2024 denominator.\n- US/India = 8.94, so 'about 9\u00d7' is confirmed.\n\n3) Ivanova options (car-free 2.0, BEV 2.0, long-haul flight 1.9, renewable electricity 1.5, vegan 0.9, refurbishment 0.9, heat pump 0.8): CONFIRMED as MEANS.\n- The paper ranks by medians. The medians differ for the flight (1.7), renewable electricity (1.6) and vegan diet (0.8).\n- Label the statistic, and drop the unsupported 'about 7,000 data points'.\n\n4) LHR\u2013JFK return flight 1.30 t with RF and 0.77 t without: ARITHMETIC CONFIRMED.\n- Haversine distance is 5,540.0 km. 11,080 km \u00d7 0.11704 = 1,296.8 kg; \u00d7 0.06926 = 767.4 kg.\n- Both factor IDs were verified in flat file v1.2.\n- WORDING CORRECTION: the without-RF factor is not 'CO2 alone'. It is kg CO2e covering CO2, CH4 and N2O, excluding non-CO2 radiative forcing.\n- BASIS MISMATCH: '27% of the average person's annual consumption CO2' divides a CO2e-with-RF number by a fossil-CO2-only footprint, which is not like-for-like.\n- Without RF the share is about 16% (0.767/4.73). Show both, or state the basis explicitly.\n\n5) Poore & Nemecek, beef vs peas 113\u00d7 and tofu 25\u00d7: CONFIRMED.\n- 49.889668/0.4410441 = 113.1; 49.889668/1.975 = 25.26.\n- Reference year in the CSV is 2010.\n\n6) ICCT BEV 63 vs gasoline 235 g CO2e/km (73%; 78% on renewables at 52 g): CONFIRMED verbatim from the PDF executive summary.\n\n7) Warming outlook: CONFIRMED.\n- UNEP: current policies 2.8\u00b0C, NDCs 2.3\u20132.5\u00b0C, 2035 cuts of 35% (2\u00b0C) and 55% (1.5\u00b0C) vs 2019 (Crossref abstract; the PDF is still behind Cloudflare).\n- CAT 2025-11-13: policies 2.1/2.6/3.3; pledges 1.8/2.2/2.8; optimistic 1.5/1.9/2.4.\n- EGR 2026 is not yet out (UNEP-CCC 2026 URL returns 404).\n\n8) IPCC C.12 (\u2264USD100/t could halve 2019 emissions by 2030; <USD20/t is more than half of that potential) and C.10 (demand-side 40\u201370% by 2050): CONFIRMED verbatim from both SPM PDFs.\n\n9) Stechemesser (63 of about 1,500 policies; 0.6\u20131.8 GtCO2): CONFIRMED from the Europe PMC abstract.\n\n10) Andre et al. (69% / 86% / 89%; 125 countries; nearly 130,000 people): CONFIRMED verbatim from the nature.com abstract.\n\nAdditional: the Drawdown figures used in the drill-down paths (Diets 1.40\u20132.80 Gt at -8.54 $/t; Heat Pumps 0.58\u20130.93 at -200; Electric Cars 1.26\u20132.30 at -1019) are CONFIRMED against the 2026-10-02 CSV. World Bank 'nearly 30% / 87 policies / $107bn' is CONFIRMED.",
+  "missing_sources": "Missing sources, most important first. Each is marked VERIFIED where I checked its licence and release this session, or 'verify' where I could not.\n\n1) Systems Change Lab and the State of Climate Action 2025 (WRI and Bezos Earth Fund, with Climate Action Tracker, ClimateWorks and others). This is the most authoritative sector-by-sector answer to 'is the world on track?'.\n- Data: https://systemschangelab.org/ (Download Data at /download).\n- Report: https://www.wri.org/research/state-climate-action-2025, DOI 10.46830/wrirpt.25.00006, published 2025-10-22, 137 pages. Its finding: 'None of the 45 indicators assessed are on track to reach their 1.5\u00b0C-aligned targets by the end of this decade'.\n- Licence (VERIFIED at https://systemschangelab.org/licensing): SCL data, maps and visualizations are CC BY 4.0. Third-party data carries its own licence, and IEA data is excluded from download.\n- Citation: 'Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund'.\n- Recommended priority: core.\n\n2) Indicators of Global Climate Change (Forster, Smith et al.): the remaining carbon budget, human-induced warming and annual GHG totals.\n- Latest data: 'Indicators of Global Climate Change 2025', Zenodo 10.5281/zenodo.21494229, published 2026-07-22, cc-by-4.0 (VERIFIED). It is a supplement to github.com/ClimateIndicator/data at tag IGCC-2025a.\n- Latest verified paper: IGCC 2024, ESSD 17, 2641, doi 10.5194/essd-17-2641-2025, 2025-06-19, CC BY 4.0. Check whether a 2026 ESSD paper accompanies the 2025 data.\n- Recommended priority: core for 'how much budget is left'.\n\n3) OWID co2-data on GitHub (https://github.com/owid/co2-data, CC BY 4.0; verify the current commit). It gives a git-versioned, hashable copy of the GCB-based series, which is more reproducible than grapher CSV endpoints.\n\n4) Net Zero Tracker (Energy & Climate Intelligence Unit, Oxford Net Zero, NewClimate Institute, Data-Driven EnviroLab), https://zerotracker.net/. It covers net-zero targets for countries, regions, cities and companies, and has a 'Download Data' link. The licence was NOT visible on the homepage or the /terms page; verify it before reuse.\n\n5) Climate TRACE (https://climatetrace.org/data): asset-level emissions for the 'who emits where' drill-down. The /data page says 'The data are licensed Creative Commons 4.0' (VERIFIED wording). Confirm which CC 4.0 variant from its data guide.\n\n6) UNFCCC NDC Synthesis Report 2025 (FCCC/PA/CMA/2025/8, https://unfccc.int/ndc-synthesis-report). This is the official aggregate effect of the new NDCs on 2030/2035 emissions and is needed alongside UNEP and CAT. unfccc.int blocks automation (Incapsula), so download it by hand. Licence: UN copyright, verify.\n\n7) EDGAR (EC JRC), https://edgar.jrc.ec.europa.eu/: all-GHG (CO2, CH4, N2O, F-gas) national totals. GCB covers fossil CO2 only, so EDGAR is needed for any 'total GHG by country' claim. Stated licence CC BY 4.0; verify.\n\n8) UNDP Peoples' Climate Vote 2024, https://www.undp.org/publications/peoples-climate-vote-2024 (returned 403 to automation). It is an independent public-opinion cross-check for Andre et al. Verify the licence and figures by hand.\n\n9) IEA Global EV Outlook 2026 and Global EV Data Explorer, https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer (403). The EV sales share is a key 'on track' indicator. IEA terms differ between reports and data, so verify which are CC BY 4.0.\n\n10) Global Energy Monitor Global Coal Plant Tracker and Global Oil & Gas Plant Tracker (https://globalenergymonitor.org/), for fossil infrastructure pipelines. Stated CC BY 4.0; verify.\n\n11) Climate Policy Initiative, Global Landscape of Climate Finance (https://www.climatepolicyinitiative.org/), for 'where the money goes'. Verify the licence.\n\nProcess notes:\n(a) Replace every link to wid.world. As of 2026-10-04 the domain serves a GoDaddy parking page and RDAP shows 'auto renew period'. If the inequality cross-check is needed, use the SEI dashboard plus the Chancel 2022 paper citation.\n(b) The PIK Climate Policy Explorer has an expired TLS certificate, so do not link it.\n(c) The IPCC SPM.7 data DOI is dead (404). No CEDA mirror exists, so request the workbook from the IPCC WGIII TSU."
+ }
+}

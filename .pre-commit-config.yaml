@@ -1,0 +1,12 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.13.0
+    hooks:
+      - id: ruff-check
+        files: ^(pipeline|tools)/
+      - id: ruff-format
+        files: ^(pipeline|tools)/

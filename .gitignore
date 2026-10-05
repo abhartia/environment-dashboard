@@ -1,0 +1,23 @@
+.DS_Store
+# pipeline
+pipeline/.venv/
+pipeline/.cache/
+pipeline/.snapshots/
+# no-derivatives and display-only exports: never committed or deployed as files (AGENTS.md rule 6)
+data-private/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+# web
+web/node_modules/
+web/.next/
+web/out/
+web/.generated/
+web/.env*
+!web/.env.example
+web/next-env.d.ts
+web/*.tsbuildinfo
+web/test-results/
+web/playwright-report/
+# tools/seo (snapshots and the worklog are committed; only the environment is not)
+tools/seo/.venv/

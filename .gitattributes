@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
-* text=auto
+* text=auto eol=lf
+# Pipeline output: canonical, line-oriented JSON/CSV. Treat as data in diffs and stats.
+data/** linguist-generated=true
+# Snapshot manifests are one file per sha256; union-merge any shared index so bot and human appends never conflict.
+pipeline/manifests/*.jsonl merge=union

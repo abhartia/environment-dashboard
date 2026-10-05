@@ -1,0 +1,89 @@
+name: Data refresh
+
+# Weekly: fetch every automatic source, rebuild what changed, run every gate, commit, then deploy in the same run.
+# Every run commits data/v1/status.json (pass or fail), which keeps /status honest and keeps this schedule alive
+# (GitHub disables schedules after 60 days without repository activity).
+on:
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment: production
+    outputs:
+      sha: ${{ steps.push.outputs.sha }}
+      ok: ${{ steps.refresh.outcome }}
+    env:
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      IA_ACCESS: ${{ secrets.IA_ACCESS }}
+      IA_SECRET: ${{ secrets.IA_SECRET }}
+      EARTHDATA_TOKEN: ${{ secrets.EARTHDATA_TOKEN }}
+      EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+      GFW_API_KEY: ${{ secrets.GFW_API_KEY }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install
+        run: (cd pipeline && uv sync --frozen) && (cd web && npm ci)
+      - name: Refresh (fetch, archive, build, validate; failures are per source)
+        id: refresh
+        continue-on-error: true
+        working-directory: pipeline
+        run: uv run envdash private pull && uv run envdash refresh && uv run envdash archive
+      - name: Open or update one issue per failed source, and per release due
+        if: always()
+        working-directory: pipeline
+        run: uv run envdash report-issues
+      - name: Gates (the same as CI; bot commits do not trigger CI)
+        id: gates
+        continue-on-error: true
+        run: |
+          (cd pipeline && uv run pytest -q && uv run pytest -q -m snapshot)
+          (cd web && npm run gen:api && git diff --exit-code -- src/gen && npm run typecheck && npm test && NEXT_PUBLIC_SITE_URL=https://environmentdashboard.org npm run build)
+      # Data that failed a gate is never committed: only the status heartbeat is, and the run ends red.
+      - name: Commit and push (data and manifests if every gate passed; status always)
+        id: push
+        if: always()
+        env:
+          GATES: ${{ steps.gates.outcome }}
+        run: |
+          git config user.name "envdash-bot"
+          git config user.email "envdash-bot@users.noreply.github.com"
+          if [ "$GATES" = success ]; then git add data pipeline/manifests; else git add data/v1/status.json; fi
+          if git diff --cached --quiet; then echo "nothing to commit"; echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git commit -m "Data refresh $(date -u +%Y-%m-%d)" -m "Run: $RUN_URL"
+          for i in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"; exit 0; fi
+            sleep 5
+          done
+          echo "push failed after 3 attempts"; exit 1
+      - name: Fail the run if a source or a gate failed (after committing what passed)
+        if: always()
+        run: test "${{ steps.refresh.outcome }}" = success && test "${{ steps.gates.outcome }}" = success
+
+  deploy:
+    needs: refresh
+    if: ${{ always() && needs.refresh.outputs.sha != '' }}
+    uses: ./.github/workflows/deploy-web.yml
+    with:
+      ref: ${{ needs.refresh.outputs.sha }}
+    secrets: inherit

@@ -1,0 +1,622 @@
+{
+ "research": {
+  "domain": "Atmosphere composition and global temperature",
+  "sources": [
+   {
+    "name": "NOAA GML Trends in Atmospheric Carbon Dioxide (Mauna Loa and global marine surface)",
+    "publisher": "NOAA Global Monitoring Laboratory (Boulder, CO); the Mauna Loa record before May 1974 comes from Scripps Institution of Oceanography",
+    "measures": "CO2 dry-air mole fraction in ppm (micromol/mol). Mauna Loa: daily, weekly, monthly (raw and deseasonalized) and annual means. Global marine boundary layer: monthly and annual means. Annual growth rate in ppm/yr. Every value comes with an uncertainty.",
+    "coverage": "Mauna Loa (19.5N, 155.6W) from March 1958 to August 2026 (monthly). Global marine surface mean from 1979 to June 2026 (monthly), with annual values to 2025. One point site plus a global average; no gridded data.",
+    "latest_release": "Version 2026-09. Files created Sat 5 Sep 2026. Latest Mauna Loa month is Aug 2026 at 427.55 ppm (Aug 2025: 425.48). Latest global month is Jun 2026 at 427.62 ppm. Annual 2025: Mauna Loa 427.35 +/- 0.12 ppm, global 425.62 +/- 0.05 ppm.",
+    "update_cadence": "Monthly, around the 5th. Mauna Loa daily and weekly files update more often. The most recent year can be revised after recalibration.",
+    "landing_url": "https://gml.noaa.gov/ccgg/trends/",
+    "download_urls": [
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_gr_mlo.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_weekly_mlo.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_gr_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_trend_gl.csv"
+    ],
+    "format": "CSV (and TXT), with comment lines starting with '#' for metadata, citation and creation timestamp",
+    "license": "Work of the US federal government, so public domain in the US (17 U.S.C. 105). File header: 'These data are made freely available to the public and the scientific community in the belief that their wide dissemination will lead to greater understanding and new scientific insights.' NOAA asks users to 'include relevant citation text in publications' and suggests co-authorship when the data are central to a publication. There are no NC or ND terms and no registration.",
+    "redistribution": "open-public-domain",
+    "citation": "Global: Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09, https://doi.org/10.15138/9N0H-ZH07. Mauna Loa (credit line from data.html): Dr. Xin Lan, NOAA/GML (gml.noaa.gov/ccgg/trends/) and Dr. Ralph Keeling, Scripps Institution of Oceanography (scrippsco2.ucsd.edu/). Global-mean method reference in the file header: Conway et al., 1994, JGR 99(D11).",
+    "doi": "10.15138/9N0H-ZH07",
+    "status": "ACTIVE BUT AT RISK. (1) The President's FY2026 budget proposed terminating NOAA OAR climate labs, including GML and Mauna Loa Observatory (MLO): Mongabay Jul 2025, Hawaii Public Radio 13 Aug 2025, EHN. (2) The lease on the Hilo support office (where 8 staff remotely operate MLO; $164,391/yr) was due to expire 31 Aug 2025. Hawaii's delegation introduced a support resolution on 28 Aug 2025 (Big Island Now 29 Aug 2025; Aloha State Daily). (3) Congress rejected eliminating OAR for FY2026. This comes from an Inside Climate News article of 29 Apr 2026, which I fetched. The detail of a January 2026 law funding NOAA at about $6B with a no-close directive is only in a search snippet of Forbes (30 May 2026); the full article returned HTTP 403. (4) In April 2026 a pause in grant funding caused GML staff furloughs; funds were released 16 Apr 2026 (ICN). (5) The FY2027 request again proposes eliminating OAR and a 26% NOAA cut that would defund MLO (ICN 29 Apr 2026). (6) Per gml.noaa.gov/obop/mlo, the temporary MLO access road was completed 26 Mar 2026, but it is 'still unclear when utility infrastructure will be replaced and power re-established'. Data are still flowing: the Aug 2026 value was published 5 Sep 2026.",
+    "url_check": "Landing page (WebFetch): shows Aug 2026 427.55 ppm, Aug 2025 425.48, 'Last updated September 5, 2026', and the note on the Maunakea substitution from Dec 2022 to 4 Jul 2023. co2_annmean_mlo.csv: header 'File Creation: Sat Sep 5 03:55:47 2026'; rows 2024,424.61,0.12 and 2025,427.35,0.12. co2_mm_mlo.csv: last row 2026,8,2026.6250,427.55,429.51,17,0.36,0.17. co2_annmean_gl.csv: first row 1979,336.85; last rows 2024,422.79,0.09 and 2025,425.62,0.05. co2_gr_mlo.csv: 2023 3.32, 2024 3.33 (the file maximum), 2025 2.23. co2_mm_gl.csv: HTTP 200, last row 2026,6,...,427.62. gl_data.html: citation 'Version 2026-09' plus DOI. data.html: Mauna Loa credit line. The weekly, daily, gr_gl and trend_gl files are listed on the data pages but I did not fetch each one.",
+    "site_use": "Core 'now' number and hero chart: the Keeling Curve from monthly co2_mm_mlo, raw plus deseasonalized, with a toggle to the global marine mean. Annual growth-rate bars from co2_gr_mlo/co2_gr_gl show acceleration and El Nino years. Global annual means feed the '% above pre-industrial' calculation (with the IGCC 1750 baseline). Ingest at build time into a versioned snapshot that stores the file creation timestamp and version string (2026-09) next to every number.",
+    "caveats": "Mauna Loa and the global marine mean are different numbers (2025: 427.35 vs 425.62). Always label which one is shown. Values from Dec 2022 to 4 Jul 2023 are from Maunakea. NOAA says the latest year is 'subject to change'. Growth rates are defined two ways: the difference of annual means (gr files) or Jan 1 to Jan 1 (the AGGI page cites 3.72 ppm for 2024). WMO GAW global means differ slightly (2024: 423.9 WMO vs 422.79 NOAA) because station selection differs.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA GML Trends in globally-averaged CH4, N2O and SF6",
+    "publisher": "NOAA Global Monitoring Laboratory",
+    "measures": "Global marine-surface mean dry-air mole fractions: CH4 in ppb, N2O in ppb, SF6 in ppt. Monthly and annual means, annual increases, and uncertainties.",
+    "coverage": "Global. CH4 from 1983/1984 to 2025 annual (monthly to May 2026). N2O annual file starts 2001 and runs to 2025. SF6 annual file runs 1998 to 2025.",
+    "latest_release": "Version 2026-09. Files created Sat 5 Sep 2026. 2025 annual means: CH4 1935.94 +/- 0.48 ppb, N2O 338.85 +/- 0.02 ppb, SF6 12.24 +/- 0.01 ppt. Latest CH4 month is May 2026 at 1939.44 ppb. The 2025 CH4 increase was 5.14 +/- 0.43 ppb (preliminary).",
+    "update_cadence": "Monthly. Annual increases are revised as more flask samples are analysed.",
+    "landing_url": "https://gml.noaa.gov/ccgg/trends_ch4/",
+    "download_urls": [
+     "https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_mm_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/sf6/sf6_annmean_gl.csv"
+    ],
+    "format": "CSV with '#' header",
+    "license": "US federal public domain. Same header text as the CO2 files: 'These data are made freely available to the public... please include relevant citation text in publications.'",
+    "redistribution": "open-public-domain",
+    "citation": "Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09, https://doi.org/10.15138/P8XG-AA10",
+    "doi": "10.15138/P8XG-AA10",
+    "status": "Active. Carries the same institutional risk as the GML CO2 record (FY2026 and FY2027 proposals to eliminate OAR/GML; April 2026 furloughs).",
+    "url_check": "ch4_annmean_gl.csv: created Sat Sep 5 04:05:12 2026; first row 1984,1644.84,0.60; last row 2025,1935.94,0.48. n2o_annmean_gl.csv: created Sep 5 04:07:37 2026; first row 2001,316.36; last row 2025,338.85,0.02. sf6_annmean_gl.csv: first row 1998,4.21; last row 2025,12.24,0.01. ch4_mm_gl.csv: last row 2026,5,...,1939.44. trends_ch4 page: May 2026 1939.44 ppb, citation text with Version 2026-09 and DOI, 2025 increase 5.14 +/- 0.43 ppb.",
+    "site_use": "Gas-by-gas drill-down: CH4 and N2O concentration curves, linked to their ERF from IGCC and their sources (cross-link to the emissions domain). SF6 is a small 'industrial gas' example. Methane is the 'fast lever' story.",
+    "caveats": "Header files do not carry the DOI; take it from the trends pages. The annual increase for the latest year is explicitly preliminary and 'likely to change significantly'. The N2O annual global file starts in 2001; earlier N2O comes from other GML programs or ice cores.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA Annual Greenhouse Gas Index (AGGI)",
+    "publisher": "NOAA Global Monitoring Laboratory (contact: Stephen A. Montzka)",
+    "measures": "Effective radiative forcing (W/m2) from long-lived GHGs relative to 1750, split into CO2, CH4, N2O, CFCs, HCFCs and HFCs. Also gives the CO2-equivalent mixing ratio (ppm) and the AGGI index (1990 = 1).",
+    "coverage": "Global, annual, 1979 to 2024",
+    "latest_release": "The 2024 AGGI, page 'Updated Fall 2025'. 2024 values: total 3.539 W/m2, CO2 2.333, CH4 0.567, N2O 0.226, CFC* 0.298, HCFCs 0.060, HFCs* 0.055; CO2-eq 539 ppm; AGGI 1.538 (+2.3%). As of 2026-10-04 no 2025 AGGI has been posted.",
+    "update_cadence": "Annual (historically each spring; the most recent edition came in Fall 2025)",
+    "landing_url": "https://gml.noaa.gov/aggi/aggi.html",
+    "download_urls": [
+     "https://gml.noaa.gov/aggi/AGGI_Table.csv",
+     "https://gml.noaa.gov/aggi/NOAA_Annual_Mean_MoleFractions.csv",
+     "https://gml.noaa.gov/aggi/NOAA_Source_Data_Web_Links_and_doi_Citations.txt"
+    ],
+    "format": "CSV, TXT",
+    "license": "US federal public domain. There is no separate licence text; GML data-use language applies.",
+    "redistribution": "open-public-domain",
+    "citation": "NOAA Global Monitoring Laboratory: The NOAA Annual Greenhouse Gas Index (AGGI), updated Fall 2025 (S.A. Montzka, contact), https://gml.noaa.gov/aggi/aggi.html. Component data DOIs are listed in NOAA_Source_Data_Web_Links_and_doi_Citations.txt (e.g. CO2 10.15138/9N0H-ZH07; CH4 10.15138/VNCZ-M766; N2O 10.15138/GMZ7-2Q16; CFC-12 10.15138/PJ63-H440; CFC-11 10.15138/BVQ6-2S69; SF6 10.15138/TQ02-ZX42). Method origin: Hofmann et al. 2006 (I did not verify a DOI).",
+    "doi": "No dataset-level DOI. Component DOIs are listed in the source-links file.",
+    "status": "AT RISK, POSSIBLY DELAYED. The page still shows the 2024 index ('Updated Fall 2025'). The index is produced by GML, the lab targeted in the FY2026 and FY2027 budget proposals.",
+    "url_check": "aggi.html (WebFetch and curl): 'Updated Fall 2025'; 2024 AGGI 1.54; text cites the record CO2 increase of 3.72 +/- 0.09 ppm from 1 Jan 2024 to 1 Jan 2025, and the Montreal Protocol and HFC phase-down discussion. AGGI_Table.csv: header 'Year,CO2,CH4,N2O,CFC*,HCFCs,HFCs*,Total,Total,1990 = 1,change *'; last row 2024,2.333,0.567,0.226,0.298,0.060,0.055,3.539,539,1.538,2.3. The source-links TXT was fetched (DOI list). NOAA_Annual_Mean_MoleFractions.csv is linked but I did not fetch it.",
+    "site_use": "'Which gases trap the extra heat' stacked area of forcing by gas (1979 to 2024). Headline 'heat-trapping from long-lived GHGs up 54% since 1990'. The CFC decline is a policy success story (Montreal Protocol).",
+    "caveats": "Covers only long-lived GHGs. It excludes aerosols, ozone and land-use forcing, which IGCC ERF includes, so AGGI totals (3.54 W/m2) differ from IGCC total anthropogenic ERF (3.10 W/m2, net of aerosol cooling). The method switched to effective radiative forcing in 2023, which shifts values slightly for all years. Last year shown is 2024.",
+    "priority": "core"
+   },
+   {
+    "name": "Scripps CO2 Program: Mauna Loa in situ and flask records (including delta-13C)",
+    "publisher": "Scripps Institution of Oceanography, UC San Diego (Ralph Keeling)",
+    "measures": "Mauna Loa CO2 in ppm (monthly and daily in situ, flask). Flask delta-13C and delta-18O of CO2 in per mil. delta-13C is the isotopic fingerprint showing the added CO2 is fossil and plant-derived.",
+    "coverage": "Mauna Loa from March 1958 to Aug 2026 (in situ monthly). Flask delta-13C from 1977/1980 to Dec 2024. Other stations (South Pole, La Jolla and others) are on the same site.",
+    "latest_release": "monthly_in_situ_co2_mlo.csv: 'Baseline data through 19-Sep-2026 from archive dated 21-Sep-2026'; Aug 2026 427.31 ppm. Flask delta-13C file: 'archive dated 06-Jun-2025', last value Dec 2024 -8.71 per mil.",
+    "update_cadence": "In situ updated monthly or more often; flask isotopes lag by about 1 year",
+    "landing_url": "https://scrippsco2.ucsd.edu/data/atmospheric-co2-data/sampling-station-records/mauna-loa-observatory-hawaii/",
+    "download_urls": [
+     "https://keelinglabsites.ucsd.edu/websitedataco2/monthly_in_situ_co2_mlo.csv",
+     "https://keelinglabsites.ucsd.edu/websitedataco2/daily_in_situ_co2_mlo.csv",
+     "https://keelinglabsites.ucsd.edu/websitedataco2/monthly_flask_co2_mlo.csv",
+     "https://keelinglabsites.ucsd.edu/websitedataco2/monthly_flask_c13_mlo.csv",
+     "https://keelinglabsites.ucsd.edu/websitedataco2/mlo_station_data_set.zip"
+    ],
+    "format": "CSV with a quoted text header block; missing values are -99.99 or NaN",
+    "license": "CC BY 4.0. Station page: 'Scripps CO2 program data and graphics on scrippsco2.ucsd.edu are licensed under a CC BY license, Creative Commons Attribution 4.0 International License'. Attribution goes to Scripps Institution of Oceanography at UC San Diego. The site also notes that co-authorship may sometimes be appropriate.",
+    "redistribution": "open-attribution",
+    "citation": "From the file header: C. D. Keeling, S. C. Piper, R. B. Bacastow, M. Wahlen, T. P. Whorf, M. Heimann, and H. A. Meijer, 'Exchanges of atmospheric CO2 and 13CO2 with the terrestrial biosphere and oceans from 1978 to 2000' (SIO Reference Series No. 01-06, Scripps Institution of Oceanography, San Diego, 2001). The series number is per Scripps convention; check it against the site's citation page.",
+    "doi": "none issued",
+    "status": "Active (files dated Sep 2026). Funding has historically been precarious: NSF support lapsed around 2013, and the program now relies partly on philanthropy (Schmidt continuation funding; Scripps news). It depends on NOAA's MLO site and infrastructure.",
+    "url_check": "Several old scrippsco2.ucsd.edu/data/atmospheric_co2/*.html URLs returned 404. The new station page (fetched) lists the keelinglabsites CSV links and the CC BY 4.0 statement. monthly_in_situ_co2_mlo.csv (fetched): header 'Baseline data through 19-Sep-2026'; row 2026,08,...,427.31,428.88,...,MLO. monthly_flask_c13_mlo.csv (curl): Feb 1980 -7.60, Dec 2024 -8.71 per mil, 'archive dated 06-Jun-2025'.",
+    "site_use": "An independent second record of the Keeling Curve (cross-check against NOAA). The delta-13C decline chart ('the fossil fingerprint') is a key 'cause' proof in the drill-down. Use for 1958 to 1974 provenance.",
+    "caveats": "The site moved recently and old deep links are broken, so store the exact URL plus archive date with each snapshot. Scripps and NOAA Mauna Loa monthly values differ slightly (Aug 2026: 427.31 vs 427.55) because of different instruments and selection. The column layout is wide; read the header.",
+    "priority": "core"
+   },
+   {
+    "name": "Antarctic Ice Cores Revised 800KYr CO2 composite (Bereiter et al. 2015)",
+    "publisher": "Univ. of Bern / EPICA consortium; archived by NOAA NCEI World Data Service for Paleoclimatology",
+    "measures": "Atmospheric CO2 in ppm with 1-sigma uncertainty, against gas age in years before 1950 (yr BP)",
+    "coverage": "From -51 yr BP (2001 AD) back to 805,669 yr BP. Composite of Law Dome, Dome C, WAIS, Siple Dome, TALDICE, EDML and Vostok.",
+    "latest_release": "Contributed 4 Feb 2015 (final dataset). The maximum before the industrial era (age > 1000 yr BP) is 298.60 ppm at 335,102 yr BP. The minimum is about 172 to 175 ppm (MIS 16).",
+    "update_cadence": "Static (no updates expected)",
+    "landing_url": "https://www.ncei.noaa.gov/access/paleo-search/study/17975",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite.txt"
+    ],
+    "format": "Fixed-width/TSV text with a NOAA paleo template header",
+    "license": "Distributed by NOAA NCEI (US government). Header: 'Please cite Publication, and Online_Resource and date accessed when using these data.' No restrictive terms.",
+    "redistribution": "open-public-domain",
+    "citation": "Bereiter, B., Eggleston, S., Schmitt, J., Nehrbass-Ahles, C., Stocker, T.F., Fischer, H., Kipfstuhl, S. and Chappellaz, J. (2015): Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, doi:10.1002/2014GL061957. Online resource: https://www.ncei.noaa.gov/access/paleo-search/study/17975 (accessed <date>).",
+    "doi": "10.1002/2014GL061957",
+    "status": "Archived and final. Low risk, but NCEI is a NOAA office, so keep a local snapshot.",
+    "url_check": "The study landing page returned an empty JS shell to WebFetch. The data file (curl) has header lines 'Antarctic Ice Cores Revised 800KYr CO2 Data', Contribution_Date 2015-02-04, the composite segment list and DOI 10.1002/2014GL061957. An awk scan over all rows with age > 1000 yr BP returned 'max 298.60 age 335102.31'. First row -51.03, 368.02; last row 805668.87, 207.29.",
+    "site_use": "The '800,000 years' zoom-out chart: glacial cycles stay between about 175 and 300 ppm, then today's 427 ppm spike, with NOAA's latest value appended and clearly marked as a different source. Headline 'highest in 800,000 years'.",
+    "caveats": "Age is years before 1950, so convert with AD = 1950 - age. The most recent part is Law Dome (to 2001), so don't double-plot with Law Dome. Ice-core air is smoothed over decades to centuries, so it cannot rule out brief spikes; say this in the explainer. The 800k claim is about the ice-core record only.",
+    "priority": "core"
+   },
+   {
+    "name": "Law Dome Ice Core 2000-Year CO2, CH4, N2O and delta-13C-CO2 (Rubino et al. 2019; CSIRO v3)",
+    "publisher": "CSIRO (Australia) / Australian Antarctic Division; mirrored by NOAA NCEI Paleo",
+    "measures": "CO2 (ppm), CH4 (ppb), N2O (ppb) and delta-13C-CO2 (per mil) from ice and firn air, plus annual spline fits and their growth rates",
+    "coverage": "Law Dome, East Antarctica (a global proxy for well-mixed gases). Covers 0 to about 2000 AD (splines from 154 AD); delta-13C for the last 1000 years.",
+    "latest_release": "CSIRO Data Access Portal v3 (2024). NCEI copy dated 2018-12-14, metadata revised 2024-08-18. Spline values at 1750: CO2 277.01 ppm, CH4 706.85 ppb, N2O 273.07 ppb.",
+    "update_cadence": "Static (occasional recalibration versions)",
+    "landing_url": "https://data.csiro.au/collection/csiro:37077",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018splines-noaa.txt",
+     "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018co2-noaa.txt",
+     "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018ch4-noaa.txt",
+     "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018n2o-noaa.txt",
+     "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018d13c-co2-noaa.txt"
+    ],
+    "format": "Tab-delimited text (NCEI). The CSIRO DAP serves the original files.",
+    "license": "CSIRO DAP: 'Creative Commons Attribution 4.0 International Licence', Open access (per the researchdata.edu.au record). NCEI copy: 'Please cite original publication, NOAA Landing Page URL, dataset and publication DOIs... and date accessed'.",
+    "redistribution": "open-attribution",
+    "citation": "Rubino, M., Etheridge, D.M., Thornton, D.P., et al. (2019): Revised records of atmospheric trace gases CO2, CH4, N2O, and delta-13C-CO2 over the last 2000 years from Law Dome, Antarctica. Earth Syst. Sci. Data 11, 473-492, https://doi.org/10.5194/essd-11-473-2019. Dataset: Rubino, M.; Etheridge, D.; Thornton, D.; Allison, C.; Francey, R.; Langenfelds, R.; Steele, P.; Trudinger, C.; Spencer, D.; Curran, M.; Van Ommen, T.; Smith, A. (2024): Law Dome Ice Core 2000-Year CO2, CH4, N2O and d13C-CO2. v3. CSIRO. Data Collection. https://doi.org/10.25919/5bfe29ff807fb",
+    "doi": "10.25919/5bfe29ff807fb (dataset); 10.5194/essd-11-473-2019 (paper); 10.25921/dwg2-6m61 (NCEI copy)",
+    "status": "Archived and active (static science dataset)",
+    "url_check": "doi.org/10.25919/5bfe29ff807fb redirects (302) to data.csiro.au/collection/csiro%3A37077v3, a JS shell with no readable content. researchdata.edu.au record (fetched): licence CC BY 4.0, v3 citation. NCEI geoportal metadata (fetched): 5 file URLs, citation, DOI 10.25921/dwg2-6m61. law2018splines-noaa.txt (curl): columns age_gas, CO2spl, CO2gr, CH4spl, ...; row 1750: 277.01, 0.129, 706.85, -0.52, 273.068.",
+    "site_use": "The '2000 years' chart for all three gases, with a smooth hand-off to NOAA instrumental data. The 'pre-industrial baseline' explainer. delta-13C pairs with the Scripps isotope chart.",
+    "caveats": "The 1750 values here (CO2 277.0, CH4 706.9) differ from the AR6/IGCC 1750 baseline (CO2 278.4, CH4 729.2), which combines several records. Pick one baseline site-wide (recommend IGCC/AR6) and show Law Dome as the underlying evidence. Prefer the CSIRO DOI as the canonical citation.",
+    "priority": "core"
+   },
+   {
+    "name": "NASA GISS Surface Temperature Analysis (GISTEMP v4)",
+    "publisher": "NASA Goddard Institute for Space Studies",
+    "measures": "Global, hemispheric and zonal land-ocean surface temperature anomalies in deg C relative to 1951-1980; monthly, seasonal and annual",
+    "coverage": "1880 to Aug 2026, global plus gridded at 2x2 deg (1200 km smoothing)",
+    "latest_release": "Page updated 11 Sep 2026 with August 2026 data. Annual (J-D): 2023 1.17, 2024 1.29, 2025 1.19 deg C vs 1951-1980. Aug 2026 = 1.40, above the previous August record of 1.30 (2024). A new GMSTA projection page was added 14 Sep 2026.",
+    "update_cadence": "Monthly, around the 10th",
+    "landing_url": "https://data.giss.nasa.gov/gistemp/",
+    "download_urls": [
+     "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv"
+    ],
+    "format": "CSV (two header lines; '***' marks missing values). NetCDF gridded files are also available.",
+    "license": "Work of the US federal government (public domain in the US). GISTEMP FAQ: graphics 'do not require permission for you to use elsewhere, but acknowledgment of their source should be given'. Suggested credit is 'NASA GISS/GISTEMP'. There is no explicit licence statement for the data tables.",
+    "redistribution": "open-public-domain",
+    "citation": "GISTEMP Team, 2026: GISS Surface Temperature Analysis (GISTEMP), version 4. NASA Goddard Institute for Space Studies. Dataset accessed 2026-MM-DD at https://data.giss.nasa.gov/gistemp/. Also: Lenssen, N., G.A. Schmidt, M. Hendrickson, P. Jacobs, M. Menne, and R. Ruedy, 2024: A GISTEMPv4 observational uncertainty ensemble. J. Geophys. Res. Atmos., 129(17), e2023JD040179, doi:10.1029/2023JD040179.",
+    "doi": "10.1029/2023JD040179 (method; the dataset itself has no DOI)",
+    "status": "Active but institutionally at risk. NASA cancelled GISS's Armstrong Hall (Columbia) lease effective 31 May 2025 and staff work remotely (Axios 17 May 2025; Yahoo/AP). Updates continue. The inputs are NOAA GHCNv4 and ERSSTv5, so NOAA cuts would cascade.",
+    "url_check": "Landing page (fetched): 'updated September 11, 2026', news items dated 14 Sep 2026 and 10 Jun 2026, citation text. FAQ (fetched): attribution guidance and 1951-1980 base rationale. GLB.Ts+dSST.csv (curl): header 'Land-Ocean: Global Means'; rows 2024 J-D 1.29, 2025 J-D 1.19, 2026 Jan-Aug 1.09/1.25/1.32/1.17/1.13/1.18/1.25/1.40. awk: mean of 1880-1900 = -0.224, so 2024 is 1.51 and 2025 is 1.41 vs 1880-1900.",
+    "site_use": "One of 5 lines in the 'datasets agree' multi-line chart (re-baselined to 1850-1900, or 1880-1900 where 1850 is unavailable). Monthly 'latest month' card. Use the GISTEMP map for zonal stripes.",
+    "caveats": "Different baseline (1951-1980) and start year (1880). Rebaselining to 1850-1900 is impossible without an assumption, so show a 1880-1900 offset and label it. Values revise slightly every month as late station data arrive.",
+    "priority": "core"
+   },
+   {
+    "name": "HadCRUT5 (Met Office Hadley Centre / UEA CRU)",
+    "publisher": "Met Office Hadley Centre and University of East Anglia Climatic Research Unit",
+    "measures": "Near-surface temperature anomaly in deg C relative to 1961-1990, with 95% confidence limits (200-member ensemble). Global, hemispheric, monthly and annual.",
+    "coverage": "1850 to Aug 2026. Global 5x5 deg grid plus summary series.",
+    "latest_release": "HadCRUT.5.2.0.0, listed on the landing page as 'updated 18 September 2026' (CRUTEM.5.2.0.0 + HadSST.4.1.1.0). Monthly series to 2026-08 (1.298). Annual vs 1961-1990: 2024 1.187, 2025 1.073, 2026 (partial) 1.106.",
+    "update_cadence": "Monthly; new minor versions about yearly",
+    "landing_url": "https://www.metoffice.gov.uk/hadobs/hadcrut5/",
+    "download_urls": [
+     "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.annual.csv",
+     "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.global.monthly.csv",
+     "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.northern_hemisphere.annual.csv",
+     "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.2.0.0/analysis/diagnostics/HadCRUT.5.2.0.0.analysis.summary_series.southern_hemisphere.annual.csv"
+    ],
+    "format": "CSV (Time, Anomaly, Lower 2.5%, Upper 97.5%). NetCDF grids.",
+    "license": "Open Government Licence v3 (Crown copyright). Terms page: 'A term of the licence is that users must include the following acknowledgement when the data are used: HadCRUT.[version number] data were obtained from http://www.metoffice.gov.uk/hadobs/hadcrut5 on [date downloaded] and are (c) British Crown Copyright, Met Office [year of first publication], provided under an Open Government License'. Commercial use and adaptation are allowed.",
+    "redistribution": "open-attribution",
+    "citation": "Morice, C.P., J.J. Kennedy, N.A. Rayner, J.P. Winn, E. Hogan, R.E. Killick, R.J.H. Dunn, T.J. Osborn, P.D. Jones and I.R. Simpson (2021): An updated assessment of near-surface temperature change from 1850: the HadCRUT5 data set. J. Geophys. Res. Atmos., 126, e2019JD032361. doi:10.1029/2019JD032361. Plus the mandatory OGL acknowledgement line above, with version and download date.",
+    "doi": "10.1029/2019JD032361",
+    "status": "Active (UK government, not exposed to US cuts)",
+    "url_check": "Landing page (fetched and curl): current version HadCRUT.5.2.0.0, OGL v3 link, citation. Release notes (fetched): CRUTEM 5.1.0.0 to 5.2.0.0 and HadSST 4.1.0.0 to 4.1.1.0. terms_and_conditions.html (curl): mandatory acknowledgement text; 'Last updated: 21/09/2026'. 5.2.0.0 download page lists the summary_series links. Global annual CSV (curl): 2024 1.187449, 2025 1.0732167, 2026 1.1064261. Monthly: 2026-08 1.2982738. awk: mean of 1850-1900 = -0.3594, so 2024 is 1.547 and 2025 is 1.433 vs 1850-1900.",
+    "site_use": "Primary series for 'how much warmer than pre-industrial', because it is the only dataset with native 1850 coverage, uncertainty bands and an open licence allowing CSV redistribution. Use for the 'warming stripes' chart and the uncertainty ribbon.",
+    "caveats": "The baseline is 1961-1990; re-baseline with mean(1850-1900) and publish that step. The 2026 annual row is a partial-year average and must be excluded or flagged. The version string changes; OWID still uses 5.1.0.0. The OGL acknowledgement must include the version and download date, so automate it in the CSV footer.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA Global Surface Temperature (NOAAGlobalTemp v6.1.0) and Climate at a Glance",
+    "publisher": "NOAA National Centers for Environmental Information (NCEI)",
+    "measures": "Global and latitude-band land, ocean and land+ocean temperature anomalies (K = deg C). The v6.1 time series uses a 1991-2020 base. The Climate at a Glance CSV uses a 1901-2000 base.",
+    "coverage": "1850 to Aug 2026; global plus 5x5 deg grid and latitude bands (90S-90N, 60S-60N, 20S-20N and others)",
+    "latest_release": "v6.1.0, published 23 Mar 2026 (moved to ERSSTv6, an ANN-based SST product, starting with the Jan 2026 report). Time-series file suffix 202608. CAG annual: 2024 1.25, 2025 1.12 deg C vs 1901-2000. From the v6.1 asc, re-baselined to 1850-1900: 2024 1.424, 2025 1.291.",
+    "update_cadence": "Monthly (file names change with yyyymm)",
+    "landing_url": "https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/",
+     "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc",
+     "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/00_Readme_timeseries.txt",
+     "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/globe/land_ocean/12/12/1850-2026/data.csv"
+    ],
+    "format": "ASCII (.asc whitespace columns: year, anomaly, error variances); CSV from the Climate at a Glance API",
+    "license": "US federal public domain. The product page shows no explicit licence terms.",
+    "redistribution": "open-public-domain",
+    "citation": "Huang, B., X. Yin, M. J. Menne, R. Vose: NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.1.0. NOAA National Centers for Environmental Information. https://doi.org/10.25921/vvaa-wq11. Method: Huang et al. (2024), NOAAGlobalTemp Version 6: An AI-Based Global Surface Temperature Dataset, Bull. Amer. Meteor. Soc. 105(11), doi:10.1175/BAMS-D-24-0012.1.",
+    "doi": "10.25921/vvaa-wq11",
+    "status": "Active. NCEI notes a migration to the cloud that may delay access. NCEI sits outside OAR, but the FY2027 request cuts NOAA overall by 26% (ICN, 29 Apr 2026).",
+    "url_check": "Product page (fetched): v6.1.0, citation and DOI, access URLs, cloud-migration note. Time-series directory (curl): lists aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc and band files. Readme (curl): 'anomalies are based on the climatology from 1991 to 2020'. Global annual asc (curl): 2024 0.646727, 2025 0.514181; mean of 1850-1900 = -0.7769. CAG CSV (curl): header 'Base Period: 1901-2000'; rows 2024,1.25 and 2025,1.12. The v6.1 publication date (23 Mar 2026) comes from the NCEI ISO metadata search result.",
+    "site_use": "Fourth line in the multi-dataset chart. Latitude-band drill-down (Arctic amplification: 60N-90N vs global). The CAG API is a convenient source for regional and US series.",
+    "caveats": "Two different baselines depending on the endpoint; never mix them. File names embed yyyymm, so discover the current file via the directory listing and record the exact name. The 2026 annual row is partial. It runs about 0.1 deg C cooler vs 1850-1900 than HadCRUT/ERA5 (2024: 1.42 vs 1.55/1.60), which is a methodological spread worth explaining.",
+    "priority": "core"
+   },
+   {
+    "name": "Berkeley Earth Land/Ocean Temperature Record (global and country series)",
+    "publisher": "Berkeley Earth (non-profit)",
+    "measures": "Global land+ocean anomaly in deg C vs 1951-1980 (two sea-ice treatments). Land-only from 1750. Country and city TAVG/TMAX/TMIN series.",
+    "coverage": "Global 1850 to Dec 2024 in the public files. Country files on S3 (e.g. united-states-TAVG-Trend.txt) end May 2016.",
+    "latest_release": "Public Global/Land_and_Ocean_summary.txt: land analysis run 04-Jan-2025, S3 Last-Modified 10 Jan 2025, last row 2024. Berkeley Earth published a 'Global Temperature Report for 2025' on 14 Jan 2026 (2025 = 1.44 +/- 0.09 deg C above 1850-1900), but the public data files have not been refreshed.",
+    "update_cadence": "Nominally monthly or annual. In practice the public S3 files are stale.",
+    "landing_url": "https://berkeleyearth.org/data/",
+    "download_urls": [
+     "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Global/Land_and_Ocean_summary.txt",
+     "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Global/Land_and_Ocean_complete.txt",
+     "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Regional/TAVG/united-states-TAVG-Trend.txt"
+    ],
+    "format": "Fixed-width text with '%' comment header; NetCDF grids",
+    "license": "CC BY-NC 4.0. Data page: 'In general, Berkeley Earth's data is licensed under Creative Commons BY-NC 4.0 International for non-commercial use only. Accessing the data provided on this page constitutes agreement with these terms.' Commercial licensing via admin@berkeleyearth.org.",
+    "redistribution": "noncommercial-only",
+    "citation": "Rohde, R. A. and Hausfather, Z.: The Berkeley Earth Land/Ocean Temperature Record, Earth Syst. Sci. Data, 12, 3469-3479, https://doi.org/10.5194/essd-12-3469-2020, 2020.",
+    "doi": "10.5194/essd-12-3469-2020",
+    "status": "STALE in the public files. Global files end Dec 2024 (Last-Modified 10 Jan 2025). Country-level series were last run 08-Jun-2016 (data to May 2016). data.berkeleyearth.org/auto/Global/Land_and_Ocean_summary.txt returned 404. The organisation is active (2025 report, press release).",
+    "url_check": "Data page (curl): links and verbatim licence text. Land_and_Ocean_summary.txt (curl): citation header, 'land analysis was run on 04-Jan-2025', last row 2024 1.311. Land_and_Ocean_complete.txt: last row 2024-12; Last-Modified 10 Jan 2025. united-states-TAVG-Trend.txt (curl): 'This analysis was run on 08-Jun-2016', last row 2016-05; Last-Modified 26 Oct 2023. data.berkeleyearth.org/auto/... returned 404. The 2025 report URL and values come from WebSearch (berkeleyearth.org/global-temperature-report-for-2025/).",
+    "site_use": "Optional fifth line in the multi-dataset chart, display only, with an 'NC licence' note. Do not use for country drill-down (stale) and do not include in open CSV downloads unless the download carries NC terms. Contact Berkeley Earth for current files or permission.",
+    "caveats": "NC licence: any CSV we redistribute inherits NC and must say so, which complicates a single 'download everything' bundle. Stale public files mean the site would show 2024 as the last year. Two sea-ice variants exist; pick 'air temperature over sea ice' and say so.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Copernicus C3S ERA5 global temperature and Climate Pulse",
+    "publisher": "Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission",
+    "measures": "Daily global-mean 2 m air temperature (deg C absolute and anomaly vs 1991-2020). Daily 60S-60N sea-surface temperature. ERA5 reanalysis monthly grids for country and regional aggregation. C3S converts to pre-industrial by adding +0.88 deg C (annual; 0.80-0.96 monthly, 0.79-0.97 daily).",
+    "coverage": "Air temperature from 1 Jan 1940 to 2 Oct 2026 (daily). SST from 1979. ERA5 grids are global at 0.25 deg.",
+    "latest_release": "era5_daily_series_2t_global.csv 'Last updated: 04 Oct 2026'; last row 2026-10-02, anomaly 0.679 (PRELIMINARY). C3S Global Climate Highlights 2025 (Jan 2026): 2025 = 1.47 deg C above 1850-1900 (third warmest), 2024 = 1.60 (warmest), and 2023-2025 was the first 3-year mean above 1.5 deg C. Recomputed from the daily file: 2024 mean anomaly 0.719 (+0.88 = 1.60), 2025 0.592 (1.47). Record daily anomaly was 1.155 on 2023-11-17.",
+    "update_cadence": "Daily (about a 2-day lag, preliminary then final). Monthly bulletins. Annual Global Climate Highlights in January.",
+    "landing_url": "https://pulse.climate.copernicus.eu/",
+    "download_urls": [
+     "https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
+     "https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_sst_60S-60N_ocean.csv",
+     "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means"
+    ],
+    "format": "CSV with '#' header (Climate Pulse); NetCDF/GRIB via the CDS API",
+    "license": "Copernicus licence. 'This Licence is free of charge, worldwide, non-exclusive, royalty free and perpetual'. It permits reproduction, distribution, communication to the public, adaptation and modification, including commercial use. Attribution: 'Generated using Copernicus Climate Change Service information [Year]', or for modified data 'Contains modified Copernicus Climate Change Service information [Year]'. The CDS API needs a free ECMWF account and API key (store in macOS Keychain). Climate Pulse CSVs need no login.",
+    "redistribution": "open-attribution",
+    "citation": "Climate Pulse: Copernicus Climate Change Service (C3S)/ECMWF, Climate Pulse, https://pulse.climate.copernicus.eu (data: era5_daily_series_2t_global.csv, last updated <date>). ERA5: Hersbach, H. et al. (2020) The ERA5 global reanalysis, Q. J. R. Meteorol. Soc. 146, 1999-2049, doi:10.1002/qj.3803. Plus the licence line 'Contains modified Copernicus Climate Change Service information 2026'.",
+    "doi": "10.1002/qj.3803 (ERA5 paper, not re-fetched this pass). CDS dataset DOIs (e.g. 10.24381/cds.f17050d7 for monthly means) were not verified this pass.",
+    "status": "Active. EU-funded and not exposed to US cuts.",
+    "url_check": "The Climate Pulse landing page is a JS app; WebFetch saw only the shell. Both CSVs fetched with curl: the 2t header includes 'Last updated: 04 Oct 2026', column definitions and the status note; last rows 2026-09-30 0.720 FINAL, 2026-10-02 0.679 PRELIMINARY. SST CSV: last row 2026-10-02, 20.992, anomaly 0.729. The guessed monthly file names (era5_monthly_series_2t_global.csv) returned 404. The CDS licence page (fetched) gave the terms quoted. Climate Bulletin methods page (fetched): +0.88 deg C offset (0.72-0.99) from HadCRUT5, NOAAGlobalTemp and Berkeley Earth per AR6. 2025 values come from the C3S press release via WebSearch.",
+    "site_use": "The 'today' heartbeat card: yesterday's global temperature and the daily anomaly spaghetti chart by year. Fifth line of the multi-dataset annual chart (after the +0.88 offset). ERA5 monthly grids power country-level drill-downs (directly or via OWID).",
+    "caveats": "The anomaly base is 1991-2020; the pre-industrial conversion is a fixed offset, not a measurement, so show the step. The last 2-5 days are PRELIMINARY; store the status column. Annual means computed from daily anomalies may differ in the 3rd decimal from official C3S numbers, so cite the official GCH value for headlines.",
+    "priority": "core"
+   },
+   {
+    "name": "Indicators of Global Climate Change 2025 (IGCC; Forster et al. 2026) with ClimateIndicator/data",
+    "publisher": "IGCC consortium (Univ. of Leeds lead, about 70 authors), published in ESSD. The website indicators.climate.copernicus.eu is funded by C3S.",
+    "measures": "Human-induced warming (deg C vs 1850-1900, split into GHG, other human and natural); observed GMST (multi-dataset mean); effective radiative forcing by agent (W/m2, 1750-2025); GHG concentrations (1750-2025); remaining carbon budgets (GtCO2, 0.1 deg C steps); Earth energy imbalance; GHG emissions; sea level; extremes.",
+    "coverage": "Global, annual, 1750/1850 to 2025",
+    "latest_release": "Paper published 11 Jun 2026 (ESSD 18, 3889-3933). Data release tag IGCC-2025a on 22 Jul 2026 (Zenodo 10.5281/zenodo.21494229). Repo last pushed 16 Sep 2026. Headlines: human-induced warming 1.37 deg C in 2025; observed 2025 1.39 +/- 0.13; 2016-2025 observed 1.26 [1.13-1.36]; rate 0.27 [0.2-0.4] deg C/decade; total anthropogenic ERF 3.10 [2.35-3.83] W/m2; remaining 1.5 deg C budget (50%) of 130 GtCO2 from start of 2026; GHG emissions 2024 56.8 +/- 5.5 GtCO2e; EEI 2006-2025 1.04 W/m2.",
+    "update_cadence": "Annual (paper around June, data around July)",
+    "landing_url": "https://indicators.climate.copernicus.eu/",
+    "download_urls": [
+     "https://raw.githubusercontent.com/ClimateIndicator/data/main/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv",
+     "https://raw.githubusercontent.com/ClimateIndicator/data/main/data/base/effective_radiative_forcing/ERF_best_aggregates.csv",
+     "https://raw.githubusercontent.com/ClimateIndicator/data/main/data/base/effective_radiative_forcing/ERF_best.csv",
+     "https://raw.githubusercontent.com/ClimateIndicator/data/main/data/base/global_mean_temperatures/annual_averages.csv",
+     "https://raw.githubusercontent.com/ClimateIndicator/data/main/data/base/greenhouse_gas_concentrations/ghg_concentrations.csv",
+     "https://raw.githubusercontent.com/ClimateIndicator/data/main/data/base/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv",
+     "https://zenodo.org/doi/10.5281/zenodo.7883757",
+     "https://igcc.apps.ece.iiasa.ac.at/explorer"
+    ],
+    "format": "CSV (GitHub and Zenodo zip); the paper is PDF/HTML",
+    "license": "CC BY 4.0 for the data repo (GitHub spdx CC-BY-4.0; Zenodo 'Creative Commons Attribution 4.0 International'), which 'allows re-distribution and re-use... on the condition that the creator is appropriately credited'. The ESSD article is also CC BY 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Forster, P. M., Walsh, T., Smith, C., et al.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889-3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Data: Smith, C., Walsh, T., Gillett, N., et al. (2026): ClimateIndicator/data: IGCC-2025a, Zenodo, https://doi.org/10.5281/zenodo.21494229.",
+    "doi": "10.5194/essd-18-3889-2026 (paper); 10.5281/zenodo.21494229 (IGCC-2025a data); 10.5281/zenodo.7883757 (concept DOI)",
+    "status": "Active (annual, 4th edition)",
+    "url_check": "indicators.climate.copernicus.eu (fetched): 2025 edition (Vol. 4) headline table and 'remaining carbon budget from the start of 2026 is 130 Gt CO2 - a little over 3 years at the current 42 Gt CO2/yr'. ESSD article page (fetched): citation, published 11 June 2026, CC BY 4.0, data DOI. Zenodo (fetched): version IGCC-2025a, 22 Jul 2026, CC-BY-4.0, data-IGCC-2025a.zip 1.5 MB. GitHub API (curl): releases IGCC-2025a, v2026.07.20, v2026.06.15; licence CC-BY-4.0; folder list. CSVs (curl): headlines row '2025.5,2025,2026,1.1,1.37,1.7,1.1,1.63,2.1,-0.8,-0.26,0.2,-0.1,0.04,0.2,SR15 definition'. ERF_best_aggregates 2025.5: CO2 2.3709, CH4 0.5696, N2O 0.2316, aerosol -0.9618, anthro 3.1035, total 3.3657, wmghg 3.5846. annual_averages 2025.5 GMST 1.391, 2024.5 1.511. ghg_concentrations 1750.5: CO2 278.377857, CH4 729.2, N2O 270.1; 2025.5: 425.65, 1936.31, 339.36. Carbon budget hdT_1.24 file, row dT=1.5, column 0.5 = 134.2 GtCO2 (the published 130 is rounded).",
+    "site_use": "The backbone of the 'causes' and 'what's left' sections. Waterfall chart: GHGs +1.63, other human -0.26, natural +0.04, total 1.37 deg C. Forcing by agent (ERF). The carbon-budget 'clock'. The 1750 baselines for '% above pre-industrial'. Pin downloads to tag IGCC-2025a, not main (the raw.githubusercontent.com/.../IGCC-2025a/... path is the expected pattern; I verified only the main-branch URLs).",
+    "caveats": "Carbon-budget file names encode assumptions (hdT = human-induced warming 1.24 deg C, likelihood columns 0.1-0.9). The headline 130 is a rounded value from a specific file and column, so document it exactly. The headline warming file has two rows per year (with and without 'SR15 definition'); the paper's 1.37 uses the SR15 row, the other gives 1.38. The 'main' branch can change after publication.",
+    "priority": "core"
+   },
+   {
+    "name": "WMO State of the Global Climate 2025 (WMO-No. 1391) and its open dashboard data",
+    "publisher": "World Meteorological Organization; dashboard and processing code by John Kennedy",
+    "measures": "Consolidated multi-dataset global temperature anomaly vs 1850-1900 (8 datasets), plus key indicators (GHGs, ocean heat, sea level, ice, EEI)",
+    "coverage": "Global, 1850 to 2025",
+    "latest_release": "Report published 23 Mar 2026: 2025 = 1.44 +/- 0.13 deg C above 1850-1900 (2nd or 3rd warmest; two datasets rank it 2nd, six rank it 3rd); 2015-2025 are the 11 warmest years; EEI is the highest in the 65-year record. Dashboard data v2 on Zenodo, 28 Apr 2026.",
+    "update_cadence": "Annual (provisional report at COP in Nov; final report in March)",
+    "landing_url": "https://wmo.int/publication-series/state-of-global-climate/state-of-global-climate-2025",
+    "download_urls": [
+     "https://zenodo.org/records/19737593",
+     "https://github.com/jjk-code-otter/climate-indicator-manager"
+    ],
+    "format": "Report PDF; dashboard zip (20.6 MB) with CSV/JSON; Python code",
+    "license": "Dashboard data: CC BY 4.0 (Zenodo). Code: GPL-3.0 (GitHub). Report: WMO copyright. 'Short extracts from WMO publications may be reproduced without authorization, provided that the complete source is clearly indicated'; larger reuse needs permission.",
+    "redistribution": "open-attribution",
+    "citation": "WMO (2026): State of the Global Climate 2025 (WMO-No. 1391). World Meteorological Organization, Geneva. Data: Kennedy, J. (2026): WMO State of the Global Climate 2025 dashboard (v2). Zenodo. https://doi.org/10.5281/zenodo.19737593",
+    "doi": "10.5281/zenodo.19737593 (dashboard data); the report has no DOI",
+    "status": "Active (annual)",
+    "url_check": "WMO publication page (fetched): published 23 March 2026, ~1.43 deg C, 2015-2025 the 11 hottest years, EEI record. The 1.44 +/- 0.13 and 'eight datasets' come from a WMO press-release search result. Zenodo record (fetched): v2, 28 Apr 2026, CC-BY-4.0, Dashboard2025.zip. GitHub API (curl): GPL-3.0, pushed 2026-09-30. Report licence terms come from a search result quoting the report's copyright page.",
+    "site_use": "The single authoritative 'consensus' headline number with a range. The open code shows exactly how 8 datasets are re-baselined and averaged, which is the method our multi-dataset chart should copy and cite.",
+    "caveats": "Report text and figures are not CC; only use numbers and the CC BY dashboard data. Report numbers are rounded (1.43 vs 1.44 appears in different places), so quote the consolidated 1.44 +/- 0.13 and cite the dashboard file. Datasets in the WMO mix get revised after publication.",
+    "priority": "core"
+   },
+   {
+    "name": "WMO Greenhouse Gas Bulletin No. 21 (GAW in situ network)",
+    "publisher": "WMO Global Atmosphere Watch (data via WDCGG, hosted by JMA)",
+    "measures": "Global annual mean CO2 (ppm), CH4 (ppb) and N2O (ppb) from the GAW network, with % of pre-industrial and growth rates",
+    "coverage": "Global; this issue covers data through 2024",
+    "latest_release": "No. 21, 16 Oct 2025 (ISSN 2078-0796). 2024: CO2 423.9 +/- 0.2 ppm, CH4 1942 +/- 2 ppb, N2O 338.0 +/- 0.1 ppb, which are 152%, 266% and 125% of pre-industrial. CO2 rose 3.5 ppm from 2023 to 2024, the largest since 1957. No. 22 (2025 data) was not found as of 2026-10-04.",
+    "update_cadence": "Annual (October/November)",
+    "landing_url": "https://wmo.int/themes/greenhouse-gases",
+    "download_urls": [
+     "https://wmo.int/sites/default/files/2025-10/GHG-21_en.pdf"
+    ],
+    "format": "PDF (underlying station data via WDCGG)",
+    "license": "WMO copyright (short extracts with source indicated). I did not verify the WDCGG data policy.",
+    "redistribution": "unclear",
+    "citation": "WMO (2025): WMO Greenhouse Gas Bulletin No. 21: The State of Greenhouse Gases in the Atmosphere Based on Global Observations through 2024. World Meteorological Organization, Geneva, 16 October 2025. ISSN 2078-0796.",
+    "doi": "none found",
+    "status": "Active (annual). Its global means draw heavily on the NOAA network, so NOAA cuts would degrade it.",
+    "url_check": "Fetched the PDF and read pages 1-2: masthead 'No. 21 | 16 October 2025'; ISSN 2078-0796; executive summary values; Figure 1 caption explaining the 0.1 ppm/yr difference between WMO (3.5) and NOAA (3.4) CO2 growth for 2023-2024 due to station selection and averaging.",
+    "site_use": "Explainer card for 'why are there different global CO2 numbers?' and a cross-check on '% of pre-industrial'. Not a primary chart source.",
+    "caveats": "It lags one year behind NOAA (2024 vs 2025). Its values differ from NOAA's (423.9 vs 422.79 ppm for 2024). Redistribution rights for the numbers are unclear, so cite only.",
+    "priority": "secondary"
+   },
+   {
+    "name": "IPCC AR6 WGI Figure SPM.1 data (2000-year temperature and human vs natural attribution)",
+    "publisher": "IPCC WGI Technical Support Unit; archived by NERC EDS Centre for Environmental Data Analysis (CEDA)",
+    "measures": "Panel a: global surface temperature change vs 1850-1900, 1-2000 CE (PAGES2k reconstruction, decadal, 5-95%) plus observations 1850-2020. Panel b: observed vs CMIP6 simulated (human+natural and natural-only) 1850-2020.",
+    "coverage": "Global; 1 CE to 2020",
+    "latest_release": "v20221116, catalogued 3 Jul 2023 (final)",
+    "update_cadence": "Static (the AR7 cycle will supersede it around 2028-29)",
+    "landing_url": "https://catalogue.ceda.ac.uk/uuid/0b2759059ad6474098e40dad73e0a8ec/",
+    "download_urls": [
+     "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/SPM1_1-2000_recon.csv",
+     "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_b/gmst_changes_model_and_obs.csv"
+    ],
+    "format": "BADC-CSV (metadata rows, then a 'data' block)",
+    "license": "CC BY 4.0. File 'rights' row: 'Use of these data is covered by the following licence: http://creativecommons.org/licenses/by/4.0/. When using these data you must cite them correctly'",
+    "redistribution": "open-attribution",
+    "citation": "Gillett, N.P.; Malinina, E.; Kaufman, D.; Neukom, R. (2023): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.1 (v20221116). NERC EDS Centre for Environmental Data Analysis, 03 July 2023. doi:10.5285/0b2759059ad6474098e40dad73e0a8ec. Also cite IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the IPCC.",
+    "doi": "10.5285/0b2759059ad6474098e40dad73e0a8ec",
+    "status": "Archived and final",
+    "url_check": "CEDA catalogue page (fetched): licence, citation, DOI, file list. SPM1_1-2000_recon.csv (curl): BADC-CSV header with creator, 'relative to 1850-1900', PAGES2k DOI comment, rights row; data rows such as 1995,0.65,0.46,0.79. gmst_changes_model_and_obs.csv: HTTP 200.",
+    "site_use": "The 'is this normal?' chart (2000 years flat, then a vertical rise) and the clarifying 'with humans vs without humans' simulation chart that anchors the attribution story.",
+    "caveats": "Ends in 2020; extend with HadCRUT5 and say so. The reconstruction is decadal-smoothed and should not be compared with single years. Model ranges are CMIP6 ensembles, not observations.",
+    "priority": "core"
+   },
+   {
+    "name": "Our World in Data: monthly temperature anomalies by country (from ERA5)",
+    "publisher": "Our World in Data (Global Change Data Lab), processing Copernicus C3S ERA5",
+    "measures": "Monthly 2 m temperature anomaly (deg C) vs each country's own 1991-2020 mean. Area-weighted over World Bank boundaries, land only per country; World is land+ocean.",
+    "coverage": "About 200 countries plus World, Jan 1940 to Aug 2026",
+    "latest_release": "lastUpdated 2026-09-11. World 2026-08 = 0.845 deg C vs 1991-2020.",
+    "update_cadence": "Monthly",
+    "landing_url": "https://ourworldindata.org/grapher/monthly-temperature-anomalies",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/monthly-temperature-anomalies.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/monthly-temperature-anomalies.metadata.json"
+    ],
+    "format": "CSV (entity, code, month, temperature_anomaly) plus JSON metadata",
+    "license": "OWID-produced data are CC BY ('you have permission to use, reproduce, and distribute it, provided that you cite us'). Third-party data 'is subject to the license terms of those providers', here the Copernicus licence (open, attribution).",
+    "redistribution": "open-attribution",
+    "citation": "Contains modified Copernicus Climate Change Service information (2026) - with major processing by Our World in Data. 'Temperature anomaly' [dataset]. Contains modified Copernicus Climate Change Service information, 'ERA5 monthly averaged data on single levels from 1940 to present' [original data]. Retrieved from https://ourworldindata.org/grapher/monthly-temperature-anomalies",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "metadata.json (curl): citationLong, descriptionProcessing (K to C, World Bank boundaries, latitude weighting, land-only per country, small-country caveat), lastUpdated 2026-09-11. CSV (curl): header 'entity,code,month,temperature_anomaly'; first row Afghanistan 1940-01 -0.789; World 2026-07 0.670 and 2026-08 0.845. OWID FAQ (fetched): licence text.",
+    "site_use": "The only open, current, ready-made country-level temperature series. It powers the 'your country' drill-down (map, then country, then month). Show OWID's processing note and ERA5 as upstream on every country page. Long term, consider recomputing from ERA5 monthly via the CDS API at build time.",
+    "caveats": "Major processing: boundaries, land-only masking and the 1991-2020 base. Values are not comparable with 1850-1900 global figures without a stated offset. Small countries are unreliable at 0.25 deg resolution. OWID can change methods between updates, so snapshot it.",
+    "priority": "core"
+   },
+   {
+    "name": "Our World in Data: long-term CO2 concentration and global temperature anomaly charts",
+    "publisher": "Our World in Data (processing NOAA GML, EPA ice-core compilation, Met Office HadCRUT5)",
+    "measures": "co2-long-term-concentration: annual CO2 (ppm) from 803,719 BP to 2025. temperature-anomaly: HadCRUT5 annual anomaly vs 1861-1890 with 95% CI.",
+    "coverage": "Global (plus hemispheres for temperature)",
+    "latest_release": "Both lastUpdated 2026-09-11, nextUpdate 2026-11-10. CO2 2025 = 425.6225. Temperature uses HadCRUT.5.1.0.0 (not 5.2.0.0); World 2025 = 1.412 vs 1861-1890; the 2026 row is a partial year (1.406).",
+    "update_cadence": "About every 2 months",
+    "landing_url": "https://ourworldindata.org/grapher/co2-long-term-concentration",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/co2-long-term-concentration.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/temperature-anomaly.csv?v=1&csvType=full&useColumnShortNames=true"
+    ],
+    "format": "CSV plus metadata JSON",
+    "license": "CC BY for OWID processing; upstream licences apply (NOAA public domain; Met Office OGL v3; the EPA compilation is US public domain)",
+    "redistribution": "open-attribution",
+    "citation": "NOAA Global Monitoring Laboratory - Trends in Atmospheric Carbon Dioxide (2026); EPA based on various sources (2022) - with major processing by Our World in Data. / Met Office Hadley Centre - HadCRUT5 (2026) - with major processing by Our World in Data.",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "metadata.json and CSVs fetched with curl. CO2: first row World,-803719,207.29; 2024 422.7875; 2025 425.6225 (NOAA file: 425.62). Temperature: descriptionShort '1861-1890 mean', original data 'HadCRUT.5.1.0.0', 2025 1.4119903, 2026 1.4060807.",
+    "site_use": "Do not use as the primary source. Use only as a convenience cross-check and as a 'see also' link. Fetch the upstream files directly.",
+    "caveats": "OWID processing changes values. The temperature baseline is moved to 1861-1890 (not the IPCC 1850-1900); the version lags (5.1.0.0); the partial 2026 year is included. The CO2 series splices the EPA ice-core compilation with NOAA global means and recomputes annual means (425.6225 vs NOAA's 425.62), so it is not traceable to one primary file.",
+    "priority": "avoid"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "In 2025 the air held 425.6 ppm of CO2 on global average (427.4 ppm at Mauna Loa), the highest ever measured.",
+    "value_as_of_latest": "425.62 +/- 0.05 ppm (global marine surface, 2025); 427.35 +/- 0.12 ppm (Mauna Loa, 2025); latest month Aug 2026 427.55 ppm (Mauna Loa)",
+    "source_name": "NOAA GML Trends in Atmospheric CO2, Version 2026-09 (doi:10.15138/9N0H-ZH07)",
+    "derivation": "co2_annmean_gl.csv row year=2025, column mean = 425.62 (unc 0.05). co2_annmean_mlo.csv row 2025 = 427.35. co2_mm_mlo.csv row 2026,8, column 'average' = 427.55. Files created 5 Sep 2026."
+   },
+   {
+    "statement": "There is about 53% more CO2 in the atmosphere than before the industrial era (1750).",
+    "value_as_of_latest": "+52.9% (425.62 ppm in 2025 vs 278.38 ppm in 1750)",
+    "source_name": "NOAA GML co2_annmean_gl.csv (2025) + IGCC 2025 ghg_concentrations.csv (1750 baseline, AR6-consistent); cross-check Law Dome (Rubino et al. 2019)",
+    "derivation": "(425.62 / 278.377857 - 1) x 100 = 52.9%. 278.377857 is the CO2 column in ClimateIndicator/data ghg_concentrations.csv row time=1750.5. Cross-check: the Law Dome spline at 1750 is 277.01 ppm (law2018splines-noaa.txt), giving +53.6%. The WMO GHG Bulletin reports 152% of pre-industrial for 2024."
+   },
+   {
+    "statement": "Today's CO2 is about 127 ppm above the highest level found anywhere in 800,000 years of Antarctic ice.",
+    "value_as_of_latest": "Pre-industrial maximum 298.60 ppm (about 335,100 years ago) vs 425.62 ppm in 2025: +127.0 ppm",
+    "source_name": "Bereiter et al. 2015 Antarctic CO2 composite (NOAA NCEI paleo study 17975) + NOAA GML global annual mean",
+    "derivation": "max(CO2) over all rows of antarctica2015co2composite.txt with age_BP > 1000 = 298.60 ppm at 335,102.31 yr BP (awk scan). 425.62 - 298.60 = 127.02 ppm."
+   },
+   {
+    "statement": "CO2 jumped 3.33 ppm at Mauna Loa in 2024, the largest one-year rise in the 67-year record, and rose a further 2.23 ppm in 2025.",
+    "value_as_of_latest": "2024: 3.33 +/- 0.11 ppm; 2025: 2.23 +/- 0.11 ppm",
+    "source_name": "NOAA GML co2_gr_mlo.csv (Version 2026-09)",
+    "derivation": "co2_gr_mlo.csv rows 2024 (3.33) and 2025 (2.23). 2024 is the maximum of the column over 1959-2025. The difference of annual means is NOAA's definition; the Jan-to-Jan global increase for 2024 was 3.72 ppm (AGGI page)."
+   },
+   {
+    "statement": "Methane is now about 2.65 times its pre-industrial level.",
+    "value_as_of_latest": "1935.94 ppb (2025) vs 729.2 ppb (1750): x2.65 (+165%)",
+    "source_name": "NOAA GML ch4_annmean_gl.csv (Version 2026-09, doi:10.15138/P8XG-AA10) + IGCC 2025 ghg_concentrations.csv",
+    "derivation": "1935.94 / 729.2 = 2.655. 1935.94 is ch4_annmean_gl.csv row 2025; 729.2 is ghg_concentrations.csv CH4 column, row 1750.5. Cross-check: the WMO GHG Bulletin No. 21 gives 266% for 2024."
+   },
+   {
+    "statement": "2024 was the warmest year on record, about 1.55 deg C above 1850-1900; 2025 was about 1.43-1.47 deg C (WMO consensus 1.44 +/- 0.13 deg C).",
+    "value_as_of_latest": "HadCRUT5.2: 2024 1.55, 2025 1.43. ERA5: 2024 1.60, 2025 1.47. GISTEMP (vs 1880-1900): 1.51 and 1.41. NOAAGlobalTemp v6.1: 1.42 and 1.29. WMO 8-dataset 2025: 1.44 +/- 0.13.",
+    "source_name": "HadCRUT.5.2.0.0 (Met Office/UEA, OGL v3); C3S ERA5/Climate Pulse; NASA GISTEMP v4; NOAAGlobalTemp v6.1.0; WMO State of the Global Climate 2025",
+    "derivation": "HadCRUT.5.2.0.0.analysis.summary_series.global.annual.csv: anomaly(2024) = 1.187449, anomaly(2025) = 1.0732167, mean(1850..1900) = -0.3594, so 1.547 and 1.433. ERA5: mean of the daily ano_91-20 column in era5_daily_series_2t_global.csv for 2024 (0.719) and 2025 (0.592), plus the C3S offset 0.88, gives 1.60 and 1.47 (matches the official C3S GCH 2025). GISTEMP GLB.Ts+dSST.csv J-D minus mean(1880-1900) = -0.224. NOAA aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc minus mean(1850-1900) = -0.7769."
+   },
+   {
+    "statement": "Humans have caused about 1.37 deg C of warming. Greenhouse gases alone caused about 1.63 deg C, partly masked by about -0.26 deg C from aerosol pollution; natural factors added about 0.04 deg C.",
+    "value_as_of_latest": "Human-induced 1.37 deg C [1.1-1.7] in 2025; GHG 1.63 [1.1-2.1]; other human -0.26 [-0.8 to +0.2]; natural 0.04 [-0.1 to 0.2]",
+    "source_name": "Indicators of Global Climate Change 2025 (Forster et al. 2026, ESSD, doi:10.5194/essd-18-3889-2026); data ClimateIndicator/data IGCC-2025a",
+    "derivation": "Assessment-Update-2025_GMST_headlines.csv row time=2025.5, notes='SR15 definition': anthropogenic_p50=1.37 (p05 1.1, p95 1.7), ghg_p50=1.63, other_human_forcing_p50=-0.26, natural_p50=0.04. Compare observed 2025 = 1.391 (global_mean_temperatures/annual_averages.csv row 2025.5)."
+   },
+   {
+    "statement": "To keep a 50% chance of limiting warming to 1.5 deg C, the world can emit only about 130 billion tonnes more CO2 from the start of 2026: roughly 3 years at today's rate.",
+    "value_as_of_latest": "130 GtCO2 from 1 Jan 2026 (50% likelihood); about 3.1 years at 42 GtCO2/yr",
+    "source_name": "Indicators of Global Climate Change 2025 (Forster et al. 2026) and indicators.climate.copernicus.eu",
+    "derivation": "Published headline: 130 GtCO2 (IGCC site text 'a little over 3 years at the current 42 Gt CO2/yr'). Raw file: carbon_budget/budget_..._hdT_1.24NonlinNonCO2_all_None_recEm213.csv, row dT_targets=1.5, column 0.5 = 134.2 GtCO2, rounded to 130 in the paper. Years = 130/42 = 3.1."
+   },
+   {
+    "statement": "Human activity is adding about 3.1 watts per square metre of extra heating to the planet; CO2 alone accounts for 2.4.",
+    "value_as_of_latest": "Total anthropogenic ERF 3.10 W/m2 [2.35-3.83] in 2025: CO2 2.37, CH4 0.57, N2O 0.23, aerosols -0.96 (relative to 1750)",
+    "source_name": "IGCC 2025 ERF_best_aggregates.csv",
+    "derivation": "ERF_best_aggregates.csv row time=2025.5: anthro=3.1035, CO2=2.3709, CH4=0.5696, N2O=0.2316, aerosol=-0.9618, wmghg=3.5846. Ranges from ERF_p05/ERF_p95 and the paper abstract."
+   },
+   {
+    "statement": "The heating effect of long-lived greenhouse gases has grown 54% since 1990.",
+    "value_as_of_latest": "AGGI 1.538 in 2024 (3.539 W/m2; CO2-equivalent 539 ppm)",
+    "source_name": "NOAA Annual Greenhouse Gas Index (updated Fall 2025)",
+    "derivation": "AGGI_Table.csv row 2024: Total 3.539 W/m2, CO2-eq 539 ppm, '1990 = 1' index 1.538, so (1.538 - 1) x 100 = 54%. This is the latest published edition; no 2025 AGGI existed as of 2026-10-04."
+   }
+  ],
+  "drilldown_paths": [
+   "THE KEELING CURVE, ZOOM OUT: Mauna Loa daily, weekly and monthly (NOAA co2_daily/weekly/mm_mlo; Scripps monthly_in_situ as twin) -> seasonal 'breathing' explainer (raw vs deseasonalized columns) -> annual growth-rate bars with El Nino years (co2_gr_mlo / co2_gr_gl) -> 2000 years (Law Dome law2018splines CO2spl) -> 800,000 years (Bereiter antarctica2015co2composite) with today's dot appended (co2_annmean_gl 2025). Ends on the 'highest in 800,000 years' headline.",
+   "HOW DO WE KNOW IT'S US? Rising CO2 (NOAA) -> isotopic fingerprint: delta-13C falling from -7.60 to -8.71 per mil (Scripps monthly_flask_c13_mlo; Law Dome law2018d13c-co2) = fossil/plant carbon -> 'with and without humans' simulation vs observations (IPCC SPM.1 panel_b gmst_changes_model_and_obs.csv) -> attribution waterfall GHG +1.63 / aerosols and other -0.26 / natural +0.04 = 1.37 deg C (IGCC Assessment-Update-2025_GMST_headlines.csv).",
+   "WHICH GASES, HOW MUCH HEAT? Forcing stack 1750-2025 by agent (IGCC ERF_best_aggregates.csv: CO2, CH4, N2O, halogens, ozone, aerosols, land use, solar, volcanic) -> click a gas -> its concentration curve (NOAA co2/ch4/n2o/sf6 annmean_gl + Law Dome pre-1958) -> its growth rate -> link to the emissions-sector domain (where it comes from) -> NOAA AGGI table (AGGI_Table.csv) showing CFCs falling after the Montreal Protocol, as proof that policy works.",
+   "HOW HOT IS IT, AND ARE THE THERMOMETERS AGREEING? Today's global temperature and daily anomaly spaghetti by year (Climate Pulse era5_daily_series_2t_global.csv; SST 60S-60N) -> annual multi-dataset chart re-baselined to 1850-1900 with every offset shown: HadCRUT5.2 (with 95% CI), NOAAGlobalTemp v6.1, GISTEMP v4, ERA5 +0.88, optionally Berkeley Earth labelled NC -> WMO consensus 1.44 +/- 0.13 (Zenodo dashboard; method code climate-indicator-manager) -> 2000-year context (IPCC SPM1_1-2000_recon.csv) -> human-induced vs observed (IGCC).",
+   "WHERE I LIVE: World map of the latest month's anomaly -> country (OWID monthly-temperature-anomalies, from ERA5, vs that country's 1991-2020 mean) -> the country's monthly history since 1940 and its warming stripes -> latitude-band context: Arctic warms fastest (NOAAGlobalTemp aravg.*.60N.90N vs 90S.90N; HadCRUT NH/SH summary series) -> back to the global causes.",
+   "THE BUDGET CLOCK (WHAT YOU CAN DO): Human-induced warming 1.37 deg C rising 0.27 deg C/decade (IGCC headlines and rates) -> remaining CO2 budget for 1.5 / 1.7 / 2.0 deg C at 50% (IGCC carbon_budget CSVs: 130 GtCO2 for 1.5 deg C from 2026; 1.7 and 2.0 deg C budgets from the same file family) -> years left at the current 42 GtCO2/yr -> per-person framing and a hand-off to the emissions/actions domain -> methane as the fast lever (short lifetime about 9 yr per the WMO GHG Bulletin; CH4 ERF 0.57 W/m2) -> aerosol cleanup unmasks warming (aerosol ERF -0.96 W/m2), so cutting CO2 is still essential.",
+   "WHO MEASURES THIS, AND IS IT SAFE? Provenance panel on every chart (file URL, version, file-creation timestamp, DOI, transformation) -> 'the observatories' page: Mauna Loa (NOAA GML) status timeline (2022 lava, Maunakea substitution, March 2026 road, FY2026/FY2027 budget fights) -> how the WMO GAW and NOAA global numbers differ (423.9 vs 422.79 ppm for 2024) -> what citizens can do to defend public climate monitoring."
+  ],
+  "action_links": "INDIVIDUALS. (1) The carbon budget makes the stakes personal. About 130 GtCO2 is left for a 50% chance of 1.5 deg C, roughly 3 years of current emissions (IGCC 2025, Forster et al. 2026, doi:10.5194/essd-18-3889-2026; indicators.climate.copernicus.eu). Cutting CO2 is the dominant lever because CO2 is about 2.37 of the 3.10 W/m2 of human forcing (IGCC ERF_best_aggregates.csv), and the WMO GHG Bulletin No. 21 says net-zero CO2 'must be the focus of climate action'. Link the visitor from here to the emissions and actions domains (household energy, transport, diet), with those domains' own sources. (2) Methane is the fast lever. It lasts about 9 years in the air versus millennia of CO2 effects (WMO GHG Bulletin No. 21, p.2), and it is now 2.65x pre-industrial (NOAA GML). Food waste, diet and leaky gas appliances connect to it via the emissions domain. (3) Refrigerants: the AGGI page documents CFC declines under the Montreal Protocol and the HFC phase-down that began in 2019 (gml.noaa.gov/aggi/aggi.html). Proper disposal of fridges and air-conditioning units and choosing low-GWP appliances are concrete, evidence-backed actions.\n\nCOMMUNITIES AND ACTIVISTS. (4) Every number on the site carries a file URL, version and DOI, so activists can cite it in testimony or letters (NOAA GML version 2026-09 DOIs; HadCRUT5 OGL acknowledgement; IGCC CC BY data). (5) Defend the measurements themselves. NOAA's FY2026 and FY2027 budget requests proposed eliminating OAR, including the Global Monitoring Laboratory and Mauna Loa (Inside Climate News, 29 Apr 2026; Hawaii Public Radio, 13 Aug 2025). Congress rejected the FY2026 cut, and an April 2026 grant pause furloughed GML staff (ICN). The site can explain the appropriations timeline and encourage contacting representatives, while staying non-partisan and evidence-led.\n\nPOLICYMAKERS. (6) The WMO State of the Global Climate 2025 (1.44 +/- 0.13 deg C; 2015-2025 the 11 warmest years) and IGCC 2025 (human-induced 1.37 deg C, 0.27 deg C/decade) are the annual evidence inputs to the UNFCCC process. Cite the CC BY dashboard (doi:10.5281/zenodo.19737593) and the IGCC data (doi:10.5281/zenodo.21494229). (7) The Montreal Protocol case (AGGI CFC series) shows that binding international agreements measurably change atmospheric composition. (8) Aerosol cleanup unmasks warming (aerosol ERF about -0.96 W/m2, IGCC), so air-quality policy must be paired with GHG cuts.",
+  "gaps_and_risks": "1. US FEDERAL RISK (highest). NOAA GML (the CO2/CH4/N2O/SF6 trends and the AGGI) and Mauna Loa were proposed for elimination in both FY2026 and FY2027. FY2026 was rejected by Congress, and the FY2027 request seeks a 26% NOAA cut and OAR elimination again (Inside Climate News, 29 Apr 2026). GML staff were furloughed during the April 2026 grant pause. The Hilo office lease was a flashpoint in Aug 2025. MLO power has still not been restored, though the temporary road reopened 26 Mar 2026. The 2025 AGGI has not been published (the page still says 'Updated Fall 2025' with 2024 data), which may signal delay. NASA GISS lost its building (31 May 2025), and GISTEMP depends on NOAA GHCN/ERSST. Mitigations:\n- snapshot every source file at ingest (raw bytes plus SHA-256 plus fetch timestamp) into our own storage (R2 or similar fits the <$20/mo budget);\n- record a Wayback Machine URL for each file;\n- add non-US fallbacks: WMO GAW/WDCGG for GHGs, and HadCRUT5/ERA5 for temperature.\n\n2. LICENSING. Berkeley Earth is CC BY-NC 4.0, and its public files are stale: global ends Dec 2024, country files end May 2016. Do not use it for country drill-downs or bundle it in open CSV downloads without NC labelling. WMO report text is WMO-copyright; use the CC BY dashboard data instead. The WMO GHG Bulletin/WDCGG redistribution terms are unclear, so cite only. HadCRUT5 OGL requires an exact acknowledgement line with version and download date in every CSV. Copernicus needs 'Contains modified Copernicus Climate Change Service information 2026'. The CDS API needs a free ECMWF account (key in macOS Keychain); Climate Pulse CSVs do not.\n\n3. BASELINE AND DEFINITION TRAPS. Each dataset uses a different baseline:\n\n| Dataset | Native baseline |\n|---|---|\n| GISTEMP | 1951-1980 |\n| HadCRUT | 1961-1990 |\n| NOAAGlobalTemp v6.1 asc | 1991-2020 |\n| NOAA Climate at a Glance CSV | 1901-2000 |\n| ERA5 | 1991-2020 (+0.88 offset) |\n| Berkeley Earth | 1951-1980 |\n| OWID temperature | 1861-1890 |\n| IGCC / WMO | 1850-1900 |\n\nEvery transformation must be stored and shown. Partial-year rows appear in the annual files (HadCRUT 2026, NOAA 2026, OWID 2026) and must be excluded or flagged. There are several legitimate 'global CO2' numbers (NOAA marine-surface 425.62, Mauna Loa 427.35, IGCC 425.65, WMO GAW 423.9 for 2024), so label the station or network on every number. The 1750 baselines differ between Law Dome splines (277.0 ppm / 706.9 ppb) and AR6/IGCC (278.4 / 729.2); pick IGCC/AR6 site-wide. CO2 growth can be the difference of annual means (3.33/3.44) or Jan-to-Jan (3.72 ppm for 2024).\n\n4. REVISIONS. NOAA marks the latest year provisional; CH4 annual increases change 'significantly'. ERA5 daily values are PRELIMINARY for 2-5 days. HadCRUT, NOAA and IGCC change versions (HadCRUT 5.1 to 5.2 in Sep 2026; NOAA v6.0 to v6.1 in Mar 2026; IGCC tags on GitHub, so pin to IGCC-2025a rather than main). Store version strings and never silently overwrite. Show 'as of <file timestamp>' on every card.\n\n5. INTERPRETATION RISK. IGCC carbon-budget CSVs encode assumptions in their file names. The headline 130 GtCO2 is a rounded value from the hdT_1.24 file at 50%; another variant gives 97.6, and FaIR-included gives 188. Cite the paper value and document the exact file and cell, or activists may get contradictory numbers.\n\n6. COVERAGE GAPS NOT SOLVED HERE.\n- Satellite column CO2/CH4 (OCO-2/3, Copernicus CAMS) is not assessed.\n- AGAGE (an independent CH4/N2O/halocarbon network; requires accepting a data policy, last bulk release Dec 2024) is not included.\n- Country-level temperature relies on OWID's processing of ERA5; the long-term fix is to compute country means ourselves from ERA5 monthly at build time.\n- Ocean heat content, sea level, ice and extremes belong to the 'consequences' domains, though IGCC also ships sea-level and marine-heatwave CSVs.\n\n7. FRAGILE URLS. Several Scripps deep links now 404 after the site move (current files are on keelinglabsites.ucsd.edu). NOAAGlobalTemp file names embed yyyymm. Climate Pulse has no monthly CSV at the guessed paths. Some landing pages (NCEI paleo study, CSIRO DAP, Climate Pulse) are JS-only and could not be read by fetch, so link them for humans but ingest from the verified direct-file URLs."
+ },
+ "verification": {
+  "domain": "Atmosphere composition and global temperature",
+  "verdicts": [
+   {
+    "name": "NOAA GML Trends in Atmospheric Carbon Dioxide (Mauna Loa and global marine surface)",
+    "verdict": "corrected",
+    "corrections": "I curled all 9 download URLs and each returned HTTP 200. These values match the files: co2_annmean_mlo created 'Sat Sep 5 03:55:47 2026' (2024 424.61, 2025 427.35 +/-0.12); co2_mm_mlo last row 2026,8 427.55; co2_annmean_gl 1979 336.85 and 2025 425.62 +/-0.05; co2_mm_gl last row 2026,6 427.62. The trends page reads 'Last updated: Sep 05, 2026' and carries the Maunakea note (Dec 2022 to 4 Jul 2023). gl_data.html gives Version 2026-09 and doi:10.15138/9N0H-ZH07.\n\nCORRECTION 1, growth rate. The caveat says the gr files are the 'difference of annual means'. That is wrong. Both co2_gr_mlo.csv and co2_gr_gl.csv have the header line 'Annual CO2 mole fraction increase (ppm) from Jan 1 through Dec 31.' A difference of annual means gives different numbers: 3.53 at MLO and 3.44 globally for 2024.\n\nCORRECTION 2, global 2024 growth. The current co2_gr_gl.csv gives 3.76 +/-0.11 ppm for 2024 (2025: 2.06 +/-0.08). The AGGI page's 3.72 is an older vintage of the same quantity, not a different definition.\n\nCORRECTION 3, missed citation. The raw MLO in-situ data have a dataset DOI: 10.15138/yaf1-bk21, 'NOAA GML CCGG Continuous Insitu Measurements of CO2 at Global Background Sites, 1973-Present' (DataCite).\n\nLICENCE NUANCE. The GML data policy at gml.noaa.gov/ccgg/data/datause.html adds courtesy requests: 'availability of these data does not constitute publication', inform GML, send manuscripts for review. These are norms, not licence restrictions, so public domain stands.\n\nSTATUS. I fetched Inside Climate News, 29 Apr 2026 (insideclimatenews.org/news/29042026/noaa-defends-trump-cuts/). It confirms:\n- the 26% FY2027 cut;\n- OAR elimination proposed 'for the second year in a row', after Congress rejected it in 2025;\n- the grant-pause furloughs at GML, with funds released 16 April;\n- that the cut would defund Mauna Loa.\n\nI also fetched gml.noaa.gov/obop/mlo, which confirms the temporary road was completed 26 Mar 2026 and that it is 'still unclear when ... power re-established'. The Forbes January 2026 appropriations detail is still unverified.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA GML Trends in globally-averaged CH4, N2O and SF6",
+    "verdict": "confirmed",
+    "corrections": "I curled every value against the files:\n- ch4_annmean_gl (created Sep 5 04:05:12 2026): 1984 1644.84; 2025 1935.94 +/-0.48.\n- ch4_mm_gl: first row 1983-07; last 2026-05 1939.44. The uncertainty column for recent months is -9.99, i.e. preliminary; flag this.\n- n2o_annmean_gl: first row 2001 316.36; 2025 338.85.\n- sf6_annmean_gl: 1998 4.21; 2025 12.24.\n- ch4_gr_gl.csv exists (2025 5.14 +/-0.43) and should be added to download_urls.\n\nThe trends_ch4, trends_n2o and trends_sf6 pages all carry the Lan, Thoning and Dlugokencky citation with doi:10.15138/P8XG-AA10. That DOI resolves to gml.noaa.gov/ccgg/trends_doi.html.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA Annual Greenhouse Gas Index (AGGI)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- aggi.html still reads 'Updated Fall 2025'.\n- AGGI_Table.csv last row: 2024,2.333,0.567,0.226,0.298,0.060,0.055,3.539,539,1.538,2.3.\n- NOAA_Annual_Mean_MoleFractions.csv returns HTTP 200 (11.4 KB).\n\nAdditions:\n1. The Hofmann et al. 2006 DOI is verified: 10.1111/j.1600-0889.2006.00201.x, Tellus B 58, 614. Title: 'The role of carbon dioxide in climate forcing from 1979 to 2004: introduction of the Annual Greenhouse Gas Index'.\n2. NOAA_Source_Data_Web_Links_and_doi_Citations.txt is stale. It lists 2023-vintage component versions (for example CO2 'Version 2023-05'), so don't use it as a version record.\n3. The same file shows that HFC-23 in the AGGI comes from AGAGE (Prinn et al. 2018, doi:10.5194/essd-10-985-2018), which is third-party data.\n4. The page text cites 3.72 ppm and '422.80 ppm in 2024'. The current files say 3.76 and 422.79. These are revisions, so cite file values with their vintage.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "Scripps CO2 Program: Mauna Loa in situ and flask records (including delta-13C)",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- CC BY 4.0. The station page says 'Scripps CO2 program data and graphics on scrippsco2.ucsd.edu are licensed under a CC BY license, Creative Commons Attribution 4.0 International License'.\n- All 5 keelinglabsites URLs return HTTP 200.\n- monthly_in_situ header: 'Baseline data in this file through 19-Sep-2026 from archive dated 21-Sep-2026 07:50:26'. Row 2026-08 = 427.31.\n- c13 file: 'Flask data from archive dated 06-Jun-2025'; Dec 2024 = -8.71.\n\nCORRECTIONS:\n(1) The in-situ file header (Sep 2026) still says 'Since December 2022 sampling has temporarily been relocated to MaunuaKea, Hawaii, Latitude 19.8N ... Elevation 4145m'. Scripps 2023-2026 values may therefore come from Maunakea, not MLO. Show this caveat, and treat the Scripps-NOAA difference (427.31 vs 427.55) as partly a site difference.\n(2) The full citation in the file header is: Keeling, C.D., S.C. Piper, R.B. Bacastow, M. Wahlen, T.P. Whorf, M. Heimann, and H.A. Meijer, 'Exchanges of atmospheric CO2 and 13CO2 with the terrestrial biosphere and oceans from 1978 to 2000. I. Global aspects', SIO Reference Series No. 01-06, Scripps Institution of Oceanography, San Diego, 88 pages, 2001. The peer-reviewed alternative is Keeling et al. 2005, in 'A History of Atmospheric CO2...' (Ehleringer et al., eds.), Springer, pp. 83-113. The file names the data source as R.F. Keeling, S.J. Walker, S.C. Piper and A.F. Bollenbacher.\n(3) The flask d13C record starts Feb 1980, not 1977.\n(4) The station page also lists weekly_in_situ_co2_mlo.csv, monthly_flask_o18_mlo.csv and daily_flask_co2_isotopes_mlo.csv.\n\nThe funding and philanthropy claims are unverified.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Antarctic Ice Cores Revised 800KYr CO2 composite (Bereiter et al. 2015)",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- The file returns HTTP 200 with Contribution_Date 2015-02-04.\n- My own awk scan matches: maximum for age > 1000 yr BP is 298.60 at 335,102.31 yr BP; first row -51.03, 368.02.\n- The minimum is 173.71 ppm at 667,409.86 yr BP.\n\nCORRECTIONS:\n(1) Missed dataset DOI. The NCEI paleo API gives doi:10.25921/n8y4-bp27, titled 'NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data'. It resolves to the NCEI geoportal record noaa-icecore-17975. Cite it with the GRL paper.\n(2) The header's composite references also include Luthi et al. 2008, doi:10.1038/nature06949. Cite it as a component.\n(3) Licence. The data were produced by Univ. Bern, CNRS and partners, not by US federal employees, so the 17 U.S.C. 105 public-domain logic does not strictly apply. The NCEI API returns dataLicenseDescription = null. The only stated term is 'Please cite Publication, and Online_Resource and date accessed'. Classify it as free use with citation (open-attribution), not public domain.\n(4) The header's Online_Resource is the legacy http://ncdc.noaa.gov/paleo/study/17975. Use the DOI instead.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Law Dome Ice Core 2000-Year CO2, CH4, N2O and delta-13C-CO2 (Rubino et al. 2019; CSIRO v3)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- The CSIRO DAP API (data.csiro.au/dap/ws/v2/collections/csiro:37077) returns licence 'Creative Commons Attribution 4.0 International Licence', DOI 10.25919/5bfe29ff807fb, v3 published 2024-09-04.\n- All 5 NCEI files return HTTP 200.\n- The NCEI header gives Dataset_DOI 10.25921/dwg2-6m61, Contribution 2018-12-14, File_Last_Modified 2024-08-18.\n- Spline row 1750: 277.01, 706.85, 273.068.\n\nMinor corrections:\n- The annual splines run 154 to 1996 AD, not 'about 2000'.\n- The CH4 spline starts at 155.\n- The d13C spline runs 1020 to 1993.\n- The raw CO2 file ends in 1996 (firn air).\n- The NCEI DOI resolves to geoportal record noaa-icecore-25830.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NASA GISS Surface Temperature Analysis (GISTEMP v4)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- GLB.Ts+dSST.csv returns HTTP 200.\n- J-D values: 2023 1.17, 2024 1.29, 2025 1.19.\n- 2026 Jan-Aug: 1.09, 1.25, 1.32, 1.17, 1.13, 1.18, 1.25, 1.40.\n- Mean of 1880-1900 = -0.2238 (21 years), so 2024 is 1.51 and 2025 is 1.41.\n- Aug 2026 (1.40) is the highest August, ahead of 2024 (1.30).\n- The landing page reads 'Page updated: Sep 11, 2026'. It has news items dated 14 Sep 2026 (the new GMSTA page vs 1850-1900), 10 Jun 2026 and 11 Mar 2026, plus the 'GISTEMP Team, 2026' and Lenssen 2024 citation (doi:10.1029/2023JD040179).\n- Inputs are still listed as GHCN v4 and ERSST v5. Note that NOAAGlobalTemp moved to ERSSTv6, so GISTEMP and NOAA now use different SST versions.\n\nThe GISS building and lease claim is unverified (no search budget left) but plausible.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "HadCRUT5 (Met Office Hadley Centre / UEA CRU)",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- The landing page says 'Data set version updated to HadCRUT.5.2.0.0 on 18/09/2026'.\n- All 4 summary_series URLs return HTTP 200.\n- Annual values: 2024 1.187449, 2025 1.0732167, 2026 (partial) 1.1064261.\n- Monthly 2026-08: 1.2982738.\n- Mean of 1850-1900 = -0.359436, so 2024 is 1.547 and 2025 is 1.433.\n- The terms page carries the mandatory OGL acknowledgement text verbatim. Its 'Last updated 21/09/2026' is the page footer date.\n\nCORRECTION. The site_use claim that HadCRUT5 is 'the only dataset with native 1850 coverage' is false. NOAAGlobalTemp v6.1 (verified: the asc starts in 1850), Berkeley Earth, DCENT-I, CMST and CMA-GMST all start in 1850. HadCRUT5 remains a good primary choice for its ensemble uncertainty and clear OGL licence.\n\nNote that the WMO 2025 dashboard used HadCRUT.5.1.0.0 (2025 = 1.3945 under the WMO offset method).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA Global Surface Temperature (NOAAGlobalTemp v6.1.0) and Climate at a Glance",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- The directory lists aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc (HTTP 200): 2024 0.646727, 2025 0.514181, mean of 1850-1900 -0.776881, so 1.42 and 1.29.\n- The Readme says the base is 1991-2020.\n- The CAG CSV says 'Base Period: 1901-2000'; 2024 1.25, 2025 1.12.\n- The NCEI ISO record gives publication 2026-03-23 and citation 'Huang, Boyin; Yin, Xungang; Menne, Matthew J.; and Vose, Russell S. 2026 ... Version 6.1 ... doi:10.25921/vvaa-wq11'. DataCite registered the DOI on 2026-03-27.\n\nCORRECTIONS:\n(1) The method paper's first author is Yin, not Huang: Yin, X., B. Huang, M. Menne, R. Vose, et al. (2024), BAMS 105(11), E2184-E2193, doi:10.1175/BAMS-D-24-0012.1.\n(2) The v6.0 time series ends at 202512, and the earliest v6.1 gridded file covers through Feb 2026 (created 2026-03-08), so treat 'starting with the Jan 2026 report' with caution.\n(3) The annual .asc error-variance columns are all -999, so this file gives no uncertainty.\n(4) The WMO 2025 dashboard used v6.0.0.202512, not v6.1.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "Berkeley Earth Land/Ocean Temperature Record (global and country series)",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- Licence text on berkeleyearth.org/data: 'licensed under Creative Commons BY-NC 4.0 International for non-commercial use only. Accessing the data provided on this page constitutes agreement with these terms.'\n- The old S3 files are stale: Land_and_Ocean_summary Last-Modified 10 Jan 2025 ('land analysis was run on 04-Jan-2025'); the US country file Last-Modified 26 Oct 2023.\n- The 2025 report (posted 14 Jan 2026): '1.44 +/- 0.09 C above 1850-1900', third warmest.\n\nREFUTED: the claim that Berkeley Earth is stale at the source level. The new high-resolution product, in the public GCS bucket berkeley-earth-temperature-hr, is updated monthly:\n- global/Global_TAVG_monthly.txt: 'land analysis was run on 11-Sep-2026', data to 2026-08 (1.440 vs 1951-1980), last-modified 14 Sep 2026.\n- global/Global_TAVG_annual.txt: 2025 = 1.186.\n- Current country series exist at time-series/Regions/Countries/TAVG/<country>-TAVG-monthly.txt, updated 2026-09-14.\n\nCaveats on the new product:\n- Its header says 'PRELIMINARY DATA - SUBJECT TO CHANGE WITHOUT NOTICE - NOT YET PEER REVIEWED' and 'no citation is currently available for this data set'.\n- It is presumably under the same BY-NC terms.\n- WMO's 2025 dashboard uses 'Berkeley Earth Hires' from https://storage.googleapis.com/berkeley-earth-temperature-hr/global/Global_TAVG_monthly.txt.\n\nThe NC licence still makes it secondary for a site offering open downloads.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Copernicus C3S ERA5 global temperature and Climate Pulse",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- Both Climate Pulse CSVs return HTTP 200.\n- The 2t header says 'Last updated: 04 Oct 2026'. Last rows: 2026-10-01 FINAL, 2026-10-02 0.679 PRELIMINARY.\n- Recomputed annual means: 2023 0.603, 2024 0.719, 2025 0.592.\n- Record daily anomaly 1.155 on 2023-11-17.\n- SST last row 2026-10-02 20.992 / 0.729.\n- The GCH2025 full report PDF has the table '+0.59C (+1.47C vs pre-industrial) ... 3rd highest; 2024: +0.72C', 'first three-year average above 1.5C' and the 0.88 offset.\n\nCORRECTIONS:\n(1) Licence. The CDS catalogue API now returns license 'CC-BY-4.0' (spdx link, 'CC-BY licence rev. 1') for reanalysis-era5-single-levels, reanalysis-era5-single-levels-monthly-means and derived-era5-single-levels-daily-statistics. ERA5 is therefore CC BY 4.0, not the 'Licence to use Copernicus Products' quoted. Redistribution is still open with attribution.\n(2) The Copernicus Products licence, which still applies to other C3S/CAMS products and is used in WMO's ERA5 acknowledgement, also requires the disclaimer 'neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains'. The research omitted it.\n(3) Missed official monthly file. It is the C3S Climate Bulletin CSV, for example https://climate.copernicus.eu/sites/default/files/2026-09/C3S_Bulletin_temp_202608_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA.csv (HTTP 200, 'Last updated: 03 Sep 2026'). It has columns ano_91-20, offset_pi and ano_pi; Aug 2026 = 0.8457, offset 0.80, so 1.6457 vs 1850-1900, a record August. Use it instead of averaging daily values for monthly cards.\n(4) The CDS dataset DOI 10.24381/cds.f17050d7 resolves (verified), and the ERA5 paper DOI 10.1002/qj.3803 resolves.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Indicators of Global Climate Change 2025 (IGCC; Forster et al. 2026) with ClimateIndicator/data",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- GitHub API: licence CC-BY-4.0; pushed 2026-09-16; releases IGCC-2025a (2026-07-22), v2026.07.20 and v2026.06.15.\n- Pinned tag URLs work. raw.githubusercontent.com/ClimateIndicator/data/IGCC-2025a/data/base/... returns HTTP 200 for all 5 CSVs.\n- ESSD metadata: published 2026/06/11, vol 18, pp 3889-3933, CC BY 4.0.\n- Zenodo 21494229: version IGCC-2025a, 2026-07-22, cc-by-4.0. The concept DOI 10.5281/zenodo.7883757 resolves to it.\n- Values at the tag:\n  - headlines 2025.5 SR15 row: 1.37 / 1.63 / -0.26 / 0.04; the non-SR15 row gives 1.38;\n  - ERF 2025.5: CO2 2.3709, CH4 0.5696, N2O 0.2316, aerosol -0.9618, anthro 3.1035, wmghg 3.5846;\n  - GMST 2024.5 1.511 and 2025.5 1.391;\n  - GHG 1750.5: 278.377857, 729.2, 270.1; 2025.5: 425.65, 1936.31, 339.36.\n- Carbon budget at 50%:\n\n| File | 1.5C | 1.7C | 2.0C |\n|---|---|---|---|\n| hdT_1.24 | 134.2 | 499.4 | 1047.3 GtCO2 |\n| hdT_1.26 | 97.6 | | |\n| FaIR (fair_True) | 188.4 | | |\n\n- The indicators site says 130 GtCO2 'from start of 2026', 'exhausted ~2029'.\n\nMinor correction: the Zenodo record title is 'Indicators of Global Climate Change 2025', with creators Smith, Walsh, Gillett, Hauser, et al. It is not titled 'ClimateIndicator/data: IGCC-2025a'.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "WMO State of the Global Climate 2025 (WMO-No. 1391) and its open dashboard data",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- Published 23 Mar 2026.\n- Zenodo 19737593: 2026-04-28, cc-by-4.0, Dashboard2025.zip (20.6 MB).\n- GitHub repo: GPL-3.0, pushed 2026-09-30.\n- WMO copyright text: 'Short extracts ... may be reproduced without authorization, provided that the complete source is clearly indicated'.\n\nCORRECTIONS:\n(1) Headline value. The WMO one-pager PDF (wmo.int/sites/default/files/2026-03/State of the Climate 2025_1 pager_final.pdf) says '1.43 +/- 0.13 C above the 1850-1900 average', not 1.44.\n(2) Dataset count. The dashboard (global_mean_temperature.html and tas_summary.csv, last_revised 2026-03-17) uses NINE datasets: Berkeley Earth Hires, CMA-GMST, CMST v3, DCENT-I, ERA5, GISTEMP, HadCRUT5 (5.1.0.0), JRA-3Q, NOAAGlobalTemp v6.0. Their 2025 mean is 1.434. Two rank 2025 second (DCENT-I 1.4389 and GISTEMP 1.4536); seven rank it third. The '8 datasets / 1.44' figure appears to come from an earlier press release.\n(3) Zenodo has no 'v2' version string. The record is the 2025 dashboard; the 2024 dashboard (zenodo 15205854) is the previous version in the same concept.\n(4) Method. Each dataset is rebaselined to 1981-2010 and then 0.69 C is added. The research's own plan (each dataset minus its own 1850-1900 or 1880-1900 mean) is a different method, so it cannot claim to copy WMO.\n(5) tas_summary.csv has the BADC rights field 'TBD'. It embeds Berkeley Earth (BY-NC) and HadCRUT (OGL) derived columns, so the record-level CC BY does not clear upstream terms. Redistribute only the consolidated or open columns.\n(6) WMO-No. 1391 is only partly verified: ISBN 978-92-63-11391-7 appears on the 'Significant Weather and Climate Events 2025' supplement PDF. The main-report number could not be read from the JS-only library page.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "WMO Greenhouse Gas Bulletin No. 21 (GAW in situ network)",
+    "verdict": "confirmed",
+    "corrections": "I fetched the PDF (HTTP 200, 2.7 MB). It confirms:\n- 'No. 21 | 16 October 2025' and ISSN 2078-0796;\n- 423.9 +/-0.2 ppm, 1942 +/-2 ppb and 338.0 +/-0.1 ppb;\n- 152%, 266% and 125% of pre-industrial;\n- a 3.5 ppm rise, 'the largest one-year increase since modern measurements began in 1957';\n- a methane lifetime of 'about nine years';\n- 'achieving net-zero anthropogenic CO2 emissions must be the focus of climate action'.\n\nWDCGG policy page (gaw.kishou.go.jp/policy/gaw): 'WDCGG Data Archive content is free and unrestricted'. The GAW policy says 'For Scientific purposes, access to these data is unlimited and provided without charge', with an expected offer of co-authorship. There is no CC licence, so 'unclear' for public redistribution of the data stands. Citing the bulletin's numbers as facts is fine.\n\nI could not check whether No. 22 exists (search budget exhausted). Historically it comes in Oct/Nov, so re-check late Oct 2026.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "IPCC AR6 WGI Figure SPM.1 data (2000-year temperature and human vs natural attribution)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- CEDA catalogue citation is verbatim: Gillett, N.P.; Malinina, E.; Kaufman, D.; Neukom, R. (2023) ... v20221116 ... 03 July 2023, doi:10.5285/0b2759059ad6474098e40dad73e0a8ec.\n- Licence is CC BY 4.0.\n- Both CSVs return HTTP 200.\n- The rights row and PAGES2k DOI comment are present.\n- Row 1995: 0.65, 0.46, 0.79.\n\nAdded caveat: in panel_b gmst_changes_model_and_obs.csv the model columns end in 2019. The 2020 row holds the fill value 1.00E+20, and only the observation column has 2020 (1.256). Parse fill values explicitly.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Our World in Data: monthly temperature anomalies by country (from ERA5)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- metadata.json lastUpdated 2026-09-11, with the citationLong quoted.\n- World 2026-07 0.670 and 2026-08 0.8448.\n\nNote: OWID's World value equals the C3S Climate Bulletin global ERA5 monthly anomaly (Aug 2026 0.8457). For the World series, use the C3S bulletin CSV directly; it is primary and gives an official pre-industrial conversion. Keep OWID only for countries.\n\nAlternatives to weigh:\n- Berkeley Earth Hires country series are current (NC licence, preliminary).\n- Upstream ERA5 is now CC BY 4.0 on the CDS.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Our World in Data: long-term CO2 concentration and global temperature anomaly charts",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- Both lastUpdated 2026-09-11, nextUpdate 2026-11-10.\n- Temperature: descriptionShort 'compared to the 1861-1890 mean'.\n- World 2025 1.4119903 and 2026 (partial) 1.4060807.\n\nThe 'avoid as primary' verdict stands.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "avoid"
+   }
+  ],
+  "headline_number_checks": "1. CO2 2025: CONFIRMED.\n- Global 425.62 +/-0.05 (co2_annmean_gl.csv, created Sat Sep 5 03:55:32 2026).\n- Mauna Loa 427.35 +/-0.12 (co2_annmean_mlo.csv).\n- Latest month Aug 2026 427.55 (co2_mm_mlo.csv); the landing page shows the same, 'Last updated: Sep 05, 2026'.\n\n2. +52.9% above 1750: CONFIRMED. 425.62 / 278.377857 = 1.5289. The IGCC-2025a ghg_concentrations.csv row 1750.5 is verified at the pinned tag. The Law Dome 1750 spline is 277.01, which gives +53.6%. The WMO GHG Bulletin No. 21 says 152% (for 2024).\n\n3. +127 ppm above the 800k maximum: CONFIRMED. An independent awk scan gives a maximum of 298.60 at 335,102.31 yr BP (age > 1000) and a minimum of 173.71 at 667,409.86 yr BP. 425.62 - 298.60 = 127.02.\n\n4. '3.33 ppm at Mauna Loa in 2024, largest in 67-yr record': VALUE CONFIRMED, DERIVATION WRONG, FRAMING WEAK.\n- co2_gr_mlo.csv: 2024 3.33, 2023 3.32, 2016 3.03, 2025 2.23 (all +/-0.11).\n- The file header defines the value as 'Annual CO2 mole fraction increase (ppm) from Jan 1 through Dec 31', not a difference of annual means. The difference of annual means would be 3.53 at MLO and 3.44 globally.\n- 3.33 vs 3.32 is a statistical tie.\n- A stronger, verified headline: global increase 3.76 +/-0.11 ppm in 2024 (co2_gr_gl.csv), versus the previous maximum of 2.95 in 2015. The 2025 global increase was 2.06 +/-0.08.\n\n5. Methane x2.65: CONFIRMED. 1935.94 / 729.2 = 2.655. ch4_annmean_gl 2025 = 1935.94 +/-0.48; IGCC 1750.5 CH4 = 729.2. WMO gives 266% for 2024.\n\n6. Temperature 2024/2025: MOSTLY CONFIRMED, WMO VALUE CORRECTED.\n- HadCRUT.5.2.0.0: 1.187449 and 1.0732167, minus a 1850-1900 mean of -0.359436, giving 1.547 and 1.433.\n- ERA5: daily means 0.719 and 0.592. The C3S GCH2025 PDF gives +0.72 / +0.59 vs 1991-2020, i.e. 1.60 and 1.47 vs pre-industrial.\n- GISTEMP: J-D 1.29 and 1.19, minus a 1880-1900 mean of -0.2238, giving 1.51 and 1.41.\n- NOAAGlobalTemp v6.1: 0.646727 and 0.514181, minus a 1850-1900 mean of -0.776881, giving 1.42 and 1.29.\n- WMO: CORRECTED to 1.43 +/-0.13 C (final State of the Global Climate 2025 one-pager), using NINE datasets. The dashboard tas_summary 2025 mean is 1.434. Under the WMO method (rebaseline to 1981-2010, then +0.69 C), 2025 is HadCRUT5 (5.1) 1.3945, GISTEMP 1.4536, NOAA v6.0 1.4158, ERA5 1.4746. These differ from the research's per-dataset rebaselining, so state which method each number uses.\n\n7. Human-induced 1.37 C: CONFIRMED at tag IGCC-2025a. Assessment-Update-2025_GMST_headlines.csv row 2025.5 'SR15 definition': 1.1 / 1.37 / 1.7; ghg 1.63 [1.1-2.1]; other -0.26 [-0.8 to 0.2]; natural 0.04 [-0.1 to 0.2]. The non-SR15 row gives 1.38. Observed 2025.5 GMST is 1.391.\n\n8. 130 GtCO2 from start of 2026: CONFIRMED.\n- The hdT_1.24 file, row dT 1.5, column 0.5, is 134.2.\n- Alternative files give 97.6 (hdT_1.26) and 188.4 (fair_True).\n- At 50%, the 1.7 C budget is 499.4 and the 2.0 C budget is 1047.3 (hdT_1.24 file).\n- The IGCC site says 130 Gt 'from start of 2026', 'exhausted ~2029'. 130/42 = 3.1 years.\n\n9. ERF 3.10 W/m2: CONFIRMED. ERF_best_aggregates.csv 2025.5: anthro 3.103548614, CO2 2.370924636, CH4 0.569585072, N2O 0.231590531, aerosol -0.961805093, wmghg 3.584635519. The site gives +3.10 [2.35 to 3.83].\n\n10. AGGI +54% since 1990: CONFIRMED. AGGI_Table.csv 2024: total 3.539, CO2-eq 539, index 1.538, +2.3%. The page is still 'Updated Fall 2025', with no 2025 index yet.",
+  "missing_sources": "VERIFIED THIS PASS\n1. C3S Climate Bulletin monthly global ERA5 CSV. This is the official monthly anomaly vs 1991-2020 and vs 1850-1900 (columns ano_91-20, offset_pi, ano_pi).\n- Example URL: https://climate.copernicus.eu/sites/default/files/2026-09/C3S_Bulletin_temp_202608_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA.csv. The pattern is /YYYY-MM/C3S_Bulletin_temp_YYYYMM_...; it returned HTTP 200, 'Last updated: 03 Sep 2026'.\n- Licence: ERA5 is CC BY 4.0 on the CDS (catalogue API license field 'CC-BY-4.0'). Use C3S attribution plus the EC/ECMWF disclaimer.\n- This fills the 'no monthly Climate Pulse CSV' gap. WMO's dashboard ingests exactly this file.\n\n2. Berkeley Earth high-resolution product. It is current: monthly global, land, TMAX/TMIN, gridded 0.25 deg, and about 200 country series, updated 14 Sep 2026 with data to Aug 2026.\n- Global file: https://storage.googleapis.com/berkeley-earth-temperature-hr/global/Global_TAVG_monthly.txt\n- Countries: https://storage.googleapis.com/berkeley-earth-temperature-hr/time-series/Regions/Countries/TAVG/<country>-TAVG-monthly.txt\n- Licence: CC BY-NC 4.0 per berkeleyearth.org/data, so it is noncommercial-only.\n- Its header says preliminary, not peer-reviewed, no citation yet.\n\n3. Global Carbon Budget 2025: Friedlingstein et al., ESSD 18, 3211, 2026, doi:10.5194/essd-18-3211-2026 (Crossref published 2026-05-13; Zenodo lists CC BY 4.0). It gives the atmospheric CO2 growth (GATM), ocean and land sinks, and the airborne fraction. This explains why only about half of emissions stay in the air, which the AGGI page itself cites. Expect GCB 2026 in about Nov 2026.\n\n4. NOAA GML in-situ CO2 dataset DOI 10.15138/yaf1-bk21 (DataCite: 'NOAA GML CCGG Continuous Insitu Measurements of CO2 at Global Background Sites, 1973-Present'). US public domain. Needed so activists can trace MLO monthly means back to the raw hourly data.\n\n5. NCEI dataset DOI for the Bereiter composite: 10.25921/n8y4-bp27. Also cite Luthi et al. 2008, doi:10.1038/nature06949, as a component.\n\n6. The other WMO-ensemble temperature datasets:\n- DCENT-I: Harvard Dataverse doi:10.7910/DVN/ZY0WM8.\n- JRA-3Q: JMA, doi:10.2151/jmsj.2024-004.\n- CMST v3 and CMA-GMST (China).\n\nThey appear in the WMO dashboard history with source URLs. Their licences were NOT verified (Dataverse defaults to CC0; check JMA terms).\n\nNOT VERIFIED (web-search budget exhausted; check licences before use)\n7. AGAGE (CH4, N2O, halocarbons; independent of NOAA). agage.mit.edu now redirects to https://www-air.larc.nasa.gov/missions/agage/. The licence and latest release are unverified. AGAGE data already feed the AGGI's HFC-23.\n\n8. NOAA GML HATS halocarbon data and the Ozone-Depleting Gas Index (gml.noaa.gov/hats, gml.noaa.gov/odgi). US public domain. These are the primary data behind the Montreal Protocol story, rather than the AGGI's aggregated CFC column.\n\n9. Satellite column GHGs:\n- Copernicus C3S/CAMS XCO2 and XCH4 climate data records (CDS 'satellite-carbon-dioxide' and 'satellite-methane'; likely CC BY 4.0 like other CDS datasets);\n- NASA OCO-2/OCO-3 (US public domain).\n\n10. Scripps O2 program (scrippso2.ucsd.edu): the falling atmospheric O2/N2 ratio is a second fossil-combustion fingerprint alongside delta-13C. Licence unverified; the old data.html returns 404.\n\n11. CSIRO Cape Grim baseline CO2, CH4 and N2O. An independent Southern Hemisphere record outside the US; likely CC BY 4.0 via the CSIRO DAP (unverified).\n\n12. EPICA Dome C 800k temperature (Jouzel et al. 2007, NOAA NCEI paleo). Pairs with the Bereiter CO2 data for the '800,000 years' chart."
+ }
+}

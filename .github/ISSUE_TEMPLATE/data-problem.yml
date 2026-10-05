@@ -1,0 +1,23 @@
+name: Data problem
+description: A number on the site looks wrong, outdated, or doesn't match its source.
+labels: ["data-problem"]
+body:
+  - type: input
+    id: indicator
+    attributes:
+      label: Indicator id
+      description: Shown on the number's data page (the link from the number), e.g. co2.noaa-gml.monthly-mlo.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page where you saw it
+      placeholder: https://environmentdashboard.org/...
+  - type: textarea
+    id: what
+    attributes:
+      label: What looks wrong
+      description: The value you saw, the value you expected, and where the expected value comes from (a link to the producer's file or page if you have one).
+    validations:
+      required: true

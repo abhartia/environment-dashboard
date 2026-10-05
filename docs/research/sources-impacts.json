@@ -1,0 +1,743 @@
+{
+ "research": {
+  "domain": "Consequences and impacts (health, heat, disasters and losses, displacement, wildfire, drought, coral reefs and sea level, crops, attribution of extremes, and projected warming outcomes)",
+  "sources": [
+   {
+    "name": "Lancet Countdown on Health and Climate Change: 2025 global indicator data (heat mortality 1.1.5, labour capacity 1.1.3, heatwave exposure 1.1.1, wildfire smoke 1.2.1, sea-level population 2.3.3 and others)",
+    "publisher": "Lancet Countdown (UCL-led collaboration of 128 experts, 71 institutions)",
+    "measures": "57 health and climate indicators. Examples: heat-related deaths (attributable number AN and fraction AF, deaths/yr); potential work hours lost to heat (thousands of hours, by sector: services, manufacturing, agriculture, construction); heatwave days per person (observed, counterfactual, attributable to climate change); person-days of wildfire PM2.5 above the WHO guideline; population living less than 1 m above sea level.",
+    "coverage": "Global, WHO region, Lancet Countdown region, HDI group, and country (ISO3) for most indicators. Mostly annual: 1990-2024 for labour, 1990-2021 for heat mortality, 2020-2024 for attributable heatwave days.",
+    "latest_release": "2025 global report, published online 29 Oct 2025 in The Lancet. Indicator xlsx files were uploaded Oct/Nov 2025. The 2026 global report (the 10th) launches 28 Oct 2026, after today, per the lancetcountdown.org homepage. Regional editions: Europe 2026 report (Apr 2026) and Europe Cities report (Sep 2026).",
+    "update_cadence": "Annual (late October), plus regional reports",
+    "landing_url": "https://lancetcountdown.org/explore-our-data/",
+    "download_urls": [
+     "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.5_Data-Download_2025-Lancet-Countdown-Report-1.xlsx",
+     "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx",
+     "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Attributable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx",
+     "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Vulnerable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx",
+     "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.1_Days_Data-Download_2025-Lancet-Countdown-Report-1.xlsx",
+     "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-2.3.3_SLR-Population_Data-Download_2025-Lancet-Countdown-Report-1.xlsx"
+    ],
+    "format": "XLSX (one workbook per indicator, with a DATA GUIDANCE sheet and Global/WHO/LC/HDI/Country sheets)",
+    "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/). Quoted from the xlsx DATA GUIDANCE sheet and lancetcountdown.org/use-our-data: 'provided at no-cost under a Creative Commons Attribution-Non Commercial-Share Alike License (CC BY-NC-SA 4.0)'. Also: 'The data produced by third parties and made available by Lancet Countdown is subject to the license terms from the original third-party authors.' They ask users to contact them or the indicator authors before academic publication.",
+    "redistribution": "noncommercial-only",
+    "citation": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1 (this is the suggested citation in every xlsx). Full record via doi.org: The Lancet 406(10521), 2804-2857.",
+    "doi": "10.1016/S0140-6736(25)01919-1",
+    "status": "Active. A 2026 report is confirmed for 28 Oct 2026.",
+    "url_check": "Fetched the explore-our-data HTML and extracted 30 or more direct xlsx links. Downloaded 1.1.5 in memory: 137 KB zip (PK header). DATA GUIDANCE says 'Indicator 1.1.5: Heat Related Mortality', authors Ballester, Basaga\u00f1a, Ruiz-Cabrejos. The Global sheet has Year/AF/AN, with 2021 AN=558304. In 1.1.3 PWHL the Global sheet column TotalSunAgCon for 2024 is 639,855,005.65 (thousand hours). In 1.1.1 Attributable, 2024 Observed=30.79 days and Attributable_to_CC=25.75. 2.3.3 key finding: 156.7 million people living less than 1 m above sea level in 2024. use-our-data page confirms CC BY-NC-SA 4.0. Note: lancetcountdown.org/data-platform/ returned 404; the working page is /explore-our-data/.",
+    "site_use": "Core source for 'Health consequences'. Charts: heat deaths 1990-2021 (global, then WHO region, then HDI group); work hours lost by sector and country 1990-2024; heatwave days per person, observed vs. without climate change (a clear attribution visual); wildfire smoke exposure days; people living less than 1 m above sea level. Drill-down goes global, then region, then country. Because of ShareAlike, CSV exports of these numbers must carry CC BY-NC-SA 4.0 and the citation.",
+    "caveats": "Heat mortality is modelled (DLNM meta-regression; exposure-response is meta-predicted for countries with no local studies) and stops at 2021. Indicator methods change between report years, so do not splice 2024-report and 2025-report vintages. Store the vintage with every number. The ShareAlike term propagates to our derived CSVs. The NC term is fine because the site is non-commercial, but it must stay that way. File names carry '-1'/'_v2' suffixes and will change for the 2026 vintage.",
+    "priority": "core"
+   },
+   {
+    "name": "IDMC Global Internal Displacement Database (GIDD): disaster displacement event data, and the Global Report on Internal Displacement (GRID 2026)",
+    "publisher": "Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council",
+    "measures": "Internal displacements, i.e. forced movements (new_displacement, persons). Total IDPs at year end. By event, hazard category (weather-related vs geophysical), hazard type (flood, storm, wildfire, drought, extreme temperature...), country and date.",
+    "coverage": "Global, country (ISO3) and event level. Disaster data 2008-2025 (annual).",
+    "latest_release": "GRID 2026 (published May 2026), with 2025 data. The HDX disaster-events dataset was modified 2026-05-24 and covers 2008-01-01 to 2025-12-31.",
+    "update_cadence": "Annual (May), plus intermittent updates",
+    "landing_url": "https://www.internal-displacement.org/database/displacement-data/",
+    "download_urls": [
+     "https://data.humdata.org/dataset/bab7e849-6ac6-4936-b343-17444bff2bdb/resource/f760be9f-9a6a-4e59-a1be-163a42f5e98d/download/internal-displacements-new-displacements-associated-with-disasters.csv",
+     "https://data.humdata.org/api/3/action/package_show?id=idmc-internal-displacements-new-displacements-associated-with-disasters",
+     "https://api.internal-displacement.org/sites/default/files/2026-05/IDMC-GRID-2026-Global-Report-on-Internal-Displacement.pdf",
+     "https://helix-tools-api.idmcdb.org/external-api/gidd/displacements/displacement-export/?release_environment=RELEASE&start_year=2008&end_year=2023&client_id=IDMCWSHSOLO009 (IDMC API link as published on HDX; client_id is IDMC's public one)"
+    ],
+    "format": "CSV with HXL tags (HDX); XLSX (IDMC API); PDF report",
+    "license": "CC BY-IGO 3.0 (Creative Commons Attribution for Intergovernmental Organisations, http://creativecommons.org/licenses/by/3.0/igo/legalcode), as declared by IDMC on its official HDX datasets (package_show license_title). The IDMC website is client-rendered; I could not extract a terms page there (/terms-of-use/ returned 200 but its text is JS-rendered).",
+    "redistribution": "open-attribution",
+    "citation": "Report: 'IDMC (2026) Global Report on Internal Displacement 2026. Internal Displacement Monitoring Centre. https://www.doi.org/10.55363/IDMC.ETWG8973' (verbatim from PDF p.3). Data: 'Internal Displacement Monitoring Centre (IDMC), Global Internal Displacement Database (GIDD), accessed YYYY-MM-DD, via HDX'.",
+    "doi": "10.55363/IDMC.ETWG8973 (GRID 2026 report). No separate dataset DOI found.",
+    "status": "Active (NRC-hosted, not US-federal)",
+    "url_check": "HDX CKAN package_search returned the IDMC-owned dataset 'idmc-internal-displacements-new-displacements-associated-with-disasters' (CC BY-IGO, modified 2026-05-24, 2008-2025). Downloaded the CSV: 29,699 lines. Header includes iso3, country_name, year, event_name, hazard_category_name, hazard_type_name, new_displacement. Summed 2025 new_displacement = 29,937,422 (weather-related = 26,958,449), matching GRID 2026's '29.9 million'. The GRID 2026 PDF (13.4 MB, 51 pages) is reachable and its p.3 gives the citation and DOI. doi.org content negotiation resolves 10.55363/idmc.etwg8973 to '2026 Global Report on Internal Displacement'.",
+    "site_use": "Core source for 'Displacement'. Charts: annual disaster displacements by hazard type 2008-2025; country choropleth; event table (top events per year) linking each event to an attribution study where one exists. Headline: 29.9M disaster displacements in 2025. Show IDPs from disasters separately from displacement movements (flows).",
+    "caveats": "Displacements are movements, not people: one person can be counted several times. Pre-emptive evacuations are included and inflate storm years (e.g. 2024 = 45.8M). Data are estimates. Annual totals in the CSV can shift slightly between releases, so pin the vintage. Do not mix with conflict displacement.",
+    "priority": "core"
+   },
+   {
+    "name": "U.S. Billion-Dollar Weather and Climate Disasters (Climate Central continuation, 1980-present)",
+    "publisher": "Climate Central (led by Adam Smith, the former NOAA lead), continuing the NOAA NCEI product",
+    "measures": "U.S. weather and climate events with at least US$1 billion damage: event name, type, dates, CPI-adjusted and unadjusted cost, deaths. Summary stats by state and hazard.",
+    "coverage": "United States (national, state, climate region). 1980 to June 2026 (438 events as of June 2026).",
+    "latest_release": "Database live with events through Jun 2026 ('As of June 2026, the U.S. has sustained 438 such events... exceeding $3.2 trillion'). The 2025 annual review was published 8 Jan 2026.",
+    "update_cadence": "Roughly quarterly event updates plus an annual January review",
+    "landing_url": "https://www.climatecentral.org/climate-services/billion-dollar-disasters",
+    "download_urls": [
+     "https://www.climatecentral.org/climate-services/billion-dollar-disasters/events?s=endDate%3Adesc&ps=50 (in-page 'Download 438 filtered events' button, CSV/JSON/XML, generated client-side)",
+     "https://www.climatecentral.org/climate-matters/2025-in-review"
+    ],
+    "format": "CSV/JSON/XML via in-browser export; HTML articles",
+    "license": "Custom Climate Central Terms of Use (https://www.climatecentral.org/what-we-do/legal): 'you may use Climate Central material (i) for any non-commercial purpose'; 'You must give credit to Climate Central. If you are using our materials online, you must provide a link to the relevant page'; 'Any bulk downloading is prohibited... use of any automated system or software... to extract any data from this website... is prohibited.' Separately, Climate Matters articles (e.g. 2025-in-review) say they are 'licensed under CC BY 4.0'.",
+    "redistribution": "noncommercial-only",
+    "citation": "Climate Central (2026). U.S. Billion-Dollar Weather and Climate Disasters. https://www.climatecentral.org/climate-services/billion-dollar-disasters (accessed YYYY-MM-DD). For annual figures: Climate Central (2026). '2025 in Review: U.S. Billion-Dollar Disasters.' Climate Matters, January 8, 2026. Methodology: Smith and Katz (2013).",
+    "doi": "None found for the Climate Central database. The NOAA archive DOI is 10.25921/stkw-7w73.",
+    "status": "Active under Climate Central since Oct 2025. NOAA retired the federal product in May 2025 (see the NOAA entry).",
+    "url_check": "WebFetch of the landing page showed 'As of June 2026... 438 such events... exceeding $3.2 trillion'. The events page listed recent events (e.g. North Central Tornado Outbreak, Jun 9-12 2026, $1.7B) and a 'Download 438 filtered events' control with CSV/JSON/XML. No server-side CSV/JSON URL was found in the HTML, so the export is client-side. 2025-in-review: 23 events, $115B, 276 deaths; 1980-2025: 426 events, $3.1T, 17,194 deaths; CC BY 4.0 notice. Legal page fetched and quoted (the earlier /terms-of-use URL returned 404).",
+    "site_use": "Core for the U.S. drill-down of economic consequences: events per year by hazard (stacked bars), cost per year, state map, 'days between disasters'. Pair with the NOAA archive for an independent, public-domain 1980-2024 baseline. Ask Climate Central for written permission to automate quarterly ingestion and to offer CSVs (the ToS bans automated extraction).",
+    "caveats": "Costs grow with exposure and wealth, not only hazard (NOAA's own methodology says so). Use it for 'consequences', not attribution. CPI base year changes each release (2024 dollars in NOAA vs 2026 dollars at Climate Central), so never mix vintages. Covers the U.S. only. The ToS ban on bulk or automated download conflicts with a scripted pipeline unless permission is granted.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA NCEI U.S. Billion-Dollar Weather and Climate Disasters (archived 1980-2024)",
+    "publisher": "NOAA National Centers for Environmental Information (NCEI)",
+    "measures": "Same schema as above: Name, Disaster type, Begin/End Date, CPI-Adjusted Cost (US$ millions, 2024 dollars), Unadjusted Cost, Deaths",
+    "coverage": "United States, 1980-2024 (403 events)",
+    "latest_release": "Final federal vintage: 2025 release covering 1980-2024. Retired May 2025. The page still serves the data.",
+    "update_cadence": "None (retired). Continued by Climate Central.",
+    "landing_url": "https://www.ncei.noaa.gov/access/billions/",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/access/billions/events-US-1980-2024.csv"
+    ],
+    "format": "CSV (two header lines before the column header)",
+    "license": "U.S. federal government work, public domain in the U.S. (17 U.S.C. \u00a7105). No separate terms page was fetched.",
+    "redistribution": "open-public-domain",
+    "citation": "NOAA National Centers for Environmental Information (NCEI) U.S. Billion-Dollar Weather and Climate Disasters (2025). https://www.ncei.noaa.gov/access/billions/, DOI: 10.25921/stkw-7w73 (verbatim from page). Dataset record: Smith, A. B. (2020). U.S. Billion-dollar Weather and Climate Disasters, 1980-present (NCEI Accession 0209268).",
+    "doi": "10.25921/stkw-7w73",
+    "status": "Archived-only. Retired by NOAA in May 2025, citing 'evolving priorities, statutory mandates and staffing changes' (press coverage: Fox Weather, CNN). Page text now reads 'NCEI tracked and evaluated climate events... from 1980-2024'. The total-cost sentence renders blank ('exceeds .'), a sign of no maintenance. At risk of removal.",
+    "url_check": "curl of the landing page returned 200 with the citation and DOI. The CSV returned 200 text/csv; header 'Weather and Climate Billion-Dollar Disasters to affect the U.S. from 1980-2024'. Parsed 403 events, CPI-adjusted total $2,917.6B, 16,941 deaths. 2024: 27 events, $182.7B, 568 deaths. The overview section text was fetched.",
+    "site_use": "Use as the immutable public-domain baseline and to archive-mirror. Show the 'retired by NOAA, continued by Climate Central' provenance note. It lets activists cross-check Climate Central numbers for 1980-2024 (values will differ because of the CPI base year).",
+    "caveats": "CPI base is 2024 dollars. Costs reflect exposure growth. Mirror the CSV to R2 with a SHA-256 hash now, in case the page is removed.",
+    "priority": "secondary"
+   },
+   {
+    "name": "EM-DAT: The International Disasters Database",
+    "publisher": "Centre for Research on the Epidemiology of Disasters (CRED), UCLouvain",
+    "measures": "Event-level disasters (at least 10 deaths, at least 100 affected, an emergency declaration, or an appeal for international aid): deaths, injured, affected, homeless, damage (US$ thousands, adjusted), by hazard type, country and date",
+    "coverage": "Global, country and event level, 1900-present (reliable mainly from 2000)",
+    "latest_release": "Continuously updated. OWID's copy notes 'disasters reported up to April 2026' (EM-DAT datePublished 2026-04-28). FAIR archive: 2024 EM-DAT archive on UCLouvain Dataverse.",
+    "update_cadence": "Continuous (weekly or monthly), plus annual CRED reports",
+    "landing_url": "https://www.emdat.be/",
+    "download_urls": [
+     "https://public.emdat.be/ (login/registration required for export)",
+     "https://doi.org/10.14428/DVN/I0LTPH (FAIR archive, CC BY-NC-ND 4.0)"
+    ],
+    "format": "XLSX export from the authenticated portal; archive on Dataverse",
+    "license": "Custom terms (https://doc.emdat.be/docs/legal/terms-of-use/), free for academic, non-profit, public-organisation and media use 'for research, teaching or information purposes'. Prohibited: 'Reproduce, copy, communicate, lend, or otherwise distribute EM-DAT or a substantial part of EM-DAT'; 'Create substitute or derivative databases of EM-DAT'; 'Share, use or transmit any portion of EM-DAT via the Internet to unauthorized users'; commercial use needs a paid Database License Agreement. Proper citation is mandatory. The FAIR archive is CC BY-NC-ND 4.0.",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "Emergency Events Database (EM-DAT), UCLouvain / CRED, Brussels, Belgium, accessed on YYYY-MM-DD, https://www.emdat.be/ (format from the EM-DAT Attribution and Citation Policy, 2025). Descriptor: Delforge, D., Wathelet, V., Below, R., Sofia, C. L., Tonnelier, M., van Loenhout, J. A. F., & Speybroeck, N. (2025). EM-DAT: the Emergency Events Database. International Journal of Disaster Risk Reduction, 124, 105509.",
+    "doi": "10.1016/j.ijdrr.2025.105509 (descriptor); 10.14428/DVN/I0LTPH (archive)",
+    "status": "Active. Not US-federal.",
+    "url_check": "Fetched emdat.be (open access for non-commercial use). curl of doc.emdat.be terms-of-use extracted the verbatim prohibitions quoted. Citation-policy page fetched ('UCLouvain 2025'). public.emdat.be returned 200 and shows Login/Register, i.e. export is gated. The FAIR news page confirms the Dataverse DOI and the CC BY-NC-ND licence. doi.org resolved the Delforge 2025 descriptor.",
+    "site_use": "Global multi-hazard deaths and affected people: show only aggregated, charted values (e.g. deaths by hazard type by decade, global or continent), with the proper citation and a link out. Do NOT offer event-level or substantial CSV downloads, and do not cache a mirror of EM-DAT in our public R2 bucket. Email CRED (regina.below@uclouvain.be is named in the terms) for written permission to publish aggregate CSVs.",
+    "caveats": "Strong reporting bias: event counts rise mostly because reporting improved (OWID's subtitle warns about this). Heat deaths are badly under-recorded outside Europe. Economic damage is missing for most events. Includes non-climate hazards (earthquakes, volcanoes), which must be filtered out. Registration gating breaks a fully automated, reproducible pipeline.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Our World in Data mirrors of climate-impact series (EM-DAT disasters, GWIS burned area)",
+    "publisher": "Our World in Data (Global Change Data Lab, Oxford)",
+    "measures": "Number of reported disasters and deaths by hazard type, country and region (from EM-DAT). Annual burned area by land cover (hectares) by country and continent (from GWIS, MODIS MCD64A1).",
+    "coverage": "EM-DAT series: 1900-2025, global, regions, countries. GWIS series: 2002-2025, global, continents, countries.",
+    "latest_release": "EM-DAT charts last updated 2026-04-30 (next 2027-04-30). GWIS burned area last updated 2026-09-11 (next 2027-09-11).",
+    "update_cadence": "Annual",
+    "landing_url": "https://ourworldindata.org/grapher/annual-area-burnt-by-wildfires-gwis",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/annual-area-burnt-by-wildfires-gwis.csv?useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/annual-area-burnt-by-wildfires-gwis.metadata.json",
+     "https://api.ourworldindata.org/v1/indicators/1306111.metadata.json",
+     "https://ourworldindata.org/grapher/number-of-natural-disaster-events.csv?useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1228129.metadata.json"
+    ],
+    "format": "CSV plus JSON metadata (Grapher API)",
+    "license": "OWID's own processing: CC BY 4.0. Third-party data keep their original licence; OWID states 'all data produced by third parties and made available by Our World in Data are subject to the license terms from the original providers'. The GWIS origin licence in the metadata is 'CC BY 4.0' (gwis data-license page). The EM-DAT origin licence is listed as 'UCLouvain 2026' pointing to the EM-DAT terms of use, so it is NOT CC BY.",
+    "redistribution": "open-attribution",
+    "citation": "GWIS: 'Global Wildfire Information System (2026) \u2013 with minor processing by Our World in Data. \u201cYearly burned area across all land types \u2013 GWIS (MODIS)\u201d [dataset]. Global Wildfire Information System, \u201cGlobal Yearly Burned Area by Land Cover Type\u201d [original data].' EM-DAT: 'EM-DAT, CRED / UCLouvain (2026) \u2013 with major processing by Our World in Data. \u201cDisasters \u2013 EM-DAT\u201d [dataset].'",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "Fetched the metadata.json for both charts. GWIS: lastUpdated 2026-09-11, origin urlMain gwis country.profile/downloads, licence CC BY 4.0, processingLevel 'minor'. The CSV gave World 2021-2025: 352,469,440; 330,531,500; 383,488,350; 365,745,700; 332,928,200 ha. EM-DAT: lastUpdated 2026-04-30, citation 'major processing', licence 'UCLouvain 2026' linking the EM-DAT terms. number-of-natural-disaster-events.csv returned 200 text/csv (e.g. 'All disasters excluding extreme temperature' 2025 = 363).",
+    "site_use": "Use the GWIS series as a clean, stable CSV for the global and continent wildfire chart, with GWIS credited as primary. Use OWID's EM-DAT aggregates only as a cross-check; licensing stays EM-DAT's. On processing: for GWIS it is 'minor' (regional sums of GWIS country values), so values equal GWIS. For EM-DAT it is 'major' (event records aggregated to country/region-year, filtered by hazard, rates derived), so per-capita and decadal values are OWID-derived and will not match a raw EM-DAT query exactly.",
+    "caveats": "Do not present the OWID EM-DAT CSV as CC BY. The GWIS MODIS series is known to underestimate small fires (OWID's own note).",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Wildfire Information System (GWIS): country profiles (burned area, fire emissions)",
+    "publisher": "European Commission Joint Research Centre (JRC) / Copernicus Emergency Management Service, with GEO and NASA",
+    "measures": "Annual and monthly burned area (ha) by land-cover class (MODIS MCD64A1 and GlobFire); fire emissions (GFED, GFAS, FAO); fire counts. By country and subnational unit.",
+    "coverage": "Global, country, admin-1. 2002-2025 (MCD64A1). Near-real-time for the current year.",
+    "latest_release": "Country-profile API live as of 2026-10-04. Annual 2025 values are in OWID's 2026-09-11 pull.",
+    "update_cadence": "Annual, plus near-real-time",
+    "landing_url": "https://gwis.jrc.ec.europa.eu/apps/country.profile",
+    "download_urls": [
+     "https://cprof.effis.emergency.copernicus.eu/api/v3/countries?env=GWIS",
+     "https://cprof.effis.emergency.copernicus.eu/api/v3/aoi?env=GWIS",
+     "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=... (burned area endpoint; parameters undocumented)",
+     "https://effis-gwis-cms.s3.eu-west-1.amazonaws.com/apps/country.profile/MCD64A1_burned_area_full_dataset_2002_2024.zip (linked from the site JS but returned 404 on 2026-10-04)"
+    ],
+    "format": "JSON (undocumented REST API v3); ZIP/CSV bulk files (currently broken)",
+    "license": "CC BY 4.0. Quoted from https://gwis.jrc.ec.europa.eu/about-gwis/data-license: 'Unless otherwise indicated... content owned by the EU on this website is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is allowed, provided appropriate credit is given and changes are indicated.'",
+    "redistribution": "open-attribution",
+    "citation": "Global Wildfire Information System (GWIS), European Commission Joint Research Centre / Copernicus EMS, Country Profiles, https://gwis.jrc.ec.europa.eu/apps/country.profile (accessed YYYY-MM-DD); burned area from NASA MODIS MCD64A1 Collection 6.1.",
+    "doi": "None found",
+    "status": "Active (EU-funded). The bulk ZIP links are broken (404). The API is undocumented.",
+    "url_check": "Data-license page returned 200 and the CC BY 4.0 text was quoted. The country-profile downloads page is a JS app; grepping its _nuxt bundles revealed the base URL cprof.effis.emergency.copernicus.eu and paths /api/v3/aoi, /countries, /subcountries, /indicators, /banf, /emissions. /api/v3/countries?env=GWIS returned a JSON country list (e.g. {iso3:'AFG',continent_code:'UN_ASI'}). /api/v3/aoi?env=GWIS returned continents. /banf with guessed params returned 'Internal Server Error'. A HEAD on the S3 MCD64A1 2002_2024 ZIP returned 404.",
+    "site_use": "Primary attribution for burned-area charts (global, then continent, then country, then land cover). Pipeline: pull via OWID's CSV (stable) and cite GWIS as primary, or reverse-engineer the API for subnational drill-down after asking JRC (jrc-effis@ec.europa.eu) for documentation.",
+    "caveats": "MODIS MCD64A1 underestimates small fires and cropland burning. A low global burned area does not mean low impact (2025 was low globally but record-breaking in Europe and Canada). The API is undocumented, so build a schema-validation check and fail loudly instead of falling back to a heuristic.",
+    "priority": "core"
+   },
+   {
+    "name": "State of Wildfires 2025-26 (report plus regional summary datasets)",
+    "publisher": "State of Wildfires Project (UK Centre for Ecology & Hydrology, Met Office, University of East Anglia, ECMWF, et al.)",
+    "measures": "Annual burned area (km\u00b2) and anomalies; fire carbon emissions; fire intensity; Global Fire Atlas fire counts, sizes and growth. By country, admin region, biome, continent and IPCC region. Attribution of the season's extremes and projections (SSP1-2.6 vs SSP3-7.0).",
+    "coverage": "Global. Fire seasons Mar-Feb, 2002/03 to 2025/26, with anomalies for the final season (March 2025 to February 2026).",
+    "latest_release": "Dataset v4 published 22 Jul 2026 (Zenodo). Report preprint posted 3 Aug 2026 in ESSD Discussions (under review). Last final peer-reviewed edition: State of Wildfires 2024-2025, ESSD 17, 5377-5488 (2025).",
+    "update_cadence": "Annual (preprint around Aug, final around late year)",
+    "landing_url": "https://essd.copernicus.org/preprints/essd-2026-587/",
+    "download_urls": [
+     "https://zenodo.org/records/21262381/files/State_of_Wildfires_2025-26_Burned_Area_annual_data_with_anomalies.csv?download=1",
+     "https://zenodo.org/records/21262381/files/State_of_Wildfires_2025-26_Carbon_Emissions_annual_data_with_anomalies.csv?download=1",
+     "https://zenodo.org/records/21262381/files/State_of_Wildfires_2025-26_Fire_Intensity_annual_data_with_anomalies.csv?download=1",
+     "https://zenodo.org/records/21262381/files/State_of_Wildfires_2025-26_Global_Fire_Atlas_annual_data_with_anomalies.csv?download=1",
+     "https://zenodo.org/api/records/21262381",
+     "https://essd.copernicus.org/preprints/essd-2026-587/essd-2026-587.pdf"
+    ],
+    "format": "CSV (62 MB, 38 MB, 15 MB, 24 MB); PDF",
+    "license": "CC BY 4.0 for both the dataset (Zenodo license id 'cc-by-4.0') and the preprint ('Creative Commons Attribution 4.0').",
+    "redistribution": "open-attribution",
+    "citation": "Report: Burton, C., Di Giuseppe, F., Jones, M. W., Kelley, D. I., et al. (2026). State of Wildfires 2025\u20132026. Earth Syst. Sci. Data Discuss. [preprint], https://doi.org/10.5194/essd-2026-587. Data: Jones, M. W., Andela, N., Brambleby, E., Chuvieco, E., Giglio, L., et al. (2026). State of Wildfires 2025-26: Regional Summaries of Burned Area, Fire Emissions, and Individual Fire Characteristics... Zenodo, v4. https://doi.org/10.5281/zenodo.21262381. Prior final: Kelley, D. I., et al. (2025). State of Wildfires 2024\u20132025. ESSD 17(10), 5377\u20135488. https://doi.org/10.5194/essd-17-5377-2025",
+    "doi": "10.5194/essd-2026-587; 10.5281/zenodo.21262381; 10.5194/essd-17-5377-2025",
+    "status": "Active. The 2025-26 report is under peer review, so numbers may change.",
+    "url_check": "Zenodo API: publication_date 2026-07-22, license cc-by-4.0, DOI 10.5281/zenodo.21262381. Ranged GET of the burned-area CSV shows a commented header ('Variable units: Burned Area = km^2'). A streamed parse showed columns Product, Region ID, Region Name, Regional Layer, Fire Season Start Year... Burned Area (km^2), Burned Area Anomaly (%), with rows like MODIS_MCD64A1_c6.1 / Global / Forest. The ESSD preprint page says global burned area was 18% below the 2002-2024 average, Europe had a record 19,629 km\u00b2, Canadian Shield burned area was about 61x more likely due to climate change, NW Iberia fire weather about 3x more likely, and burned area +78% by 2100 under SSP3-7.0. doi.org resolved both ESSD DOIs.",
+    "site_use": "Core for 'Wildfire' consequences and attribution: anomaly map of the latest season by country; 'global low, regional record' explainer; attribution callouts (Canada, Iberia, Chile); future-pathway comparison (SSP1-2.6 vs SSP3-7.0 burned area) feeding the 'what you can do' path.",
+    "caveats": "Preprint values can change in final publication, so label them 'preprint' and re-check after acceptance. The fire season runs Mar-Feb, not the calendar year, so it does not align with GWIS/OWID calendar years.",
+    "priority": "core"
+   },
+   {
+    "name": "Carbon Brief: Mapped \u2013 how climate change affects extreme weather around the world (attribution studies database)",
+    "publisher": "Carbon Brief",
+    "measures": "Catalogue of peer-reviewed and rapid attribution studies: event name, year or trend, event type, classification (more likely/severe; less; no discernible influence; inconclusive), citation, link, summary quote, region, ISO country",
+    "coverage": "Global. 967 events/trends from about 818 studies, publication years 2004-2025.",
+    "latest_release": "7th update, 19 Mar 2026",
+    "update_cadence": "Irregular (roughly every 1-2 years)",
+    "landing_url": "https://interactive.carbonbrief.org/attribution-studies/index.html",
+    "download_urls": [
+     "https://interactive.carbonbrief.org/attribution-studies/data/papers-download.csv"
+    ],
+    "format": "CSV",
+    "license": "Carbon Brief statement (carbonbrief.org footer text): 'Published under a CC license. You are welcome to reproduce unadapted material in full for non-commercial use, credited \u2018Carbon Brief\u2019 with a link to the article. Please contact us for commercial use.' This is effectively BY-NC-ND: non-commercial, and no adaptation.",
+    "redistribution": "noncommercial-only",
+    "citation": "Carbon Brief (2026). 'Mapped: How climate change affects extreme weather around the world.' Updated 19 March 2026. https://interactive.carbonbrief.org/attribution-studies/index.html",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "carbonbrief.org/mapped-... returned 301 to interactive.carbonbrief.org/attribution-studies/index.html. The page shows 'Last updated 19 March 2026', 967 events, 77%. Downloaded the CSV: 967 rows; columns Name, Event year/Trend, Event type, Classification, Publication year, Citation, Rapid study?, Source, Link, Summary statement, cb-region, iso country code, iso sub region. Counts: 743 more likely/severe, 81 no discernible influence, 76 less likely, 67 inconclusive (743/967 = 76.8%). carbonbrief.org/terms-and-conditions/ returned 404. The licence text was found in the site HTML.",
+    "site_use": "Core for the 'Is this climate change?' drill-down: country, then event, then study, with the classification and a link to the original paper. Compute our own counts from the CSV and credit Carbon Brief. Because of the 'unadapted' clause, ask Carbon Brief for permission before offering a modified or filtered CSV. Until then, link to their CSV and offer only derived counts.",
+    "caveats": "Strong geographic bias (Europe, East Asia, North America over-represented; Africa under-represented). Classifications are Carbon Brief's summaries of each paper. Studies are not independent, and some events have several studies.",
+    "priority": "core"
+   },
+   {
+    "name": "World Weather Attribution (WWA) rapid attribution studies",
+    "publisher": "World Weather Attribution (Imperial College London Grantham Institute, KNMI, Red Cross Red Crescent Climate Centre, et al.)",
+    "measures": "Per-event attribution: change in likelihood (probability ratio) and intensity (\u00b0C, % rainfall) due to human-caused warming, plus vulnerability/exposure analysis and future projections at +2.6\u00b0C",
+    "coverage": "Global, event-based. 149 posts in the WordPress API as of 2026-10-04. Latest: 'Rapid Warming in the Himalaya...' (17 Sep 2026).",
+    "latest_release": "Continuous. Recent: Himalaya geohazards (2026-09-17), Puerto Rico/Jamaica rainfall (2026-08-28), European marine heatwave (2026-08-19), Canada fire season (2026-08-06), Europe June heatwave (2026-06-26)",
+    "update_cadence": "Several studies per month",
+    "landing_url": "https://www.worldweatherattribution.org/",
+    "download_urls": [
+     "https://www.worldweatherattribution.org/wp-json/wp/v2/posts?per_page=100&_fields=date,title,link",
+     "https://www.worldweatherattribution.org/study-tracker/"
+    ],
+    "format": "WordPress REST JSON (study list); HTML and PDF reports. No structured results table.",
+    "license": "No licence statement found on the site (homepage and about-this-site grepped for licence, copyright and Creative Commons terms; none present). Treat as all-rights-reserved text. Facts (probability ratios) can be cited with attribution.",
+    "redistribution": "unclear",
+    "citation": "Per study, e.g. 'World Weather Attribution (2026). Fossil fuel emissions have rapidly worsened European heatwaves in just a few decades. 26 June 2026. https://www.worldweatherattribution.org/fossil-fuel-emissions-have-rapidly-worsened-european-heatwaves-in-just-a-few-decades/'. Cite the scientific report PDF (with authors) where one exists.",
+    "doi": "Per-report DOIs exist for some (via Imperial Spiral). Not verified here.",
+    "status": "Active",
+    "url_check": "/analysis/ returned 404 (moved). The homepage returned 200 and links to /analyses/, /study-tracker/, /by-year/. wp-json posts API returned 12 recent posts with dates, plus x-wp-total: 149. No licence text found.",
+    "site_use": "Secondary. On each event card, quote the WWA headline (e.g. 'virtually impossible without climate change') with date and link. Map WWA studies onto IDMC and EM-DAT events. Use the vulnerability sections for 'what made it deadly / what can be done'. Hand-curate a small table (event, PR, intensity change, link) with a source quote for every number.",
+    "caveats": "Rapid studies are often not yet peer-reviewed. Methods evolve. Probability ratios have wide confidence intervals, so always show the range, not just the central value.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Climate Central Climate Shift Index (CSI) heat analyses (e.g. 'Risky Heat Added by Climate Change: June to August 2026')",
+    "publisher": "Climate Central",
+    "measures": "Days per person, country or city with daily mean temperature made at least 2x (CSI level 2 or higher) more likely by climate change; population experiencing 30 or more such days",
+    "coverage": "252 countries/territories and 949 cities. Seasonal and annual analyses. Latest: 1 Jun to 31 Aug 2026.",
+    "latest_release": "Climate Matters 'Risky summer heat' (Jun-Aug 2026), published Sep 2026",
+    "update_cadence": "Seasonal and annual analyses; daily CSI maps",
+    "landing_url": "https://www.climatecentral.org/climate-matters/risky-summer-heat",
+    "download_urls": [
+     "https://www.climatecentral.org/climate-matters/risky-summer-heat",
+     "https://www.climatecentral.org/report/climate-change-and-the-escalation-of-global-extreme-heat (May 2024 report with WWA and the Red Cross)"
+    ],
+    "format": "HTML articles with embedded tables/graphics. No machine-readable country table found.",
+    "license": "Climate Matters articles: 'licensed under CC BY 4.0... This license grants permission to use, distribute, and reproduce all text, graphics, and multimedia content published on [this page]' (found in page HTML). Underlying CSI data and tools fall under the Climate Central ToS (non-commercial, no bulk or automated extraction).",
+    "redistribution": "open-attribution",
+    "citation": "Climate Central (2026). 'Risky Heat Added by Climate Change: June to August 2026.' Climate Matters. https://www.climatecentral.org/climate-matters/risky-summer-heat",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "Fetched the page (137 KB). It contains '1.5 billion people on the planet experienced 30 or more days of risky heat added by climate change in June to August 2026' and the CC BY 4.0 notice. The escalation-of-extreme-heat report page was fetched (released 28 May 2024; 6.3 billion people with at least 31 extra extreme-heat days; 26-day global average) but no CSV was found.",
+    "site_use": "Secondary 'heat days added by climate change' callouts and a country-days table, if Climate Central shares a data table on request. Complements the Lancet attributable heatwave days (annual, CC BY-NC-SA) with a fresher seasonal number.",
+    "caveats": "Model-based attribution metric (CSI). Thresholds differ from Lancet's heatwave definition, so never combine the two numbers. Seasonal windows vary between releases.",
+    "priority": "secondary"
+   },
+   {
+    "name": "IPCC AR6 figure data (CEDA archive) and the AR6 WGI Interactive Atlas repository",
+    "publisher": "IPCC (Working Group I TSU), archived by the NERC EDS Centre for Environmental Data Analysis (CEDA); Atlas by IPCC-WG1 / Santander Met Group",
+    "measures": "The underlying numbers of AR6 figures (e.g. SPM.9: number of regions where climatic impact-drivers change at +2\u00b0C). Atlas: regionally aggregated monthly temperature, precipitation and extremes indices for 46 land and 14 ocean reference regions, by scenario and global warming level (+1.5/2/3/4\u00b0C).",
+    "coverage": "Global and IPCC reference regions. Historical observations plus CMIP5/CMIP6/CORDEX projections to 2100.",
+    "latest_release": "AR6 WGI (2021). CEDA SPM.9 data v20220105 (DOI published 2023-07-03; README last audited 2026-04-25). AR7 is in preparation (AR7 WGII is listed on ipcc.ch); no AR7 data yet.",
+    "update_cadence": "Static (assessment cycle of about 7 years)",
+    "landing_url": "https://catalogue.ceda.ac.uk/uuid/ae4f1eb6fce24adcb92ddca1a7838a5c",
+    "download_urls": [
+     "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_09/v20220105/consolidated_data_figure_SPM.9.csv",
+     "https://data.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_09/v20220105?json",
+     "https://github.com/IPCC-WG1/Atlas",
+     "https://raw.githubusercontent.com/IPCC-WG1/Atlas/main/LICENSE.md",
+     "https://interactive-atlas.ipcc.ch/"
+    ],
+    "format": "CSV and NetCDF (CEDA); CSV (Atlas regional aggregates); JSON directory listings",
+    "license": "Data: CC BY 4.0. CEDA 00README_catalogue_and_licence.txt says 'Use of these data is covered by the following licence(s): http://creativecommons.org/licenses/by/4.0/'. Atlas LICENSE.md says 'All datasets and notebooks in this repository are provided under the Creative Commons Attribution 4.0 license (CC BY 4.0)'. NOTE: IPCC report figures and text are NOT CC BY. ipcc.ch/copyright says 'Permission can only be granted to use the material exactly as it is in the report. Please be aware that figures cannot be altered in any way', and permission is needed beyond personal non-commercial use. So redraw from the data rather than reproducing figures.",
+    "redistribution": "open-attribution",
+    "citation": "Data: Coppola, E.; Jones, R.; S\u00f6rensson, A.A.; Pinto, I. (2023): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.9 (v20220105). NERC EDS Centre for Environmental Data Analysis, 03 July 2023. doi:10.5285/e1ff6e07cd624c59a7e7983ce60add44. Plus the report: IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis... pp. 3\u221232, doi:10.1017/9781009157896.001. Atlas: Iturbide, M., et al. (2022) Scientific Data 9, 629, doi:10.1038/s41597-022-01739-y; and IPCC (2023) Atlas, doi:10.1017/9781009157896.021.",
+    "doi": "10.5285/e1ff6e07cd624c59a7e7983ce60add44 (SPM.9 data); 10.5281/zenodo.3691645 (Atlas repo); 10.1017/9781009157896",
+    "status": "Archived and stable (CEDA is UK NERC-funded)",
+    "url_check": "The CEDA catalogue record for SPM.9 returned 200 with the 'Citable as' text and the BibTeX 'copyright = Creative Commons Attribution 4.0 International'. The data.ceda.ac.uk JSON listing showed 00README_catalogue_and_licence.txt (CC BY 4.0; public, no registration needed), License.txt, Readme_for_figure_SPM9.txt and consolidated_data_figure_SPM.9.csv. My first guess of the CSV name (SPM9 without the dot) returned 404, so use the listed name. GitHub raw LICENSE.md fetched. interactive-atlas.ipcc.ch returned 200. ipcc.ch/copyright returned 403 to WebFetch but curl with a UA succeeded and the terms were quoted. data.ceda.ac.uk/badc lists ar6_wg1, ar6_sr15, ipcc-ddc but no ar6_wg2 directory, so WGII figure data is not under badc. Search results claim WGII SPM.4/TS.11 data exist under CC BY 4.0 elsewhere (IPCC DDC); not verified.",
+    "site_use": "Core for the 'consequences by warming level' explorer: pick +1.5/2/3/4\u00b0C, then region, then change in hot extremes, heavy rain and drought (Atlas regional aggregates). The SPM.9 bar chart is redrawn from CSV. Link the warming-level slider to CAT/UNEP projections so visitors see what 2.6\u00b0C versus 1.5\u00b0C means.",
+    "caveats": "Projections at global warming levels are not forecasts. Regional aggregates hide local variation. Never reproduce IPCC figure images; redraw from data. WGII impact figure data coverage is partial.",
+    "priority": "core"
+   },
+   {
+    "name": "IPCC AR6 Sea Level Projections (global, regional, tide-gauge locations)",
+    "publisher": "IPCC AR6 WGI Chapter 9 authors (Garner, Kopp, Fox-Kemper et al.), hosted on Zenodo; NASA Sea Level Change Team tool (earth.gov/sealevel)",
+    "measures": "Projected global and relative sea-level change (m, quantiles 5-95%) by SSP scenario and warming level, 2020-2150 (some to 2300), with component contributions",
+    "coverage": "Global; 1\u00b0 grid; tide-gauge locations",
+    "latest_release": "Version 20210809 (Zenodo version DOI 10.5281/zenodo.6382554; concept DOI 10.5281/zenodo.5914709)",
+    "update_cadence": "Static until AR7",
+    "landing_url": "https://doi.org/10.5281/zenodo.5914709",
+    "download_urls": [
+     "https://zenodo.org/api/records/6382554",
+     "https://zenodo.org/records/6382554/files/ar6.zip?download=1",
+     "https://zenodo.org/records/6382554/files/location_list.lst?download=1",
+     "https://earth.gov/sealevel/resources/ipcc-report/"
+    ],
+    "format": "NetCDF inside ZIP (ar6.zip 890 MB; regional confidence ZIPs about 9 GB)",
+    "license": "CC BY 4.0 (Zenodo metadata license id 'cc-by-4.0')",
+    "redistribution": "open-attribution",
+    "citation": "Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, B. Fox-Kemper, H. T. Hewitt, C. Xiao, et al. (2021). IPCC AR6 Sea Level Projections. Version 20210809. https://doi.org/10.5281/zenodo.5914709. Plus Fox-Kemper, B., et al. (2021) Ocean, Cryosphere and Sea Level Change. In: Climate Change 2021: The Physical Science Basis (IPCC AR6 WGI Ch. 9).",
+    "doi": "10.5281/zenodo.5914709 (concept); 10.5281/zenodo.6382554 (version)",
+    "status": "Archived/stable on Zenodo. The NASA tool URL sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool returned 404 on 2026-10-04 (moved or removed). earth.gov/sealevel and its IPCC page return 200. US-federal hosting of the tool is at risk; Zenodo is the durable primary.",
+    "url_check": "Zenodo API for 5914709 resolves to version 6382554: title 'IPCC AR6 Sea Level Projections', 2021-08-09, licence cc-by-4.0, files ar6.zip (889,784,792 bytes), ar6-regional-confidence.zip (9.2 GB), location_list.lst. The NASA tool URL returned 404; earth.gov/sealevel returned 200.",
+    "site_use": "Sea-level consequence path: scenario selector (SSP1-2.6 vs SSP2-4.5 vs SSP5-8.5), then global rise by 2050/2100 (median and likely range), then coastal location. Pair with Lancet indicator 2.3.3 (156.7M people living less than 1 m above sea level) for exposure. Precompute small JSON extracts at build time.",
+    "caveats": "Large files. Pre-extract the global and selected-location series and archive them with hashes. Low-likelihood, high-impact ice-sheet processes are only in the 'low confidence' files, so label them clearly.",
+    "priority": "core"
+   },
+   {
+    "name": "Climate Impact Explorer (CIE) 2025",
+    "publisher": "Climate Analytics and IIASA (NGFS-funded)",
+    "measures": "Projected national and subnational impacts by scenario and warming level, to 2100: heat stress (WBGT), SPEI drought, fire weather, river discharge, crop yields, labour productivity, economic damages",
+    "coverage": "Global; national and subnational; scenarios include CAT current policies and NGFS scenarios; 0.5\u00b0 ISIMIP3b base",
+    "latest_release": "CIE 2025 methodology last edited 5 Nov 2025",
+    "update_cadence": "Irregular (major versions 2021, 2025)",
+    "landing_url": "https://climate-impact-explorer.climateanalytics.org/",
+    "download_urls": [
+     "https://climate-impact-explorer.climateanalytics.org/climate-impact-explorer_methodology.pdf",
+     "https://cie-api.climateanalytics.org/api/meta/",
+     "https://cie-api.climateanalytics.org/api/ (legacy API index)"
+    ],
+    "format": "In-app downloads (CSV/PNG); legacy JSON/CSV API",
+    "license": "No formal licence. Methodology PDF p.4: 'You can use the data available on the Climate Impact Explorer if you acknowledge the source of the data by citing: IIASA & Climate Analytics, 2025. Climate Impact Explorer.' Underlying ISIMIP data are CC0 or CC BY 4.0.",
+    "redistribution": "unclear",
+    "citation": "IIASA & Climate Analytics, 2025. Climate Impact Explorer. Available at: https://climate-impact-explorer.climateanalytics.org/",
+    "doi": "None",
+    "status": "Active web tool. The API appears to be the legacy (RCP/ISIMIP2b-era) version.",
+    "url_check": "Landing page is a Next.js app (no content in HTML). Methodology PDF (26 pages) parsed: citation and usage text quoted; 'All displayed materials and the underlying data can be downloaded via the CIE interface.' cie-api.climateanalytics.org/api/ returned an index page. /api/meta/ returned JSON with countries, scenarios (rcp26...), variable_groups (Agriculture: yield_maize_co2..., Economic damages...). The documented example /api/ts/?iso=BRA...scenario=cat_current returned 404, so the API is legacy and not aligned with CIE 2025.",
+    "site_use": "Secondary: country 'what changes at 1.5\u00b0C vs 2.6\u00b0C' cards (heat-stress days, drought, crop yields) if Climate Analytics confirms reuse terms and a stable export. Otherwise go to ISIMIP directly.",
+    "caveats": "Holds socio-economics fixed at 2020, so it shows climate-only effects. Emulator-based (RIME-X, MAGICC7). Without an explicit licence, request written confirmation before offering CSVs.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Crop yield impacts: ISIMIP3b agriculture (GGCMI) simulations and Hultgren et al. 2025 (Nature) replication data",
+    "publisher": "ISIMIP (Potsdam Institute for Climate Impact Research); Climate Impact Lab (Hultgren et al.)",
+    "measures": "ISIMIP3b: simulated annual crop yields (t/ha) for maize, wheat, rice and soy by crop model, GCM and SSP, 0.5\u00b0 grid, 2015-2100. Hultgren 2025: empirically estimated yield response including adaptation, about -120 kcal/person/day of global food production per +1\u00b0C.",
+    "coverage": "Global gridded (ISIMIP); 12,658 locations, six staple crops (Hultgren)",
+    "latest_release": "ISIMIP3b agriculture DOI 10.48364/ISIMIP.723340.2 (current version in API). Hultgren et al. published 18 Jun 2025 (Nature 642, 644-652); replication record dated 2024-12-18.",
+    "update_cadence": "Static per simulation round / paper",
+    "landing_url": "https://data.isimip.org/",
+    "download_urls": [
+     "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&sector=agriculture",
+     "https://files.isimip.org/ISIMIP3b/OutputData/agriculture/ACEA/mri-esm2-0/future/acea_mri-esm2-0_w5e5_picontrol_2015soc_default_anthday-mai-firr_global_annual-gs_2015_2100.nc",
+     "https://zenodo.org/records/14511340",
+     "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package"
+    ],
+    "format": "NetCDF (ISIMIP); code and data repo (GitLab)",
+    "license": "ISIMIP3b agriculture: CC0 1.0 (API 'rights': 'CC0 1.0 Universal Public Domain Dedication'). Hultgren replication record: CC BY 4.0 (Zenodo).",
+    "redistribution": "open-public-domain",
+    "citation": "ISIMIP3b Simulation Data from the Agriculture Sector. https://doi.org/10.48364/ISIMIP.723340.2. Hultgren, A., Carleton, T., Delgado, M., et al. (2025). Impacts of climate change on global agriculture accounting for adaptation. Nature 642, 644\u2013652. https://doi.org/10.1038/s41586-025-09085-w; data https://doi.org/10.5281/zenodo.14511340",
+    "doi": "10.48364/ISIMIP.723340.2; 10.1038/s41586-025-09085-w; 10.5281/zenodo.14511340",
+    "status": "Active",
+    "url_check": "ISIMIP API returned count 1001 datasets for ISIMIP3b agriculture. The first result lists rights CC0 1.0, DOI 10.48364/ISIMIP.723340.2, and a direct files.isimip.org NetCDF URL. The isimip.org terms page says site content is CC BY 4.0 and describes the embargo workflow. Zenodo 14511340: licence cc-by-4.0, DOI confirmed, one readme pointing to the GitLab repo. The Nature article itself was not fetched (the search snippet gave the volume and pages).",
+    "site_use": "'Food' consequence card: per-degree yield or calorie loss (Hultgren headline, cited to the paper), and by crop. An ISIMIP multi-model range by warming level for maize and wheat, precomputed offline into small CSVs with a reproducible script.",
+    "caveats": "Model spread is large; show the ensemble range. ISIMIP outputs are heavy NetCDF (precompute offline). The Hultgren value includes adaptation assumptions; quote it exactly with its uncertainty from the paper.",
+    "priority": "secondary"
+   },
+   {
+    "name": "SPEIbase v2.11: Global Standardised Precipitation-Evapotranspiration Index (drought)",
+    "publisher": "CSIC (Spanish National Research Council), Climatology and Climate Services Laboratory (Vicente-Serrano, Beguer\u00eda et al.)",
+    "measures": "SPEI (dimensionless standardized index) at 1-48 month timescales; negative values mean drought",
+    "coverage": "Global 0.5\u00b0 monthly, Jan 1901 to Dec 2024 (based on CRU TS 4.09). Country series also available (older vintage).",
+    "latest_release": "SPEIbase v2.11 (CRU TS 4.09; data to Dec 2024)",
+    "update_cadence": "About annual (follows CRU TS releases). Separate near-real-time Global SPEI Drought Monitor.",
+    "landing_url": "https://spei.csic.es/database.html",
+    "download_urls": [
+     "https://spei.csic.es/spei_database_2_11",
+     "https://lcsc.csic.es/ficheros/countries_spei.zip",
+     "https://lcsc.csic.es/ficheros/SPEI_countries.nc",
+     "https://developers.google.com/earth-engine/datasets/catalog/CSIC_SPEI_2_11"
+    ],
+    "format": "NetCDF-4 (gridded); ZIP/NetCDF (country series)",
+    "license": "Open Database License (ODbL) 1.0 with Database Contents License. Quoted from database.html: 'Users of the dataset are free to: Share: copy, distribute and use the database, either commercially or non-commercially. Create: produce derivative works from the database. Adapt: modify, transform and build upon the database.' Attribution is required, and adapted databases must stay open (share-alike).",
+    "redistribution": "open-attribution",
+    "citation": "Per the SPEI site, cite Vicente-Serrano, S.M., Beguer\u00eda, S., L\u00f3pez-Moreno, J.I. (2010) A Multiscalar Drought Index Sensitive to Global Warming: The Standardized Precipitation Evapotranspiration Index. J. Climate 23, 1696-1718 (doi:10.1175/2009JCLI2909.1); Beguer\u00eda et al. 2010; and Beguer\u00eda et al. 2014. Dataset: SPEIbase v2.11, CSIC (Zenodo concept doi:10.5281/zenodo.834462 per the GitHub README).",
+    "doi": "10.5281/zenodo.834462 (SPEIbase concept DOI, per README); 10.1175/2009JCLI2909.1",
+    "status": "Active (non-US)",
+    "url_check": "database.html fetched: v2.11, 1901-01 to 2024-12, CRU TS 4.09, ODbL text quoted. spei.csic.es/spei_database_2_11 returned 301 to http://spei.csic.es/spei_database_2_11/ (an ncwebmapper app; no direct .nc link in its HTML). GitHub README lists versions to v2.10 and the Zenodo DOI. The LCSC country ZIP HEAD returned 200, 134 MB, Last-Modified 2024-07-23, so it predates v2.11; check which version it is. Earth Engine catalog lists CSIC/SPEI/2_11.",
+    "site_use": "Core for 'Drought': country or region SPEI-12 time series 1901-2024 with drought years highlighted; global map of the latest year; link to WWA drought attributions and IDMC drought displacement. Derived country aggregates must be published under ODbL.",
+    "caveats": "SPEI is a hazard index, not an impact. CRU station coverage is sparse in parts of Africa and earlier decades. Latency: data end Dec 2024. The ODbL share-alike requires our derived database to be ODbL-compatible.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA Coral Reef Watch (CRW): global 5 km Degree Heating Week and the fourth global coral bleaching event statistics",
+    "publisher": "NOAA NESDIS / STAR Coral Reef Watch",
+    "measures": "Daily sea-surface-temperature-based coral bleaching heat stress (Degree Heating Weeks, \u00b0C-weeks; Bleaching Alert Area). Share of global reef area under bleaching-level heat stress per global event.",
+    "coverage": "Global oceans, 5 km, daily (1985 to present; data files through 2026-10-03)",
+    "latest_release": "Daily DHW files through 20261003. Announcement 2 Jun 2026: fourth global bleaching event likely ended mid-2025; 84% of reef area affected; 83 countries and territories.",
+    "update_cadence": "Daily (product); event status as announced",
+    "landing_url": "https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php",
+    "download_urls": [
+     "https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/daily/dhw/2026/ct5km_dhw_v3.1_20261003.nc",
+     "https://www.nesdis.noaa.gov/news/worlds-fourth-mass-coral-bleaching-event-likely-ended-2025"
+    ],
+    "format": "NetCDF (daily global); HTML status report",
+    "license": "U.S. federal government work, public domain (no restrictions; NOAA asks for credit). No terms page fetched.",
+    "redistribution": "open-public-domain",
+    "citation": "NOAA Coral Reef Watch (2026). Current Global Bleaching: Status Update. https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php; and for data: NOAA Coral Reef Watch Version 3.1 Daily Global 5km Satellite Coral Bleaching Degree Heating Week Product, College Park, Maryland, USA (CRW's standard citation pattern; exact wording to confirm on the CRW product page).",
+    "doi": "None found",
+    "status": "Active, but at risk as a US-federal (NOAA NESDIS) programme under 2025-26 budget pressure. Archive key files.",
+    "url_check": "The NESDIS news page (2 Jun 2026) says 'From early-2023 to mid-2025, bleaching-level heat stress impacted 84% of the world\u2019s coral reef area... Mass bleaching was documented in at least 83 countries and territories.' The CRW status page returned 200 with '~84.4% of the world\u2019s coral reef area' and a comparison to 68.2% in 2014-2017. The STAR directory listing for 2026 showed ct5km_dhw_v3.1_20261001/02/03.nc.",
+    "site_use": "Ocean consequences: a 'four global bleaching events' bar chart (21% in 1998, 37% in 2010, 68% in 2014-17, 84% in 2023-25; earlier values per NOAA/ICRI materials, verify each before publishing). A live DHW map tile, regenerated weekly. Headline: 84% of reef area.",
+    "caveats": "Heat stress is not mortality. The event percentages come from NOAA announcements, not a tabulated dataset, so cite the page and date. US-federal continuity risk: mirror the announcement text and the event statistics.",
+    "priority": "core"
+   },
+   {
+    "name": "Climate Action Tracker (CAT) Warming Projections Global Update (COP30, Nov 2025)",
+    "publisher": "Climate Analytics and NewClimate Institute",
+    "measures": "Projected 2100 global mean temperature (\u00b0C above pre-industrial; lower/median/upper) under Policies & action, 2030/2035 targets only, Pledges & targets, and Optimistic scenarios. Global emissions pathways (GtCO2e) to 2100; 2030 emissions gap.",
+    "coverage": "Global, 2100 (time series to 2100). Country ratings on separate pages.",
+    "latest_release": "13 Nov 2025 (COP30 update)",
+    "update_cadence": "About twice a year (June Bonn and November COP updates); a COP31 update is expected Nov 2026",
+    "landing_url": "https://climateactiontracker.org/global/temperatures/",
+    "download_urls": [
+     "https://climateactiontracker.org/documents/1349/CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx",
+     "https://climateactiontracker.org/documents/1348/CAT_2025-11-13_GlobalUpdate_COP30.pdf"
+    ],
+    "format": "XLSX (sheets: Info, CAT Thermometer, 2030 Emissions Gap, Global Emissions time series, GMT time series); PDF",
+    "license": "Custom: 'Copyright \u00a9 2025 by Climate Analytics and NewClimate Institute. All rights reserved.' The data file and legal page say 'You are authorised to view, download, print and distribute the copyrighted content... subject to the following condition: Any reproduction, in full or in part, must credit Climate Analytics and NewClimate Institute and must include a copyright notice and must not be used for commercial purposes.' The xlsx also asks: 'if you are reproducing the numerical values, please adhere to the displayed rounded values'.",
+    "redistribution": "noncommercial-only",
+    "citation": "Climate Action Tracker (2025). Warming Projections Global Update, November 2025. Climate Analytics and NewClimate Institute. https://climateactiontracker.org/global/temperatures/. Include the notice 'Copyright \u00a9 2025 by Climate Analytics and NewClimate Institute.'",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "The temperatures page returned 200 with a link to the xlsx and the copyright notice. Downloaded the xlsx (1.17 MB). CAT Thermometer sheet: Policies & action (Combined) 2.1 / 2.6 / 3.3; 2030 & 2035 targets only 2.1 / 2.6 / 3.2; Pledges & targets 1.8 / 2.2 / 2.8; Optimistic 1.5 / 1.9 / 2.4; Date Published 2025-11-13; model MAGICC7. The legal page (/about/legal/) returned 200 and the terms were quoted.",
+    "site_use": "Core for the 'Where are we heading?' end of every path: a thermometer showing policies 2.6\u00b0C vs pledges 2.2\u00b0C vs optimistic 1.9\u00b0C, which feeds the warming-level selector (IPCC Atlas, sea level, CIE). Use the rounded values only. Every chart and CSV must carry the copyright notice.",
+    "caveats": "Scenario projections depend on model assumptions. Values update each COP, so pin the vintage. The no-commercial-use condition binds the site forever.",
+    "priority": "core"
+   },
+   {
+    "name": "UNEP Emissions Gap Report 2025: Off Target",
+    "publisher": "United Nations Environment Programme (UNEP) with UNEP-CCC",
+    "measures": "Projected 21st-century warming under current policies and NDCs (\u00b0C); global GHG emissions (GtCO2e); reductions needed by 2030/2035 for 1.5\u00b0C and 2\u00b0C",
+    "coverage": "Global (with G20 and country breakdowns in the report)",
+    "latest_release": "16th edition, released 4 Nov 2025. The 2026 edition is expected around Nov 2026.",
+    "update_cadence": "Annual (before COP)",
+    "landing_url": "https://www.unep.org/resources/emissions-gap-report-2025",
+    "download_urls": [
+     "https://doi.org/10.59117/20.500.11822/48854",
+     "https://wedocs.unep.org/bitstream/handle/20.500.11822/48854/EGR2025.pdf?sequence=3&isAllowed=y"
+    ],
+    "format": "PDF (plus data annexes on the wedocs repository, not verified)",
+    "license": "UNEP standard notice (from search snippet of the report's copyright page; could not open the PDF myself because of the Cloudflare block): 'may be reproduced in whole or in part and in any form for educational or non-profit services without special permission from the copyright holder, provided acknowledgement of the source is made. No use of this publication may be made for resale or any other commercial purpose whatsoever without prior permission'.",
+    "redistribution": "noncommercial-only",
+    "citation": "United Nations Environment Programme (2025). Emissions Gap Report 2025: Off Target \u2013 Continued collective inaction puts global temperature goal at risk. Nairobi. https://doi.org/10.59117/20.500.11822/48854. ISBN 978-92-807-4239-8.",
+    "doi": "10.59117/20.500.11822/48854",
+    "status": "Active",
+    "url_check": "unep.org and wedocs.unep.org returned 403 (Cloudflare 'Just a moment...' challenge) to both curl and WebFetch. The DOI handle API resolves to wedocs.unep.org/20.500.11822/48854 (registered 2025-11-03). Crossref CSL JSON gave the title, publisher UNEP, ISBN 9789280742398, and an abstract stating NDC warming '2.3-2.5\u00b0C' and current policies '2.8\u00b0C'; 35% and 55% cuts vs 2019 are needed by 2035 for 2\u00b0C and 1.5\u00b0C. The unepccc.org page links the PDF on wedocs.",
+    "site_use": "Shown next to CAT as a second independent projection (current policies 2.8\u00b0C; NDCs 2.3-2.5\u00b0C), and for 'gap' framing (35%/55% cuts by 2035). Download and archive the PDF manually; keep the page and figure reference for each number.",
+    "caveats": "The Cloudflare block prevents automated verification. Store an archived PDF with a hash. The current-policies number differs from CAT's (2.8 vs 2.6\u00b0C) because of methods; explain why rather than picking one.",
+    "priority": "secondary"
+   },
+   {
+    "name": "WMO State of the Global Climate 2025 (WMO-No. 1391)",
+    "publisher": "World Meteorological Organization",
+    "measures": "Synthesis of key indicators (temperature, GHGs, ocean heat, sea level, glaciers, sea ice, Earth's energy imbalance) and high-impact events and their impacts (health, food, displacement)",
+    "coverage": "Global, calendar year 2025",
+    "latest_release": "Released 23 Mar 2026. A supplement was posted May 2026.",
+    "update_cadence": "Annual (March), plus regional reports",
+    "landing_url": "https://wmo.int/publication-series/state-of-global-climate/state-of-global-climate-2025",
+    "download_urls": [
+     "https://library.wmo.int/idurl/4/69807",
+     "https://wmo.int/sites/default/files/2026-03/State of the Climate 2025_1 pager_final.pdf",
+     "https://wmo.int/sites/default/files/2026-05/Supplement_Final 1.pdf"
+    ],
+    "format": "PDF (46 pages)",
+    "license": "\u00a9 WMO 2026: 'The right of publication in print, electronic and any other form and in any language is reserved by WMO. Short extracts from WMO publications may be reproduced without authorization, provided that the complete source is clearly indicated.' (PDF p.2)",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "WMO (2026). State of the Global Climate 2025 (WMO-No. 1391). Geneva: World Meteorological Organization. ISBN 978-92-63-11391-7. https://doi.org/10.59327/WMO/S/CRI/SOC1",
+    "doi": "10.59327/WMO/S/CRI/SOC1",
+    "status": "Active",
+    "url_check": "The old URL /publication-series/state-of-global-climate-2025 returned 404; the current URL returned 200 and gives the library.wmo.int link and the supplement PDFs. The PDF (8.3 MB, via a WWF mirror) was parsed: p.2 copyright text quoted; ISBN and DOI. p.6: CO2 423.9 \u00b1 0.2 ppm in 2024, +3.5 ppm, the largest annual rise since 1957. doi.org resolves the DOI to 'State of the Global Climate 2025'.",
+    "site_use": "Secondary, authoritative context sentences (e.g. 'past three years are the three warmest on record') with page citations. Pull the underlying numbers from the primary datasets the report cites (other domains), not from the PDF.",
+    "caveats": "A synthesis, not a dataset. Only short extracts are allowed. Numbers are mostly from upstream sources (WDCGG, Copernicus, NOAA, EM-DAT, IDMC), so trace to those.",
+    "priority": "secondary"
+   },
+   {
+    "name": "C3S/WMO European State of the Climate 2025 (ESOTC) figure data",
+    "publisher": "Copernicus Climate Change Service (C3S, ECMWF) and WMO",
+    "measures": "Europe-specific impact-relevant indicators with downloadable figure data: heat-stress days (UTCI), tropical nights, cold-stress days since 1950, river flow, wildfires, glaciers, marine heatwaves. Also European heat-related deaths (62,800 in 2024, cited in-page).",
+    "coverage": "Europe (WMO RA VI), 1950-2025 for thermal stress",
+    "latest_release": "Published 29 Apr 2026",
+    "update_cadence": "Annual (April)",
+    "landing_url": "https://climate.copernicus.eu/esotc/2025",
+    "download_urls": [
+     "https://climate.copernicus.eu/sites/default/files/custom-uploads/ESOTC-2025/05-thermal-stress/fig05.4_ESOTC2025/fig05.4_ESOTC_2025_number_of_heat_stress_days_tropical_nights_cold_stress_days_since_1950_WMO_RAVI_ERA5-HEAT_DATA.csv",
+     "https://climate.copernicus.eu/sites/default/files/custom-uploads/ESOTC-2025/05-thermal-stress/fig05.1_ESOTC2025/fig05.1_ESOTC_2025_days_above_32C_UTCI_2025_and_1991-2020_average_and_anomalies_ERA5-HEAT_DATA.nc",
+     "https://climate.copernicus.eu/sites/default/files/custom-uploads/ESOTC-2025/ESOTC-2025-report.pdf"
+    ],
+    "format": "CSV and NetCDF per figure; PDF (173 pages)",
+    "license": "No explicit licence on the ESOTC pages. The about-data page says datasets 'may come with a licence that restricts their use'. The underlying ERA5 is CC-BY-4.0 per the CDS catalogue API (license: 'CC-BY-4.0'). Treat ESOTC figure data as Copernicus attribution terms and confirm with C3S.",
+    "redistribution": "open-attribution",
+    "citation": "C3S/ECMWF and WMO, 2026: C3S-WMO European State of the Climate 2025, climate.copernicus.eu/ESOTC/2025, doi.org/10.24381/zy93-sb27 (verbatim from the report PDF p.4)",
+    "doi": "10.24381/zy93-sb27",
+    "status": "Active (EU Copernicus)",
+    "url_check": "The landing page returned 200 with links to subpages and the PDF. The thermal-stress page lists figure data files (.nc, .csv). Downloaded the fig05.4 CSV: header 'Number of heat stress days... Averaged across Europe (WMO RAVI). Data: ERA5-HEAT'; 2025 row = 26.16 days with at least strong heat stress (1950 = 18.29). The PDF (82.6 MB) was parsed for the citation. The DOI 302-redirects to the landing page. CDS API for reanalysis-era5-single-levels returned license CC-BY-4.0.",
+    "site_use": "Secondary Europe drill-down: heat-stress days per year 1950-2025, tropical nights, the European wildfire record (with SoW), and a heat-death callout cited to ESOTC, which itself cites Lancet Countdown Europe / ISGlobal.",
+    "caveats": "Europe only. Licence for figure files is not stated explicitly. European heat-death numbers are model estimates from a different source; trace to the original study.",
+    "priority": "secondary"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "Heat killed an estimated 546,000 people a year worldwide in 2012-2021, up 63% from about 335,000 a year in the 1990s.",
+    "value_as_of_latest": "545,478 deaths/yr (2012-2021 mean), vs 334,690/yr (1990-1999 mean); +63.0%",
+    "source_name": "Lancet Countdown 2025, Indicator 1.1.5 Heat Related Mortality (Ballester, Basaga\u00f1a, Ruiz-Cabrejos)",
+    "derivation": "Indicator-1.1.5_Data-Download_2025-Lancet-Countdown-Report-1.xlsx, sheet '2025 Report Data_Global', column AN (attributable number). Mean of years 2012..2021 = (504462+458251+448321+509489+676006+551282+507062+701303+540304+558304)/10 = 545,478. Mean of 1990..1999 = 3,346,903/10 = 334,690. Ratio 1.630. The report's key finding states '546,000... up 63.2% from 335,000'."
+   },
+   {
+    "statement": "Extreme heat cost the world a record 640 billion potential working hours in 2024, nearly double the 1990s average.",
+    "value_as_of_latest": "639.9 billion hours (2024); +98% vs the 1990-99 annual average",
+    "source_name": "Lancet Countdown 2025, Indicator 1.1.3 Change in Labour Capacity (Freyberg, Lemke, Otto)",
+    "derivation": "Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx, sheet '2025 Report Data_Global', column TotalSunAgCon (units: hours in 1000s). Row 2024 = 639,855,005.65 \u00d7 1,000 = 639.9 billion hours. The +98% comparison is the report's key finding (from the same sheet: 2024 value divided by the mean of 1990-1999, minus 1)."
+   },
+   {
+    "statement": "In 2024 the average person was exposed to about 31 heatwave days, and about 26 of them would not have happened without climate change.",
+    "value_as_of_latest": "30.8 observed heatwave days per person, 25.8 attributable (2024). 84% attributable over 2020-2024.",
+    "source_name": "Lancet Countdown 2025, Indicator 1.1.1 attributable heatwave days",
+    "derivation": "Indicator-1.1.1_Attributable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx, sheet '2025_Report _Data_Global'. 2024 Observed = 30.7906, Attributable_to_CC = 25.7513. 2020-2024 means: Observed 19.33, Attributable 16.26, giving 16.26/19.33 = 84.1%. The heatwave definition is at least 2 consecutive days with Tmin and Tmax above the local 1986-2005 95th percentile."
+   },
+   {
+    "statement": "Disasters forced 29.9 million internal displacements in 2025; 27.0 million of them were caused by weather-related hazards such as floods and storms.",
+    "value_as_of_latest": "29,937,422 total disaster displacements; 26,958,449 weather-related (2025)",
+    "source_name": "IDMC Global Internal Displacement Database (via HDX), GRID 2026",
+    "derivation": "HDX CSV internal-displacements-new-displacements-associated-with-disasters.csv: sum of new_displacement where year == 2025 (skip the HXL tag row) = 29,937,422. Filtering hazard_category_name == 'Weather related' gives 26,958,449. This matches GRID 2026's 29.9 million. These are movements, not unique people."
+   },
+   {
+    "statement": "The U.S. had 23 separate billion-dollar weather and climate disasters in 2025, costing $115 billion and killing 276 people.",
+    "value_as_of_latest": "2025: 23 events, $115B, 276 deaths. 1980-2025: 426 events, $3.1 trillion. As of June 2026: 438 events, more than $3.2 trillion.",
+    "source_name": "Climate Central U.S. Billion-Dollar Weather and Climate Disasters (2025 in Review, 8 Jan 2026); cross-check NOAA NCEI archive",
+    "derivation": "Values as published in Climate Central 'Climate Matters: 2025 in Review' (CC BY 4.0), CPI-adjusted. Cross-check with the public-domain NOAA archive CSV events-US-1980-2024.csv: 403 rows, sum of CPI-Adjusted Cost = $2,917.6B (2024 dollars), sum of Deaths = 16,941. Add Climate Central's 23 events for 2025 to get 426."
+   },
+   {
+    "statement": "Of 967 extreme events and trends studied worldwide, 77% were found to have been made more likely or more severe by human-caused climate change.",
+    "value_as_of_latest": "743 of 967 (76.8%), as of the 19 Mar 2026 update",
+    "source_name": "Carbon Brief attribution map (papers-download.csv)",
+    "derivation": "Count rows of papers-download.csv where Classification == 'More severe or more likely to occur' (743), divided by total rows (967) = 76.8%. Others: 81 no discernible influence, 76 less likely/severe, 67 inconclusive."
+   },
+   {
+    "statement": "Between early 2023 and mid-2025, bleaching-level ocean heat hit 84% of the world's coral reef area, in at least 83 countries and territories. This was the most extensive bleaching event on record.",
+    "value_as_of_latest": "84.4% of reef area; 83 countries and territories (event declared over, 2 Jun 2026)",
+    "source_name": "NOAA Coral Reef Watch / NESDIS",
+    "derivation": "Quoted from the CRW Current Global Bleaching status page ('~84.4% of the world\u2019s coral reef area... at least 83 countries and territories') and the NESDIS news release of 2 Jun 2026 ('84%'). Computed by NOAA from 5 km Degree Heating Week data. No tabulated file; cite the page and access date."
+   },
+   {
+    "statement": "Under today's policies the world is heading for about 2.6\u00b0C of warming by 2100 (range 2.1-3.3\u00b0C). If all pledges and targets are met, that falls to about 2.2\u00b0C.",
+    "value_as_of_latest": "Policies & action 2.6\u00b0C (2.1-3.3); Pledges & targets 2.2\u00b0C (1.8-2.8); Optimistic 1.9\u00b0C (1.5-2.4). UNEP EGR 2025 for comparison: current policies 2.8\u00b0C, NDCs 2.3-2.5\u00b0C.",
+    "source_name": "Climate Action Tracker, COP30 update (13 Nov 2025); UNEP Emissions Gap Report 2025",
+    "derivation": "CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx, sheet 'CAT Thermometer', rows 'Policies & action / Combined' (2.1, 2.6, 3.3), 'Pledges & targets' (1.8, 2.2, 2.8), 'Optimistic scenario' (1.5, 1.9, 2.4). Columns are lower bound / median / upper bound, MAGICC7. UNEP values from the EGR 2025 abstract (Crossref metadata for DOI 10.59117/20.500.11822/48854)."
+   },
+   {
+    "statement": "In 2024, 156.7 million people lived less than 1 metre above current sea level.",
+    "value_as_of_latest": "156.7 million people (2024)",
+    "source_name": "Lancet Countdown 2025, Indicator 2.3.3 (rising sea levels, migration and displacement)",
+    "derivation": "Key finding text in the DATA GUIDANCE sheet of Indicator-2.3.3_SLR-Population_Data-Download_2025-Lancet-Countdown-Report-1.xlsx. Re-derive by summing the 2024 population column in sheet '2025 Report Data' before publishing."
+   },
+   {
+    "statement": "Wildfires burned about 333 million hectares worldwide in 2025, roughly the size of India. Europe still had its worst fire season on record (19,629 km\u00b2).",
+    "value_as_of_latest": "332,928,200 ha global (calendar 2025, MODIS). Europe 19,629 km\u00b2 (Mar 2025-Feb 2026 season, about 3x the 2006-2024 average). Global burned area was 18% below the 2002-2024 average.",
+    "source_name": "GWIS (via OWID, minor processing); State of Wildfires 2025-26 (preprint)",
+    "derivation": "OWID annual-area-burnt-by-wildfires-gwis.csv, row World, year 2025 = 332,928,200 ha. Europe and global anomaly figures as stated in the ESSD preprint abstract (doi:10.5194/essd-2026-587). These can be re-derived from Zenodo 21262381 Burned_Area CSV rows where Regional Layer is the continent or Global and Fire Season Start Year = 2025. The 'size of India' comparison is approximate (India is about 329 Mha); verify against an authoritative land-area figure before publishing."
+   }
+  ],
+  "drilldown_paths": [
+   "HEAT: world heatwave days per person 1986-2024, observed vs 'without climate change' (Lancet 1.1.1 attributable, Global sheet), then WHO region / HDI group, then country (Country sheet), then who is hurt: over-65s and infants (Lancet 1.1.1 vulnerable), heat deaths 1990-2021 (Lancet 1.1.5), and work hours lost by sector, e.g. agriculture and construction (Lancet 1.1.3), then a seasonal update ('1.5bn people got 30+ extra risky-heat days in Jun-Aug 2026', Climate Central CSI), then the future: heat at 1.5 vs 2.6\u00b0C (IPCC Atlas regional aggregates; CAT thermometer), then what you can do.",
+   "IS THIS CLIMATE CHANGE? Map of attribution studies (Carbon Brief CSV: 967 cases, filter by hazard type), then country, then event card with classification and a link to the paper, plus the latest WWA rapid study (WWA wp-json list) and its vulnerability findings, then the human toll for that event (IDMC event row: displacements; EM-DAT aggregate deaths, link-out only), then what made it deadly / what reduces risk (WWA vulnerability section).",
+   "DISASTERS AND DISPLACEMENT: global disaster displacements 2008-2025 by hazard (IDMC GIDD CSV), then country choropleth, then top events per year (event_name), then cross-link to attribution (Carbon Brief/WWA). For the U.S. branch: billion-dollar disasters per year by hazard, cost, deaths, by state (Climate Central; NOAA 1980-2024 archive as public-domain baseline), with a provenance note that NOAA retired the product and Climate Central continues it.",
+   "WILDFIRE: global burned area 2002-2025 (GWIS via OWID CSV), then continent, then country, then land cover (GWIS API), then this season's anomaly by country and biome (State of Wildfires Zenodo CSVs), then attribution callouts (Canada ~61x more likely burned area, NW Iberia ~3x fire weather; SoW 2025-26), then health from smoke (Lancet 1.2.1 person-days above the WHO PM2.5 guideline), then future burned area under SSP1-2.6 vs SSP3-7.0 (SoW).",
+   "DROUGHT AND FOOD: country SPEI-12 1901-2024 (SPEIbase v2.11 / LCSC country series), then drought years highlighted, then WWA drought attribution where available, then drought displacement (IDMC hazard_type 'Drought'), then crop impacts per \u00b0C (Hultgren et al. 2025; ISIMIP3b maize and wheat ensemble by warming level), then the 1.5 vs 2.6\u00b0C comparison.",
+   "OCEANS AND COASTS: coral reef heat stress map (NOAA CRW daily DHW), then the four global bleaching events (21% to 37% to 68% to 84% of reef area; NOAA statements), then sea-level rise to 2100 by scenario (IPCC AR6 Sea Level Projections, Zenodo), then a coastal location, then people living less than 1 m above sea level by country (Lancet 2.3.3).",
+   "WHERE ARE WE HEADING? CAT thermometer (2.6 / 2.2 / 1.9\u00b0C) and UNEP EGR 2025 (2.8; NDCs 2.3-2.5\u00b0C), then a warming-level slider (+1.5/2/3/4\u00b0C) driving IPCC Atlas regional changes in hot extremes and heavy rain, plus SPM.9 counts of regions where impact-drivers change at +2\u00b0C, plus sea-level and crop-yield panels, then the 'gap' (35%/55% cuts vs 2019 needed by 2035; UNEP), then action links.",
+   "EUROPE DEEP DIVE: heat-stress days and tropical nights 1950-2025 (ESOTC fig05.4 CSV), then the 2025 record wildfire season (SoW Europe; ESOTC wildfires), then heat deaths in Europe (ESOTC citing Lancet Countdown Europe), then WWA European heatwave attribution (26 Jun 2026)."
+  ],
+  "action_links": "How each consequence connects to action (every claim should link to its source):\n(1) Warming pathways are a choice. CAT shows 2.6\u00b0C under current policies vs 1.9\u00b0C if net-zero pledges are met (CAT COP30 xlsx). UNEP EGR 2025 quantifies the cuts needed: 35% (2\u00b0C) and 55% (1.5\u00b0C) below 2019 by 2035 (doi:10.59117/20.500.11822/48854). Each impact panel should therefore show both the 'current policies' and the 'pledges met' value side by side, using the IPCC Atlas, sea-level and SoW projections. For citizens and policymakers, link to CAT country pages (climateactiontracker.org/countries/) to compare their own government's rating against the gap.\n(2) Heat is the deadliest and most attributable consequence (Lancet 1.1.5 and 1.1.1). Lancet Countdown's response indicators cover adaptation and health system preparedness, so link to lancetcountdown.org/explore-our-data/ sections 2.x. The WWA vulnerability sections of each heat study (worldweatherattribution.org) describe interventions such as heat action plans, early warnings and cooling access, so communities can see what reduced deaths.\n(3) Disasters and displacement: IDMC GRID 2026 (doi:10.55363/IDMC.ETWG8973) documents pre-emptive evacuations, which save lives and inflate displacement counts. That is a lever for early warning. Link the 'what can be done' text on event cards to it.\n(4) Wildfire: SoW 2025-26 shows burned area under SSP1-2.6 is 5-36% lower than under high emissions across focal regions (doi:10.5194/essd-2026-587). That is the mitigation link. Lancet 1.2.1 links smoke to health.\n(5) Individual-level actions belong to the 'causes' domain (emissions by sector). From this domain, the user-facing bridge is: pick a consequence, see which warming level it scales with (IPCC Atlas), then see which emissions pathway gets there (CAT/UNEP), then follow a link to the causes and solutions pages.\nKeep the tone factual. The site does not advocate specific policies; it shows sourced numbers and links to the producers' own recommendations.",
+  "gaps_and_risks": "LICENSING (most important for CSV downloads):\n- Lancet Countdown is CC BY-NC-SA 4.0. Our derived CSVs must also be CC BY-NC-SA, and the site must stay non-commercial forever.\n- Carbon Brief allows only unadapted, non-commercial reproduction (ND-like). Offer derived counts and link to their CSV; ask permission before redistributing a filtered CSV.\n- EM-DAT prohibits distributing 'a substantial part', sharing 'any portion via the Internet to unauthorized users', and building derivative databases. Its export is registration-gated, and the FAIR archive is CC BY-NC-ND. Show aggregate charts only, offer no EM-DAT CSV downloads, keep no public mirror, and seek written permission from CRED. OWID's EM-DAT charts inherit EM-DAT terms; they are NOT CC BY.\n- Climate Central's ToS bans bulk or automated download. Ask permission to automate ingestion of the billion-dollar database. Climate Matters articles themselves are CC BY 4.0.\n- CAT requires credit to both organisations, a copyright notice, and no commercial use. UNEP allows non-profit reproduction with acknowledgement. WMO allows short extracts only. IPCC figures may not be altered (redraw from the CC BY 4.0 CEDA/Atlas data instead). WWA and Climate Impact Explorer have no formal licence. SPEIbase is ODbL (share-alike database).\n\nSTATUS AND US-FEDERAL RISK:\n- NOAA retired Billion-Dollar Disasters in May 2025. The archive page still serves events-US-1980-2024.csv, but its total-cost sentence renders blank, a sign of no maintenance. Mirror it now with a SHA-256 hash.\n- NOAA Coral Reef Watch is federally funded. Archive the event statistics and announcement text.\n- The NASA AR6 sea-level projection tool URL (sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool) returned 404. Use Zenodo as primary.\n\nFRAGILE ACCESS:\n- unep.org and wedocs.unep.org sit behind a Cloudflare challenge (403 to scripts), so archive the PDF manually.\n- The GWIS country-profile API is undocumented: the /banf parameters are unknown and the bulk ZIPs linked in its JS return 404.\n- The Climate Impact Explorer API is legacy (RCP-era); its documented example returns 404.\n- The IDMC website is client-rendered. Use the HDX copies, which IDMC publishes.\n- Pipeline design: pin every number to a dated vintage plus a file hash, and fail loudly on schema change. Per owner rules, no heuristic fallbacks.\n\nVINTAGE AND SCHEDULE:\n- Lancet 2026 global report: 28 Oct 2026 (24 days away; plan an update).\n- CAT COP31 update and UNEP EGR 2026: about Nov 2026.\n- WMO SoGC 2026: about Mar 2027. IDMC GRID 2027: about May 2027. OWID EM-DAT: 2027-04-30. OWID GWIS: 2027-09-11.\n- State of Wildfires 2025-26 is a preprint under review; values may change.\n- SPEIbase ends Dec 2024. The LCSC country-SPEI zip dates from July 2024 (older version than v2.11).\n\nMETHODOLOGICAL CAVEATS TO SHOW IN UI:\n- EM-DAT event counts rise mainly with reporting.\n- Billion-dollar costs rise with exposure and wealth, and the CPI base year changes between releases.\n- Attribution literature is geographically biased toward Europe, North America and East Asia.\n- Heat mortality is modelled and stops at 2021.\n- Displacements count movements, not unique people.\n- MODIS-based burned area underestimates small fires. Continuity risk to the MODIS record as Terra/Aqua age is plausible but was not verified in this session.\n- CSI and Lancet use different heat definitions; never combine them.\n\nGAPS NOT FILLED:\n- No openly licensed global economic-loss dataset (Munich Re NatCatSERVICE, Swiss Re sigma and Aon are proprietary; not fetched; treat as 'avoid'). EM-DAT damages are sparse.\n- No open, structured WWA results table (needs hand curation with a quote per number).\n- AR6 WGII impact figure data was not found on the CEDA badc filesystem (only WGI and SR1.5).\n- Crop-yield impacts need offline processing of ISIMIP NetCDF.\n- The Climate Central CSI country tables have no public machine-readable file.\n- WebSearch budget was exhausted near the end, so Munich Re/Swiss Re terms and the latest NOAA CRW historical event percentages for 1998 and 2010 were not independently re-verified."
+ },
+ "verification": {
+  "domain": "Consequences and impacts: health, heat, disasters and losses, displacement, wildfire, drought, coral reefs and sea level, crops, attribution of extremes, and projected warming outcomes. All checks below were run on 2026-10-04 with live curl and WebFetch requests. Files were parsed in memory only.",
+  "verdicts": [
+   {
+    "name": "Lancet Countdown 2025 global indicator data (1.1.5, 1.1.3, 1.1.1, 1.2.1, 2.3.3)",
+    "verdict": "confirmed",
+    "corrections": "I downloaded and parsed all 6 xlsx URLs (HTTP 200, real OOXML). The DATA GUIDANCE sheet and lancetcountdown.org/use-our-data/ both state CC BY-NC-SA 4.0. The citation and DOI match Crossref: Lancet 406(10521):2804-2857, issued Dec 2025. The homepage confirms the 10th (2026) report launches on 28 October. Four fixes are needed in how the data is used. (a) The 1.1.1 'Attributable' workbook covers 2020-2024 only (Global sheet columns: Observed, Counterfactual, Attributable_to_CC). The drill-down path's '1986-2024 observed vs without climate change' chart cannot be built from it. The 1.1.1 'Vulnerable' workbook covers 1980-2024, but only exposure for infants and people aged 65+/75+. (b) 1.1.5 heat mortality has only Global, WHO, LC and HDI sheets. There is no country sheet. (c) 2.3.3 is a single cross-section: 163 country rows, one column 'population_exposed_1m_SLR (million)', no year column. The method is a bathtub model of cells inundated under 1 m of global mean sea-level rise (CoastalDEM), so it should not be described as a 2024 time series. (d) The guidance sheets say third-party inputs keep their own licences (e.g. ERA5, GPWv4, GBD 2021).",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "IDMC Global Internal Displacement Database (GIDD) / GRID 2026",
+    "verdict": "corrected",
+    "corrections": "LICENCE CONFLICT. HDX package_show does say license_id 'cc-by-igo'. But IDMC's own GIDD export disagrees. That export is https://helix-tools-api.idmcdb.org/external-api/gidd/displacements/displacement-export/?release_environment=RELEASE&start_year=2008&end_year=2025&client_id=..., which 302-redirects to an S3 xlsx. Its README sheet states 'USE LICENSE: This content is licensed under CC BY-NC. See: https://creativecommons.org/licenses/by-nc/4.0/'. Treat the data as CC BY-NC 4.0, since the publisher's own statement is the stricter one. The same README gives 'LAST UPDATE: August 31, 2026', so the GIDD changed after the May release. It also says API keys must be requested from ch.datainfo@idmc.ch, so do not reuse the HDX client_id in our pipeline. IDMC's prescribed data citation is: 'Internal Displacement Monitoring Centre. Global Internal Displacement Database. IDMC (2026). Available at: https://www.internal-displacement.org/database/displacement-data/ (Accessed: [date])'. The HDX CSV has NO HXL tag row (header then data; 29,698 data rows), so 'CSV with HXL tags / skip the HXL row' is wrong. GRID 2026: PDF HTTP 200 (13.4 MB); Crossref published-print is 2026-05-12; the DOI 10.55363/IDMC.ETWG8973 and the p.3 citation are confirmed. The PDF itself contains no licence statement.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "U.S. Billion-Dollar Weather and Climate Disasters (Climate Central continuation)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: the landing page says 'As of June 2026... 438 such events... exceeding $3.2 trillion', with 17,377 deaths, CPI-adjusted to 2026 dollars. Confirmed: the /what-we-do/legal text (non-commercial use; credit plus a link required; 'Any bulk downloading is prohibited'; automated extraction is prohibited). Fixes: (1) The page says 'As of July 28, 2025, Climate Central manages and maintains this billion-dollar disaster dataset'. The first public release was October 2025, per the 2025-in-review page. 'Since Oct 2025' is therefore only the release date. (2) The CC BY 4.0 notice on Climate Matters pages covers text, graphics and multimedia only. The same block says 'Permission to use data and other materials published on this page is granted for non-commercial uses... as governed by Climate Central's Terms of Use'. So the 2025-in-review numbers are not CC BY data. (3) You cannot build 1980-2025 by adding 2025 to NOAA's archive. NOAA's 16,941 deaths + 276 = 17,217, but Climate Central reports 17,194, so Climate Central revised historical records.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA NCEI U.S. Billion-Dollar Weather and Climate Disasters (archived 1980-2024)",
+    "verdict": "confirmed",
+    "corrections": "The CSV returns HTTP 200 text/csv with 2 preamble lines and then the header. It has 403 events, a CPI-adjusted sum of $2,917.6B and 16,941 deaths. 2024 has 27 events, $182.7B and 568 deaths. The landing page carries the citation and DOI 10.25921/stkw-7w73 verbatim. No licence page was fetched; public-domain status rests on 17 USC 105 (US federal work). The advice to mirror the file with a SHA-256 hash is sound.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "EM-DAT: The International Disasters Database",
+    "verdict": "corrected",
+    "corrections": "The terms-of-use prohibitions are quoted accurately (no distributing a substantial part, no derivative databases, no sharing any portion via the Internet to unauthorized users). Correction: the FAIR archive is not a '2024 archive'. Dataverse API for doi:10.14428/DVN/I0LTPH shows latestVersion 2, released 2026-04-30. Its files include 260430_emdat_archive.xlsx (8.1 MB) and 260430_emdat_columns.csv, both restricted=false, so they download without login. The licence is CC BY-NC-ND 4.0 (SPDX CC-BY-NC-ND-4.0). This gives a versioned, citable, registration-free pipeline input. ND still bars sharing adapted or derived datasets, so the 'aggregate charts only, no CSV downloads' policy still holds. A non-commercial mirror of the unaltered archive file would be permitted.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Our World in Data mirrors (EM-DAT disasters, GWIS burned area)",
+    "verdict": "corrected",
+    "corrections": "The metadata is confirmed. GWIS series: lastUpdated 2026-09-11, nextUpdate 2027-09-11, origin licence CC BY 4.0 (indicator 1306111). EM-DAT series: lastUpdated 2026-04-30; origin licence 'UCLouvain 2026', linking to the EM-DAT terms; EM-DAT datePublished 2026-04-28. The single 'open-attribution' label is wrong for this entry as a whole. Only the GWIS series is open-attribution. The EM-DAT-derived series stays under EM-DAT terms (restricted). Important data caveat: OWID's continent 'Europe' row of the GWIS series gives 7,554,890 ha for 2025. That is 49.6% BELOW its 2002-2024 mean and lower than 2024 (11.59 Mha). This directly contradicts a 'Europe record fire season' headline unless Europe is defined using EFFIS geography.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Wildfire Information System (GWIS) country profiles",
+    "verdict": "confirmed",
+    "corrections": "The data-license page (HTTP 200) has the CC BY 4.0 wording as quoted. /api/v3/countries?env=GWIS returns JSON, e.g. {iso3:'AFG', continent_code:'UN_ASI'}. The S3 MCD64A1_burned_area_full_dataset ZIPs return 404 for both 2002_2024 and 2002_2025. The API is undocumented, as stated. No change needed.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "State of Wildfires 2025-26 (report preprint and Zenodo regional summaries)",
+    "verdict": "corrected",
+    "corrections": "The Zenodo record 21262381 is confirmed: published 2026-07-22, cc-by-4.0, DOI 10.5281/zenodo.21262381. It is the newest of 4 records in concept 10.5281/zenodo.11400539. Its version field is null, so 'v4' is not an official version label. It also holds files not listed by the researcher: SUPPLEMENT_VNP64A1 and SUPPLEMENT_MRBA60 burned-area CSVs, and Burned_Area_period_stats.csv. The preprint is confirmed: received 22 Jul 2026, discussion started 3 Aug 2026, CC BY 4.0, under review. Three corrections. (1) 19,629 km\u00b2 for Europe is NOT a State of Wildfires result. The preprint quotes it as the European Forest Fire Information System (EFFIS) estimate, '301% above the 2006-2024 average'. That is about 4x the average, not about 3x. The preprint also notes EFFIS coverage differs from its own definition of Europe. Cite EFFIS as the primary source. (2) '+78% by 2100 under SSP3-7.0' applies to the Northwest Iberia focal region (fires of the same return interval). It is not a global burned-area projection. (3) The confirmed statements are: Midwestern Canadian Shield burned area about 61x more likely; fire weather doubled in likelihood; NW Iberia fire weather about 3x more likely; Chile burned area about 36% larger; SSP1-2.6 reduces burned area by 5-36% across focal regions.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Carbon Brief attribution map (papers-download.csv)",
+    "verdict": "corrected",
+    "corrections": "The CSV returns HTTP 200 with 967 rows and the listed columns. The counts are exact: 743 / 81 / 76 / 67 (76.8%). The page says 'Last updated 19 March 2026' and '967 extremes from 819 studies', not about 818. Licence: the footer's 'CC license' link points to https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode. The licence is therefore explicitly CC BY-NC-ND 4.0, not merely 'effectively' so. Redistributing a filtered or modified CSV needs permission. Derived counts with credit are fine.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "World Weather Attribution rapid studies",
+    "verdict": "confirmed",
+    "corrections": "wp-json returns x-wp-total 149. The latest posts are 2026-09-17 (Himalaya geohazards), 2026-08-28 (Puerto Rico/Jamaica), 2026-08-19 (European marine heatwave), 2026-08-14 (Assam floods) and 2026-08-06 (Canada fire seasons). The homepage HTML has no licence, copyright or Creative Commons text. Note that 149 is a count of WordPress posts, not of distinct studies.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Climate Central Climate Shift Index: 'Risky Heat Added by Climate Change: June to August 2026'",
+    "verdict": "corrected",
+    "corrections": "The page is dated 'Climate Matters, September 16, 2026'. It confirms 'More than 1.5 billion people... 30 or more days of risky heat added by climate change' and 252 countries / 949 cities. The licence classification is wrong. The CC BY 4.0 notice covers only 'text, graphics, and multimedia content'. The same block says 'Permission to use data and other materials published on this page is granted for non-commercial uses, commercial news purposes, and educational purposes as governed by Climate Central's Terms of Use'. The ToS also bans bulk or automated extraction. Numbers and data are therefore non-commercial only, not open-attribution.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "IPCC AR6 figure data (CEDA) and AR6 WGI Atlas repository",
+    "verdict": "confirmed",
+    "corrections": "The CEDA JSON listing shows consolidated_data_figure_SPM.9.csv (1,215 bytes, HTTP 200) and 00README_catalogue_and_licence.txt ('http://creativecommons.org/licenses/by/4.0/', public, no registration). The Atlas LICENSE.md is CC BY 4.0 (code is Apache 2.0). The ipcc.ch/copyright wording is confirmed: 'figures cannot be altered in any way', and personal non-commercial use only. sealevel/atlas URLs are OK. Minor: the landing_url (uuid ae4f1eb6...) is the SPM *collection* record. The SPM.9 dataset record is https://catalogue.ceda.ac.uk/uuid/e1ff6e07cd624c59a7e7983ce60add44. data.ceda.ac.uk/badc contains ar6_sr15, ar6_wg1, ipcc-ddc and ipcc-ddc-regions, with no ar6_wg2; this confirms the WGII gap.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IPCC AR6 Sea Level Projections (Zenodo)",
+    "verdict": "confirmed",
+    "corrections": "Record 6382554 is version 20210809, cc-by-4.0, with ar6.zip at 889,784,792 bytes. Its version list contains only 6382554 and 5914710, both 20210809, so this is the latest. sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool returns 404. earth.gov/sealevel and its /resources/ipcc-report/ page return 200.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate Impact Explorer (CIE) 2025",
+    "verdict": "confirmed",
+    "corrections": "The methodology PDF (HTTP 200) says 'Last edited: November 05, 2025' and includes the quoted usage and citation text. There is no formal licence. cie-api /api/meta/ returns 200. Minor: the PDF's own citation misspells the URL as 'climateimpact-explorer.climateanalytics.org'. Use the working host, climate-impact-explorer.climateanalytics.org. Get written reuse terms before redistributing.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Crop yield impacts: ISIMIP3b agriculture and Hultgren et al. 2025",
+    "verdict": "corrected",
+    "corrections": "ISIMIP API sampled results all show rights 'CC0 1.0', with DOIs 10.48364/ISIMIP.723340 (.1 and .2), and the NetCDF URL format is confirmed. Hultgren: Crossref confirms Nature 642:644-652, 18 Jun 2025. The abstract confirms '5.5 \u00d7 10^14 kcal annually per 1 \u00b0C... (120 kcal per person per day or 4.4% of recommended consumption per 1 \u00b0C)'. Correction: the Hultgren ARTICLE is licensed CC BY-NC-ND 4.0, per the nature.com 'Rights and permissions' section. Quote its numbers, but do not adapt its figures. The replication record (Zenodo 14511340) is CC BY 4.0 and contains only a readme pointing to GitLab. The whole entry therefore cannot be labelled public domain. Only the ISIMIP part is CC0.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "SPEIbase v2.11 (CSIC)",
+    "verdict": "corrected",
+    "corrections": "database.html confirms v2.11 (CRU TS 4.09, Jan 1901-Dec 2024) and the ODbL / Database Contents License text. /spei_database_2_12/ returns 404, so v2.11 is the latest. The country zip has Last-Modified 2024-07-23 (134 MB), which predates v2.11, as the researcher flagged. DOI correction: 10.5281/zenodo.834462 is NOT a dataset concept DOI. It is a 2017 SOFTWARE release of the GitHub code ('sbegueria/SPEIbase: Version 2.5.1'). The concept DOI is 10.5281/zenodo.834461, and its newest Zenodo version is v2.7 (2022). No Zenodo DOI exists for the v2.11 data. Cite Vicente-Serrano et al. 2010 (doi:10.1175/2009JCLI2909.1) plus 'SPEIbase v2.11, CSIC, https://spei.csic.es/database.html, accessed <date>'.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA Coral Reef Watch: DHW product and 4th global bleaching event",
+    "verdict": "corrected",
+    "corrections": "The daily file ct5km_dhw_v3.1_20261003.nc returns HTTP 200 (6.3 MB NetCDF). The status page says 'From 1 January 2023 to 30 September 2025, bleaching-level heat stress has impacted ~84.4%... at least 83 countries and territories' and gives 68.2% for 2014-2017. The NESDIS story (June 2, 2026) gives '84%', 'early-2023 to mid-2025'. Correction: NEITHER NOAA page gives a percentage for the 1998 or 2010 events. Both only say those events 'occurred in 1998 and 2010'. The planned '21% (1998) / 37% (2010)' bars have no NOAA source. Do not publish them until a primary source (a paper or ICRI/NOAA dataset) is found. US-federal continuity risk is plausible but not verified.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate Action Tracker COP30 Warming Projections (13 Nov 2025)",
+    "verdict": "confirmed",
+    "corrections": "The xlsx returns HTTP 200. The CAT Thermometer sheet: Policies & action (Combined) 2.1 / 2.6 / 3.3; 2030 & 2035 targets 2.1 / 2.6 / 3.2; Pledges & targets 1.8 / 2.2 / 2.8; Optimistic 1.5 / 1.9 / 2.4; MAGICC7. The copyright, non-commercial and rounded-values notices are present. The temperatures page says 'Last update: 13 November 2025' and links only this xlsx, so no mid-2026 update exists.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "UNEP Emissions Gap Report 2025",
+    "verdict": "confirmed",
+    "corrections": "Crossref confirms the title, the publisher UNEP, ISBN 9789280742398, issued 2025-11, and abstract text: NDCs 2.3-2.5\u00b0C, current policies 2.8\u00b0C, 35% and 55% cuts versus 2019 needed by 2035. wedocs.unep.org and unep.org both return 403 (Cloudflare) to curl, even with a browser user agent. The reproduction-for-non-profit licence wording therefore remains unverified from the primary document. It comes from a search snippet only. Archive the PDF manually and re-check the copyright page.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "WMO State of the Global Climate 2025 (WMO-No. 1391)",
+    "verdict": "confirmed",
+    "corrections": "The wmo.int page (HTTP 200) shows 'Publication 23 March 2026'. The DOI 10.59327/WMO/S/CRI/SOC1 resolves via Crossref to 'State of the Global Climate 2025', published 2026-03-23. The supplement PDF (2026-05, HTTP 200) contains the same 'right of publication... reserved by WMO. Short extracts... may be reproduced' wording. library.wmo.int/idurl/4/69807 returns 200, but it is a JS app with no direct PDF link in the HTML.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "C3S/WMO European State of the Climate 2025 (ESOTC) figure data",
+    "verdict": "confirmed",
+    "corrections": "The fig05.4 CSV returns HTTP 200. The 2025 row is 26.1594 days of at least strong heat stress; 1950 is 18.28589. The report PDF contains the citation and doi.org/10.24381/zy93-sb27, and the DOI 302-redirects to /esotc/2025. Better licence evidence than the researcher found: the climate.copernicus.eu 'Disclaimer and privacy' page says 'Reproduction of the publically available content of this website is authorised, provided the source is acknowledged, save where otherwise stated.' That supports attribution-only reuse. The commercial-use ban on that page applies to press pictures. /terms-use returns 404.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   }
+  ],
+  "headline_number_checks": "1) HEAT DEATHS 546,000/yr, +63%: CONFIRMED. The Indicator 1.1.5 Global sheet AN column gives a 2012-2021 mean of 5,454,784/10 = 545,478 and a 1990-1999 mean of 3,346,903/10 = 334,690. The ratio is 1.630. The key-findings sheet says '546,000... up 63.2% from 335,000'. Use the report's 63.2%, or show 63.0% computed from the rounded published AN values, and label which one you show.\n2) 640 BILLION WORK HOURS, +98%: CONFIRMED. Indicator 1.1.3 Global, TotalSunAgCon for 2024 = 639,855,005.65 thousand hours. The 1990-99 mean is 322,948,586.7, giving a ratio of 1.981 (+98%). The key-findings sheet says 'record-high 640 billion... 98% increase compared to the 1990-99 annual average'.\n3) 31 HEATWAVE DAYS, 26 ATTRIBUTABLE, 84%: CONFIRMED. 2024 Observed = 30.7906, Counterfactual = 5.0393, Attributable_to_CC = 25.7513. The 2020-24 means are 19.33 and 16.26, i.e. 84.1%. The sheet covers 2020-2024 ONLY.\n4) IDMC 29.9M (27.0M WEATHER): CONFIRMED from the HDX CSV. 2025 sum of new_displacement = 29,937,422; 'Weather related' = 26,958,449; 2024 = 45,784,529. The CSV has no HXL row. IDMC's own GIDD API export (README 'LAST UPDATE: August 31, 2026') gives 29,911,543 for 2025 at country level. Both round to 29.9M, but pin the vintage and source file. LICENCE: IDMC's export README says CC BY-NC 4.0.\n5) US 23 EVENTS / $115B / 276 DEATHS: CONFIRMED on climatecentral.org/climate-matters/2025-in-review. 1980-2025 is confirmed as 426 events, 17,194 deaths, more than $3.1T. As of June 2026 the landing page says 438 events, more than $3.2T, 17,377 deaths (2026 dollars). The NOAA archive is confirmed at 403 events / $2,917.6B / 16,941 deaths, and 2024 at 27 / $182.7B / 568. NOT additive: 16,941 + 276 = 17,217, which is not 17,194, so Climate Central revised history.\n6) CARBON BRIEF 77%: CONFIRMED. 743/967 = 76.8%. The page says 819 studies (not about 818). The licence is CC BY-NC-ND 4.0.\n7) CORAL 84% / 83 COUNTRIES: CONFIRMED. The status page says ~84.4% for 1 Jan 2023 to 30 Sep 2025. NESDIS (2 Jun 2026) says 84%, early 2023 to mid-2025. The 2014-17 event is 68.2%. The 1998 and 2010 percentages (21%, 37%) are NOT on either NOAA page and are unsourced.\n8) CAT 2.6\u00b0C (2.1-3.3), pledges 2.2\u00b0C (1.8-2.8), optimistic 1.9\u00b0C (1.5-2.4): CONFIRMED from the xlsx dated 2025-11-13. UNEP's 2.8\u00b0C and 2.3-2.5\u00b0C are CONFIRMED via the Crossref abstract.\n9) 156.7 MILLION <1 m: CONFIRMED. The sum of 163 country rows in the 2.3.3 '2025 Report Data' sheet is 156.71 million. Caveat: there is no year column. The figure is people in cells that would be inundated by 1 m of global mean sea-level rise (bathtub model, CoastalDEM), using 2024 population.\n10) WILDFIRE: World 2025 = 332,928,200 ha (OWID/GWIS) is CONFIRMED. That is 16.8% below the GWIS 2002-2024 calendar-year mean of 400.2 Mha. SoW's '18% below' refers to the Mar 2025-Feb 2026 season. CORRECTED on Europe. The 19,629 km\u00b2 figure is EFFIS's estimate, quoted in the SoW preprint, and is '301% above the 2006-2024 average' (about 4x, not about 3x). Cite EFFIS. DANGER: the OWID/GWIS 'Europe' row for 2025 is 7,554,890 ha, 49.6% below its own 2002-2024 mean. Showing 'Europe record' next to a GWIS Europe chart would contradict itself, so the EFFIS geography must be stated. India is about 328.7 Mha, so the 'size of India' comparison holds (about 1% difference).",
+  "missing_sources": "1) EFFIS, the European Forest Fire Information System (JRC/Copernicus): https://forest-fire.emergency.copernicus.eu/. Licence CC BY 4.0, verified on /about-effis/data-license. It is the actual primary source for the Europe 2025 record (19,629 km\u00b2; Advance report doi:10.2760/3859043). Use it for the Europe wildfire drill-down instead of OWID's continent row.\n2) EM-DAT FAIR archive v2 (2026-04-30): https://doi.org/10.14428/DVN/I0LTPH, file 260430_emdat_archive.xlsx. It downloads without login (restricted=false). Licence CC BY-NC-ND 4.0. It replaces the login-gated portal as a reproducible, versioned input. Charts only; do not redistribute derived data.\n3) IDMC GIDD API export: helix-tools-api.idmcdb.org/external-api/. Licence CC BY-NC 4.0 per its README. Request an API key from ch.datainfo@idmc.ch. It is more current than HDX (updated 31 Aug 2026) and includes disaster stock (IDPs) by country.\n4) FAOSTAT crop production and yields: https://www.fao.org/faostat/. Licence CC BY 4.0, verified at fao.org/contact-us/terms/db-terms-of-use. Use it for observed yield context alongside the ISIMIP projections.\n5) Newman & Noy (2023), 'The global costs of extreme weather that are attributable to climate change', Nature Communications 14. doi:10.1038/s41467-023-41888-1. Licence CC BY 4.0 per Crossref. It partly fills the 'no open global economic-loss' gap with attribution-based costs.\n6) Vicedo-Cabrera et al. (2021), Nature Climate Change 11:492-500. doi:10.1038/s41558-021-01058-x. Subscription (springer TDM licence), so cite only. It is the canonical estimate of the share of heat deaths attributable to human-caused warming (MCC network), complementing Lancet 1.1.5.\n7) GFED5 burned area (Chen et al. 2023, ESSD 15:5227-5259). doi:10.5194/essd-15-5227-2023. The paper is CC BY 4.0; the data licence was not verified. It corrects MODIS small-fire underestimation and is the reference used by State of Wildfires.\n8) NASA FIRMS active fires: https://firms.modaps.eosdis.nasa.gov/. US federal, public domain (not separately verified). Use for a near-real-time fire layer.\n9) Copernicus/JRC Global Drought Observatory: https://drought.emergency.copernicus.eu/. EU CC BY 4.0 policy (not separately verified). Near-real-time drought indicators to complement SPEIbase, which ends in Dec 2024.\n10) World Bank Climate Change Knowledge Portal (CMIP6 country projections, e.g. hot days by warming level): https://climateknowledgeportal.worldbank.org/. World Bank default CC BY 4.0; the page is JS-rendered and the licence was not verified. It is a cleaner per-country 'consequences by warming level' feed than the legacy CIE API.\n11) World Bank Groundswell (2021), internal climate-migration projections: https://openknowledge.worldbank.org. Typically CC BY 3.0 IGO, not verified. Use for projected displacement.\n12) Global Flood Database (Tellman et al. 2021, Nature 596:80-86, doi:10.1038/s41586-021-03695-w): data licence not verified. Population exposed to observed floods, 2000-2018.\n13) GCRMN Status of Coral Reefs of the World 2020: licence not verified. A coral-cover outcome dataset, needed because bleaching heat stress is not mortality.\nAVOID: Kotz, Levermann & Wenz (2024), 'The economic commitment of climate change', Nature 628:551-557. Crossref marks it 'RETRACTED ARTICLE' (retraction notice doi:10.1038/s41586-025-09726-0, 2025-12-03). Its widely circulated '19% income loss by 2049' figure must not appear on the site."
+ }
+}

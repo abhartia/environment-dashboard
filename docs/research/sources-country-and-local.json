@@ -1,0 +1,800 @@
+{
+ "research": {
+  "domain": "Country, regional and local drill-down data (country/state/city climate, emissions, exposure, vulnerability, boundaries and denominators)",
+  "sources": [
+   {
+    "name": "Climate Change Knowledge Portal (CCKP): ERA5 and CMIP6 aggregated to countries, ADM1 and watersheds",
+    "publisher": "World Bank Group",
+    "measures": "Observed climate (ERA5 0.25\u00b0, CRU 0.5\u00b0) and CMIP6 projections (0.25\u00b0, by SSP), aggregated to country (ADM0), first-level subnational (ADM1), watershed, EEZ. Variables include tas/tasmax/tasmin (\u00b0C), precipitation, hd35 (days with Tmax >35\u00b0C), frost days and others. Values are absolute or anomalies by period.",
+    "coverage": "Global. Every country and ADM1 unit uses World Bank Official Boundaries codes (e.g. IND, USA.2593214). ERA5 annual time series 1950\u20132025 (verified to 2025). CMIP6 climatologies cover 1995\u20132014 and 20-year windows to 2100.",
+    "latest_release": "The ERA5 annual country series includes 2025 (the period code 1950-2025 returned 76 values on 2026-10-04). The portal has no visible version or date stamp, so the exact refresh date is unverified.",
+    "update_cadence": "About annual for the ERA5 series. CMIP6 projections are static.",
+    "landing_url": "https://climateknowledgeportal.worldbank.org/download-data",
+    "download_urls": [
+     "https://cckpapi.worldbank.org/cckp/v1/era5-x0.25_timeseries_tas_timeseries_annual_1950-2025_mean_historical_era5_x0.25_mean/IND,USA,DEU,NGA,BRA,CAN,GBR?_format=json",
+     "https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/IND,NGA,USA?_format=json",
+     "https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_tas_anomaly_annual_2040-2059_median_ssp245_ensemble_all_mean/all_countries?_format=json"
+    ],
+    "format": "REST JSON (or _format=xlsx). The UI also offers bulk 'global_countries_subnationals' downloads.",
+    "license": "CC BY 4.0 plus the World Bank Dataset Terms (https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets). Quoted from the CCKP Terms tab: 'Unless specifically labeled otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0 International License (CC BY 4.0), with the additional terms below' (a mediation/arbitration clause). Attribution format: 'The World Bank: Dataset name: Data source (if known)'. You may not imply World Bank endorsement.",
+    "redistribution": "open-attribution",
+    "citation": "The World Bank: Climate Change Knowledge Portal (CCKP), [collection e.g. ERA5 0.25\u00b0 timeseries, tas, annual 1950\u20132025, country aggregation]: Copernicus Climate Change Service ERA5 (Hersbach et al. 2023, doi:10.24381/cds.f17050d7) / CMIP6 multi-model ensemble. https://climateknowledgeportal.worldbank.org",
+    "doi": "None found for CCKP itself. Cite the upstream ERA5 DOI, 10.24381/cds.f17050d7.",
+    "status": "Active. The API answered on 2026-10-04. The website returns HTTP 403 to non-browser clients (bot protection) but opened in a real browser.",
+    "url_check": "curl and WebFetch on climateknowledgeportal.worldbank.org returned 403. The Browser pane loaded the download-data page and showed the 'Terms of Use' tab text (CC BY 4.0 quoted above) and the 'API Structure' tab (template GET https://cckpapi.worldbank.org/cckp/v1/{collection}_{type}_{variable}_{product}_{aggregation}_{period}_{percentile}_{scenario}_{model}_{calc}_{statistic}/{geocode}). The API call era5...1950-2025.../IND returned {\"status\":\"success\"} with values '2024-07':24.77, '2025-07':24.27. The CMIP6 hd35 call returned IND 1995-2014=77.88 days and 2040-2059 SSP2-4.5=94.78 days.",
+    "site_use": "Primary engine for 'how has MY country/state warmed' and 'what's coming'. Show a country (and ADM1) annual temperature line from 1950 to the latest year, with the 1951\u20131980 mean as a reference band, and a 'hot days >35\u00b0C now vs 2050' card by SSP. Because it shares World Bank Official Boundaries codes, the map polygons and numbers line up exactly.",
+    "caveats": "These are reanalysis (ERA5) aggregates, not station records. Aggregation is land-area-weighted within World Bank boundaries, which are disputed in places. Absolute \u00b0C values are returned, so the site must compute anomalies itself and publish the baseline years. Per-model spread is hidden by the 'median' percentile, so show p10\u2013p90 for projections. There is no published version string, so snapshot the JSON with its fetch date in the provenance record.",
+    "priority": "core"
+   },
+   {
+    "name": "ERA5 monthly averaged data on single levels (Copernicus C3S), plus the OWID country-aggregated temperature anomalies derived from it",
+    "publisher": "Copernicus Climate Change Service (C3S) / ECMWF. Aggregator: Our World in Data (OWID).",
+    "measures": "Global 0.25\u00b0 reanalysis of 2 m temperature and other variables, monthly means. OWID's derivative gives monthly and annual country temperature anomalies (\u00b0C) vs the 1991\u20132020 mean, latitude-weighted over each country's land area within World Bank boundaries.",
+    "coverage": "1940 to Aug 2026 (CDS temporal extent ends 2026-08-01). OWID series: 1940\u20132025 annual, monthly to latest, about 200 countries plus World.",
+    "latest_release": "CDS record updated 2026-09-06 (STAC 'updated'). OWID indicator lastUpdated 2026-09-11, origin datePublished 2026-08-21.",
+    "update_cadence": "Monthly (ERA5T preliminary, finalised about 2\u20133 months later). OWID refreshes monthly.",
+    "landing_url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means",
+    "download_urls": [
+     "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/reanalysis-era5-single-levels-monthly-means",
+     "https://ourworldindata.org/grapher/annual-temperature-anomalies.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/monthly-temperature-anomalies.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1306418.metadata.json"
+    ],
+    "format": "ERA5: NetCDF/GRIB via the CDS API (free ECMWF account and licence acceptance needed to download). OWID: CSV plus JSON metadata.",
+    "license": "ERA5: CC BY 4.0 (the CDS STAC license link is https://spdx.org/licenses/CC-BY-4.0, titled 'CC-BY licence'). OWID-produced data is CC BY 4.0 ('All visualizations, data, and code produced by Our World in Data are completely open access under the Creative Commons BY license'). The OWID citation must carry 'Contains modified Copernicus Climate Change Service information'.",
+    "redistribution": "open-attribution",
+    "citation": "Hersbach, H., Bell, B., Berrisford, P., et al. (2023): ERA5 monthly averaged data on single levels from 1940 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI: 10.24381/cds.f17050d7 (Accessed on <date>). For OWID: 'Contains modified Copernicus Climate Change Service information (2026) \u2013 with major processing by Our World in Data. \u201cTemperature anomaly\u201d [dataset]'.",
+    "doi": "10.24381/cds.f17050d7",
+    "status": "Active (EU Copernicus programme).",
+    "url_check": "Fetched the CDS STAC JSON: title 'ERA5 monthly averaged data on single levels from 1940 to present', updated 2026-09-06T00:00:00Z, temporal interval 1940-01-01 to 2026-08-01, license link spdx CC-BY-4.0, sci:doi 10.24381/cds.f17050d7. Fetched the OWID CSV (header 'entity,code,year,temperature_anomaly'; World 2024=0.7195, 2025=0.5916; Germany 2024=1.5575). OWID metadata says 'major processing', with lastUpdated 2026-09-11.",
+    "site_use": "Upstream of record for country temperature. Use the OWID annual country anomaly CSV as a fast, clean cross-check of the CCKP series and for 'this month vs normal' country tiles. Always show the baseline (1991\u20132020) next to the number.",
+    "caveats": "OWID applies 'major processing' (its own boundary clipping, latitude weighting and 1991\u20132020 baseline), so the values are OWID-derived, not Copernicus-published. They also differ from CCKP's ERA5 aggregation and from national met-office series. OWID notes the method may be unreliable for very small countries. The 1991\u20132020 baseline already contains about 0.9\u00b0C of warming, so anomalies look smaller than vs pre-industrial or 1951\u20131980. Explain this, or re-baseline from CCKP absolutes.",
+    "priority": "core"
+   },
+   {
+    "name": "NASA GISS Surface Temperature Analysis (GISTEMP v4)",
+    "publisher": "NASA Goddard Institute for Space Studies",
+    "measures": "Monthly surface temperature anomalies (\u00b0C vs 1951\u20131980): global, hemispheric and zonal tables, plus 2\u00b0\u00d72\u00b0 gridded NetCDF/Zarr (1200 km and 250 km smoothing).",
+    "coverage": "1880\u2013Aug 2026, global grid.",
+    "latest_release": "Page updated 2026-09-11. Gridded file gistemp1200_GHCNv4_ERSSTv5.nc.gz Last-Modified 2026-09-08.",
+    "update_cadence": "Monthly ('about the 10th of every month')",
+    "landing_url": "https://data.giss.nasa.gov/gistemp/",
+    "download_urls": [
+     "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv",
+     "https://data.giss.nasa.gov/gistemp/tabledata_v4/ZonAnn.Ts+dSST.csv",
+     "https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz",
+     "https://data.giss.nasa.gov/pub/gistemp/gistemp250_GHCNv4.nc.gz"
+    ],
+    "format": "CSV, NetCDF, Zarr, SBBX",
+    "license": "NASA Earth science data guidance (earthdata.nasa.gov data-use-guidance): 'data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0)'. Users are 'very strongly urged to cite the data'. The GISTEMP page has no separate data licence (graphics follow NASA media guidelines).",
+    "redistribution": "open-public-domain",
+    "citation": "GISTEMP Team, 2026: GISS Surface Temperature Analysis (GISTEMP), version 4. NASA Goddard Institute for Space Studies. Dataset accessed <date> at https://data.giss.nasa.gov/gistemp/. Lenssen, N., et al. (2024), J. Geophys. Res. Atmos., 129(17), e2023JD040179, doi:10.1029/2023JD040179.",
+    "doi": "10.1029/2023JD040179 (method paper)",
+    "status": "At-risk but still updating. Wikipedia (GISS article) records NASA terminating the Armstrong Hall lease on 25 Apr 2025 and GISS staff working remotely from 1 Jun 2025. The GISTEMP page itself shows no discontinuation notice and was updated 2026-09-11.",
+    "url_check": "Fetched the landing page (updated 11 Sep 2026, citation text). Fetched GLB.Ts+dSST.csv: the 2025 row has J-D=1.19, and the 2026 row runs through Aug (1.40). A HEAD on the .nc.gz returned 200 with Last-Modified 2026-09-08. Fetched the NASA Earthdata data-use-guidance page (CC0 statement).",
+    "site_use": "Secondary cross-check for the global number shown above every country drill-down, and an independent dataset beside ERA5. The 250 km grid can be clipped to countries only if the site documents its own aggregation. Prefer CCKP for country series.",
+    "caveats": "There is no official country series, so any country number would be the site's own derivation. Its baseline (1951\u20131980) differs from ERA5/OWID (1991\u20132020). Mirror the files, because federal continuity is uncertain.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Berkeley Earth high-resolution temperature (country/state/city series)",
+    "publisher": "Berkeley Earth",
+    "measures": "Land temperature anomalies (\u00b0C vs Jan 1951\u2013Dec 1980) from a 0.25\u00b0 high-resolution field. Country, state/province and about 8,000 city series.",
+    "coverage": "1850/1750 to recent. Global and regional gridded files are public. Country, state and city series are 'available by request only'.",
+    "latest_release": "High-resolution dataset still labelled 'PRELIMINARY DATA \u2013 SUBJECT TO CHANGE'. The sample Malaysia file says 'This analysis was run on 06-Mar-2023'. The data page mentions a description paper open for review (2 Sep 2026). The legacy public country files (berkeley-earth-temperature.s3.us-west-1) come from an 08-Jun-2016 run (file Last-Modified 2023-10-26).",
+    "update_cadence": "Irregular for national series (on request). Monthly for global.",
+    "landing_url": "https://berkeleyearth.org/data/",
+    "download_urls": [
+     "https://berkeley-earth-temperature-hr.s3.amazonaws.com/Samples/malaysia-TAVG-monthly.txt",
+     "https://storage.googleapis.com/berkeley-earth-temperature-hr/global/Global_TAVG_annual.txt",
+     "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Regional/TAVG/united-states-TAVG-Trend.txt"
+    ],
+    "format": "Plain text, NetCDF",
+    "license": "Quoted from the data page: 'Berkeley Earth's data is licensed under Creative Commons BY-NC 4.0 International for non-commercial use only.' Commercial licensing goes via admin@berkeleyearth.org. https://berkeleyearth.org/data-license/ returned 404.",
+    "redistribution": "noncommercial-only",
+    "citation": "Berkeley Earth, www.berkeleyearth.org (the page asks to reference Berkeley Earth and the URL). No dataset DOI was shown on the page.",
+    "doi": "None shown on the data page (not verified)",
+    "status": "Active organisation. National series are gated behind a request form, and the public country files are stale (2016 run).",
+    "url_check": "Fetched the data page (license quote, 'available by request only', request-form links). The license page returned 404. Read the Malaysia sample header ('PRELIMINARY DATA \u2026 NOT YET PEER REVIEWED', analysis run 06-Mar-2023, baseline Jan 1951\u2013Dec 1980). The legacy US file header says 'analysis was run on 08-Jun-2016'.",
+    "site_use": "Do not use for headline numbers. At most, cite it as a methodological cross-reference in 'how we know' notes.",
+    "caveats": "Fails the traceability goal: activists cannot download the same country file without a request form, the data is preliminary, and the files are NC-licensed. The legacy public country files have not been rerun since 2016.",
+    "priority": "avoid"
+   },
+   {
+    "name": "NOAA NCEI Climate at a Glance (statewide, county and city time series, built on nClimDiv)",
+    "publisher": "NOAA National Centers for Environmental Information",
+    "measures": "US national, regional, state, climate-division, county and city monthly/annual average, max and min temperature (\u00b0F) and precipitation, plus global time series.",
+    "coverage": "1895 to present, contiguous US states and counties (plus Alaska/Hawaii products).",
+    "latest_release": "Live. The CA annual series (Jan\u2013Dec) includes 2025 = 60.4\u00b0F, fetched 2026-10-04.",
+    "update_cadence": "Monthly",
+    "landing_url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/4/tavg/12/12/1895-2026/data.csv",
+     "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/time-series/CA-037/tavg/12/12/1895-2026/data.json"
+    ],
+    "format": "CSV, JSON",
+    "license": "US federal government work, so public domain in the US under 17 U.S.C. \u00a7105. No explicit licence page was found (noaa.gov/disclaimer covers external links only). The nClimDiv metadata 'Use Constraints' gives the citation plus a 'Distribution liability' no-warranty statement.",
+    "redistribution": "open-public-domain",
+    "citation": "Vose, R. S., et al. (2014): NOAA Monthly U.S. Climate Divisional Database (NClimDiv). [indicate subset used]. NOAA National Climatic Data Center. doi:10.7289/V5M32STR [access date]. Also: NOAA NCEI, Climate at a Glance: Statewide/County Time Series, retrieved <date> from the URL above.",
+    "doi": "10.7289/V5M32STR",
+    "status": "Active, in the at-risk category (US federal climate programmes, 2025\u201326). No retirement notice was seen on the CAG page. The NCEI product-retirement URL tried returned 404.",
+    "url_check": "Fetched the statewide CSV (header '# California January-December Average Temperature', units \u00b0F; 2023=58.3, 2024=60.5, 2025=60.4). Fetched the LA County JSON (title 'Los Angeles County, California January-December Average Temperature'). Fetched the nClimDiv ISO metadata page (citation, DOI, liability text).",
+    "site_use": "US local drill-down: state \u2192 county 'your county's temperature since 1895', convertible to \u00b0C. Pair it with EIA state emissions on the same page.",
+    "caveats": "Values are in \u00b0F, so convert and state the conversion. It covers only the US. Mirror snapshots, because federal continuity is uncertain.",
+    "priority": "secondary"
+   },
+   {
+    "name": "ND-GAIN Country Index (vulnerability and readiness)",
+    "publisher": "University of Notre Dame, Notre Dame Global Adaptation Initiative",
+    "measures": "Composite adaptation index (0\u2013100) = readiness minus vulnerability. Sub-scores for vulnerability (food, water, health, ecosystems, habitat, infrastructure; exposure, sensitivity, capacity) and readiness (economic, governance, social), plus about 45 raw indicators.",
+    "coverage": "190 countries with a 2024 score, 1995\u20132024 annual.",
+    "latest_release": "ndgain_countryindex_2026.zip (2026 edition; latest data year 2024; zip entries dated Aug 18)",
+    "update_cadence": "Annual",
+    "landing_url": "https://gain.nd.edu/our-work/country-index/download-data/",
+    "download_urls": [
+     "https://gain.nd.edu/assets/647440/ndgain_countryindex_2026.zip"
+    ],
+    "format": "ZIP of CSVs (gain/gain.csv, vulnerability/*.csv, readiness/*.csv, indicators/*/raw.csv|score.csv) plus the 2026 codebook PDF",
+    "license": "No explicit licence found. The download page shows only a 'Suggested Citation' and 'Copyright \u00a9 2026'. The About page calls the tools 'free and open-access'. The codebook PDF contains no licence text. An optional one-minute questionnaire is requested, with no registration.",
+    "redistribution": "unclear",
+    "citation": "Notre Dame Global Adaptation Initiative Country Index (ND-GAIN). (2026). University of Notre Dame.",
+    "doi": "None",
+    "status": "Active (2026 edition published).",
+    "url_check": "Fetched the download page (one zip link, suggested citation). The zip returned HTTP 403 to curl's default UA and 200 (4,910,250 bytes, application/zip) with a browser UA. Listed the archive and read gain/gain.csv (header ISO3, Name, 1995\u20262024). 2024 values: NOR 71.85, FIN 71.10, DEU 69.23 \u2026 TCD 26.42, SOM 27.00, ERI 27.36. The About page and codebook had no licence text.",
+    "site_use": "The 'consequences/vulnerability' layer of the country page: who is exposed and who can adapt. Show the score and its components next to per-capita emissions to make the responsibility vs vulnerability contrast concrete.",
+    "caveats": "Licence unclear: email ND-GAIN for written permission before offering CSV re-downloads (linking out is safe). It is a composite index whose weightings are value judgements, so explain them. Latest data year lags by about 2 years.",
+    "priority": "secondary"
+   },
+   {
+    "name": "EDGAR Community GHG Database, EDGAR_2026_GHG, and 'GHG emissions of all world countries \u2013 2026 Report'",
+    "publisher": "European Commission Joint Research Centre (JRC), with IEA for fossil CO2",
+    "measures": "Annual and monthly national emissions of fossil CO2, CO2bio, CH4, N2O and F-gases by IPCC sector, plus GHG totals (GWP-100 AR5, Mt CO2eq). Per-capita (t CO2eq/cap) and per-GDP. LULUCF by country. 0.1\u00b0 gridmaps, and since 2025 1 km grids (EDGAR_2025_1km).",
+    "coverage": "1970\u20132025 annual, 2000\u20132025 monthly. All countries plus EU27, international aviation and shipping.",
+    "latest_release": "EDGAR_2026_GHG: files dated 2026-09-18 on the JRC FTP. 2026 Report booklet xlsx dated 2026-09-03, report released Sept 2026.",
+    "update_cadence": "Annual (Sept/Oct)",
+    "landing_url": "https://edgar.jrc.ec.europa.eu/dataset_ghg2026",
+    "download_urls": [
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_report/EDGAR_2026_GHG_booklet_2026.xlsx",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_AR5_GHG_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_CH4_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_N2O_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/IEA_EDGAR_CO2_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2025_1km/"
+    ],
+    "format": "XLSX (zipped), NetCDF/TXT gridmaps",
+    "license": "Mixed. Booklet 'Conditions of use': 'Unless otherwise noted, all material owned by the European Union is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.' But 'IEA-EDGAR CO2 (v5) data are \u2026 licensed under CC BY-NC-ND 4.0. Users of IEA-EDGAR CO2 data should contact the IEA at compliance@iea.org for permission to use.' 'Users of the data are obliged to acknowledge the source \u2026 with reference to the EDGAR report webpage \u2026 and EDGAR_2026_GHG website.' The 1 km folder copyright.txt says CC BY 4.0.",
+    "redistribution": "noncommercial-only",
+    "citation": "Report: Crippa, M., Guizzardi, D., Pagani, F., Banja, M., Ciarlantini, S. et al., GHG emissions of all world countries - 2026 Report, Publications Office of the European Union, Luxembourg, 2026, doi:10.2760/7717504, JRC147815. Data: EDGAR (Emissions Database for Global Atmospheric Research) Community GHG Database (a collaboration between the European Commission, Joint Research Centre (JRC), the International Energy Agency (IEA), and comprising IEA-EDGAR CO2, EDGAR CH4, EDGAR N2O, EDGAR F-GASES version EDGAR_2026_GHG (2026)) European Commission.",
+    "doi": "10.2760/7717504",
+    "status": "Active",
+    "url_check": "Fetched dataset_ghg2026 (download links and licence text) and the FTP listing EDGAR_2026_GHG/ (EDGAR_AR5_GHG_1970_2025.zip 9.2M, IEA_EDGAR_CO2_1970_2025.zip 4.4M, all dated 2026-09-18). Parsed the booklet xlsx in memory. Sheets: info, Citations and references, GHG_totals_by_country, GHG_by_sector_and_country, GHG_per_GDP_by_country, GHG_per_capita_by_country, LULUCF_*. GLOBAL TOTAL 2024=53,769.6 and 2025=54,149.2 Mt CO2eq. USA per-capita 2025=17.53, IND=3.11, CHN=11.11, global 6.62 t.",
+    "site_use": "Main source for national GHG totals, sector stacks and per-capita all-gas comparisons, 1970\u20132025. The 0.1\u00b0/1 km grids power 'where in my country' heatmaps. The CH4/N2O/F-gas files can be redistributed freely under CC BY.",
+    "caveats": "Because the fossil-CO2 component (the biggest one) is CC BY-NC-ND, publishing modified CSVs (per-capita, re-aggregated sectors, any total that includes fossil CO2) arguably breaches 'no derivatives'. Before offering derived CSVs, email compliance@iea.org for permission, or show EDGAR's own published per-capita and total columns verbatim and link to the booklet. The site's non-commercial status helps with NC but not with ND. Uses GWP-100 AR5 and excludes LULUCF in its totals. EDGAR country codes include pseudo-entities (AIR, SEA, 'GLOBAL TOTAL', EU27).",
+    "priority": "core"
+   },
+   {
+    "name": "Climate TRACE emissions inventory (country, admin-1/2, city and asset level) and API v7",
+    "publisher": "Climate TRACE coalition",
+    "measures": "Monthly and annual emissions (t CO2, CH4, N2O, CO2e 100-yr and 20-yr) by sector and subsector for countries, GADM admin areas, GHS-FUA urban areas and about 2.77 million individual sources (power plants, steel mills, oil fields, roads\u2026), with ownership. Also includes 'top emission reduction strategies'.",
+    "coverage": "2015/2021 to Jul 2026, global",
+    "latest_release": "Release 5.11.0, 24 Sep 2026 ('includes monthly emissions data through July 2026'). API version 7.2.0.",
+    "update_cadence": "Monthly",
+    "landing_url": "https://climatetrace.org/data",
+    "download_urls": [
+     "https://api.climatetrace.org/v7/docs/openapi.json",
+     "https://api.climatetrace.org/v7/rankings/countries?year=2025&gas=co2e_100yr",
+     "https://api.climatetrace.org/v7/sources/emissions?year=2025&gas=co2e_100yr&gadmId=USA.5_1",
+     "https://api.climatetrace.org/v7/sources/emissions?year=2025&gas=co2e_100yr&cityId=ghs-fua_5288",
+     "https://api.climatetrace.org/v7/admins?name=Wyoming",
+     "https://api.climatetrace.org/v7/cities?name=London"
+    ],
+    "format": "REST JSON (OpenAPI YAML), CSV/GeoPackage bulk downloads from the data page, BigQuery public dataset trace-data-383422.climate_trace",
+    "license": "Terms page (climatetrace.org/terms): CC BY 4.0, 'anyone is free to copy, modify and distribute Climate TRACE data in any format for any purpose, including commercial use, as long as you attribute it to Climate TRACE and indicate if you have made any changes'. The terms also warn that some external datasets included may carry different licences.",
+    "redistribution": "open-attribution",
+    "citation": "Climate TRACE \u2013 Tracking Real-time Atmospheric Carbon Emissions (2026). Climate TRACE Emissions Inventory, release 5.11.0 (24 Sep 2026). https://climatetrace.org [accessed <date>]. Exact suggested wording is in the Climate TRACE data guide and methodology repository (github.com/climatetracecoalition/methodology-documents); the guide was not fetched.",
+    "doi": "None",
+    "status": "Active. The API is labelled 'Public API (Beta)'.",
+    "url_check": "Fetched the data page (release 5.11.0, 24 Sep 2026; API https://api.climatetrace.org/v7) and the terms page (CC BY 4.0 quote). openapi.json title 'Climate TRACE API' version 7.2.0, with paths /v7/admins, /v7/cities, /v7/rankings/countries, /v7/sources/emissions (params year, gas, sectors, gadmId, cityId\u2026). Live results: global 2025 co2e_100yr = 54,418,388,107 t. China 16.60 Gt (11.77 t/cap). USA 6.35 Gt (19.16 t/cap). California State (USA.5_1) 435.8 Mt. Wyoming State 114.3 Mt. London Urban Area (ghs-fua_5288) 67.6 Mt. The legacy v6 /country/emissions endpoint gave a different world total (57.79 Gt for 2025).",
+    "site_use": "Main subnational and city layer outside the US/UK/EU: state \u2192 city \u2192 the top 10 named facilities emitting in that place. This is the most 'actionable' view (who owns the emitting assets). The monthly series gives near-real-time 'this year so far'.",
+    "caveats": "Admin areas use GADM IDs. GADM's licence says 'Redistribution or commercial use is not allowed without prior permission', so do NOT redistribute GADM/Climate TRACE admin polygons. Join IDs to World Bank or Natural Earth geometries instead. Estimates are model-based (satellite plus AI) and can differ widely from official inventories (e.g. Wyoming 114 Mt CO2e all-gas vs EIA 50 Mt energy-CO2). Always label scope. API v6 and v7 totals differ, so pin the API version and release number in provenance. The data is revised every release.",
+    "priority": "core"
+   },
+   {
+    "name": "Global Human Settlement Layer: GHS-POP R2023A population grid and GHS-UCDB R2024A Urban Centre Database",
+    "publisher": "European Commission JRC (Copernicus Emergency Management Service \u2013 GHSL)",
+    "measures": "GHS-POP: residential population per grid cell (persons), 1975\u20132030 in 5-year epochs, at 3 arc-sec/30 arc-sec or 100 m/1 km. GHS-UCDB: about 11,000+ urban centres with themed attributes (climate, emissions, exposure, hazard risk, greenness, health, socio-economic\u2026).",
+    "coverage": "Global. GHS-POP epochs 1975\u20132030. UCDB 1975\u20132025/2030 epochs.",
+    "latest_release": "GHS-POP R2023A (FTP folders dated 2024-01-10; E2025 30ss zip 461 MB dated 2025-01-27). GHS-UCDB R2024A V1-2 (zip 264 MB dated 2026-05-19; theme folders updated 2026-06-17). GHS-SMOD R2023A v1.2 was noted on the download page.",
+    "update_cadence": "Multi-year releases with minor version patches",
+    "landing_url": "https://human-settlement.emergency.copernicus.eu/download.php?ds=pop",
+    "download_urls": [
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2025_GLOBE_R2023A_4326_30ss/",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_UCDB_GLOBE_R2024A/GHS_UCDB_GLOBE_R2024A/V1-2/GHS_UCDB_GLOBE_R2024A_V1_2.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_UCDB_GLOBE_R2024A/GHS_UCDB_THEME_GLOBE_R2024A/GHS_UCDB_THEME_EMISSIONS_GLOBE_R2024A/V1-2/",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_UCDB_GLOBE_R2024A/GHS_UCDB_THEME_GLOBE_R2024A/GHS_UCDB_THEME_EXPOSURE_GLOBE_R2024A/V1-2/"
+    ],
+    "format": "GeoTIFF (zipped), GeoPackage/XLSX (UCDB)",
+    "license": "GHSL 'How to cite' page: CC BY 4.0, '\u2026copy, redistribute, adapt, and build upon the material for any purpose, including commercial uses' with 'appropriate credit, indicate if changes were made'. Credit means citing the peer-reviewed reference. The download page says 'Reuse of this data is authorised with proper acknowledgment of the source'.",
+    "redistribution": "open-attribution",
+    "citation": "Schiavina, M., Freire, S., MacManus, K. (2023): GHS-POP R2023A \u2013 GHS population grid multitemporal (1975-2030). European Commission, JRC. doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE. Pesaresi, M., Schiavina, M., et al. (2024). Advances on the Global Human Settlement Layer by joint assessment of Earth Observation and population survey data. International Journal of Digital Earth, 17(1). doi:10.1080/17538947.2024.2390454. UCDB: GHS-UCDB R2024A \u2013 GHS Urban Centre Database 2025, doi:10.2905/1a338be6-7eaf-480c-9664-3a8ade88cbcd.",
+    "doi": "10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE (GHS-POP R2023A); 10.2905/1a338be6-7eaf-480c-9664-3a8ade88cbcd (GHS-UCDB R2024A)",
+    "status": "Active",
+    "url_check": "Fetched the download page (redirects from ghsl.jrc.ec.europa.eu) and the GHSLhowToCite page (CC BY 4.0, Pesaresi 2024 DOI). Listed the FTP: GHS_POP_GLOBE_R2023A epochs E1975\u2026E2030, and GHS_POP_E2025_GLOBE_R2023A_4326_30ss_V1_0.zip at 461M. The GHS_UCDB_GLOBE_R2024A V1-2 zip is 264M, with 16 theme folders. DataCite API confirmed DOI 10.2905/2ff68a52\u2026 'GHS-POP R2023A - GHS population grid multitemporal (1975-2030)', creators Schiavina, Freire, MacManus.",
+    "site_use": "Exposure maths (people living where CCKP shows more >35\u00b0C days). Lets the site turn city-level drill-down into urban centres. UCDB pairs each city with EDGAR emissions and climate-hazard attributes, and its FUA IDs match Climate TRACE city IDs (ghs-fua_*).",
+    "caveats": "Large rasters, so pre-aggregate offline. Do not serve them from the site. GHS-POP is modelled (census disaggregated by built-up area), and the 2025/2030 epochs are projections. The UCDB emissions theme is EDGAR-derived, so its fossil-CO2 fields may inherit the IEA NC-ND restriction; check field metadata before redistributing those columns.",
+    "priority": "core"
+   },
+   {
+    "name": "Global Covenant of Mayors (GCoM) \u2013 MyCovenant action plans and monitoring reports",
+    "publisher": "European Commission JRC (data from GCoM signatories via the MyCovenant platform)",
+    "measures": "Signatory cities (12,312 rows in the 7th release) with commitments (2020/2030/2050 flags, adaptation), population, coordinates. Action plans: baseline emission inventories, targets, mitigation/adaptation actions. Monitoring reports: progress.",
+    "coverage": "EU/EFTA/UK, Western Balkans, Eastern and Southern neighbourhood and rest of world. Data years vary by city.",
+    "latest_release": "7th Release (README title 'GCoM - MyCovenant, 7th Release - August 2026'; file names '\u2026 January 2026'; files dated 2026-09-30; FTP folder 2026_Seventh_release dated 2026-10-03)",
+    "update_cadence": "About annual",
+    "landing_url": "https://data.europa.eu/data/datasets/6684edc9-9b78-464a-990d-810555957550",
+    "download_urls": [
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GCOM-MyCovenant/2026_Seventh_release/df1_Signatories_7th%20Release%20-%20January%202026.xlsx",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GCOM-MyCovenant/2026_Seventh_release/df2_Action_Plans_7th%20Release%20-%20January%202026.xlsx",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GCOM-MyCovenant/2026_Seventh_release/df3_Monitoring_Reports_7th%20Release%20-%20January%202026.xlsx"
+    ],
+    "format": "XLSX",
+    "license": "Quoted from the README sheet: 'Any copyright and/or sui generis right on the dataset is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. Reuse is allowed provided appropriate credit is given and any changes are indicated.' data.europa.eu also tags the distributions CC_BY_4_0.",
+    "redistribution": "open-attribution",
+    "citation": "Kuster, Corentin; Bezerra, Paula; Palermo Valentina; Riccardi, Guglielmo; Melica, Giulia. 2026. Global Covenant of Mayors - A complete collection of action plans and monitoring reports from MyCovenant reporting platform, Joint Research Centre (JRC) [Dataset ID 7th Release - January 2026]",
+    "doi": "None. data.europa.eu persistent IDs (http://data.europa.eu/89h/<uuid>); the 6th release is 6684edc9-9b78-464a-990d-810555957550, and the 7th-release UUID was not located.",
+    "status": "Active",
+    "url_check": "data.europa.eu search API returned releases 1\u20136, with the 6th tagged CC_BY_4_0. The JRC FTP listing shows 2026_Seventh_release/ with three xlsx files (1.8M, 59M, 30M). Parsed df1 in memory: sheets README, df1_METADATA, '1'; 12,312\u00d723 with columns organisation_name, country_code, population_adhesion, commitment_CoM2030_flag \u2026 README carries the licence and citation quoted.",
+    "site_use": "The 'what is my city doing' step: show whether a city has signed, its target year and %, its baseline inventory, and its listed actions. This is the bridge from consequences to local civic action.",
+    "caveats": "Self-reported by local authorities. Baseline years and inventory methods vary, so they are not comparable with Climate TRACE/EDGAR city numbers. Show them as 'the city's own report'. Coverage is heavily European.",
+    "priority": "secondary"
+   },
+   {
+    "name": "CDP-ICLEI Track \u2013 Cities, States and Regions open data",
+    "publisher": "CDP Worldwide (with ICLEI \u2013 Local Governments for Sustainability)",
+    "measures": "Self-reported city/state/region questionnaire responses: emissions inventories, targets, risks, actions",
+    "coverage": "Reporting years 2011\u20132025, about 1,000+ cities a year, global",
+    "latest_release": "'2025 CHAMP Subnational data for national transition planning \u2013 Full Cities Public data' (iqgn-4x2k), created/updated 2026-09-24",
+    "update_cadence": "Annual",
+    "landing_url": "https://data.cdp.net/",
+    "download_urls": [
+     "https://data.cdp.net/api/catalog/v1?q=city%20emissions&limit=8",
+     "https://data.cdp.net/api/views/metadata/v1/iqgn-4x2k",
+     "https://data.cdp.net/resource/iqgn-4x2k"
+    ],
+    "format": "Socrata (SODA API, CSV/JSON); some assets are Excel workbooks",
+    "license": "CDP Open Data Portal Terms of Use and License (version April 2024, PDF on cdn.cdp.net). Clause 1.1: the terms allow you 'to copy, distribute, create works and build upon the Database, provided you: a) use it for non-commercial purposes; \u2026 d) attribute CDP as the original owner \u2026 For any use or redistribution \u2026 you must make clear to others the License and keep intact any notices.' Clause 4.2: 'All intellectual property rights are reserved.' Dataset metadata 'license' field is null.",
+    "redistribution": "noncommercial-only",
+    "citation": "'This data was collected in partnership by CDP and ICLEI - Local Governments for Sustainability' (from dataset description)",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "The data.cdp.net catalog API listed datasets (e.g. aic4-a5fb '2021 Cities - Emissions and Mitigation', updated 2024-10-21). Metadata for iqgn-4x2k: updated 2026-09-24, license null. The homepage HTML linked the Terms PDF, which was fetched and its text extracted (quoted). www.cdp.net/en/data/terms-and-conditions returned 404.",
+    "site_use": "Optional outbound link ('see your city's CDP disclosure'). Do not mirror it or offer CSV re-downloads.",
+    "caveats": "The licence is non-commercial, custom, keeps all rights reserved, and requires keeping the licence notice. 7.2 says CDP does 'not examine or edit' responses. The data is unverified self-reporting and most granular data sits in 2020\u20132022 sets. Prefer GCoM (CC BY) for city pledges.",
+    "priority": "avoid"
+   },
+   {
+    "name": "EIA State Energy Data System (SEDS) \u2013 State energy-related CO2 emissions",
+    "publisher": "U.S. Energy Information Administration",
+    "measures": "Energy-related CO2 by state (million metric tons), by fuel and sector, per capita (t CO2), per unit energy and per GDP. Full SEDS consumption, production and price series.",
+    "coverage": "1960\u20132024, 50 states plus DC plus US",
+    "latest_release": "Release date June 26, 2026 (data through 2024). Next release June 25, 2027.",
+    "update_cadence": "Annual",
+    "landing_url": "https://www.eia.gov/environment/emissions/state/",
+    "download_urls": [
+     "https://www.eia.gov/state/seds/sep_sum/html/xls/CO2_total.xlsx",
+     "https://www.eia.gov/state/seds/sep_sum/html/xls/CO2_sector.xlsx",
+     "https://www.eia.gov/state/seds/sep_sum/html/xls/CO2_source.xlsx",
+     "https://www.eia.gov/state/seds/sep_use/total/csv/use_all_btu.csv",
+     "https://www.eia.gov/opendata/browser/seds"
+    ],
+    "format": "XLSX, CSV. API v2 needs a free API key.",
+    "license": "From eia.gov/about/copyrights_reuse.php: 'U.S. government publications are in the public domain and are not subject to copyright protection.' Suggested acknowledgment: 'Source: U.S. Energy Information Administration (<date>)'. The EIA logo and website photos are restricted.",
+    "redistribution": "open-public-domain",
+    "citation": "Source: U.S. Energy Information Administration, State Energy Data System (SEDS), State Energy-Related Carbon Dioxide Emissions, release of June 26, 2026.",
+    "doi": "None",
+    "status": "Active (released on schedule June 2026, next release dated). The CO2 tables moved into SEDS (consolidated, not suspended).",
+    "url_check": "Fetched the state emissions page (data year 2024, release 26 Jun 2026, next 25 Jun 2027, xlsx links). Downloaded CO2_total.xlsx (200, 99,592 bytes). Sheets: Contents, Total CO2, Per capita, CO2 per billion Btu, CO2 per million dollars. Header 'Release date: June 26, 2026'. 2024 totals: TX 679.9, CA 316.0, WY 50.0, US 4,780.7 Mt. Per capita 2024: WY 85.2, TX 21.7, CA 8.0, US 14.1 t. Fetched the copyright/reuse page (quoted).",
+    "site_use": "US state drill-down: choropleth of per-capita energy CO2, then the state \u2192 fuel/sector stack 1960\u20132024 view. Pair it with NOAA CAG state temperature on the same page.",
+    "caveats": "Covers energy CO2 only (no CH4/N2O, no LULUCF). Production-heavy states (WY, ND, WV) look huge per capita because they export electricity and fuels, so add a consumption caveat. The figures differ from EPA and Climate TRACE by scope.",
+    "priority": "core"
+   },
+   {
+    "name": "EPA Inventory of U.S. Greenhouse Gas Emissions and Sinks by State (and the GHGRP facility programme)",
+    "publisher": "U.S. Environmental Protection Agency",
+    "measures": "All-gas GHG emissions and sinks by state and economic sector (MMT CO2e), consistent with the national inventory",
+    "coverage": "1990\u20132022, 50 states",
+    "latest_release": "1990\u20132022 state data released September 2024 (file allstateghgdata90-22_v082924.zip). No 1990\u20132023 or 1990\u20132024 state release on EPA's site as of 2026-10-04.",
+    "update_cadence": "Was annual. Stalled since 2024.",
+    "landing_url": "https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals",
+    "download_urls": [
+     "https://www.epa.gov/system/files/other-files/2024-09/allstateghgdata90-22_v082924.zip",
+     "https://cfpub.epa.gov/ghgdata/inventoryexplorer/"
+    ],
+    "format": "XLSX in ZIP, plus a web explorer",
+    "license": "US federal government work, public domain (17 U.S.C. \u00a7105). No separate licence page was fetched.",
+    "redistribution": "open-public-domain",
+    "citation": "U.S. EPA (2024). Inventory of U.S. Greenhouse Gas Emissions and Sinks by State: 1990\u20132022. https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals",
+    "doi": "None",
+    "status": "At-risk / stalled. The national inventory page still lists 1990\u20132022 as the latest final report, with only a 1990\u20132023 draft docketed in Jan\u2013Feb 2025. The GHGRP page states that on September 12, 2025 EPA proposed to 'permanently remove program obligations for 46 source categories of the GHGRP'. GHGRP's latest data year shown is 2023.",
+    "url_check": "Fetched the state page (1990\u20132022, Sept 2024; page modified 16 Sep 2026). Downloaded the zip (200, 17,863,051 bytes), which contains AllStateGHGData90-22_v082924.xlsx and AllStateGHGDataPY2024_README_04212025.docx. Fetched the national inventory page (1990\u20132022 latest, 1990\u20132023 draft) and the GHGRP page (Sep 12 2025 proposal).",
+    "site_use": "Use only as a historical all-gas cross-check for US states (to 2022), clearly dated. The 'data at risk' story itself is worth telling transparently.",
+    "caveats": "Stale (2022), with no sign of continuation. Mirror the 2024 file now. Use EIA (current to 2024) plus Climate TRACE (2025) for current numbers and label the scope differences.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Eurostat \u2013 Greenhouse gas emissions by source sector (env_air_gge), with the EEA GovReg national emissions dataset upstream",
+    "publisher": "Eurostat (European Commission). Upstream: European Environment Agency.",
+    "measures": "GHG emissions by CRF sector and gas, Mt CO2e (GWP AR5), as reported under UNFCCC / EU Governance Regulation",
+    "coverage": "1990\u20132024, EU27 plus member states, EEA/EFTA countries (and others in the EEA set)",
+    "latest_release": "Eurostat env_air_gge updated 2026-06-02 (to 2024). EEA 'GovReg: National emissions reported to the UNFCCC and to the EU under the Governance Regulation, 2026 ver. 3.0' published 2026-10-02.",
+    "update_cadence": "Annual (EEA versions several times a year)",
+    "landing_url": "https://ec.europa.eu/eurostat/databrowser/view/env_air_gge/default/table",
+    "download_urls": [
+     "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_air_gge?format=JSON&lang=EN&geo=EU27_2020&unit=MIO_T&airpol=GHG&src_crf=TOTX4_MEMO&time=1990&time=2024",
+     "https://sdi.eea.europa.eu/data/f6a252a6-1bde-43a8-9e6a-f58146fd691e"
+    ],
+    "format": "JSON-stat / SDMX / TSV via the Eurostat API. EEA: CSV/Access/SQLite bundle (2.2 GB).",
+    "license": "Eurostat copyright notice: 'Reuse of statistical data \u2026 for commercial or non-commercial purposes is authorised provided the source is acknowledged' (Commission Decision 2011/833/EU), and modifications must be stated. Exception: data for non-EU/EFTA/candidate countries 'may not be reused for commercial purposes, but non-commercial reuse is possible without restriction'. EEA: 'License CC-BY 4.0 \u2026 Copyright holder: European Environment Agency (EEA).'",
+    "redistribution": "open-attribution",
+    "citation": "Eurostat (2026). Greenhouse gas emissions by source sector (env_air_gge), DOI 10.2908/ENV_AIR_GGE, data updated 2 June 2026. Upstream: EEA (2026) GovReg: National emissions reported to the UNFCCC and to the EU under the Governance Regulation, 2026 ver. 3.0, doi:10.2909/f6a252a6-1bde-43a8-9e6a-f58146fd691e.",
+    "doi": "10.2908/ENV_AIR_GGE; 10.2909/f6a252a6-1bde-43a8-9e6a-f58146fd691e",
+    "status": "Active",
+    "url_check": "Eurostat API JSON: label 'Greenhouse gas emissions by source sector', updated '2026-06-02T23:00:00+0200', DOI annotation 10.2908/ENV_AIR_GGE. EU27_2020 TOTX4_MEMO (total excl. LULUCF and memo items): 1990=4,866.9, 2023=3,088.3, 2024=3,017.2 Mt. DE 2024=649.8, PL 2024=341.0. The Eurostat copyright-notice page was fetched (quoted). EEA SDI catalogue search returned 2026 ver. 3.0 (2026-10-02) with licence 'CC-BY 4.0'. The SDI data share shows 'Download all files (2.2 GB)'. The EEA legal notice is CC BY 4.0.",
+    "site_use": "Official EU/European country drill-down: country \u2192 CRF sector \u2192 gas, 1990\u20132024, with 'change since 1990' as the headline. Use Eurostat's API for small slices and cite the EEA as upstream.",
+    "caveats": "These are official inventories. They differ from EDGAR (gap-filled, different GWP/sector mapping) and from Climate TRACE, so label 'officially reported' vs 'independent estimate'. TOTX4_MEMO excludes international aviation and shipping, so state that. Eurostat restricts commercial reuse of non-European country data (not an issue for this site).",
+    "priority": "core"
+   },
+   {
+    "name": "UK local authority and regional greenhouse gas emissions statistics, 2005 to 2024",
+    "publisher": "UK Department for Energy Security and Net Zero (DESNZ)",
+    "measures": "Territorial GHG emissions (kt CO2e) by local authority, sector, sub-sector and gas. Also 'emissions within the scope of influence of LAs' (kt CO2), mid-year population and area.",
+    "coverage": "2005\u20132024, all 361 UK local authorities, regions and devolved nations",
+    "latest_release": "Published 30 June 2026 (data 2005\u20132024). Accredited official statistics.",
+    "update_cadence": "Annual (June)",
+    "landing_url": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-statistics-2005-to-2024",
+    "download_urls": [
+     "https://assets.publishing.service.gov.uk/media/6a3bacc9d52550a19950f2f5/2005-24-local-authority-ghg-emissions-csv-dataset.csv",
+     "https://assets.publishing.service.gov.uk/media/6a3bacc7eaee00074150f326/2005-24-uk-local-authority-ghg-emissions.xlsx",
+     "https://assets.publishing.service.gov.uk/media/6a3bd771eaee00074150f389/local-authority-ghg-technical-report-2024.pdf"
+    ],
+    "format": "CSV, XLSX, PDF",
+    "license": "Open Government Licence v3.0 ('All content is available under the Open Government Licence v3.0, except where otherwise stated'). Attribution: 'Contains public sector information licensed under the Open Government Licence v3.0.'",
+    "redistribution": "open-attribution",
+    "citation": "Department for Energy Security and Net Zero (2026). UK local authority and regional greenhouse gas emissions statistics, 2005 to 2024. Accredited official statistics, published 30 June 2026. Contains public sector information licensed under the Open Government Licence v3.0.",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "Fetched the GOV.UK collection page (latest 2005\u20132024, 30 June 2026, Accredited official statistics, OGL v3.0) and the release page (asset links listed). Parsed the CSV: 586,765 rows. Columns: Country, Region, Local Authority, Local Authority Code, Calendar Year, LA GHG Sector, LA GHG Sub-sector, Greenhouse gas, Territorial emissions (kt CO2e), Emissions within the scope of influence of LAs (kt CO2), Mid-year Population (thousands), Area (km2). 2024 sum = 351,272.8 kt, 2005 sum = 655,801.6 kt. Per-capita 2024 ranges from Harrow 2.06 to City of London 35.98 t, median 4.62.",
+    "site_use": "Model for the 'my council' page: LA \u2192 sector \u2192 trend since 2005. The 'scope of influence' column shows what a council can actually change, which is the action hook.",
+    "caveats": "Territorial totals include LULUCF (which can be negative), so sector sums need care. Per-capita figures for the City of London and similar areas are distorted by tiny resident populations, so flag outliers. Methods are revised every year and the back-series is recalculated, so always use the latest vintage for trends.",
+    "priority": "core"
+   },
+   {
+    "name": "PRIMAP-hist national historical emissions time series v2.8",
+    "publisher": "G\u00fctschow & Pfl\u00fcger (formerly PIK); hosted on Zenodo",
+    "measures": "Kyoto-gas emissions by country and IPCC 2006 category (Gg/Mt CO2e). Two variants: country-reported priority (HISTCR) and third-party priority (HISTTP).",
+    "coverage": "1750\u20132025, all UNFCCC parties plus most territories",
+    "latest_release": "v2.8, published 2026-09-29 (files dated 22-Sep-2026)",
+    "update_cadence": "Annual",
+    "landing_url": "https://zenodo.org/records/22876287",
+    "download_urls": [
+     "https://zenodo.org/api/records/22876287",
+     "https://zenodo.org/records/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.csv"
+    ],
+    "format": "CSV, YAML metadata, PDF description",
+    "license": "CC BY-NC-SA 4.0. From the record: 'Since v2.8 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users can not use it freely and have to obtain a commercial license \u2026 the third party priority (TP) time-series builds heavily on EDGAR and FAOSTAT data.'",
+    "redistribution": "noncommercial-only",
+    "citation": "G\u00fctschow, J.; Pfl\u00fcger, M. (2026): The PRIMAP-hist national historical emissions time series v2.8 (1750-2025). zenodo. doi:10.5281/zenodo.22876287. Plus: G\u00fctschow, J. et al. (2016): The PRIMAP-hist national historical emissions time series, Earth Syst. Sci. Data, 8, 571-603, doi:10.5194/essd-8-571-2016.",
+    "doi": "10.5281/zenodo.22876287",
+    "status": "Active. The licence changed from CC BY (\u2264v2.7) to CC BY-NC-SA in v2.8.",
+    "url_check": "Zenodo API record 22876287: title '\u2026(1750-2025) v2.8', publication_date 2026-09-29, license id 'cc-by-nc-sa-4.0'. File list includes the final CSVs dated 22-Sep-2026. Description text quoted for the licence change and recommended citation. The direct file URL was constructed from the Zenodo file key and not separately downloaded.",
+    "site_use": "Gap-filled 'officially reported' national series for countries with sparse UNFCCC submissions (India, China, most of the Global South) and for long 1850+ histories. Use the HISTCR variant for 'what governments report'.",
+    "caveats": "ShareAlike means any CSV the site publishes from it must carry CC BY-NC-SA. Keep its derived downloads separate from CC BY data. If you need a CC-BY-compatible pin, v2.7 (doi 10.5281/zenodo.17090760, used by Climate Watch) was CC BY, but it is a year older.",
+    "priority": "secondary"
+   },
+   {
+    "name": "OWID CO2 and greenhouse gas emissions dataset (upstream: Global Carbon Budget 2025)",
+    "publisher": "Our World in Data. Upstream: Global Carbon Project.",
+    "measures": "Per-country annual fossil CO2 (Mt), per capita (t), consumption-based CO2, cumulative CO2 and share of global cumulative, CO2 by fuel, plus GHG (Jones et al.) and energy context",
+    "coverage": "1750\u20132024, about 250 countries and regions",
+    "latest_release": "GitHub master last commit 2026-06-02. Codebook sources 'Global Carbon Budget (2025)'. GCB 2025 ESSD paper doi:10.5194/essd-18-3211-2026 (Zenodo index date 2026-09-14). GCB 2026 not yet released (usually November).",
+    "update_cadence": "Annual, plus ad-hoc updates",
+    "landing_url": "https://github.com/owid/co2-data",
+    "download_urls": [
+     "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv",
+     "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-codebook.csv"
+    ],
+    "format": "CSV (plus JSON/XLSX in repo)",
+    "license": "README: 'All visualizations, data, and code produced by Our World in Data are completely open access under the Creative Commons BY license \u2026 The data produced by third parties \u2026 is subject to the license terms from the original third-party authors.' GCB 2025 is listed on Zenodo as cc-by-4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Global Carbon Budget (2025) \u2013 with major processing by Our World in Data. Friedlingstein, P., et al.: Global Carbon Budget 2025, Earth Syst. Sci. Data, 18, 3211\u2013, 2026, doi:10.5194/essd-18-3211-2026. Per-capita: population from 'Population based on various sources (2024)' (OWID).",
+    "doi": "10.5194/essd-18-3211-2026 (GCB 2025)",
+    "status": "Active",
+    "url_check": "Fetched the CSV and parsed it: max year 2024. USA 2024 share_global_cumulative_co2=23.517, CHN 15.417, IND 3.573, NGA 0.255. co2_per_capita 2024: USA 14.197, IND 2.201, World 4.729. Fetched the codebook (source 'Global Carbon Budget (2025)'). GitHub API latest commit 2026-06-02. Zenodo search returned 'Global Carbon Budget 2025' doi 10.5194/essd-18-3211-2026 cc-by-4.0. Direct GCB national xlsx URLs on globalcarbonbudgetdata.org returned 404 (path changed), so the primary file URL is unverified.",
+    "site_use": "The 'historical responsibility' and 'consumption vs production' views: cumulative share map, per-capita vs world average, and the imported-emissions gap. These carry the clearest causes message.",
+    "caveats": "OWID per-capita figures use OWID's own population series (WPP plus historical sources), so they differ slightly from GCB's. Cite both and show the population source. Fossil CO2 excludes land-use change. Consumption-based data lags (no 2024 values). Check GCB 2026 in Nov 2026.",
+    "priority": "core"
+   },
+   {
+    "name": "World Development Indicators (WDI) \u2013 population, GDP (PPP), income groups, regions",
+    "publisher": "World Bank",
+    "measures": "SP.POP.TOTL population, NY.GDP.PCAP.PP.KD GDP per capita PPP (constant intl $), plus about 1,400 indicators. Country metadata (region, income group).",
+    "coverage": "1960\u20132025, 217 economies plus aggregates",
+    "latest_release": "WDI lastupdated 2026-07-13 (API source id 2)",
+    "update_cadence": "Several times a year (major July/Dec)",
+    "landing_url": "https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators",
+    "download_urls": [
+     "https://api.worldbank.org/v2/country/WLD;IND;USA/indicator/SP.POP.TOTL?format=json&mrv=2",
+     "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.KD?format=json&per_page=20000",
+     "https://api.worldbank.org/v2/sources/2?format=json"
+    ],
+    "format": "REST JSON/XML/CSV, bulk CSV/XLSX",
+    "license": "CC BY 4.0 (datacatalog.worldbank.org/public-licenses: 'copy, modify and distribute data in any format for any purpose, including commercial use' with attribution). Dataset Terms add the mediation clause and attribution format 'The World Bank: Dataset name: Data source'. Exceptions: some third-party indicators carry other terms in metadata.",
+    "redistribution": "open-attribution",
+    "citation": "World Bank (2026). World Development Indicators (last updated 13 July 2026). The World Bank: World Development Indicators: <indicator source>.",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "API metadata says lastupdated '2026-07-13'. SP.POP.TOTL 2025: World 8,215,424,893; India 1,463,865,525; US 341,784,857. NY.GDP.PCAP.PP.KD 2025: World 21,913.5; India 10,039.1; US 76,931.3. Fetched public-licenses (CC BY 4.0 summary) and the World Bank Dataset Terms text (via the CCKP Terms tab).",
+    "site_use": "Denominators for per-capita and per-GDP figures, and the region/income-group filters ('compare with similar-income countries').",
+    "caveats": "WDI population differs slightly from UN WPP (8.215 vs 8.232 bn for 2025). Pick one denominator per chart and state it. Check per-indicator licence notes for third-party series.",
+    "priority": "core"
+   },
+   {
+    "name": "UN World Population Prospects 2024 (WPP 2024)",
+    "publisher": "UN DESA, Population Division",
+    "measures": "Population (thousands; 1 Jan and 1 July), density, age structure, births, deaths, migration, projections (medium plus scenarios)",
+    "coverage": "1950\u20132100, 237 countries/areas plus UN, SDG, World Bank and geographic aggregates (M49-based)",
+    "latest_release": "WPP 2024 (released 11 July 2024). Interim update 19 Jan 2026 (Togo only). The next revision 'originally planned for 2026, has been postponed for public release until 11 July 2027.'",
+    "update_cadence": "Biennial (currently delayed)",
+    "landing_url": "https://population.un.org/wpp/",
+    "download_urls": [
+     "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz",
+     "https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=Interim%20Update"
+    ],
+    "format": "CSV.gz, XLSX. The Data Portal API (population.un.org/dataportalapi) is available, but data calls returned empty without auth.",
+    "license": "Quoted from the downloads page: 'Copyright \u00a9 2024 by United Nations, made available under a Creative Commons license CC BY 3.0 IGO: http://creativecommons.org/licenses/by/3.0/igo/'",
+    "redistribution": "open-attribution",
+    "citation": "United Nations, Department of Economic and Social Affairs, Population Division (2024). World Population Prospects 2024, Online Edition.",
+    "doi": "None",
+    "status": "Active. The next edition is postponed to 11 July 2027 (verified on the 'Interim Update' tab).",
+    "url_check": "Browser-loaded the WPP home ('World Population Prospects 2024'), the Downloads \u2192 Most used tab (licence and citation text), and the Interim Update tab (release date 19 Jan 2026, postponement notice, Togo correction). Downloaded the CSV.gz (200, 16,557,272 bytes) and parsed it: World TPopulation1July 2025 = 8,231,613 thousand, 2050 = 9,664,379, 2100 = 10,180,160. Guessed WPP2026 URL returned 404.",
+    "site_use": "Projections and age structure on country pages ('population in 2050'). Use as the per-capita denominator for projections and long histories.",
+    "caveats": "Values are in thousands. It differs from WDI, so pick one per chart. Apply the Togo interim correction. Aggregates follow UN groupings, which need mapping to the site's regions.",
+    "priority": "core"
+   },
+   {
+    "name": "Natural Earth (admin-0 countries, admin-1 states/provinces)",
+    "publisher": "Natural Earth (NACIS volunteers)",
+    "measures": "Vector boundaries at 1:10m/50m/110m: countries, map units, states/provinces, populated places",
+    "coverage": "Global",
+    "latest_release": "v5.1.2 (GitHub release 2022-05-13). Master branch VERSION file reads '5.2.0-pre'. The 10m zip Last-Modified is 2022-05-13.",
+    "update_cadence": "Irregular (none since 2022)",
+    "landing_url": "https://www.naturalearthdata.com/",
+    "download_urls": [
+     "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip",
+     "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_1_states_provinces.zip"
+    ],
+    "format": "Shapefile (zip), also GeoJSON on GitHub",
+    "license": "Terms of use: 'All versions of Natural Earth raster + vector map data found on this website are in the public domain.' Suggested (not required) credit: 'Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.'",
+    "redistribution": "open-public-domain",
+    "citation": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.",
+    "doi": "None",
+    "status": "Active but slow-moving (last release 2022)",
+    "url_check": "Fetched the terms-of-use page (quote). HEAD on the admin_0 zip returned 200, 4,930,492 bytes, Last-Modified 13 May 2022. The admin_1 zip returned 200, 14,909,524 bytes. GitHub releases API shows v5.1.2 2022-05-13. Raw VERSION is '5.2.0-pre'.",
+    "site_use": "Default lightweight world/ADM1 basemap (simplified 50m/110m) for the hero globe and choropleths. Licence-free, so it can be bundled into static TopoJSON.",
+    "caveats": "Boundaries are 'de facto' by default and some disputed areas will draw complaints. Natural Earth ships point-of-view variants, so choose one and state it. ADM1 attributes need crosswalks to CCKP/World Bank codes and Climate TRACE GADM IDs.",
+    "priority": "core"
+   },
+   {
+    "name": "World Bank Official Boundaries (ADM0/ADM1/ADM2) v3",
+    "publisher": "World Bank",
+    "measures": "High-resolution World Bank-approved admin 0/1/2 polygons, non-determined legal status areas, ocean mask, ADM1/ADM2 attribute tables",
+    "coverage": "Global, national plus subnational",
+    "latest_release": "Version 3 (Latest), resources last updated Sep 10, 2026. Maintenance log dated 2026-07-10.",
+    "update_cadence": "Annual (per catalog 'Periodicity')",
+    "landing_url": "https://datacatalog.worldbank.org/search/dataset/0038272/world-bank-official-boundaries",
+    "download_urls": [
+     "https://datacatalogfiles.worldbank.org/ddh-published/0038272/DR0095373/WB_GAD_adm1_additional_columns.csv",
+     "https://datacatalogfiles.worldbank.org/ddh-published/0038272/DR0095374/WB_GAD_adm2_additional_columns.csv",
+     "https://datacatalogfiles.worldbank.org/ddh-published/0038272/DR0095372/DataDictionary.xlsx"
+    ],
+    "format": "Shapefile, GeoPackage, Parquet, GeoJSON, CSV attributes",
+    "license": "Catalog page: 'License: Creative Commons Attribution 4.0 \u2013 This dataset is licensed under Creative Commons Attribution 4.0', subject to the World Bank Dataset Terms.",
+    "redistribution": "open-attribution",
+    "citation": "The World Bank: World Bank Official Boundaries (version 3, updated 10 Sep 2026). https://datacatalog.worldbank.org/search/dataset/0038272",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "Browser-loaded the catalog page (v3 Latest, 'Last Updated: Sep 10, 2026', CC BY 4.0, formats listed). Extracted resource links via JS. Downloaded WB_GAD_adm1_additional_columns.csv (200, 102,204 bytes; header ADM1CD_c, SOV_ISO_A3, SOV_NAME, ADM1CD, ADM1CD_t). Geometry zip URLs sit behind resource pages and were not directly fetched.",
+    "site_use": "Geometry of record for subnational drill-downs that use CCKP data (same boundary set, so the numbers match the polygons). Simplify to TopoJSON at build time.",
+    "caveats": "Reflects World Bank boundary policy (disputed areas drawn as 'non-determined legal status'). It must be crosswalked to GADM (Climate TRACE), ONS codes (DESNZ) and FIPS (EIA/NOAA).",
+    "priority": "core"
+   },
+   {
+    "name": "geoBoundaries (gbOpen)",
+    "publisher": "William & Mary geoLab",
+    "measures": "Political administrative boundaries ADM0\u2013ADM5 per country with source metadata, plus the composite CGAZ",
+    "coverage": "Global (230 ADM0 records in gbOpen)",
+    "latest_release": "v6.0.0 (GitHub release 2023-09-14). Latest ADM0 buildDate 'Sep 21, 2023'.",
+    "update_cadence": "Irregular (none since 2023)",
+    "landing_url": "https://www.geoboundaries.org/",
+    "download_urls": [
+     "https://www.geoboundaries.org/api/current/gbOpen/IND/ADM1/",
+     "https://www.geoboundaries.org/api/current/gbOpen/ALL/ADM0/"
+    ],
+    "format": "GeoJSON/TopoJSON/Shapefile via the API (links to GitHub raw)",
+    "license": "The homepage says 'CC BY 4.0' with a required on-page credit ('geoBoundaries' with link back). In practice each boundary carries its own licence: the API's boundaryLicense across 230 ADM0 records gives ODbL 1.0 (84), CC BY 4.0 (63), Public Domain (37), CC BY 3.0 IGO (13), CC BY-SA 2.0 (10), CC BY 2.5 (6), CC0 (6) and others. India ADM1 is 'CC BY 2.5 IN'.",
+    "redistribution": "unclear",
+    "citation": "Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866.",
+    "doi": "10.1371/journal.pone.0231866",
+    "status": "Active project, but no data release since Sept 2023",
+    "url_check": "Fetched the homepage (CC BY 4.0 claim, citation, DOI). The API for IND/ADM1 returned boundaryLicense 'Creative Commons Attribution 2.5 India (CC BY 2.5 IN)', source DataMeet/ECI, year 2011, buildDate Dec 12 2023, gjDownloadURL on GitHub. The ALL/ADM0 API returned 230 records, with the licence counts above. GitHub releases show v6.0.0 on 2023-09-14.",
+    "site_use": "Fallback only, for ADM2 in countries where World Bank boundaries are too coarse. Check the per-country boundaryLicense first.",
+    "caveats": "Not uniformly CC BY. ODbL (share-alike database) and CC BY-SA entries impose share-alike on derived boundary files. Some boundaries are old (India 2011).",
+    "priority": "secondary"
+   },
+   {
+    "name": "UN M49 Standard country or area codes for statistical use (and the SDG GeoArea tree API)",
+    "publisher": "United Nations Statistics Division",
+    "measures": "Numeric M49 codes, ISO alpha-2/alpha-3, region/sub-region/intermediate region hierarchy, LDC/LLDC/SIDS flags, names in 6 UN languages",
+    "coverage": "Global, all countries/areas",
+    "latest_release": "Live web table ('\u00a9 2026 United Nations'). No version date shown.",
+    "update_cadence": "Ad hoc",
+    "landing_url": "https://unstats.un.org/unsd/methodology/m49/overview/",
+    "download_urls": [
+     "https://unstats.un.org/unsd/methodology/m49/overview/",
+     "https://unstats.un.org/SDGAPI/v1/sdg/GeoArea/Tree"
+    ],
+    "format": "HTML table with a client-side CSV/Excel export button (downloadTableEN); SDG API JSON",
+    "license": "No dataset licence on the M49 page. The general UN website Terms of Use (un.org/en/about-us/terms-of-use) allow download 'for the User's personal, non-commercial use, without any right to resell or redistribute them or to compile or create derivative works therefrom'. Code lists are largely factual.",
+    "redistribution": "unclear",
+    "citation": "United Nations Statistics Division. Standard country or area codes for statistical use (M49). https://unstats.un.org/unsd/methodology/m49/ (accessed <date>).",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "Fetched the overview page with curl: about 1,494 <tr> rows across language tables, a 'downloadTableEN' export hook, '\u00a9 2026 United Nations'. SDG API GeoArea/Tree returned JSON starting 'World (total) by SDG regions' \u2192 'Sub-Saharan Africa' \u2192 'Eastern Africa'. Fetched the un.org Terms of Use (restrictive quote above).",
+    "site_use": "Canonical join key (ISO3 plus M49) and regional groupings for the 'compare with region' filter and for matching WPP aggregates.",
+    "caveats": "The UN website ToU is restrictive on paper, so store only the code/region mapping (facts) with citation, and do not republish UN page content. Note that M49 regions differ from World Bank regions and EDGAR macro-regions.",
+    "priority": "core"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "The world emitted 54.1 billion tonnes of greenhouse gases (CO2-equivalent, excluding land use) in 2025, 0.7% more than in 2024.",
+    "value_as_of_latest": "54,149 Mt CO2eq (2025), vs 53,770 Mt (2024), +0.71%",
+    "source_name": "EDGAR 2026 Report (JRC), EDGAR_2026_GHG_booklet_2026.xlsx",
+    "derivation": "Sheet GHG_totals_by_country, row Country='GLOBAL TOTAL', column 2025 = 54,149.174 Mt CO2eq/yr (GWP-100 AR5, fossil CO2 + CH4 + N2O + F-gases, excl. LULUCF). 2024 = 53,769.634. Change = 54,149.174/53,769.634 \u2212 1 = +0.71%. Matches the report text '54.1 Gt \u2026 0.7% increase'."
+   },
+   {
+    "statement": "The average American's share of greenhouse emissions is about 5.6 times the average Indian's: 17.5 vs 3.1 tonnes per person (world average 6.6).",
+    "value_as_of_latest": "USA 17.53 t, India 3.11 t, World 6.62 t CO2eq per person (2025)",
+    "source_name": "EDGAR 2026 Report (JRC), booklet xlsx",
+    "derivation": "Sheet GHG_per_capita_by_country, column 2025: USA 17.533033, IND 3.105054, GLOBAL TOTAL 6.615743. Ratio 17.533/3.105 = 5.65. Show EDGAR's published per-capita column verbatim rather than recomputing it, to respect the IEA-EDGAR CO2 NC-ND terms."
+   },
+   {
+    "statement": "The United States has emitted almost a quarter (23.5%) of all fossil CO2 since 1750. India's share is 3.6% and Nigeria's 0.26%.",
+    "value_as_of_latest": "USA 23.52%, China 15.42%, India 3.57%, Nigeria 0.26% (cumulative through 2024)",
+    "source_name": "Our World in Data CO2 dataset (Global Carbon Budget 2025)",
+    "derivation": "owid-co2-data.csv, column share_global_cumulative_co2, year=2024: United States 23.517, China 15.417, India 3.573, Nigeria 0.255. Fossil and industry CO2 only, excludes land-use change."
+   },
+   {
+    "statement": "Germany and Canada were on average 1.9\u00b0C warmer in 2016\u20132025 than in 1951\u20131980. India warmed 0.8\u00b0C over the same comparison.",
+    "value_as_of_latest": "DEU +1.92\u00b0C, CAN +1.92\u00b0C, USA +1.67\u00b0C, GBR +1.43\u00b0C, NGA +1.09\u00b0C, BRA +0.98\u00b0C, IND +0.80\u00b0C",
+    "source_name": "World Bank CCKP, ERA5 0.25\u00b0 country aggregation",
+    "derivation": "GET cckpapi.worldbank.org/cckp/v1/era5-x0.25_timeseries_tas_timeseries_annual_1950-2025_mean_historical_era5_x0.25_mean/{ISO3}. Mean of annual tas 2016\u20132025 minus mean of annual tas 1951\u20131980. Example DEU: 10.29 \u2212 8.36 = 1.92\u00b0C (computed from unrounded values)."
+   },
+   {
+    "statement": "Under a middle-of-the-road emissions path, India's days above 35\u00b0C rise from about 78 a year (1995\u20132014) to about 95 a year by 2040\u20132059, and Nigeria's from about 98 to about 134.",
+    "value_as_of_latest": "India 77.88 \u2192 94.78 days/yr; Nigeria 98.49 \u2192 134.32 days/yr; USA 11.61 \u2192 24.15 days/yr",
+    "source_name": "World Bank CCKP, CMIP6 0.25\u00b0 multi-model ensemble (median), SSP2-4.5",
+    "derivation": "hd35 climatology, annual, median of the ensemble. Historical: cmip6-x0.25_climatology_hd35_climatology_annual_1995-2014_median_historical_ensemble_all_mean/IND,NGA,USA. Future: \u2026_2040-2059_median_ssp245_ensemble_all_mean/IND,NGA,USA. Country land-area mean of days with Tmax > 35\u00b0C."
+   },
+   {
+    "statement": "In 2024 a Wyoming resident accounted for 85 tonnes of energy-related CO2, more than ten times a Californian's 8.0 tonnes. The US average was 14.1 tonnes.",
+    "value_as_of_latest": "WY 85.2 t, TX 21.7 t, CA 8.0 t, US 14.1 t CO2 per person (2024)",
+    "source_name": "U.S. EIA State Energy Data System, CO2_total.xlsx (released June 26, 2026)",
+    "derivation": "Sheet 'Per capita', column 2024, rows WY, TX, CA, US. Energy-related CO2 only. WY/CA = 85.2/8.0 = 10.7\u00d7. Production states export energy, so add that caveat."
+   },
+   {
+    "statement": "The EU's greenhouse gas emissions in 2024 were 38% below 1990.",
+    "value_as_of_latest": "EU27 3,017.2 Mt CO2e (2024) vs 4,866.9 Mt (1990), \u221238.0%",
+    "source_name": "Eurostat env_air_gge (updated 2026-06-02), from EEA/UNFCCC inventories",
+    "derivation": "API env_air_gge, geo=EU27_2020, unit=MIO_T, airpol=GHG, src_crf=TOTX4_MEMO (total excl. LULUCF and memo items, i.e. excluding international aviation and shipping). 3,017.18798/4,866.90535 \u2212 1 = \u221238.0%."
+   },
+   {
+    "statement": "Emissions across UK local authorities fell 46% between 2005 and 2024. A typical council area now emits about 4.6 tonnes per resident.",
+    "value_as_of_latest": "655.8 Mt CO2e (2005) \u2192 351.3 Mt CO2e (2024); median LA per capita 4.62 t (2024)",
+    "source_name": "DESNZ, UK local authority and regional GHG emissions statistics 2005\u20132024 (30 June 2026)",
+    "derivation": "CSV 2005-24-local-authority-ghg-emissions-csv-dataset.csv. Sum 'Territorial emissions (kt CO2e)' over all rows for Calendar Year 2024 (351,272.8 kt) and 2005 (655,801.6 kt): \u221246.4%. Per-LA per capita = sum of territorial kt per LA \u00f7 'Mid-year Population (thousands)', median across 361 LAs = 4.62 t. Territorial totals include LULUCF."
+   },
+   {
+    "statement": "Climate vulnerability and readiness are very unequal. Norway scores 71.8 on the ND-GAIN index while Chad scores 26.4, the lowest of 190 countries.",
+    "value_as_of_latest": "Norway 71.85, Finland 71.10, Germany 69.23 \u2026 Eritrea 27.36, Somalia 27.00, Chad 26.42 (data year 2024)",
+    "source_name": "ND-GAIN Country Index 2026 edition",
+    "derivation": "ndgain_countryindex_2026.zip, file 'resources 2/gain/gain.csv', column '2024', sorted descending/ascending over the 190 non-null rows."
+   },
+   {
+    "statement": "California's activities emitted an estimated 436 million tonnes CO2e in 2025, and the London urban area about 68 million tonnes.",
+    "value_as_of_latest": "California 435.8 Mt CO2e; London Urban Area 67.6 Mt CO2e; Wyoming 114.3 Mt CO2e (2025, 100-yr GWP)",
+    "source_name": "Climate TRACE release 5.11.0 (24 Sep 2026), API v7",
+    "derivation": "GET api.climatetrace.org/v7/sources/emissions?year=2025&gas=co2e_100yr&gadmId=USA.5_1 \u2192 totals.summaries[0].emissionsQuantity = 435,842,071 t. The same call with cityId=ghs-fua_5288 gives 67,630,310 t. With gadmId=USA.51_1, 114,281,552 t. All gases and sectors, model-based estimates; record the release number with the value."
+   }
+  ],
+  "drilldown_paths": [
+   "World \u2192 country (cause view): globe choropleth of per-capita GHG (EDGAR 2026 GHG_per_capita_by_country) \u2192 click a country \u2192 1970\u20132025 total and sector stack (EDGAR booklet GHG_by_sector_and_country) \u2192 'who emitted first' cumulative share bar (OWID co2-data share_global_cumulative_co2, GCB 2025) \u2192 production vs consumption gap (OWID consumption_co2_per_capita). Denominators from WDI SP.POP.TOTL. Country polygons from Natural Earth or World Bank Official Boundaries.",
+   "Country \u2192 consequences: annual temperature since 1950 with the 1951\u20131980 band (CCKP era5-x0.25 tas timeseries) \u2192 'this year vs normal' (OWID ERA5 anomaly vs 1991\u20132020, labelled) \u2192 'hot days now vs 2050' under SSP1-2.6/2-4.5/5-8.5 (CCKP cmip6 hd35 climatologies) \u2192 people exposed (GHS-POP R2023A zonal sum over CCKP grid or ADM1) \u2192 vulnerability vs readiness (ND-GAIN gain/vulnerability/readiness CSVs).",
+   "Country \u2192 state/province (both sides): ADM1 choropleth. US: EIA SEDS per-capita CO2 by state \u2192 fuel/sector history 1960\u20132024 \u2192 NOAA Climate at a Glance state and county temperature 1895\u20132025. UK: DESNZ local authority \u2192 sector/sub-sector \u2192 'within LA scope of influence'. EU: Eurostat env_air_gge country \u2192 CRF sector, plus EDGAR 1 km grid for the regional heatmap. Rest of world: Climate TRACE v7 /sources/emissions?gadmId (ADM1/2, IDs crosswalked to World Bank geometry) plus CCKP ADM1 temperature.",
+   "State \u2192 city \u2192 facility: urban centre from GHS-UCDB R2024A (population, heat exposure, EDGAR-derived emissions themes) \u2192 Climate TRACE cityId=ghs-fua_* total and monthly trend through Jul 2026 \u2192 top named emitting sources and owners in that city (Climate TRACE /v7/sources ranked) \u2192 what the city has pledged and reported (GCoM MyCovenant 7th release df1/df2/df3; CDP-ICLEI only as an outbound link).",
+   "Compare two places side by side (clarity mode): pick any two countries or states \u2192 same-scope metrics only (EDGAR all-GHG per capita, OWID cumulative share, CCKP warming 2016\u20132025 vs 1951\u20131980, ND-GAIN). Every number carries a scope chip ('energy CO2 only', 'all GHG excl. LULUCF', 'model estimate', 'officially reported').",
+   "'Official vs independent' lens for any country: Eurostat/EEA (EU), DESNZ (UK), EPA state inventory (US, to 2022), PRIMAP-hist HISTCR (Global South; NC-SA) vs EDGAR and Climate TRACE. The divergence (e.g. Wyoming 50 Mt EIA energy-CO2 vs 114 Mt Climate TRACE all-gas) becomes a teaching moment about scope.",
+   "Provenance drill (for every number): click any figure \u2192 panel with source name, publisher, vintage/release date, exact file URL or API call, row/column used, transformation formula, licence, and a link to the site's frozen snapshot of the raw file (where the licence allows redistribution)."
+  ],
+  "action_links": "How the data connects to action (only verified sources):\n(1) Individuals: compare personal context to the country and world per-capita averages (EDGAR 2026 per-capita sheet; OWID consumption-based CO2 per capita). The sector stack shows where national emissions come from (EDGAR GHG_by_sector_and_country: power, transport, buildings, agriculture), so a visitor can see which everyday systems dominate. Do not invent a personal 'budget' number without a cited source.\n(2) Communities and cities: the DESNZ column 'Emissions within the scope of influence of LAs (kt CO2)' shows what a UK council can actually change. The GCoM MyCovenant 7th release (JRC, CC BY 4.0) lists, for 12,312 signatory cities, their 2020/2030/2050 commitments (commitment_CoM2030_flag etc.), action plans (df2) and monitoring progress (df3). Visitors can check whether their city signed and whether it reports progress. Climate TRACE names the largest emitting facilities and owners in a city or state (/v7/sources ranked; owners via /v7/owners), and its data page offers a 'Top Emission Reduction Strategies' dataset, giving activists concrete targets for local advocacy.\n(3) Policymakers and advocates: official vs independent inventories (Eurostat/EEA, DESNZ, EIA vs EDGAR/Climate TRACE) show progress against 1990/2005 baselines (EU \u221238% vs 1990; UK local authorities \u221246% vs 2005). ND-GAIN readiness vs vulnerability shows where adaptation finance matters most (Chad 26.4 vs Norway 71.8). CCKP CMIP6 scenarios (SSP1-2.6 vs SSP5-8.5) let users see how much of the future heat (e.g. days >35\u00b0C) depends on emissions choices. Climate Watch (WRI; CC BY 4.0, verified at climatewatchdata.org/about/permissions; citation 'Climate Watch. 2026. Washington, DC: World Resources Institute') provides NDC targets and net-zero pledges per country for a 'what has my government promised' link. Note its FAO-sourced LULUCF data requires FAO permission to republish.\nSources: https://edgar.jrc.ec.europa.eu/report_2026 ; https://github.com/owid/co2-data ; https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-statistics-2005-to-2024 ; https://data.europa.eu/data/datasets/6684edc9-9b78-464a-990d-810555957550 ; https://climatetrace.org/data ; https://ec.europa.eu/eurostat/databrowser/view/env_air_gge/default/table ; https://gain.nd.edu/our-work/country-index/download-data/ ; https://climateknowledgeportal.worldbank.org/download-data ; https://www.climatewatchdata.org/about/permissions",
+  "gaps_and_risks": "LICENCE TRAPS (most important for the 'every number traceable and downloadable' promise):\n(a) EDGAR's fossil-CO2 component (IEA-EDGAR CO2 v5) is CC BY-NC-ND 4.0. The site is non-commercial, but 'no derivatives' means re-aggregated or per-capita CSVs that include fossil CO2 are risky. Either show EDGAR's own published columns verbatim and link to the official xlsx, or get written permission from compliance@iea.org. EDGAR CH4/N2O/F-gases and the 1 km grids are CC BY 4.0.\n(b) PRIMAP-hist switched to CC BY-NC-SA 4.0 at v2.8 (2026-09-29). Share-alike would force any derived CSV to be NC-SA, so keep its data separate. v2.7 (CC BY) is the last fully open pin.\n(c) Berkeley Earth is CC BY-NC 4.0, and its country series are request-only and preliminary, so avoid it.\n(d) The CDP open-data licence is non-commercial, custom, 'all rights reserved', and requires the notice to be kept, so link out only.\n(e) Climate TRACE admin IDs are GADM. GADM says 'Redistribution or commercial use is not allowed without prior permission'. Never ship GADM polygons; crosswalk IDs to World Bank Official Boundaries or Natural Earth.\n(f) geoBoundaries is not uniformly CC BY: 84 of 230 ADM0 boundaries are ODbL and 10 are CC BY-SA 2.0. Check per boundary.\n(g) ND-GAIN publishes no licence (only a suggested citation). Ask for permission before offering re-downloads.\n(h) UN M49 sits under the restrictive generic UN website ToU. Store only the factual code mapping, with citation.\n(i) Eurostat bars commercial reuse of non-European country data (fine for a non-commercial site, but record it).\n\nSTATUS RISKS (mirror raw files on every build, with SHA-256 and fetch date):\n- EPA state inventory frozen at 1990\u20132022 (Sept 2024). The national 1990\u20132023 report was never finalised on EPA's site. On 12 Sep 2025 EPA proposed removing GHGRP obligations for 46 source categories.\n- NASA GISS lost its building (lease terminated 25 Apr 2025, staff remote since Jun 2025). GISTEMP still updates monthly (Sept 2026) but should be treated as at-risk.\n- NOAA NCEI Climate at a Glance is live (2025 data present), but sits in the at-risk US federal category. No retirement notice was found.\n- UN WPP 2026 is postponed to 11 Jul 2027, so WPP 2024 plus the Togo interim update (19 Jan 2026) stays current.\n- geoBoundaries (v6.0.0, Sept 2023) and Natural Earth (v5.1.2, May 2022) are stale but stable.\n- Climate TRACE's API is labelled 'Beta': v6 and v7 return different world totals (57.8 vs 54.4 Gt CO2e for 2025), so pin the release (5.11.0) and API version.\n\nCOMPARABILITY RISKS (the main threat to 'clarity'):\n- Different scopes and gases: EIA energy-CO2 vs EPA/EEA all-GHG vs Climate TRACE model estimates. Wyoming is 50 Mt (EIA, 2024) vs 114 Mt (Climate TRACE, 2025).\n- Different GWPs (AR5 vs AR6, 100- vs 20-yr), LULUCF in or out, international bunkers in or out.\n- Different temperature baselines: GISTEMP 1951\u20131980, OWID/ERA5 1991\u20132020, CCKP absolute values.\n- Different population denominators: WDI 8.215 bn vs WPP 8.232 bn for 2025.\n- Different entity codes: EDGAR pseudo-codes (GLOBAL TOTAL, EU27, AIR, SEA); OWID_*; GADM; World Bank ADM1CD; ONS E06\u2026; US FIPS/postal.\nThe site needs a single crosswalk table (ISO3 + M49 + WB + GADM + Natural Earth + national codes) and a 'scope chip' on every number.\n\nCOVERAGE GAPS:\n- India and China subnational official data is weak. China provincial inventories (CEADs, to 2022) are login-gated with no clear licence. India has no official state GHG inventory.\n- The Climate Watch 'UNFCCC Non-Annex I' series is stale (China latest 2014, India 2016 in its API).\n- UNFCCC BTR/CRT submissions could not be verified because unfccc.int and di.unfccc.int presented an Imperva CAPTCHA, which was not bypassed. Treat India/China official BTR inventory years as unverified, and use PRIMAP-hist HISTCR (NC-SA) or EDGAR/Climate TRACE with clear labelling.\n- Direct GCB national xlsx URLs returned 404 (path changed), so GCB is reached via OWID plus the ESSD DOI. GCB 2026 is expected Nov 2026.\n- Copernicus publishes no official country temperature series. Country values are always a derivation (CCKP's or OWID's), so say who did the aggregation.\n- CCKP has no version stamp, so snapshot each pull.\n\nACCESS AND COST:\n- CCKP and ND-GAIN block default bot user-agents (403). A build-time fetcher needs a normal UA.\n- The ERA5 CDS API needs a free ECMWF account (keep the token in Keychain). The EIA API needs a free key, but bulk xlsx needs none.\n- Large files (EEA bundle 2.2 GB, GHS-POP 30ss 461 MB, UCDB 264 MB, EDGAR monthly zips 68\u201373 MB) must be processed offline into small static JSON/Parquet aggregates. Serve only aggregates plus licence-permitted raw snapshots from object storage, to stay well under $20/month."
+ },
+ "verification": {
+  "domain": "Country, regional and local drill-down data (country/state/city climate, emissions, exposure, vulnerability, boundaries and denominators). Fact-checked 2026-10-04 with live API, FTP, Zenodo, DataCite and Crossref calls, plus in-memory parsing of the EDGAR, EIA, DESNZ, OWID, WPP, ND-GAIN and GCoM files.",
+  "verdicts": [
+   {
+    "name": "Climate Change Knowledge Portal (CCKP): ERA5 and CMIP6 aggregated to countries, ADM1 and watersheds",
+    "verdict": "corrected",
+    "corrections": "Data, licence and status are confirmed. I re-ran the ERA5 API call: 76 values (1950-07 to 2025-07) for each of the 7 ISO3 codes. A 1950-2026 period code returns an empty data array, so 2025 is the latest year. The hd35 calls return IND 77.88\u219294.78, NGA 98.49\u2192134.32, USA 11.61\u219224.15 days. The CCKP site still returns 403 to curl. In a real browser its Terms tab says 'CCKP data is disseminated by the World Bank under its Open Data policy', followed by the CC BY 4.0 Dataset Terms text quoted in the research.\n\nCORRECTION (citation URL): https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets now redirects to the general T&C page (https://www.worldbank.org/ext/en/legal/terms-conditions). That page says that for 'the remainder of the Materials, you may make non-commercial uses thereof, but you may not make any derivative work'. An activist following the old link would therefore land on non-commercial terms. Link to the correct page instead: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets. It confirms CC BY 4.0 plus the non-binding mediation clause and the attribution format 'The World Bank: Dataset name: Data source (if known)'.\n\nThe terms also add a pass-through duty the research left out: 'When sharing or facilitating access to the Datasets, you agree to include the same acknowledgment requirement in any sub-licenses'. Any CSV the site re-serves must carry that requirement.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "ERA5 monthly averaged data on single levels (Copernicus C3S), plus the OWID country-aggregated temperature anomalies derived from it",
+    "verdict": "confirmed",
+    "corrections": "CDS STAC confirmed: title, updated 2026-09-06T00:00:00Z, temporal interval 1940-01-01 to 2026-08-01, license link https://spdx.org/licenses/CC-BY-4.0, sci:doi 10.24381/cds.f17050d7. The DOI resolves to cds.climate.copernicus.eu/doi/10.24381/cds.f17050d7.\n\nOWID CSV confirmed: World 2024=0.71951944, 2025=0.5916424; Germany 2024=1.5575336, Germany 2025=0.6813533. The monthly CSV URL returns 200.\n\nMinor fixes to the metadata description:\n- The field is 'updatedAt' (2026-09-11T10:22:02Z), not 'lastUpdated'.\n- OWID's origin licence is labelled 'Copernicus License' and points to the CDS dataset page. The CC BY 4.0 basis comes from the CDS STAC, not from OWID's metadata.\n- The origin citationFull in OWID metadata shows the ERA5 access date as 21-August-2026.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NASA GISS Surface Temperature Analysis (GISTEMP v4)",
+    "verdict": "corrected",
+    "corrections": "Files, vintage and status are confirmed:\n- Page footer: 'Page updated: Sep 11, 2026'. The news section also has a 14 Sep 2026 item.\n- gistemp1200_GHCNv4_ERSSTv5.nc.gz: HEAD 200, Last-Modified 08 Sep 2026, 25.9 MB. gistemp250_GHCNv4.nc.gz: 200, Last-Modified 08 Sep 2026.\n- GLB.Ts+dSST.csv: 2025 J-D=1.19, and the 2026 row runs to Aug=1.40.\n- Lenssen et al. 2024 DOI 10.1029/2023JD040179 resolves (JGR Atmospheres 129, 'A NASA GISTEMPv4 Observational Uncertainty Ensemble').\n- The Wikipedia GISS article confirms the lease cancellation announced 25 Apr 2025 and remote working since 1 Jun 2025.\n\nCORRECTION (licence basis): the Earthdata guidance quoted applies to data 'from a NASA-led mission' under ESDIS. GISTEMP is a GISS analysis, not an ESDIS mission product. The sounder basis for public domain is that it is a US federal government work (17 U.S.C. \u00a7105), and its inputs (NOAA GHCNv4, ERSSTv5) are also US federal works. The redistribution classification is unchanged.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Berkeley Earth high-resolution temperature (country/state/city series)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed on https://berkeleyearth.org/data/:\n- Licence: 'Berkeley Earth's data is licensed under Creative Commons BY-NC 4.0 International for non-commercial use only.'\n- Country, state/province and the ~8,000 city series are 'by request'.\n- The high-resolution data is beta and 'preliminary'.\n- The ESSD description paper is open for review (9/2/2026).\n- Malaysia sample header: 'PRELIMINARY DATA\u2026 NOT YET PEER REVIEWED', run 06-Mar-2023. The legacy US file was run 08-Jun-2016 (S3 Last-Modified 2023-10-26).\n\nMISSED STATUS: the data page also says 'Effective Q2 2025 the 1\u00b0x1\u00b0 resolution time series and gridded products below are no longer being updated'. The global annual file (storage.googleapis.com/.../Global_TAVG_annual.txt) does still update (Last-Modified 2026-09-14). The 'avoid' verdict stands.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "NOAA NCEI Climate at a Glance (statewide, county and city time series, built on nClimDiv)",
+    "verdict": "confirmed",
+    "corrections": "Statewide CSV confirmed. The header reads '# \"California January-December Average Temperature\" / # Units: Degrees Fahrenheit'. Values: 2023=58.3, 2024=60.5, 2025=60.4.\n\nThe LA County JSON title is confirmed. DataCite confirms DOI 10.7289/V5M32STR: 'NOAA Monthly U.S. Climate Divisional Database (NClimDiv)', 2014, Vose, Applequist, Squires, Durre. Public domain under 17 U.S.C. \u00a7105 is correct for a federal work. The at-risk label is reasonable; no retirement notice was seen.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "ND-GAIN Country Index (vulnerability and readiness)",
+    "verdict": "confirmed",
+    "corrections": "The zip link /assets/647440/ndgain_countryindex_2026.zip is the only data link on the page. It returns 403 with curl's default UA and 200 (application/zip, Last-Modified 18 Aug 2026) with a browser UA. Zip entries are dated 2026-08-18.\n\ngain/gain.csv holds 190 non-null 2024 scores: TCD 26.415, SOM 26.996, ERI 27.360 \u2026 DEU 69.235, FIN 71.095, NOR 71.849.\n\nThe page shows no licence, only 'Copyright \u00a9 2026 University of Notre Dame'. Its suggested citation is now worded generically: 'Notre Dame Global Adaptation Initiative Country Index (ND-GAIN). (Current Year). University of Notre Dame.' The 'unclear' classification is correct; ask for permission before offering re-downloads.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "EDGAR Community GHG Database, EDGAR_2026_GHG, and 'GHG emissions of all world countries \u2013 2026 Report'",
+    "verdict": "confirmed",
+    "corrections": "FTP listing confirmed: EDGAR_AR5_GHG_1970_2025.zip 9.2M and IEA_EDGAR_CO2_1970_2025.zip 4.4M, both 2026-09-18. The booklet xlsx (4.5M) is dated 2026-09-03. A fossil-CO2-only booklet (EDGAR_2026_GHG_booklet_2026_fossilCO2only.xlsx) also exists.\n\nThe booklet's 'Citations and references' sheet confirms the wording 'IEA-EDGAR CO2 (v5) data are \u2026 licensed under CC BY-NC-ND 4.0. Users of IEA-EDGAR CO2 data should contact the IEA at compliance@iea.org for permission to use.' The dataset_ghg2026 web page phrases it as contacting the IEA 'if they wish to use such data outside the terms of the CC-BY-NC-ND 4.0 licence'.\n\nCONTRADICTION TO RECORD: the copyright.txt in /EDGAR_2026_GHG/ (dated 2026-03-05) is the generic EC notice. It licenses 'any copyright and/or sui generis right on the dataset' under CC BY 4.0 with no IEA carve-out, even though it sits in the same folder as the IEA zip. The more specific booklet and web-page terms should govern, so stay conservative: treat fossil CO2 as NC-ND.\n\nDOI 10.2760/7717504 resolves to op.europa.eu (PUB_KJ0126358ENN). Values were re-parsed and match (see headline checks). 'noncommercial-only' understates the restriction: fossil CO2 and any total that includes it are also no-derivatives.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate TRACE emissions inventory (country, admin-1/2, city and asset level) and API v7",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- Release 5.11.0 (24 Sep 2026), monthly data to July 2026.\n- API v7 (openapi.json actually serves YAML: title 'Climate TRACE API', version 7.2.0, openapi 3.1.0). Paths include /v7/admins, /v7/cities, /v7/owners, /v7/rankings/countries, /v7/sources, /v7/sources/emissions, and /v7/definitions/*.\n- Terms are CC BY 4.0, with a warning that some external sources (EDGAR, FAOSTAT, US EPA, EU registers) 'may have different specific terms'.\n- The 'Top Emission Reduction Strategies' dataset exists.\n- Live values match: global 2025 = 54,418,388,107 t, CHN 16.60 Gt (11.77 t/cap), USA 6.35 Gt (19.16 t/cap), California 435,842,071 t, Wyoming 114,281,552 t, London ghs-fua_5288 67,630,310 t.\n\nCORRECTION 1 (important): the v6 vs v7 gap is a scope difference, not a version discrepancy.\n- v7 /rankings/countries with sectors=forestry-and-land-use returns \u22123,375,236,620 t for 2025.\n- v7 with every sector except forestry-and-land-use returns 57,793,624,727 t, which exactly equals the v6 /country/emissions total (57,793,624,726.5).\n- So v7 defaults include net forestry and land-use removals, while v6 excluded them.\n- California's 435.8 Mt includes \u221218.8 Mt net forestry; without forestry it is about 454.6 Mt.\n- Every Climate TRACE number needs a 'net incl. forestry/land use' or 'excl. LULUCF' scope chip. EDGAR's 54.1 Gt (excl. LULUCF) must never be compared side by side with Climate TRACE's 54.4 Gt (incl. net LULUCF). Like-for-like, Climate TRACE is 57.8 Gt excl. LULUCF.\n\nCORRECTION 2: city IDs come from 'the GHS FUA dataset' (Functional Urban Areas), per the openapi field descriptions. They are not from GHS-UCDB R2024A (see the GHSL entry).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Global Human Settlement Layer: GHS-POP R2023A population grid and GHS-UCDB R2024A Urban Centre Database",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- GHS-POP R2023A epoch folders are dated 2024-01-10. The E2025 30ss V1-0 folder is dated 2025-01-27.\n- The UCDB R2024A V1-2 zip is 264M (2026-05-19), with 16 theme folders dated 2026-06-17.\n- The GHSL how-to-cite page says CC BY 4.0 'for any purpose, including commercial uses', and that 'appropriate credit' means citing the peer-reviewed reference.\n- DataCite confirms 10.2905/2FF68A52\u2026 (GHS-POP R2023A; Schiavina, Freire, MacManus 2023) and 10.2905/1a338be6\u2026 ('GHS-UCDB R2024A - GHS Urban Centre Database 2025'). Its listed creator is Kemper, Thomas, so the UCDB citation needs a creator.\n- Crossref confirms Pesaresi et al. 2024, IJDE 17, doi 10.1080/17538947.2024.2390454.\n- No newer global GHS-POP release exists on the FTP. GHS_WUP_POP_GLOBE_R2025A (2025-12-06) is a separate product.\n\nCORRECTION: the claim that the UCDB's 'FUA IDs match Climate TRACE city IDs (ghs-fua_*)' is unsupported. Climate TRACE's API documents cityId as 'unique identifier of an Urban Area in the GHS FUA dataset'. That is the separate GHS-FUA product (FTP GHS_FUA_UCDB2015_GLOBE_R2019A, dated 2019-12-06). UCDB R2024A is an urban-centre (UC) database, so it needs a spatial crosswalk to FUAs; the keys are not shared. The caveat about fossil-CO2 fields in the UCDB emissions theme inheriting the IEA NC-ND restriction remains valid.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Global Covenant of Mayors (GCoM) \u2013 MyCovenant action plans and monitoring reports",
+    "verdict": "confirmed",
+    "corrections": "FTP confirmed: 2026_Seventh_release/ (folder 2026-10-03) holds df1 (1.8M), df2 (59M) and df3 (30M), all dated 2026-09-30. The df2 HEAD returned 200 at 61,819,222 bytes.\n\nThe df1 README (parsed) shows:\n- Dataset 'GCoM - MyCovenant, 7th Release - August 2026'; Last Update January 2026; Last modified August 2026.\n- The CC BY 4.0 EC copyright notice. It still reads '(c) European Union, 1995-2023'.\n- The citation as quoted.\n\nSheet '1' is 12,312 \u00d7 23 with the listed columns, including nuts3_code and gcom_id. Note that the dataset ID wording is inconsistent between the README ('August 2026') and the citation and file names ('January 2026'). Cite the file name exactly. The 7th-release data.europa.eu UUID remains unverified.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "CDP-ICLEI Track \u2013 Cities, States and Regions open data",
+    "verdict": "confirmed",
+    "corrections": "Metadata for iqgn-4x2k confirmed: '2025 CHAMP Subnational data for national transition planning- Full Cities Public data', created and updated 2026-09-24, license null.\n\nThe Terms PDF (CDP_Open_Data_Portal_Terms_of_Use_and_License_JE_WIP__120324.pdf, 'Version date: April 2024') confirms clause 1.1(a) non-commercial, 4.2 'All intellectual property rights are reserved', and the keep-notices duty.\n\nADDITIONAL RESTRICTIONS the research missed:\n- 2.2: the licensor may 'unilaterally terminate this License with immediate effect'.\n- 2.3: commercial use is 'strictly prohibited'.\n- 3.2.2: you must include a copy of the License.\n- 3.4.2\u20133.4.3: the attribution must hyperlink to data.cdp.net and be at least 70% of the largest font or 7px.\n- 3.5: no sublicensing.\n\nThe termination right alone makes it unsuitable for frozen snapshots. Link out only.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "EIA State Energy Data System (SEDS) \u2013 State energy-related CO2 emissions",
+    "verdict": "confirmed",
+    "corrections": "CO2_total.xlsx confirmed: 99,592 bytes. The Contents sheet reads 'Release date: June 26, 2026' and 'Next update: June 25, 2027'.\n\nValues:\n- Total CO2 2024: TX 679.932, CA 315.984, WY 50.004, US 4,780.661 Mt.\n- Per capita 2024: WY 85.2, TX 21.7, CA 8.0, US 14.1.\n\nThe landing page confirms the release dates. It also carries a correction notice: the 2017\u20132018 series had omitted distillate inputs to electric power, now replaced. This matters only for anyone holding older snapshots. use_all_btu.csv returns 200 (Last-Modified 2026-05-26, so it predates the June release; check its vintage separately).",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "EPA Inventory of U.S. Greenhouse Gas Emissions and Sinks by State (and the GHGRP facility programme)",
+    "verdict": "confirmed",
+    "corrections": "Confirmed:\n- The state page links only allstateghgdata90-22_v082924.zip (HEAD 200, 17,863,051 bytes, Last-Modified 2025-04-23 because it was re-uploaded with an April 2025 README). The page reads 'Last updated on September 16, 2026'.\n- The national page still lists 1990\u20132022 as published, with only the 1990\u20132023 draft (FR Doc. 2024-31058) and comments due 17 Mar 2025. There is no 1990\u20132024 report.\n- The GHGRP page quotes the 12 Sep 2025 proposal to 'permanently remove program obligations for 46 source categories'. The latest data shown is 'RY2023'; the page was updated 22 Sep 2026; no final rule is shown.\n\nThe at-risk/stalled status is correct.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Eurostat \u2013 Greenhouse gas emissions by source sector (env_air_gge), with the EEA GovReg national emissions dataset upstream",
+    "verdict": "corrected",
+    "corrections": "Data confirmed:\n- API label 'Greenhouse gas emissions by source sector', updated 2026-06-02T23:00:00+0200, DOI annotation 10.2908/ENV_AIR_GGE.\n- EU27_2020 TOTX4_MEMO: 1990=4,866.90535; 2023=3,088.34664; 2024=3,017.18798.\n- The EEA SDI record f6a252a6\u2026 is 'GovReg\u2026 2026 ver. 3.0', published 2026-10-02 (created 2026-09-15), licence 'CC-BY 4.0\u2026 Copyright holder: European Environment Agency (EEA)'. DataCite confirms both DOIs.\n\nCORRECTIONS:\n(1) The working copyright-notice URL is https://ec.europa.eu/eurostat/web/main/help/copyright-notice. The /about-us/policies/copyright path returns 404.\n(2) The non-commercial-only exceptions are broader than stated. They cover 'Data identified as belonging to sources other than Eurostat', co-publications, and 'Data for countries other than' EU, EFTA and candidate countries. Inventory data that Eurostat redisseminates from the EEA/UNFCCC is CC BY 4.0 at the EEA source anyway. This does not affect a non-commercial site, but record it.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "UK local authority and regional greenhouse gas emissions statistics, 2005 to 2024",
+    "verdict": "corrected",
+    "corrections": "Files confirmed:\n- All asset URLs are listed on the release page, together with extra assets: protected-landscapes xlsx, LULUCF LA report, statistical release PDF.\n- CSV is 586,765 rows \u00d7 15 columns. The researcher omitted 'Country Code', 'Region Code' and 'Second Tier Authority' from the column list.\n- Licence is OGL v3.0, Accredited Official Statistics.\n\nCORRECTION (date): GOV.UK shows 'Published 25 June 2026, Last updated 30 June 2026' (datePublished 2026-06-25T09:30, dateModified 2026-06-30, adding web-accessible PDFs). Cite 'published 25 June 2026 (updated 30 June 2026)', not 'published 30 June 2026'.\n\nCORRECTION (scope): the CSV contains pseudo-authorities under Country='Unallocated' with no LA code: 'Unallocated consumption', 'Unallocated electricity NI', and 'Large elec users (high voltage lines) unknown location'. There are 361 real LA codes; grouping by name gives 364. See the headline check.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "PRIMAP-hist national historical emissions time series v2.8",
+    "verdict": "corrected",
+    "corrections": "v2.8 confirmed:\n- Zenodo 22876287 was published 2026-09-29, licence cc-by-nc-sa-4.0, with files dated 22-Sep-2026.\n- The direct CSV URL resolves (200, 77,184,781 bytes).\n- The recommended citations are as quoted. The 2016 ESSD DOI resolves (ESSD 8, 571\u2013603).\n\nCORRECTION (important): the licence did NOT change at v2.8. v2.7 (Zenodo 17090760, published 2025-09-15, '1750-2024') is tagged cc-by-nc-sa-4.0 in Zenodo metadata. Its description says 'Since v2.7 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA)'.\n\nThe Zenodo versions API shows:\n- v2.6.1: 2025-03-13, cc-by-4.0, doi 10.5281/zenodo.15016289, '1750-2023'. This is the last CC BY version.\n- v2.6: 2024-09-13, cc-by-4.0, doi 10.5281/zenodo.13752654.\n\nThe suggestion to pin v2.7 as 'CC-BY-compatible' is wrong. Climate Watch cites v2.7 (verified on its permissions page), so Climate Watch's PRIMAP-derived series also carry NC-SA terms. If a CC BY pin is needed, use v2.6.1 (data to 2023).",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "OWID CO2 and greenhouse gas emissions dataset (upstream: Global Carbon Budget 2025)",
+    "verdict": "corrected",
+    "corrections": "Confirmed:\n- The CSV max year is 2024.\n- share_global_cumulative_co2 2024: USA 23.517, CHN 15.417, IND 3.573, NGA 0.255. co2_per_capita 2024: USA 14.197, IND 2.201, World 4.729.\n- Consumption per capita is NaN in 2024 for countries; 2023 has USA 15.814, IND 1.768.\n- Latest GitHub commit is 2026-06-02 ('Update EIA data\u2026').\n- The codebook source is 'Global Carbon Budget (2025)'. Its definition says cumulative 'since the first year of available data', so do not hard-code '1750' unless verified per country.\n- Crossref confirms GCB 2025: ESSD 18, 3211\u20133288, issued 2026-05-13.\n\nCORRECTION (gap closed): the primary GCB national file can be traced. DataCite DOI 10.18160/GCP-2025 ('Supplemental data of Global Carbon Budget 2025', CC BY 4.0) resolves to https://www.icos-cp.eu/GCP/2025. The ICOS objects, under the 'ICOS CCBY4 Data Licence', are:\n- National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (https://meta.icos-cp.eu/objects/loCXyssaalv6DPdO6Qdj90qQ)\n- National_LandUseChange_Carbon_Emissions_2025_v1.0.xlsx (\u2026/milTbWkl0G-MSpdYG3IBIfzy)\n- Global_Carbon_Budget_2025_v1.0.xlsx (\u2026/qSjPBsV1drZnYdH-yCJMmkGn)\nAll were submitted 2026-05-17. Downloads go through data.icos-cp.eu/licence_accept. Cite these as the primary source and OWID as the processor.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "World Development Indicators (WDI) \u2013 population, GDP (PPP), income groups, regions",
+    "verdict": "confirmed",
+    "corrections": "API values confirmed:\n- sources/2 is 'World Development Indicators', lastupdated 2026-07-13.\n- SP.POP.TOTL 2025: WLD 8,215,424,893; IND 1,463,865,525; USA 341,784,857.\n- NY.GDP.PCAP.PP.KD 2025: WLD 21,913.51; IND 10,039.07; USA 76,931.31.\n\nThe dataset-terms link must use the current URL https://www.worldbank.org/ext/en/legal/terms-conditions/datasets, because the old URL redirects to the general non-commercial T&C (see the CCKP entry). That page also confirms the 'Exceptions for Some Third-Party Data' clause.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "UN World Population Prospects 2024 (WPP 2024)",
+    "verdict": "confirmed",
+    "corrections": "The CSV.gz returns 200: 16,557,272 bytes, Last-Modified 13 Dec 2024. World TPopulation1July is 2025=8,231,613; 2050=9,664,379; 2100=10,180,160 (thousands).\n\nThe site's assets/downloads.json carries the footer 'Copyright \u00a9 2024 by United Nations, made available under a Creative Commons license CC BY 3.0 IGO' and the suggested citation. It also carries the Interim Update tab text: 'Release date: 19 January 2026\u2026 The next revision, originally planned for 2026, has been postponed for public release until 11 July 2027', plus the Togo interim update. The FAQ in the main JS bundle also says 'The next one is due on 11 July 2027'.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Natural Earth (admin-0 countries, admin-1 states/provinces)",
+    "verdict": "confirmed",
+    "corrections": "The terms page says 'All versions of Natural Earth raster + vector map data found on this website are in the public domain'; credit is optional. HEAD checks: admin_0 zip 200, 4,930,492 bytes, Last-Modified 13 May 2022; admin_1 zip 200, 14,909,524 bytes. The GitHub releases API shows v5.1.2 on 2022-05-13, and the master VERSION file reads '5.2.0-pre'.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "World Bank Official Boundaries (ADM0/ADM1/ADM2) v3",
+    "verdict": "confirmed",
+    "corrections": "The catalog page, loaded in a browser, shows 'Version: 3 (Latest)', 'Metadata last updated on Sep 10, 2026', every format resource 'Last Updated: Sep 10, 2026', Periodicity Annual, and 'License: Creative Commons Attribution 4.0'.\n\nHEAD checks: WB_GAD_adm1_additional_columns.csv 200, 102,204 bytes, Last-Modified 2026-09-10. adm2 CSV 200, 5,751,473 bytes. DataDictionary.xlsx 200.\n\nThe World Bank Dataset Terms (correct URL: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets) apply on top, including the sub-licence acknowledgment pass-through.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "geoBoundaries (gbOpen)",
+    "verdict": "confirmed",
+    "corrections": "The API returned 230 ADM0 records. Licence counts:\n- ODbL 1.0: 84\n- CC BY 4.0: 63 (46 'International' + 17 under a variant label)\n- Public Domain: 37\n- CC BY 3.0 IGO: 13\n- CC BY-SA 2.0: 10\n- CC BY 2.5 Generic: 6\n- CC0: 6\n- CC BY 3.0: 4\n- OGL v3: 2\n- swisstopo: 1\n- DL-DE-BY-2.0: 1\n\nIND/ADM1 is 'CC BY 2.5 IN', sourced from DataMeet/ECI, year 2011, buildDate Dec 12, 2023. GitHub latest release is v6.0.0 (2023-09-14). Note that individual 'current' boundaries are rebuilt outside tagged releases (India ADM1 was rebuilt after v6.0.0), so pin the buildDate and not only the release tag. The PLOS ONE DOI resolves.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "UN M49 Standard country or area codes for statistical use (and the SDG GeoArea tree API)",
+    "verdict": "confirmed",
+    "corrections": "The M49 overview page has 1,494 <tr> rows, a downloadTableEN DataTables export, and '\u00a9 2026 United Nations \u2026 Terms of Use', with no dataset licence. The un.org Terms of Use grant download 'for the User's personal, non-commercial use, without any right to resell or redistribute them or to compile or create derivative works therefrom'.\n\nThe plan to store only the factual code-to-region mapping, with a citation, is the right mitigation. Keep the priority at core, because it serves as the join key rather than as published content.",
+    "final_redistribution": "unclear",
+    "final_priority": "core"
+   }
+  ],
+  "headline_number_checks": "1) EDGAR world GHG 2025 is CONFIRMED. GHG_totals_by_country, GLOBAL TOTAL: 2024 = 53,769.634124 and 2025 = 54,149.174008 Mt CO2eq, so +0.706%, which rounds to +0.7%.\n\n2) The US vs India per-capita figure is CONFIRMED. GHG_per_capita_by_country for 2025: USA 17.533033, IND 3.105054, GLOBAL TOTAL 6.615743. The ratio is 5.65.\n- For context, 2024 values are USA 17.268757, IND 3.138251 and world 6.630991.\n- China 2025 is 11.106877.\n\n3) The OWID cumulative CO2 shares are CONFIRMED for 2024: USA 23.517, CHN 15.417, IND 3.573, NGA 0.255.\n- Wording fix: the OWID codebook defines the share as 'since the first year of available data', not 'since 1750'.\n- The primary GCB 2025 file is National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (DOI 10.18160/GCP-2025, CC BY 4.0).\n\n4) The CCKP warming comparison (2016\u20132025 mean minus 1951\u20131980 mean) is CONFIRMED. I recomputed it from the live API: DEU 1.924, CAN 1.920, USA 1.672, GBR 1.434, NGA 1.092, BRA 0.977, IND 0.800 \u00b0C. Each mean uses 30 baseline years and 10 recent years.\n\n5) The CCKP hd35 days are CONFIRMED (CMIP6 median, SSP2-4.5): IND 77.88\u219294.78, NGA 98.49\u2192134.32, USA 11.61\u219224.15 days per year.\n\n6) The EIA per-capita figures are CONFIRMED (Per capita sheet, 2024): WY 85.2, TX 21.7, CA 8.0, US 14.1 t. WY/CA is 10.65\u00d7.\n- Totals for 2024: WY 50.004, TX 679.932, CA 315.984, US 4,780.661 Mt.\n- Release date June 26, 2026.\n\n7) The EU \u221238% figure is CONFIRMED: 3,017.18798 / 4,866.90535 \u2212 1 = \u221238.0%. For reference, 2023 = 3,088.34664.\n\n8) The UK local-authority figures are CORRECTED (scope label). I recomputed from the CSV: 2005 = 655,801.6 kt and 2024 = 351,272.8 kt, so \u221246.4% when the 'Unallocated' pseudo-authorities are included.\n- Those rows are 'Unallocated consumption', 'Unallocated electricity NI' and 'Large elec users (high voltage lines) unknown location'. They are +13,603 kt in 2005 and \u2212395 kt in 2024.\n- Counting only the 361 coded local authorities gives 642,198.5 \u2192 351,667.9 kt, which is \u221245.2%.\n- Do not say 'across UK local authorities fell 46%'. Either say 'emissions in the local-authority dataset (including unallocated) fell 46%' or use \u221245% for allocated local authorities only.\n- The median per capita over the 361 coded authorities is CONFIRMED at 4.62 t. Harrow 2.06 and City of London 35.98 are also confirmed.\n- The publication date is 25 June 2026, updated 30 June 2026.\n\n9) The ND-GAIN scores are CONFIRMED (2024 column, 190 non-null countries): NOR 71.849, FIN 71.095, DEU 69.235 \u2026 ERI 27.360, SOM 26.996, TCD 26.415.\n\n10) The Climate TRACE values are CONFIRMED but their scope is CORRECTED.\n- Raw values match: California 435,842,071 t, Wyoming 114,281,552 t and London ghs-fua_5288 67,630,310 t (2025, co2e_100yr, release 5.11.0).\n- The scope label 'All gases and sectors' must say 'net, including forestry and land-use removals'. California's forestry-and-land-use sector is \u221218,788,084 t, so it is about 454.6 Mt excluding forestry.\n- The v7 global default is 54,418,388,107 t. It equals 57,793,624,727 t (all sectors except forestry) minus 3,375,236,620 t (forestry-and-land-use).\n- The v6 total of 57,793,624,727 is therefore the same number excluding forestry. It is not a version discrepancy.\n- Never set Climate TRACE 54.4 Gt (net incl. LULUCF) beside EDGAR 54.1 Gt (excl. LULUCF) as if they agree. Like-for-like they are 57.8 vs 54.1 Gt.\n\nOther numbers from the research that I verified:\n- GISTEMP 2025 J-D = 1.19 and Aug 2026 = 1.40.\n- OWID ERA5 World 2024 = 0.7195, 2025 = 0.5916; Germany 2024 = 1.5575.\n- NOAA California 2023/2024/2025 = 58.3/60.5/60.4 \u00b0F.\n- WDI population and GDP values (listed in the WDI entry).\n- WPP World 2025 = 8,231,613 thousand.\n- GCoM df1 is 12,312 \u00d7 23.",
+  "missing_sources": "Sources the research missed. Each was checked in this session unless marked unverified.\n\n1) Global Carbon Budget 2025 supplemental data (ICOS Carbon Portal). DOI 10.18160/GCP-2025 (DataCite: 'Supplemental data of Global Carbon Budget 2025', CC BY 4.0, ICOS CCBY4 Data Licence). Files:\n- National_Fossil_Carbon_Emissions_2025_v1.0.xlsx: https://meta.icos-cp.eu/objects/loCXyssaalv6DPdO6Qdj90qQ\n- National_LandUseChange_Carbon_Emissions_2025_v1.0.xlsx: https://meta.icos-cp.eu/objects/milTbWkl0G-MSpdYG3IBIfzy\n- Landing page: https://www.icos-cp.eu/GCP/2025\nThis is the primary source that OWID processes. Use it as the citation of record for fossil and land-use CO2 by country.\n\n2) Ember electricity data (country and monthly generation mix, power-sector CO2): https://ember-energy.org/data/. The site footer says 'All content is released under a Creative Commons Attribution Licence (CC-BY-4.0)'. It is the cleanest open source for 'what can be done' (the electricity mix by country). Licence verified; specific file URLs not checked.\n\n3) UMD/Hansen tree cover loss via Global Forest Watch (now Global Nature Watch) data API: https://data-api.globalforestwatch.org/dataset/umd_tree_cover_loss. The dataset metadata gives licence CC BY 4.0 and citation Hansen et al. 2013. This covers the deforestation cause by country and subnational unit.\n- The GFW Terms (https://globalnaturewatch.org/terms/) say each dataset 'carries its own license', so check each one.\n- The subnational summaries (e.g. gadm__tcl__adm1_summary, version v20260424) are keyed to GADM. Ship the statistics, not the GADM polygons.\n\n4) US Census Cartographic Boundary Files 2025 (public domain US federal work), e.g. https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_20m.zip (200, Last-Modified 2026-04-23). These are needed to map EIA state, NOAA county and EPA data by FIPS without GADM.\n\n5) ONS Open Geography Portal local-authority district boundaries (OGL v3 plus the OS 'Contains OS data \u00a9 Crown copyright' notice): https://geoportal.statistics.gov.uk/. These match the DESNZ 'Local Authority Code' (E06/E07/E08/E09/W06/S12/N09). Licence wording not fetched this session.\n\n6) GHS-FUA R2019A (Functional Urban Areas, JRC, CC BY 4.0 under the GHSL terms): https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_FUA_UCDB2015_GLOBE_R2019A/ (folder dated 2019-12-06). Climate TRACE says its cityId comes from 'the GHS FUA dataset', so this is the polygon set for city drill-down, not UCDB R2024A.\n\n7) Climate Watch (WRI), verified at https://www.climatewatchdata.org/about/permissions. Data is CC BY 4.0, cited as 'Climate Watch. 2026. Washington, DC: World Resources Institute'. Exceptions:\n- FAO LULUCF needs FAO permission (copyright@fao.org).\n- Fuel-combustion data must be cited as OECD/IEA 2025.\n- Its PRIMAP-hist series is v2.7, which is CC BY-NC-SA, not CC BY.\nUse it for NDC and net-zero targets ('what has my government promised'), not for emissions republishing.\n\n8) PRIMAP-hist v2.6.1 (CC BY 4.0, 1750\u20132023), doi 10.5281/zenodo.15016289. This is the last openly licensed PRIMAP version, for any CC-BY-only build.\n\n9) Unverified this session (check before adoption):\n- IPCC AR6 WGI Interactive Atlas (https://interactive-atlas.ipcc.ch/, which returns 200; the GitHub IPCC-WG1/Atlas repo licence field is NOASSERTION, so check the per-product licence).\n- JRC INFORM Risk and INFORM Climate Change (https://drmkc.jrc.ec.europa.eu/inform-index; no licence statement on the methodology page). This could be a clearer-licensed alternative to ND-GAIN.\n- FAOSTAT Emissions (FAO statistical database terms).\n- Global Energy Monitor facility trackers (the licence page did not resolve).\n- UNFCCC GHG data interface and CRT/BTR submissions (Imperva CAPTCHA, not bypassed)."
+ }
+}

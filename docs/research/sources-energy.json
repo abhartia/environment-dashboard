@@ -1,0 +1,658 @@
+{
+ "research": {
+  "domain": "Energy system: the largest cause of climate change, and the transition away from fossil fuels",
+  "sources": [
+   {
+    "name": "Ember \u2013 Yearly Electricity Data (global + Europe), with the Global Electricity Review 2026",
+    "publisher": "Ember (independent energy think tank)",
+    "measures": "Annual electricity generation by source (TWh), share of generation (%), installed capacity (GW), lifecycle emissions (MtCO2e), emissions intensity (gCO2e/kWh), demand and net imports (TWh), and year-on-year changes. Sources: Solar, Wind, Hydro, Bioenergy, Other renewables, Nuclear, Coal, Gas, Other fossil, plus aggregates (Clean, Fossil, Renewables, Wind and solar).",
+    "coverage": "Annual, 2000\u20132025. 215 countries and areas plus aggregates (World, continents, EU, OECD, G20, G7, ASEAN). A separate US dataset covers all 50 states.",
+    "latest_release": "Global Electricity Review 2026 (first full 2025 data) came out 21 Apr 2026. The landing page says 'Last Updated: 15/09/2026'. The global CSV I fetched had last-modified 22 Sep 2026.",
+    "update_cadence": "Rolling updates twice a month (first and third weeks), with a major annual release in April (Global Electricity Review).",
+    "landing_url": "https://ember-energy.org/data/yearly-electricity-data/",
+    "download_urls": [
+     "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv",
+     "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_lower.csv",
+     "https://files.ember-energy.org/public-downloads/yearly_full_release_long_format.csv",
+     "https://files.ember-energy.org/public-downloads/ember_electricity_data_methodology.pdf",
+     "https://api.ember-energy.org/v1/docs"
+    ],
+    "format": "CSV, one row per area \u00d7 year \u00d7 source with metrics as columns (about 16 MB). Long-format legacy CSV (about 49 MB). JSON through API v1, which needs a free API key tied to an email.",
+    "license": "CC BY 4.0. The page footer says content is under the Creative Commons Attribution Licence (CC-BY-4.0), and the API OpenAPI spec declares the same licence. Note from the methodology: renewable capacity comes from IRENA and fossil capacity from GEM, so those values have upstream terms (see the IRENA and GEM entries).",
+    "redistribution": "open-attribution",
+    "citation": "Ember does not publish a fixed citation string. Recommended form (matches OWID usage): \"Ember (2026). Yearly Electricity Data [dataset], accessed YYYY-MM-DD. https://ember-energy.org/data/yearly-electricity-data/. Licensed under CC BY 4.0.\" For the report: \"Ember (2026), Global Electricity Review 2026, 21 April 2026.\"",
+    "doi": "none",
+    "status": "Active. Non-profit and philanthropically funded, so not exposed to US federal cuts. Bulk files are updated continuously.",
+    "url_check": "WebFetch of the landing page gave the CSV URLs, 'Last Updated: 15/09/2026', and the CC-BY-4.0 footer. curl -I on release_generation_yearly_global.csv returned HTTP 200, 16,084,305 bytes, last-modified Tue 22 Sep 2026. The header row starts 'Area,ISO 3 code,Year,Area type,Electricity source,Is aggregated source,Generation (TWh),...'. Parsed World 2025: Solar 2,780.204 TWh (8.737%), Wind 2,704.379 TWh, Coal 10,610.915 TWh (33.347%), Clean 42.309%, Fossil 18,357.373 TWh, Total 31,820.135 TWh, intensity 460.503 gCO2e/kWh. The long-format CSV returned 200 (49 MB, generation timestamp 23 Jun 2026). api.ember-energy.org returned '{\"detail\":\"No API key set\"}' without a key, and its openapi.json gives licence CC-BY-4.0, version 1.2.0. The GER 2026 page gave a 21 April 2026 publication date.",
+    "site_use": "Backbone of the electricity layer: global and country electricity mix (stacked area), clean versus fossil share, solar overtaking wind and coal, carbon intensity of each country's grid (used for the 'is an EV or heat pump cleaner where I live' calculator), and country rankings. Store each ingested CSV snapshot with its SHA-256 and last-modified date so every number shown carries a vintage.",
+    "caveats": "(1) Emissions are lifecycle CO2e from UNECE factors, not combustion CO2. Never add them to Global Carbon Project numbers. (2) Values get revised between vintages. The April GER reported renewables at 33.8% of 2025 generation and coal at 33.0%; the September CSV shows 33.48% and 33.35%. Pin the vintage. (3) The most recent year is partly estimated for some countries. (4) EU yearly data are gross generation, monthly data are net. (5) Demand = generation + net imports.",
+    "priority": "core"
+   },
+   {
+    "name": "Ember \u2013 Monthly Electricity Data",
+    "publisher": "Ember",
+    "measures": "Monthly generation by source (TWh), share (%), lifecycle emissions (MtCO2e), emissions intensity (gCO2e/kWh), demand, and year-on-year changes.",
+    "coverage": "Monthly. 88 geographies covering more than 90% of global power demand (99 area labels including aggregates in the CSV). Dates run 1998-12 to 2026-08 depending on country. The World aggregate runs 2019-01 to 2026-07.",
+    "latest_release": "The page says 'Last Updated 28 July 2026', but the CSV I fetched had last-modified 18 Sep 2026 and data through Jul 2026 for World and Aug 2026 for some countries.",
+    "update_cadence": "Twice a month.",
+    "landing_url": "https://ember-energy.org/data/monthly-electricity-data/",
+    "download_urls": [
+     "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_monthly_global.csv",
+     "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_monthly_lower.csv"
+    ],
+    "format": "CSV (about 28 MB). Also available through API v1 (key required).",
+    "license": "CC BY 4.0 (stated on the page footer).",
+    "redistribution": "open-attribution",
+    "citation": "\"Ember (2026). Monthly Electricity Data [dataset], accessed YYYY-MM-DD. https://ember-energy.org/data/monthly-electricity-data/. CC BY 4.0.\"",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "WebFetch of the landing page gave the CSV URLs, the 88-geography coverage, and CC BY 4.0. curl -I returned HTTP 200, 28,333,064 bytes, last-modified Fri 18 Sep 2026. Parsed World for 2026-07-01: Solar 331.495 TWh, 11.277% share, +15.157% YoY. Fossil 1,660.813 TWh, YoY -0.886% (-14.838 TWh). Clean 43.503%.",
+    "site_use": "A 'pulse of the transition' strip on the home page showing the latest month's solar and clean share and fossil generation YoY. Also seasonal small multiples by country. Label it clearly as monthly and provisional.",
+    "caveats": "Provisional and revised often. The World monthly total is Ember's estimate built from covered countries, so it is not a sum of all 215 countries. Same lifecycle-emissions caveat as the yearly data.",
+    "priority": "core"
+   },
+   {
+    "name": "Energy Institute \u2013 Statistical Review of World Energy 2026 (75th edition)",
+    "publisher": "Energy Institute (with KPMG and Kearney; Ember is the electricity partner; S&P Global Commodity Insights is a knowledge partner)",
+    "measures": "Total energy supply / primary energy by fuel (EJ), oil, gas and coal production, consumption, trade, reserves and prices, electricity generation by fuel, renewables, energy-related CO2 (Mt), and critical minerals.",
+    "coverage": "Annual, mostly 1965\u20132025. About 80+ countries reported individually, plus regions.",
+    "latest_release": "2026 edition, published 30 Jun 2026. OWID snapshot metadata gives date_published 2026-06-30. Press coverage confirms the 75th edition with 2025 data.",
+    "update_cadence": "Annual, late June.",
+    "landing_url": "https://www.energyinst.org/statistical-review",
+    "download_urls": [
+     "https://www.energyinst.org/statistical-review/resources-and-data-downloads"
+    ],
+    "format": "XLSX ('EI-Stats-Review-ALL-data.xlsx', about 4 MB), a narrow-format consolidated CSV (about 21 MB), a panel-format file, and a PDF.",
+    "license": "\u00a9 Energy Institute 2026. Terms are at https://www.energyinst.org/terms, which I could not fetch (HTTP 403, Cloudflare). EI's published guidance, which I saw only via search snippets: quoting with attribution to the Statistical Review is welcome, but extensive reproduction of tables or charts needs EI's prior permission. Redistributing data sourced from S&P Global is prohibited without S&P authorisation. This is not an open licence.",
+    "redistribution": "unclear",
+    "citation": "\"Energy Institute \u2013 Statistical Review of World Energy (2026).\" This is the OWID-documented form and matches EI attribution guidance. Long form: \"Energy Institute (2026), Statistical Review of World Energy 2026, 75th edition, London.\"",
+    "doi": "none",
+    "status": "Active, but every page and file is behind a Cloudflare bot challenge. OWID's own 2026 ingestion script says the files must now be downloaded by hand.",
+    "url_check": "curl and WebFetch of /statistical-review/resources-and-data-downloads returned HTTP 403 with a Cloudflare 'Just a moment...' challenge. The PDF under /__data/assets/ also returned 403. I did not bypass the challenge. Indirect checks: the OWID etl snapshot snapshots/energy_institute/2026-06-30/*.dvc lists both files with license '\u00a9 Energy Institute 2026' and md5 values, and its .py docstring confirms the Cloudflare challenge and manual download.",
+    "site_use": "The authoritative total-energy picture (fossil share of TES, energy mix by fuel). Display it through the OWID energy dataset with EI attribution. Before offering bulk CSV downloads of EI-derived columns, ask EI for written permission at statisticalreview@energyinst.org (address from search snippet, not verified). For any chart whose CSV must be fully redistributable, use EIA International (public domain) or Ember (CC BY) as that chart's single canonical source instead. Do not mix sources inside one series.",
+    "caveats": "Licence ambiguity for bulk redistribution. EI headline growth rates are leap-year adjusted: EI says TES rose 1.7% in 2025, while the raw TWh ratio in OWID gives +1.37% because 2024 had 366 days. Document this or activists will find an apparent mismatch. EI moved to 'total energy supply' accounting, which differs from the older substitution method.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Our World in Data \u2013 Energy dataset (new TES-methodology release; legacy owid/energy-data)",
+    "publisher": "Our World in Data (Global Change Data Lab)",
+    "measures": "130 columns per country and year: total energy supply by source (TWh, %, per capita, annual change), electricity mix (TWh, %, per capita), electricity demand, net imports, lifecycle emissions and carbon intensity, fossil fuel production, population, and GDP.",
+    "coverage": "1700/1800\u20132025 (World back to 1800 via Smil). Countries plus OWID-defined regions and source-defined regions (e.g. 'Europe (EI)'). 19,494 rows \u00d7 130 columns.",
+    "latest_release": "New dataset CSV last-modified 30 Sep 2026. It uses EI 2026 (published 2026-06-30) and Ember yearly data accessed 2026-04-24. The legacy GitHub dataset is frozen; the README transition banner was committed 2026-10-01.",
+    "update_cadence": "Irregular, following each upstream release (EI in July, Ember several times a year).",
+    "landing_url": "https://github.com/owid/energy-data",
+    "download_urls": [
+     "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+     "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.xlsx",
+     "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.codebook.csv",
+     "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.sources.csv",
+     "https://catalog.ourworldindata.org/energy/owid_energy/readme.md",
+     "https://catalog.ourworldindata.org/energy/owid_energy/column_mapping.csv",
+     "https://owid-public.owid.io/data/energy/owid-energy-data.csv",
+     "https://ourworldindata.org/grapher/fossil-fuels-share-energy.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1295381.metadata.json"
+    ],
+    "format": "CSV (about 9 MB), XLSX, codebook CSV, sources CSV, Markdown readme. The Grapher API gives a CSV plus metadata JSON per chart.",
+    "license": "OWID: all visualisations, data and code produced by Our World in Data are open access under CC BY. Third-party data stays under its original terms. EI-derived columns carry '\u00a9 Energy Institute 2026' (OWID origin metadata). Ember columns are CC BY 4.0. EIA columns are public domain. OWID's indicator metadata has a 'nonRedistributable' flag; it is False for the EI indicators.",
+    "redistribution": "open-attribution",
+    "citation": "\"Energy Institute \u2013 Statistical Review of World Energy (2026) and other sources \u2013 with major processing by Our World in Data.\" This is the readme's 'How to cite this data'. Per-indicator citations are in owid_energy.sources.csv.",
+    "doi": "none",
+    "status": "Active, but in transition. The legacy files (owid-public.owid.io) are 'no longer updated'. OWID says it is 'working on a better home for this dataset', so the URL may move again.",
+    "url_check": "Read the GitHub README via raw.githubusercontent.com: it has the transition banner, legacy changelog (last entry 2026-04-27), and the CC BY statement. The GitHub API commits list shows the latest commit 2026-10-01. Fetched the readme.md, sources.csv and codebook.csv. Streamed owid_energy.csv (HTTP 200, 9,081,888 bytes, last-modified 30 Sep 2026) and parsed World 2025: total_energy_twh 166,753.6 (= 600.3 EJ), fossil_fuels_energy_share_pct 86.238434, low_carbon_energy_share_pct 13.761562, solar_electricity_twh 2,778.64. The metadata JSON for indicator 1295381 shows EI origin license '\u00a9 Energy Institute 2026' and nonRedistributable False.",
+    "site_use": "The single cleanest machine-readable source for the total-energy layer (fossil share of energy, energy per capita, energy mix by country) and long-run history (1800\u2013). In the ingestion pipeline, make the metadata 'nonRedistributable' flag a hard gate: fail the build if it is true. Do not silently substitute another source.",
+    "caveats": "(1) Methodology changed in 2026: energy is now total energy supply, not the substitution method, so figures are not comparable with older OWID charts activists may have saved. (2) The Ember vintage lags Ember's own site: 2025 solar is 2,778.64 TWh here versus 2,780.204 TWh in Ember's September CSV. (3) OWID region aggregates differ from EI and Ember regions. (4) OWID growth rates are not leap-year adjusted, unlike EI's. (5) Pre-1965 world values come from Smil (2017).",
+    "priority": "core"
+   },
+   {
+    "name": "U.S. EIA Open Data API v2 and bulk files (electricity, SEDS, International)",
+    "publisher": "U.S. Energy Information Administration (U.S. Department of Energy)",
+    "measures": "US electricity generation, consumption and capacity by state, sector and fuel (Forms EIA-923 and EIA-860), prices, US energy-related CO2, and the International dataset (production and consumption by country and fuel, quad Btu and TWh, plus CO2).",
+    "coverage": "US monthly and annual, state level (electricity from 2001). International annual 1980\u20132024 for about 220 countries.",
+    "latest_release": "API v2 (v2.1.11, Jan 2026). Annual US generation for 2025 is already in the API. INTL.zip last-modified 3 Oct 2026, with World primary energy for 2024.",
+    "update_cadence": "Monthly (Electric Power Monthly); International updated several times a year.",
+    "landing_url": "https://www.eia.gov/opendata/",
+    "download_urls": [
+     "https://api.eia.gov/v2/electricity/electric-power-operational-data/data/?frequency=annual&data[0]=generation&facets[location][]=US&facets[sectorid][]=99&api_key=YOUR_KEY",
+     "https://api.eia.gov/v2/international/data/?frequency=annual&data[0]=value&facets[productId][]=44&facets[activityId][]=2&facets[countryRegionId][]=WORL&facets[unit][]=QBTU&api_key=YOUR_KEY",
+     "https://www.eia.gov/opendata/bulk/INTL.zip",
+     "https://www.eia.gov/opendata/bulk/ELEC.zip"
+    ],
+    "format": "JSON REST API (5,000-row page limit, free API key) and zipped bulk JSON-lines files.",
+    "license": "Public domain. The EIA reuse page says US government publications are in the public domain and not subject to copyright. EIA requests an acknowledgement in the form 'Source: U.S. Energy Information Administration (<Month Year>)'.",
+    "redistribution": "open-public-domain",
+    "citation": "\"Source: U.S. Energy Information Administration, Electric Power Operational Data (Form EIA-923), API v2, accessed YYYY-MM-DD.\" For international data: \"U.S. Energy Information Administration (EIA) \u2013 International Energy Data (2026).\"",
+    "doi": "none",
+    "status": "At risk. Reporting in 2025 (Reuters, Argus, ProPublica, Energy Intelligence) described the loss of about 100+ staff (around 40% of the workforce), delayed reports (International Energy Outlook, US Energy-Related CO2 Emissions, uranium reports), and the discontinued Annual Solar PV Module Shipments report. The API and core monthly electricity data were working on 2026-10-04. Archive every pull.",
+    "url_check": "Fetched the copyrights_reuse page and quoted its public-domain terms. GET https://api.eia.gov/v2/?api_key=DEMO_KEY returned a route list (coal, electricity, international, ...). The electricity query returned 2025 US totals: ALL 4,429,501.6 thousand MWh, COW (coal) 737,150.7, SUN 295,671.4, WND 464,390.6, and 2024 ALL 4,308,634.3, COW 652,155.9. The international query returned World primary energy consumption of 606.04 quad Btu for 2024. api.eia.gov/bulk/INTL.zip redirects 301 to www.eia.gov/opendata/bulk/INTL.zip, which returned 200 (24,153,479 bytes, last-modified Sat 03 Oct 2026).",
+    "site_use": "US drill-down: US \u2192 state \u2192 fuel \u2192 (later) plant. A public-domain international primary-energy series is useful wherever a chart's CSV must be fully redistributable. US coal generation rising in 2025 (+13%) is a strong teaching point.",
+    "caveats": "Primary energy methodology differs from EI (quad Btu, different conversion of non-fossil electricity), so never mix EIA and EI in one series. International data lag EI by about one year. The API key belongs in macOS Keychain or CI secrets, never in the repo. Federal capacity risk is real.",
+    "priority": "core"
+   },
+   {
+    "name": "IRENA \u2013 Renewable Capacity Statistics 2026 and IRENASTAT (PxWeb API)",
+    "publisher": "International Renewable Energy Agency (IRENA)",
+    "measures": "Installed electrical capacity (MW) and electricity generation (GWh) by technology (solar, wind, renewable hydro, bioenergy, geothermal, marine, pumped storage, fossil fuels, non-renewable totals), by country or region and grid connection. Also renewable share of capacity and generation. Finance table: public investments (2023 million USD).",
+    "coverage": "Annual 2000\u20132025 for capacity. World and 9 regions, plus about 200 countries and areas.",
+    "latest_release": "Publication released 31 Mar 2026 (ISBN 978-92-9260-725-8). IRENASTAT tables 'ELECSTAT_2026_H2' were updated 2026-09-28T17:56\u201318:11.",
+    "update_cadence": "Capacity statistics are published annually in March, with a fuller Renewable Energy Statistics edition in July. IRENASTAT tables are refreshed every half-year, and their table IDs change with each version (e.g. *_2026_H2_PX.px).",
+    "landing_url": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026",
+    "download_urls": [
+     "https://pxweb.irena.org/api/v1/en/IRENASTAT",
+     "https://pxweb.irena.org/api/v1/en/IRENASTAT/Power%20Capacity%20and%20Generation/Region_ELECSTAT_2026_H2_PX.px",
+     "https://pxweb.irena.org/api/v1/en/IRENASTAT/Power%20Capacity%20and%20Generation/Country_ELECSTAT_2026_H2_PX.px",
+     "https://pxweb.irena.org/api/v1/en/IRENASTAT/Power%20Capacity%20and%20Generation/RE-SHARE_2026_H2_PX.px",
+     "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf",
+     "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf"
+    ],
+    "format": "PxWeb JSON API: GET returns metadata, POST a JSON query to get CSV or JSON. Also trilingual PDF tables.",
+    "license": "Publication terms: material may be freely used, shared, copied, reproduced, printed and stored, provided it is clearly attributed to IRENA and carries a copyright notation (\u00a9 IRENA) with the year. Third-party material may have separate terms, including restrictions on commercial use. Separately, the IRENASTAT web footer says '\u00a9 IRENA ... All Rights Reserved'.",
+    "redistribution": "open-attribution",
+    "citation": "\"IRENA (2026), Renewable capacity statistics 2026, International Renewable Energy Agency, Abu Dhabi.\" For the API pull: \"IRENA (2026), IRENASTAT Online Data Query Tool, table Region_ELECSTAT_2026_H2, accessed YYYY-MM-DD. \u00a9 IRENA 2026.\"",
+    "doi": "none (ISBN 978-92-9260-725-8)",
+    "status": "Active",
+    "url_check": "irena.org HTML pages returned 403 to WebFetch and curl, but the PDFs under /-/media/ returned 200. Extracted the full PDF p.2 and got the ISBN, the citation, and the free-use and \u00a9 notation terms. The highlights PDF says 5,149 GW at end-2025, +692 GW, 49.4% renewables share of total capacity, and a 2024 revision from 4,443 to 4,457 GW. The PxWeb API root returned the table list with 'updated' timestamps. A POST to Region_ELECSTAT_2026_H2 for World capacity returned Total Renewable 2024 = 4,461,631.67 MW, 2025 = 5,155,007.33 MW; Solar 2025 = 2,396,709.19 MW; Wind 2025 = 1,291,015.04 MW; Fossil fuels 2025 = 4,629,715.61 MW.",
+    "site_use": "Charts of capacity growth (solar and wind installed GW by country), renewables' share of new capacity, and an 'additions per year' bar chart. Pair with Ember generation to show the difference between capacity and generation.",
+    "caveats": "Numbers are revised between vintages (5,149 GW in March versus 5,155 GW in the September API), so always show the table version. Capacity is not generation: solar's capacity factor is much lower than nuclear's. Table IDs change every half-year, so the pipeline should discover them from the API listing and fail loudly if a table is missing. Licence wording differs between the publications and the web tool; consider asking IRENA for written confirmation.",
+    "priority": "core"
+   },
+   {
+    "name": "IRENA \u2013 Renewable Power Generation Costs in 2025 (report and data file)",
+    "publisher": "International Renewable Energy Agency (IRENA)",
+    "measures": "Global and country levelised cost of electricity (LCOE, USD/kWh in constant 2025 USD), total installed costs (USD/kW), capacity factors, and auction prices for solar PV, onshore and offshore wind, CSP, hydro, geothermal and bioenergy. New in this edition: firm LCOE of solar-plus-storage hybrids and battery installed costs.",
+    "coverage": "2010\u20132025 global weighted averages, with longer history for some technologies. Country series for major markets.",
+    "latest_release": "Published July 2026 (OWID datePublished 2026-07-01; data file last-modified 2 Jul 2026; ISBN 978-92-9260-749-4).",
+    "update_cadence": "Annual (mid-year).",
+    "landing_url": "https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025",
+    "download_urls": [
+     "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx",
+     "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf",
+     "https://ourworldindata.org/grapher/levelized-cost-of-energy.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1305828.metadata.json"
+    ],
+    "format": "XLSX (12.9 MB) with one sheet per report figure ('Fig 1.1', 'Fig 2.3', ...), not tidy. PDF.",
+    "license": "Unless otherwise stated, material may be freely used, shared, copied, reproduced, printed and stored, provided IRENA is acknowledged as the source and copyright holder. Third-party material may need separate permission. OWID records the licence as '\u00a9IRENA 2026'.",
+    "redistribution": "open-attribution",
+    "citation": "\"IRENA (2026), Renewable power generation costs in 2025, International Renewable Energy Agency, Abu Dhabi.\"",
+    "doi": "none (ISBN 978-92-9260-749-4)",
+    "status": "Active",
+    "url_check": "curl -I on the XLSX returned 200 (12,908,268 bytes, last-modified Thu 02 Jul 2026). openpyxl listed sheets 'Contents', 'Fig S.1', 'Fig 1.1', ... 'Fig 3.1'. Extracted exec summary PDF pp.2\u20134: citation, terms, and the highlights 'Solar PV remained at its 2024 level of USD 44 per MWh', onshore wind USD 33/MWh, offshore USD 78/MWh, solar down 89% since 2010, >90% of new utility-scale capacity cheaper than the cheapest new fossil option, and 8.4 Gt CO2 avoided. OWID levelized-cost-of-energy CSV, World: solar_photovoltaic 2010 = 0.40771458, 2025 = 0.043538958 USD2025/kWh.",
+    "site_use": "The 'why the transition is now economic' chart: LCOE by technology from 2010 to 2025, with fossil-fuel cost bands as context. Feeds the 'what you can do' story (solar plus storage is cheapest in most markets).",
+    "caveats": "Global weighted averages hide large country differences (China solar USD 36/MWh versus far higher elsewhere). LCOE excludes system integration costs. OWID combines the 2025, 2024 and 2023 reports and deflates older values with the US GDP deflator; values from 2010 onward come from the 2025 report. The XLSX layout changes every year, so the parser must be written per vintage and validated against the PDF.",
+    "priority": "core"
+   },
+   {
+    "name": "Our World in Data \u2013 learning-curve series: solar PV module prices and lithium-ion battery cell prices",
+    "publisher": "Our World in Data, compiling Nemet (2009), Farmer & Lafond (2016) and IRENA for solar, and Rupert Way (2026, in preparation) for batteries",
+    "measures": "Solar PV module price (constant 2025 US$/W) against cumulative installed capacity (MW). Li-ion battery cell price (constant 2024 US$/kWh).",
+    "coverage": "Solar modules 1975\u20132024 (cumulative capacity to 2025). Battery cells 1991\u20132024. World only.",
+    "latest_release": "Solar series lastUpdated 2026-07-28. Battery series lastUpdated 2025-11-19 (origin dated 2026-01-08).",
+    "update_cadence": "Ad hoc (OWID).",
+    "landing_url": "https://ourworldindata.org/grapher/solar-pv-prices-vs-cumulative-capacity",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/solar-pv-prices.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/solar-pv-prices-vs-cumulative-capacity.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1305867.metadata.json",
+     "https://ourworldindata.org/grapher/price-of-lithium-ion-battery-cells.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://api.ourworldindata.org/v1/indicators/1120053.metadata.json",
+     "https://pcdb.santafe.edu/process_download.php?curve=158&typ=csv"
+    ],
+    "format": "CSV and metadata JSON.",
+    "license": "Solar: the Nemet component is CC BY 3.0 (Santa Fe Performance Curve Database), and the 2010+ component is \u00a9IRENA with free-use terms. Battery: OWID lists the licence as CC BY 4.0, but the dataset was 'shared with Our World in Data via private communication' and includes BloombergNEF and Avicenne inputs. nonRedistributable is False for both indicators.",
+    "redistribution": "open-attribution",
+    "citation": "Solar: \"IRENA (2025); Nemet (2009); Farmer and Lafond (2016) \u2013 with major processing by Our World in Data.\" Battery: \"Rupert Way (2026) based on Ziegler and Trancik (2021), BloombergNEF, and Avicenne Energy \u2013 with minor processing by Our World in Data.\"",
+    "doi": "Ziegler & Trancik upstream dataset: 10.7910/DVN/9FEJ7C (files restricted)",
+    "status": "Active (OWID). The battery series' upstream is not publicly archived.",
+    "url_check": "Fetched both metadata JSONs and the origins listed above. Battery CSV, World: 1991 = 9,210.23, 2022 = 132, 2023 = 111, 2024 = 78 (constant 2024 US$/kWh). Harvard Dataverse API for doi:10.7910/DVN/9FEJ7C: license None, terms say the dataset was made available without information on how it can be used, and both .tab files are restricted. Solar metadata processing notes: 1975\u20132003 from Nemet, 2004\u20132009 from Farmer & Lafond, 2010+ from IRENA pvXchange, deflated with the US GDP deflator.",
+    "site_use": "Learning-curve hero chart: 'every doubling of solar deployment cut module prices by roughly X%', on a log-log scale. The battery cell price decline appears on the EV drill-down with a visible provenance warning.",
+    "caveats": "Activists cannot trace the battery series past OWID: the BNEF component is proprietary, the Ziegler & Trancik files are restricted, and the compilation came by private communication. Flag it 'secondary \u2013 upstream not public'. The solar series stitches three sources with different methods (module price indices).",
+    "priority": "secondary"
+   },
+   {
+    "name": "IEA \u2013 Global EV Outlook 2026 and Global EV Data Explorer",
+    "publisher": "International Energy Agency",
+    "measures": "EV sales, stock, sales share and stock share (cars, buses, vans, trucks, 2/3-wheelers; BEV and PHEV), charging points, EV oil displacement (mb/d), battery deployment (GWh), and electricity demand. Projections to 2035 (STEPS/APS) exist but should not be shown as data.",
+    "coverage": "Historical 2010\u20132025. Roughly 40+ countries plus regions and World.",
+    "latest_release": "GEVO 2026, typeset May 2026. PDF last-modified 19 Jun 2026. Data explorer last updated 20 May 2026 per IEA listings (seen via search; iea.org itself returned 403).",
+    "update_cadence": "Annual (May).",
+    "landing_url": "https://www.iea.org/reports/global-ev-outlook-2026",
+    "download_urls": [
+     "https://iea.blob.core.windows.net/assets/857aa690-2a43-453f-9f12-147cc8f0a1dd/GlobalEVOutlook2026.pdf",
+     "https://api.iea.org/evs?parameters=EV%20sales%20share&category=Historical&mode=Cars&region=World&csv=true",
+     "https://www.iea.org/data-and-statistics/data-product/global-ev-outlook-2026"
+    ],
+    "format": "PDF. Undocumented CSV API at api.iea.org/evs: the parameters filter seems to be ignored and all parameters are returned. XLSX on the data-product page probably needs a free IEA account (not verified).",
+    "license": "The PDF's licence page says the work is under CC BY 4.0, subject to the IEA's Notice for CC-licensed Content, and every page footer reads 'IEA. CC BY 4.0.' The IEA CC notice says OECD/IEA does not necessarily own every component, and third-party components are used at the user's risk. GEVO draws on third parties (EV Volumes, Marklines, ACEA and others).",
+    "redistribution": "open-attribution",
+    "citation": "\"IEA (2026), Global EV Outlook 2026, IEA, Paris https://www.iea.org/reports/global-ev-outlook-2026, Licence: CC BY 4.0\" (as recorded in OWID origin metadata).",
+    "doi": "none",
+    "status": "Active. iea.org blocks automated fetchers (HTTP 403); the blob storage and api.iea.org are reachable.",
+    "url_check": "curl -I on the blob PDF returned 200 (20,175,354 bytes). Parsed with pypdf: 295 pages, licence text on p.294, and the exec summary on p.10 says electric car sales grew 20% to exceed 20 million in 2025, one-quarter of new cars. api.iea.org/evs without a region returned 400 'Must specify a region or a year'; with region=World it returned CSV rows such as 'World,Historical,EV sales share,Cars,EV,2025,percent,25', 'EV sales ... 21000000', 'EV stock ... 75000000', 'EV stock share ... 5', 'Oil displacement, Mbd ... 1.2'. The iea.org product pages returned 403.",
+    "site_use": "Transport drill-down: EV sales share by country (Norway, China, EU, US), stock, and oil displaced. Combine with the Ember or EIA grid intensity for each country to show the lifecycle advantage of an EV on that grid.",
+    "caveats": "API values are rounded (21,000,000; 75,000,000), so use the XLSX for exact values once account access is confirmed. 'EV' includes plug-in hybrids. The API is undocumented and could change; snapshot every pull. The battery chapter gives a pack-price index, not absolute $/kWh. Do not use other IEA datasets on the assumption they are CC BY; many are not (see the World Energy Balances entry).",
+    "priority": "core"
+   },
+   {
+    "name": "IEA \u2013 World Energy Investment 2026 (report and datafile)",
+    "publisher": "International Energy Agency",
+    "measures": "Global and regional energy investment (USD, real), split into clean energy (renewables, nuclear, grids, storage, low-emissions fuels, efficiency, electrification) and fossil fuel supply and power.",
+    "coverage": "About 2015\u20132026 (2026 is an estimate). World and major regions.",
+    "latest_release": "Launched 28 May 2026 (launch presentation dated 'Paris, 28 May 2026'). PDF last-modified 19 Jun 2026. Datafile 'last updated June 2026' per IEA listing (seen via search only).",
+    "update_cadence": "Annual (late May / June).",
+    "landing_url": "https://www.iea.org/reports/world-energy-investment-2026",
+    "download_urls": [
+     "https://iea.blob.core.windows.net/assets/64594543-cf6e-4fd9-8238-d3cae35daf48/WorldEnergyInvestment2026.pdf",
+     "https://iea.blob.core.windows.net/assets/de35b632-c4ae-476b-a167-97ef3b40f0fd/WorldEnergyInvestment2026_LaunchPresentation.pdf",
+     "https://www.iea.org/data-and-statistics/data-product/world-energy-investment-2026-datafile"
+    ],
+    "format": "PDF. XLSX datafile on the IEA product page (not fetched: 403, probably needs a free account).",
+    "license": "Search snippets of the IEA product page describe the datafile as a free product under CC BY 4.0. I could not verify this directly (iea.org returned 403), and the PDF licence page did not extract. Treat it as CC BY 4.0, pending confirmation.",
+    "redistribution": "open-attribution",
+    "citation": "\"IEA (2026), World Energy Investment 2026, IEA, Paris https://www.iea.org/reports/world-energy-investment-2026, Licence: CC BY 4.0\"",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "curl -I on the blob PDF returned 200 (17,403,451 bytes, last-modified 19 Jun 2026). pypdf (260 pages), p.6: total investment USD 3.4 trillion in 2026, up 5% from 2025, with about USD 2.2 trillion to clean energy and about USD 1.2 trillion to oil, gas and coal. The datafile product page returned 403.",
+    "site_use": "A 'follow the money' panel: clean versus fossil investment over time, set beside fossil fuel subsidies (IMF, OECD).",
+    "caveats": "2026 figures are estimates, not outturn. The 'clean' definition is broad (grids, efficiency, nuclear). Licence and exact datafile values must be verified by a logged-in human download before publishing CSVs.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Energy Monitor \u2013 Global Coal Plant Tracker (and sibling trackers)",
+    "publisher": "Global Energy Monitor (GEM)",
+    "measures": "Unit-level coal power plants of 30 MW and above: capacity (MW), status (announced, pre-permit, permitted, construction, shelved, cancelled, operating, mothballed, retired), country and location, owner and parent, start and retirement years, combustion technology, and estimated annual and lifetime CO2.",
+    "coverage": "14,674 units in 111 countries (per the page): operating units, proposals since 2010, and retirements since 2000.",
+    "latest_release": "July 2026 release. The summary sheet says the data is based on the Global Coal Plant Tracker, updated July 2026. Annual analysis: Boom and Bust Coal 2026 (May 2026).",
+    "update_cadence": "Semi-annual (January and July).",
+    "landing_url": "https://globalenergymonitor.org/projects/global-coal-plant-tracker/",
+    "download_urls": [
+     "https://docs.google.com/spreadsheets/d/1_6AkrRZOn3ZXhSV9O6tZnX-m7aJsfG9HiQ_iEqBkbW8/export?format=csv",
+     "https://docs.google.com/spreadsheets/d/1j35F0WrRJ9dbIJhtRkm8fvPw0Vsf-JV6G95u7gT-DDw/edit#gid=647531100",
+     "https://docs.google.com/spreadsheets/d/1t3gO35bzcVI8ekq9318jBUq6nd7UADcut4gY3vjHZMM/edit#gid=1751753356",
+     "https://docs.google.com/spreadsheets/d/1E82_2I7n4__oFzDTWVuZwPstfr1tk4jn1kFw4E_gf5w/edit#gid=780397480",
+     "https://docs.google.com/spreadsheets/d/15FAZLez9EJks4_d_n6K3Iqm2dm_F6DL5Eqwe-kOzBVk/edit?usp=sharing",
+     "https://globalenergymonitor.org/projects/global-coal-plant-tracker/download-data/"
+    ],
+    "format": "Summary tables as Google Sheets (CSV export works). Full unit-level XLSX through a download web form, which is JavaScript-rendered; I could not verify which fields it asks for.",
+    "license": "CC BY 4.0. GEM states that its tracker data are freely available under the CC BY 4.0 International Public License unless otherwise noted (seen via search). GEM's licence page (fetched) contains the standard CC BY 4.0 legal text. Exception in a sibling tracker: Global Solar Power Tracker records sourced from TransitionZero are CC BY-NC 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "\"Global Coal Plant Tracker, Global Energy Monitor, July 2026 release.\" (exact wording on the tracker page)",
+    "doi": "none",
+    "status": "Active (philanthropically funded NGO).",
+    "url_check": "WebFetch of the tracker page gave 'July 2026' and the citation. Parsed the page HTML and mapped 28 summary-table Google Sheet links to their titles. CSV export of 'Coal Plants by Country (MW)' returned the header 'Country/Area,Announced,Pre-permit,Permitted,Announced + Pre-permit + Permitted,Construction,Shelved,Cancelled (since 2010),Operating,Mothballed,Retired (since 2000)' and TOTAL row '298,225 | 98,935 | 105,584 | 502,744 | 260,301 | 105,665 | 1,817,068 | 2,226,469 | 45,028 | 536,549' MW. The download-data page HTML contains a form titled 'Download the Global Coal Plant Tracker dataset'.",
+    "site_use": "Map and country drill-down of the coal fleet: what operates, what is being built, what is planned to retire, and who owns it. Use the 'Planned Coal Plant Retirements' and ownership tables for local action pages (e.g. 'coal plants near you and their retirement dates'). Sibling trackers (oil and gas extraction, solar, wind) can be added the same way.",
+    "caveats": "Capacity is not generation: coal capacity grew 3.5% in 2025 while coal generation fell (Boom and Bust Coal 2026). Unit-level data needs the form download and a human step, with a snapshot hash kept. Google Sheets URLs can change between releases. Check the licence of each sibling tracker (CC BY-NC in solar).",
+    "priority": "core"
+   },
+   {
+    "name": "IMF \u2013 Fossil Fuel Subsidies Data: 2025 Update ('Underpriced and Overused', WP/25/270) and IMF Climate Data hub",
+    "publisher": "International Monetary Fund",
+    "measures": "Explicit subsidies (supply cost above retail price) and implicit subsidies (unpriced local air pollution, climate damage, congestion and accidents, forgone consumption tax), by country and fuel (coal, petroleum, natural gas, electricity), in USD and % of GDP.",
+    "coverage": "170 countries. The hub dataset covers 2015\u20132030 (2023 Update, constant 2021 USD). The 2025 Update has a 2024 base year and projections to 2035.",
+    "latest_release": "WP/25/270, published December 2025 (IMF URL path dated 2025/12/20). The IMF Climate Data hub dataset was 'modified' on 29 Apr 2026, but every record still cites the 2023 Update.",
+    "update_cadence": "Biennial (2021, 2023, 2025).",
+    "landing_url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+    "download_urls": [
+     "https://climatedata.imf.org/datasets/d48cfd2124954fb0900cef95f2db2724_0",
+     "https://climatedata.imf.org/api/v3/datasets/d48cfd2124954fb0900cef95f2db2724_0",
+     "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Indicator%2015%20Fossil%20Fuel%20Subsidies/FeatureServer/0/query?where=1%3D1&outFields=*&f=json",
+     "https://www.imf.org/en/publications/wp/issues/2025/12/20/underpriced-and-overused-fossil-fuel-subsidies-data-2025-update-572729"
+    ],
+    "format": "ArcGIS FeatureServer (JSON, wide with year columns F2015\u2026F2030) and hub CSV export. Working paper PDF.",
+    "license": "The hub licence field is 'custom', pointing to IMF Copyright and Usage (https://www.imf.org/external/terms.htm, which returned an empty page or 403). Per search snippets of IMF's special terms for IMF Data: reuse, derivatives and redistribution are allowed if data appear accurately and are attributed, e.g. 'Source: International Monetary Fund'. Data owned by third parties is excluded.",
+    "redistribution": "open-attribution",
+    "citation": "Black, S., Celniak, W., Garcia Huitron, A., Parry, I.W.H., Schulz Antipa, P., and Vernon-Lin, N. (2025). \"Underpriced and Overused: Fossil Fuel Subsidies Data 2025 Update.\" IMF Working Paper WP/25/270, International Monetary Fund, Washington DC. The hub records cite instead: Black, Liu, Parry and Vernon (2023), IMF Fossil Fuel Subsidies Data: 2023 Update, ISBN 9798400249006.",
+    "doi": "not verified (RePEc handle RePEc:imf:imfwpa:2025/270)",
+    "status": "Active, but the hub lags the latest update. imf.org and elibrary.imf.org returned 403 to automated fetch.",
+    "url_check": "The hub v3 API returned name 'Fossil Fuel Subsidies', modified 1777467927554 (= 2026-04-29), recordCount 7056, licence custom \u2192 IMF terms. A FeatureServer query returned fields Country, ISO3, Indicator (e.g. 'Explicit Fossil Fuel Subsidies - Coal'), Unit ('Percent of GDP' or 'USD at constant 2021 prices') and F2015\u2026F2030. Distinct Source values: only the 2023 Update. There is no World aggregate row (country rows only). The RePEc page gave the authors and abstract: explicit $725 billion (0.6% of GDP) and implicit $6.7 trillion (5.8% of GDP) in 2024. imf.org pages returned 403.",
+    "site_use": "A 'money' drill-down: subsidies by country and fuel, and explicit versus implicit (with an explainer). The IMF's estimated benefits of reform (CO2 -6% by 2035, about 70,000 premature deaths avoided per year from removing explicit subsidies) go on the policy-action page.",
+    "caveats": "Implicit subsidies are model-based (IMF/World Bank CPAT) and contested. Always show explicit and implicit separately. Headline 2024 figures come from the 2025 WP, while country-level machine-readable data on the hub is still the 2023 Update (constant 2021 USD); do not mix vintages. A human must download the 2025 data file from imf.org (not verified).",
+    "priority": "secondary"
+   },
+   {
+    "name": "OECD \u2013 Inventory of Support Measures for Fossil Fuels (2025 edition)",
+    "publisher": "OECD (Trade and Agriculture Directorate); combined estimates with the IEA",
+    "measures": "Measure-level government budgetary transfers and tax expenditures supporting fossil fuel production and consumption, in national currency, by support category (producer support PSE, consumer support CSE, general services GSSE), fuel, and institutional sector.",
+    "coverage": "52 OECD, G20, EU and Eastern Partnership countries in the inventory (the combined OECD-IEA estimate covers 82 economies). Annual, about 2010\u20132024.",
+    "latest_release": "'OECD Inventory of Support Measures for Fossil Fuels 2025: Policy Trends' (OECD URL path 2025/12, i.e. Dec 2025). SDMX dataflows DSD_FFS@DF_FFS_{ISO3} v3.0 already contain 2024 values.",
+    "update_cadence": "Annual (late in the year).",
+    "landing_url": "https://www.oecd.org/en/topics/sub-issues/fossil-fuel-support.html",
+    "download_urls": [
+     "https://sdmx.oecd.org/public/rest/dataflow/all/all/latest",
+     "https://sdmx.oecd.org/public/rest/data/OECD.TAD.ADM,DSD_FFS@DF_FFS_DEU,3.0/all?startPeriod=2024&format=csvfilewithlabels"
+    ],
+    "format": "SDMX REST (CSV with labels, or JSON). One dataflow per country.",
+    "license": "CC BY 4.0. Per OECD terms (seen via search snippets; oecd.org returned 403), since 1 July 2024 OECD data may be extracted, copied, adapted and redistributed for any purpose, including commercial use, with credit in the form 'OECD (year), (dataset name), (data source) DOI or URL (accessed on (date))'.",
+    "redistribution": "open-attribution",
+    "citation": "\"OECD (2025), OECD Inventory of Support Measures for Fossil Fuels 2025, https://sdmx.oecd.org/public/rest/data/OECD.TAD.ADM,DSD_FFS@DF_FFS_<ISO3>,3.0 (accessed YYYY-MM-DD).\"",
+    "doi": "not verified",
+    "status": "Active",
+    "url_check": "The SDMX dataflow list returned HTTP 200. Filtering for OECD.TAD.ADM DSD_FFS gave 53 dataflows: ARG \u2026 ZAF plus DETAIL, and USA was not among them. The DEU query returned CSV rows such as 'DEU_DT_28, Electricity price compensation, Budgetary transfer, Consumer Support Estimate, ... EUR, 2024, 2436830937'. oecd.org HTML pages returned 403.",
+    "site_use": "Country drill-down of named support measures (e.g. Germany's electricity price compensation), which makes 'subsidies' concrete for activists who want to petition about a specific line item.",
+    "caveats": "Measures are in national currency and have to be converted for comparison. Coverage is not global. No USA dataflow was found in the SDMX list (to verify). Methodology differs from the IMF (budget-based versus price-gap/externality). Never add OECD and IMF numbers together.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Carbon Project \u2013 fossil CO2 emissions dataset (GCB 2025v15)",
+    "publisher": "Global Carbon Project (Robbie Andrew, CICERO; Glen Peters)",
+    "measures": "Territorial fossil CO2 emissions by fuel (coal, oil, gas, cement, flaring, other) in MtCO2, and per capita.",
+    "coverage": "1750\u20132024. About 220 countries plus Global and regions.",
+    "latest_release": "2025v15, released 22 Oct 2025 on Zenodo (described as 'the initial release of the 2025 dataset'). The 2026 version is expected with GCB 2026 (usually November); I did not check whether it is out.",
+    "update_cadence": "Annual (Oct\u2013Dec).",
+    "landing_url": "https://doi.org/10.5281/zenodo.17417124",
+    "download_urls": [
+     "https://zenodo.org/records/17417124/files/GCB2025v15_MtCO2_flat.csv?download=1",
+     "https://zenodo.org/records/17417124/files/GCB2025v15_percapita_flat.csv?download=1",
+     "https://zenodo.org/records/17417124/files/GCB2025v15_sources_flat.csv?download=1",
+     "https://zenodo.org/api/records/17417124",
+     "https://owid-public.owid.io/data/co2/owid-co2-data.csv"
+    ],
+    "format": "CSV (flat) with JSON metadata, a per-datapoint sources CSV, and a methodology PDF.",
+    "license": "CC BY 4.0 (Zenodo record licence 'cc-by-4.0').",
+    "redistribution": "open-attribution",
+    "citation": "Andrew, R. M., & Peters, G. P. (2025). The Global Carbon Project's fossil CO2 emissions dataset (2025v15) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17417124",
+    "doi": "10.5281/zenodo.17417124",
+    "status": "Active (European-funded, not exposed to US cuts).",
+    "url_check": "The Zenodo API returned title, version 2025v15, publication_date 2025-10-22, licence cc-by-4.0, and 7 files. Streamed GCB2025v15_MtCO2_flat.csv (columns Country, ISO 3166-1 alpha-3, UN M49, Year, Total, Coal, Oil, Gas, Cement, Flaring, Other, Per Capita). Global 2024: Total 38,598.578, Coal 15,805.254, Oil 12,470.596, Gas 8,009.828, Cement 1,472.817, Flaring 415.708. The year range is 1750\u20132024. OWID owid-co2-data.csv World 2024 matches exactly (co2 38,598.578; coal_co2 15,805.254), so OWID's processing does not change these values.",
+    "site_use": "The cause link: CO2 from burning coal, oil and gas, by fuel and country. This is the bridge from the energy domain to the emissions domain, so share one canonical ingest with that domain. Use per-capita figures for fairness views.",
+    "caveats": "Covers CO2 only, not methane from fossil fuel supply chains. The latest year is preliminary. Territorial accounting differs from consumption-based. Do not combine with Ember's lifecycle CO2e or EI's energy CO2 (a different method).",
+    "priority": "core"
+   },
+   {
+    "name": "World Bank WDI \u2013 Access to electricity and clean cooking (from Tracking SDG7 2026)",
+    "publisher": "World Bank (with IEA, IRENA, UNSD, WHO as SDG7 custodians)",
+    "measures": "Access to electricity (% of population, EG.ELC.ACCS.ZS) and access to clean cooking fuels and technologies (% of population, EG.CFT.ACCS.ZS).",
+    "coverage": "Countries and aggregates. Electricity to 2024; clean cooking to 2023 in WDI (World 2024 is null).",
+    "latest_release": "WDI lastupdated 2026-07-13. Tracking SDG7: The Energy Progress Report 2026 reports 655 million people without electricity in 2024 (from ESMAP and SEforALL press coverage).",
+    "update_cadence": "Annual (Tracking SDG7 mid-year, then WDI refresh).",
+    "landing_url": "https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS",
+    "download_urls": [
+     "https://api.worldbank.org/v2/country/WLD/indicator/EG.ELC.ACCS.ZS?format=json&mrv=3",
+     "https://api.worldbank.org/v2/country/WLD/indicator/EG.CFT.ACCS.ZS?format=json&mrv=3",
+     "https://api.worldbank.org/v2/country/all/indicator/EG.ELC.ACCS.ZS?format=json&per_page=20000"
+    ],
+    "format": "JSON or XML REST API, plus CSV bulk download.",
+    "license": "World Bank default dataset licence is CC BY 4.0. Users only need to give appropriate credit and indicate any changes (World Bank data catalog licence page, fetched). WDI follows this default; the WDI-specific label was not separately verified.",
+    "redistribution": "open-attribution",
+    "citation": "\"World Bank (2026), World Development Indicators, indicator EG.ELC.ACCS.ZS, accessed YYYY-MM-DD; underlying source: IEA, IRENA, UNSD, World Bank, WHO (2026), Tracking SDG7: The Energy Progress Report 2026.\"",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "The API returned World 2024 = 91.9264843853681%, 2023 = 91.603%, lastupdated 2026-07-13. Clean cooking World 2023 = 74.43%, 2024 = null. Indicator metadata gives the sourceOrganization as the 'SDG 7.1.1 Electrification Dataset, World Bank', downloaded from trackingsdg7.esmap.org. My derivation (1 \u2212 0.919265) \u00d7 World population 8,140,897,523 = about 657 million, close to the report's official 655 million.",
+    "site_use": "Consequences and justice layer: who lacks basic energy access, set against per-capita energy use and emissions (OWID energy and GCB), to show that the transition must also deliver access.",
+    "caveats": "Show the official SDG7 figure (655 million). The derived figure differs slightly because of population vintage. Clean cooking lags one year.",
+    "priority": "secondary"
+   },
+   {
+    "name": "IEA \u2013 World Energy Balances / World Energy Statistics (paid datasets)",
+    "publisher": "International Energy Agency",
+    "measures": "Full energy balances by country, product and flow (the gold standard for final-energy-by-sector).",
+    "coverage": "1960/1971\u20132024, about 190 countries.",
+    "latest_release": "Not checked in detail (paid product; iea.org returned 403).",
+    "update_cadence": "Annual with provisional updates.",
+    "landing_url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+    "download_urls": [
+     "https://iea.blob.core.windows.net/assets/45b8131a-2e75-4c2d-b3b8-8b36766fdaf8/TermsofUseforNon-CCMaterial-26oct2022.pdf"
+    ],
+    "format": "Paid database (Beyond 20/20, CSV, API).",
+    "license": "Non-CC Material under the IEA's 'Terms of Use for Non-CC Material'. Per search snippets of those terms, users must not share or enable others to access Non-CC Material except as a Purchased Product with permitted user counts, or for internal government use.",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "n/a \u2013 do not use",
+    "doi": "none",
+    "status": "Active (commercial)",
+    "url_check": "The product page returned 403. Search results describe the Non-CC terms; the IEA 'List of CC-licensed Content' PDF (fetched) shows only specific items under CC licences.",
+    "site_use": "Do not use. For energy use by sector, take what OWID publishes under EI terms, or EIA SEDS for the US.",
+    "caveats": "This is the main reason many sector-level energy charts on other sites cannot be reproduced openly.",
+    "priority": "avoid"
+   },
+   {
+    "name": "Proprietary battery price series: BloombergNEF Battery Price Survey and Benchmark Mineral Intelligence (via OWID)",
+    "publisher": "BloombergNEF; Benchmark Mineral Intelligence",
+    "measures": "Volume-weighted Li-ion pack and cell prices (US$/kWh) by chemistry.",
+    "coverage": "BNEF about 2010\u20132025. Benchmark cell prices by chemistry.",
+    "latest_release": "Benchmark series on OWID accessed 2025-12-02. I did not check the BNEF 2025 survey (paywalled). Press reports a 2025 pack price of about $108/kWh, which is BNEF and not open.",
+    "update_cadence": "Annual (December).",
+    "landing_url": "https://ourworldindata.org/grapher/average-battery-cell-price",
+    "download_urls": [
+     "https://api.ourworldindata.org/v1/indicators/1128979.metadata.json"
+    ],
+    "format": "Metadata only (OWID marks the data non-redistributable).",
+    "license": "\u00a9 Benchmark Mineral Intelligence 2025. The OWID metadata flag nonRedistributable is True. BNEF is proprietary.",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "n/a \u2013 do not use",
+    "doi": "none",
+    "status": "Active (commercial)",
+    "url_check": "The OWID indicator 1128979 metadata returned nonRedistributable: true, with origins 'Benchmark Mineral Intelligence \u2013 Lithium-ion battery prices (2025)' licensed '\u00a9 Benchmark Mineral Intelligence 2025'.",
+    "site_use": "Do not display or offer for download. Use the OWID/Way CC BY battery cell series with its provenance warning, or IEA GEVO's pack-price index.",
+    "caveats": "Many popular '$/kWh' battery numbers trace back to these paywalled sources.",
+    "priority": "avoid"
+   },
+   {
+    "name": "Way, Ives, Mealy & Farmer (2022), 'Empirically grounded technology forecasts and the energy transition', Joule 6(9)",
+    "publisher": "Joule (Cell Press); INET Oxford",
+    "measures": "Experience-curve forecasts for solar, wind, batteries and electrolysers, and the cost of fast versus slow transitions.",
+    "coverage": "Historical cost series up to about 2020, with probabilistic forecasts to 2070.",
+    "latest_release": "Published 13 Sep 2022 (no newer version of the dataset found).",
+    "update_cadence": "none",
+    "landing_url": "https://www.cell.com/joule/fulltext/S2542-4351(22)00410-X",
+    "download_urls": [
+     "https://ora.ox.ac.uk/objects/uuid:17256b64-f822-40ef-8770-5d0fa1ddc73e"
+    ],
+    "format": "Article and supplementary PDF. Data and code are available from the authors on request.",
+    "license": "The article is open access. Per its Data and Code Availability statement (seen via search), data come partly from subscription sources (BNEF, Bloomberg Terminal, Lazard) and are available 'upon request (unless legal restrictions exist)'.",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "Way, R., Ives, M.C., Mealy, P., Farmer, J.D. (2022). Empirically grounded technology forecasts and the energy transition. Joule 6(9), 2057\u20132082. https://doi.org/10.1016/j.joule.2022.08.009",
+    "doi": "10.1016/j.joule.2022.08.009",
+    "status": "Archived (static paper)",
+    "url_check": "Search results and the Joule/INET pages confirmed the bibliographic details and the data-on-request statement. No public GitHub or Zenodo dataset was found. I did not fetch the full text.",
+    "site_use": "Cite as interpretive context for 'learning curves mean a fast transition is cheaper', but never as a number source.",
+    "caveats": "Not traceable to a public dataset.",
+    "priority": "avoid"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "Fossil fuels still supplied 86% of the world's total energy in 2025.",
+    "value_as_of_latest": "86.2% (2025)",
+    "source_name": "Energy Institute Statistical Review of World Energy 2026, via the Our World in Data energy dataset",
+    "derivation": "OWID owid_energy.csv (catalog.ourworldindata.org, last-modified 2026-09-30), row country='World', year=2025: fossil_fuels_energy_share_pct = 86.238434. This equals fossil_fuels_energy_twh 143,805.69 / total_energy_twh 166,753.6 \u00d7 100. EI's own release states 86% of TES. 166,753.6 TWh \u00d7 0.0036 = 600.3 EJ, which matches EI's 'exceeded 600 EJ'."
+   },
+   {
+    "statement": "Burning coal, oil and gas emitted 36.3 billion tonnes of CO2 in 2024, and coal alone accounted for 15.8 billion tonnes.",
+    "value_as_of_latest": "36.29 GtCO2 from coal+oil+gas (coal 15.81 Gt, oil 12.47 Gt, gas 8.01 Gt), 2024",
+    "source_name": "Global Carbon Project fossil CO2 dataset 2025v15 (Andrew & Peters, Zenodo, CC BY 4.0)",
+    "derivation": "GCB2025v15_MtCO2_flat.csv, Country='Global', Year=2024: Coal 15,805.254 + Oil 12,470.596 + Gas 8,009.828 = 36,285.68 MtCO2. Total fossil+industry is 38,598.578 MtCO2 (adding cement 1,472.817, flaring 415.708 and other 424.376). Coal share of total = 15,805.254 / 38,598.578 = 40.9%."
+   },
+   {
+    "statement": "Solar generated 8.7% of the world's electricity in 2025, up 30% in one year, and overtook wind.",
+    "value_as_of_latest": "2,780 TWh = 8.74% of global generation (2025); wind 2,704 TWh",
+    "source_name": "Ember Yearly Electricity Data (CC BY 4.0), CSV last-modified 2026-09-22",
+    "derivation": "release_generation_yearly_global.csv, Area='World', Electricity source='Solar': Year 2025 Generation (TWh) = 2,780.204, Share of generation (%) = 8.737. Year 2024 = 2,143.678 TWh. Growth = 2,780.204 / 2,143.678 \u2212 1 = 29.7%. Wind 2025 = 2,704.379 TWh."
+   },
+   {
+    "statement": "Clean sources (renewables plus nuclear) produced 42% of the world's electricity in 2025, and fossil generation edged down.",
+    "value_as_of_latest": "Clean share 42.3%; fossil generation \u221249.9 TWh (\u22120.27%) versus 2024",
+    "source_name": "Ember Yearly Electricity Data, September 2026 vintage",
+    "derivation": "Same CSV, Area='World', source='Clean', 2025: Share of generation 42.309%. Source='Fossil': 2025 = 18,357.373 TWh, 2024 = 18,407.285 TWh, so the change is \u221249.912 TWh (\u22120.27%). The April vintage (Global Electricity Review 2026) reported \u221238 TWh (\u22120.2%), so display the vintage date next to the number."
+   },
+   {
+    "statement": "In July 2026, 11% of the world's electricity came from solar, and fossil-fuel generation was lower than a year earlier.",
+    "value_as_of_latest": "Solar 11.3% of global generation; fossil generation \u22120.9% YoY (July 2026)",
+    "source_name": "Ember Monthly Electricity Data (CC BY 4.0), CSV last-modified 2026-09-18",
+    "derivation": "release_generation_monthly_global.csv, Area='World', Date='2026-07-01': Solar Share of generation (%) = 11.277. Source 'Fossil' Generation YoY change (%) = \u22120.886 (\u221214.838 TWh; 1,660.813 TWh in July 2026)."
+   },
+   {
+    "statement": "The cost of electricity from new utility-scale solar fell by about 89% between 2010 and 2025.",
+    "value_as_of_latest": "From $0.408/kWh (2010) to $0.0435/kWh (2025), constant 2025 USD: \u221289%",
+    "source_name": "IRENA, Renewable Power Generation Costs in 2025 (July 2026), via the OWID levelized-cost-of-energy grapher",
+    "derivation": "OWID grapher levelized-cost-of-energy.csv, entity='World', column solar_photovoltaic: 2010 = 0.40771458, 2025 = 0.043538958. 1 \u2212 0.043538958 / 0.40771458 = 0.893. Cross-check: the IRENA exec summary states solar PV at USD 44/MWh in 2025 and an 89% fall since 2010. The upstream XLSX is IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx."
+   },
+   {
+    "statement": "The world's renewable power capacity passed 5,000 GW at the end of 2025, after a record of nearly 700 GW added in a single year.",
+    "value_as_of_latest": "5,155 GW installed (end-2025); +693 GW in 2025",
+    "source_name": "IRENA IRENASTAT, table Region_ELECSTAT_2026_H2 (updated 2026-09-28)",
+    "derivation": "POST to pxweb.irena.org \u2026/Region_ELECSTAT_2026_H2_PX.px with Region=GLO, Technology='Total Renewable', Data Type='Electrical Installed Capacity (MW)': 2025 = 5,155,007.33 MW, 2024 = 4,461,631.67 MW, difference = 693,375.66 MW. The March 2026 publication reported 5,149 GW and +692 GW; the difference is a data revision, so show the table version."
+   },
+   {
+    "statement": "One in four new cars sold worldwide in 2025 was electric.",
+    "value_as_of_latest": "25% of new car sales; more than 20 million electric cars sold (2025); 75 million on the road (about 5% of the car stock)",
+    "source_name": "IEA Global EV Outlook 2026 (CC BY 4.0)",
+    "derivation": "api.iea.org/evs?\u2026&mode=Cars&region=World&csv=true returned 'World,Historical,EV sales share,Cars,EV,2025,percent,25', 'EV sales \u2026 21000000' (rounded), 'EV stock \u2026 75000000', 'EV stock share \u2026 5'. The GEVO 2026 PDF (p.10) says sales grew 20% to exceed 20 million, one-quarter of all new cars. 'EV' includes plug-in hybrids."
+   },
+   {
+    "statement": "2,226 GW of coal power plants operate worldwide, and another 763 GW are in development.",
+    "value_as_of_latest": "Operating 2,226 GW; under construction 260 GW plus pre-construction 503 GW = 763 GW (July 2026 release)",
+    "source_name": "Global Energy Monitor, Global Coal Plant Tracker, July 2026 release (CC BY 4.0)",
+    "derivation": "GEM summary sheet 'Coal Plants by Country (MW)' (Google Sheet 1_6AkrRZOn3ZXhSV9O6tZnX-m7aJsfG9HiQ_iEqBkbW8, CSV export), TOTAL row: Operating 2,226,469 MW. Construction 260,301 MW + 'Announced + Pre-permit + Permitted' 502,744 MW = 763,045 MW."
+   },
+   {
+    "statement": "Governments directly subsidised fossil fuels by $725 billion in 2024, and counting unpriced pollution and climate damage the total implicit subsidy was $6.7 trillion more.",
+    "value_as_of_latest": "Explicit $725 bn (0.6% of world GDP); implicit $6.7 tn (5.8% of GDP); total about $7.4 tn (2024)",
+    "source_name": "IMF Working Paper WP/25/270, 'Underpriced and Overused: Fossil Fuel Subsidies Data 2025 Update' (Black et al., Dec 2025)",
+    "derivation": "Values as reported in the WP/25/270 abstract (RePEc:imf:imfwpa:2025/270). The total is 0.725 + 6.7 \u2248 7.4 trillion. Country-level reproduction requires the 2025 data file. The IMF Climate Data hub (FeatureServer 'Indicator 15 Fossil Fuel Subsidies') still serves the 2023 Update in constant 2021 USD, so do not chart hub values next to this headline without a vintage label."
+   }
+  ],
+  "drilldown_paths": [
+   "WHERE OUR ENERGY COMES FROM (cause): World total energy supply by fuel, 1800\u20132025 (OWID energy / EI 2026) \u2192 pick a country \u2192 per-capita energy compared with the world average \u2192 split into electricity and other energy uses (Ember demand as a share of TES) \u2192 for electricity, the country's mix by source (Ember yearly) \u2192 each fuel's trend. Series: owid_energy.csv (total_energy_twh, *_energy_share_pct, *_energy_per_capita_kwh), Ember release_generation_yearly_global.csv.",
+   "FROM FUEL TO CO2 (cause \u2192 consequence link): fossil CO2 by fuel, World 1750\u20132024 (GCB 2025v15) \u2192 country (territorial and per capita) \u2192 that country's coal power fleet (GEM: operating, under construction, retirement year, owner) \u2192 its grid carbon intensity in gCO2e/kWh (Ember, labelled lifecycle) \u2192 hand-off to the emissions and impacts domains (concentration, temperature). Series: GCB2025v15_MtCO2_flat.csv, GEM summary sheets, Ember emissions intensity.",
+   "HOW FAST IS THE TRANSITION? Clean share of world electricity, yearly 2000\u20132025 and monthly to July 2026 (Ember) \u2192 solar and wind generation by country (Ember) \u2192 installed capacity and annual additions (IRENASTAT) \u2192 why it is happening: LCOE by technology 2010\u20132025 (IRENA RPGC 2025) and the solar module learning curve 1975\u20132024 (OWID/Nemet/IRENA) \u2192 where the money goes, clean versus fossil investment (IEA WEI 2026). Series: Ember yearly and monthly, IRENA Region/Country_ELECSTAT_2026_H2, IRENA RPGC data file, OWID solar-pv-prices-vs-cumulative-capacity, WEI 2026.",
+   "TRANSPORT AND YOU: EV share of new car sales by country, 2010\u20132025 (IEA GEVO API) \u2192 EV stock and oil displaced (mb/d) \u2192 battery cell price decline (OWID/Way, shown with an 'upstream not public' badge) \u2192 'Is an EV cleaner on my grid?', which takes the user's country or US state and multiplies grid gCO2e/kWh (Ember, or EIA for US states) by a transparent, cited kWh/km. Series: api.iea.org/evs, Ember emissions intensity, EIA electric-power-operational-data.",
+   "UNITED STATES TO STATE TO FUEL: US generation by fuel, 2001\u20132025 (EIA API v2, public domain), including coal's 2025 rebound (652 \u2192 737 TWh) \u2192 pick a state \u2192 its fuel mix and trend \u2192 its coal plants and planned retirements (GEM US sheets) \u2192 local action (utility resource plans, community solar). Series: EIA electricity/electric-power-operational-data (location=state), Ember US electricity data, GEM 'Coal Plants in the United States (MW)'.",
+   "FOLLOW THE MONEY (policy levers): clean versus fossil investment, 2015\u20132026e (IEA WEI) \u2192 fossil subsidies by country, explicit versus implicit and by fuel (IMF, vintage-labelled) \u2192 named support measures in a country (OECD Inventory SDMX, e.g. Germany's electricity price compensation) \u2192 what reform achieves (IMF estimates: explicit-subsidy removal cuts CO2 about 6% by 2035 and avoids about 70,000 premature deaths a year). Series: WEI 2026, IMF FeatureServer or 2025 file, OECD DSD_FFS@DF_FFS_<ISO3>.",
+   "WHO IS LEFT OUT (consequence and justice): people without electricity (655 million in 2024) and without clean cooking (about 2 billion), by country (WDI / Tracking SDG7) \u2192 set against per-capita energy use (OWID) and per-capita fossil CO2 (GCB) \u2192 shows that high emitters and low-access countries are different places. Series: WDI EG.ELC.ACCS.ZS and EG.CFT.ACCS.ZS, owid_energy per-capita columns, GCB per-capita CSV.",
+   "THE PULSE (live view): the latest month's world solar share, clean share and fossil YoY (Ember monthly) \u2192 country small multiples \u2192 link to the yearly context. Series: release_generation_monthly_global.csv."
+  ],
+  "action_links": "INDIVIDUALS: (1) Electrify what you can, and let the grid data decide the impact. Ember (yearly, lifecycle gCO2e/kWh by country) and EIA (by US state) show how clean electricity is where the visitor lives. That turns 'switch to an EV or heat pump' into a locally sourced calculation rather than a generic claim. IEA GEVO 2026 shows EVs already displaced about 1.2 mb/d of oil in 2025 (api.iea.org/evs, 'Oil displacement, Mbd' 2025 = 1.2). (2) Rooftop or community solar, and choosing clean tariffs: IRENA RPGC 2025 finds that more than 90% of new utility-scale renewables commissioned in 2025 were cheaper than the cheapest new fossil option, and solar PV LCOE is about USD 44/MWh. The site must give no personal financial advice; it presents cost data only.\nCOMMUNITIES AND ACTIVISTS: (3) Coal plant retirements. GEM's 'Planned Coal Plant Retirements (MW)' and ownership sheets (CC BY 4.0, July 2026) name the plants, owners and retirement dates. Combined with EIA (US) or Ember country data, an activist can cite exactly which plant, how many MW, and its estimated annual CO2 (GEM 'Coal Plants by Country: Annual CO2'). (4) Utility resource plans and public comment: use EIA state fuel mix plus IRENA costs to argue that new gas or coal costs more than renewables plus storage (IRENA firm LCOE for solar plus battery is below USD 85/MWh at high-quality sites in 2025).\nPOLICYMAKERS: (5) Subsidy reform. IMF WP/25/270 estimates that removing explicit fossil subsidies ($725 bn in 2024) would cut CO2 about 6% by 2035, avoid about 70,000 premature air-pollution deaths a year, and raise revenue of about 0.6% of GDP. It also finds the poorest 20% receive only about 8 cents per subsidy dollar (RePEc abstract). The OECD Inventory names the specific measures (SDMX DSD_FFS). (6) Investment direction: IEA WEI 2026 shows clean energy at about USD 2.2 tn versus fossil at USD 1.2 tn in 2026, so the remaining gap is a policy choice. (7) Energy access: Tracking SDG7 2026 reports 655 million people without electricity, mostly in Sub-Saharan Africa. Every action page should link to the exact series and vintage behind each claim, with the same citation strings given in the sources list.",
+  "gaps_and_risks": "LICENCE RISKS: (a) The Energy Institute Statistical Review is the canonical total-energy source, but it is '\u00a9 Energy Institute'. Its guidance requires permission for extensive reproduction of tables or charts and prohibits redistributing S&P Global-sourced data, and its files sit behind a Cloudflare challenge (HTTP 403; OWID now downloads them by hand). Before publishing bulk CSVs of EI-derived numbers, get written permission from EI. Otherwise, pick a fully open canonical source per chart: Ember (CC BY) for electricity, EIA International (public domain) for total energy. Never blend sources within one series. (b) IEA: only some products are CC BY 4.0 (GEVO 2026 confirmed in the PDF; the WEI 2026 datafile is CC BY per IEA listings but not directly verified). World Energy Balances and most IEA data are Non-CC and must not be redistributed. iea.org blocks automated fetching, product XLSX files probably need a free account (a human step), and the EV API is undocumented with rounded values. CC BY does not clear third-party components (EV Volumes and others). (c) Battery prices: there is no fully open, traceable absolute $/kWh series. BNEF is paywalled, Benchmark is flagged nonRedistributable by OWID, the Ziegler & Trancik Dataverse files are restricted, and the OWID/Way compilation came 'via private communication'. Show it with a provenance badge or use IEA's index. (d) IRENA: publications allow free use with attribution and a \u00a9 IRENA notation, but the IRENASTAT web footer says 'All Rights Reserved', and third-party material may restrict commercial use. Get written confirmation. (e) The GEM Solar Power Tracker has CC BY-NC records (TransitionZero), and GEM full datasets go through a download form.\nVINTAGE AND REVISION RISKS: Ember revised the 2025 renewables share from 33.8% (April GER) to 33.48% (September CSV) and coal from 33.0% to 33.35%. The 'renewables overtook coal' headline holds only narrowly, so pin vintages. IRENA moved from 5,149 to 5,155 GW. The OWID energy dataset changed methodology to total energy supply (October 2026) and its Ember vintage lags Ember's own site. EI growth rates are leap-year adjusted (TES +1.7% versus a raw +1.37%). The IMF Climate Data hub still serves the 2023 Update while headlines come from the 2025 Update. Mitigation: immutable snapshot of every ingested file (URL, fetch time, HTTP last-modified, SHA-256, and producer version string), with that provenance attached to every number and every downloadable CSV. That fits the under-$20/month budget: all files are under 50 MB and can be fetched on a schedule into object storage.\nMETHOD MISMATCHES TO DOCUMENT, NEVER MIX: Ember lifecycle CO2e versus GCB combustion CO2 versus EI energy CO2. Substitution versus TES versus EIA quad-Btu primary energy. IMF price-gap/externality subsidies versus OECD budget-based support. Capacity (GW) versus generation (TWh). Projections (IEA STEPS, WEI 2026 estimates) are not observations.\nSTATUS AND AVAILABILITY RISKS: US EIA lost about 40% of staff in 2025, with reports delayed or discontinued (e.g. Annual Solar PV Module Shipments), so archive EIA pulls. NREL appears to have been renamed (IRENA acknowledgements list 'NLR'), and the NREL Annual Technology Baseline was not assessed and may be at risk. Hosts that block automated fetchers (IEA, IMF, OECD, IRENA HTML, EI) mean some ingests need a documented manual step. GEM summary tables live in Google Sheets whose IDs can change between releases.\nCOVERAGE GAPS NOT FILLED HERE: final energy use by sector (buildings, industry, transport) without IEA balances (EIA SEDS covers only the US). Methane from oil, gas and coal supply (IEA Methane Tracker is CC BY 4.0 per IEA's CC list; belongs to the emissions or methane domain). Fossil fuel production plans versus 1.5\u00b0C (UNEP Production Gap Report; GEM oil and gas extraction tracker) not assessed. Heat pump sales (IEA, licence unverified). Grid and storage deployment (IRENA has pumped hydro; battery storage capacity open data is thin). Clean-energy jobs (IRENA annual review not assessed). Lazard LCOE+ was not used (proprietary).\nUNVERIFIED ITEMS TO CONFIRM BEFORE LAUNCH: the exact text of EI's terms page; the WEI 2026 datafile licence and XLSX URL; the GEVO 2026 XLSX URL and login requirement; the IMF 2025 country data file URL and DOI; the OECD FFS DOI and the missing USA dataflow; the fields on the GEM download form; the Tracking SDG7 2026 report licence (the report may differ from WDI's CC BY 4.0); the EI permission contact address."
+ },
+ "verification": {
+  "domain": "Energy system: the largest cause of climate change, and the transition away from fossil fuels",
+  "verdicts": [
+   {
+    "name": "Ember \u2013 Yearly Electricity Data (global + Europe), with the Global Electricity Review 2026",
+    "verdict": "corrected",
+    "corrections": "Confirmed by my own checks: the licence is CC BY 4.0 (stated in the landing-page footer, and the OpenAPI info.license at https://api.ember-energy.org/v1/openapi.json is 'CC-BY-4.0 (data)', version 1.2.0). The landing page says 'Last Updated 15/09/2026' and updates twice a month. release_generation_yearly_global.csv returned HTTP 200, 16,084,305 bytes, last-modified 22 Sep 2026. Every World value the researcher quoted matches exactly: Solar 2025 2,780.204 TWh (8.737%), 2024 2,143.678; Wind 2,704.379; Coal 10,610.915 (33.347%); Renewables 33.48%; Clean 42.309%; Fossil 18,357.373 vs 18,407.285; Total generation 31,820.135; intensity 460.503. GER 2026 was published 21 Apr 2026 with renewables 33.8%, coal 33.0% and fossil \u221238 TWh (\u22120.2%), verified at https://ember-energy.org/latest-insights/global-electricity-review-2026/.\nCORRECTIONS: (1) Coverage is overstated. In the 22-Sep CSV, 'Total generation' exists for only 93 countries plus 15 regional aggregates in 2025, 194 countries in 2024, and about 207\u2013208 countries for 2000\u20132023. 52 countries go back to 1990 and 22 to 1985. There are 224 area labels in total. So the 2025 World and regional values are partly estimated, and most country drill-downs stop at 2024. The UI must show the latest year per country. (2) release_generation_yearly_lower.csv is the 'Europe only' file (4,084,383 bytes, last-modified 22 Sep 2026), not a lower-level global file. (3) yearly_full_release_long_format.csv (49,079,981 bytes) was last modified 23 Jun 2026. It is three months staler than the wide CSV and is the legacy format, so do not ingest it. (4) The claim that Ember publishes no citation string is not quite right: the API docs' 'License and Attribution' section gives an example attribution of the form 'Monthly electricity generation data, Ember' and forbids adding extra legal or technical restrictions. (5) The methodology PDF was last modified 22 Sep 2026 (1,487,777 bytes).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Ember \u2013 Monthly Electricity Data",
+    "verdict": "confirmed",
+    "corrections": "Verified: the landing page shows 'Last Updated 28/07/2026' (stale compared with the file), CC BY 4.0, and '88 geographical areas representing more than 90% of global power demand'. release_generation_monthly_global.csv returned 200, 28,333,064 bytes, last-modified 18 Sep 2026. The CSV has 88 countries plus 11 regions (99 labels). Dates run 1998-12 to 2026-08, and the World aggregate runs 2019-01 to 2026-07. World 2026-07-01 matches exactly: Solar 331.495 TWh, 11.277%, YoY +15.157%; Fossil 1,660.813 TWh, YoY \u221214.838 TWh (\u22120.886%); Clean 43.503%. Extra caveat for the 'pulse' strip: country coverage thins sharply in recent months ('Total generation' rows: 82 countries for May 2026, 74 for Jun, 64 for Jul, 40 for Aug). Show how many countries each month covers, and do not present Aug 2026 as a global month. The Europe-only file (_lower) was 14,423,164 bytes, last-modified 18 Sep 2026.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Energy Institute \u2013 Statistical Review of World Energy 2026 (75th edition)",
+    "verdict": "corrected",
+    "corrections": "LICENCE IS RESTRICTIVE, NOT 'UNCLEAR'. The live energyinst.org pages return 403 with cf-mitigated: challenge (confirmed for /statistical-review, /resources-and-data-downloads, /terms and the /__data/assets/ XLSX and PDF). I read Wayback snapshots instead. (a) EI site terms (web.archive.org/web/20260903075207/https://www.energyinst.org/terms), Copyright section: all rights reserved; copies may be made only for information and the user's private use; any other use or reproduction needs EI's written permission; no licence is granted beyond viewing. (b) Statistical Review 'About' page (web.archive.org/web/20260924025130/https://energyinst.org/statistical-review/about): publishers may quote with attribution, but planned extensive reproduction of tables or charts needs prior permission from statisticalreview@energyinst.org (this address is now verified). Redistributing or reproducing S&P Global-sourced data is strictly prohibited without S&P authorisation (support@platts.com). So bulk CSV redistribution of EI-derived series is not permitted without written permission. Quoting individual numbers with attribution is allowed.\nOther corrections: the About page says EI works in partnership with Ember and in collaboration with KPMG and Kearney. Data compilation is done by Wattage, and the named knowledge partner is 'S&P Global Energy' (with JP Morgan Asset Management support), not 'S&P Global Commodity Insights'. The PDF report download requires email verification. EI moved to the Physical Energy Content / TES method in the 2025 edition, not 2026.\nVintage confirmed indirectly: OWID etl snapshots/energy_institute/2026-06-30 *.dvc gives date_published 2026-06-30, date_accessed 2026-07-02, licence '\u00a9 Energy Institute 2026'. The narrow CSV is 21,056,126 bytes (md5 f25ee667\u2026), the XLSX 3,973,716 bytes (md5 8ceed4d5\u2026), and the .py docstring confirms the Cloudflare challenge and manual download. The archived downloads page (17 Sep 2026) lists EI-Stats-Review-ALL-data.xlsx and Statistical-Review-of-World-Energy-2026-Summary-version.pdf. I could not independently confirm the '75th edition' label or the '+1.7% TES' growth; 1952\u21922026 does make 75 editions.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Our World in Data \u2013 Energy dataset (new TES-methodology release; legacy owid/energy-data)",
+    "verdict": "corrected",
+    "corrections": "LICENCE CLASSIFICATION IS WRONG. The new catalog readme (https://catalog.ourworldindata.org/energy/owid_energy/readme.md, last-modified 2 Oct 2026), section 'License', makes no CC BY grant for this dataset. It says OWID only collects and republishes, that the original sources' licences still apply, and that checking permitted use is the user's responsibility. The CC BY statement the researcher quoted comes from the legacy GitHub README and covers only content OWID itself produces. The core TES columns inherit '\u00a9 Energy Institute 2026' (indicator 1295381 metadata), and EI's terms restrict reproduction (see the EI entry). OWID's nonRedistributable=False flag shows OWID's own judgement, not a licence from EI. OWID also labels Smil (2017), a commercial book that supplies pre-1965 World values, as 'CC BY 4.0', which activists cannot trace to an open file. Redistribution therefore has to be decided per column: Ember columns are CC BY, EIA columns are public domain, and EI columns are restricted.\nConfirmed: owid_energy.csv returned 200, 9,081,888 bytes, last-modified 30 Sep 2026. The XLSX is 12,835,511 bytes and the readme 99,553 bytes, both last-modified 2 Oct 2026. 19,494 rows \u00d7 130 columns, years 1800\u20132025 for World (1700 in the country column range). The readme's 'How to cite' string matches. World 2025: total_energy_twh 166,753.6, fossil_fuels_energy_twh 143,805.69, share 86.238434%, low-carbon 13.761562%, solar_electricity_twh 2,778.64. sources.csv shows EI published 2026-06-30 (accessed 2026-07-02), Ember yearly accessed 2026-04-24, and EIA INTL accessed 2026-05-05. The legacy README transition banner was merged 2026-10-01, and the legacy CSV was last modified 27 Apr 2026.\nMISSED: the readme gives version-pinned URLs (dataset version 2026-09-10), e.g. https://catalog.ourworldindata.org/garden/energy/2026-09-10/owid_energy/owid_energy.csv (also .parquet, .feather and .meta.json). Use these, not the 'latest' URLs, for immutable provenance.",
+    "final_redistribution": "unclear",
+    "final_priority": "core"
+   },
+   {
+    "name": "U.S. EIA Open Data API v2 and bulk files (electricity, SEDS, International)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: the reuse page (WebFetch of https://www.eia.gov/about/copyrights_reuse.php; curl gets Akamai 503) says US government publications are public domain and EIA products may be used and distributed. The requested acknowledgement form is 'Source: U.S. Energy Information Administration (<Month Year>)'. API values match exactly: US 2025 ALL 4,429,501.60 thousand MWh, COW 737,150.71, SUN 295,671.38, WND 464,390.61; 2024 ALL 4,308,634.30, COW 652,155.92 (+13.0%). World primary energy consumption 2024 = 606.037 quad Btu (2023 = 592.03). api.eia.gov/bulk/INTL.zip redirects 301 to www.eia.gov/opendata/bulk/INTL.zip, which returned 200, 24,153,479 bytes, last-modified 3 Oct 2026.\nCORRECTIONS: (1) The API reports apiVersion '2.1.14', not 2.1.11. (2) ELEC.zip is 293,234,846 bytes (293 MB, last-modified 25 Sep 2026), which contradicts the gaps section's claim that all files are under 50 MB. Use the API for state slices instead of the bulk zip. (3) I could not verify the status claims (staff cuts, delays) because web search was unavailable. The Annual Solar PV Module Shipments page shows its latest release as Sep 2023 (2022 data) with no explicit discontinuation notice, so call it 'stalled', not 'discontinued', unless EIA says otherwise. Core electricity, SEDS and INTL feeds are current: the SEDS CSV was last modified 26 May 2026.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "IRENA \u2013 Renewable Capacity Statistics 2026 and IRENASTAT (PxWeb API)",
+    "verdict": "confirmed",
+    "corrections": "Verified: the PxWeb listing at https://pxweb.irena.org/api/v1/en/IRENASTAT/Power%20Capacity%20and%20Generation shows Country_ELECSTAT_2026_H2_PX.px (updated 2026-09-28T17:56:28), Region_ELECSTAT_2026_H2_PX.px (18:07:54) and RE-SHARE_2026_H2_PX.px (18:11:32). My own POST returned World Total Renewable capacity 2024 = 4,461,631.67 MW and 2025 = 5,155,007.33 MW; Solar 2025 2,396,709.19; Wind 1,291,015.04; Fossil fuels 4,629,715.61. The Region dimension is World plus 9 regions. PDF p.2 gives \u00a9 IRENA 2026, free use with attribution and the \u00a9 IRENA notation, a third-party carve-out including commercial restrictions, ISBN 978-92-9260-725-8, and the citation string. The highlights PDF is dated 31 March 2026 and gives 5,149 GW, +692 GW and a 49.4% share. The IRENASTAT footer reads '\u00a9 IRENA \u2026 All Rights Reserved' (verified).\nAdditional caveats: (1) In the H2 table, 2025 electricity generation (GWh) is '..' (not yet available) for all technologies, so IRENA generation stops at 2024. (2) The highlights PDF carries a note 'Updated July 2026' while still showing 5,149 GW, so even the 'publication' figure has an update stamp. Cite the table ID and its 'updated' timestamp.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IRENA \u2013 Renewable Power Generation Costs in 2025 (report and data file)",
+    "verdict": "confirmed",
+    "corrections": "Verified: the XLSX returned 200, 12,908,268 bytes, last-modified 2 Jul 2026, and the executive summary PDF returned 200 (2,737,306 bytes). PDF p.2 gives \u00a9 IRENA 2026, free use with acknowledgement of IRENA as source and copyright holder, a third-party carve-out, ISBN 978-92-9260-749-4, and the citation 'IRENA (2026), Renewable power generation costs in 2025\u2026'. Highlights confirmed: solar PV USD 44/MWh (unchanged from 2024), onshore USD 33/MWh, offshore USD 78/MWh, solar \u221289% since 2010, more than 90% of new utility-scale capacity cheaper than the cheapest new fossil option, firm solar-plus-battery LCOE below USD 85/MWh at high-quality sites, and 8.4 Gt CO2 and about USD 480 bn of fossil fuel costs avoided in 2025. The OWID indicator 1305828 metadata lists origins RPGC 2025 (published 2026-07-01, accessed 2026-07-28, \u00a9IRENA 2026) plus the 2024 and 2023 reports. The OWID levelized-cost-of-energy.csv World solar_photovoltaic values are 2010 = 0.40771458 and 2025 = 0.043538958. The HTML landing pages return 403; the /-/media/ files are reachable.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Our World in Data \u2013 learning-curve series: solar PV module prices and lithium-ion battery cell prices",
+    "verdict": "corrected",
+    "corrections": "Date and vintage corrections. Solar (indicator 1305867): updatedAt is 2026-09-09, not 2026-07-28. Its IRENA origin is 'Renewable Power Generation Costs in 2024' (\u00a9IRENA 2025, accessed 2025-08-22), so the series does not yet use the July 2026 RPGC 2025 report. Module prices end in 2024 (0.26518628 constant 2025 US$/W). Cumulative capacity runs to 2025 (2,378,041.5 MW), but the 2025 price is blank. Other origins: Nemet (CC BY 3.0, PCDB curve 158; the download URL returned 200) and Farmer & Lafond (CC BY 4.0). Battery (1120053): updatedAt is 2026-05-18 (not 2025-11-19). Its origin 'Rupert Way \u2013 Historical battery costs and production' was published and accessed 2026-01-08, with licence CC BY 4.0 per OWID. citationFull confirms an 'in preparation, 2026' compilation from Ziegler & Trancik, BloombergNEF and Avicenne, shared with OWID by private communication. Values confirmed: 2022 = 132, 2023 = 111, 2024 = 78 (constant 2024 US$/kWh), timespan 1991\u20132024. Both indicators are nonRedistributable=False. The solar series is traceable and open with attribution. The battery series carries a CC BY label from OWID but its BNEF and Avicenne inputs are proprietary, and it cannot be traced to a public file. I therefore class the combined entry as 'unclear': treat solar as open-attribution and battery as display-only with a provenance badge.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "IEA \u2013 Global EV Outlook 2026 and Global EV Data Explorer",
+    "verdict": "corrected",
+    "corrections": "Verified: the blob PDF returned 200, 20,175,354 bytes, last-modified 19 Jun 2026, 295 pages. p.294 says the work is licensed CC BY 4.0, subject to the IEA's Notice for CC-licensed Content, and typeset May 2026. Page footers read 'IEA. CC BY 4.0.' The p.10 executive summary says electric car sales grew 20% to more than 20 million, one-quarter of new cars. api.iea.org/evs (region=World, csv=true) ignores the parameters filter (confirmed) and returns EV sales share 25%, EV sales 21,000,000 (BEV 14,000,000 + PHEV 7,200,000), EV stock 75,000,000, and stock share 5%.\nCORRECTION to action_links: the API's 1.2 mb/d oil displacement is for Cars only. All 2025 modes add up to about 1.66 mb/d: Cars 1.2, Trucks 0.21, 2/3-wheelers 0.12, Buses 0.071, Vans 0.062. Label it 'electric cars displaced about 1.2 mb/d', or use the all-mode sum. iea.org product pages return 403, so the XLSX login requirement and the 20 May 2026 'last updated' date remain unverified.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IEA \u2013 World Energy Investment 2026 (report and datafile)",
+    "verdict": "corrected",
+    "corrections": "The PDF licence is now verified, where the researcher had marked it unextracted. The blob PDF (200, 17,403,451 bytes, last-modified 19 Jun 2026, 260 pages) says on p.259 that, subject to the IEA's Notice for CC-licensed Content, the work is licensed CC BY 4.0 ('Typeset in France by IEA \u2013 May 2026'; 'Revised version, June 2026'). Every page footer reads 'IEA. CC BY 4.0.' p.6 confirms USD 3.4 trillion in 2026 (+5%), about USD 2.2 tn to clean energy and about USD 1.2 tn to oil, gas and coal. The launch presentation PDF returned 200, 351,229 bytes, last-modified 28 May 2026, which is consistent with a 28 May launch. Still unverified: the datafile product page (https://www.iea.org/data-and-statistics/data-product/world-energy-investment-2026-datafile) returns 403, so the datafile licence and access terms must be confirmed by a human. Until then, cite only figures printed in the CC BY PDF.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Energy Monitor \u2013 Global Coal Plant Tracker (and sibling trackers)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: the tracker page shows a July 2026 release, 14,674 units in 111 countries, the citation 'Global Coal Plant Tracker, Global Energy Monitor, July 2026 release.', and updates 'bi-annually, around January and July'. The Google Sheet CSV export (1_6AkrRZOn3ZXhSV9O6tZnX-m7aJsfG9HiQ_iEqBkbW8) says it is based on the tracker updated July 2026, and its TOTAL row exactly matches the researcher's figures (Operating 2,226,469 MW; Construction 260,301; Announced+Pre-permit+Permitted 502,744).\nLICENCE QUALIFICATION: neither the coal tracker page nor its download-data page states a licence. Both footers read '\u00a9 2026 Global Energy Monitor All Rights Reserved'. GEM hosts the CC BY 4.0 legal code at https://globalenergymonitor.org/creative-commons-license/ with no preamble saying what it covers. Direct evidence that GEM tracker data is CC BY 4.0 comes from the Global Solar Power Tracker page (Feb 2026 release), which refers to GEM's own CC BY 4.0 International licence and says attribution elements are in the download files. The same page carves out TransitionZero records (TZ ID) as CC BY-NC 4.0. Treat the coal data as CC BY 4.0 only after confirming the About sheet inside the downloaded July 2026 workbook. The download page HTML exposes no form fields to a static fetch (JS-rendered).",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IMF \u2013 Fossil Fuel Subsidies Data: 2025 Update ('Underpriced and Overused', WP/25/270) and IMF Climate Data hub",
+    "verdict": "corrected",
+    "corrections": "DOI FOUND: Crossref lists 'Underpriced and Overused' as DOI 10.5089/9798229034715.001, issued 2025-12, authors Black, Celniak, Garcia Huitron, Parry, Schulz Antipa and Vernon-Lin. The citation should carry this DOI. The 2023 Update cited by the hub has DOI 10.5089/9798400249006.001. RePEc (https://ideas.repec.org/p/imf/imfwpa/2025-270.html) confirms the abstract: explicit $725 bn (0.6% of GDP) and implicit $6.7 tn (5.8% of GDP) in 2024; removing explicit subsidies cuts CO2 6% by 2035 and avoids 70,000 deaths per year; the poorest 20% get 8 cents per subsidy dollar. Hub confirmed: modified 1777467927554 (2026-04-29), recordCount 7056, licence 'custom' linked to https://www.imf.org/external/terms.htm. The only distinct Source value is the 2023 Update.\nLICENCE NOT VERIFIED: imf.org/external/terms.htm and /en/About/copyright-and-terms return 403 or empty. OWID's own IMF snapshots label IMF data '\u00a9 International Monetary Fund Copyright. All Rights Reserved.' (e.g. snapshots/imf/2025-11-06/world_economic_outlook.csv.dvc). The researcher's 'open-attribution' rests only on search snippets, so downgrade to 'unclear' until a human reads the IMF data terms. Status: imf.org blocks automated fetches, and the 2025 country file URL is still unverified.",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "OECD \u2013 Inventory of Support Measures for Fossil Fuels (2025 edition)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: 53 OECD.TAD.ADM DSD_FFS dataflows at version 3.0. The non-country one is IND_DETAIL (India detail), not 'DETAIL'. USA is absent; the countries listed are ARG\u2026ZAF, including JPN and KOR. The DEU CSV query returned 'DEU_DT_28, Electricity price compensation \u2026 EUR, 2024, 2436830937'.\nNEW RISKS FOUND: (1) All 53 FFS dataflows carry the annotation NonProductionDataflow=true. They are hidden from the OECD Data Explorer and could be withdrawn without notice, so snapshot every pull. (2) The dataflow description says 'Last updated: December 2025\u2026 Data for 2024 are preliminary and may contain OECD-generated estimates', but its Source line still cites the 2021 Companion to the Inventory. (3) I could not verify the OECD licence (oecd.org returns 403), and OWID labels OECD snapshots 'OECD Terms and Conditions'. The CC BY 4.0 claim (OECD data since 1 Jul 2024) is plausible but unconfirmed here. No DOI was found.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Carbon Project \u2013 fossil CO2 emissions dataset (GCB 2025v15)",
+    "verdict": "confirmed",
+    "corrections": "Verified: the Zenodo API gives record 17417124, version 2025v15, publication_date 2025-10-22, licence cc-by-4.0, concept DOI 10.5281/zenodo.5569234, and 7 files (including a population CSV and two metadata JSONs). The versions list sorted newest-first still puts 2025v15 on top, so as of 2026-10-04 there is no 2026 release (GCB 2026 is not out). GCB 2025 itself was published 2025-11-13 (OWID snapshots/gcp/2025-11-13, licence CC BY 4.0 via ICOS). GCB2025v15_MtCO2_flat.csv Global 2024 matches exactly: Total 38,598.578, Coal 15,805.254, Oil 12,470.596, Gas 8,009.828, Cement 1,472.817, Flaring 415.708, Other 424.376, Per Capita 4.729. Recommend adding the concept DOI so users can find future versions.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "World Bank WDI \u2013 Access to electricity and clean cooking (from Tracking SDG7 2026)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: the WDI API gives lastupdated 2026-07-13; World electricity access 2024 = 91.9264843853681%, 2023 = 91.603%; clean cooking 2023 = 74.43% (latest non-null). The World Bank data catalog shows WDI under 'Creative Commons Attribution 4.0', with a catalog 'Last Updated' of 2 Oct 2026.\nCORRECTIONS: (1) The upstream report has a different licence. In the World Bank Open Knowledge Repository, Tracking SDG 7: The Energy Progress Report 2025 (handle 10986/43577, issued 2025-08-13) is CC BY-NC 3.0 IGO. Report text, figures and headline numbers taken from the report, rather than from WDI, are non-commercial. That is acceptable for this site, but the licence must be labelled correctly. (2) The 2026 report is not yet deposited in OKR, and trackingsdg7.esmap.org returns 403, so I could not verify the '655 million in 2024' figure. The derivation from WDI (about 657 million) is consistent. (3) The WDI indicator metadata's source note is stale (date accessed 2024-05-16, published 2023) even though it holds 2024 values. Cite WDI with an access date rather than relying on that note.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "IEA \u2013 World Energy Balances / World Energy Statistics (paid datasets)",
+    "verdict": "confirmed",
+    "corrections": "Verified: the Non-CC terms PDF (https://iea.blob.core.windows.net/assets/45b8131a-2e75-4c2d-b3b8-8b36766fdaf8/TermsofUseforNon-CCMaterial-26oct2022.pdf; 200, 280,331 bytes, 7 pages) says users must not share or enable others to access Non-CC Material except as a Purchased Product within licensed user counts, or for internal government use by member-country officials. Only 'Insubstantial Amounts' may be reproduced publicly. The product page returns 403. For an open substitute, see UNSD Energy Statistics in missing_sources.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "Proprietary battery price series: BloombergNEF Battery Price Survey and Benchmark Mineral Intelligence (via OWID)",
+    "verdict": "confirmed",
+    "corrections": "Verified: OWID indicator 1128979 'Battery cell prices' has nonRedistributable: true, with origins 'Lithium-ion battery prices' and 'Battery prices by chemistry' from Benchmark Mineral Intelligence (published and accessed 2025-12-02, licence '\u00a9 Benchmark Mineral Intelligence 2025'), updatedAt 2026-09-09. I did not check BNEF's 2025 survey (paywalled).",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "Way, Ives, Mealy & Farmer (2022), 'Empirically grounded technology forecasts and the energy transition', Joule 6(9)",
+    "verdict": "confirmed",
+    "corrections": "Crossref confirms: Joule 6(9), pp. 2057\u20132082, issued Sept 2022, authors Way, Ives, Mealy and Farmer, DOI 10.1016/j.joule.2022.08.009. Nuance: Crossref lists a CC BY 4.0 licence for the article, so its text and figures can be cited and reused with attribution. However, I found no public dataset or code repository (searches of Zenodo and GitHub, including the INET-Complexity org, returned nothing relevant). Keep it as interpretive context only, never as a source for a displayed number.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "avoid"
+   }
+  ],
+  "headline_number_checks": "1) Fossil share of TES 2025 = 86.2%: CONFIRMED. owid_energy.csv (last-modified 30 Sep 2026) World 2025 fossil_fuels_energy_share_pct = 86.238434, = 143,805.69 / 166,753.6 TWh. 166,753.6 \u00d7 0.0036 = 600.3 EJ. The raw TES ratio 2025/2024 = 166,753.6 / 164,494.1 = +1.37%; leap-adjusted (\u00d7366/365) it is about +1.65%, consistent with EI's stated +1.7%, which I could not see directly (EI is behind Cloudflare). LICENCE FLAG: this number derives from \u00a9 EI. Quoting it with attribution is allowed, but bulk redistribution of the series is not without EI's permission.\n2) Coal+oil+gas CO2 2024 = 36.29 Gt, coal 15.81 Gt: CONFIRMED arithmetic from GCB2025v15_MtCO2_flat.csv Global 2024 (15,805.254 + 12,470.596 + 8,009.828 = 36,285.68 Mt; total 38,598.578; coal share 40.9%). WORDING NUANCE: gas flaring (415.708 Mt) is also combustion of fossil gas. 'Burning coal, oil and gas' including flaring = 36,701 Mt (36.7 Gt). Either include flaring or say 'excluding flaring'. 2025v15 is still the latest Zenodo version as of 2026-10-04.\n3) Solar 8.7% of 2025 electricity, +30%, overtook wind: CONFIRMED. Ember yearly CSV (last-modified 22 Sep 2026): Solar 2,780.204 TWh (8.737%), 2024 2,143.678 TWh (+29.7%); Wind 2,704.379 TWh. GER 2026 (21 Apr) also states +636 TWh (+30%). Caveat: 2025 data exist for only 93 individual countries, so the World value is partly estimated.\n4) Clean 42.3%, fossil \u221249.9 TWh (\u22120.27%): CONFIRMED. Clean 42.309% (13,462.762 TWh); Fossil 18,357.373 vs 18,407.285 TWh. The April GER vintage gave \u221238 TWh (\u22120.2%), so pin the vintage. Renewables (33.48%, 10,653.4 TWh) still lead coal (33.347%, 10,610.9 TWh) by only 0.13 percentage points in the September vintage.\n5) July 2026 solar 11.3%, fossil \u22120.9% YoY: CONFIRMED. Ember monthly (last-modified 18 Sep 2026) World 2026-07-01: Solar share 11.277%; Fossil 1,660.813 TWh, YoY \u221214.838 TWh (\u22120.886%). Note that only 64 countries have July 2026 data.\n6) Solar LCOE \u221289% 2010\u21922025: CONFIRMED. OWID World solar_photovoltaic 0.40771458 \u2192 0.043538958 USD2025/kWh (\u221289.3%). IRENA RPGC 2025 executive summary p.3 states USD 44/MWh and \u221289% since 2010.\n7) Renewable capacity 5,155 GW, +693 GW: CONFIRMED by my own PxWeb POST to Region_ELECSTAT_2026_H2 (updated 2026-09-28): 5,155,007.33 MW (2025) \u2212 4,461,631.67 MW (2024) = 693,375.66 MW. IRENA's official 31 Mar 2026 highlights say 5,149 GW and +692 GW (+15.5%). Show the table ID.\n8) One in four new cars electric in 2025: CONFIRMED. api.iea.org/evs World Cars 2025: sales share 25%, sales 21,000,000 (BEV 14.0 M + PHEV 7.2 M), stock 75,000,000, stock share 5%. GEVO 2026 p.10: +20%, more than 20 million, one-quarter. The rounded API values are fine for a headline, and 'EV' includes PHEVs.\n9) Coal operating 2,226 GW, 763 GW in development: CONFIRMED. GEM 'Coal Plants by Country (MW)' sheet (July 2026) TOTAL row: Operating 2,226,469; Construction 260,301 + Announced/Pre-permit/Permitted 502,744 = 763,045 MW. China accounts for 57% of operating capacity and 78% of construction (from the sheet's 'Percent China' row).\n10) IMF explicit $725 bn, implicit $6.7 tn, about $7.4 tn total (2024): CONFIRMED against the RePEc abstract of WP/25/270. Add DOI 10.5089/9798229034715.001. The '$7.4 tn' total is the researcher's sum (0.725 + 6.7); label it as derived unless the paper states it. The licence of the underlying IMF data is unverified (OWID labels IMF data 'All Rights Reserved').\nOther numbers checked: the action_links figure 'EVs displaced about 1.2 mb/d' is CARS ONLY. All modes total about 1.66 mb/d (cars 1.2, trucks 0.21, 2/3W 0.12, buses 0.071, vans 0.062). The US coal rebound 652.2 \u2192 737.2 TWh (+13.0%) is confirmed (EIA API). The WEI 2026 figures USD 3.4 tn / 2.2 tn clean / 1.2 tn fossil are confirmed (PDF p.6). The gaps-section claim 'all files are under 50 MB' is WRONG: EIA ELEC.zip is 293 MB, and Ember monthly is 28 MB.",
+  "missing_sources": "1) UNSD Energy Statistics Database / Energy Balances (UN Statistics Division, via UNdata). This is the main OPEN substitute for the restricted IEA World Energy Balances: final energy consumption by sector (industry, transport, households) and fuel for about 220 countries, typically with a 2-year lag. URLs: https://data.un.org/Explorer.aspx?d=EDATA (the query https://data.un.org/Data.aspx?d=EDATA&f=cmID%3aEL returned 200) and https://unstats.un.org/unsd/energystats/ (200). Licence: the UNdata terms of use (https://data.un.org/Host.aspx?Content=UNdataUse, fetched) let data be copied, duplicated and redistributed free of charge if UNdata is cited. Classify as open-attribution. It fills the researcher's 'final energy by sector' gap.\n2) EIA State Energy Data System (SEDS). Public domain. US state consumption by sector and fuel, 1960\u20132024. CSV https://www.eia.gov/state/seds/sep_use/total/csv/use_all_btu.csv (200, 4.28 MB, last-modified 26 May 2026) and API v2 route /v2/seds (200). It was mentioned in passing but not listed as a source.\n3) EIA-860M / EIA-860 generator inventories. Public domain. Official unit-level US operating, planned and retiring generators with planned retirement dates (https://www.eia.gov/electricity/data/eia860m/; the page gave Akamai 503 to curl, so verify manually; also API v2 electricity/operating-generator-capacity). Use as the official cross-check of GEM for US 'coal plants near you'.\n4) Global Carbon Budget 2025 main dataset (Friedlingstein et al.; ICOS, CC BY 4.0, published 2025-11-13), https://globalcarbonbudget.org/. It includes the 2025 projection of fossil CO2 that the 2025v15 flat file (ending 2024) lacks, plus land-use emissions. Cite the ESSD paper DOI once the 2025 paper is final. The researcher used only the national flat file.\n5) GEM Global Integrated Power Tracker and Global Oil & Gas Extraction Tracker (https://globalenergymonitor.org/projects/global-integrated-power-tracker/ and /projects/global-oil-gas-extraction-tracker/, both 200). These are under GEM's CC BY 4.0 per GEM's own wording on its solar tracker page; check each tracker for CC BY-NC carve-outs. They cover all fuels at plant level and fossil extraction for 'production versus 1.5\u00b0C' drill-downs.\n6) Eurostat energy balances (nrg_bal_c) and electricity datasets for EU drill-downs. The Eurostat reuse policy is CC BY 4.0 (not verified in this session; the copyright URL I tried returned 404). This is the primary source behind Ember's Europe file, so activists can trace EU numbers one step further upstream.\n7) IEA Global Energy Review 2026 / IEA Methane Tracker. These are listed by the IEA as CC BY 4.0 products (unverified here: iea.org returns 403; use the iea.blob.core.windows.net PDFs and their licence page). They are needed for 2025 energy-related CO2 and methane from fossil supply chains, which GCB does not cover.\n8) Ember US Electricity Data (state-level, CC BY 4.0, https://ember-energy.org/data/), a CC BY state series that matches the Ember global methodology. It is mentioned only in a drill-down path and is not assessed as a source.\n9) Provenance improvement rather than a new source: OWID's version-pinned catalog URLs (https://catalog.ourworldindata.org/garden/energy/2026-09-10/owid_energy/owid_energy.csv plus .meta.json) and the Zenodo concept DOI for GCP fossil CO2 (10.5281/zenodo.5569234) should be used, so that every displayed number resolves to an immutable file."
+ }
+}

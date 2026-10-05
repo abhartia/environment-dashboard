@@ -1,0 +1,678 @@
+{
+ "research": {
+  "domain": "Greenhouse gas emissions (causes): who emits, from what fuels, sectors and activities, how much historically, and how that turns into warming.",
+  "sources": [
+   {
+    "name": "Global Carbon Budget 2025: national fossil CO2 (territorial, consumption-based, transfers), national land-use change CO2, and global budget",
+    "publisher": "Global Carbon Project (GCP), coordinated by Univ. of Exeter / CICERO / ICOS Carbon Portal",
+    "measures": "Fossil CO2 emissions by country (territorial and consumption-based, plus emissions transferred through trade), land-use change (LUC) CO2 by country, and the global budget (fossil emissions, LUC emissions, atmospheric growth, ocean sink, land sink, cement carbonation sink, budget imbalance). Units are MtC or GtC per year; multiply by 3.664 to get CO2.",
+    "coverage": "Global budget 1750-2024 (fossil) and 1850-2024 (LUC and sinks). National territorial fossil emissions 1850-2024 for about 220 countries plus international aviation and shipping. Consumption-based emissions 1990-2023. Annual resolution. Also gridded 2015-2024 decadal-mean netCDF files.",
+    "latest_release": "GCB 2025. Data released 13 Nov 2025 (v0.1); final data v1.0 deposited on ICOS 17 May 2026; ESSD paper published 13 May 2026 (ESSD 18, 3211-3288). I checked China, USA, India and World for 2023-2024 and the values are identical in v0.1 and v1.0. GCB 2026 is expected around COP31 (9-20 Nov 2026) and is not out yet.",
+    "update_cadence": "Annual, in November, with the paper and the ICOS v1.0 data following about 6 months later.",
+    "landing_url": "https://globalcarbonbudget.org/data-hub/the-latest-gcb-data-2025/",
+    "download_urls": [
+     "https://www.icos-cp.eu/GCP/2025",
+     "https://data.icos-cp.eu/objects/loCXyssaalv6DPdO6Qdj90qQ (National_Fossil_Carbon_Emissions_2025_v1.0.xlsx; requires the cookie CpLicenseAcceptedFor=loCXyssaalv6DPdO6Qdj90qQ)",
+     "https://data.icos-cp.eu/collections/AxnIW-ydMBT4BdKjxV63DGQl (zip of all 3 v1.0 spreadsheets)",
+     "https://globalcarbonbudget.org/download/2345/?tmstv=1762815968 (National fossil v2025 xlsx)",
+     "https://globalcarbonbudget.org/download/2348/?tmstv=1762816074 (National LUC v2025 xlsx)",
+     "https://globalcarbonbudget.org/download/2341/?tmstv=1762815901 (Global Carbon Budget v2025 xlsx)",
+     "https://globalcarbonbudget.org/wp-content/uploads/gcb2025/Fossil_carbon_emissions_gridded_GCB2025_2015-2024.nc"
+    ],
+    "format": "XLSX workbooks (sheets: Summary, Territorial Emissions, Consumption Emissions, Emissions Transfers, Regions; the global file has Global Carbon Budget, Historical Budget, Fossil Emissions by Category, Land-Use Change Emissions, Atmospheric Growth, Ocean Sink, Terrestrial Sink, Cement Carbonation Sink) and netCDF for gridded data",
+    "license": "The ICOS deposit is under the ICOS CCBY4 Data Licence, i.e. CC BY 4.0 (https://www.icos-cp.eu/data-services/about-data-portal/data-license). Key terms: \"You must give appropriate credit, provide a link to the licence, and indicate if changes were made.\" The XLSX Summary sheet adds: \"The use of data is conditional on citing the original data sources\", and asks researchers to consider offering co-authorship. The ESSD article itself is CC BY 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Data: Global Carbon Project. (2026). Supplemental data of Global Carbon Budget 2025 (Version 1.0) [Data set]. Global Carbon Project. https://doi.org/10.18160/gcp-2025. Paper: Friedlingstein, P., O'Sullivan, M., Jones, M. W., et al.: Global Carbon Budget 2025, Earth Syst. Sci. Data, 18, 3211-3288, https://doi.org/10.5194/essd-18-3211-2026, 2026.",
+    "doi": "10.18160/GCP-2025 (data); 10.5194/essd-18-3211-2026 (paper)",
+    "status": "Active. This is the 20th edition. It is not a US-federal product, although NOAA atmospheric data feeds into it.",
+    "url_check": "Fetched the GCB data-hub page, which lists the xlsx and netCDF links. The ICOS collection page shows 'Data supplement to the Global Carbon Budget 2025', v1.0, with the citation quoted above. The ICOS object pages show v1.0 published 17 May 2026 under the ICOS CCBY4 licence, and mark v0.1 (13 Nov 2025) as deprecated. A plain GET to data.icos-cp.eu returns 302 to licence_accept; with the CpLicenseAcceptedFor cookie it returns 200 with an XLSX of 755,198 bytes. globalcarbonbudget.org/download/2345 returns 200 with an XLSX of 739,007 bytes. I parsed both in memory: Territorial Emissions, World 2024 = 10,534.546 MtC; China 3,353.99; USA 1,338.46; India 871.58 (identical in both). I also parsed the Global Carbon Budget sheet: 2024 fossil excluding carbonation = 10.5345 GtC, LUC 1.2515, atmospheric growth 7.9225, ocean sink 3.3889, land sink 1.9422, cement carbonation sink 0.2243. The ESSD article page shows CC BY 4.0, published 13 May 2026.",
+    "site_use": "Core backbone for CO2. It drives: (1) the global source and sink 'bathtub' chart (emissions in = atmosphere + ocean + land); (2) country territorial vs consumption-based CO2 and trade transfers; (3) country LUC CO2 and fossil + LUC totals; (4) cumulative and historical-responsibility charts. Ingest the ICOS v1.0 files at build time and store the file hash, DOI and retrieval date in a provenance manifest.",
+    "caveats": "The GCB headline fossil figure (37.8 GtCO2 for 2024) is net of the cement carbonation sink (0.224 GtC, about 0.82 GtCO2). The national sheets and the Andrew & Peters CSV sum to 38.6 GtCO2 because they exclude that sink, so always label which one you show. Values are stored in carbon units. Each edition revises the history, so never mix editions. National LUC values have large uncertainty (global ELUC 1.3 \u00b1 0.7 GtC). Consumption-based data lag one year (latest is 2023). The 2025 figures are projections: the press release says +1.1% (38.1 GtCO2), the final ESSD paper says +1.0%. ICOS downloads need the licence-cookie step.",
+    "priority": "core"
+   },
+   {
+    "name": "The Global Carbon Project's fossil CO2 emissions dataset 2025v15 (by country and fuel, flat CSV)",
+    "publisher": "Global Carbon Project; Robbie M. Andrew & Glen P. Peters (CICERO), on Zenodo",
+    "measures": "Fossil CO2 emissions in MtCO2 by country and year, split into Coal, Oil, Gas, Cement, Flaring and Other, plus per-capita emissions (tCO2 per person), population, and the data source behind each point",
+    "coverage": "1750-2024, annual, about 220 countries plus International Aviation, International Shipping and Global (WLD), with ISO3 and UN M49 codes",
+    "latest_release": "2025v15, published 22 Oct 2025 (Zenodo record 17417124). The Zenodo description calls it the 'initial release of the 2025 dataset'. No later 2025 version exists as of 4 Oct 2026.",
+    "update_cadence": "Annual (October/November), sometimes with corrected sub-versions",
+    "landing_url": "https://doi.org/10.5281/zenodo.17417124",
+    "download_urls": [
+     "https://zenodo.org/api/records/17417124/files/GCB2025v15_MtCO2_flat.csv/content",
+     "https://zenodo.org/api/records/17417124/files/GCB2025v15_percapita_flat.csv/content",
+     "https://zenodo.org/api/records/17417124/files/GCB2025v15_sources_flat.csv/content",
+     "https://zenodo.org/api/records/17417124/files/GCB2025v15_MtCO2_flat_metadata.json/content",
+     "https://zenodo.org/api/records/17417124/files/GCP%20fossilCO2%202025v15.pdf/content"
+    ],
+    "format": "CSV with JSON metadata, plus a PDF methods note",
+    "license": "CC BY 4.0 (Zenodo license field 'cc-by-4.0'; https://creativecommons.org/licenses/by/4.0/)",
+    "redistribution": "open-attribution",
+    "citation": "Andrew, R. M., & Peters, G. P. (2025). The Global Carbon Project's fossil CO2 emissions dataset (2025v15) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17417124",
+    "doi": "10.5281/zenodo.17417124 (concept DOI 10.5281/zenodo.5569234)",
+    "status": "Active. A new version is expected with GCB 2026 in Nov 2026.",
+    "url_check": "Queried the Zenodo API for record 17417124: title, version 2025v15, date 2025-10-22, license cc-by-4.0, and 7 files. Listed all versions under concept 5569234; the latest is 2025v15. Streamed GCB2025v15_MtCO2_flat.csv. Header: Country, ISO 3166-1 alpha-3, UN M49, Year, Total, Coal, Oil, Gas, Cement, Flaring, Other, Per Capita. Global 2024 Total = 38598.578033 MtCO2 (Coal 15805.25, Oil 12470.60, Gas 8009.83, Cement 1472.82, Flaring 415.71, Other 424.38), per capita 4.729075. USA 2024 = 4904.12 (14.197 t per person); China 12289.04 (8.658); India 3193.48 (2.201). Aviation 569.04, Shipping 623.42.",
+    "site_use": "Core machine-readable source for the fuel split (coal/oil/gas/cement/flaring) by country, per-capita fossil CO2, long-run cumulative series from 1750, and the 'half of all fossil CO2 since 1996' calculation. Tidy long format, so it is ideal for the build-time ETL.",
+    "caveats": "Excludes the cement carbonation sink (see the GCB entry). 'Other' is reported for only some countries. Per capita uses the dataset's own population series. It holds territorial emissions only; consumption-based figures are in the GCB national xlsx. Historical pre-1950 values for small countries are reconstructed.",
+    "priority": "core"
+   },
+   {
+    "name": "Our World in Data: CO2 and Greenhouse Gas Emissions dataset (owid/co2-data)",
+    "publisher": "Our World in Data (Global Change Data Lab / University of Oxford)",
+    "measures": "About 79 columns per country and year: annual, per-capita, cumulative and consumption-based CO2; CO2 including LUC; fuel split; shares of global totals; CH4, N2O and total GHG in CO2e (from Jones et al.); temperature change attributable to each country; energy, GDP and population",
+    "coverage": "1750-2024. Countries, OWID-defined regions, and income groups.",
+    "latest_release": "Last update 2026-06-01 (EIA energy data refresh). It uses GCB 2025 (snapshot 2025-11-13, fossil dataset v15) and Jones et al. 2025 (snapshot 2025-12-04). The CSV's Last-Modified header is Tue, 02 Jun 2026.",
+    "update_cadence": "Updated when upstream sources update, roughly 2-4 times a year",
+    "landing_url": "https://github.com/owid/co2-data",
+    "download_urls": [
+     "https://owid-public.owid.io/data/co2/owid-co2-data.csv",
+     "https://owid-public.owid.io/data/co2/owid-co2-data.xlsx",
+     "https://owid-public.owid.io/data/co2/owid-co2-data.json",
+     "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-codebook.csv"
+    ],
+    "format": "CSV, XLSX, JSON, and a codebook CSV",
+    "license": "README: \"All visualizations, data, and code produced by Our World in Data are completely open access under the Creative Commons BY license\" (CC BY 4.0). It also says \"The data produced by third parties and made available by Our World in Data is subject to the license terms from the original third-party authors.\" Here the upstreams (GCB, Jones et al.) are both CC BY 4.0.",
+    "redistribution": "open-attribution",
+    "citation": "Hannah Ritchie, Pablo Rosado, and Max Roser (2023) - \"CO2 and Greenhouse Gas Emissions\" Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/co2-and-greenhouse-gas-emissions' [Online Resource]. The README says to cite both OWID and the underlying sources (Global Carbon Budget 2025; Jones et al. 2025).",
+    "doi": "none (cite the upstream DOIs: 10.18160/GCP-2025, 10.5281/zenodo.17417124, 10.5281/zenodo.16640595)",
+    "status": "Active",
+    "url_check": "HEAD on the CSV: HTTP 200, 33,246,106 bytes, last-modified 02 Jun 2026. Streamed and parsed it. The World 2024 co2 value is 38598.578125, which matches the GCP v15 Global Total to float precision. share_global_cumulative_co2 for 2024: USA 23.52, EU27 16.27, China 15.42, India 3.57. Read the README (changelog, CC BY text, processing notes), the codebook (co2 sourced to 'Global Carbon Budget (2025)'; methane and total_ghg to 'Jones et al. (2025)'), and the OWID ETL code. The code shows the 3.664 C-to-CO2 factor and the AR6 GWP100 factors applied to Jones et al.: CH4 fossil 29.8, CH4 land 27.2, N2O 273.",
+    "site_use": "Convenience layer and cross-check. It is useful for precomputed shares, cumulative series and per-capita values in one tidy file. For the activist trace, every number should still cite the upstream DOI. Use OWID region and income-group aggregates only when labelled 'aggregated by Our World in Data'.",
+    "caveats": "Processing changes some values. CO2 values match GCB exactly (verified). But total_ghg, methane and nitrous_oxide in CO2e are OWID conversions of Jones et al. tonnages; they are not in the upstream annual files. Region and income aggregates are OWID-defined. The GCB snapshot is the Nov 2025 pre-release (key values verified identical to ICOS v1.0). The OWID GHG-by-sector charts come from a separate Climate Watch feed (see that entry), which is not in this repo.",
+    "priority": "core"
+   },
+   {
+    "name": "National contributions to climate change due to historical emissions of CO2, CH4 and N2O (Jones et al.), version 2025.1",
+    "publisher": "Jones, Peters, Gasser, Andrew, Schwingshackl, G\u00fctschow, Houghton, Friedlingstein, Pongratz, Le Qu\u00e9r\u00e9 (Univ. of East Anglia / CICERO et al.), on Zenodo",
+    "measures": "Annual emissions by country (CO2 in Pg/yr, CH4 and N2O in Tg/yr) split into fossil, LULUCF and total. Cumulative CO2-equivalent emissions (Pg CO2-e100, using GWP*). Global-mean surface temperature response (\u00b0C) attributable to each country, gas and component.",
+    "coverage": "1830/1851-2024 (reference years 1850 and 1991). Countries (ISO3) plus groups: GLOBAL, Annex I, Annex II, EIT, LDC, LMDC, OECD, EU27, BASIC.",
+    "latest_release": "2025.1, published 13 Nov 2025 (Zenodo record 16640595)",
+    "update_cadence": "Annual, alongside GCB",
+    "landing_url": "https://doi.org/10.5281/zenodo.16640595",
+    "download_urls": [
+     "https://zenodo.org/api/records/16640595/files/GMST_response_1851-2024.csv/content",
+     "https://zenodo.org/api/records/16640595/files/EMISSIONS_ANNUAL_1830-2024.csv/content",
+     "https://zenodo.org/api/records/16640595/files/EMISSIONS_CUMULATIVE_CO2e100_1851-2024.csv/content",
+     "https://zenodo.org/api/records/16640595/files/GMST_response_1992-2024.csv/content",
+     "https://zenodo.org/api/records/16640595/files/COUNTRY_GROUPINGS.xlsx/content"
+    ],
+    "format": "Long-format CSV (CNTR_NAME, ISO3, Gas, Component, Year, Data, Unit) plus XLSX groupings and PNG/PDF plots",
+    "license": "CC BY 4.0 (Zenodo license 'cc-by-4.0'). The Scientific Data paper is also CC BY 4.0 per Crossref.",
+    "redistribution": "open-attribution",
+    "citation": "Jones, M. W., Peters, G. P., Gasser, T., Andrew, R. M., Schwingshackl, C., G\u00fctschow, J., Houghton, R. A., Friedlingstein, P., Pongratz, J., & Le Qu\u00e9r\u00e9, C. (2025). National contributions to climate change due to historical emissions of carbon dioxide, methane and nitrous oxide (2025.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.16640595. Paper: Jones, M.W. et al. National contributions to climate change due to historical emissions of carbon dioxide, methane, and nitrous oxide since 1850. Sci Data 10, 155 (2023). https://doi.org/10.1038/s41597-023-02041-1",
+    "doi": "10.5281/zenodo.16640595 (paper: 10.1038/s41597-023-02041-1)",
+    "status": "Active",
+    "url_check": "Zenodo API, concept 7076346: latest version 2025.1, 2025-11-13, cc-by-4.0, with 26 files listed. Earlier versions: 2024.2 (2024-11-13), 2024.1, 2023.1, 2023.0. Streamed GMST_response_1851-2024.csv (columns CNTR_NAME, ISO3, Gas, Component, Year, Data, Unit) and filtered Year=2024, Gas=3-GHG, Component=Total: GLOBAL 1.678\u00b0C, USA 0.296, China 0.217, EU27 0.175, Russia 0.118, ANNEXI 0.778, NONANNEX 0.893. Crossref for 10.1038/s41597-023-02041-1: article number 155, volume 10, CC BY 4.0.",
+    "site_use": "Core for the 'who caused the warming' view: a map and bar chart of \u00b0C attributable to each country, split into fossil vs land-use and CO2 vs CH4 vs N2O. It is also the upstream for OWID methane, N2O and total GHG.",
+    "caveats": "Warming is the response to CO2, CH4 and N2O only. It excludes aerosol cooling and F-gases, so the 1.68\u00b0C total is larger than observed warming (about 1.3-1.4\u00b0C). Say this explicitly. It uses TCRE and GWP* best estimates without per-country uncertainty in the files. CH4 and N2O come from PRIMAP-hist (HISTTP) 2024. Land-use CO2 per country is uncertain.",
+    "priority": "core"
+   },
+   {
+    "name": "EDGAR 2026 GHG (Emissions Database for Global Atmospheric Research), Community GHG Database, and the 'GHG emissions of all world countries - 2026 Report'",
+    "publisher": "European Commission Joint Research Centre (JRC), with the IEA for fossil CO2",
+    "measures": "Fossil CO2, CO2bio, CH4, N2O and F-gases by country, sector (IPCC codes and 8 booklet sectors: Power Industry, Industrial Combustion, Buildings, Transport, Fuel Production, Processes, Agriculture, Waste) and year. Totals in Mt CO2eq using AR5 GWP100. Also per capita, per GDP, and LULUCF by macro-region and country. Monthly series and 0.1\u00b0 gridmaps.",
+    "coverage": "1970-2025 annual (F-gases 1990-2025), with monthly series for 1970-2025. All countries.",
+    "latest_release": "EDGAR_2026_GHG / 2026 Report, released September 2026. The booklet xlsx is dated Last-Modified 3 Sep 2026; the dataset zips are dated 18 Sep 2026.",
+    "update_cadence": "Annual (September)",
+    "landing_url": "https://edgar.jrc.ec.europa.eu/report_2026",
+    "download_urls": [
+     "https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026.xlsx",
+     "https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026_fossilCO2only.xlsx",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_AR5_GHG_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_CH4_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_N2O_1970_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/EDGAR_F-gases_1990_2025.zip",
+     "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/EDGAR_2026_GHG/IEA_EDGAR_CO2_1970_2025.zip",
+     "https://edgar.jrc.ec.europa.eu/dataset_ghg2026"
+    ],
+    "format": "XLSX (booklet sheets: GHG_totals_by_country, GHG_by_sector_and_country, GHG_per_GDP_by_country, GHG_per_capita_by_country, LULUCF_macroregions, LULUCF_countries), plus zipped XLSX/CSV and netCDF gridmaps",
+    "license": "Mixed. The booklet says: \"Unless otherwise noted, all material owned by the European Union is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.\" But: \"IEA-EDGAR CO2 (v5) data are based on data from IEA (2025) Greenhouse Gas Emissions from Energy ... as modified by the Joint Research Centre, licensed under CC BY-NC-ND 4.0. Users of IEA-EDGAR CO2 data should contact the IEA at compliance@iea.org for permission to use.\" EDGAR CH4, N2O and F-gases are EU-owned, so CC BY 4.0. The fossil-CO2 component, and therefore the GHG totals and sector totals that include it, carry the IEA NC-ND condition.",
+    "redistribution": "unclear",
+    "citation": "Report: Crippa, M., Guizzardi, D., Pagani, F., Banja, M., Ciarlantini, S., Muntean, M., Amici, L., Luini, C., Honavar Melo Pires, R., Quadrelli, R., Carvalho, P., Ruiz Ponsoda, D., Andrews, S., K\u00f6ykk\u00e4, J., Grassi, G., Rossi, S., Melo, J., Branco, A., Su\u00e1rez-Moreno, M., Sedano, F., Manca, G., Pisoni, E., Pekar, F., GHG emissions of all world countries - 2026 Report, Publications Office of the European Union, Luxembourg, 2026, doi:10.2760/7717504, JRC147815. Data: EDGAR (Emissions Database for Global Atmospheric Research) Community GHG Database (a collaboration between the European Commission, Joint Research Centre (JRC), the International Energy Agency (IEA), and comprising IEA-EDGAR CO2, EDGAR CH4, EDGAR N2O, EDGAR F-GASES version EDGAR_2026_GHG (2026) European Commission. Must also reference https://edgar.jrc.ec.europa.eu/report_2026 and https://edgar.jrc.ec.europa.eu/dataset_ghg2026.",
+    "doi": "10.2760/7717504 (2026 report)",
+    "status": "Active. The EDGAR_2025_GHG page now says 'There is a more up-to-date version'.",
+    "url_check": "Fetched report_2026 (54.1 Gt CO2eq in 2025, +0.7%; gas shares; top emitters) and dataset_ghg2026 (file list, citation, licence text). HEAD on the booklet xlsx: 200, 4,767,596 bytes, Last-Modified 3 Sep 2026. HEAD on the EDGAR_AR5_GHG_1970_2025.zip and EDGAR_CH4_1970_2025.zip FTP files: 200, 18 Sep 2026. Parsed the booklet in memory. GHG_totals_by_country, GLOBAL TOTAL: 2024 = 53,769.63 and 2025 = 54,149.17 Mt CO2eq; China 15,980.97; USA 6,018.30; India 4,508.01; EU27 3,127.15. Per capita 2025: USA 17.53, China 11.11, EU27 7.06, India 3.11, world 6.62. Sector sums for 2025: Power 15,811; Transport 8,771; Agriculture 6,323; Industrial Combustion 6,254; Fuel Production 6,105; Processes 5,379; Buildings 3,571; Waste 1,936. Read the 'info' and 'Citations and references' sheets, which hold the licence text quoted above.",
+    "site_use": "Best source for the latest year (2025) of all-gas totals and the sector story (power, transport, agriculture...), and for CH4 and N2O by country and sector, which are CC BY. Use EDGAR CH4/N2O/F-gas freely. Fossil CO2 and all-gas sector totals carry the IEA NC-ND licence; either (a) email compliance@iea.org for permission, or (b) build the sector split from Climate TRACE (CC BY) or PRIMAP-hist (NC-SA).",
+    "caveats": "Totals exclude LULUCF and use AR5 GWP100 (PRIMAP-hist and Climate TRACE use AR6), so the numbers are not directly comparable. The 2025 values are 'Fast Track' estimates. Global totals include international aviation and shipping. ND (no-derivatives) arguably forbids publishing recomputed shares or per-capita values of IEA-EDGAR CO2; treat as unresolved until IEA confirms. An earlier search snippet showed EDGAR country values as 'Gt'; they are Mt.",
+    "priority": "core"
+   },
+   {
+    "name": "PRIMAP-hist national historical emissions time series v2.8 (1750-2025)",
+    "publisher": "Johannes G\u00fctschow & Mika Pfl\u00fcger (formerly Potsdam Institute for Climate Impact Research, PIK), on Zenodo",
+    "measures": "Emissions of each Kyoto gas and the basket (CO2, CH4, N2O, HFCs, PFCs, SF6, NF3; KYOTOGHG in AR4/AR5/AR6 GWP100) by country and IPCC 2006 category (Energy 1, IPPU 2, Agriculture M.AG, Waste 4, Other 5, LULUCF M.LULUCF, totals M.0.EL). Two scenarios: country-reported priority (HISTCR) and third-party priority (HISTTP). Units Gg/yr.",
+    "coverage": "1750-2025, almost all UNFCCC parties plus non-UNFCCC territories. 2025 is extrapolated (energy CO2 from the EI Statistical Review 2026; other sectors linear).",
+    "latest_release": "v2.8, published 29 Sep 2026 (files dated 22 Sep 2026)",
+    "update_cadence": "Annual (September/October), sometimes with a spring point release",
+    "landing_url": "https://doi.org/10.5281/zenodo.22876287",
+    "download_urls": [
+     "https://zenodo.org/api/records/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.csv/content",
+     "https://zenodo.org/api/records/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_no_extrap_22-Sep-2026.csv/content",
+     "https://zenodo.org/api/records/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.nc/content",
+     "https://zenodo.org/api/records/22876287/files/PRIMAP-hist_v2.8_data-description.pdf/content",
+     "https://zenodo.org/api/records/15016289 (v2.6.1, last CC BY 4.0 version, data to 2023)"
+    ],
+    "format": "Wide CSV (PRIMAP2 interchange format, with a YAML metadata sidecar) and netCDF",
+    "license": "CC BY-NC-SA 4.0 (Zenodo license 'cc-by-nc-sa-4.0'). Record text: \"Since v2.8 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users can not use it freely and have to obtain a commercial license.\" The Zenodo license field for v2.7 (Sep 2025) also reads cc-by-nc-sa-4.0. v2.6.1 (Mar 2025) and earlier are CC BY 4.0. The authors also ask users to notify nc-support@johannes-guetschow.de.",
+    "redistribution": "noncommercial-only",
+    "citation": "G\u00fctschow, J.; Pfl\u00fcger, M. (2026): The PRIMAP-hist national historical emissions time series v2.8 (1750-2025). zenodo. doi:10.5281/zenodo.22876287. And: G\u00fctschow, J., Jeffery, M. L., Gieseke, R., Gebel, R., Stevens, D., Krapp, M., & Rocha, M. (2016). The PRIMAP-hist national historical emissions time series. Earth System Science Data, 8(2), 571-603. https://doi.org/10.5194/essd-8-571-2016",
+    "doi": "10.5281/zenodo.22876287 (concept 10.5281/zenodo.4479171); paper 10.5194/essd-8-571-2016",
+    "status": "Active. The license changed to NC-SA. The record notes that \"the USA have not submitted any data to the UNFCCC this year\", so US values in v2.8 use the Univ. of Maryland CGS inventory.",
+    "url_check": "Zenodo API, concept 4479171: v2.8 dated 2026-09-29, cc-by-nc-sa-4.0, with 19 files listed. Read the description (licence, sources, US note). Streamed the 77 MB final CSV and filtered area EARTH, scenario HISTCR. KYOTOGHG (AR6GWP100), category M.0.EL (total excluding LULUCF): 2024 = 50,900,000 Gg and 2025 = 51,500,000 Gg. Energy (cat 1) 37.2 Gt; IPPU 5.62 Gt; Agriculture (M.AG) 6.33 Gt; Waste (4) 2.08 Gt. CH4 total excluding LULUCF 2025 = 304,000 Gg (energy 85.2 Mt, agriculture 151 Mt, waste 67.3 Mt).",
+    "site_use": "Secondary. Its strength is the 1750-2025 all-gas history by IPCC sector, and the official country-reported series (HISTCR) as a 'what governments report' lens next to independent estimates. Fine on a non-commercial site, but any CSV derived from it must be released CC BY-NC-SA 4.0 and labelled. Alternative: pin v2.6.1 (CC BY, to 2023) for unencumbered reuse.",
+    "caveats": "ShareAlike applies to derived downloads. The EARTH total excludes international bunkers and uses AR6 GWP, so it is about 2.6 Gt lower than EDGAR (which includes bunkers and uses AR5). The 2025 value is extrapolated. Values are rounded to 3 significant figures unless you use the no_rounding files. The third-party scenario is 'no longer actively maintained'.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Climate TRACE Emissions Inventory v5.11.0 (asset-level and country-level, by sector)",
+    "publisher": "Climate TRACE coalition (WattTime, TransitionZero, RMI, JHU APL, Global Energy Monitor, et al.)",
+    "measures": "GHG emissions (CO2, CH4, N2O, and CO2e on 100-yr and 20-yr AR6 GWP) for about 2.77 million emission sources (power plants, steel and cement plants, oil and gas fields, refineries, ships, roads, cattle operations, landfills...) and for countries, states and cities, across 10 sectors: power, transportation, buildings, manufacturing, fossil-fuel-operations, agriculture, waste, forestry-and-land-use, mineral-extraction, fluorinated-gases. Includes ownership and emission-reduction-strategy files.",
+    "coverage": "2015 to present. Monthly, with data through July 2026 in the latest release. Global, with point-level geolocation.",
+    "latest_release": "v5.11.0, 24 Sep 2026 (monthly data through July 2026)",
+    "update_cadence": "Monthly releases with continuous methodology revisions",
+    "landing_url": "https://climatetrace.org/data",
+    "download_urls": [
+     "https://api.climatetrace.org/v7/docs (OpenAPI/Scalar docs; spec at /v7/docs/openapi.json)",
+     "https://api.climatetrace.org/v7/rankings/countries?gas=co2e_100yr&start=2025-01-01&end=2025-12-31",
+     "https://api.climatetrace.org/v7/rankings/countries?gas=co2e_100yr&start=2025-01-01&end=2025-12-31&sectors=power",
+     "https://api.climatetrace.org/v7/sources?limit=100",
+     "https://api.climatetrace.org/v7/definitions/sectors",
+     "https://api.climatetrace.org/v7/definitions/countries",
+     "https://media.climatetrace.org/about_the_data_latest_b6e7b8d419.pdf",
+     "https://zenodo.org/records/19952746 (archived previous versions)"
+    ],
+    "format": "REST JSON API, sector CSV packages (custom download tool), Google BigQuery (trace-data-383422.climate_trace)",
+    "license": "Terms page (https://climatetrace.org/terms): \"The emissions data and associated metadata has been made available via Climate TRACE under the Creative Commons Attribution 4.0 International License (CC BY 4.0)\" ... \"Anyone is free to copy, modify and distribute Climate TRACE data in any format for any purpose, including commercial use, as long as you attribute it to Climate TRACE and indicate if you have made any changes.\" Excluded external datasets: EDGAR, FAOSTAT, E-PRTR, US EPA FLIGHT, Israel PRTR, US EPA LMOP, Canada GHGRP, and facility ownership from aggregators. Some API fields return 'license restricted'.",
+    "redistribution": "open-attribution",
+    "citation": "Climate TRACE (2026), Climate TRACE Emissions Inventory v5.11.0, https://climatetrace.org [Date Accessed]. Sector-specific citations are listed in the data guide PDF, e.g. 'Freeman, J., ... (2025). Power sector: Emissions from Electricity Generation. WattTime ... Climate TRACE Emissions Inventory.'",
+    "doi": "none for the live inventory (archives on Zenodo, e.g. https://zenodo.org/records/19952746)",
+    "status": "Active, non-governmental, philanthropically funded",
+    "url_check": "Fetched /data: v5.11.0, 24 Sep 2026; API v7; BigQuery. Fetched /terms for the CC BY 4.0 text and exceptions. Read the data guide PDF (v5.11.0 Sept 2026): suggested citation, AR6 GWP, list of excluded sources. API: /v7/definitions/sectors returned 10 sectors. /v7/rankings/countries for 2025 returned a total of 54.418 Gt CO2e (China 16.60 Gt, USA 6.35 Gt, India 4.46 Gt). Per-sector totals for 2025: power 16.0, transportation 9.52, manufacturing 10.15, fossil-fuel-operations 8.35, agriculture 5.96, buildings 3.78, waste 2.09, F-gases 1.74, mineral extraction 0.2, forestry-and-land-use \u22123.38 Gt. The 2024 total was 59.91 Gt. /v7/sources returned asset records, some with 'license restricted' fields. /v7/country/emissions returned 404, so not every documented-looking path exists.",
+    "site_use": "Core for the 'drill down to the smokestack' experience: sector \u2192 subsector \u2192 individual assets on a map (power plants, oil fields, steel mills near you), plus open-licence sector totals by country. Use it as the CC BY alternative to EDGAR for sector splits, and its emissions-reduction-strategy file for 'what could be done here'.",
+    "caveats": "These are modelled estimates (satellites + AI + proxies), not reported inventories, and they diverge from inventories (2024 total 59.9 vs 2025 54.4 Gt, swinging with forestry). Values are revised every month, so snapshot and pin the version in provenance. Totals include net forestry, so state whether shown with or without it. Fields marked 'license restricted' and the external datasets listed above must not be republished as Climate TRACE CC BY data. The API is labelled beta; cache results at build time and do not call it from the client.",
+    "priority": "core"
+   },
+   {
+    "name": "Climate Watch Historical GHG Emissions (CAIT)",
+    "publisher": "World Resources Institute (WRI), Climate Watch",
+    "measures": "GHG emissions by country and sector (Energy: Electricity/Heat, Transportation, Manufacturing/Construction, Building, Fugitive, Other fuel combustion, Bunker fuels; Industrial Processes; Agriculture; Waste; LULUCF) and by gas, in MtCO2e (AR5 GWP100). The API also serves PIK (PRIMAP), UNFCCC Annex I and non-Annex I, GCP, and US State Inventory series.",
+    "coverage": "1990-2023, about 194 countries plus EU",
+    "latest_release": "Published 2026-01-15 (per the OWID snapshot metadata); latest data year 2023",
+    "update_cadence": "Annual, with about a 2-year lag",
+    "landing_url": "https://www.climatewatchdata.org/data-explorer/historical-emissions",
+    "download_urls": [
+     "https://www.climatewatchdata.org/api/v1/data/historical_emissions?regions[]=USA&source_ids[]=274&gas_ids[]=553&per_page=50",
+     "https://www.climatewatchdata.org/api/v1/data/historical_emissions/data_sources",
+     "https://www.climatewatchdata.org/api/v1/data/historical_emissions/gases"
+    ],
+    "format": "JSON API and CSV via the data explorer",
+    "license": "Unclear. The permissions page (https://www.climatewatchdata.org/about/permissions) is JavaScript-rendered and I could not read it. OWID's snapshot metadata records 'CC BY 4.0'. But the OWID citation notes \"Data on greenhouse gas emissions from fuel combustion are sourced from the OECD/IEA\", and a search summary reports that IEA data fall under IEA Terms and Conditions, which restrict redistribution.",
+    "redistribution": "unclear",
+    "citation": "Climate Watch. 2026. Washington, DC: World Resources Institute (WRI). Available online at: https://www.climatewatchdata.org (as used by OWID; verify on the permissions page).",
+    "doi": "none",
+    "status": "Active (data to 2023)",
+    "url_check": "WebFetch of the explorer and permissions pages returned only a title (JS app). The API works: /historical_emissions/data_sources lists Climate Watch (274), PIK, UNFCCC_AI, UNFCCC_NAI, GCP and US. A query for USA, source 274, All GHG returned 2023 values: Total excluding LULUCF 5,775.47 Mt; Electricity/Heat 1,752.17; Transportation 1,728.4; LULUCF \u2212336.76. The OWID ETL snapshot climate_watch/2026-02-10 DVC shows date_published 2026-01-15 and license 'CC BY 4.0'.",
+    "site_use": "Avoid for redistributed CSVs until WRI confirms in writing that the IEA-derived energy subsectors may be republished. The same sector story can be told with Climate TRACE (CC BY), or with EDGAR CH4/N2O plus GCB fuel splits.",
+    "caveats": "Data lag (2023). Energy subsectors are IEA-derived. The licence could not be verified directly.",
+    "priority": "avoid"
+   },
+   {
+    "name": "Tidy GHG Inventories v2.1 (UNFCCC Common Reporting Tables, tidied)",
+    "publisher": "William F. Lamb (MCC Berlin / Univ. of Leeds), on Zenodo",
+    "measures": "Official national GHG inventories as reported to the UNFCCC in Common Reporting Tables (CRT), harmonised into a tidy table: country \u00d7 year \u00d7 41 IPCC leaf categories \u00d7 gas, in kt CO2e",
+    "coverage": "1990 to inventory year minus 2 (2026 submissions cover to 2024). Annex I countries consistently; non-Annex I where BTR CRTs exist.",
+    "latest_release": "v2.1, 9 Jun 2026 (v2.0 22 Apr 2026)",
+    "update_cadence": "Following UNFCCC submission cycles (several versions a year)",
+    "landing_url": "https://doi.org/10.5281/zenodo.20612942",
+    "download_urls": [
+     "https://zenodo.org/api/records/20612942/files/Tidy-GHG-Inventories-v2.1-long.xlsx/content",
+     "https://zenodo.org/api/records/20612942/files/Tidy-GHG-Inventories-v2.1-wide.xlsx/content",
+     "https://zenodo.org/api/records/20612942/files/Tidy-GHG-Inventories-v2.1-detailed-long.xlsx/content",
+     "https://unfccc.int/ghg-inventories-annex-i-parties/2026 (original CRT submissions)"
+    ],
+    "format": "XLSX (long and wide)",
+    "license": "CC BY 4.0 (Zenodo license 'cc-by-4.0')",
+    "redistribution": "open-attribution",
+    "citation": "Lamb, W. F. (2026). Tidy GHG Inventories (2.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.20612942",
+    "doi": "10.5281/zenodo.20612942 (concept record 14512139)",
+    "status": "Active. The UNFCCC's own GHG Data Interface (di.unfccc.int) is stale: search results say it shows data only to 2021 from 2023 submissions, with an SBSTA 62 mandate to update 'subject to the availability of resources'. The US did not submit in 2025 or 2026.",
+    "url_check": "Zenodo API: v2.1, 2026-06-09, cc-by-4.0, creator Lamb, William F., 4 XLSX files. HEAD on the long xlsx: 200, 16,622,026 bytes. The description says files are sourced from unfccc.int/ghg-inventories-annex-i-parties/2026 and the BTR CRTs. WebFetch of di.unfccc.int and the unfccc.int 2026 page returned empty (JS), so UNFCCC status comes from search results only.",
+    "site_use": "Secondary: the 'what governments officially report' layer for Annex I countries, compared with independent estimates (GCB, EDGAR, Climate TRACE). This exposes reporting gaps, such as missing US submissions. Use it instead of scraping di.unfccc.int.",
+    "caveats": "Coverage is skewed to developed countries. Non-Annex I submissions are irregular. Categories follow IPCC, not consumer-friendly sectors. This is a third-party reformatting, so for activist tracing also link the original CRT file on unfccc.int.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Global Methane Budget 2000-2020 (GCP-CH4 2024 data supplement)",
+    "publisher": "Global Carbon Project (Saunois, Martinez, Poulter, Zhang, Jackson, Canadell et al.), hosted by the ICOS Carbon Portal",
+    "measures": "Global and regional CH4 sources and sinks in Tg CH4/yr, top-down (atmospheric inversions) and bottom-up (inventories and process models): fossil fuels (coal, oil and gas), agriculture and waste (enteric fermentation and manure, landfills and waste, rice), biomass burning, wetlands, inland freshwaters, geological; atmospheric observations",
+    "coverage": "2000-2020. Decadal budgets (2000-2009, 2010-2019) and the 2020 year. Global, latitudinal bands, and 18 regions.",
+    "latest_release": "Data v1.0 (16 May 2024 on ICOS); paper published 2025 in ESSD 17, 1873-1958. I found no newer edition as of Oct 2026 (the cadence is every 2-3 years).",
+    "update_cadence": "Every 2-3 years",
+    "landing_url": "https://www.icos-cp.eu/GCP-CH4-2024",
+    "download_urls": [
+     "https://data.icos-cp.eu/objects/-MqGCn38zUlEi4_aQm-1_w2I (Global_methane_budget_2023_2000_2020_v1.xlsx; cookie CpLicenseAcceptedFor=-MqGCn38zUlEi4_aQm-1_w2I)",
+     "https://data.icos-cp.eu/licence_accept?ids=%5B%22hpMHHXLTM-yhCWujxG2uTB84%22%5D (complete zip)",
+     "https://meta.icos-cp.eu/objects/-MqGCn38zUlEi4_aQm-1_w2I"
+    ],
+    "format": "XLSX (sheets: Summary, Contributors and data policy, CH4_observation, Anthropogenic emissions, 2000-2009/2010-2019/2020 BU and TD budgets) and netCDF region mask",
+    "license": "ICOS CCBY4 Data Licence (CC BY 4.0). The collection page adds that use of data is conditional on citing the original data sources, with co-authorship to be considered for research.",
+    "redistribution": "open-attribution",
+    "citation": "Saunois, M., Martinez, A., Poulter, B., Zhang, Z., Raymond, P. A., Regnier, P., Canadell, J. G., Jackson, R. B., Patra, P. K., Bousquet, P., Ciais, P., Dlugokencky, E. J., Lan, X., et al. (2025). Global Methane Budget 2000-2020. Earth System Science Data, 17(5), 1873-1958. https://doi.org/10.5194/essd-17-1873-2025. Data: Martinez, A., Saunois, M. (2024). Data supplement of Global Methane Budget 2000-2020, GCP, https://doi.org/10.18160/GKQ9-2RHT",
+    "doi": "10.18160/GKQ9-2RHT (data); 10.5194/essd-17-1873-2025 (paper)",
+    "status": "Active, but the latest data year is 2020",
+    "url_check": "Fetched the ICOS collection page (title, citation, file list) and the object page (v1.0, 16 May 2024, ICOS CCBY4, 698,487 bytes). GET with the licence cookie returned 200 with the XLSX. Parsed the sheet names in memory. Fetched the ESSD article page: 2010-2019 top-down total 575 Tg/yr [553-586], bottom-up 669 [512-849]; 2020 top-down 608 Tg; anthropogenic about 65% (369 Tg); fossil 115 Tg; agriculture and waste 228 Tg.",
+    "site_use": "Core for the methane 'where does it come from' breakdown (fossil vs agriculture and waste vs natural wetlands), shown with honest uncertainty ranges, top-down vs bottom-up.",
+    "caveats": "Ends in 2020. Large top-down vs bottom-up gap. The 'Contributors and data policy' sheet points to the component datasets' own policies (EDGAR, USEPA, FAO, CEDS...). Show ranges, not single points.",
+    "priority": "core"
+   },
+   {
+    "name": "IEA Global Methane Tracker 2026 (report and Methane Tracker Database)",
+    "publisher": "International Energy Agency (IEA)",
+    "measures": "Methane emissions from the energy sector (oil, gas, coal, bioenergy) by country and segment (upstream, downstream, abandoned facilities, satellite-detected large events), methane intensities, and abatement potential and cost",
+    "coverage": "2000-2025, country level",
+    "latest_release": "Global Methane Tracker 2026 (2026 edition; per a search result the database was 'updated as of May 2026')",
+    "update_cadence": "Annual",
+    "landing_url": "https://www.iea.org/reports/global-methane-tracker-2026",
+    "download_urls": [
+     "https://iea.blob.core.windows.net/assets/8a2639fd-7883-4fe7-bbe7-4f97bc39e2ff/GlobalMethaneTracker2026.pdf",
+     "https://iea.blob.core.windows.net/assets/4df819b2-8b8c-44e3-af34-1e0db92db7d6/GlobalMethaneTracker2026-Documentation.pdf",
+     "https://www.iea.org/data-and-statistics/data-product/methane-tracker-database (returned 403 to automated fetch)"
+    ],
+    "format": "PDF report; database as XLSX/CSV from the IEA site (not verified)",
+    "license": "Report pages carry 'IEA. CC BY 4.0.' (verified in the PDF page footers and chart credits). A search result says the database datasets are CC BY-SA 4.0. I could not verify this because iea.org returned HTTP 403.",
+    "redistribution": "open-attribution",
+    "citation": "IEA (2026), Global Methane Tracker 2026, IEA, Paris, https://www.iea.org/reports/global-methane-tracker-2026, Licence: CC BY 4.0 (standard IEA citation pattern; confirm on the page)",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "WebFetch of iea.org pages returned 403, and a curl with a browser user agent got a stub. Downloaded the report PDF from iea.blob.core.windows.net and read pages 2-8. Key findings page: fossil fuel operations about 124 Mt CH4 a year (oil 45, coal 43, gas 36), bioenergy 20 Mt more; the fossil sector is about 35% of human methane; more than 85 Mt from the top 10 emitters; the Global Methane Pledge has 159 countries plus the EU, covering about 65% of sectoral methane. Each chart is credited 'IEA. CC BY 4.0'.",
+    "site_use": "Secondary: fossil-fuel methane by country (China, US, Russia lead), leak intensity comparisons, and the 'avoidable at low cost' lever for policymakers. Cite report-level figures (CC BY 4.0). Only redistribute database CSVs after confirming the licence (CC BY-SA would require share-alike).",
+    "caveats": "IEA estimates are modelled from measurements and satellites, and for many countries 'Data availability: None/Limited'. They differ from UNFCCC-reported values. The site blocks automated fetching, so ETL must use the blob URLs or manual pinned downloads.",
+    "priority": "secondary"
+   },
+   {
+    "name": "FAOSTAT Climate Change: Agrifood systems emissions (Emissions Totals, GT; plus Livestock GLE, Crops GCE, Forests GF, Pre/post-production GPP)",
+    "publisher": "Food and Agriculture Organization of the United Nations (FAO)",
+    "measures": "Emissions (CO2, CH4, N2O, CO2eq AR5) for all sectors and, in detail, agrifood systems: farm gate (enteric fermentation, manure, rice, synthetic fertilizers, drained organic soils, on-farm energy), land-use change (net forest conversion, fires), and pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption, food waste disposal), in kt",
+    "coverage": "1961/1990-2023, all countries and regions, with projection years (2030, 2050) in the same file that must be filtered out",
+    "latest_release": "Emissions Totals (GT) updated 2025-10-28. Pre/post-production (GPP) updated 2026-05-22. Emissions intensities (EI) updated 2026-02-20.",
+    "update_cadence": "Annual (autumn)",
+    "landing_url": "https://www.fao.org/faostat/en/#data/GT",
+    "download_urls": [
+     "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Emissions_Pre_Post_Production_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip",
+     "https://bulks-faostat.fao.org/production/datasets_E.json"
+    ],
+    "format": "Zipped normalized CSV (Area, Item, Element, Year, Source, Unit, Value, Flag) plus a JSON catalogue",
+    "license": "FAO database terms: \"All datasets disseminated through FAO corporate statistical databases ... are licensed under the Creative Commons Attribution-4.0 International licence (CC BY 4.0)\"; \"You must give appropriate attribution and credit to FAO for any work produced using an FAO dataset or when FAO data is re-disseminated.\"",
+    "redistribution": "open-attribution",
+    "citation": "FAO. 2025. FAOSTAT: Climate Change: Agrifood systems emissions: Emissions totals. Accessed on [DD Month YYYY]. https://www.fao.org/faostat/en/#data/GT. Licence: CC-BY-4.0. (Format prescribed by the FAO terms of use.)",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "Fetched datasets_E.json (GT DateUpdate 2025-10-28, 20,022 KB zip). Downloaded the GT zip in memory and parsed it. World, Element 'Emissions (CO2eq) (AR5)', Source 'FAO TIER 1', 2023: Agrifood systems 16,535,072 kt; All sectors with LULUCF 52,105,734 kt; Farm gate 8,096,973; Land-use change 3,190,128; Pre- and post-production 5,247,971; Enteric fermentation 2,947,205; Net forest conversion 2,814,056; Energy 38,787,950. Fetched the FAO DB terms page (CC BY 4.0 text quoted).",
+    "site_use": "Core for the food system path: 'about a third of emissions come from how we grow, process, transport and waste food', drilling into livestock, rice, fertilizer, deforestation, household food waste. Strongly links to individual action (diet, waste).",
+    "caveats": "FAO's 'All sectors' total mixes FAO's own estimates with external sources for non-agri sectors. Uses AR5 GWP100. Agrifood 'land-use change' overlaps conceptually with GCB ELUC but uses different methods. Data lag (2023). Projection years are in the same file.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA GML Trends in atmospheric CO2, CH4 and N2O (global marine-surface means and Mauna Loa)",
+    "publisher": "NOAA Global Monitoring Laboratory (US Dept. of Commerce)",
+    "measures": "Atmospheric mole fractions: CO2 in ppm, CH4 and N2O in ppb. Monthly and annual means and annual growth rates.",
+    "coverage": "Global means from 1979 (CO2) and 1983 (CH4); Mauna Loa CO2 monthly from 1958. Latest monthly data Aug 2026 (Mauna Loa); global CH4 to May 2026.",
+    "latest_release": "Version 2026-09 (files created 5 Sep 2026)",
+    "update_cadence": "Monthly",
+    "landing_url": "https://gml.noaa.gov/ccgg/trends/gl_data.html",
+    "download_urls": [
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.txt",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
+     "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_gr_gl.csv",
+     "https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.txt",
+     "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.txt"
+    ],
+    "format": "Plain text and CSV with commented headers",
+    "license": "US federal government work, public domain in the US. The file header says: \"These data are made freely available to the public and the scientific community ... To ensure that GML receives fair credit for their work please include relevant citation text in publications.\"",
+    "redistribution": "open-public-domain",
+    "citation": "Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09 https://doi.org/10.15138/9N0H-ZH07. And: Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09, https://doi.org/10.15138/P8XG-AA10",
+    "doi": "10.15138/9N0H-ZH07 (CO2); 10.15138/P8XG-AA10 (CH4, N2O, SF6)",
+    "status": "At risk but operating. The proposed FY2026 budget would have closed Mauna Loa and other NOAA labs. Per news coverage (Forbes, May 2026; Medill, Apr 2026), Congress's January 2026 appropriations kept the research office and told NOAA not to close labs, and Mauna Loa was reported reopened and being upgraded. Mirror the files at build time in case of disruption.",
+    "url_check": "curl of co2_annmean_gl.txt: 2024 422.79, 2025 425.62 \u00b1 0.05 ppm; header 'File Creation: Sat Sep 5 03:55:32 2026' and the use statement quoted above. co2_annmean_mlo.txt: 2025 427.35 ppm. co2_mm_mlo.txt last rows 2026-06 431.43, 2026-07 429.13, 2026-08 427.55 ppm. ch4_annmean_gl.txt: 2025 1935.94 ppb. n2o_annmean_gl.txt: 2025 338.85 ppb. WebFetch of gl_data.html and trends_ch4 gave the citations and version 2026-09.",
+    "site_use": "The bridge from causes to consequences: emissions (GCB) \u2192 concentrations (NOAA) \u2192 warming. Use for the hero 'CO2 now X ppm' number and the Keeling curve. It is probably shared with an atmosphere/consequences domain.",
+    "caveats": "The global marine-surface mean (425.62) differs from Mauna Loa (427.35); label which one you show. The latest year is provisional and can be recalibrated. This is a US-federal dependency (political risk).",
+    "priority": "core"
+   },
+   {
+    "name": "US EPA Greenhouse Gas Reporting Program (GHGRP): FLIGHT and Envirofacts facility data",
+    "publisher": "US Environmental Protection Agency",
+    "measures": "Facility-level reported GHG emissions (CO2, CH4, N2O, F-gases, in t CO2e AR4) for about 8,000 large US facilities and suppliers, with location, industry (NAICS), subparts and parent company",
+    "coverage": "Reporting years 2010-2023 publicly released, US only",
+    "latest_release": "RY2023 data (released Oct 2024; data-set files dated 2024-10). RY2024 was collected (deadline extended to 30 May 2025) but has not been publicly released. The RY2025 deadline was extended to 30 Oct 2026.",
+    "update_cadence": "Was annual (October). Now irregular or suspended.",
+    "landing_url": "https://www.epa.gov/ghgreporting/ghgrp-reported-data",
+    "download_urls": [
+     "https://ghgdata.epa.gov/flight/",
+     "https://data.epa.gov/efservice/PUB_DIM_FACILITY/YEAR/=/2023/ROWS/0:100/JSON",
+     "https://www.epa.gov/system/files/other-files/2024-10/2023_data_summary_spreadsheets.zip",
+     "https://www.epa.gov/ghgreporting/data-sets"
+    ],
+    "format": "Envirofacts REST JSON/CSV, XLSX summary spreadsheets, and the FLIGHT web tool",
+    "license": "US federal government work, public domain (no copyright under 17 U.S.C. \u00a7105)",
+    "redistribution": "open-public-domain",
+    "citation": "U.S. EPA (2024). Greenhouse Gas Reporting Program (GHGRP), Reporting Year 2023 data, Facility Level Information on GreenHouse gases Tool (FLIGHT) / Envirofacts, https://www.epa.gov/ghgreporting, accessed [date].",
+    "doi": "none",
+    "status": "At risk. On 12/16 Sep 2025 EPA proposed to permanently remove reporting obligations for 46 of 47 source categories and suspend most of subpart W until 2034. A Feb 27, 2026 final rule only extended the RY2025 deadline to 30 Oct 2026; per search results as of Sep 2026 the repeal is not finalized. The GHGRP page was last updated 22 Sep 2026 and still shows RY2023 as the latest data.",
+    "url_check": "Fetched epa.gov/ghgreporting (last updated 22 Sep 2026; latest data 2023; RY2025 deadline-extension rule) and ghgrp-reported-data (latest RY2023; updated 24 Apr 2026). The data-sets page lists 2023_data_summary_spreadsheets.zip dated 2024-10. FLIGHT returns HTTP 200. The Envirofacts API for YEAR=2023 returned facility JSON (e.g. 'PSE Ferndale Generating Station', WA, parent 'PUGET HOLDINGS LLC'). YEAR=2024 returned [] (empty), confirming RY2024 is unreleased.",
+    "site_use": "Secondary, for a US 'emitters near you' map with facility names and parent companies (RY2023). Snapshot and archive now. Pair with Climate TRACE assets for years after 2023 and for non-US coverage.",
+    "caveats": "Facility threshold of 25,000 t CO2e; covers about 50% of US emissions. Uses AR4 GWPs. RY2024+ may never be published. Labelling: 'last year EPA released: 2023'.",
+    "priority": "secondary"
+   },
+   {
+    "name": "US EPA Inventory of U.S. Greenhouse Gas Emissions and Sinks (official national inventory)",
+    "publisher": "US Environmental Protection Agency (1990-2023 edition obtained via FOIA and published by the Environmental Defense Fund)",
+    "measures": "US national GHG emissions and sinks by IPCC sector, economic sector, gas and source category, in MMT CO2e (AR5), plus state-level data",
+    "coverage": "1990-2022 (last officially published edition, Apr 2024). 1990-2023 (final but unpublished 2025 edition, released through EDF's FOIA)",
+    "latest_release": "Official: 1990-2022 (April 2024). Unofficial-official: 1990-2023 (EPA 430-R-25-003), obtained via FOIA and posted by EDF in May 2025, with CSVs added July 2025 and state data in August 2025. No 2026 (1990-2024) edition was produced.",
+    "update_cadence": "Was annual (April 15 UNFCCC deadline). Discontinued in practice since 2025.",
+    "landing_url": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks",
+    "download_urls": [
+     "https://cfpub.epa.gov/ghgdata/inventoryexplorer/",
+     "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+     "https://library.edf.org/AssetLink/145ky510ew61fk1tq5c2klp5kq5yp33j.pdf (EPA 430-R-25-003, 1990-2023)"
+    ],
+    "format": "PDF report, CSV tables (EDF), and the web Data Explorer",
+    "license": "US federal government work, public domain",
+    "redistribution": "open-public-domain",
+    "citation": "U.S. EPA (2024). Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2022. EPA 430R-24004. For 1990-2023: U.S. EPA (2025), Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2023, EPA 430-R-25-003 (unpublished final, released via FOIA to the Environmental Defense Fund).",
+    "doi": "none",
+    "status": "Discontinued / archived-only. The EPA page (last updated 10 Jun 2026) still lists 1990-2022 as the latest and a 1990-2023 draft for comment. The US missed the April 2025 and April 2026 UNFCCC submissions, and PRIMAP-hist v2.8 notes the USA did not submit this year.",
+    "url_check": "Fetched the EPA inventory page (last updated 10 Jun 2026; latest edition 1990-2022). cfpub inventory explorer returns HTTP 200. Fetched the EDF FOIA page (2025 inventory 1990-2023; FOIA 14 Apr 2025, received 7 May 2025; CSVs July 2025; state data August 2025; no explicit terms). CBS News confirmed the 2025 report was withheld.",
+    "site_use": "Archive and reference only. Use the UMD CGS GHGIA (next entry) for 1990-2024 US detail, and cite the EPA FOIA edition for continuity. Tell the story of the data gap itself on the site.",
+    "caveats": "No future editions are expected under the current administration. The FOIA copy is hosted by an advocacy NGO, so keep hashes of the files.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Greenhouse Gas Inventory and Analysis for the United States: 1990-2024 (GHGIA)",
+    "publisher": "Center for Global Sustainability (CGS), University of Maryland (authors include former EPA inventory staff)",
+    "measures": "US national GHG emissions and sinks by IPCC sector, category and gas, following EPA inventory methods (MMT CO2e). Also state-level estimates and a State Inventory Tool.",
+    "coverage": "1990-2024, US national and 50 states",
+    "latest_release": "v1.0, 15 Apr 2026 (README data v1.0 updated 18 May 2026). Annex v2 and corrigenda log dated 28 Sep 2026.",
+    "update_cadence": "Positioned as a new annual inventory (stated intent; not guaranteed)",
+    "landing_url": "https://ghgi.cgs.umd.edu/",
+    "download_urls": [
+     "https://doi.org/10.13016/g1xw-qftw",
+     "https://api.drum.lib.umd.edu/server/api/core/bitstreams/d3774eda-d8be-4fd4-9438-409780972c64/content (Executive Summary.zip, CSVs)",
+     "https://api.drum.lib.umd.edu/server/api/core/bitstreams/bfe02128-6d23-47cc-a764-2850d27bf526/content (Chapter 2 - Trends.zip)",
+     "https://api.drum.lib.umd.edu/server/api/core/bitstreams/ff37afd2-66a8-4f82-bb9c-c41ecc4ab539/content (Chapter 3 - Energy.zip)",
+     "https://ghgi.cgs.umd.edu/data.html (crosswalk to EPA table numbers)"
+    ],
+    "format": "Zipped CSV tables per chapter, plus PDF report",
+    "license": "DRUM rights: \"Attribution 3.0 United States\" (CC BY 3.0 US, http://creativecommons.org/licenses/by/3.0/us/)",
+    "redistribution": "open-attribution",
+    "citation": "Desai, M., Camobreco, V., Hedger, T., Irving, W., Rewcastle, K., Steller, J., Barbieri, L., Weitz, M., Murumkar, T., Fawcett, A., Lou, J., Cui, R., & Hultman, N. (2026). Greenhouse Gas Inventory and Analysis for the United States: 1990-2024. Center for Global Sustainability, University of Maryland, College Park. https://doi.org/10.13016/g1xw-qftw",
+    "doi": "10.13016/g1xw-qftw (handle 1903/35318)",
+    "status": "Active. It is not an official UNFCCC submission (the report says so explicitly).",
+    "url_check": "Fetched the DRUM item (CC BY 3.0 US, DOI, files). Listed DRUM bitstreams via its REST API. Downloaded Executive Summary.zip in memory and read 'Figure 2-1 & ES-1.csv'. Gross emissions excluding LULUCF: 2005 = 7,503.56; 2024 = 6,205.34 MMT CO2e. Net: 2024 = 5,298.82. 'Figure ES-2.csv' key categories for 2024: #1 Mobile Combustion: Road CO2 1,450.56 MMT; #3 natural-gas electricity 734.83; #4 coal electricity 671.99. The README gives the suggested citation (DOI placeholder 'xxxxx'; the DRUM DOI is 10.13016/g1xw-qftw). The nationalreport.html page links the chapter PDFs and a corrigenda log dated 28 Sep 2026.",
+    "site_use": "Secondary, for the US drilldown (US by sector \u2192 key categories such as road transport \u2192 states). It fills the EPA gap with CC BY data.",
+    "caveats": "Not official. A single university team, so funding continuity is uncertain. The README DOI placeholder means you should cite the DRUM DOI. Corrigenda are being issued (v2 annex), so pin the version.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Carbon Majors Database (company-level emissions of oil, gas, coal and cement producers)",
+    "publisher": "InfluenceMap with the Climate Accountability Institute",
+    "measures": "Scope 1 + 3 emissions in MtCO2e traced to 166+ fossil fuel and cement producers (investor-owned, state-owned, nation-state), by commodity and year",
+    "coverage": "1854-2024 (company-dependent)",
+    "latest_release": "2024 data update, released 21 Jan 2026",
+    "update_cadence": "Annual (stated as November; the latest came in January)",
+    "landing_url": "https://carbonmajors.org/Downloads",
+    "download_urls": [
+     "https://carbonmajors.org/evoke/391/get_cm_file?type=Detailed&file=emissions_low_granularity.csv (returned 302 to automated GET)",
+     "https://carbonmajors.org/evoke/391/get_cm_file?type=Detailed&file=emissions_medium_granularity.csv",
+     "https://carbonmajors.org/evoke/391/get_cm_file?type=Detailed&file=emissions_high_granularity.csv"
+    ],
+    "format": "CSV (3 granularities) with a PDF data dictionary",
+    "license": "Downloads page: the dataset is \"available for download and for non-commercial use, subject to InfluenceMap's Terms and Conditions.\" The terms say you may not \"reproduce, duplicate, copy, modify, adapt, translate, create derivative works of, alter, publicly distribute, republish ... or display\" site content, and must credit 'InfluenceMap.org'.",
+    "redistribution": "restricted-no-redistribution",
+    "citation": "No formal citation published on the download page. Credit 'InfluenceMap.org' / Carbon Majors Database (2024 Data Update, January 2026), https://carbonmajors.org. Contact info@carbonmajors.org.",
+    "doi": "none",
+    "status": "Active",
+    "url_check": "Fetched the Downloads page (3 CSVs, data year 2024, released 21 Jan 2026, non-commercial wording) and influencemap.org/terms (restrictions quoted). A curl of the low-granularity CSV returned 302, so not downloaded. Search results report 34.7 GtCO2e traced to 166 producers in 2024.",
+    "site_use": "Avoid in redistributed form. It is very compelling for activists ('which companies'), but needs written permission from InfluenceMap before showing charts or offering CSVs. If permission is granted, use it for a 'producers' lens next to the 'countries' lens.",
+    "caveats": "Includes Scope 3 (combustion of sold products), so it overlaps with national totals and cannot be summed with them. Terms forbid republishing.",
+    "priority": "avoid"
+   },
+   {
+    "name": "Poore & Nemecek (2018) food life-cycle GHG footprints (via OWID)",
+    "publisher": "J. Poore & T. Nemecek, Science 360:987-992 (data shown by Our World in Data)",
+    "measures": "GHG emissions per kg, per 100 g protein and per 1000 kcal for about 40 food products (kgCO2eq), split across land use, farm, feed, processing, transport, retail, packaging",
+    "coverage": "Meta-analysis of about 38,700 farms, reference year about 2010, global",
+    "latest_release": "2018 paper. The OWID series was last updated 2019-10-08.",
+    "update_cadence": "Static",
+    "landing_url": "https://ourworldindata.org/grapher/ghg-per-kg-poore",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/ghg-per-kg-poore.csv",
+     "https://ourworldindata.org/grapher/ghg-per-kg-poore.metadata.json",
+     "https://ora.ox.ac.uk/objects/uuid:b0b53649-5e93-4415-bf07-6b0b1227172f"
+    ],
+    "format": "CSV (OWID grapher); XLSX supplementary data (ORA/Science)",
+    "license": "Unclear. The OWID metadata JSON has \"license\": null and citation 'Poore and Nemecek (2018) - processed by Our World in Data'. The ORA record rights read 'Copyright \u00a9 2018 The Authors, some rights reserved; exclusive licensee American Association for the Advancement of Science.'",
+    "redistribution": "unclear",
+    "citation": "Poore, J., & Nemecek, T. (2018). Reducing food's environmental impacts through producers and consumers. Science, 360(6392), 987-992. https://doi.org/10.1126/science.aaq0216",
+    "doi": "10.1126/science.aaq0216",
+    "status": "Static (archived reference dataset)",
+    "url_check": "Fetched the OWID metadata JSON (title 'Greenhouse gas emissions per kilogram of food product', unit kgCO2eq per kilogram, timespan 2010, lastUpdated 2019-10-08, license null). Searched ORA for rights text. I did not download the CSV.",
+    "site_use": "Secondary, for the individual-action food path ('beef vs beans per kg/protein'). Display with attribution, and ask the authors or OWID to confirm redistribution of a derived CSV.",
+    "caveats": "Licence unclear. Data are old (about 2010) and global medians hide large producer variation. Not an emissions inventory, so it cannot be summed with national totals.",
+    "priority": "secondary"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "Burning fossil fuels and making cement released a record 38.6 billion tonnes of CO2 in 2024. Coal was 41% of it, oil 32%, gas 21%, cement 4%.",
+    "value_as_of_latest": "38.6 GtCO2 in 2024 (coal 15.81, oil 12.47, gas 8.01, cement 1.47, flaring 0.42, other 0.42 Gt). Projected 2025: 38.1 GtCO2 net of cement carbonation (+1.1% per the GCB press release; +1.0% in the final ESSD paper).",
+    "source_name": "Global Carbon Project fossil CO2 dataset 2025v15 (Andrew & Peters 2025) / Global Carbon Budget 2025",
+    "derivation": "GCB2025v15_MtCO2_flat.csv (doi:10.5281/zenodo.17417124), row Country='Global', Year=2024: Total = 38,598.578 MtCO2; Coal 15,805.25 / Total = 40.9%; Oil 12,470.60 = 32.3%; Gas 8,009.83 = 20.8%; Cement 1,472.82 = 3.8%. Cross-check: GCB 2025 National_Fossil_Carbon_Emissions_2025_v1.0.xlsx, sheet 'Territorial Emissions', World 2024 = 10,534.546 MtC \u00d7 3.664 = 38,598.6 MtCO2. The ESSD headline 37.8 GtCO2 = (10.5345 \u2212 0.2243 cement carbonation sink GtC, from 'Global Carbon Budget' sheet row 2024) \u00d7 3.664. Label which basis is shown."
+   },
+   {
+    "statement": "Half of all the fossil CO2 humanity has emitted since 1750 was emitted from 1996 onward.",
+    "value_as_of_latest": "1,849 GtCO2 cumulative 1750-2024. The 50% mark was crossed in 1996, and 57.6% has been emitted since 1990.",
+    "source_name": "Global Carbon Project fossil CO2 dataset 2025v15",
+    "derivation": "From GCB2025v15_MtCO2_flat.csv, Country='Global': sum Total over Years 1750-2024 = 1,849,124 MtCO2. Running cumulative sum by year first reaches \u2265 924,562 MtCO2 in Year 1996. Sum of Years 1990-2024 / total = 0.5758."
+   },
+   {
+    "statement": "Of all fossil CO2 ever emitted (1750-2024), the United States produced 23.5%, the EU-27 16.3%, China 15.4%, Russia 6.6%, the UK 4.3% and India 3.6%.",
+    "value_as_of_latest": "USA 23.5%, EU27 16.3%, China 15.4%, Russia 6.6%, UK 4.3%, India 3.6% (2024). Including land-use change CO2: USA 20.4%, China 13.1%, Brazil 5.1%, Indonesia 3.2%.",
+    "source_name": "Global Carbon Budget 2025 via Our World in Data owid-co2-data.csv",
+    "derivation": "owid-co2-data.csv, Year=2024, column share_global_cumulative_co2 (= country cumulative fossil CO2 since 1750 / World cumulative, where World includes international aviation and shipping): United States 23.517, European Union (27) 16.273, China 15.417, Russia 6.641, United Kingdom 4.331, India 3.573. Including LUC: column share_global_cumulative_co2_including_luc: USA 20.372, China 13.071, Brazil 5.068, Indonesia 3.160. Reproducible from GCP v15 CSV + GCB national LUC xlsx by summing years 1750/1850-2024."
+   },
+   {
+    "statement": "In 2024 the average American emitted 14.2 tonnes of fossil CO2, versus 8.7 t in China, 2.2 t in India and 4.7 t worldwide. Counting the CO2 embodied in imported goods raises the UK figure by 58% (7.1 t vs 4.5 t in 2023).",
+    "value_as_of_latest": "2024 per capita: USA 14.20 t, China 8.66 t, India 2.20 t, World 4.73 t. 2023 consumption-based vs territorial: UK 7.09 vs 4.48 t; EU27 7.33 vs 5.51 t; USA 15.81 vs 14.32 t; China 7.63 vs 8.56 t.",
+    "source_name": "GCP fossil CO2 dataset 2025v15; Global Carbon Budget 2025 national file (consumption emissions), via OWID",
+    "derivation": "GCB2025v15_MtCO2_flat.csv, column 'Per Capita', Year=2024: USA 14.197, China 8.658, India 2.201, Global 4.729 (identical to OWID co2_per_capita). Consumption-based: owid-co2-data.csv Year=2023, consumption_co2_per_capita vs co2_per_capita: United Kingdom 7.092 vs 4.482 (trade_co2_share +58.2%); EU27 7.328 vs 5.514; USA 15.814 vs 14.319; China 7.632 vs 8.556. Upstream: GCB 2025 national xlsx, sheet 'Consumption Emissions' \u00f7 population."
+   },
+   {
+    "statement": "All greenhouse gases together reached a record 54.1 billion tonnes CO2-equivalent in 2025, not counting land use. 74% was fossil CO2, 18% methane, 5% nitrous oxide and 3% F-gases.",
+    "value_as_of_latest": "54.15 Gt CO2eq (AR5 GWP100, excl. LULUCF) in 2025, +0.7% vs 2024 (53.77)",
+    "source_name": "EDGAR 2026 GHG (JRC), GHG emissions of all world countries - 2026 Report",
+    "derivation": "EDGAR_2026_GHG_booklet_2026.xlsx, sheet GHG_totals_by_country, row 'GLOBAL TOTAL', column 2025 = 54,149.17 Mt CO2eq; 2024 = 53,769.63 \u2192 +0.71%. Gas shares: sheet GHG_by_sector_and_country, sum rows Country='GLOBAL TOTAL' by Substance, 2025: CO2 39,961.8 (73.8%), GWP_100_AR5_CH4 9,546.8 (17.6%), GWP_100_AR5_N2O 2,864.7 (5.3%), GWP_100_AR5_F-gases 1,775.9 (3.3%). Licence note: totals include IEA-EDGAR CO2 (CC BY-NC-ND)."
+   },
+   {
+    "statement": "Generating electricity and heat is the largest single source, about 29% of global greenhouse gas emissions in 2025. Transport is about 16% and agriculture about 12%.",
+    "value_as_of_latest": "Power 15.8 Gt CO2eq (29.2%), Transport 8.8 Gt (16.2%), Agriculture 6.3 Gt (11.7%), Industrial combustion 6.3 Gt (11.5%), Fuel production 6.1 Gt (11.3%), Industrial processes 5.4 Gt (9.9%), Buildings 3.6 Gt (6.6%), Waste 1.9 Gt (3.6%) in 2025. Open-licence cross-check: power 16.0 Gt of 54.4 Gt (29.4%).",
+    "source_name": "EDGAR 2026 GHG (sector split); Climate TRACE v5.11.0 (CC BY cross-check)",
+    "derivation": "EDGAR_2026_GHG_booklet_2026.xlsx, sheet GHG_by_sector_and_country, rows Country='GLOBAL TOTAL', 2025 column, summed by Sector, each \u00f7 54,149.2. Climate TRACE: GET https://api.climatetrace.org/v7/rankings/countries?gas=co2e_100yr&start=2025-01-01&end=2025-12-31&sectors=power \u2192 totals.emissionsQuantity = 16.0e9 t; same query without sectors \u2192 54.418e9 t (includes forestry-and-land-use \u22123.38 Gt; AR6 GWP100)."
+   },
+   {
+    "statement": "About a third of global greenhouse gas emissions come from the food system: farming, deforestation for agriculture, and processing, packaging, transporting, retailing and wasting food.",
+    "value_as_of_latest": "16.5 Gt CO2eq in 2023 = 31.7% of all emissions including land use (farm gate 8.1 Gt, agricultural land-use change 3.2 Gt, pre/post-production 5.2 Gt)",
+    "source_name": "FAOSTAT Emissions Totals (GT), FAO, updated 2025-10-28",
+    "derivation": "Emissions_Totals_E_All_Data_(Normalized).csv, Area='World', Element='Emissions (CO2eq) (AR5)', Source='FAO TIER 1', Year=2023: Item 'Agrifood systems' 16,535,072 kt \u00f7 Item 'All sectors with LULUCF' 52,105,734 kt = 31.7%. Components: 'Farm gate' 8,096,973; 'Land-use change' 3,190,128; 'Pre- and post-production' 5,247,971 kt."
+   },
+   {
+    "statement": "Historical CO2, methane and nitrous oxide emissions since 1850 account for about 1.68\u00b0C of warming. The United States' emissions are responsible for 0.30\u00b0C (18%), China's for 0.22\u00b0C (13%) and the EU-27's for 0.18\u00b0C (10%).",
+    "value_as_of_latest": "GLOBAL 1.678\u00b0C; USA 0.296\u00b0C (17.7%); China 0.217\u00b0C (13.0%); EU27 0.175\u00b0C (10.5%); Russia 0.118\u00b0C (7.0%), as of 2024",
+    "source_name": "Jones et al., National contributions to climate change, v2025.1 (Zenodo)",
+    "derivation": "GMST_response_1851-2024.csv (doi:10.5281/zenodo.16640595), filter Year=2024, Gas='3-GHG', Component='Total': Data for ISO3 GLOBAL=1.67836, USA=0.29625, CHN=0.21737, EU27=0.17543, RUS=0.11794; share = country/GLOBAL. Must caption: excludes cooling from aerosols, so it exceeds observed warming (~1.3-1.4\u00b0C)."
+   },
+   {
+    "statement": "Atmospheric CO2 averaged 425.6 ppm worldwide in 2025, about 52% above pre-industrial levels. Methane reached 1,936 ppb and nitrous oxide 338.9 ppb.",
+    "value_as_of_latest": "CO2 425.62 \u00b1 0.05 ppm (global marine-surface mean, 2025); Mauna Loa 427.35 ppm (2025); CH4 1,935.94 ppb; N2O 338.85 ppb (2025)",
+    "source_name": "NOAA Global Monitoring Laboratory trends, version 2026-09",
+    "derivation": "co2_annmean_gl.txt row 2025: 425.62 (unc 0.05). co2_annmean_mlo.txt row 2025: 427.35. ch4_annmean_gl.txt row 2025: 1935.94. n2o_annmean_gl.txt row 2025: 338.85. The '52% above pre-industrial' figure is the Global Carbon Budget 2025 press release's statement for 2025 (425.7 ppm)."
+   },
+   {
+    "statement": "To keep a 50% chance of limiting warming to 1.5\u00b0C, humanity can emit only about 170 billion tonnes more CO2 from the start of 2026. That is about four years at current rates.",
+    "value_as_of_latest": "170 GtCO2 from 1 Jan 2026 (50 GtC) \u2248 4 years of 2025 emissions",
+    "source_name": "Global Carbon Budget 2025 (press release 13 Nov 2025; Friedlingstein et al. 2026, ESSD)",
+    "derivation": "GCB 2025 press release: remaining 1.5\u00b0C (50% likelihood) budget = 170 GtCO2 from start of 2026; ESSD abstract: 50 GtC (\u00d73.664 \u2248 183 GtCO2; the press-release value is from 2026 onward). Years left = 170 \u00f7 (2025 fossil 38.1 + 2025 LUC 4.1 GtCO2) = 4.0."
+   }
+  ],
+  "drilldown_paths": [
+   "THE BATHTUB (cause \u2192 consequence): fossil + land-use emissions \u2192 where the CO2 goes (atmosphere ~half, ocean, land) \u2192 concentration rising (Keeling curve) \u2192 warming. Data: GCB 2025 Global_Carbon_Budget xlsx, sheet 'Global Carbon Budget' (fossil, LUC, atmospheric growth, ocean sink, land sink, carbonation, imbalance 1959-2024); NOAA co2_annmean_gl and co2_mm_mlo; Jones GMST_response GLOBAL.",
+   "WORLD \u2192 GAS \u2192 SECTOR \u2192 ASSET: total GHG 2025 \u2192 CO2 / CH4 / N2O / F-gas \u2192 sector (power, transport, buildings, industry, fuel production, agriculture, waste) \u2192 subsector \u2192 individual power plants, oil fields and steel mills on a map \u2192 the asset's reduction strategies. Data: EDGAR 2026 booklet (GHG_by_sector_and_country, CH4/N2O CC BY), Climate TRACE v7 API (rankings/countries?sectors=..., /sources, ers_plan_global), PRIMAP-hist v2.8 for 1750+ sector history.",
+   "WORLD \u2192 FUEL \u2192 COUNTRY \u2192 PERSON: fossil CO2 \u2192 coal / oil / gas / cement / flaring \u2192 country map and ranking \u2192 per capita \u2192 consumption-based vs territorial ('what you import'). Data: GCP fossil CO2 2025v15 flat CSV (Total, Coal, Oil, Gas, Cement, Flaring, Other, Per Capita), GCB 2025 national xlsx (Territorial, Consumption, Emissions Transfers sheets), OWID owid-co2-data.csv for per-capita and consumption columns.",
+   "RESPONSIBILITY OVER TIME: annual emissions \u2192 cumulative since 1750 (fossil, then + land use) \u2192 each country's share \u2192 \u00b0C of warming caused (CO2 vs CH4 vs N2O; fossil vs land) \u2192 remaining 1.5\u00b0C budget countdown. Data: GCP v15 cumulative sums, GCB national LUC xlsx, OWID share_global_cumulative_*, Jones et al. 2025.1 GMST_response and EMISSIONS_CUMULATIVE_CO2e100, GCB 2025 remaining budget (170 GtCO2).",
+   "METHANE (fastest lever on near-term warming): atmospheric CH4 rising (NOAA) \u2192 sources budget with uncertainty (fossil 115, agriculture & waste 228, wetlands; Tg/yr) \u2192 national CH4 by sector (EDGAR CH4 / PRIMAP-hist) \u2192 fossil-fuel methane by country and leak intensity (IEA GMT 2026: 124 Mt; China, US, Russia lead) \u2192 Global Methane Pledge coverage. Data: NOAA ch4_annmean_gl, GCP-CH4 2024 xlsx (ICOS), EDGAR_CH4_1970_2025, IEA GMT 2026.",
+   "FOOD SYSTEM: share of all GHG from agrifood (31.7%) \u2192 farm gate vs land-use change vs pre/post-production \u2192 livestock (enteric fermentation, manure) / rice / fertilizer / deforestation / household food waste \u2192 by country \u2192 per-kg footprint of foods (beef vs beans). Data: FAOSTAT GT, GLE, GCE, GF, GPP bulk CSVs; Poore & Nemecek via OWID (pending licence).",
+   "LAND & FORESTS: land-use change CO2 globally (GCB ELUC 1.25 GtC in 2024) \u2192 by country (Brazil, Indonesia, DRC) \u2192 net forest conversion vs forest sink \u2192 cumulative CO2 including land use (Brazil jumps from 1.0% to 5.1% of the cumulative total). Data: GCB national LUC xlsx, FAOSTAT GF and GT ('Net Forest conversion', 'Forestland'), OWID share_global_cumulative_luc_co2, Climate TRACE forestry-and-land-use.",
+   "UNITED STATES DEEP DIVE (with the data-gap story): US total 1990-2024 \u2192 sector \u2192 key categories (#1 road transport CO2 1,451 MMT) \u2192 state \u2192 facilities near you (GHGRP RY2023) \u2192 the EPA inventory not published since 2024 and GHGRP RY2024 unreleased. Data: UMD CGS GHGIA 1990-2024 CSVs (DRUM), EPA GHGRP Envirofacts/FLIGHT RY2023, EPA 1990-2023 FOIA edition (EDF), Climate TRACE US assets 2024-2026.",
+   "OFFICIAL vs INDEPENDENT ('who is telling the truth?'): for a country, compare government-reported inventory (Tidy GHG Inventories / PRIMAP HISTCR) with independent estimates (GCB, EDGAR, Climate TRACE), with clear labels for differences in GWP, LULUCF and bunkers. Data: Tidy-GHG-Inventories-v2.1-long.xlsx, PRIMAP-hist v2.8 HISTCR vs HISTTP, EDGAR 2026, Climate TRACE."
+  ],
+  "action_links": "INDIVIDUALS: (1) The per-capita and consumption-based views (GCP v15 and GCB 2025 'Consumption Emissions'; e.g. UK consumption footprint 7.1 t vs 4.5 t territorial) show that what we buy matters as much as where we live. (2) Transport is about 16% of global GHG (EDGAR 2026) and road transport is the single largest US category (1,451 MMT CO2e in 2024, UMD GHGIA Figure ES-2). (3) The food system is about 32% of global GHG (FAOSTAT GT 2023), with livestock and deforestation as the biggest pieces, so diet and food waste are direct levers. Product footprints come from Poore & Nemecek 2018 (licence pending). (4) IPCC AR6 WGIII SPM C.10 (https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/) finds that demand-side measures (buildings, land transport, food) can cut end-use-sector emissions by 40-70% by 2050 compared with baseline scenarios. The figure data are reportedly CC BY 4.0 under DOI 10.48490/f0z3-n524; I could not reach the IPCC data browser to verify. COMMUNITIES: (5) Climate TRACE asset maps (CC BY 4.0) and EPA GHGRP RY2023 facility data (public domain) let residents identify the largest local emitters and their parent companies, for use in permitting hearings, utility rate cases and local methane-leak advocacy. (6) Power is about 29% of global GHG (EDGAR 2026 / Climate TRACE 2025), so community choice energy and utility decarbonisation are high-leverage. POLICYMAKERS: (7) Methane: IEA Global Methane Tracker 2026 (CC BY 4.0) reports 124 Mt a year from fossil fuel operations; 159 countries plus the EU have joined the Global Methane Pledge (a 30% cut by 2030), covering about 65% of sectoral methane. (8) The remaining 1.5\u00b0C budget is 170 GtCO2, about 4 years at current rates (GCB 2025), which frames how fast NDCs must cut emissions. (9) Data transparency: the US missed its 2025 and 2026 UNFCCC inventory submissions and GHGRP is proposed for elimination (EPA, Sep 2025 proposal). Showing that gap is itself an action item for citizens contacting representatives. Every action card should link to the exact dataset row behind its number.",
+  "gaps_and_risks": "LICENSING: (a) PRIMAP-hist moved to CC BY-NC-SA 4.0. The record text says 'since v2.8', but the Zenodo license field already reads NC-SA for v2.7. Fine for a non-commercial site, but derived CSVs must carry the same licence. Alternatively pin v2.6.1, the last CC BY version (data to 2023). (b) EDGAR's fossil CO2 component (IEA-EDGAR CO2) is CC BY-NC-ND 4.0, and it is embedded in EDGAR's GHG and sector totals. ND arguably blocks recomputed shares or per-capita values. Either get IEA permission (compliance@iea.org) or source the sector split from Climate TRACE (CC BY) and fossil CO2 from GCB (CC BY). EDGAR CH4, N2O and F-gas are CC BY. (c) Climate Watch's energy subsectors derive from IEA, and I could not read its permissions page, so avoid redistributing them. (d) The Carbon Majors terms forbid republishing and derivatives, so permission is needed. (e) The IEA Methane Tracker database licence (reported CC BY-SA) is unverified because iea.org returns 403. (f) Poore & Nemecek licence is unclear. (g) GCB xlsx and ICOS downloads need a licence-accept cookie (scriptable); cite the ICOS CC BY 4.0 deposit. COMPARABILITY: GCB fossil CO2 appears as 38.6 Gt (gross) or 37.8 Gt (net of cement carbonation). EDGAR uses AR5 GWP100 and includes bunkers, while PRIMAP-hist and Climate TRACE use AR6 and PRIMAP excludes bunkers. Totals differ with and without LULUCF. Climate TRACE totals swing with forestry (59.9 Gt in 2024 vs 54.4 Gt in 2025). Never mix sources in one chart without a label, and store the GWP basis, LULUCF flag and bunker flag in the provenance manifest. OWID: CO2 values are byte-identical to GCB (verified), but OWID total_ghg, methane and nitrous_oxide are OWID conversions of Jones et al. tonnages (AR6 GWP100: CH4 fossil 29.8, land 27.2, N2O 273), and OWID region and income aggregates are OWID-defined, so cite them as 'processed by OWID'. TIMELINESS: GCB 2026 and Jones 2026 are expected around COP31 (9-20 Nov 2026), so plan a re-ingest and keep old vintages addressable so published numbers stay traceable. The Global Methane Budget ends in 2020. Consumption-based data end in 2023. FAOSTAT and Climate Watch end in 2023. US FEDERAL RISK: the EPA national inventory has not been officially published since the 1990-2022 edition, and the 1990-2023 edition exists only via EDF FOIA. GHGRP RY2024 data were collected but not released (the Envirofacts API returns empty for 2024), and the program faces proposed elimination of 46 of 47 categories. NOAA GML survived the FY2026 appropriations but remains politically exposed. Mirror every upstream file (with SHA-256 hashes) in your own storage at build time. UNFCCC: the GHG Data Interface is stale (to 2021), so use Tidy GHG Inventories or the CRT originals. UNCERTAINTY: LUC per country (\u00b10.7 GtC globally), the methane budget (top-down 575 vs bottom-up 669 Tg), and Jones warming attributions (no aerosols) need visible uncertainty or caveats. NOT YET REVIEWED (candidates): Global N2O Budget (Tian et al. 2024, ESSD 16:2543, data doi:10.18160/RQ8P-2Z4R); Energy Institute Statistical Review 2026 (energy domain); CEDS; IPCC AR6 WGIII figure data (data browser unreachable)."
+ },
+ "verification": {
+  "domain": "Greenhouse gas emissions (causes): who emits, from what fuels, sectors and activities, how much historically, and how that turns into warming. Checked 2026-10-04 using the Zenodo, DataCite, Crossref and ICOS metadata APIs, the publishers' pages, and by parsing the downloaded files in memory. No web-search budget was left, so news-based status claims (NOAA budget) could not be re-verified.",
+  "verdicts": [
+   {
+    "name": "Global Carbon Budget 2025 (GCP; ICOS deposit)",
+    "verdict": "corrected",
+    "corrections": "Licence, DOIs and values are confirmed. ICOS metadata for object loCXyssaalv6DPdO6Qdj90qQ gives licence 'ICOS CCBY4 Data Licence' (baseLicence CC BY 4.0). DataCite rights for 10.18160/gcp-2025 = cc-by-4.0. Crossref for 10.5194/essd-18-3211-2026: vol 18, pp. 3211-3288, published 2026-05-13, CC BY 4.0. A GET with the licence cookie returns 200 and 755,198 bytes. A HEAD request returns 404, so the ETL must use GET. Parsed the 'Global Carbon Budget' sheet, 2024 row: fossil 10.5345, LUC 1.2515, atmospheric growth 7.9225, ocean 3.3889, land 1.9422, carbonation 0.2243, imbalance -1.692 GtC. National v1.0: Territorial World 2024 = 10,534.546 MtC. Consumption sheet years 1990-2024, but country values stop in 2023 (China 2024 is empty). CORRECTIONS: (1) The globalcarbonbudget.org/download/2341, 2345 and 2348 links are the November 2025 pre-release files: tmstv=1762815968 is 10 Nov 2025, and the file is 739,007 bytes versus 755,198 for ICOS v1.0. They are therefore equivalent to the deprecated v0.1. Do not use them as the canonical source; pin the ICOS v1.0 object PIDs (qSjPBsV1drZnYdH-yCJMmkGn global, loCXyssaalv6DPdO6Qdj90qQ national fossil, milTbWkl0G-MSpdYG3IBIfzy national LUC) plus SHA-256 hashes. (2) The DataCite record for 10.18160/gcp-2025 shows version '1.1' (Updated 2026-01-15; record modified 2026-05-17), but the ICOS page citation says 'Version 1.0' and the ICOS object citation string says 'Global Carbon Project, 2025'. Cite the ICOS page string and record the object PID to resolve the ambiguity. (3) The GCB data-hub page still asks for attribution to 'Friedlingstein et al., 2025, ESSD'; cite the final 2026 ESSD paper instead. (4) The final ESSD paper says 2025 fossil emissions rise +1.0% (range 0.2-1.7%) to 38.1 GtCO2, and that 425.6 ppm is '53% above pre-industrial'. The 13 Nov 2025 press release says +1.1% and 52% (425.7 ppm). Use the peer-reviewed values.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "GCP fossil CO2 emissions dataset 2025v15 (Andrew & Peters, Zenodo 17417124)",
+    "verdict": "confirmed",
+    "corrections": "Zenodo API: version 2025v15, 2025-10-22, license cc-by-4.0, creators Andrew and Peters. /versions/latest resolves to 17417124 itself, so there is no newer version. The description says 'This is the initial release of the 2025 dataset.' There are 7 files, including GCB2025v15_population_flat.csv and GCB2025v15_percapita_flat_metadata.json, which the researcher did not list. Streamed the MtCO2 flat CSV. Global 2024 Total = 38,598.578033 (Coal 15,805.25; Oil 12,470.60; Gas 8,009.83; Cement 1,472.82; Flaring 415.71; Other 424.38), per capita 4.729075. USA 4,904.12 (14.197), China 12,289.04 (8.658), India 3,193.48 (2.201; 'Other' is blank). Aviation 569.04, Shipping 623.42. All match the claims exactly.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Our World in Data CO2 and GHG dataset (owid/co2-data)",
+    "verdict": "confirmed",
+    "corrections": "HEAD on the CSV: 200, 33,246,106 bytes, Last-Modified Tue 02 Jun 2026; the xlsx and json files have the same date. The README changelog entry for 2026-06-01 says EIA was updated. The README licence text is quoted correctly. All values were re-parsed: World 2024 co2 = 38598.578125; share_global_cumulative_co2 USA 23.517, EU27 16.273, China 15.417, Russia 6.641, UK 4.331, India 3.573; including LUC USA 20.372, China 13.071, Brazil 5.068, Indonesia 3.160. Additions: (a) OWID computes per-capita values from its own population series (README), not GCP's population. They match GCP for the USA in 2024, but always store which population series was used. (b) Energy columns come from the Energy Institute Statistical Review (snapshot 2025-06-27) and EIA, which have their own terms. Do not redistribute those columns as OWID CC BY without checking the EI terms. (c) The README's 'source data' link for GCB points to globalcarbonbudgetdata.org (the Nov 2025 pre-release), not the ICOS v1.0 deposit.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Jones et al. National contributions to climate change v2025.1 (Zenodo 16640595)",
+    "verdict": "confirmed",
+    "corrections": "Zenodo: version 2025.1, 2025-11-13, cc-by-4.0, concept 7076346; this is the latest version. It has 25 files, not 26. All listed download filenames exist. Streamed GMST_response_1851-2024.csv, 2024 / 3-GHG / Total: GLOBAL 1.67836, USA 0.29625, CHN 0.21737, EU27 0.17543, RUS 0.11794, ANNEXI 0.77823, NONANNEX 0.89297. Crossref confirms Sci Data 10, article 155, 2023-03-29, CC BY 4.0. The description confirms CH4 and N2O come from PRIMAP-hist HISTTP 'G\u00fctschow et al., 2024' (that is, v2.6, which is CC BY), and that GWP* and AR6 TCRE are used. RISK: future Jones editions built on PRIMAP-hist v2.7 or later would inherit CC BY-NC-SA terms on their CH4/N2O components, so check this at every re-ingest. For the aerosol caveat, cite IGCC 2025 (Forster et al. 2026): human-induced warming was 1.37\u00b0C in 2025.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "EDGAR 2026 GHG (JRC) and 'GHG emissions of all world countries - 2026 Report'",
+    "verdict": "corrected",
+    "corrections": "URLs: the booklet xlsx returns 200, 4,767,596 bytes, Last-Modified 3 Sep 2026; fossilCO2only.xlsx returns 200. All five jeodpp zips return 200 with Last-Modified 18 Sep 2026. report_2026 and dataset_ghg2026 return 404 to HEAD but 200 to GET. Values verified by parsing the booklet: GLOBAL TOTAL 2024 53,769.63 and 2025 54,149.17; China 15,980.97; USA 6,018.30; India 4,508.01; EU27 3,127.15. The report page states verbatim '54.1 Gt CO2eq... increase of 0.7% or 380 Mt' and gas shares 73.8 / 17.6 / 5.3 / 3.3%. The DOI 10.2760/7717504 and JRC147815 citation are confirmed. LICENCE CORRECTION: the two official texts conflict. The booklet's 'Citations and references' sheet says users of IEA-EDGAR CO2 'should contact the IEA at compliance@iea.org for permission to use'. The dataset_ghg2026 web page instead says to contact the IEA 'if they wish to use such data outside the terms of the CC-BY-NC-ND 4.0 licence'. So for this non-commercial site, verbatim display of IEA-EDGAR CO2 and the totals that embed it is permitted under NC-ND. What remains blocked is ND: computed shares, per-capita values and re-aggregations. Classify as noncommercial-only (with ND) rather than 'unclear'. EDGAR CH4, N2O and F-gases are EU-owned and CC BY 4.0. Prefer EDGAR's own published percentages (the report page gas shares) over self-computed sector shares, or get IEA's written confirmation.",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "core"
+   },
+   {
+    "name": "PRIMAP-hist v2.8 (Zenodo 22876287)",
+    "verdict": "confirmed",
+    "corrections": "Zenodo: v2.8, 2026-09-29, cc-by-nc-sa-4.0; this is the latest version (concept 4479171). Licence history confirmed: 2.7 (17090760, 2025-09-15) is already cc-by-nc-sa-4.0; v2.6.1 (15016289, 2025-03-13) and v2.6 are cc-by-4.0. It has 17 files, not 19; all four listed CSV/nc/pdf filenames exist. Description text confirmed: 'Since v2.8 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA)'. It adds that 'The commercial license is only available for the country reported priority (CR) time-series' because TP 'builds heavily on EDGAR and FAOSTAT'. HISTTP 'is no longer actively maintained'. The USA data come from UMD CGS because the USA did not submit. Energy CO2 for 2025 is extrapolated using EI Statistical Review 2026 growth rates; other sectors use linear extrapolation over the last 5 years. The KYOTOGHG gigagram values were not re-parsed (77 MB).",
+    "final_redistribution": "noncommercial-only",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Climate TRACE Emissions Inventory v5.11.0",
+    "verdict": "corrected",
+    "corrections": "Confirmed: /data shows 'September release 5.11.0 includes monthly emissions data through July 2026' and API v7. The API reproduces the claimed numbers: 2025 total 54.418 Gt (China 16.60, USA 6.35, India 4.46); power 15.996; 2024 total 59.912. The terms page carries the CC BY 4.0 text. CORRECTIONS: (1) The terms exclude EDGAR-sourced country-level estimates for 'Other energy use, Railways, Other transportation, Other onsite fuel usage, Other Solid fuels, Other fossil fuel operations, Other manufacturing, Solid waste disposal, Biological treatment of solid waste, Incineration and open burning of waste, Fluorinated gases'. They also exclude FAOSTAT-sourced subsectors (rice in some geographies, other agricultural soils, enteric and manure 'other', other onsite fuel usage). So the country and sector totals from /rankings/countries are not purely CC BY. The fluorinated-gases sector (1.74 Gt) is entirely EDGAR. Calling Climate TRACE 'the CC BY alternative to EDGAR for sector splits' is overstated: only asset-level, Climate TRACE-modelled subsectors are cleanly CC BY. (2) A DOI does exist. Zenodo concept DOI 10.5281/zenodo.15014790 holds versioned archives (CC BY 4.0); the latest archived is V5.10.0, 10.5281/zenodo.22919723, 2026-08-27. The record the researcher cited (19952746) is V5.5.0 (2026-03-26), and v5.11.0 is not yet on Zenodo. For activist traceability, pin the Zenodo version DOI rather than the live API. (3) The 2024 to 2025 drop comes entirely from forestry-and-land-use (+2.33 Gt in 2024 versus -3.38 Gt in 2025). Every other sector moved by less than 2%: power 15.94 to 16.0, transport 9.37 to 9.52, manufacturing 10.24 to 10.15. (4) See the headline check: the 29.4% power share mixes in net forestry.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Climate Watch Historical GHG Emissions (WRI)",
+    "verdict": "corrected",
+    "corrections": "The permissions text can be read from WRI's open-source repo (github.com/ClimateWatch-Vizzuality/climate-watch, app/javascript/app/components/about/about-permissions/about-permissions-component.jsx). It says: 'Except as noted below, data and visualizations on this site carry a Creative Commons CC BY 4.0 license'. Exceptions: for the LULUCF indicator, WRI holds a 'non-exclusive, non-transferrable right' from FAO, and 'if users wish to republish this dataset in whole or in part, they should contact FAO directly at copyright@fao.org'. Fuel-combustion data must be cited as 'GHG Emissions from Fuel Combustion, OECD/IEA, 2025', and for third-party datasets users should 'refer to the original licensing'. API values are confirmed (USA 2023 total excluding LULUCF 5,775.47; Electricity/Heat 1,752.17; Transportation 1,728.4; LULUCF -336.76). OWID snapshot climate_watch/2026-02-10 shows date_published 2026-01-15 and licence CC BY 4.0. The status is no longer 'unverifiable', but LULUCF needs FAO permission and the energy subsectors are IEA-derived, so keeping it at 'avoid' for redistribution is correct.",
+    "final_redistribution": "unclear",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "Tidy GHG Inventories v2.1 (Lamb, Zenodo 20612942)",
+    "verdict": "confirmed",
+    "corrections": "Zenodo: version 2.1, 2026-06-09, cc-by-4.0, creator Lamb, William F.; this is the latest version (concept 14512139). There are 4 xlsx files: the long file is 16,622,026 bytes. The listed 'detailed-long' (31.4 MB) exists, plus 'detailed-wide' and 'wide'. The description confirms the sources are unfccc.int/ghg-inventories-annex-i-parties/2026 and the BTR CRTs. That unfccc.int page returns 200 to GET. The di.unfccc.int staleness claim was not re-verified.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Global Methane Budget 2000-2020 (GCP-CH4 2024, ICOS)",
+    "verdict": "corrected",
+    "corrections": "Confirmed: ICOS object -MqGCn38zUlEi4_aQm-1_w2I is Global_methane_budget_2023_2000_2020_v1.xlsx, 698,487 bytes, submitted 2024-05-16, ICOS CCBY4 licence. A GET with the cookie returns 200. The complete zip (hpMHHXLTM-yhCWujxG2uTB84) is GCP-CH4-2024.zip, 167 MB. Crossref for the ESSD paper: 17(5), 1873-1958, published 2025-05-09, CC BY 4.0. The GCP methane page says 'Released 10 September 2024', and no newer edition was found. CITATION CORRECTION: DataCite gives the data DOI's title as 'Supplemental data of the Global Carbon Project Methane Budget 2024 v1', issued 2024-02-14, with 45 creators (Martinez, Saunois, Poulter, Bousquet, Canadell, Jackson, Dlugokencky, Ciais, ...). It is not 'Data supplement of Global Methane Budget 2000-2020' by two authors. The DataCite rights field carries only the GCP 'conditional on citing' text; the CC BY 4.0 basis is the ICOS object licence.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "IEA Global Methane Tracker 2026",
+    "verdict": "confirmed",
+    "corrections": "Both blob PDFs return 200: the report is 6.18 MB and the documentation 574 KB. iea.org pages also return 403 to me. The report's front matter reads: 'Subject to the IEA's Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence', and figures carry 'IEA. CC BY 4.0.' Numbers verified in the text: 124 Mt from fossil operations (oil 45, coal 43, gas 36); a further 20 Mt from bioenergy; the fossil sector is around 35% of human methane; more than 85 Mt from the top 10 emitters; 159 countries plus the EU are in the GMP, covering around 65% of sectoral methane. The database licence (claimed CC BY-SA 4.0) is still unverified, and the documentation PDF does not state it. Use only report-level figures until the database licence is confirmed.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "FAOSTAT Agrifood systems emissions (GT, GLE, GCE, GF, GPP)",
+    "verdict": "confirmed",
+    "corrections": "datasets_E.json dates: GT 2025-10-28, GLE 2025-10-28, GCE 2025-10-28, GF 2025-10-21, GPP 2026-05-22, EI 2026-02-20. Parsed the GT zip, World / Emissions (CO2eq) (AR5) / FAO TIER 1 / 2023: Agrifood 16,535,072; All sectors with LULUCF 52,105,734; All sectors without LULUCF 51,639,008; Farm gate 8,096,973; LUC 3,190,128; Pre/post 5,247,971; Enteric 2,947,205; Net forest conversion 2,814,056; Energy 38,787,950 kt. The file includes 2030 and 2050 projection years, so filter them out. FAO terms are confirmed CC BY 4.0, 'Unless specified otherwise in their metadata'. Notes: GT predates the 2026-05-22 GPP revision, so GT's pre/post-production component may not match GPP. The 2026 autumn FAOSTAT emissions release is not out yet.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA GML trends (CO2, CH4, N2O)",
+    "verdict": "confirmed",
+    "corrections": "All file creation stamps are 5 Sep 2026. Values: global CO2 2024 422.79 and 2025 425.62\u00b10.05; Mauna Loa 2025 427.35; MLO monthly 2026-06 431.43, 07 429.13, 08 427.55; CH4 2025 1935.94; global CH4 monthly ends 2026-05; N2O 2025 338.85. The citations and DOIs (Version 2026-09; 10.15138/9N0H-ZH07; 10.15138/P8XG-AA10) are confirmed on gl_data.html and trends_ch4. Two additions: (1) co2_mm_mlo.txt states that March 1958 to April 1974 data come from C. D. Keeling, Scripps Institution of Oceanography. Credit Scripps on any Keeling curve. (2) December 2022 to 4 July 2023 values come from Maunakea Observatories because of the eruption. The FY2026 budget and 'reopened' status claims could not be re-verified (no search budget). The program is clearly operating as of Sep 2026.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "US EPA GHGRP (FLIGHT and Envirofacts)",
+    "verdict": "confirmed",
+    "corrections": "epa.gov/ghgreporting shows 'Last updated on September 22, 2026'. It states 'On September 12, 2025, EPA released a proposal to permanently remove program obligations for 46 source categories' and links 'EPA Final Rule extends RY2025 GHGRP Deadline'. Envirofacts PUB_DIM_FACILITY YEAR=2023 returns facility JSON (PSE Ferndale Generating Station), and YEAR=2024 returns []. FLIGHT returns 200. The 2023 summary zip responds (206 to a range request).",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "US EPA Inventory of U.S. GHG Emissions and Sinks (incl. EDF FOIA 1990-2023)",
+    "verdict": "confirmed",
+    "corrections": "The EPA inventory page shows 'Last updated on June 10, 2026'. It still lists the 1990-2023 DRAFT (comments due March 17, 2025) and the 1990-2022 report. The EDF FOIA page returns 200; the EDF-hosted EPA 430-R-25-003 PDF returns 200 (18.4 MB, application/pdf); the cfpub explorer returns 200. The report is a US government work. Hash the EDF-hosted copy because the host is an NGO.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "UMD CGS Greenhouse Gas Inventory and Analysis for the US 1990-2024 (GHGIA)",
+    "verdict": "confirmed",
+    "corrections": "doi.org/10.13016/g1xw-qftw redirects (302) to drum.lib.umd.edu/handle/1903/35318. DRUM metadata: dc.rights 'Attribution 3.0 United States' (CC BY 3.0 US), dc.date.issued 2026-04-15, accessioned 2026-05-22. The DataCite rightsList is empty, so cite the DRUM rights. All three bitstream URLs return 200. Exec Summary CSV: gross excluding LULUCF 2005 7,503.56 and 2024 6,205.34; net 2024 5,298.82. Key categories: Road CO2 1,450.56 (#1), Net Forest Land 759.2 (#2), NG electricity 734.83 (#3), coal electricity 671.99 (#4). The README is 'Version 1.0 Updated 5/18/2026' and its DOI is the placeholder 'https://doi.org/xxxxx'. The authors match DataCite.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Carbon Majors Database (InfluenceMap)",
+    "verdict": "confirmed",
+    "corrections": "The Downloads page says 'available for download and for non-commercial use, subject to InfluenceMap's Terms and Conditions'. The update log reads '21/01/2026: Release of the updated Carbon Majors dataset, includes data from reporting year 2024'. Additional finding: the CSV links return 302 to '/Downloads?error=Please log in for access to more detailed datasets', so even acquisition requires an InfluenceMap account. Do not use it without written permission.",
+    "final_redistribution": "restricted-no-redistribution",
+    "final_priority": "avoid"
+   },
+   {
+    "name": "Poore & Nemecek (2018) food footprints via OWID",
+    "verdict": "corrected",
+    "corrections": "The OWID grapher CSV returns 200 (828 bytes; e.g. Apples 2010 0.43). Its metadata has license null, lastUpdated 2019-10-08, timespan 2010. CORRECTIONS: (1) The ORA link (uuid:b0b53649...) is the accepted manuscript of the article, not a dataset. Rights: 'exclusive licensee American Association for the Advancement of Science'. The underlying data are in Science's supplementary materials under AAAS terms. (2) There is an erratum that must be cited alongside the paper: Science 363(6429), 22 Feb 2019, doi:10.1126/science.aaw9908. (3) An openly licensed alternative exists for food footprints: SU-EATABLE LIFE (Petersson et al. 2021, Sci Data 8:127, doi:10.1038/s41597-021-00909-8, CC BY 4.0 per Crossref).",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   }
+  ],
+  "headline_number_checks": "1) 38.6 GtCO2 fossil in 2024: CONFIRMED. GCB2025v15 Global 2024 = 38,598.578 MtCO2: coal 15,805.25 (40.9%), oil 12,470.60 (32.3%), gas 8,009.83 (20.8%), cement 1,472.82 (3.8%). The ICOS v1.0 'Global Carbon Budget' sheet gives (10.5345 - 0.2243 GtC) x 3.664 = 37.78 GtCO2; the ESSD abstract says '37.8 \u00b1 1.8 GtCO2'. For 2025, the peer-reviewed ESSD value is +1.0% (0.2-1.7%) to 38.1 GtCO2; the +1.1% is the press release. Use +1.0%.\n2) Half of all fossil CO2 emitted since 1996: CONFIRMED. Cumulative 1750-2024 = 1,849,123.9 MtCO2; the 50% mark is crossed in 1996; 57.58% has been emitted since 1990.\n3) Cumulative shares: CONFIRMED (owid-co2-data.csv 2024). USA 23.517, EU27 16.273, China 15.417, Russia 6.641, UK 4.331, India 3.573. Including LUC: USA 20.372, China 13.071, Brazil 5.068 (fossil-only 0.984), Indonesia 3.160.\n4) Per capita: CONFIRMED. 2024: USA 14.197, China 8.658, India 2.201, World 4.729. 2023 consumption vs territorial: UK 7.092 vs 4.482 (trade_co2_share +58.24%); EU27 7.328 vs 5.514; USA 15.814 vs 14.319; China 7.632 vs 8.556.\n5) All GHG 54.1 GtCO2e in 2025: CONFIRMED. EDGAR booklet GLOBAL TOTAL 2025 = 54,149.17 and 2024 = 53,769.63 (+0.71%). The report_2026 page states 54.1 Gt, +0.7% / 380 Mt, and gas shares 73.8 / 17.6 / 5.3 / 3.3% verbatim. Context: IGCC 2025 (Forster et al. 2026) reports 56.8 \u00b1 5.5 GtCO2e in 2024 including LULUCF, so label the basis (AR5 GWP, excluding LULUCF).\n6) Sector split: the EDGAR shares are CONFIRMED by parsing the booklet for 2025: Power 15,811.4 (29.2%), Transport 8,770.7 (16.2%), Agriculture 6,322.7 (11.7%), Industrial Combustion 6,253.5 (11.5%), Fuel Production 6,105.0 (11.3%), Processes 5,378.9 (9.9%), Buildings 3,570.8 (6.6%), Waste 1,936.2 (3.6%). The Climate TRACE cross-check is CORRECTED. Its 15.996 / 54.418 = 29.4% divides by a total that includes net forestry of -3.38 Gt. Like-for-like (excluding forestry, as EDGAR excludes LULUCF), the total is 57.80 Gt and power is 27.7%. Note also that EDGAR sector shares are derived from IEA-EDGAR CO2 (NC-ND), and part of Climate TRACE's totals is EDGAR-sourced.\n7) Food system about one third: CONFIRMED. 16,535,072 / 52,105,734 kt = 31.7% (FAOSTAT GT 2023). Caveat: the denominator nets LULUCF (only +0.47 Gt over the excluding-LULUCF total of 51,639,008), while the numerator includes 3.19 Gt of gross agrifood land-use change. On an 'excluding LULUCF + agrifood LUC' basis the share is 30.2%. Still 'about a third'.\n8) Warming attributable to countries: CONFIRMED exactly. GLOBAL 1.67836, USA 0.29625 (17.7%), CHN 0.21737 (13.0%), EU27 0.17543 (10.5%), RUS 0.11794 (7.0%). For the aerosol caveat, cite IGCC 2025: human-induced warming 1.37\u00b0C in 2025 (decade 2016-2025: 1.24\u00b0C).\n9) Atmospheric concentrations: values CONFIRMED (global CO2 425.62 \u00b1 0.05; MLO 427.35; CH4 1,935.94; N2O 338.85 for 2025; Version 2026-09). '52% above pre-industrial' is CORRECTED to 53%. The final GCB 2025 ESSD abstract says '425.6 ppm in 2025, 53 % above pre-industrial levels'; the 52% (with 425.7 ppm) is from the 13 Nov 2025 press release. Arithmetic check: 425.62 / 278 = 1.531.\n10) Remaining 1.5\u00b0C budget: the GCB value is CONFIRMED. The ESSD abstract says '50 GtC, 170 GtCO2 left, equivalent to around 4 years' from the start of 2026. The researcher's note '50 GtC x 3.664 \u2248 183' misreads it: the abstract states both units, and the GtC figure is rounded. The press release also says 4.1 GtCO2 LUC in 2025, so 170 / 42.2 = 4.0 years. HOWEVER, the IPCC-method update IGCC 2025 (Forster et al. 2026, ESSD 18:3889, doi 10.5194/essd-18-3889-2026, CC BY 4.0) gives 'RCB estimate of 130 GtCO2 (50 % likelihood)' from the beginning of 2026, 'exhausted in a little more than 3 years' at 42 GtCO2/yr. Do not present 170 alone; show both with sources, or adopt one and footnote the other.",
+  "missing_sources": "1) Indicators of Global Climate Change 2025 (Forster et al. 2026), ESSD 18:3889, published 11 Jun 2026, doi:10.5194/essd-18-3889-2026, CC BY 4.0. Data: Zenodo concept doi:10.5281/zenodo.7883757, latest 'IGCC-2025a' (record 21494229, 2026-07-22, cc-by-4.0, ClimateIndicator/data-IGCC-2025a.zip). This is the IPCC-AR6-method source for the 'how emissions become warming' step: total GHG including LULUCF (56.8 GtCO2e in 2024), effective radiative forcing including aerosol cooling, human-induced warming (1.37\u00b0C in 2025), and the remaining carbon budget (130 GtCO2 from 2026). Core.\n2) Global Nitrous Oxide Budget 1980-2020 (Tian et al. 2024), ESSD 16:2543-2604, CC BY 4.0. Data doi:10.18160/RQ8P-2Z4R (ICOS https://www.icos-cp.eu/GCP-N2O/2023, DataCite rights cc-by-4.0). The N2O counterpart to the methane budget (agriculture and fertilizer dominate). Secondary.\n3) Andrew, Global CO2 emissions from cement production. Zenodo concept doi:10.5281/zenodo.831454; latest v260830 (record 22178444, 2026-08-30, cc-by-4.0). The upstream for GCP cement and the cement carbonation context, and newer than the GCB 2025 vintage. Secondary.\n4) NOAA Annual Greenhouse Gas Index (AGGI), https://gml.noaa.gov/aggi/aggi.html. US public domain; 'Updated Fall 2025' with data through 2024, plus CSV tables. Gives radiative forcing by gas, linking the NOAA concentrations to warming. Secondary.\n5) Scripps CO2 Program (https://scrippsco2.ucsd.edu/data/atmospheric_co2). NOAA's co2_mm_mlo.txt states that 1958-1974 Mauna Loa data come from C. D. Keeling / SIO, so any Keeling-curve chart must credit Scripps. Attribution requirement.\n6) Climate TRACE versioned archive: Zenodo concept doi:10.5281/zenodo.15014790 (CC BY 4.0); latest archived V5.10.0 = doi:10.5281/zenodo.22919723 (2026-08-27). Use this for pinned, citable versions instead of the live beta API.\n7) SU-EATABLE LIFE food footprint database (Petersson et al. 2021, Sci Data 8:127, doi:10.1038/s41597-021-00909-8, CC BY 4.0). An openly licensed alternative to Poore & Nemecek for the beef-vs-beans per-kg view.\n8) Not verified (check before use): CEDS. Its Zenodo concept 3606752 only shows v_2021_04_21, so newer releases are hosted elsewhere and the licence and version need checking. Global Energy Monitor trackers (coal plants, oil and gas extraction, steel) for asset-level drill-downs; their licence could not be read from the GEM pages fetched. UNEP Emissions Gap Report 2025 (not checked). Energy Institute Statistical Review 2026 terms; it is upstream of OWID's energy columns and of PRIMAP-hist's 2025 extrapolation."
+ }
+}

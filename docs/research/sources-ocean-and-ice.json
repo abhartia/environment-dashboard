@@ -1,0 +1,732 @@
+{
+ "research": {
+  "domain": "Ocean, sea level and ice",
+  "sources": [
+   {
+    "name": "Sea Ice Index, Version 4 (G02135)",
+    "publisher": "NOAA@NSIDC (National Snow and Ice Data Center, CIRES, University of Colorado Boulder)",
+    "measures": "Arctic and Antarctic sea ice extent (area with at least 15% ice concentration) and sea ice area, in million km2. Daily values plus monthly files, with a 1981-2010 daily climatology.",
+    "coverage": "26 Oct 1978 to present (every other day until 1987, daily after that); Northern and Southern Hemispheres; 25 km polar-stereographic basis",
+    "latest_release": "Version 4 released 31 Jul 2025, with AMSR2 input from 1 Jan 2025. Files on 2026-10-04: daily CSV modified 04-Oct-2026 10:44 (last row 2026-10-03, 5.771 M km2); monthly CSVs modified 02-Oct-2026 and include Sep 2026.",
+    "update_cadence": "Daily",
+    "landing_url": "https://nsidc.org/data/g02135/versions/4",
+    "download_urls": [
+     "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv",
+     "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_climatology_1981-2010_v4.0.csv",
+     "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv",
+     "https://noaadata.apps.nsidc.org/NOAA/G02135/south/monthly/data/S_09_extent_v4.0.csv"
+    ],
+    "format": "CSV (also GeoTIFF, PNG and shapefiles in the same tree)",
+    "license": "US-government-funded data in the public domain. NSIDC's data-use page (https://nsidc.org/about/data-use-and-copyright) lets you download and use its imagery and text unless a page states otherwise. It asks for a full data citation and forbids reselling photos or imagery. NSIDC/NASA say these data are shared openly without restriction. No formal licence document.",
+    "redistribution": "open-public-domain",
+    "citation": "Fetterer, F., Knowles, K., Meier, W. N., Savoie, M., Windnagel, A. K. & Stafford, T. (2025). Sea Ice Index. (G02135, Version 4). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center. https://doi.org/10.7265/a98x-0f50. [Date Accessed].",
+    "doi": "10.7265/a98x-0f50",
+    "status": "Active but at risk. The landing page says the dataset was recently downgraded to a Basic Level of Service because of funding limits. A NOAA@NSIDC notice of 5 May 2025 (NOAA decommissioning) says Basic products stay online but may not be actively maintained, updated or fully supported. The DMSP SSMIS input was lost or degraded in 2025, so v4 switched to JAXA AMSR2. The FY2027 President's budget again proposes deep NOAA cuts.",
+    "url_check": "Fetched the landing page: DOI and citation present, plus a Basic Level of Service notice. Fetched the v4 release announcement (31 Jul 2025) and the NOAA@NSIDC data-updates page (5 May 2025 service notice; 23 Jul 2025 AMSR2 note). Directory listings for north/monthly/data (12 files, 02-Oct-2026) and north/daily/data. Pulled N_09_extent_v4.0.csv with curl. Header: 'year, mo,source_dataset, region, extent, area'. 1979 row is 7.05; 2024 is 4.35 (NSIDC-0051); 2025 is 4.75 and 2026 is 4.81 (both NSIDC-0803); the 1981-2010 mean is 6.413 (n=30). In the daily CSV the 2026 minimum is 4.574 on 2026-09-12. NSIDC's analysis of 23 Sep 2026 gives 4.60 M km2 on 12 Sep (5-day average), tied for 10th lowest. In S_09_extent_v4.0.csv, 2026 is 17.32 and the lowest year is 2023 at 16.89.",
+    "site_use": "Main Arctic and Antarctic sea ice charts: a daily spaghetti plot against the 1981-2010 climatology, and September-minimum and March-maximum bar charts. Feeds the Arctic headline. Use the monthly CSVs for the downloadable 'numbers shown'.",
+    "caveats": "Values from 2025 onward come from AMSR2 (NSIDC-0803). NSIDC says AMSR2 puts the ice edge slightly inboard, so extents are a little smaller. Mark the 2025 change on charts. NSIDC press numbers use a 5-day trailing mean (4.60) while the daily CSV gives 4.574, so label which one is shown. Monthly extent is not the mean of the daily values. Do not splice with OSI SAF (different algorithm).",
+    "priority": "core"
+   },
+   {
+    "name": "EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)",
+    "publisher": "EUMETSAT Ocean and Sea Ice SAF (produced by the Norwegian Meteorological Institute)",
+    "measures": "Sea-ice extent (concentration above 15%) and sea-ice area in km2: daily, monthly and yearly. Covers NH, SH, global and about 25 regional seas (Barents, Kara, Laptev, Beaufort, Chukchi, Ross, Weddell, Baltic, Okhotsk, etc.), with climatologies and ranks.",
+    "coverage": "Oct 1978 to present, 1-day latency; hemispheric, global and regional",
+    "latest_release": "v3.0 has been operational since 4 May 2026. The timeseries folder and files were modified 2026-10-04 10:22, and the monthly NH file says it was created 2026-10-04 09:36.",
+    "update_cadence": "Daily",
+    "landing_url": "https://osi-saf.eumetsat.int/products/osi-420-a",
+    "download_urls": [
+     "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt",
+     "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_daily.txt",
+     "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/",
+     "https://thredds.met.no/thredds/osisaf/osisaf_420siiv3p0.html"
+    ],
+    "format": "Plain text (FracYear YYYY MM DD SIE_mean[km^2] SIE_source), NetCDF4, PNG",
+    "license": "CC BY 4.0. The release notice says the products are free of charge under CC-BY-4.0, with attribution.",
+    "redistribution": "open-attribution",
+    "citation": "EUMETSAT OSI SAF, Sea-Ice Index (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026",
+    "doi": "10.15770/EUM_SAF_OSI_0026",
+    "status": "Active; European, so not exposed to US budget cuts. The v2.3 parallel feed ended 1 Jun 2026.",
+    "url_check": "Fetched the product page (licence, DOI, FTP/HTTPS/THREDDS links) and the v3 release notice (operational 4 May 2026). Listed timeseries/ (nh, sh, glb and about 25 region folders) and timeseries/nh/. Pulled ice_extent_nh_sii-v3p0_monthly.txt with curl: the header names the product and its source CDR DOIs. The last row is 2026.7068 2026 09 16 5341947 (Sep 2026 = 5.34 M km2).",
+    "site_use": "Regional-seas drilldown (e.g. Barents or Weddell). An independent European cross-check, and a fallback if NSIDC service lapses.",
+    "caveats": "Its numbers are not interchangeable with NSIDC: Sep 2026 is 5.34 M km2 here versus 4.81 in NSIDC. Never mix the two producers in one series. Show it as a separate line and label the producer.",
+    "priority": "secondary"
+   },
+   {
+    "name": "AVISO+ Global Mean Sea Level (MSL indicators, reference-mission merged series)",
+    "publisher": "CNES / AVISO+ with LEGOS and CLS (credited jointly with EU Copernicus Marine Service)",
+    "measures": "Global mean sea level anomaly in metres from the TOPEX/Poseidon, Jason-1/2/3 and Sentinel-6MF reference missions. GIA-adjusted, with annual and semi-annual signals removed and a 2-month or 6-month filter. Also regional MSL trend maps and basin series.",
+    "coverage": "Jan 1993 to Aug/Sep 2026, about every 10 days; roughly 66S-66N",
+    "latest_release": "Directory files updated 2026-10-03 02:30. A curl on 2026-10-04 returned 1,236 rows ending at 2026.62; an earlier WebFetch showed rows up to 2026.70. The file is regenerated often, so snapshot each pull.",
+    "update_cadence": "Every few weeks (rolling)",
+    "landing_url": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html",
+    "download_urls": [
+     "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.txt",
+     "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.nc",
+     "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Map_MERGED_Global_AVISO_NoGIA_Adjust.nc",
+     "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/AVISO_readme_msl_files.txt"
+    ],
+    "format": "Text with 3 space-separated columns and no header (decimal year, GMSL in metres, third column), NetCDF, PNG",
+    "license": "AVISO License Agreement Issue 20 (effective 10 Aug 2026; https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf). It is CC-BY-like: \u00a72.1 allows reproducing, sharing and adapting for any purpose, including commercial. \u00a73.1 requires attribution, a link to the licence and a note of any modifications. \u00a73.2 forbids sharing the original, unmodified product through a mass-distribution platform (web portal, public API, cloud) without written permission from CNES. Adapted or derived products are exempt. The readme asks you to cite https://aviso.altimetry.fr/msl and credit EU Copernicus Marine Service/CNES/LEGOS/CLS. No registration is needed for this HTTPS path.",
+    "redistribution": "open-attribution",
+    "citation": "AVISO+ Mean Sea Level indicator: MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m, credits: EU Copernicus Marine Service/CNES/LEGOS/CLS, https://aviso.altimetry.fr/msl, licensed under the AVISO License Agreement Issue 20, accessed [date]; modified (annual means) by Environment Dashboard.",
+    "doi": "None listed for the GMSL indicator file",
+    "status": "Active (French/EU)",
+    "url_check": "Fetched the product page (3.6 +/- 0.3 mm/yr since 1999, acceleration 0.8 mm/yr/decade, about 11 cm since 1993), the data-access page, and the directory listing (dated 2026-10-03). Read the readme and all 4 relevant pages of the Issue-20 licence PDF. Pulled the TXT with curl: 1,236 rows starting 1993.011795 0.00207. Annual means are 7.2 mm (1993) and 112.0 mm (2025); the 2026 partial mean is 115.6 mm. The OLS slope over all rows is 3.41 mm/yr.",
+    "site_use": "GMSL headline and chart from 1993, and a regional sea-level-trend map from the MSL_Map NetCDF. The CSV download should carry derived values (monthly or annual means), which count as adapted material, and link back to AVISO for the raw file.",
+    "caveats": "GIA-adjusted, while NASA-SSH is not (about 0.3 mm/yr difference); state this on charts. The values are in metres. Licence \u00a73.2 means you should not mirror the raw TXT verbatim. The latest rows are revised as filtering updates.",
+    "priority": "core"
+   },
+   {
+    "name": "NASA-SSH Global Mean Sea Level from Simple Gridded Sea Surface Height (NASA_SSH_GMSL_INDICATOR)",
+    "publisher": "NASA JPL Sea Level Change team / NASA PO.DAAC",
+    "measures": "Global mean sea level anomaly in cm, as an area-weighted mean of NASA-SSH gridded sea surface height from the TOPEX, Jason and Sentinel-6 reference missions. 7-day resolution. NOT GIA-corrected.",
+    "coverage": "1993-01-04 to present; 66N-66S",
+    "latest_release": "Version 1 (PO.DAAC release 23 Apr 2025; CMR revision 2025-03-31). Granules are ongoing (78 granules listed). The NASA vital-signs page (earth.gov) shows 93 +/- 4.0 mm for Aug 2025. sealevel.nasa.gov says 110.6 mm since 1993, and a search snippet cites 96.5 mm for Mar 2026. These pages disagree.",
+    "update_cadence": "Weekly granules",
+    "landing_url": "https://podaac.jpl.nasa.gov/dataset/NASA_SSH_GMSL_INDICATOR",
+    "download_urls": [
+     "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/NASA_SSH_GMSL_INDICATOR/NASA_SSH_GMSL_INDICATOR.txt",
+     "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/web-misc/nasa-ssh/NASA-SSH_Indicators_UserGuide.pdf"
+    ],
+    "format": "ASCII",
+    "license": "NASA Earthdata data-use guidance: NASA mission data are CC0 with no restrictions, and citation is strongly encouraged. The CMR use-constraints say it is openly shared without restriction. Downloading needs a free Earthdata Login.",
+    "redistribution": "open-public-domain",
+    "citation": "Willis, J. K., S. Fournier, K. Marlis, and E. Killett. 2025. NASA-SSH Global Mean Sea Level from Simple Gridded Sea Surface Height. Ver. 1. PO.DAAC, CA, USA. Dataset accessed [YYYY-MM-DD] at https://doi.org/10.5067/NSIND-GMSV1",
+    "doi": "10.5067/NSIND-GMSV1",
+    "status": "Active. Congress rejected the FY2026 mission terminations (H.R. 6938, Jan 2026), but the FY2027 request again proposes cancelling more than 50 NASA science missions and a roughly 42% science cut, so treat it as at risk. NASA web pages have moved: climate.nasa.gov now redirects to science.nasa.gov, which returned 404; the vital signs are now on earth.gov/sealevel.",
+    "url_check": "Fetched the PO.DAAC landing page (citation, DOI, Earthdata Login required) and the Earthdata CMR page (use constraints, not GIA-adjusted). The direct TXT URL answered 302 with a redirect to urs.earthdata.nasa.gov OAuth, so the data values were NOT inspected. The earth.gov vital-signs page gave 93 mm (Aug 2025).",
+    "site_use": "US primary GMSL line next to AVISO. It is CC0, so the exact plotted values can go in the CSV download without the AVISO \u00a73.2 concern. Pull it in CI with an Earthdata token kept in a GitHub Actions secret, or the macOS Keychain for local runs.",
+    "caveats": "Login-gated. Not GIA-corrected, so it reads about 0.3 mm/yr below a GIA-adjusted series. NASA pages show conflicting numbers, so always compute from the file. The producer notes that mm-level revisions to history can happen. The older MERGED_TP_J1_OSTM_OST_GMSL_ASCII_V52 product is superseded. NOAA STAR LSA GMSL CSVs (https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/slr/slr_sla_gbl_free_ref_90.csv) stop at 2025.127 and are labelled experimental, so avoid them.",
+    "priority": "core"
+   },
+   {
+    "name": "Reconstructed Global Mean Sea Level 1900-2018 (JPL_RECON_GMSL; Frederikse et al. 2020)",
+    "publisher": "NASA JPL / PO.DAAC",
+    "measures": "Reconstructed GMSL and its process contributions (thermosteric, glaciers, Greenland, Antarctica, terrestrial water storage, barystatic) with uncertainty, in mm; global and basin",
+    "coverage": "1900-2018, annual",
+    "latest_release": "Version 1.0, 14 Aug 2020 (static)",
+    "update_cadence": "None (static)",
+    "landing_url": "https://podaac.jpl.nasa.gov/dataset/JPL_RECON_GMSL",
+    "download_urls": [
+     "https://opendap.earthdata.nasa.gov (PO.DAAC OPeNDAP, Earthdata Login)",
+     "https://zenodo.org/records/3862995"
+    ],
+    "format": "NetCDF/ASCII (PO.DAAC); xlsx and NetCDF (Zenodo)",
+    "license": "The PO.DAAC copy is NASA open data (CC0 per Earthdata guidance). WARNING: the Zenodo copy of the same supplement has license id 'other-closed' (checked via the Zenodo API). Use the PO.DAAC copy.",
+    "redistribution": "open-public-domain",
+    "citation": "Frederikse, T.; Landerer, F.; Caron, L.; Adhikari, S.; Parkes, D.; Humphrey V.; Dangendorf, S.; Hogarth, P.; Zanna, L.; Cheng, L.; Wu, Y.. 2020. JPL_RECON_GMSL. Ver. 1.0. PO.DAAC, CA, USA. https://doi.org/10.5067/GMSLT-FJPL1 ; paper: Frederikse et al. (2020) The causes of sea-level rise since 1900. Nature 584, 393-397. https://doi.org/10.1038/s41586-020-2591-3",
+    "doi": "10.5067/GMSLT-FJPL1",
+    "status": "Archived/static and complete; it ends in 2018",
+    "url_check": "Fetched the PO.DAAC landing page (citation, DOI, coverage 1900-01-01 to 2018-12-31, Earthdata Login). Queried the Zenodo API for record 3862995: license {'id':'other-closed'}, with files global_basin_timeseries.xlsx, GMSL_ensembles.nc, steric.nc, AIS.nc, GrIS.nc, glac.nc and tws.nc. Data files were not downloaded (login).",
+    "site_use": "The 'since 1900' long view and the main 'causes of sea-level rise' stacked chart (ocean warming vs glaciers vs ice sheets vs land water).",
+    "caveats": "Ends 2018. Show altimetry as an overlapping second line rather than splicing it on. CSIRO Church & White 2011 (https://www.cmar.csiro.au/sealevel/sl_data_cmar.html) only runs to 2013 and has conditional reuse terms, so avoid it. OWID's sea-level chart uses Church & White plus UHSLC (via NOAA Climate.gov 2022) and ends at 2020-Q4, so avoid that too.",
+    "priority": "secondary"
+   },
+   {
+    "name": "PSMSL tide gauge mean sea level (RLR monthly and annual)",
+    "publisher": "Permanent Service for Mean Sea Level, National Oceanography Centre (UK)",
+    "measures": "Monthly and annual mean RELATIVE sea level (mm, Revised Local Reference datum) at about 1,500+ tide gauges worldwide",
+    "coverage": "From 1807 depending on the station, up to 2025. Global coastlines; e.g. New York (The Battery) runs 1856-2025 and is 91% complete.",
+    "latest_release": "Rolling station updates, e.g. New York updated 27 Jan 2026 and Brest 20 Feb 2026. The citation page uses 2026.",
+    "update_cadence": "Rolling, as national agencies submit data",
+    "landing_url": "https://psmsl.org/data/obtaining/",
+    "download_urls": [
+     "https://psmsl.org/data/obtaining/rlr.annual.data/rlr_annual.zip",
+     "https://psmsl.org/data/obtaining/rlr.monthly.data/rlr_monthly.zip",
+     "https://psmsl.org/data/obtaining/rlr.annual.data/12.rlrdata",
+     "https://psmsl.org/data/obtaining/stations/12.php"
+    ],
+    "format": "Semicolon-delimited text (year; mm; flag; flag); zip bundles",
+    "license": "There is no blanket licence. PSMSL asks for citation. Individual station pages can carry supplier conditions; for example Ulladulla Harbour (station 2315) is CC BY 4.0 from NSW, with attribution to NSW OEH. Surface each station's conditions.",
+    "redistribution": "unclear",
+    "citation": "Permanent Service for Mean Sea Level (PSMSL), 2026, \"Tide Gauge Data\", Retrieved [dd Mon yyyy] from http://www.psmsl.org/data/obtaining/. ; Simon J. Holgate, Andrew Matthews, Philip L. Woodworth, Lesley J. Rickards, Mark E. Tamisiea, Elizabeth Bradshaw, Peter R. Foden, Kathleen M. Gordon, Svetlana Jevrejeva, and Jeff Pugh (2013) New Data Systems and Products at the Permanent Service for Mean Sea Level. Journal of Coastal Research: Volume 29, Issue 3: pp. 493-504. doi:10.2112/JCOASTRES-D-12-00175.1",
+    "doi": "10.2112/JCOASTRES-D-12-00175.1 (reference paper; the dataset has no DOI)",
+    "status": "Active (UK NOC)",
+    "url_check": "Fetched the obtaining page, the reference/citation page and station pages 12 (New York) and 2315 (Ulladulla). 12.rlrdata has 1856; 6698 ... 1900; 6774 ... 2025; 7180, with -99999 marking missing years (1992, 1994) and a Y flag in 1997. rlr_annual.zip exists but is over 10 MB, so it was not inspected.",
+    "site_use": "'Your coastline' map drilldown: pick a gauge, see its relative sea level since the 1800s, and compare it with GMSL. Source of the New York headline.",
+    "caveats": "These are relative sea levels, so they include land subsidence or uplift; explain why local differs from global. The RLR datum is arbitrary, so plot anomalies. Respect flags and -99999. Station licences vary.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA Tides & Currents Sea Level Trends (CO-OPS)",
+    "publisher": "NOAA National Ocean Service, Center for Operational Oceanographic Products and Services",
+    "measures": "Linear relative sea level trend per US station (mm/yr with 95% CI, ft/century), first and last year, % complete",
+    "coverage": "US tide gauges up to 2025 (e.g. The Battery NY 1856-2025: 2.95 +/- 0.09 mm/yr)",
+    "latest_release": "Trends through 2025 (CSV fetched 2026-10-04)",
+    "update_cadence": "Annual",
+    "landing_url": "https://tidesandcurrents.noaa.gov/sltrends/sltrends.html",
+    "download_urls": [
+     "https://tidesandcurrents.noaa.gov/sltrends/data/USStationsLinearSeaLevelTrends.csv"
+    ],
+    "format": "CSV",
+    "license": "US Government work, public domain (no licence restrictions)",
+    "redistribution": "open-public-domain",
+    "citation": "NOAA Tides and Currents, Sea Level Trends, NOAA/NOS Center for Operational Oceanographic Products and Services, https://tidesandcurrents.noaa.gov/sltrends/ (data through 2025, accessed [date]).",
+    "doi": "None",
+    "status": "Transitioning and at risk. A banner on the page says this site will be retired after 30 Sep 2026 and points to a new integrated 'Sea Level Trends and Extremes - BETA' site (the new URL was not shown in the fetched content). On 2026-10-04 the old page and CSV still answered.",
+    "url_check": "Fetched the page (retirement banner, twice) and the CSV. Header: 'Station ID, Station Name, First Year, Last Year, Year Range, % Complete, MSL Trends (mm/yr), +/- 95% CI ...'. Row: 8518750,\"The Battery, NY\",1856,2025,170,91,2.95,0.09,0.97,0.03.",
+    "site_use": "Tooltip trend with confidence interval for US gauges; cross-check of PSMSL",
+    "caveats": "The URL is likely to break, so pin a snapshot in R2 with the fetch date and re-point once the BETA site is stable. Trends are linear only and hide acceleration.",
+    "priority": "secondary"
+   },
+   {
+    "name": "IPCC AR6 Sea Level Projections (FACTS; NASA/IPCC Sea Level Projection Tool)",
+    "publisher": "IPCC AR6 WGI / Garner, Kopp et al. (Rutgers, NASA Sea Level Change team)",
+    "measures": "Projected global and regional relative sea-level change (quantiles) by SSP scenario, with components, relative to 1995-2014",
+    "coverage": "2020-2150 (decadal); global, tide-gauge locations and a 1-degree grid",
+    "latest_release": "Version 20210809 (Zenodo record 6382554, CC BY 4.0). Static; AR7 is expected around 2028-29.",
+    "update_cadence": "Static",
+    "landing_url": "https://zenodo.org/records/6382554",
+    "download_urls": [
+     "https://zenodo.org/records/6382554/files/ar6.zip",
+     "https://zenodo.org/records/6382554/files/ar6-regional-confidence.zip",
+     "https://zenodo.org/records/6382554/files/location_list.lst",
+     "https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool"
+    ],
+    "format": "NetCDF inside zip (ar6.zip 889.8 MB; regional 9.2 GB)",
+    "license": "CC BY 4.0 (Zenodo API license id cc-by-4.0)",
+    "redistribution": "open-attribution",
+    "citation": "Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, A. Levermann, S. Nowicki, M. D. Palmer, C. Smith, B. Fox-Kemper, H. T. Hewitt, C. Xiao, et al., 2021. IPCC AR6 Sea Level Projections. Version 20210809. Dataset accessed [date] at https://doi.org/10.5281/zenodo.6382554 ; plus Fox-Kemper, B., et al. 2021: Ocean, Cryosphere and Sea Level Change. In: Climate Change 2021: The Physical Science Basis (IPCC AR6 WGI), Ch. 9; and Kopp et al. 2023 (FACTS, Geosci. Model Dev.).",
+    "doi": "10.5281/zenodo.6382554 (version); 10.5281/zenodo.5914709 (concept, all versions)",
+    "status": "Static/active",
+    "url_check": "Queried the Zenodo API for 6382554: title 'IPCC AR6 Sea Level Projections', version 20210809, licence cc-by-4.0. The file list showed sizes but files were not downloaded. The NASA projection-tool page returned only navigation (a JS app), so it was not verified. A search confirmed the SPM B.5.3 likely range for 2100: 0.28-0.55 m (SSP1-1.9) and 0.63-1.01 m (SSP5-8.5).",
+    "site_use": "The 'what we choose matters' scenario slider: 2100 sea level under low vs high emissions, globally and at the user's nearest tide gauge.",
+    "caveats": "Preprocess the large files once offline and ship only small JSON. The baseline is 1995-2014, not 1993 or 1900, so align or label it. Show low-likelihood/high-impact storylines separately from the likely ranges.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA NCEI Global Ocean Heat Content (Levitus/Boyer basin time series; NCEI Accession 0164586)",
+    "publisher": "NOAA National Centers for Environmental Information",
+    "measures": "Ocean heat content anomaly (units of 10^22 J) for 0-700 m and 0-2000 m, with standard errors, for the World Ocean, Atlantic, Pacific and Indian basins and NH/SH. Also thermosteric sea level. Yearly, 3-monthly and pentadal.",
+    "coverage": "0-700 m yearly 1955-2025; 0-2000 m yearly 2005-2025 (pentadal from 1955-59); 3-monthly to the present",
+    "latest_release": "Yearly basin files modified 2026-07-06 23:21 and include 2025.5",
+    "update_cadence": "Quarterly",
+    "landing_url": "https://www.ncei.noaa.gov/access/global-ocean-heat-content/",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-2000m.dat",
+     "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-700m.dat",
+     "https://www.ncei.noaa.gov/data/oceans/ncei/archive/data/0164586/",
+     "https://noaa-cdr-ocean-heat-content-pds.s3.amazonaws.com/index.html"
+    ],
+    "format": "Fixed-width ASCII (F8.1, 6F8.3); NetCDF in the archive",
+    "license": "NOAA CDR Program Open Data Policy (UseAgreement_01B-41.pdf): the CDR data sets are non-proprietary and publicly available, with no restrictions on use. Acknowledgement and citation are requested.",
+    "redistribution": "open-public-domain",
+    "citation": "Levitus, S; Antonov, J.; Boyer, T.; Baranova, O; Garcia, H.; Locarnini, R.; Mishonov, A.; Reagan, J.; Seidov, D.; Yarosh, E.; Zweng, M.; (2017). NCEI ocean heat content, temperature anomalies, salinity anomalies, thermosteric sea level anomalies, halosteric sea level anomalies, and total steric sea level anomalies from 1955 to present calculated from in situ oceanographic subsurface profile data (NCEI Accession 0164586). Version 1.1. NOAA National Centers for Environmental Information. doi:10.7289/V53F4MVP. [access date]; literature: Levitus, S., et al., 2012: World ocean heat content and thermosteric sea level change (0-2000 m), 1955-2010. Geophys. Res. Lett., 39, L10603, doi:10.1029/2012GL051106.",
+    "doi": "10.7289/V53F4MVP",
+    "status": "Active. NCEI warns of intermittent degraded order fulfilment during its cloud migration. NOAA FY2027 request proposes deep cuts, so moderate risk.",
+    "url_check": "Fetched the main page (updated quarterly), the basin_heat_data.html docs (units of 10^22 joules, column layout) and the yearly directory (16 .dat files dated 2026-07-06). Read the CDR use-agreement PDF. Pulled with curl. h22-w0-2000m.dat header: 'YEAR WO WOse NH NHse SH SHse'; it starts 2005.500 10.171 and has 2024.500 30.316 and 2025.500 32.533. h22-w0-700m.dat runs from 1955.500 -3.201 to 2025.500 22.845.",
+    "site_use": "Ocean heat chart (0-700 m since 1955; 0-2000 m since 2005), a per-year zettajoule gain headline, a basin drilldown, and the thermal-expansion leg of the sea-level budget.",
+    "caveats": "Values are anomalies against an NCEI climatology, so present them as change. 1 unit = 10 ZJ. The 0-2000 m yearly series starts only in 2005, so use the pentadal series for earlier years and label it. Values differ slightly from IAP.",
+    "priority": "core"
+   },
+   {
+    "name": "IAP ocean heat content (IAPv4 / IAPv4.2; Cheng et al.)",
+    "publisher": "Institute of Atmospheric Physics, Chinese Academy of Sciences (Lijing Cheng's group)",
+    "measures": "Gridded ocean temperature and ocean heat content, 0-6000 m (119 layers), 1 x 1 degree, monthly. Basis of the annual 'ocean heat record' papers.",
+    "coverage": "1940 to present (monthly; the Monthly/ folder was updated 2026-09-28)",
+    "latest_release": "IAPv4.2 OHC anomaly zips dated 2026-06-01, Monthly/ subfolder 2026-09-28, monthly status report PDFs through 2026-09. Annual paper: 'Ocean Heat Content Sets Another Record in 2025', Adv. Atmos. Sci. (Jan 2026), doi:10.1007/s00376-026-5876-0, which reports about 23 ZJ gained in 2025.",
+    "update_cadence": "Monthly",
+    "landing_url": "http://www.ocean.iap.ac.cn/pages/dataService/dataService.html",
+    "download_urls": [
+     "http://www.ocean.iap.ac.cn/ftp/cheng/IAPv4.2_Ocean_Heat_Content_anomaly_0_6000m/",
+     "http://www.ocean.iap.ac.cn/ftp/cheng/IAPv4.2_Ocean_Heat_Content_anomaly_0_6000m/Monthly/",
+     "https://doi.org/10.12157/IOCAS.20240117.001"
+    ],
+    "format": "NetCDF (zipped per decade), MAT",
+    "license": "Unclear. The ESSD data paper (Cheng et al. 2024, ESSD 16, 3517) is CC BY 4.0, but the data portal shows no licence. The NCAR Climate Data Guide lists no usage restrictions for an older version.",
+    "redistribution": "unclear",
+    "citation": "Cheng, L., Pan, Y., Tan, Z., et al. (2024). IAPv4 ocean temperature and ocean heat content gridded dataset. Earth Syst. Sci. Data, 16, 3517-3546. https://doi.org/10.5194/essd-16-3517-2024 ; data: https://doi.org/10.12157/IOCAS.20240117.001",
+    "doi": "10.12157/IOCAS.20240117.001",
+    "status": "Active. Reachability is fragile: HTTPS (port 443) was refused and only plain HTTP works. The DOI resolves to msdc.qdio.ac.cn, a JS-only page.",
+    "url_check": "WebFetch over HTTPS failed with ECONNREFUSED 159.226.26.112:443. curl over HTTP returned 200 for dataService.html. The /ftp/cheng/ listing shows IAPv4.2_Ocean_Heat_Content_anomaly_0_6000m (1940_1949.zip ... 2020_2026.zip, about 175 MB each, dated 2026-06-01). The springer.com article redirected to a login, so its full text was not read.",
+    "site_use": "Independent cross-check line on the OHC chart ('two independent teams agree'). Do not use it as the primary downloadable series.",
+    "caveats": "Gridded only, so the site must compute the global integral and publish that code. Licence unclear, so do not redistribute raw values; show the comparison and link out. HTTP-only, so record SHA-256 checksums of each pull.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Hawaii Ocean Time-series (HOT) Station ALOHA surface CO2 system data product",
+    "publisher": "Hawaii Ocean Time-series, SOEST, University of Hawai'i at Manoa (NSF-funded); product maintained by J. E. Dore",
+    "measures": "Surface seawater carbonate chemistry at Station ALOHA (22.75N, 158W): DIC, total alkalinity, pH (measured and calculated, in situ and at 25C), pCO2, aragonite and calcite saturation, carbonate ion",
+    "coverage": "Oct 1988 to Dec 2024 (cruises 1-355), about monthly; single open-ocean station",
+    "latest_release": "File header says last updated 1 January 2026 by J.E. Dore; last row is cruise 355, 20-Dec-24",
+    "update_cadence": "About annual for the product; preliminary cruise data 1-2 months after each cruise via HOT-DOGS",
+    "landing_url": "https://hahana.soest.hawaii.edu/hot/hotco2/hotco2.html",
+    "download_urls": [
+     "https://hahana.soest.hawaii.edu/hot/hotco2/HOT_surface_CO2.txt",
+     "https://hahana.soest.hawaii.edu/hot/dataaccess.html",
+     "https://www.bco-dmo.org/project/2101"
+    ],
+    "format": "Tab-delimited text with header; -999 = missing",
+    "license": "HOT data policy (dataaccess.html) promises free and open access and encourages use. It requires an acknowledgement of the NSF award, and asks (as a courtesy) that users contact the team and send preprints/reprints. No formal licence.",
+    "redistribution": "open-attribution",
+    "citation": "Dore, J.E., R. Lukas, D.W. Sadler, M.J. Church, and D.M. Karl. 2009. Physical and biogeochemical modulation of ocean acidification in the central North Pacific. Proc Natl Acad Sci USA 106:12235-12240. Required acknowledgement: This publication is based upon Hawaii Ocean Time-series observations supported by the U.S. National Science Foundation under Award #2241005.",
+    "doi": "10.1073/pnas.0906044106",
+    "status": "Active. The NSF award covers HOT through about 2028. NSF FY2026/27 budget requests proposed about 21% cuts to ocean sciences, so moderate risk.",
+    "url_check": "Fetched the hotco2.html page and the data-access policy page. Pulled HOT_surface_CO2.txt with curl: created 5 Oct 2009, last updated 1 Jan 2026. Columns: cruise, days, date, temp, sal, phos, sil, DIC, TA, nDIC, nTA, pHmeas_25C, pHmeas_insitu, pHcalc_25C, pHcalc_insitu, pCO2calc_insitu, ... The first row is 31-Oct-88 with pHcalc_insitu 8.1097; the last is 20-Dec-24 with 8.0550. Annual means of pHcalc_insitu (computed): 1989 = 8.1075 (n=10), 2023 = 8.0373 (n=9), 2024 = 8.0409 (n=7).",
+    "site_use": "The acidification chart, paired with Mauna Loa CO2 from the atmosphere domain (both in Hawaii), which is the clearest cause-and-effect visual. Also an aragonite-saturation chart for the impact on shell-builders.",
+    "caveats": "A single station; use the CMEMS global series for global statements. Use pHcalc_insitu for continuity, since measured pH starts later. Cruise counts per year vary (2022 has n=5). OWID's version adds a trailing 12-month average (labelled 'major processing'); otherwise its values are identical.",
+    "priority": "core"
+   },
+   {
+    "name": "Copernicus Marine OMI: Global ocean acidification, mean sea water pH time series and trend (GLOBAL_OMI_HEALTH_carbon_ph_area_averaged)",
+    "publisher": "EU Copernicus Marine Service (Mercator Ocean International); originating centre LSCE (France)",
+    "measures": "Annual global-mean surface seawater pH and its linear trend (about -0.017 pH units per decade)",
+    "coverage": "1985 to 2024; global ocean",
+    "latest_release": "Annual update. The EEA indicator published 25 Aug 2026 uses it: global mean surface pH 8.11 in 1985 and 8.04 in 2024, an 18% rise in acidity.",
+    "update_cadence": "Annual",
+    "landing_url": "https://data.marine.copernicus.eu/product/GLOBAL_OMI_HEALTH_carbon_ph_area_averaged/description",
+    "download_urls": [
+     "https://data.marine.copernicus.eu/product/GLOBAL_OMI_HEALTH_carbon_ph_area_averaged/services (Copernicus Marine Toolbox / copernicusmarine CLI after free login; not verified)"
+    ],
+    "format": "NetCDF-4",
+    "license": "Copernicus Marine Service licence (https://marine.copernicus.eu/user-corner/service-commitments-and-licence): free of charge, registration required. Redistributing the original requires the credit 'E.U. Copernicus Marine Service Information'. Value-added and derivative works are allowed for any purpose, including commercial, credited as 'Generated using E.U. Copernicus Marine Service Information'.",
+    "redistribution": "open-attribution",
+    "citation": "E.U. Copernicus Marine Service Information (CMEMS). Global Ocean acidification - mean sea water pH time series and trend from Multi-Observations Reprocessing. DOI: 10.48670/moi-00224 (accessed [date]).",
+    "doi": "10.48670/moi-00224",
+    "status": "Active (EU)",
+    "url_check": "Fetched the product description page (title, DOI, 1985 to present, annual, LSCE), the licence page and the EEA indicator page (8.11 to 8.04, published 25 Aug 2026). The NetCDF was NOT downloaded because it needs a login. The OMI page URL on marine.copernicus.eu returned 404.",
+    "site_use": "Global pH line and trend that put the single HOT station in a global context",
+    "caveats": "A gap-filled reconstruction, not a direct measurement. Needs a Copernicus Marine account whose credentials must live in a secret store. Annual resolution only.",
+    "priority": "secondary"
+   },
+   {
+    "name": "IMBIE 2026: Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023 (IMBIE3)",
+    "publisher": "IMBIE Team (ESA/NASA); NERC EDS UK Polar Data Centre (British Antarctic Survey); lead institution Northumbria University",
+    "measures": "Monthly reconciled mass balance (Gt/yr), cumulative mass anomaly (Gt), and the same in sea-level-equivalent mm. Partitioned into surface mass balance and ice dynamics, with 1-sigma uncertainties. Covers Greenland, Antarctica, West and East Antarctica and the Peninsula.",
+    "coverage": "Greenland Jul 1971-Dec 2023; Antarctica Jan 1979-Dec 2023; monthly",
+    "latest_release": "Version 1.0 (BAS record dated 2025-06-25; RAMADDA files dated 2026-07-06). Paper: Sci. Data (2026), 'Mass balance of the Greenland and Antarctic ice sheets from the 1970s to 2023' (s41597-026-08088-0).",
+    "update_cadence": "Irregular (multi-year assessments)",
+    "landing_url": "https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074",
+    "download_urls": [
+     "https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=128c5e33-5224-4197-82f0-19dcc95b80a0&output=json",
+     "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_greenland_Gt_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19ncmVlbmxhbmRfR3RfcGFydGl0aW9uZWQuY3N2",
+     "https://imbie.org/data-downloads/"
+    ],
+    "format": "CSV with CF-style # header (10 files: Gt and mm for 5 regions)",
+    "license": "Open Government Licence v3.0 (http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The BAS record states no access restrictions.",
+    "redistribution": "open-attribution",
+    "citation": "Otosaka, I., Shepherd, A., Amory, C., Horwath, M., King, M., Nowicki, S., Payne, A., Rignot, E., Sorensen, L., Schlegel, N., Simon, K., Smith, B., Sutterley, T., van den Broeke, M., Velicogna, I., A, G., Agosta, C., Ditmar, P., Dohne, T., ... Wouters, B. (2026). Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023 (Version 1.0) [Data set]. NERC EDS UK Polar Data Centre. https://doi.org/10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0",
+    "doi": "10.5285/128c5e33-5224-4197-82f0-19dcc95b80a0",
+    "status": "Active (UK/ESA-funded)",
+    "url_check": "Fetched the BAS record (OGL v3.0, no restrictions) and the imbie.org downloads page (lists the 2026 release). The RAMADDA JSON listing has 10 files named imbie3_*_{Gt,mm}_partitioned.csv. Pulled the Greenland Gt CSV with curl; its header includes a licence line pointing to OGL v3 and the citation. Last Greenland row: 2023-12-01, cumulative -6196.1 +/- 467.4 Gt. Antarctica Gt: -4779.5 +/- 513.0. Greenland mm: -17.21 +/- 1.30. Antarctica mm: -13.28 +/- 1.43. The nature.com article redirected to a login.",
+    "site_use": "Ice-sheet cumulative loss chart with an uncertainty band, a surface-melt vs ice-flow split, and mm contributions in the sea-level budget",
+    "caveats": "Ends Dec 2023; extend with GRACE-FO only as a separately labelled series. C3S's 'Climate Indicators: Ice sheets' page (updated 29 Apr 2026) gives a figure CSV (https://climate.copernicus.eu/sites/default/files/custom-uploads/indicators-2025/ice-sheets/fig1_data.csv) with Greenland at -6312 Gt by end-2025. Its own text says 5,747 +/- 467 Gt since 1972, which is internally inconsistent, so do not quote the C3S text numbers.",
+    "priority": "core"
+   },
+   {
+    "name": "JPL GRACE/GRACE-FO Mascon ice sheet mass anomaly time series (Greenland and Antarctica, RL06.3Mv04)",
+    "publisher": "NASA JPL Tellus / PO.DAAC",
+    "measures": "Monthly ice-sheet mass anomaly (Gt) from satellite gravimetry",
+    "coverage": "Apr 2002 to Jul 2026 (gap Jul 2017-May 2018 between the two missions)",
+    "latest_release": "RL06.3Mv04 (release 2024-01-25); granules run through 2026-07-31",
+    "update_cadence": "Monthly, with about 2 months' latency",
+    "landing_url": "https://podaac.jpl.nasa.gov/dataset/GREENLAND_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4",
+    "download_urls": [
+     "https://podaac.jpl.nasa.gov/dataset/ANTARCTICA_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4",
+     "PO.DAAC protected archive via podaac-data-subscriber (Earthdata Login); not fetched"
+    ],
+    "format": "ASCII",
+    "license": "NASA data, CC0 per Earthdata guidance; citation requested; Earthdata Login needed",
+    "redistribution": "open-public-domain",
+    "citation": "D. N. Wiese, D.-N. Yuan, C. Boening, F. W. Landerer, M. M. Watkins. 2024. Tellus Level-4 Greenland Mass Anomaly Time Series from JPL GRACE/GRACE-FO Mascon CRI Filtered Release 06.3 version 04. Ver. RL06.3Mv04. PO.DAAC, CA, USA. https://doi.org/10.5067/TEMSC-GT634 (Antarctica: https://doi.org/10.5067/TEMSC-AT634; copy the exact title string from that landing page because the fetched text looked garbled).",
+    "doi": "10.5067/TEMSC-GT634; 10.5067/TEMSC-AT634",
+    "status": "At risk. GRACE-FO is in extended mission: eoHandbook lists end-of-life in Sep 2026, there is orbit decay of 20-38 m/day since mid-2023, and a NASA Senior Review is due in 2026. The successor GRACE-C is planned for about 2028, so a data gap is possible. The FY2027 request proposes NASA science cuts.",
+    "url_check": "Fetched both PO.DAAC landing pages: DOIs present, coverage to 2026-07-31, Earthdata Login required for data. Data files NOT downloaded. The earth.gov vital-signs pages give Greenland about 265-270 Gt/yr and Antarctica about 135-150 Gt/yr since 2002.",
+    "site_use": "The up-to-date monthly ice-sheet curve (2002-2026) that bridges past the 2023 end of IMBIE",
+    "caveats": "Login-gated. The 2017-18 mission gap must be shown as a gap, not interpolated. The trend depends on the GIA model. It is a single-technique estimate, unlike reconciled IMBIE.",
+    "priority": "secondary"
+   },
+   {
+    "name": "WGMS Annual mass-change estimates for the world's glaciers (AMCE, version 2026-02-10)",
+    "publisher": "World Glacier Monitoring Service (University of Zurich), within GTN-G",
+    "measures": "Annual glacier mass change (m w.e., Gt, mm sea-level equivalent; annual and cumulative, with uncertainty) and glacier area: global, for 19 GTN-G regions (Southern Andes split into two), per individual glacier, and on a 0.5-degree grid",
+    "coverage": "Hydrological years 1976-2025; global",
+    "latest_release": "Version 2026-02-10 (released Feb 2026)",
+    "update_cadence": "Annual (each February)",
+    "landing_url": "https://wgms.ch/mass_change_estimates/",
+    "download_urls": [
+     "https://wgms.ch/downloads/wgms-amce-2026-02-10.zip"
+    ],
+    "format": "Zip of CSV files (global.csv, region/*.csv, glacier/*.csv) and NetCDF4 (global_grid.nc4)",
+    "license": "CC BY 4.0. The WGMS data policy (https://wgms.ch/data_policy/) says its data are open access on condition of correct citation, which it equates to CC BY 4.0, and treats submitted data as public domain.",
+    "redistribution": "open-attribution",
+    "citation": "WGMS (2026): Annual mass-change estimates for the world's glaciers. Individual glacier time series and gridded data products. Digital media. https://doi.org/10.5904/wgms-amce-2026-02-10 ; Dussaillant, I., Hugonnet, R., Huss, M., Berthier, E., Bannwart, J., Paul, F., and Zemp, M. (2025): Annual mass change of the world's glaciers from 1976 to 2024 by temporal downscaling of satellite data with in-situ observations. Earth System Science Data 17(5): 1977-2006.",
+    "doi": "10.5904/wgms-amce-2026-02-10",
+    "status": "Active (Swiss/international)",
+    "url_check": "Fetched the landing page and the data policy page. Streamed the zip in memory with curl and Python zipfile: 143 files. global.csv header: year,area_km2,mwe,mwe_sigma,mwe_cumsum,gt,gt_sigma,gt_cumsum,gt_cumsum_sigma,mmsle,mmsle_sigma,mmsle_cumsum,mmsle_cumsum_sigma. 2025 row: gt -408.101 (sigma 67.223), mmsle 1.126, gt_cumsum -9583.132, mmsle_cumsum 26.436 +/- 1.704. The README carries the citation. The WGMS summary of the 2025 paper in Nature Reviews Earth & Environment (doi:10.1038/s43017-026-00777-z) gives 408 +/- 132 Gt.",
+    "site_use": "Glacier loss chart (global, plus regional drilldowns such as Alps, Alaska and High Mountain Asia, down to single glaciers); the glacier leg of the sea-level budget",
+    "caveats": "Uses hydrological years. Uncertainty in the CSV (+/-67 Gt for 2025) differs from the paper (+/-132 Gt), so show the CSV value and footnote the paper. The latest year is revised in the next release.",
+    "priority": "core"
+   },
+   {
+    "name": "GlaMBIE Dataset 1.0.0 (Glacier Mass Balance Intercomparison Exercise)",
+    "publisher": "The GlaMBIE Team / WGMS (ESA-funded)",
+    "measures": "Community-reconciled global and regional glacier mass change (Gt, m w.e., mm SLE), combining DEM differencing, glaciological, altimetry and gravimetry methods",
+    "coverage": "2000-2023, annual (hydrological and calendar years)",
+    "latest_release": "1.0.0 (DOI dated 2024-07); paper in Nature, 2025",
+    "update_cadence": "Static",
+    "landing_url": "https://wgms.ch/data_glambie/",
+    "download_urls": [
+     "https://wgms.ch/downloads/GlaMBIE_Data_DOI_10.5904_wgms-glambie-2024-07.zip"
+    ],
+    "format": "Zip of CSV files (2.6 MB)",
+    "license": "CC BY 4.0 (WGMS data policy)",
+    "redistribution": "open-attribution",
+    "citation": "The GlaMBIE Team (2024): Glacier Mass Balance Intercomparison Exercise (GlaMBIE) Dataset 1.0.0. World Glacier Monitoring Service (WGMS), Zurich, Switzerland. https://doi.org/10.5904/wgms-glambie-2024-07 ; The GlaMBIE Team (2025) Community estimate of global glacier mass changes from 2000 to 2023. Nature. https://doi.org/10.1038/s41586-024-08545-z",
+    "doi": "10.5904/wgms-glambie-2024-07",
+    "status": "Archived/static",
+    "url_check": "Fetched the landing page (citation, DOI, licence wording, zip link). The zip was NOT downloaded. A search found the key result: 273 +/- 16 Gt/yr over 2000-2023, 36 +/- 10% higher in 2012-2023 than in 2000-2011.",
+    "site_use": "Cross-check of AMCE, and a 'glacier loss is speeding up' comparison of the two halves",
+    "caveats": "Ends 2023 and is not updated annually; use AMCE for the latest year",
+    "priority": "secondary"
+   },
+   {
+    "name": "Northern Hemisphere Snow Cover Extent CDR (Rutgers Global Snow Lab / NOAA NCEI)",
+    "publisher": "Rutgers University Global Snow Lab (D. A. Robinson) for the NOAA Climate Data Record Program, archived at NCEI",
+    "measures": "Snow cover extent (km2), weekly to monthly, for the NH, Eurasia and North America (with and without Greenland)",
+    "coverage": "Oct/Nov 1966 to Aug 2026 (monthly); NH land",
+    "latest_release": "NCEI file nhsce_v01r01_19661004_20260831.nc (modified 2026-09-04). Rutgers moncov.nhland.txt ends at 2026 08 (2,674,948 km2).",
+    "update_cadence": "Weekly/monthly",
+    "landing_url": "https://climate.rutgers.edu/snowcover/",
+    "download_urls": [
+     "https://climate.rutgers.edu/snowcover/files/moncov.nhland.txt",
+     "https://www.ncei.noaa.gov/data/snow-cover-extent/access/nhsce_v01r01_19661004_20260831.nc",
+     "https://noaa-cdr-snow-cover-ext-north-pds.s3.amazonaws.com/index.html"
+    ],
+    "format": "Plain text (year month km2); NetCDF",
+    "license": "NOAA CDR Program Open Data Policy (UseAgreement_01B-12.pdf): non-proprietary and publicly available, with no restrictions on use. Acknowledgement requested.",
+    "redistribution": "open-public-domain",
+    "citation": "Robinson, David A., Estilow, Thomas W., and NOAA CDR Program (2012): NOAA Climate Data Record (CDR) of Northern Hemisphere (NH) Snow Cover Extent (SCE), Version 1. [indicate subset used]. NOAA National Centers for Environmental Information. doi:10.7289/V5N014G9 [access date]. Acknowledgement: This CDR was originally developed by David Robinson and colleagues for NOAA's CDR Program.",
+    "doi": "10.7289/V5N014G9",
+    "status": "Active. NCEI cloud-migration notices. Inputs depend on NOAA IMS charts, so moderate US-budget risk.",
+    "url_check": "Fetched the Rutgers monthly table (latest Aug 2026: NH 2.67 M km2; June 2026 6.23, 2025 6.56, 2024 6.59; notes it is based on NH SCE CDR v01r01). Read the CDR use-agreement PDF. Fetched the NCEI product page and access directory. Pulled moncov.nhland.txt with curl (first row 1966 11 34943905, last 2026 08 2674948). Computed the June 1991-2020 mean as 8.135 M km2 (n=30). The lowest June on record is 2012 (4.92).",
+    "site_use": "Snow-by-month chart (spring and June decline), seasonal anomaly strips",
+    "caveats": "Early years are less reliable (e.g. June 1967 shows 14.37 M km2), so start trends in 1972 or mark early data. Autumn shows little trend; show that honestly to avoid cherry-picking. Rutgers' HTML 'Download' link did not return a CSV, so use the files/*.txt or the NCEI NetCDF.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA 1/4 degree Daily Optimum Interpolation SST v2.1 (OISST)",
+    "publisher": "NOAA National Centers for Environmental Information",
+    "measures": "Daily 0.25-degree sea surface temperature (C) and ice concentration, blending AVHRR satellite with in-situ data",
+    "coverage": "1 Sep 1981 to present (preliminary with a 1-day lag; final about 2 weeks later); global",
+    "latest_release": "v2.1 (production since Apr 2020). The access directory has 202610/ modified 2026-10-04.",
+    "update_cadence": "Daily",
+    "landing_url": "https://www.ncei.noaa.gov/products/optimum-interpolation-sst",
+    "download_urls": [
+     "https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/",
+     "https://climatereanalyzer.org/clim/sst_daily/json_2clim/oisst2.1_world2_sst_day.json"
+    ],
+    "format": "NetCDF (daily files); the Climate Reanalyzer derivative is JSON",
+    "license": "NOAA/NCEI US-government data in the public domain. The Climate Reanalyzer derivative (University of Maine) is CC BY 4.0.",
+    "redistribution": "open-public-domain",
+    "citation": "Huang, B., C. Liu, V. Banzon, E. Freeman, G. Graham, B. Hankins, T. Smith, and H.-M. Zhang, 2020: Improvements of the Daily Optimum Interpolation Sea Surface Temperature (DOISST) Version 2.1. Journal of Climate, 34, 2923-2939. doi:10.1175/JCLI-D-20-0166.1 ; if using the aggregate: Climate Reanalyzer (n.d.). Daily Sea Surface Temperature. Climate Change Institute, University of Maine. Retrieved [date] from https://climatereanalyzer.org/",
+    "doi": "10.1175/JCLI-D-20-0166.1 (method paper)",
+    "status": "Active. NCEI warns of degraded services, and Climate Reanalyzer notes an earlier prolonged NCEI OISST outage.",
+    "url_check": "Fetched the product page and the access directory (202608-202610). The Climate Reanalyzer JSON at /json/oisst2.1_world2_sst_day.json is STALE (ends 2024, day 265). The live page loads json_2clim/ (found in its JS). Parsed it: 2026 maximum 21.183 C on day 238 (26 Aug 2026), against the 2024 maximum of 21.173 and the 1991-2020 climatological maximum of 20.558. The 2026 series is partly preliminary.",
+    "site_use": "Daily global SST spaghetti chart (60S-60N). Basis for computing the 'percent of ocean in a marine heatwave' series with the Hobday et al. 2016 method, with the code published.",
+    "caveats": "Preliminary values change. Climate Reanalyzer is a convenient aggregator but not the producer; its old JSON path silently went stale. Compute the area-weighted mean yourself from the NetCDF in the pipeline. The 2026 'record' is only 0.01 C above 2024, so phrase it as 'matched or edged'.",
+    "priority": "core"
+   },
+   {
+    "name": "NOAA Coral Reef Watch (5 km DHW/Bleaching Alert, Marine Heatwave Watch v1.0.1, Regional Virtual Stations)",
+    "publisher": "NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch",
+    "measures": "Daily 5 km SST, anomaly, HotSpot, Degree Heating Weeks (C-weeks) and Bleaching Alert Area. Marine-heatwave category (Hobday method, CoralTemp 1985-2012 climatology). 219 reef-region virtual-station time series. Global bleaching-event statistics.",
+    "coverage": "1985 to present, daily, global, 5 km",
+    "latest_release": "Virtual stations: latest data 2026-10-03. MHW file noaa-crw_mhw_v1.0.1_category_20261003.nc (modified 2026-10-04). NOAA (2 Jun 2026) says the 4th global bleaching event likely ended in 2025: about 84.4% of reef area had bleaching-level heat stress from 1 Jan 2023 to 30 Sep 2025.",
+    "update_cadence": "Daily",
+    "landing_url": "https://coralreefwatch.noaa.gov/",
+    "download_urls": [
+     "https://coralreefwatch.noaa.gov/product/vs/data/bermuda.txt",
+     "https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/marine_heatwave/v1.0.1/category/nc/2026/noaa-crw_mhw_v1.0.1_category_20261003.nc",
+     "https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php"
+    ],
+    "format": "Text (virtual stations), NetCDF, PNG",
+    "license": "Public domain. CRW's citation page says its data are freely available to the public, that all site content is public domain and may be distributed freely, and that NOAA Coral Reef Watch should be credited.",
+    "redistribution": "open-public-domain",
+    "citation": "NOAA Coral Reef Watch. 2018, updated daily. NOAA Coral Reef Watch Version 3.1 Daily Global 5km Satellite Coral Bleaching Degree Heating Week Product, [date range]. College Park, Maryland, USA: NOAA Coral Reef Watch. Data set accessed [date] at [URL]. Method: Skirving, W., et al. (2020) CoralTemp and the Coral Reef Watch Coral Bleaching Heat Stress Product Suite Version 3.1. Remote Sensing 12(23):3856. doi:10.3390/rs12233856",
+    "doi": "10.3390/rs12233856 (method paper; no dataset DOI)",
+    "status": "Active but at risk. FY2026/27 budget requests sought to terminate or cut NOAA's Coral Reef Conservation Program, which funds CRW. Congress restored FY2026 funding, but OMB has reportedly been slow to release it (Civil Eats, May 2026).",
+    "url_check": "Fetched the home page (2026 notices), the citation page (public-domain statement), the MHW product page (v1.0.1, data URLs), the virtual-station data page (latest 2026-10-03), bermuda.txt (header with MMM 27.2714, columns YYYY MM DD SST_MIN SST_MAX ... DHW BAA_7day_max), the bleaching report page (84.4% Jan 2023-Sep 2025; 68.2% for 2014-2017) and the NESDIS news item of 2 Jun 2026. Listed the MHW NetCDF directory with curl (2026/ folder, 20261003.nc at 972K).",
+    "site_use": "Coral drilldown: reef-region DHW charts, the published global reef-area statistic, and a daily MHW category map from which the site computes the % of ocean in a heatwave",
+    "caveats": "The 84.4% figure is a published statistic, not a machine-readable series; cite the page and its date. Recomputing it needs the CRW reef mask. CRW's MHW baseline (1985-2012) differs from Copernicus/Mercator, which reported 82% of the ocean in a heatwave by end-June 2026; never compare percentages across producers.",
+    "priority": "core"
+   },
+   {
+    "name": "GTN-P Data Platform (Global Terrestrial Network for Permafrost)",
+    "publisher": "GTN-P (GCOS/International Permafrost Association), hosted and operated by the Alfred Wegener Institute (AWI)",
+    "measures": "Permafrost (borehole) ground temperature (C at depth) and active-layer thickness (cm) at about 1,484 permafrost-temperature sites, plus ESA Permafrost_CCI model products (NH, 1997-2021)",
+    "coverage": "Global permafrost regions; irregular, site-dependent records",
+    "latest_release": "New platform data.gtn-p.org (introduced 2025, Irrgang et al., Zenodo 18622752); the recommended citation year is 2026",
+    "update_cadence": "Continuous/irregular as contributors submit data",
+    "landing_url": "https://data.gtn-p.org/",
+    "download_urls": [
+     "https://data.gtn-p.org/api/list-sites?country=Canada&borehole_data=true&metadata=true",
+     "https://data.gtn-p.org/api/pt/123",
+     "https://data.gtn-p.org/api/data/?alt_data={dataset_id}&combined=false",
+     "https://data.gtn-p.org/api/swagger"
+    ],
+    "format": "JSON metadata; zipped CSV data",
+    "license": "CC BY 4.0 unless a dataset says otherwise (https://data.gtn-p.org/data-policy). Sharing and adapting are allowed for any purpose, including commercial, with attribution.",
+    "redistribution": "open-attribution",
+    "citation": "Global Terrestrial Network for Permafrost (GTN-P) and contributing institutions (2026): Permafrost Data. GTN-P Data Platform. https://data.gtn-p.org [accessed date]",
+    "doi": "None for the platform (per-dataset metadata may carry DOIs)",
+    "status": "Active (German-hosted); replaced the legacy gtnp.arcticportal.org",
+    "url_check": "Fetched the platform page, the data-policy page and the API docs. curl list-sites?country=Canada returned 200 JSON (e.g. 'Daring Lake' with boreholes 1142 and 1143); pt/123 returned metadata JSON (CD105, Mackenzie Delta). A Norway query returned 404, so country names must match the platform's list.",
+    "site_use": "Permafrost map of boreholes, per-site temperature-at-depth trend charts, and the 'thawing ground' consequences story",
+    "caveats": "Data are heterogeneous with gaps, so do not build a single global permafrost index. For synthesis, cite NOAA Arctic Report Card 2025 (doi:10.25923/nrzf-j897), which reports record-high permafrost temperatures in 2024 at North American and Svalbard sites.",
+    "priority": "secondary"
+   },
+   {
+    "name": "Our World in Data ocean and ice charts (sea-level, seawater-ph, ocean-heat-top-2000m)",
+    "publisher": "Our World in Data (Global Change Data Lab)",
+    "measures": "Republished series: sea level (Church & White 2011 + UHSLC via NOAA Climate.gov 2022), seawater pH (HOT, with a yearly average added), and ocean heat (NCEI plus EPA-based IAP/CSIRO/MRI series)",
+    "coverage": "Sea level to 2020-Q4; pH to 2024-12; NOAA OHC 1957-2025, while the IAP/MRI series there end in 2020",
+    "latest_release": "Metadata last updated 2026-09-11; next update 2026-11-10",
+    "update_cadence": "Bimonthly refresh",
+    "landing_url": "https://ourworldindata.org/grapher/seawater-ph",
+    "download_urls": [
+     "https://ourworldindata.org/grapher/seawater-ph.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/sea-level.csv?v=1&csvType=full&useColumnShortNames=true",
+     "https://ourworldindata.org/grapher/ocean-heat-top-2000m.metadata.json"
+    ],
+    "format": "CSV, JSON metadata",
+    "license": "OWID's FAQ: charts and data OWID produces are CC BY. Third-party data keep the providers' licence terms.",
+    "redistribution": "open-attribution",
+    "citation": "e.g. School of Ocean & Earth Science & Technology - Hawaii Ocean Time-series (2026) - with major processing by Our World in Data",
+    "doi": "None",
+    "status": "Active",
+    "url_check": "sea-level.csv header: entity,code,quarter,sea_level_church_and_white_2011,sea_level_uhslc,sea_level_average; last row World 2020-Q4 61.74 (stale). seawater-ph.csv last row Hawaii,2024-12-20,8.042414,8.055, which matches HOT pHcalc_insitu 8.0550. Metadata JSONs fetched.",
+    "site_use": "Do not use as a primary source here; at most a cross-check. Going upstream is cleaner and more current, and the 'trace the number' story is shorter.",
+    "caveats": "The sea-level series is stale and averages two different sources. The pH 'yearly average' is a trailing mean OWID adds. The OHC chart mixes sources of different vintages, some EPA-based from 2021.",
+    "priority": "avoid"
+   }
+  ],
+  "headline_numbers": [
+   {
+    "statement": "Arctic sea ice in September 2026 averaged 4.81 million km2, 25% less than the 1981-2010 September average of 6.41 million km2.",
+    "value_as_of_latest": "4.81 million km2 (Sep 2026 monthly mean); -25.0% vs 1981-2010",
+    "source_name": "NSIDC Sea Ice Index v4 (G02135)",
+    "derivation": "N_09_extent_v4.0.csv, 'extent' column. 2026 row = 4.81 (source NSIDC-0803). Mean of the 1981-2010 rows = 6.413 (n=30). (4.81 - 6.413)/6.413 = -25.0%. Fetched 2026-10-04. Footnote: from 2025 the input is AMSR2, which reads slightly lower. The daily minimum was 4.574 on 2026-09-12 in N_seaice_extent_daily_v4.0.csv; NSIDC's 5-day average was 4.60, tied 10th lowest."
+   },
+   {
+    "statement": "Global mean sea level in 2025 was about 10.5 cm higher than in 1993, and has risen at an average of 3.4 mm per year since the satellite record began.",
+    "value_as_of_latest": "+104.8 mm (2025 annual mean vs 1993 annual mean); trend 3.41 mm/yr (1993 to mid-2026)",
+    "source_name": "AVISO+ GMSL (CNES/LEGOS/CLS, EU Copernicus Marine Service)",
+    "derivation": "MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.txt, column 2 (m) x 1000. Mean of the rows with floor(year)=2025 (n=37) = 112.0 mm; mean of the rows with floor(year)=1993 (n=37) = 7.2 mm; difference = 104.8 mm. OLS slope of mm against decimal year over all 1,236 rows = 3.41 mm/yr. GIA-adjusted. Fetched 2026-10-04."
+   },
+   {
+    "statement": "In 2025 alone, the top 2,000 m of the ocean gained about 22 zettajoules of heat, a new record high.",
+    "value_as_of_latest": "+2.217 x 10^22 J (2025 vs 2024); 2025 anomaly 32.533 x 10^22 J",
+    "source_name": "NOAA NCEI Ocean Heat Content (Levitus/Boyer), cross-checked with IAP (Cheng et al. 2026, about 23 ZJ)",
+    "derivation": "h22-w0-2000m.dat, column WO (World Ocean, 10^22 J). 2025.500 = 32.533; 2024.500 = 30.316. 32.533 - 30.316 = 2.217 x 10^22 J = 22.2 ZJ. Also h22-w0-700m.dat: 2025.500 22.845 - 1955.500 (-3.201) = 26.0 x 10^22 J (about 260 ZJ) since 1955. Files dated 2026-07-06."
+   },
+   {
+    "statement": "Surface seawater at Station ALOHA, Hawaii, has become about 17% more acidic (hydrogen-ion concentration) since 1989. pH fell from 8.108 to 8.041.",
+    "value_as_of_latest": "pH 8.0409 (2024 mean, n=7) vs 8.1075 (1989 mean, n=10); change -0.067",
+    "source_name": "Hawaii Ocean Time-series (HOT) surface CO2 product (Dore et al. 2009)",
+    "derivation": "HOT_surface_CO2.txt (last updated 1 Jan 2026), column pHcalc_insitu, excluding -999. Calendar-year means grouped by the 'date' year: 1989 = 8.1075, 2024 = 8.0409. Change = -0.0666; 10^0.0666 = 1.166, a +16.6% rise in [H+]. Global cross-check: the CMEMS OMI via EEA (25 Aug 2026) shows global mean surface pH falling from 8.11 (1985) to 8.04 (2024)."
+   },
+   {
+    "statement": "Greenland's ice sheet lost 6,196 billion tonnes of ice from 1972 to 2023, and Antarctica's lost 4,779 billion tonnes from 1979 to 2023. Together that added about 30 mm to global sea level.",
+    "value_as_of_latest": "Greenland -6196 +/- 467 Gt (17.2 +/- 1.3 mm); Antarctica -4779 +/- 513 Gt (13.3 +/- 1.4 mm); as of Dec 2023",
+    "source_name": "IMBIE 2026 (Otosaka et al., UK Polar Data Centre)",
+    "derivation": "imbie3_greenland_Gt_partitioned.csv, row 2023-12-01, column 'Cumulative mass balance anomaly (Gt)' = -6196.145791 (uncertainty 467.35). imbie3_antarctica_Gt_partitioned.csv, same row = -4779.472 (513.03). The matching _mm_ files give -17.21 (1.30) and -13.28 (1.43) mm. 17.21 + 13.28 = 30.5 mm. Greenland cumulates from Jul 1971, Antarctica from Jan 1979."
+   },
+   {
+    "statement": "The world's glaciers lost 408 billion tonnes of ice in 2025, and 9,583 billion tonnes since 1976: enough to raise global sea level by 26 mm.",
+    "value_as_of_latest": "-408 Gt (hydrological year 2025, 1.13 mm SLE); cumulative -9,583 Gt / 26.4 +/- 1.7 mm SLE (1976-2025)",
+    "source_name": "WGMS Annual mass-change estimates (version 2026-02-10)",
+    "derivation": "wgms-amce-2026-02-10.zip, global.csv, row year=2025: gt = -408.101 (gt_sigma 67.223), mmsle = 1.126, gt_cumsum = -9583.132, mmsle_cumsum = 26.436 (sigma 1.704). Values are used as published. The WGMS summary of the 2025 paper (doi:10.1038/s43017-026-00777-z) gives +/-132 Gt for 2025."
+   },
+   {
+    "statement": "Between January 2023 and September 2025, about 84% of the world's coral reef area experienced heat stress high enough to cause bleaching. This was the most extensive global bleaching event on record (the 2014-2017 event reached 68%).",
+    "value_as_of_latest": "84.4% of global reef area (1 Jan 2023 - 30 Sep 2025); at least 83 countries/territories with mass bleaching",
+    "source_name": "NOAA Coral Reef Watch, 4th global coral bleaching event status report",
+    "derivation": "Published statistic from https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php (Bleaching Alert Area of Level 1 or above, i.e. DHW >= 4 C-weeks, over reef pixels), as accessed 2026-10-04. NOAA NESDIS confirmed on 2 Jun 2026 that the event likely ended in 2025. There is no machine-readable series, so cite the page and date."
+   },
+   {
+    "statement": "Northern Hemisphere snow cover in June 2026 was 6.23 million km2, 23% below the 1991-2020 June average.",
+    "value_as_of_latest": "6.23 million km2 (June 2026) vs 8.14 million km2 (1991-2020 June mean)",
+    "source_name": "Rutgers Global Snow Lab / NOAA NH Snow Cover Extent CDR v01r01",
+    "derivation": "Rutgers monthly table (table_area.php?ui_set=1), 'N. Hemisphere' column, month 6. 2026 = 6.23. Mean of the 1991-2020 June rows = 8.135 (n=30). (6.23 - 8.135)/8.135 = -23.4%. Equivalent raw values are in https://climate.rutgers.edu/snowcover/files/moncov.nhland.txt (km2)."
+   },
+   {
+    "statement": "At New York City's Battery tide gauge, the sea has risen about 40 cm since the early 1900s (land subsidence included). The long-term rate is 2.95 mm per year.",
+    "value_as_of_latest": "+397 mm (2021-2025 mean vs 1900-1904 mean); trend 2.95 +/- 0.09 mm/yr (1856-2025)",
+    "source_name": "PSMSL station 12 (New York, The Battery); NOAA CO-OPS Sea Level Trends",
+    "derivation": "https://psmsl.org/data/obtaining/rlr.annual.data/12.rlrdata. 2021-2025 values 7198, 7182, 7257, 7260, 7180 have mean 7215.4 mm. 1900-1904 values 6774, 6843, 6855, 6835, 6787 have mean 6818.8 mm. Difference = 396.6 mm. Trend from USStationsLinearSeaLevelTrends.csv, row 8518750: 2.95 mm/yr, 95% CI 0.09."
+   },
+   {
+    "statement": "How high the seas rise this century depends on our emissions. The likely rise by 2100 is 0.28-0.55 m under very low emissions (SSP1-1.9) versus 0.63-1.01 m under very high emissions (SSP5-8.5).",
+    "value_as_of_latest": "0.28-0.55 m (SSP1-1.9) vs 0.63-1.01 m (SSP5-8.5), likely range, 2100 relative to 1995-2014",
+    "source_name": "IPCC AR6 WGI SPM B.5.3; IPCC AR6 Sea Level Projections (Garner et al. 2021, Zenodo 6382554)",
+    "derivation": "IPCC AR6 WGI Summary for Policymakers, statement B.5.3 (https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf). Reproducible from ar6.zip: global total sea-level change, medium confidence, year 2100, 17th and 83rd percentiles for ssp119 and ssp585, relative to the 1995-2014 baseline."
+   }
+  ],
+  "drilldown_paths": [
+   "Why is the sea rising? (cause to consequence). GMSL since 1993 (AVISO + NASA-SSH lines) leads to a 'what's adding water' budget: thermal expansion (NCEI thermosteric/OHC), Greenland and Antarctica (IMBIE mm files, with GRACE-FO monthly extension), glaciers (WGMS mmsle by region), and land water (Frederikse JPL_RECON 1900-2018 for the long view). This links to the ocean-heat page and to the atmosphere/emissions domain (the heat comes from the greenhouse effect). It ends at the AR6 scenario slider (low vs high emissions in 2100).",
+   "My coastline. Global map of PSMSL tide gauges leads to the station's relative sea level since the 1800s (anomaly against its own 1900-1920 mean), then to why local differs from global (subsidence/uplift; NOAA CO-OPS trend with CI for US stations), then to AR6 regional projections at the nearest location (Zenodo regional files, preprocessed), then to local adaptation resources.",
+   "Heat in the ocean. Ocean heat content 0-700 m (1955-) and 0-2000 m (2005-) (NCEI, with IAP cross-check) leads to daily global SST (OISST v2.1), then to the % of ocean in a marine heatwave (computed from the CRW MHW category NetCDF with the area-weighting code published; Copernicus/Mercator bulletin as a labelled external comparison), then to coral heat stress by reef region (CRW virtual-station DHW series) and the 84.4% global bleaching statistic.",
+   "Ocean acidification. Atmospheric CO2 at Mauna Loa (atmosphere domain) set beside seawater pCO2 and pH at Station ALOHA, Hawaii (HOT pHcalc_insitu, pCO2calc_insitu). Then global surface pH 1985-2024 (CMEMS OMI), then aragonite saturation at ALOHA (HOT aragsatcalc_insitu) as the impact on shells and coral skeletons.",
+   "Ice, pole to pole. Arctic sea ice daily and September minimum (NSIDC G02135) leads to regional seas (OSI SAF v3 regional files, Barents, Kara, etc.) and Antarctic sea ice (NSIDC S files; record lows 2023). Then land ice vs sea ice (only land ice raises sea level), then ice sheets (IMBIE cumulative Gt, SMB vs dynamics), then glaciers by mountain region and single glaciers (WGMS AMCE region/glacier CSVs; GlaMBIE cross-check), ending with mm of sea level per source.",
+   "Frozen ground and snow. NH snow cover by month (Rutgers/NOAA CDR, honest that the spring/June loss is large and autumn change is small) leads to permafrost temperature at boreholes (GTN-P API, site charts on a map), then to the consequence: thawing permafrost releases carbon, linking to the emissions domain (feedback loop)."
+  ],
+  "action_links": "The causal lever comes straight from the data. AR6 projections show 2100 sea level of 0.28-0.55 m under very low emissions versus 0.63-1.01 m under very high emissions (IPCC AR6 WGI SPM B.5.3; Zenodo 10.5281/zenodo.6382554). Every ocean, ice and acidification chart should therefore link to the emissions/energy domain pages ('what drives this') and to the AR6 scenario slider ('what our choices change').\n\nIndividuals: cutting personal and household emissions is the upstream fix, via links to the emissions domain. For divers and reef users, NOAA Coral Reef Watch's global bleaching page takes bleaching observation reports (https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php). In May 2026 NOAA launched a first-ever standard operating procedure for bleaching monitoring (CRW home page notice, 26 May 2026), so citizen observations feed the official record.\n\nCommunities and coastal planners: use the PSMSL station history plus the NASA/IPCC AR6 regional projection for the nearest gauge (https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool). In the US, use the NOAA CO-OPS trend with its confidence interval (moving to the 'Sea Level Trends and Extremes - BETA' site after 30 Sep 2026) to set local planning horizons.\n\nPolicymakers: the 'gaps_and_risks' items are actionable on their own terms. Several records used here depend on continued public funding: NSIDC Sea Ice Index (Basic service since 2025), GRACE-FO and its successor GRACE-C (~2028), HOT (NSF), NOAA CRW and NCEI. The site can show a neutral 'data at risk' badge with evidence links, such as the NSIDC Basic-service notice and the CO-OPS retirement banner, so readers can see why sustained observation matters. The site never asks for money and never sells anything.",
+  "gaps_and_risks": "1) US federal fragility (verified evidence):\n- NSIDC G02135 was cut to 'Basic' service (NOAA@NSIDC notice of 5 May 2025). Its SSMIS inputs were lost, so it now depends on JAXA AMSR2.\n- NOAA CO-OPS Sea Level Trends carries a banner saying it will be retired after 30 Sep 2026, replaced by a BETA site.\n- EPA's Climate Change Indicators section (sea level, ocean heat, snow and ice) was removed in Dec 2025 (E&E News, Washington Post, EDGI). Never link to EPA indicator pages; use upstream producers.\n- NOAA STAR LSA GMSL CSVs stop at Feb 2025 (2025.127).\n- GRACE-FO is past its prime mission (eoHandbook end-of-life Sep 2026; Senior Review 2026), and GRACE-C is not due until about 2028.\n- NCEI reports degraded services during its cloud migration.\n- The FY2027 President's budget again proposes eliminating NOAA OAR and cutting NASA science by about 42%. Congress reversed similar FY2026 cuts (H.R. 6938, Jan 2026), but OMB has reportedly been slow to release funds.\nMitigation: the nightly pipeline must snapshot every raw file to R2 with fetch date, SHA-256 and HTTP headers. Then any published number stays traceable even if the upstream URL disappears. Show a 'last successful fetch' badge per series.\n\n2) Login and registration gates: NASA Earthdata (NASA-SSH GMSL, GRACE mascons, JPL_RECON) and Copernicus Marine (pH OMI) need free accounts. Store tokens in the macOS Keychain locally and in GitHub Actions secrets in CI. Never ship them to the client.\n\n3) Licence traps:\n- AVISO Licence Issue 20 \u00a73.2 bars re-hosting the raw unmodified file on a web portal or API, so offer derived monthly/annual CSVs and link to the raw file.\n- Frederikse 2020's Zenodo copy is 'other-closed'; use the PO.DAAC copy.\n- PSMSL has per-station conditions.\n- The IAP licence is unclear, so show it only as a cross-check.\n- OWID mixes licences.\n\n4) Discontinuities and cross-producer mismatch:\n- NSIDC v4 uses AMSR2 from 2025 (slightly smaller extents).\n- NSIDC and OSI SAF disagree (Sep 2026: 4.81 vs 5.34 M km2), so never splice them.\n- NSIDC headlines use 5-day means (4.60) while the daily CSV gives 4.574.\n- AVISO is GIA-adjusted and NASA-SSH is not (about 0.3 mm/yr apart).\n- CRW and Copernicus marine-heatwave baselines differ.\n\n5) Internal inconsistencies observed:\n- NASA's own pages give GMSL since 1993 as 93 mm (earth.gov, Aug 2025), 96.5 mm (Mar 2026 snippet) and 110.6 mm (sealevel.nasa.gov). Always compute from data.\n- The C3S Greenland text (5,747 Gt since 1972) disagrees with its own figure CSV (-6,312 Gt by end-2025).\n- The WGMS CSV uncertainty (+/-67 Gt) differs from the paper (+/-132 Gt).\n- Climate Reanalyzer's legacy JSON path silently stopped in Sep 2024.\n\n6) Coverage gaps:\n- No authoritative, open, machine-readable time series exists for global marine-heatwave area or for % of reef area under bleaching stress. Compute them transparently from CRW/OISST NetCDF (Hobday 2016, code published), or cite the published statistic with its date.\n- IMBIE ends Dec 2023; extensions (GRACE-FO, C3S) must be labelled separately.\n- HOT ends Dec 2024 in the product file.\n- Permafrost has no defensible global index; keep it site-level.\n- IAP is only gridded, so the global integral must be computed.\n- I could not verify the NASA-SSH, GRACE, JPL_RECON or CMEMS data values (login), the NASA AR6 tool page (JS-only) or the IMBIE Sci. Data article text (paywall redirect).\n\n7) Cost: the daily global grids (OISST about 1.6 MB/day, CRW MHW about 1 MB/day) should be reduced in a scheduled GitHub Action to small derived CSV/JSON in R2/static hosting. The AR6 regional zips (9 GB) should be preprocessed once offline. Both keep running cost well under $20/month."
+ },
+ "verification": {
+  "domain": "Ocean, sea level and ice",
+  "verdicts": [
+   {
+    "name": "Sea Ice Index, Version 4 (G02135)",
+    "verdict": "corrected",
+    "corrections": "I confirmed the data and metadata. The DOI 10.7265/a98x-0f50 resolves via DataCite to 'Sea Ice Index, Version 4', NSIDC, 2025. The Fetterer et al. (2025) citation is correct. The landing page carries the 'Basic Level of Service' notice. Every URL I listed returned 200. N_09_extent_v4.0.csv gives: 1979 7.05, 2024 4.35 (NSIDC-0051), 2025 4.75 and 2026 4.81 (NSIDC-0803), and a 1981-2010 mean of 6.4133 (n=30). In the daily CSV, the last row is 2026-10-03 at 5.771 and the 2026 minimum is 4.574 on 2026-09-12. S_09: lowest is 2023 at 16.89; 2026 is 17.32. NSIDC's analysis of 23 Sep 2026 gives 4.60 M km2 on 12 Sep, tied 10th lowest with 2008, 2010 and 2025.\n\nCORRECTION (licence): the 'public domain' claim is not supported. https://nsidc.org/about/data-use-and-copyright makes no public-domain statement. The G02135 landing page says 'As a condition of using these data, you must cite the use of this data set.' Because citation is a condition of use, classify it as open-attribution, not public domain.\n\nAdditional findings:\n(a) The v4 daily CSV draws each day's value from a 3-day centred window of source files (e.g. the 2026-10-01 row lists the 0930, 1001 and 1002 files). The newest 1-2 days use incomplete windows and will be revised, so snapshot each pull.\n(b) The daily CSV header still names nsidc-0081/0051 as sources even though the rows come from NSIDC-0803 (AMSR2). Use the per-row source_dataset/Source Data column, not the header.\n(c) Status nuance: NSIDC posted 'Sea Ice Today services reduced' (15 Oct 2025) and then 'Sea Ice Today returns' (19 Aug 2026). That supports, rather than contradicts, the 'at risk' label.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)",
+    "verdict": "corrected",
+    "corrections": "I confirmed the licence (CC BY 4.0), the DOI and the citation on the product page. The DOI 10.15770/EUM_SAF_OSI_0026 resolves to 'Sea Ice Index version 3.0 - Multimission', EUMETSAT, 2026. The product was authorised on 30 Apr 2026 and declared operational on 4 May 2026. ice_extent_nh_sii-v3p0_monthly.txt: created 2026-10-04 09:36:46, last row 2026.7068 2026 09 16 5341947.\n\nCORRECTION (URL): https://thredds.met.no/thredds/osisaf/osisaf_420siiv3p0.html returns 404. The THREDDS link on the product page is https://thredds.met.no/thredds/catalog/osisaf/osisaf_seaiceindex.html (200). The page also lists FTP ftp://osisaf.met.no/prod/ice/index/v3p0 and an interactive tool at https://cryo.met.no/en/sea-ice-index.\n\nMinor: the monthly file's '# Format' line says the columns are 'FracYear YYYY MM DD SIE_mean[km^2] SIE_source', but monthly rows have only 5 fields (there is no SIE_source column), so the parser must tolerate that. The file header names the source CDR DOIs (10.15770/EUM_SAF_OSI_0023, _2014, _0024), so cite those too. I could not verify the claim that the v2.3 feed ended on 1 Jun 2026.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "AVISO+ Global Mean Sea Level (MSL indicators, reference-mission merged series)",
+    "verdict": "corrected",
+    "corrections": "I read the licence PDF myself: AVISO License Agreement Issue 20, effective 10 Aug 2026, Last-Modified 11 Aug 2026. Its preamble says it is CC-BY-like but explicitly NOT CC BY 4.0. \u00a72.1 allows commercial use. \u00a73.1 requires attribution, a link to the licence and a note of modifications. \u00a73.2 bars sharing the original, unmodified product through a web portal, public API or cloud platform without written CNES authorisation, but does not restrict Adapted Material. Annex A puts only FES tide currents and POLYMER ocean-colour products under non-commercial terms, so the MSL indicators are fully licensed. The readme's credit wording is confirmed. The TXT has 1,236 rows from 1993.011795 to 2026.621151. Annual means: 1993 = 7.25 mm (n=37), 2025 = 111.99 mm (n=37), 2026 partial = 115.6 mm (n=23). The OLS slope is 3.414 mm/yr.\n\nCORRECTIONS:\n(1) The product page says 3.6 mm/yr (+/-0.3, 90% CI) 'from 1993', not 'since 1999'. It also gives acceleration of 0.8 +/-0.4 mm/yr/decade and about 11 cm since Feb 1993.\n(2) AVISO's published rate (3.6) differs from our OLS slope on the TXT (3.41). The NetCDF carries separate variables named 'TPA_correction' and 'amr_correction', so the plain TXT column may not include the TOPEX-A and Jason-3 radiometer drift corrections that AVISO uses for its headline rate. Resolve this before publishing a rate, or label the number as 'OLS on AVISO file, computed by Environment Dashboard'.\n(3) The 'third column' is the uncertainty envelope in metres: about 5.1 mm in 1993, about 1.6 mm mid-record and about 2.7 mm in 2025. The NetCDF variable is 'uncertainty_envelop'.\n(4) The research describes the file's missions as TOPEX/Poseidon, Jason-1/2/3 and Sentinel-6MF. The readme lists only TOPEX/Poseidon and Jason-1/2/3; Sentinel-6 MF ('S6A') appears in the NetCDF long_name. The classification stays open-attribution, with the \u00a73.2 restriction on raw re-hosting.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NASA-SSH Global Mean Sea Level from Simple Gridded Sea Surface Height (NASA_SSH_GMSL_INDICATOR)",
+    "verdict": "corrected",
+    "corrections": "CMR (collection C3478934705-POCLOUD, revised 2026-09-28) confirms DOI 10.5067/NSIND-GMSV1, Version 1, start date 1993-01-04 and 7-day resolution. Creators are Willis, Fournier, Marlis and Killett. The DOI resolves (Willis, 2025). The direct TXT returns a 302 redirect to urs.earthdata.nasa.gov, so it is login-gated as claimed. The Earthdata data-use guidance says: 'Unless the content is marked with a use restriction or license, data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0).'\n\nCORRECTIONS:\n(1) The CMR ReleaseDate is 2025-04-19, not 23 Apr 2025.\n(2) The UMM UseConstraints field is empty. The CC0 status comes from the Earthdata guidance page, not from the collection record, so cite that page as the licence evidence.\n(3) The 78 granules are not weekly pieces. Each granule is a cumulative full-series snapshot (e.g. NASA_SSH_GMSL_INDICATOR_20250508 covers 1993-2025). The undated granule 'NASA_SSH_GMSL_INDICATOR' covers 1993-01-05 to 2026-09-22 and was updated 2026-09-28; fetch that one.\n(4) The user guide URL answers 303 to a signed CloudFront URL, so it resolves.\n\nUnverified: the H.R. 6938 and FY2027 budget claims (my web-search budget was exhausted).",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "Reconstructed Global Mean Sea Level 1900-2018 (JPL_RECON_GMSL; Frederikse et al. 2020)",
+    "verdict": "corrected",
+    "corrections": "CMR confirms DOI 10.5067/GMSLT-FJPL1, coverage 1900-01-01 to 2018-12-31 and the author list. The DOI resolves to 'Reconstructed Global Mean Sea Level from GRACE and In Situ 1900 to 2018' (Frederikse, 2020). Zenodo record 3862995 has licence {'id':'other-closed'} with access_right 'open', which means the files are downloadable but not openly licensed, so the warning holds.\n\nCORRECTION (URL): 'https://opendap.earthdata.nasa.gov' is not a download URL. The CMR granule link is https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/JPL_RECON_GMSL/global_timeseries_measures.nc (Earthdata Login).\n\nCaveat: CC0 under the Earthdata guidance applies to 'data provided from a NASA-led mission' unless marked otherwise. This is a JPL-hosted research reconstruction whose authors span several institutions, not mission data. The UMM UseConstraints field is empty, so public domain is the most likely reading but not airtight. Keep the PO.DAAC copy and cite the Nature paper as well.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "PSMSL tide gauge mean sea level (RLR monthly and annual)",
+    "verdict": "confirmed",
+    "corrections": "I fetched 12.rlrdata. The 1900-1904 mean is 6818.8 mm and the 2021-2025 values are 7198, 7182, 7257, 7260 and 7180 (mean 7215.4), a difference of 396.6 mm. The New York station page shows 'Date of last update: 27 Jan 2026', with NOAA/NOS as data authority. The station 2315 page carries the NSW CC BY 4.0 conditions, with attribution to 'NSW Office of Environment and Heritage'. The reference page's citation is 'Permanent Service for Mean Sea Level (PSMSL), 2026, \"Tide Gauge Data\", Retrieved [date] from http://www.psmsl.org/data/obtaining/', plus Holgate et al. 2013 (the DOI resolves to J. Coastal Research; online 2012-12-18). Neither the obtaining page nor the reference page carries a licence statement, and the candidate policy URLs I probed returned 404. 'unclear' is the correct classification. rlr_annual.zip and rlr_monthly.zip both resolve.",
+    "final_redistribution": "unclear",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA Tides & Currents Sea Level Trends (CO-OPS)",
+    "verdict": "confirmed",
+    "corrections": "The banner text is verified: 'This site will no longer be available after September 30, 2026. Please visit the new, integrated Sea Level Trends and Extremes - BETA site.' On 2026-10-04 the banner is still live, and the page has no hyperlink to the BETA site; I probed several guessed URLs and all returned 404. The CSV row is verified: 8518750,\"The Battery, NY\",1856,2025,170,91,2.95,0.09,0.97,0.03,40.7006,-74.0142. Snapshotting the CSV now is essential. The NOAA STAR LSA CSV mentioned in the research is also confirmed to end at 2025.12680. Its header states a trend of 3.11 mm/yr without GIA and requires the acknowledgement 'Altimetry data are provided by NOAA Laboratory for Satellite Altimetry.'",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "IPCC AR6 Sea Level Projections (FACTS; NASA/IPCC Sea Level Projection Tool)",
+    "verdict": "corrected",
+    "corrections": "The Zenodo API confirms record 6382554: version 20210809, licence cc-by-4.0, DOI 10.5281/zenodo.6382554, concept DOI 10.5281/zenodo.5914709. The concept DOI resolves to 6382554, so it is the latest version (the only other version is 5914710, the same 20210809 release). File sizes are confirmed: ar6.zip 889,784,792 B; ar6-regional-confidence.zip 9.24 GB; ar6-regional_novlm-confidence.zip 8.75 GB; location_list.lst. SPM B.5.3 text is verified from the IPCC PDF: 0.28-0.55 m (SSP1-1.9) and 0.63-1.01 m (SSP5-8.5) relative to 1995-2014.\n\nCORRECTION (URL): https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool returns 404. The tool now resolves at https://earth.gov/sealevel/ipcc-ar6-sea-level-projection-tool/.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA NCEI Global Ocean Heat Content (Levitus/Boyer basin time series; NCEI Accession 0164586)",
+    "verdict": "confirmed",
+    "corrections": "The yearly directory lists h22-w0-2000m.dat and h22-w0-700m.dat dated 2026-07-06 23:21. Values match: 0-2000 m 2005.5 = 10.171, 2024.5 = 30.316, 2025.5 = 32.533; 0-700 m 1955.5 = -3.201, 2025.5 = 22.845. DOI 10.7289/V53F4MVP redirects to https://www.ncei.noaa.gov/archive/accession/0164586. I read the CDR use agreement (https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf): 'the CDR data sets are non-proprietary, publicly available, and no restrictions are placed upon their use.' The S3 bucket noaa-cdr-ocean-heat-content-pds lists yearly, seasonal, pentad and monthly NetCDF under data/derived/.\n\nSee headline_number_checks: the 2025 increase of 22.2 ZJ is NOT a record annual gain in this series.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "IAP ocean heat content (IAPv4 / IAPv4.2; Cheng et al.)",
+    "verdict": "corrected",
+    "corrections": "Reachability is confirmed: HTTP returns 200 and HTTPS fails. The /ftp/cheng/IAPv4.2_Ocean_Heat_Content_anomaly_0_6000m/ listing has decade zips dated 01-Jun-2026 (about 175-178 MB; 2020_2026.zip is 110.5 MB), and Monthly/ is dated 28-Sep-2026. The data DOI 10.12157/IOCAS.20240117.001 resolves to a Chinese-titled record for IAPv4.2. The ESSD 16, 3517 (2024) paper DOI resolves.\n\nCORRECTION (citation): the annual paper 'Ocean Heat Content Sets Another Record in 2025' (doi:10.1007/s00376-026-5876-0) is led by Pan, Yuying, with Cheng, Lijing second. It appeared in Adv. Atmos. Sci. 43, pp. 2019-2041 (Crossref), first published 9 Jan 2026. Cite it as 'Pan et al. 2026', not 'Cheng et al. 2026'.\n\nThe licence is still unclear: no licence on the portal. I could not verify the '~23 ZJ' figure (paywall).",
+    "final_redistribution": "unclear",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Hawaii Ocean Time-series (HOT) Station ALOHA surface CO2 system data product",
+    "verdict": "confirmed",
+    "corrections": "File header: 'Created 5 October 2009 by J.E. Dore; Last updated 1 January 2026'. The first row is cruise 1, 31-Oct-88, pHcalc_insitu 8.1097. The last row is cruise 355, 20-Dec-24, 8.0550. My annual means: 1989 = 8.10748 (n=10), 2023 = 8.03729 (n=9), 2024 = 8.04087 (n=7), 2022 n=5. The data policy text and the NSF Award #2241005 acknowledgement are verified; the page has no licence statement.\n\nNote: the endpoint method is sensitive to the base year (the 1990 mean is 8.1186). An OLS fit over all 346 valid samples gives -0.0194 pH/decade, about -0.068 over 1989.5-2024.5, or +16.9% [H+]. That supports the ~17% claim and is more robust to cite.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "Copernicus Marine OMI: Global ocean acidification, mean sea water pH time series and trend (GLOBAL_OMI_HEALTH_carbon_ph_area_averaged)",
+    "verdict": "corrected",
+    "corrections": "DOI 10.48670/moi-00224 resolves to the product (Mercator Ocean International). The licence summary is confirmed: a custom Copernicus Marine licence, not CC BY. Original products are credited 'E.U. Copernicus Marine Service Information'; derived products 'Generated using E.U. Copernicus Marine Service Information'. The EEA indicator (published 25 Aug 2026) gives 8.11 (1985) to 8.04 (2024), about 18%.\n\nCORRECTION (access): the data are NOT login-only. The public STAC (https://stac.marine.copernicus.eu/metadata/GLOBAL_OMI_HEALTH_carbon_ph_area_averaged/product.stac.json) points to dataset version 202511. The native NetCDF downloads anonymously over HTTPS (HTTP 200, 22.7 KB): https://s3.waw3-1.cloudferro.com/mdl-native-14/native/GLOBAL_OMI_HEALTH_carbon_ph_area_averaged/global_omi_health_carbon_ph_area_averaged_202511/global_omi_health_carbon_ph_area_averaged_1985.nc. The ARCO zarr is at .../mdl-arco-time-032/arco/.../omi.zarr. Its metadata shows 40 annual values, 1985-2024, with variables ph and ph_uncertainty. The global attributes carry credit 'E.U. Copernicus Marine Service Information' and institution CEA/LSCE.\n\nThe researcher's download URL was a services page, not a file. No Keychain credential is needed for this product.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "IMBIE 2026: Mass balance of the Greenland and Antarctic Ice Sheets from the 1970s to 2023 (IMBIE3)",
+    "verdict": "confirmed",
+    "corrections": "The BAS record shows OGL v3.0, no access restrictions and creation date 2025-06-25. The DataCite DOI was issued 2026-07-07. The RAMADDA JSON lists 10 files dated 2026-07-06 (Gt and mm for Greenland, Antarctica, WAIS, EAIS and the Peninsula). The Greenland Gt CSV header embeds the licence line and the citation. Last rows: Greenland -6196.145791 +/- 467.354 Gt and -17.2115 +/- 1.2982 mm; Antarctica -4779.472 +/- 513.0317 Gt and -13.2763 +/- 1.4251 mm. The Sci. Data paper DOI 10.1038/s41597-026-08088-0 resolves (published 2026-09-16).\n\nNote: the mm files use the mass-balance sign (negative = sea-level rise), so the site must flip the sign. The C3S fig1_data.csv is also confirmed: it ends at 2025.9167 with cumulative -6312.06 Gt and repeats IMBIE rows at the start, so it is an extension of IMBIE, not an independent series.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "JPL GRACE/GRACE-FO Mascon ice sheet mass anomaly time series (Greenland and Antarctica, RL06.3Mv04)",
+    "verdict": "corrected",
+    "corrections": "CMR confirms DOIs 10.5067/TEMSC-GT634 and 10.5067/TEMSC-AT634, version RL06.3Mv04, and the latest granules greenland_mass_200204_202607 and antarctica_mass_200204_202607 (updated 2026-09-08).\n\nCORRECTIONS:\n(1) Direct data URLs (Earthdata Login): https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/GREENLAND_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4/greenland_mass_200204_202607.txt and .../ANTARCTICA_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4/antarctica_mass_200204_202607.txt. The filename changes every month, so resolve it through CMR.\n(2) The 'garbled' Antarctica title is a metadata error. CMR's citation title reads 'Tellus Level-4 Ocean Mass Anomaly Time Series ...' (SeriesName 'Tellus Level-4 ANTARCTICA Mass Anomaly Time Series'), with ReleaseDate 2023-01-25. Greenland's ReleaseDate is 2024-01-25. Use the SeriesName in citations.\n(3) The GRACE-FO end-of-life (Sep 2026) and Senior Review claims are UNVERIFIED. NASA's mission page still lists it as an 'Active Mission', and data run through Jul 2026.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "WGMS Annual mass-change estimates for the world's glaciers (AMCE, version 2026-02-10)",
+    "verdict": "confirmed",
+    "corrections": "I streamed the zip myself: 143 files, including README.md, global.csv and global_grid.nc4. The global.csv header matches. The 2025 row: gt -408.101 (sigma 67.223), mmsle 1.126 (0.185), gt_cumsum -9583.132 (sigma 617.629, which the research omitted), mmsle_cumsum 26.436 (1.704). The 1976 row is +12.432 Gt. The README citation and the WGMS data-policy wording are confirmed: 'open access under the requirement of correct citation ... which corresponds to a CC BY 4.0 license'. The landing page also references the earlier wgms-amce-2025-02; 2026-02-10 is the latest. DOI 10.1038/s43017-026-00777-z resolves to 'Global glacier mass change in 2025' (Nat Rev Earth Environ, 7 Apr 2026). I did not verify its +/-132 Gt figure.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "core"
+   },
+   {
+    "name": "GlaMBIE Dataset 1.0.0 (Glacier Mass Balance Intercomparison Exercise)",
+    "verdict": "corrected",
+    "corrections": "I streamed the zip: 771,652 bytes (about 0.77 MB, not 2.6 MB) containing 299 files, including GlaMBIE_DATASETS_INFO.md, glambie_results_20240716/calendar_years/0_global.csv and per-region results, plus all input datasets. The included 'How to cite' reads 'GlaMBIE (2024): Glacier Mass Balance Intercomparison Exercise (GlaMBIE) Dataset 1.0.0. World Glacier Monitoring Service (WGMS), Zurich, Switzerland. https://doi.org/10.5904/wgms-glambie-2024-07'. The global calendar-year file's last row is 2023-2024 at -548.0 +/- 120.2 Gt. The Nature DOI 10.1038/s41586-024-08545-z resolves (published 19 Feb 2025). The licence is CC BY 4.0 under the WGMS policy.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Northern Hemisphere Snow Cover Extent CDR (Rutgers Global Snow Lab / NOAA NCEI)",
+    "verdict": "confirmed",
+    "corrections": "moncov.nhland.txt starts at 1966 11 34943905 and ends at 2026 08 2674948. June values: 2026 = 6,227,420; 2025 = 6,563,500; 2024 = 6,585,560; 2012 = 4,921,652 (the record low); 1967 = 14,367,907. The 1991-2020 June mean is 8.1337 M km2 (n=30). NCEI's access directory lists nhsce_v01r01_19661004_20260831.nc (resolves). DOI 10.7289/V5N014G9 resolves (Robinson, 2012). The use agreement is at https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Snow_Cover_Extent_Northern_Hemisphere/UseAgreement_01B-12.pdf.\n\nCaveat: the 'no restrictions' policy covers the NCEI CDR. The Rutgers txt files are Rutgers derivatives with no stated licence. For downloadable 'numbers shown', compute from the NCEI CDR NetCDF, or cite both.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA 1/4 degree Daily Optimum Interpolation SST v2.1 (OISST)",
+    "verdict": "corrected",
+    "corrections": "The NCEI access directory has 202610/ dated 2026-10-04. The Climate Reanalyzer json_2clim file parses as: 2026 maximum 21.183 C on day 238; 2024 maximum 21.173; 1991-2020 maximum 20.558 (day 80); plus a 'Preliminary' series.\n\nCORRECTIONS:\n(1) The citation year is wrong. Huang et al., 'Improvements of the Daily Optimum Interpolation Sea Surface Temperature (DOISST) Version 2.1', J. Climate 34(8), 2923-2939 was published in April 2021, not 2020 (Crossref).\n(2) Climate Reanalyzer returns HTTP 403 ('Houston, we've had a problem') to curl's default user agent and serves the JSON only to a browser user agent. A CI pipeline must not depend on it; compute from the NCEI NetCDF.\n(3) I could not verify the claim that Climate Reanalyzer content is CC BY 4.0: no licence text was found on the sst_daily or about pages. Treat the derivative as unclear and use it only as a cross-check.",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "NOAA Coral Reef Watch (5 km DHW/Bleaching Alert, Marine Heatwave Watch v1.0.1, Regional Virtual Stations)",
+    "verdict": "confirmed",
+    "corrections": "The citation page (https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php) says: 'All content on this website is considered to be in the public domain and may be distributed freely', with credit to 'NOAA Coral Reef Watch'. The bleaching report page (last updated 2 Jun 2026) confirms about 84.4% (1 Jan 2023 to 30 Sep 2025), at least 83 countries/territories, 68.2% for the 3rd event, and 'Likely Ended in 2025'. bermuda.txt has MMM 27.2714 and its last row is 2026 10 03 (DHW 16.80, BAA 4). noaa-crw_mhw_v1.0.1_category_20261003.nc is 972K, dated 2026-10-04 15:20. I could not verify the funding/OMB claims (Civil Eats).",
+    "final_redistribution": "open-public-domain",
+    "final_priority": "core"
+   },
+   {
+    "name": "GTN-P Data Platform (Global Terrestrial Network for Permafrost)",
+    "verdict": "confirmed",
+    "corrections": "The data-policy page states CC BY 4.0 'unless otherwise specified' and allows commercial use with credit. list-sites?country=Canada returns 200 and /api/swagger resolves. Note that the example /api/pt/123 (CD105, Mackenzie Delta) returns has_data:false, datasets_count:0 and active:false, so it is a poor example. Filter on has_data=true. I did not verify the Zenodo 18622752 platform paper. DOI 10.25923/nrzf-j897 resolves to 'NOAA Arctic Report Card 2025: Executive Summary'.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "secondary"
+   },
+   {
+    "name": "Our World in Data ocean and ice charts (sea-level, seawater-ph, ocean-heat-top-2000m)",
+    "verdict": "confirmed",
+    "corrections": "sea-level.csv's last row is World 2020-Q4 61.74304 (UHSLC only; the Church & White column is blank). seawater-ph.csv's last row is Hawaii 2024-12-20 8.042414 / 8.055. ocean-heat-top-2000m metadata: lastUpdated 2026-09-11, nextUpdate 2026-11-10. The NOAA series spans 1957-2025; the MRI/JMA and IAP series end in 2020 and come from 'EPA based on various sources (2021)'. 'Avoid' is correct.",
+    "final_redistribution": "open-attribution",
+    "final_priority": "avoid"
+   }
+  ],
+  "headline_number_checks": "1) Arctic Sept 2026, 4.81 M km2 and -25% vs 1981-2010: CONFIRMED.\n- N_09_extent_v4.0.csv: 2026 = 4.81 (NSIDC-0803).\n- 1981-2010 mean = 6.4133 (n=30), so (4.81-6.4133)/6.4133 = -25.0%.\n- Daily minimum 4.574 on 2026-09-12; NSIDC's 5-day figure is 4.60, tied 10th lowest (analysis of 23 Sep 2026).\n- Keep the AMSR2 footnote: the -25% compares an AMSR2 year against an SSM/I-era climatology.\n\n2) GMSL, +104.8 mm (2025 vs 1993) and 3.41 mm/yr: ARITHMETIC CONFIRMED, RATE NEEDS CORRECTION.\n- My recomputation: 1993 mean 7.245 mm (n=37), 2025 mean 111.994 mm (n=37), difference 104.75 mm. OLS over 1,236 rows = 3.414 mm/yr.\n- AVISO's own page says 3.6 mm/yr (+/-0.3, 90% CI) 'from 1993' and about 11 cm since Feb 1993.\n- The NetCDF has separate TPA_correction and amr_correction variables, so the TXT column may lack the drift corrections behind AVISO's headline rate.\n- Do not publish '3.4 mm/yr' as AVISO's rate. Either quote AVISO's 3.6 +/- 0.3 with its page and date, or label 3.41 as our own OLS on the TXT and explain the difference. The '10.5 cm' figure is fine.\n\n3) Ocean heat, 'gained ~22 ZJ in 2025, a new record high': WORDING CORRECTED.\n- Values confirmed: 32.533 - 30.316 = 2.217 x10^22 J = 22.2 ZJ, and 2025 is the record-high LEVEL.\n- But 22.2 ZJ is NOT a record annual gain in this file. 2017 (+27.9 ZJ), 2006 (+24.7), 2013 (+24.6) and 2015 (+22.9) were all larger.\n- Restate as: 'Ocean heat content (0-2000 m) reached a record high in 2025, about 22 ZJ more than in 2024.'\n- The 0-700 m change since 1955 (22.845 - (-3.201) = 26.05 x10^22 J, about 260 ZJ) is confirmed.\n- The IAP cross-check paper is Pan et al. 2026, not Cheng et al.\n\n4) HOT pH 8.1075 to 8.0409, about +17% [H+]: CONFIRMED.\n- 1989 = 8.10748 (n=10), 2024 = 8.04087 (n=7); 10^0.0666 = 1.166.\n- The result is base-year sensitive (1990 = 8.1186 would give about +20%).\n- An OLS fit over all 346 samples gives -0.0194 pH/decade and +16.9% [H+] over 35 years, so prefer the trend-based statement.\n- EEA's 8.11 (1985) to 8.04 (2024) global figure is confirmed (published 25 Aug 2026).\n\n5) IMBIE totals: CONFIRMED.\n- Greenland -6196.15 +/- 467.35 Gt and -17.21 +/- 1.30 mm, cumulated from Jul 1971.\n- Antarctica -4779.47 +/- 513.03 Gt and -13.28 +/- 1.43 mm, from Jan 1979.\n- Sum 30.49 mm; the quadrature uncertainty is about +/-1.9 mm (state it).\n- The mm files are signed negative, so flip the sign for 'added to sea level'.\n\n6) WGMS glaciers: CONFIRMED.\n- 2025 = -408.101 Gt (sigma 67.2), 1.126 mm SLE.\n- Cumulative -9583.1 Gt (sigma 617.6), 26.436 +/- 1.704 mm (1976-2025).\n\n7) CRW 84.4% of reef area (1 Jan 2023 to 30 Sep 2025), 68.2% for 2014-17, at least 83 countries/territories: CONFIRMED on the report page (last updated 2 Jun 2026).\n\n8) NH snow June 2026: CONFIRMED.\n- 6.227 M km2 vs a 1991-2020 June mean of 8.1337 M km2, which is -23.4%.\n\n9) NYC Battery: CONFIRMED.\n- PSMSL 2021-25 mean 7215.4 vs 1900-04 mean 6818.8 mm, a difference of 396.6 mm.\n- NOAA trend 2.95 +/- 0.09 mm/yr (1856-2025).\n\n10) AR6 2100 likely ranges 0.28-0.55 m (SSP1-1.9) and 0.63-1.01 m (SSP5-8.5), relative to 1995-2014: CONFIRMED verbatim from the SPM PDF, B.5.3.",
+  "missing_sources": "1) Global Carbon Budget 2025, ocean CO2 sink.\n- What it adds: the key 'cause' link. The ocean absorbs about a quarter of CO2 emissions, which drives acidification.\n- Data: https://doi.org/10.18160/gcp-2025 (ICOS Carbon Portal, https://www.icos-cp.eu/GCP/2025). The 'Global Budget 2025 v1.0' xlsx includes the ocean sink.\n- Licence: data use is 'conditional on citing the original data sources' (open-attribution).\n- Paper: Friedlingstein et al. 2026, ESSD 18, 3211-3288, doi:10.5194/essd-18-3211-2026 (CC BY 4.0).\n\n2) Copernicus Marine OMI 'Global Ocean Yearly CO2 Sink' (GLOBAL_OMI_HEALTH_carbon_co2_flux_integrated).\n- doi:10.48670/moi-00223, covering 1985-2024. It can be downloaded anonymously via the public STAC/S3, like the pH OMI.\n- Licence: Copernicus Marine licence (open-attribution).\n- Related OMIs: GLOBAL_OMI_HEALTH_carbon_ph_trend (doi:10.48670/moi-00277) for a pH-trend map, and GLOBAL_OMI_TEMPSAL_sst_area_averaged_anomalies (doi:10.48670/moi-00242, 1982-2024).\n\n3) SOCAT v2026 (Surface Ocean CO2 Atlas), https://socat.info.\n- Released 16 Jun 2026, with 44 million fCO2 observations from 1957 to 2025. This is the observational basis of the ocean-sink and pH reconstructions.\n- Licence: the site states CC BY 4.0. Archived at NCEI (e.g. SOCATv2023 doi:10.25921/r7xa-bt92).\n\n4) Met Office HadSST.4.2.0.0, the long SST record (1850-2025). OISST only starts in 1981.\n- Global annual CSV: https://www.metoffice.gov.uk/hadobs/hadsst4/data/data/HadSST.4.2.0.0_annual_GLOBE.csv (2025 anomaly 0.839 C, with full uncertainty columns).\n- Licence: OGL v3, linked from the download page (open-attribution).\n- NOAA ERSSTv5 (public domain) is the US alternative.\n\n5) Argo GDAC, doi:10.17882/42182 (SEANOE snapshot dated 2026-09-08).\n- Licence: CC BY 4.0, verified in the SEANOE metadata.\n- What it adds: the in-situ backbone of every 0-2000 m OHC estimate, needed for the 'how do we know' drilldown.\n\n6) GCOS Earth Heat Inventory: von Schuckmann et al. 2023, 'Heat stored in the Earth system 1960-2020: where does the energy go?', ESSD 15, 1675, doi:10.5194/essd-15-1675-2023.\n- Licence: the paper is CC BY 4.0.\n- What it adds: about 89-91% of the excess heat goes into the ocean, the central causal fact for the ocean section.\n- I could not resolve the data DOI 10.26050/WDCC/GCOS_EHI_1960-2020, so verify the data licence before use.\n\n7) Arctic sea-ice VOLUME. Extent alone hides thinning.\n- PIOMAS (UW Polar Science Center): https://psc.apl.uw.edu/research/projects/arctic-sea-ice-volume-anomaly/data/. The monthly TXT resolves, but there is no licence statement (unclear), so link out only.\n- Open alternative: AWI CryoSat-2/SMOS merged thickness via meereisportal.de / ESA CCI. CC BY 4.0 is expected but I did not verify it.\n\n8) AMOC.\n- Copernicus Marine OMI GLOBAL_OMI_NATLANTIC_amoc_max26N_timeseries (doi:10.48670/moi-00232; reanalysis, 1993-2023; Copernicus Marine licence).\n- The RAPID-MOCHA 26N observations (rapid.ac.uk / BODC) are the observational record, but I did not verify their licence. Important for the 'consequences' story; label it carefully.\n\n9) Ocean deoxygenation: IAP dissolved-oxygen product.\n- The /ftp/cheng/ listing has 'IAP_DO_data_19602025_July2026/'.\n- Licence unclear, like other IAP data; link out only.\n\n10) UHSLC Fast Delivery tide-gauge data (https://uhslc.soest.hawaii.edu/data/).\n- More current than PSMSL RLR for recent months. Licence not verified.\n\n11) NOAA 2022 Sea Level Rise Technical Report (Sweet et al.) and NOAA high-tide-flooding outlooks (CO-OPS).\n- US-government public domain. They give US local projections and nuisance-flood consequences next to AR6.\n- CO-OPS pages are mid-migration, so snapshot them.\n\n12) Greenland surface melt / daily surface mass balance: DMI/GEUS Polar Portal (polarportal.dk).\n- Fills the gap between the 2023 end of IMBIE and the GRACE-FO latency.\n- No licence text found (unclear); link out only.\n\nNote: I could not run further web searches because the session's WebSearch budget was exhausted. Every check above was made by fetching the sources directly."
+ }
+}

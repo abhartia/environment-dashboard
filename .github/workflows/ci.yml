@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths-ignore: ["docs/**", "**/*.md", ".claude/**"]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pipeline:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pipeline
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - name: Lint
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Tests (fixtures are byte-exact slices of real snapshots)
+        run: uv run pytest -q
+      - name: Registry is valid
+        run: uv run envdash validate --registry-only
+      - name: OpenAPI schema is committed and current
+        run: uv run envdash openapi --stdout > /tmp/openapi.json && diff -u schema/openapi.json /tmp/openapi.json
+
+  web:
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - uses: astral-sh/setup-uv@v6
+      - run: npm ci
+      - name: Generated data client matches the schema
+        run: npm run gen:api && git diff --exit-code -- src/gen
+      - name: Values that may be shown but not redistributed (from the private archive)
+        working-directory: pipeline
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: uv sync --frozen && uv run envdash private pull
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - name: Build (static export + check-build)
+        env:
+          NEXT_PUBLIC_SITE_URL: https://environmentdashboard.org
+        run: npm run build

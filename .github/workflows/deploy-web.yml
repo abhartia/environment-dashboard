@@ -1,0 +1,67 @@
+name: Deploy web (Cloudflare Pages)
+
+# Runs on pushes that change what the site shows, by hand, and as the last job of data-refresh.yml (a push made with
+# GITHUB_TOKEN triggers no workflow, so the data refresh calls this one directly with the SHA it pushed).
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", "data/**", "pipeline/schema/**"]
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        description: Commit to deploy
+        required: true
+        type: string
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        working-directory: web
+    env:
+      NEXT_PUBLIC_SITE_URL: https://environmentdashboard.org
+      NEXT_PUBLIC_CF_BEACON_TOKEN: ${{ vars.NEXT_PUBLIC_CF_BEACON_TOKEN }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - uses: astral-sh/setup-uv@v6
+      - run: npm ci
+      - run: node scripts/check-deploy-env.mjs
+      - name: Values that may be shown but not redistributed (from the private archive)
+        working-directory: pipeline
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: uv sync --frozen && uv run envdash private pull
+      - run: npm test && npm run build
+      # The live sitemap before this deploy, so IndexNow is told only what changed. A 404 (no site yet) is an empty
+      # sitemap; any other failure stops the deploy rather than re-submitting everything (gigabiome).
+      - name: Save the sitemap being replaced
+        run: |
+          code=$(curl -sS -o previous-sitemap.xml -w '%{http_code}' https://environmentdashboard.org/sitemap.xml || echo 000)
+          if [ "$code" = 404 ] || [ "$code" = 000 ]; then echo '<urlset></urlset>' > previous-sitemap.xml
+          elif [ "$code" != 200 ]; then echo "sitemap fetch returned $code"; exit 1; fi
+      - name: Upload to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages deploy out --project-name=environmentdashboard --branch=main --commit-dirty=true
+      - name: Tell search engines what changed (IndexNow)
+        run: node scripts/indexnow.mjs previous-sitemap.xml
