@@ -6,7 +6,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "d5bcc0ec0c67d547f3e6747877d669b652130737599f85906f7863840ef19dff",
+      "export_sha256": "f7aff428266989349084395c6c5f4e11ad06e9f80a713fdd4c2525faf84a6265",
       "geo_coverage": "global-only",
       "id": "co2.noaa-gml.annual-global",
       "latest": {
@@ -26,7 +26,7 @@
           "spdx": null,
           "url": "https://www.copyright.gov/title17/92chap1.html#105"
         },
-        "notice": null,
+        "notice": "The NOAA Global Monitoring Laboratory greenhouse gas trend values (Mauna Loa carbon dioxide from May 1974, and the global marine surface means) are US Government material and are not subject to copyright protection in the United States.",
         "origins": [
           {"acquisition": "automatic", "artifact_id": "co2-annmean-gl", "bytes": 2513, "citation_full": "Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09 https://doi.org/10.15138/9N0H-ZH07", "date_accessed": "2026-10-04", "date_published": "2026-09-05", "doi": "10.15138/9N0H-ZH07", "etag": "\"9d1-65af9c4f70378\"", "last_modified": "Tue, 08 Sep 2026 14:44:18 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14", "source_id": "noaa-gml-trends", "title": "Trends in atmospheric carbon dioxide, methane and nitrous oxide", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv", "url_main": "https://gml.noaa.gov/ccgg/trends/", "version_producer": "2026-09", "wayback_url": null}
         ],
@@ -78,7 +78,7 @@
       },
       "downloadable": true,
       "entities": ["MLO"],
-      "export_sha256": "a16376a39d321da79236702e66aa39096d343609c8823cf2d6b3d6739d61546b",
+      "export_sha256": "e90a806a9b5b574cbfb937ee7fb81aa8fe787314c1626ca47a0ee00d94e20db4",
       "geo_coverage": "global-only",
       "id": "co2.noaa-gml.monthly-mlo",
       "latest": {
@@ -98,7 +98,7 @@
           "spdx": null,
           "url": "https://www.copyright.gov/title17/92chap1.html#105"
         },
-        "notice": null,
+        "notice": "The NOAA Global Monitoring Laboratory greenhouse gas trend values (Mauna Loa carbon dioxide from May 1974, and the global marine surface means) are US Government material and are not subject to copyright protection in the United States.",
         "origins": [
           {"acquisition": "automatic", "artifact_id": "co2-mm-mlo", "bytes": 38732, "citation_full": "Lan, X., Tans, P. and K.W. Thoning: Trends in globally-averaged CO2 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09 https://doi.org/10.15138/9N0H-ZH07", "date_accessed": "2026-10-04", "date_published": "2026-09-05", "doi": "10.15138/9N0H-ZH07", "etag": "\"974c-65af9c4f795ec\"", "last_modified": "Tue, 08 Sep 2026 14:44:18 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d", "source_id": "noaa-gml-trends", "title": "Trends in atmospheric carbon dioxide, methane and nitrous oxide", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv", "url_main": "https://gml.noaa.gov/ccgg/trends/", "version_producer": "2026-09", "wayback_url": null}
         ],
@@ -143,7 +143,7 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "cca4ad969cdb47f59bb94cf0fbadb8cd5e4288082b40b5c98ff9caebf724aac3",
+      "export_sha256": "12c21cf454989d6de3a73bcd984703b4f2eb17e56db8cf44fe48d697196bec4b",
       "geo_coverage": "global-only",
       "id": "mitigation.ipcc-ar6.cost-under-100-2030",
       "latest": null,
@@ -167,14 +167,14 @@
             "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
             "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
             "script": "pipeline/src/envdash/transforms/literature.py",
-            "transform_sha256": "45db5196e6832de032e821b8821a3197ea9f3e43253c85dddcecb7a36f7d815e"
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           },
           {
             "description": "Value: \"at least half the 2019 level\" is published as 50 percent of 2019 global greenhouse gas emissions, the lower bound the statement gives; the IPCC states no upper bound.",
             "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
             "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
             "script": "pipeline/src/envdash/transforms/literature.py",
-            "transform_sha256": "45db5196e6832de032e821b8821a3197ea9f3e43253c85dddcecb7a36f7d815e"
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           }
         ],
         "published_value": {

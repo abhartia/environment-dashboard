@@ -7,8 +7,8 @@
 #     https://population.un.org/wpp/assets/downloads.json (the file the WPP downloads page renders), HTTP 200
 #     application/json, quoted below.
 #   - WPP2024_Demographic_Indicators_Medium.csv.gz: HTTP 200 application/x-gzip, 16,557,272 bytes, ETag
-#     "0x8DD1BA9EBFD1565", Last-Modified Fri, 13 Dec 2024. Gzip-compressed CSV: Artifact.format has no gzip value, so
-#     it is declared csv and the transform decompresses it. Columns include LocID, ISO3_code, LocTypeName, Location,
+#     "0x8DD1BA9EBFD1565", Last-Modified Fri, 13 Dec 2024. Gzip-compressed CSV, declared format csv.gz; the snapshot
+#     is the compressed file as served and the transform decompresses it. Columns include LocID, ISO3_code, LocTypeName, Location,
 #     Variant, Time, TPopulation1Jan, TPopulation1July (thousands) and 50 more indicators.
 #   - Interim update (downloads.json "Interim Update" tab, "Release date: 19 January 2026"): Togo's estimates and
 #     medium projection were revised after a double census adjustment ("The following files have been updated to
@@ -69,7 +69,7 @@ acquisition: automatic
 artifacts:
   - id: demographic-indicators-medium
     url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz
-    format: csv
+    format: csv.gz
     description: >-
       WPP2024_Demographic_Indicators_Medium.csv.gz (gzip-compressed CSV): one row per location and year, estimates
       1950-2023 and medium projection 2024-2100, with total population (thousands) and the other demographic

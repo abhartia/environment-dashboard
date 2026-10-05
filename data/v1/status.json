@@ -1,8 +1,17 @@
 {
-  "generated_at": "2026-10-05T02:19:51Z",
+  "generated_at": "2026-10-05T02:48:50Z",
   "run_url": null,
   "schema_version": 1,
   "sources": {
+    "aviso-gmsl": {
+      "checked_at": "2026-10-05T02:27:05Z",
+      "last_success": "2026-10-05T02:27:05Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
     "bereiter-2015-co2": {
       "checked_at": "2026-10-05T01:26:04Z",
       "last_success": "2026-10-05T01:26:04Z",
@@ -22,12 +31,12 @@
       "vintage": null
     },
     "c3s-era5-bulletin": {
-      "checked_at": "2026-10-05T01:26:06Z",
-      "last_success": "2026-10-05T01:26:06Z",
+      "checked_at": "2026-10-05T02:38:49Z",
+      "last_success": "2026-10-05T02:38:49Z",
       "manual_last_verified": null,
-      "reason": "terms_check 'api' has no automated check yet",
-      "state": "ok",
-      "terms": "unverifiable",
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
       "vintage": null
     },
     "edgar-2026-ghg": {
@@ -40,11 +49,11 @@
       "vintage": null
     },
     "fao-fra-2025": {
-      "checked_at": "2026-10-05T01:26:14Z",
-      "last_success": "2026-10-05T01:26:14Z",
+      "checked_at": "2026-10-05T02:39:42Z",
+      "last_success": "2026-10-05T02:39:42Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
@@ -103,8 +112,8 @@
       "vintage": null
     },
     "hadcrut5": {
-      "checked_at": "2026-10-05T01:27:13Z",
-      "last_success": "2026-10-05T01:27:13Z",
+      "checked_at": "2026-10-05T02:48:44Z",
+      "last_success": "2026-10-05T02:48:44Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
@@ -130,8 +139,8 @@
       "vintage": null
     },
     "ipcc-ar6-wg3-spm": {
-      "checked_at": "2026-10-05T01:27:13Z",
-      "last_success": "2026-10-05T01:27:13Z",
+      "checked_at": "2026-10-05T02:48:44Z",
+      "last_success": "2026-10-05T02:48:44Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
@@ -156,6 +165,15 @@
       "terms": "unverifiable",
       "vintage": null
     },
+    "natural-earth": {
+      "checked_at": "2026-10-05T02:27:08Z",
+      "last_success": "2026-10-05T02:27:08Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
     "noaa-aggi": {
       "checked_at": "2026-10-05T01:26:52Z",
       "last_success": "2026-10-05T01:26:52Z",
@@ -165,9 +183,18 @@
       "terms": "unchanged",
       "vintage": null
     },
+    "noaa-crw": {
+      "checked_at": "2026-10-05T02:27:08Z",
+      "last_success": "2026-10-05T02:27:08Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
     "noaa-gml-trends": {
-      "checked_at": "2026-10-05T01:27:14Z",
-      "last_success": "2026-10-05T01:27:14Z",
+      "checked_at": "2026-10-05T02:48:45Z",
+      "last_success": "2026-10-05T02:48:45Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
@@ -175,8 +202,17 @@
       "vintage": "2026-09"
     },
     "noaaglobaltemp-v6": {
-      "checked_at": "2026-10-05T01:26:54Z",
-      "last_success": "2026-10-05T01:26:54Z",
+      "checked_at": "2026-10-05T02:38:51Z",
+      "last_success": "2026-10-05T02:38:51Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "oisst-v2": {
+      "checked_at": "2026-10-05T02:38:53Z",
+      "last_success": "2026-10-05T02:38:53Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
@@ -186,6 +222,15 @@
     "poore-nemecek-2018": {
       "checked_at": "2026-10-05T01:26:54Z",
       "last_success": "2026-10-05T01:26:54Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "rutgers-snow-cdr": {
+      "checked_at": "2026-10-05T02:38:55Z",
+      "last_success": "2026-10-05T02:38:55Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",

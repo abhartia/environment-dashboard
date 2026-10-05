@@ -1,0 +1,13 @@
+{
+  "artifact_id": "admin-0-tiny-countries-50m",
+  "command": "uv run python tests/fixtures/make_fixture.py --source natural-earth --artifact admin-0-tiny-countries-50m --whole",
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 48343,
+  "fixture_sha256": "e6b63e61220a65a78dfddd67cdec3aadd1e335e904de12c98442e693e62ce9d2",
+  "full_bytes": 48343,
+  "full_sha256": "e6b63e61220a65a78dfddd67cdec3aadd1e335e904de12c98442e693e62ce9d2",
+  "licence": "Public domain (Natural Earth terms of use)",
+  "rows_kept": "the whole file (48,343 bytes)",
+  "source_id": "natural-earth",
+  "url": "https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_tiny_countries.zip"
+}

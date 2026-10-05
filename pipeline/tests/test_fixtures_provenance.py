@@ -24,6 +24,7 @@ def test_fixture_matches_its_sidecar(side):
         assert meta[k]
     src = load_registry(Paths.default()).sources[meta["source_id"]]
     assert src.licence_class == "open"
+    assert src.obligations.mirror_raw, "fixtures are public: only sources whose raw files may be re-hosted"
 
 
 @pytest.mark.snapshot
@@ -32,12 +33,9 @@ def test_fixture_is_an_exact_slice_of_the_snapshot(side):
     import sys
 
     sys.path.insert(0, str(FIXTURES))
-    from make_fixture import cut
+    from make_fixture import cut_from_command
 
     meta = json.loads(side.read_text())
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     assert canonical.sha256_bytes(raw) == meta["full_sha256"]
-    args = meta["command"].split()
-    first, last = int(args[args.index("--first") + 1]), int(args[args.index("--last") + 1])
-    sliced, _ = cut(raw, first, last)
-    assert canonical.sha256_bytes(sliced) == meta["fixture_sha256"]
+    assert canonical.sha256_bytes(cut_from_command(raw, meta["command"])) == meta["fixture_sha256"]

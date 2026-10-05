@@ -13,11 +13,12 @@
 # Artifact checked 2026-10-04: nhsce_v01r01_19661004_20260831.nc, HTTP 200, 24,602,081 bytes, ETag
 # "17765e1-65ab083eec103", Last-Modified 4 Sep 2026, answers If-None-Match with 304; date_created 2026-09-03T19:36:11Z,
 # time_coverage 1966-10-04 to 2026-08-31, 3,126 weekly maps on an 88 x 88 grid, product_version v01r01.
-# The URL is pinned to this file and must be bumped with each NCEI update. The file name carries the last week's date
-# and NCEI keeps only the newest file: the access directory and the THREDDS catalogue (cdr/snowcover) list just this
-# one, earlier names such as nhsce_v01r01_19661004_20260731.nc answer HTTP 404, and no "latest" alias exists. The AWS
-# Open Data copy (noaa-cdr-snow-cover-ext-north-pds) stops at nhsce_v01r01_19661004_20210405.nc. Until the URL is
-# updated, a fetch after NCEI's next release fails with HTTP 404 and the last validated vintage stays.
+# The file name carries the last week's date and NCEI keeps only the newest file: the access directory and the THREDDS
+# catalogue (cdr/snowcover) list just this one, earlier names such as nhsce_v01r01_19661004_20260731.nc answer HTTP
+# 404, and no "latest" alias exists. The AWS Open Data copy (noaa-cdr-snow-cover-ext-north-pds) stops at
+# nhsce_v01r01_19661004_20210405.nc. So the file is found through `discover`: each fetch reads the access directory
+# index and takes the nhsce_v01r01_19661004_<end date>.nc with the latest end date (envdash/discovery.py), and the
+# snapshot manifest records the exact URL; on 2026-10-04 it resolved to the 20260831 file above.
 # citation.text: the NCEI "Cite as" text, with "[indicate subset used]" filled and "[access date]" as {date_accessed}.
 # The file's references attribute points to Estilow, Young and Robinson (2015), doi:10.5194/essd-7-137-2015.
 id: rutgers-snow-cdr
@@ -74,17 +75,20 @@ obligations:
 acquisition: automatic
 artifacts:
   - id: nhsce-weekly-grid
-    url: https://www.ncei.noaa.gov/data/snow-cover-extent/access/nhsce_v01r01_19661004_20260831.nc
+    url: null
+    discover:
+      listing_url: https://www.ncei.noaa.gov/data/snow-cover-extent/access/
+      link_pattern: 'https://www\.ncei\.noaa\.gov/data/snow-cover-extent/access/nhsce_v01r01_19661004_(?P<key>\d{8})\.nc'
     format: nc
     description: >-
       NetCDF (CF-1.7): snow_cover_extent(time, y, x) flags 0 = no snow, 1 = snow covered; land (land mask) and area
-      (km2) per cell; time in days since 1966-10-03, one map per week. Pinned to the release covering weeks to 31
-      August 2026; NCEI replaces the file under a new name at each update.
+      (km2) per cell; time in days since 1966-10-03, one map per week. NCEI replaces the file under a new name at
+      each update; found through discover (the release covering weeks to 31 August 2026 on 2026-10-04).
 status:
   state: active
   note: >-
     NCEI updates the file about monthly (the 4 September 2026 release runs to the week of 31 August 2026) and removes
-    the previous one, so the URL here has to be updated with each release. The record depends on the US National Ice
+    the previous one; the fetch finds the new name from the directory listing. The record depends on the US National Ice
     Center's IMS charts and NOAA's CDR Program; the FY2027 US budget request (April 2026) proposes cutting NCEI by $17.8
     million.
   us_federal: true

@@ -1,0 +1,13 @@
+{
+  "artifact_id": "global-bleaching-status",
+  "command": "uv run python tests/fixtures/make_fixture.py --source noaa-crw --artifact global-bleaching-status --lines 290:345",
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 1750,
+  "fixture_sha256": "a2a5958009c0180ee752d0697ef7c57c1c9a9f1fe457e62e291f14061c1d9eca",
+  "full_bytes": 25234,
+  "full_sha256": "d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13",
+  "licence": "Public domain (NOAA Coral Reef Watch; US federal government work)",
+  "rows_kept": "lines 290-345 of 576",
+  "source_id": "noaa-crw",
+  "url": "https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php"
+}

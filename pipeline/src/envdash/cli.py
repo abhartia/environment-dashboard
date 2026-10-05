@@ -9,12 +9,12 @@ from typing import Annotated
 import typer
 
 from envdash import archive as archive_mod
-from envdash import canonical, snapshots
+from envdash import canonical, contentkey, geo, snapshots
 from envdash import issues as issues_mod
 from envdash import openapi as openapi_mod
 from envdash import private as private_mod
 from envdash.export import BuildReport, build_and_export
-from envdash.fetch import SourceFetch, fetch_all, now_iso
+from envdash.fetch import FetchError, SourceFetch, fetch_all, make_client, now_iso, resolve_url
 from envdash.paths import Paths
 from envdash.registry import Registry, load_registry
 from envdash.status import read_status, update_status
@@ -26,6 +26,8 @@ snapshot_app = typer.Typer(no_args_is_help=True, help="Record raw files.")
 app.add_typer(snapshot_app, name="snapshot")
 private_app = typer.Typer(no_args_is_help=True, help="Exports we may show but not redistribute (private R2 bucket).")
 app.add_typer(private_app, name="private")
+geo_app = typer.Typer(no_args_is_help=True, help="The entity crosswalk (pipeline/geo/entities.csv).")
+app.add_typer(geo_app, name="geo")
 
 SourceOpt = Annotated[list[str] | None, typer.Option("--source", "-s", help="Only these source ids (repeatable).")]
 
@@ -45,6 +47,11 @@ def _print_fetch(results: dict[str, SourceFetch]) -> None:
         typer.echo(line)
         if r.reason:
             typer.echo(f"            {r.reason}")
+        for a in r.artifacts:
+            if a.resolved_url:
+                typer.echo(f"            {a.artifact_id} resolved to {a.resolved_url}")
+            if a.reason and a.outcome != "failed":
+                typer.echo(f"            {a.artifact_id}: {a.reason}")
 
 
 def _print_build(report: BuildReport) -> None:
@@ -187,6 +194,8 @@ def snapshot_add(
         acquisition="manual",
         today=date.fromisoformat(accessed) if accessed else date.today(),
         note=note,
+        content_key=art.content_key,
+        content_sha256=contentkey.content_sha256(art, data),
     )
     snapshots.set_current(paths, {snapshots.key(source, artifact): snap.sha256})
     typer.echo(
@@ -227,6 +236,32 @@ def archive_cmd(
     if wayback:
         for url, cap in archive_mod.wayback_all(paths, sources).items():
             typer.echo(f"  wayback {cap.status:<8} {url}" + (f" ({cap.reason})" if cap.reason else ""))
+
+
+@app.command()
+def resolve(source: SourceOpt = None) -> None:
+    """Resolve the URL of every artifact with discover (reads the listings only; downloads nothing)."""
+    paths = _paths()
+    reg = load_registry(paths)
+    failed = 0
+    with make_client() as client:
+        for sid, src in sorted(reg.sources.items()):
+            if source and sid not in source:
+                continue
+            for art in src.artifacts:
+                if art.discover is None:
+                    continue
+                try:
+                    url, found = resolve_url(client, art)
+                except FetchError as e:
+                    failed += 1
+                    typer.echo(f"  failed   {sid}/{art.id}: {e}")
+                    continue
+                assert found is not None
+                via = f" via {found.sublisting_url}" if found.sublisting_url else ""
+                typer.echo(f"  resolved {sid}/{art.id} key {found.key}: {url}{via}")
+    if failed:
+        raise typer.Exit(1)
 
 
 @app.command()
@@ -293,6 +328,14 @@ def private_pull() -> None:
         typer.echo(str(e), err=True)
         raise typer.Exit(1) from None
     typer.echo(f"private pull: {len(done)} export(s) present and verified")
+
+
+@geo_app.command("build")
+def geo_build() -> None:
+    """Rebuild pipeline/geo/entities.csv from the current natural-earth snapshots and the declared rows."""
+    paths = _paths()
+    changed = geo.write(paths)
+    typer.echo(f"{paths.rel(geo.entities_path(paths))} {'written' if changed else 'unchanged'}")
 
 
 @app.command("report-issues")

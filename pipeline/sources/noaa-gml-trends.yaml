@@ -1,5 +1,16 @@
 # NOAA Global Monitoring Laboratory greenhouse-gas trend files (CO2, CH4, N2O).
 # Evidence: docs/research/sources-atmosphere-and-temperature.json ("NOAA GML Trends in Atmospheric Carbon Dioxide").
+# Licence evidence: the data-use statement in the '#' header of every trend file (terms_url below; the quote is checked
+# against the file's text with the comment markers removed). GML's site-wide "Disclaimer and Terms of Reference"
+# (https://gml.noaa.gov/about/disclaimer.html, HTTP 200, re-read 2026-10-04, also the terms_url of noaa-aggi) applies
+# to these files too: public domain "so long as you do not 1) claim it is your own (e.g. by claiming copyright for
+# NOAA information – see next paragraph), 2) use it in a manner that implies an endorsement or affiliation with NOAA,
+# or 3) modify it in content and then present it as official government material", and "As required by 17 U.S.C.
+# 403, third parties producing copyrighted works consisting predominantly of the material appearing in NOAA web pages
+# must provide notice with such work(s) identifying the NOAA material incorporated and stating that such material is
+# not subject to copyright protection." Hence no_endorsement, the notice, and "Not official NOAA material" on the
+# modified credit line, as for noaa-aggi. The Mauna Loa values before May 1974 are Scripps measurements (C. David
+# Keeling), so the notice names only the NOAA material.
 id: noaa-gml-trends
 title: Trends in atmospheric carbon dioxide, methane and nitrous oxide
 publisher: NOAA Global Monitoring Laboratory
@@ -43,7 +54,12 @@ obligations:
   attribution_modified: >-
     Calculated by Environment Dashboard from NOAA Global Monitoring Laboratory data (Lan, Tans & Thoning), version
     {version}, doi:10.15138/9N0H-ZH07. Mauna Loa data March 1958 to April 1974: C. David Keeling, Scripps Institution
-    of Oceanography.
+    of Oceanography. Not official NOAA material.
+  notice: >-
+    The NOAA Global Monitoring Laboratory greenhouse gas trend values (Mauna Loa carbon dioxide from May 1974, and
+    the global marine surface means) are US Government material and are not subject to copyright protection in the
+    United States.
+  no_endorsement: true
   mirror_raw: true
 acquisition: automatic
 artifacts:

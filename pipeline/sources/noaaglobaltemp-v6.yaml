@@ -7,8 +7,11 @@
 # URLs below go stale at each monthly release. Pattern, from 00_Readme_timeseries.txt:
 #   https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/
 #     aravg.{ann|mon}.{land_ocean|land|ocean}.{south}.{north}.v6.1.0.{yyyymm}.asc
-# The fetcher must read the directory listing and record the exact file name it took. Current set: 202608 (all HTTP
-# 200 on 2026-10-04, Last-Modified 08 Sep 2026, ETag present).
+# So the three data files are found through `discover`: each fetch reads the directory listing and takes the file
+# whose yyyymm is the largest (envdash/discovery.py); the snapshot manifest records the exact URL taken. Current set:
+# 202608 (all HTTP 200 on 2026-10-04, Last-Modified 08 Sep 2026, ETag present; resolved by `envdash resolve` and
+# fetched on 2026-10-04). The three are resolved independently, so a fetch during NCEI's monthly swap could take
+# different months; the transform must check that the three file names carry the same yyyymm.
 # Not used: the Climate at a Glance CSV (stable URL, but a 1901-2000 base period and two decimals). Never mix the two
 # baselines.
 id: noaaglobaltemp-v6
@@ -65,20 +68,30 @@ obligations:
 acquisition: automatic
 artifacts:
   - id: global-annual
-    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc
+    url: null
+    discover:
+      listing_url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/
+      link_pattern: 'https://www\.ncei\.noaa\.gov/data/noaa-global-surface-temperature/v6\.1/access/timeseries/aravg\.ann\.land_ocean\.90S\.90N\.v6\.1\.0\.(?P<key>\d{6})\.asc'
     format: txt
     description: >-
       Global (90°S–90°N) land-ocean annual anomaly from 1850, kelvin relative to 1991–2020. Whitespace columns: year,
-      anomaly, then four error variances (all -999). File name changes monthly (see header comment).
+      anomaly, then four error variances (all -999). The file name carries the month of the latest data and
+      changes monthly; found through discover (see header comment).
   - id: global-monthly
-    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.mon.land_ocean.90S.90N.v6.1.0.202608.asc
+    url: null
+    discover:
+      listing_url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/
+      link_pattern: 'https://www\.ncei\.noaa\.gov/data/noaa-global-surface-temperature/v6\.1/access/timeseries/aravg\.mon\.land_ocean\.90S\.90N\.v6\.1\.0\.(?P<key>\d{6})\.asc'
     format: txt
     description: >-
       Global (90°S–90°N) land-ocean monthly anomaly from January 1850, kelvin relative to 1991–2020. Whitespace
       columns: year, month, anomaly, error variances and diagnostics (all -999). Used to tell complete years from the
       partial current year. File name changes monthly.
   - id: arctic-annual
-    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.60N.90N.v6.1.0.202608.asc
+    url: null
+    discover:
+      listing_url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/
+      link_pattern: 'https://www\.ncei\.noaa\.gov/data/noaa-global-surface-temperature/v6\.1/access/timeseries/aravg\.ann\.land_ocean\.60N\.90N\.v6\.1\.0\.(?P<key>\d{6})\.asc'
     format: txt
     description: >-
       60°N–90°N land-ocean annual anomaly from 1850, kelvin relative to 1991–2020, for the Arctic-versus-global

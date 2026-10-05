@@ -17,8 +17,10 @@
 # Artifacts checked 2026-10-04: the bulk-download endpoint with countryIso=WO answers HTTP 200 application/zip,
 # 1,377,159 bytes, 133 files, no ETag or Last-Modified. The zip is generated per request and every file name carries
 # the download date (e.g. FRA_Years_2026-10-05.csv), so its sha256 changes on every fetch even when the data do not
-# (conditional false; the transform must key on contents, not the zip hash). Without countryIso it returned HTTP 500
-# in research. The report PDF bitstream answers HTTP 206 to a ranged GET, application/pdf, 8,585,230 bytes, ETag
+# (conditional false). So the artifact declares content_key zip-members with the date removed from member names: a
+# download whose members (names without the date, and bytes) are unchanged keeps the current snapshot. Two downloads
+# on 2026-10-04 had different sha256 and the same fingerprint (all 133 members byte-identical). Without countryIso
+# it returned HTTP 500 in research. The report PDF bitstream answers HTTP 206 to a ranged GET, application/pdf, 8,585,230 bytes, ETag
 # "bfcf1b18a9f5360baa693fcd6a04029e", Last-Modified 2025-10-21. doi.org/10.4060/cd6709en resolves to the
 # OpenKnowledge handle page (JavaScript-gated), so the REST bitstream is the stable file URL.
 # Summing the platform's country rows undercounts global deforestation (non-reporting countries); global
@@ -90,6 +92,8 @@ artifacts:
       plus combined files with flags), Tiers, NDPYear, README.txt. File names carry the download date.
     access: {conditional: false}
     max_bytes: 50000000
+    content_key: zip-members
+    member_name_ignore: '_\d{4}-\d{2}-\d{2}(?=\.csv$)'
   - id: report-2025
     url: https://openknowledge.fao.org/server/api/core/bitstreams/12322cae-5b20-4be2-927a-72a86fd319e9/content
     format: pdf

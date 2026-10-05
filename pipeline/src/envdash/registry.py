@@ -90,9 +90,33 @@ def load_registry(paths: Paths) -> Registry:
         if lit.id != lid:
             reg.literature_errors[lid] = f"literature/{path.name}: id {lit.id!r} does not match the file name"
             continue
+        locator = _literature_locator_problem(reg, lit)
+        if locator:
+            reg.literature_errors[lid] = f"literature/{path.name}: {locator}"
+            continue
         reg.literature[lid] = lit
         reg.literature_files[lid] = path
     return reg
+
+
+QUOTABLE_TEXT_FORMATS = frozenset({"html", "json", "xml", "txt"})
+
+
+def _literature_locator_problem(reg: Registry, lit: LiteratureValue) -> str | None:
+    """A PDF artifact needs pdf_page; an html, json, xml or txt artifact is searched whole and takes none."""
+    src = reg.sources.get(lit.source_id)
+    if src is None:
+        return None  # reported against the source; the build fails the indicator for it
+    art = next((a for a in src.artifacts if a.id == lit.artifact_id), None)
+    if art is None:
+        return f"source {lit.source_id} has no artifact {lit.artifact_id!r}"
+    if art.format == "pdf" and lit.pdf_page is None:
+        return f"{lit.source_id}/{lit.artifact_id} is a PDF: pdf_page is required"
+    if art.format != "pdf" and lit.pdf_page is not None:
+        return f"{lit.source_id}/{lit.artifact_id} is {art.format}, not a PDF: pdf_page must be null"
+    if art.format != "pdf" and art.format not in QUOTABLE_TEXT_FORMATS:
+        return f"{lit.source_id}/{lit.artifact_id} is {art.format}: quotes are checked in pdf, html, json, xml or txt"
+    return None
 
 
 def _bad_placeholders(src: Source) -> set[str]:

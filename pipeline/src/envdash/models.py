@@ -87,8 +87,9 @@ class LicenceEvidence(Strict):
     licence_quote: str = Field(min_length=20, description="Verbatim text from terms_url that the class relies on.")
     checked_on: date
     terms_check: Literal["api", "page", "pdf", "manual"] = Field(
-        description="How the weekly run re-checks the quote: a machine-readable licence field, the page's text, "
-        "a PDF's text, or a person each quarter (bot-walled pages)."
+        description="How the weekly run re-checks the quote: a machine-readable licence field (api: the JSON or XML "
+        "response's text), the page's text, a PDF's text, or a person each quarter (bot-walled pages). api, page and "
+        "pdf all match the quote against the normalised text of the body fetched from terms_url."
     )
 
 
@@ -144,19 +145,154 @@ class Access(Strict):
     method: Literal["GET"] = "GET"
     auth: Literal["none", "earthdata", "api-key", "cmems"] = "none"
     auth_env: str | None = Field(default=None, description="Env var holding the credential (from Keychain/secret).")
+    key_header: str | None = Field(
+        default=None,
+        description="auth api-key: the request header that carries the key (e.g. x-api-key). Set this or key_query.",
+    )
+    key_query: str | None = Field(
+        default=None,
+        description="auth api-key: the query parameter that carries the key (e.g. client_id). Set this or key_header.",
+    )
     cookie_accept_url: HttpUrl | None = Field(default=None, description="Licence click-through to visit first.")
     conditional: bool = Field(default=True, description="Server honours ETag/If-Modified-Since.")
+
+    @model_validator(mode="after")
+    def _consistent(self) -> Access:
+        if (self.key_header or self.key_query) and self.auth != "api-key":
+            raise ValueError("key_header and key_query apply only to auth api-key")
+        if self.key_header and self.key_query:
+            raise ValueError("set key_header or key_query, not both")
+        return self
+
+
+_MONTHS = {
+    m: i
+    for i, names in enumerate(
+        [
+            ("january", "jan"),
+            ("february", "feb"),
+            ("march", "mar"),
+            ("april", "apr"),
+            ("may",),
+            ("june", "jun"),
+            ("july", "jul"),
+            ("august", "aug"),
+            ("september", "sep", "sept"),
+            ("october", "oct"),
+            ("november", "nov"),
+            ("december", "dec"),
+        ],
+        start=1,
+    )
+    for m in names
+}
+
+
+def discover_key(m: re.Match[str]) -> str:
+    """The comparable key of a link matched by a Discover pattern: the group `key` as written, or, for patterns with
+    groups `year` and `month` instead, "YYYY-MM" (month as a number or an English month name or abbreviation)."""
+    groups = m.groupdict()
+    if groups.get("key") is not None:
+        return groups["key"]
+    month = groups["month"].lower()
+    num = int(month) if month.isdigit() else _MONTHS.get(month)
+    if num is None or not 1 <= num <= 12:
+        raise ValueError(f"{groups['month']!r} is not a month")
+    return f"{int(groups['year']):04d}-{num:02d}"
+
+
+def _key_pattern(pattern: str, what: str) -> str:
+    try:
+        rx = re.compile(pattern)
+    except re.error as e:
+        raise ValueError(f"{what} {pattern!r} is not a valid regex: {e}") from None
+    names = set(rx.groupindex)
+    if "key" not in names and not {"year", "month"} <= names:
+        raise ValueError(f"{what} {pattern!r} needs a named group 'key' (or groups 'year' and 'month')")
+    return pattern
+
+
+class Discover(Strict):
+    """How to find the current file of an artifact whose file name changes on a schedule (a month or date in the
+    name, a new upload folder each month). envdash/discover.py reads `listing_url` (an HTML page or directory
+    listing), takes every link (href, resolved against the page URL, fragment dropped) and keeps those whose absolute
+    URL matches `link_pattern` in full. The file taken is the one with the largest key. Keys are compared as text and
+    must all have the same length (so fixed-width dates such as 202608 or 2026-08-31 order correctly); a tie between
+    two different URLs, keys of different lengths, or no match at all is a failure, never a guess. The resolved URL
+    is what is downloaded and what the snapshot manifest records as its url, with the listing(s) read in
+    `discovery`.
+
+    With `sublisting_pattern`, the links on `listing_url` that match it are listings themselves (monthly
+    directories, monthly bulletin pages). They are read newest key first, and the first one with at least one
+    `link_pattern` match supplies the file; at most `max_sublistings` are read before failing. This finds the newest
+    file when the newest directory does not yet hold one (OISST final files lag the preliminary ones by two weeks)."""
+
+    listing_url: HttpUrl = Field(description="The page or directory listing that links to the file.")
+    link_pattern: str = Field(
+        description="Regex matched in full against each link's absolute URL, with a named group 'key' (or 'year' and "
+        "'month'). The file taken is the match with the largest key."
+    )
+    choose: Literal["max"] = Field(default="max", description="Which match to take: the largest key.")
+    sublisting_pattern: str | None = Field(
+        default=None,
+        description="Regex, as link_pattern, for links on listing_url that are listings to search for link_pattern "
+        "(newest key first). A link without a trailing slash is read as a directory (slash added) when the listing is "
+        "a directory index.",
+    )
+    max_sublistings: int = Field(default=2, ge=1, le=12, description="How many sublistings to read before failing.")
+
+    @model_validator(mode="after")
+    def _patterns(self) -> Discover:
+        _key_pattern(self.link_pattern, "link_pattern")
+        if self.sublisting_pattern is not None:
+            _key_pattern(self.sublisting_pattern, "sublisting_pattern")
+        return self
+
+
+ArtifactFormat = Literal["csv", "csv.gz", "txt", "tsv", "xlsx", "xls", "json", "xml", "zip", "nc", "pdf", "html", "rds"]
 
 
 class Artifact(Strict):
     """One file (or API response) of a source."""
 
     id: Annotated[str, _match(SOURCE_ID, "artifact id")]
-    url: HttpUrl | None = Field(description="Direct download URL; null for manual-only files.")
-    format: Literal["csv", "txt", "tsv", "xlsx", "json", "zip", "nc", "pdf", "html"]
+    url: HttpUrl | None = Field(
+        description="Direct download URL; null for manual-only files and for files found through `discover`."
+    )
+    format: ArtifactFormat
     description: str
     access: Access = Access()
     max_bytes: int = Field(default=200_000_000, description="Refuse anything larger (protects R2 and runners).")
+    discover: Discover | None = Field(
+        default=None, description="Find the URL from a listing at each fetch, for files whose names change."
+    )
+    content_key: Literal["zip-members"] | None = Field(
+        default=None,
+        description="For files rebuilt on every request (a zip generated per download): zip-members fingerprints the "
+        "sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. "
+        "A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest "
+        "records both the raw sha256 and this content_sha256.",
+    )
+    member_name_ignore: str | None = Field(
+        default=None,
+        description="content_key zip-members: a regex whose matches are removed from member names before "
+        "fingerprinting, for producers that stamp the download date into every member name.",
+    )
+
+    @model_validator(mode="after")
+    def _consistent(self) -> Artifact:
+        if self.url is not None and self.discover is not None:
+            raise ValueError(f"artifact {self.id}: set url or discover, not both")
+        if self.content_key == "zip-members" and self.format != "zip":
+            raise ValueError(f"artifact {self.id}: content_key zip-members needs format zip")
+        if self.member_name_ignore is not None:
+            if self.content_key is None:
+                raise ValueError(f"artifact {self.id}: member_name_ignore applies only with a content_key")
+            try:
+                re.compile(self.member_name_ignore)
+            except re.error as e:
+                raise ValueError(f"artifact {self.id}: member_name_ignore is not a valid regex: {e}") from None
+        return self
 
 
 class SourceStatus(Strict):
@@ -194,8 +330,8 @@ class Source(Strict):
     def _consistent(self) -> Source:
         if self.licence_class in {"no-derivatives", "display-only", "excluded"} and self.obligations.mirror_raw:
             raise ValueError(f"{self.id}: class {self.licence_class} cannot have mirror_raw=true")
-        if self.acquisition == "automatic" and any(a.url is None for a in self.artifacts):
-            raise ValueError(f"{self.id}: automatic sources need a url on every artifact")
+        if self.acquisition == "automatic" and any(a.url is None and a.discover is None for a in self.artifacts):
+            raise ValueError(f"{self.id}: automatic sources need a url (or discover) on every artifact")
         return self
 
 
@@ -207,6 +343,14 @@ class WaybackCapture(Strict):
     url: HttpUrl | None = None
     captured_at: str | None = None
     reason: str | None = None
+
+
+class SnapshotDiscovery(Strict):
+    """How the url of a discovered artifact was found (see Discover)."""
+
+    listing_url: HttpUrl = Field(description="The listing read first.")
+    sublisting_url: HttpUrl | None = Field(default=None, description="The sublisting the file was found on, if any.")
+    key: str = Field(description="The key of the link taken (the largest).")
 
 
 class Snapshot(Strict):
@@ -227,6 +371,15 @@ class Snapshot(Strict):
     compression: Literal["zstd"] | None = "zstd"
     wayback: WaybackCapture | None = None
     note: str | None = Field(default=None, description="For manual files: who downloaded it from where.")
+    discovery: SnapshotDiscovery | None = Field(
+        default=None, description="For artifacts with discover: the listing that url was resolved from."
+    )
+    content_key: Literal["zip-members"] | None = Field(
+        default=None, description="The artifact's content_key when these bytes were recorded."
+    )
+    content_sha256: Sha256 | None = Field(
+        default=None, description="Fingerprint of the content under content_key (sha256 stays the raw bytes')."
+    )
 
 
 # --- indicators ---------------------------------------------------------------------------------------------------
@@ -474,8 +627,10 @@ class LiteratureObservation(Strict):
 
 
 class LiteratureValue(Strict):
-    """A value quoted from a paper or report. The build checks that `quote` appears in the text of the snapshot of
-    `source_id`/`artifact_id` (on `pdf_page`) and refuses to publish it otherwise."""
+    """A value quoted from a paper, report or web page. The build checks that `quote` appears in the text of the
+    snapshot of `source_id`/`artifact_id` and refuses to publish it otherwise: for a PDF artifact, the text of page
+    `pdf_page`; for an html, json, xml or txt artifact (pdf_page null), the snapshot's whole normalised visible text
+    (envdash.textmatch.snapshot_text)."""
 
     id: SourceId = Field(description="Equals the file name.")
     indicator_id: IndicatorId
@@ -490,7 +645,12 @@ class LiteratureValue(Strict):
     headline_entity: EntityCode
     vintage: str = Field(description='The edition of the document quoted, e.g. "AR6 WGIII (2022)".')
     locator: str = Field(description='Where in the document, as printed, e.g. "SPM statement C.12, p. 37".')
-    pdf_page: int = Field(ge=1, description="1-based page of the PDF file whose text must contain the quote.")
+    pdf_page: int | None = Field(
+        default=None,
+        ge=1,
+        description="1-based page of the PDF file whose text must contain the quote. Required for a PDF artifact; "
+        "null for html, json, xml and txt artifacts, whose whole visible text is searched.",
+    )
     quote: str = Field(min_length=20, description="Verbatim text the value is taken from.")
     value_text: str = Field(description="The words inside `quote` that state the value.")
     value_reading: str = Field(description="How value_text becomes the number published, in words.")

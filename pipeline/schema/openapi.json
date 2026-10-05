@@ -35,6 +35,24 @@
             "description": "Licence click-through to visit first.",
             "title": "Cookie Accept Url"
           },
+          "key_header": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "auth api-key: the request header that carries the key (e.g. x-api-key). Set this or key_query.",
+            "title": "Key Header"
+          },
+          "key_query": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "auth api-key: the query parameter that carries the key (e.g. client_id). Set this or key_header.",
+            "title": "Key Query"
+          },
           "method": {
             "const": "GET",
             "default": "GET",
@@ -42,7 +60,7 @@
             "type": "string"
           }
         },
-        "required": ["method", "auth", "auth_env", "cookie_accept_url", "conditional"],
+        "required": ["method", "auth", "auth_env", "key_header", "key_query", "cookie_accept_url", "conditional"],
         "title": "Access",
         "type": "object"
       },
@@ -57,15 +75,34 @@
               "auth_env": null,
               "conditional": true,
               "cookie_accept_url": null,
+              "key_header": null,
+              "key_query": null,
               "method": "GET"
             }
+          },
+          "content_key": {
+            "anyOf": [
+              {"const": "zip-members", "type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.",
+            "title": "Content Key"
           },
           "description": {
             "title": "Description",
             "type": "string"
           },
+          "discover": {
+            "anyOf": [
+              {"$ref": "#/components/schemas/Discover"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Find the URL from a listing at each fetch, for files whose names change."
+          },
           "format": {
-            "enum": ["csv", "txt", "tsv", "xlsx", "json", "zip", "nc", "pdf", "html"],
+            "enum": ["csv", "csv.gz", "txt", "tsv", "xlsx", "xls", "json", "xml", "zip", "nc", "pdf", "html", "rds"],
             "title": "Format",
             "type": "string"
           },
@@ -79,16 +116,25 @@
             "title": "Max Bytes",
             "type": "integer"
           },
+          "member_name_ignore": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "content_key zip-members: a regex whose matches are removed from member names before fingerprinting, for producers that stamp the download date into every member name.",
+            "title": "Member Name Ignore"
+          },
           "url": {
             "anyOf": [
               {"format": "uri", "maxLength": 2083, "minLength": 1, "type": "string"},
               {"type": "null"}
             ],
-            "description": "Direct download URL; null for manual-only files.",
+            "description": "Direct download URL; null for manual-only files and for files found through `discover`.",
             "title": "Url"
           }
         },
-        "required": ["id", "url", "format", "description", "access", "max_bytes"],
+        "required": ["id", "url", "format", "description", "access", "max_bytes", "discover", "content_key", "member_name_ignore"],
         "title": "Artifact",
         "type": "object"
       },
@@ -314,6 +360,52 @@
         "title": "DimensionValue",
         "type": "object"
       },
+      "Discover": {
+        "additionalProperties": false,
+        "description": "How to find the current file of an artifact whose file name changes on a schedule (a month or date in the\nname, a new upload folder each month). envdash/discover.py reads `listing_url` (an HTML page or directory\nlisting), takes every link (href, resolved against the page URL, fragment dropped) and keeps those whose absolute\nURL matches `link_pattern` in full. The file taken is the one with the largest key. Keys are compared as text and\nmust all have the same length (so fixed-width dates such as 202608 or 2026-08-31 order correctly); a tie between\ntwo different URLs, keys of different lengths, or no match at all is a failure, never a guess. The resolved URL\nis what is downloaded and what the snapshot manifest records as its url, with the listing(s) read in\n`discovery`.\n\nWith `sublisting_pattern`, the links on `listing_url` that match it are listings themselves (monthly\ndirectories, monthly bulletin pages). They are read newest key first, and the first one with at least one\n`link_pattern` match supplies the file; at most `max_sublistings` are read before failing. This finds the newest\nfile when the newest directory does not yet hold one (OISST final files lag the preliminary ones by two weeks).",
+        "properties": {
+          "choose": {
+            "const": "max",
+            "default": "max",
+            "description": "Which match to take: the largest key.",
+            "title": "Choose",
+            "type": "string"
+          },
+          "link_pattern": {
+            "description": "Regex matched in full against each link's absolute URL, with a named group 'key' (or 'year' and 'month'). The file taken is the match with the largest key.",
+            "title": "Link Pattern",
+            "type": "string"
+          },
+          "listing_url": {
+            "description": "The page or directory listing that links to the file.",
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Listing Url",
+            "type": "string"
+          },
+          "max_sublistings": {
+            "default": 2,
+            "description": "How many sublistings to read before failing.",
+            "maximum": 12,
+            "minimum": 1,
+            "title": "Max Sublistings",
+            "type": "integer"
+          },
+          "sublisting_pattern": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Regex, as link_pattern, for links on listing_url that are listings to search for link_pattern (newest key first). A link without a trailing slash is read as a directory (slash added) when the listing is a directory index.",
+            "title": "Sublisting Pattern"
+          }
+        },
+        "required": ["listing_url", "link_pattern", "choose", "sublisting_pattern", "max_sublistings"],
+        "title": "Discover",
+        "type": "object"
+      },
       "Display": {
         "additionalProperties": false,
         "properties": {
@@ -530,7 +622,7 @@
             "type": "string"
           },
           "terms_check": {
-            "description": "How the weekly run re-checks the quote: a machine-readable licence field, the page's text, a PDF's text, or a person each quarter (bot-walled pages).",
+            "description": "How the weekly run re-checks the quote: a machine-readable licence field (api: the JSON or XML response's text), the page's text, a PDF's text, or a person each quarter (bot-walled pages). api, page and pdf all match the quote against the normalised text of the body fetched from terms_url.",
             "enum": ["api", "page", "pdf", "manual"],
             "title": "Terms Check",
             "type": "string"

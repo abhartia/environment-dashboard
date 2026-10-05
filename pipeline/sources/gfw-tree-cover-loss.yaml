@@ -18,7 +18,8 @@
 #   requested." We credit Turubanova et al. wherever primary-forest loss appears.
 # - Global Nature Watch terms (globalforestwatch.org/terms 301 -> globalnaturewatch.org/terms/, HTTP 200): "each
 #   dataset carries its own license and restrictions" and "each request to an API must include one of Your Account's
-#   unique API keys". So every request sends the key (header x-api-key, per the API's openapi.json). The keyless
+#   unique API keys". So every request sends the key (header x-api-key, per the API's openapi.json: security scheme
+#   APIKeyOriginHeader, apiKey in header "x-api-key", re-read 2026-10-04; access.key_header below). The keyless
 #   requests that worked in research and in this check are not a documented entitlement. The Keychain item
 #   gfw-api-key (GitHub secret GFW_API_KEY, docs/runbook.md) did not exist on 2026-10-04: owner action before the
 #   first fetch. The terms also point to Resource Watch "Attribution Requirements" (resourcewatch.org, a site WRI says
@@ -113,14 +114,14 @@ artifacts:
     description: >-
       World tree cover loss and loss due to fire by year (ha), 2001-2025, at >=30% canopy cover in 2000; the sum of
       WRI's country table.
-    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+    access: {auth: api-key, auth_env: GFW_API_KEY, key_header: x-api-key, conditional: false}
   - id: loss-country-annual
     url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year
     format: csv
     description: >-
       Tree cover loss and loss due to fire by country (GADM ISO3 code) and year (ha), 2001-2025, at >=30% canopy cover
       in 2000.
-    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+    access: {auth: api-key, auth_env: GFW_API_KEY, key_header: x-api-key, conditional: false}
   - id: loss-primary-forest-country-annual
     url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20AND%20is__umd_regional_primary_forest_2001%20%3D%20true%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year
     format: csv
@@ -128,7 +129,7 @@ artifacts:
       Tree cover loss inside the 2001 humid tropical primary forest extent (Turubanova et al. 2018) by country and year
       (ha), 2001-2025, at >=30% canopy cover in 2000. Without the canopy filter the table double-counts across
       thresholds.
-    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+    access: {auth: api-key, auth_env: GFW_API_KEY, key_header: x-api-key, conditional: false}
   - id: loss-drivers-country-annual
     url: https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year
     format: csv
@@ -136,7 +137,7 @@ artifacts:
       Tree cover loss by country, WRI/Google DeepMind dominant driver class (eight classes including "Unknown") and
       year (ha), 2001-2025, at >=30% canopy cover in 2000. WRI counts permanent agriculture, hard commodities and
       settlements and infrastructure as permanent conversion to non-forest land use.
-    access: {auth: api-key, auth_env: GFW_API_KEY, conditional: false}
+    access: {auth: api-key, auth_env: GFW_API_KEY, key_header: x-api-key, conditional: false}
 status:
   state: active
   note: >-

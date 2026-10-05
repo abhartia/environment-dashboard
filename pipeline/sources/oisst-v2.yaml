@@ -7,9 +7,13 @@
 # clients and states no licence; it is not used). File pattern, one directory per month:
 #   https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/{YYYYMM}/oisst-avhrr-v02r01.{YYYYMMDD}.nc
 #   ...and {YYYYMMDD}_preliminary.nc for roughly the last two weeks, replaced by the final file about 14 days later.
-# The two URLs below are the newest final and newest preliminary files on 2026-10-04 (HTTP 200, about 1.5 MB each,
-# ETag present); the first file, 198109/oisst-avhrr-v02r01.19810901.nc, also returned 200. The fetcher must list the
-# monthly directories and record each exact file name it took.
+# Both artifacts are found through `discover` (envdash/discovery.py): each fetch reads the avhrr/ directory index,
+# reads the monthly directories newest first (at most two) and takes the newest file of the kind wanted; the snapshot
+# manifest records the exact URL. Two directories, because final files lag preliminary ones by about two weeks: early
+# in a month the newest directory holds only preliminary files. On 2026-10-04 they resolved to
+# 202609/oisst-avhrr-v02r01.20260919.nc and 202610/oisst-avhrr-v02r01.20261003_preliminary.nc (HTTP 200, about 1.5 MB
+# each, ETag present); the first file, 198109/oisst-avhrr-v02r01.19810901.nc, also returned 200. A daily series needs
+# every day's file, which one artifact per newest day does not give; that is for the transform's design.
 id: oisst-v2
 title: NOAA Daily Optimum Interpolation Sea Surface Temperature (OISST), version 2.1
 publisher: NOAA National Centers for Environmental Information
@@ -70,17 +74,27 @@ obligations:
 acquisition: automatic
 artifacts:
   - id: daily-final
-    url: https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/202609/oisst-avhrr-v02r01.20260919.nc
+    url: null
+    discover:
+      listing_url: https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/
+      sublisting_pattern: 'https://www\.ncei\.noaa\.gov/data/sea-surface-temperature-optimum-interpolation/v2\.1/access/avhrr/(?P<key>\d{6})/'
+      link_pattern: 'https://www\.ncei\.noaa\.gov/data/sea-surface-temperature-optimum-interpolation/v2\.1/access/avhrr/\d{6}/oisst-avhrr-v02r01\.(?P<key>\d{8})\.nc'
+      max_sublistings: 2
     format: nc
     description: >-
-      One day's final AVHRR-only OISST grid (sst, anom, err, ice; 0.25°). Newest final file on 2026-10-04; one file
-      per day from 19810901 (see header comment for the pattern).
+      The newest day's final AVHRR-only OISST grid (sst, anom, err, ice; 0.25°), found through discover; one file
+      per day from 19810901 (see header comment).
   - id: daily-preliminary
-    url: https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/202610/oisst-avhrr-v02r01.20261003_preliminary.nc
+    url: null
+    discover:
+      listing_url: https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr/
+      sublisting_pattern: 'https://www\.ncei\.noaa\.gov/data/sea-surface-temperature-optimum-interpolation/v2\.1/access/avhrr/(?P<key>\d{6})/'
+      link_pattern: 'https://www\.ncei\.noaa\.gov/data/sea-surface-temperature-optimum-interpolation/v2\.1/access/avhrr/\d{6}/oisst-avhrr-v02r01\.(?P<key>\d{8})_preliminary\.nc'
+      max_sublistings: 2
     format: nc
     description: >-
-      One day's preliminary grid, same layout. Newest file on 2026-10-04 (3 October 2026); preliminary files are
-      replaced by final ones about two weeks later.
+      The newest day's preliminary grid, same layout, found through discover (3 October 2026 on 2026-10-04);
+      preliminary files are replaced by final ones about two weeks later.
 status:
   state: active
   note: >-
