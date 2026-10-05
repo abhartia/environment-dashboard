@@ -1,0 +1,16 @@
+{
+  "artifact_id": "sdg-indicators",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact sdg-indicators --member SDG_BulkDownloads_E_Flags.csv --suffix .flags",
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 196,
+  "fixture_sha256": "c62478db52b03889d83c523e19fb1c28adc197375cc17197b1924bb4d9990f19",
+  "full_bytes": 4721843,
+  "full_sha256": "ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e",
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "SDG_BulkDownloads_E_Flags.csv",
+  "member_bytes": 196,
+  "member_sha256": "c62478db52b03889d83c523e19fb1c28adc197375cc17197b1924bb4d9990f19",
+  "rows_kept": "whole member",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip"
+}

@@ -1,0 +1,18 @@
+{
+  "artifact_id": "sdg-indicators",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact sdg-indicators --member 'SDG_BulkDownloads_E_All_Data_(Normalized).csv' --area-code 5000 --item-element 24044-_T:6121 --item-element 24044-AGGS3001:6121 --item-element 24044-AGGS3002:6121 --item-element 24044-AGGS3003:6121 --item-element 24044-AGGS3004:6121",
+  "data_rows_total": 478304,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 15208,
+  "fixture_sha256": "e049c8144f90d5a6d044f5f0e79133937fb08ebf95d7d8a295a585cfb64f8344",
+  "full_bytes": 4721843,
+  "full_sha256": "ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "SDG_BulkDownloads_E_All_Data_(Normalized).csv",
+  "member_bytes": 133846164,
+  "member_sha256": "74dfc787032d50cebe0ffd7ff10cfedb01bce36d5ca60e083c879bdc0aff1cb6",
+  "rows_kept": "50 of 478304 data rows: Area Code 5000, (Item Code:Element Code) in 24044-_T:6121, 24044-AGGS3001:6121, 24044-AGGS3002:6121, 24044-AGGS3003:6121, 24044-AGGS3004:6121",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip"
+}

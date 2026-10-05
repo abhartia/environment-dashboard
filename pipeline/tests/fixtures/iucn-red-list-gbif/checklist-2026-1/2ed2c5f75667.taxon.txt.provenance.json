@@ -1,0 +1,17 @@
+{
+  "artifact_id": "checklist-2026-1",
+  "command": "uv run python tests/fixtures/zip_member_fixture.py --source iucn-red-list-gbif --artifact checklist-2026-1 --member taxon.txt --lines 1:517 --suffix .taxon",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 188634,
+  "fixture_sha256": "792b09b32fd66e2a42bb7eabb1c4b41faf5cb5f60fdbf04b007c20dcfd377a3e",
+  "full_bytes": 21140648,
+  "full_sha256": "2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d",
+  "licence": "CC BY 4.0",
+  "member": "taxon.txt",
+  "member_bytes": 118882656,
+  "member_lines": 310544,
+  "member_sha256": "8e3630e02d16fe3072b0fae3a235c9d0be9c238e305da3707453833662d1a124",
+  "rows_kept": "lines 1-517 of 310544",
+  "source_id": "iucn-red-list-gbif",
+  "url": "https://hosted-datasets.gbif.org/datasets/iucn/iucn-2026-1.zip"
+}

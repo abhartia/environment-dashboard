@@ -1,0 +1,17 @@
+{
+  "artifact_id": "bulk-download-world",
+  "command": "uv run python tests/fixtures/zip_member_fixture.py --source fao-fra-2025 --artifact bulk-download-world --member FRA_Years_2026-10-05.csv --lines 1:25 --lines 176:181 --lines 446:451 --suffix .years",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 46808,
+  "fixture_sha256": "ccf34bc5eda4387fe4b9c5f299198645859959ceb0021366dc05f18a078435c5",
+  "full_bytes": 1377159,
+  "full_sha256": "d93c84204f61c1d72c30003594a6e4bc97c77a11b90959d8524d69dba6208a6a",
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use; report CC BY 4.0)",
+  "member": "FRA_Years_2026-10-05.csv",
+  "member_bytes": 1641459,
+  "member_lines": 1417,
+  "member_sha256": "19b01672031ec53951851f8a3adbfdd781bdc01583e5171327b9419b2226f7ee",
+  "rows_kept": "lines 1-25, 176-181, 446-451 of 1417",
+  "source_id": "fao-fra-2025",
+  "url": "https://fra-data.fao.org/api/file/bulk-download?assessmentName=fra&cycleName=2025&countryIso=WO"
+}
