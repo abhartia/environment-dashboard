@@ -28,16 +28,32 @@
 # index", total and four commodity groups); datasets_E.json 200, 109,120 bytes. All serve ETag and Last-Modified.
 # FAO's 2026 release calendar lists FAOSTAT "Emissions totals" and "Emissions from Livestock" under October 2026,
 # without a day.
+# Emissions intensities (EI), added 2026-10-05 (docs/research/sources-ghg-food-personal-2026-10-05.json, need B,
+# candidate 2, verdict adopt-with-changes): HEAD 200, 3,640,396 bytes, Last-Modified Fri, 20 Feb 2026 15:00:03 GMT,
+# ETag "35b5bf70d1fa8cf6d73beff11a963236"; catalogue DatasetCode EI, DateUpdate 2026-02-20, FileRows 409,511. Its
+# methodological note (https://files-faostat.fao.org/production/EI/EI_e.pdf, "release October 2025", 338,957 bytes,
+# read 2026-10-05) gives "Owner FAO Provider FAO Source FAO" and no licence or restriction of its own, so the database
+# terms quoted below apply. Its inputs are FAOSTAT's own Emissions from crops (GCE), Emissions from livestock (GLE) and
+# Production (QCL) only. The note says EI counts only emissions "generated within the farm gate", excludes upstream
+# and downstream emissions, and "should not be compared" with life-cycle (LCA) values.
+# Third-party inputs in GT that FAO's metadata names without restricting them (verifier, 2026-10-05): the GPP note
+# (GPP_e.pdf) says pre- and post-production energy emissions use IEA data (for China and Russia) and IEA grid
+# electricity emission factors (to 2022), and that cold-chain F-gases come from EDGAR v7; the GN note says on-farm
+# energy use applies IEA grid electricity and heat factors and IEA fisheries energy data. FAO states no restriction for
+# them, so the class stays open under FAO's own clause; docs/sources.md treats EDGAR's IEA-derived CO2 as restricted,
+# so permission to redistribute these GT items should be confirmed with FAO (open question, not yet asked).
 id: faostat
-title: FAOSTAT agrifood emissions, livestock emissions, land use and food loss
+title: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss
 publisher: Food and Agriculture Organization of the United Nations (FAO), Statistics Division
 landing_url: https://www.fao.org/faostat/en/
 description: >-
-  Four FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes
+  Five FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes
   for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and
   region, 1961-2023, with two sources per value ("FAO TIER 1" estimates and "UNFCCC" country submissions) and projection
   rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by
-  species, Tier 1. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA)
+  species, Tier 1. Emissions intensities (EI): farm-gate emissions (kt CO2eq, AR5) and emissions per kg of product
+  for 14 commodities (meat and milk of cattle, buffalo, sheep and goats, pig and chicken meat, camel milk, hen eggs,
+  rice and cereals excluding rice), 1961-2023. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA)
   and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage
   (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global
   Food Loss Index (2015 = 100), total and by commodity group, 2015-2024.
@@ -91,6 +107,18 @@ artifacts:
       Climate Change: Agrifood systems emissions: Emissions from Livestock (GLE). Zipped normalized CSV (latin-1) of
       CH4 and N2O from enteric fermentation and manure (management, left on pasture, applied to soils) by species, with
       livestock numbers, Tier 1.
+  - id: emissions-intensities
+    url: https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      Climate Change: Agrifood systems emissions: Emissions intensities (EI). Zipped normalized CSV: Area, Item Code,
+      Item Code (CPC), Item, Element, Year, Unit, Value, Flag (no Source column). Elements 723113 "Emissions (CO2eq)
+      (AR5)" in kt, 71761 "Emissions intensity" in kg CO2eq/kg of product and 5510 "Production" in t, for 14
+      commodities, 1961-2023. Farm-gate emissions only: enteric CH4, manure management CH4 and N2O, N2O from manure
+      left on pasture and applied to soils, and N2O from crop residues, their burning and synthetic fertiliser
+      allocated to crops, plus rice paddy CH4; no on-farm energy, drained organic soils, savanna fires, land-use change
+      or pre- and post-production. Methodological note: https://files-faostat.fao.org/production/EI/EI_e.pdf (release
+      October 2025), which says the values should not be compared with life-cycle assessments.
   - id: land-use
     url: https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip
     format: zip
@@ -130,4 +158,5 @@ next_release:
 twins: []
 research_ref: >-
   docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP,
-  EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage
+  EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage;
+  docs/research/sources-ghg-food-personal-2026-10-05.json#NEED B (GT by stage and process, EI, GLE by animal)

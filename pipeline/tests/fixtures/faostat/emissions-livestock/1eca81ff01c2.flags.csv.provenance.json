@@ -1,0 +1,16 @@
+{
+  "artifact_id": "emissions-livestock",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact emissions-livestock --member Emissions_livestock_E_Flags.csv --suffix .flags",
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 152,
+  "fixture_sha256": "cda09535ac4b5ade585d27e32ff09c037f14c2e0e40eb2f6e8441236ad376ade",
+  "full_bytes": 55881712,
+  "full_sha256": "1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f",
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Emissions_livestock_E_Flags.csv",
+  "member_bytes": 152,
+  "member_sha256": "cda09535ac4b5ade585d27e32ff09c037f14c2e0e40eb2f6e8441236ad376ade",
+  "rows_kept": "whole member",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip"
+}

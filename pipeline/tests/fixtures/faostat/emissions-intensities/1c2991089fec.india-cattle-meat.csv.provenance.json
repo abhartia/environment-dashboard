@@ -1,0 +1,18 @@
+{
+  "artifact_id": "emissions-intensities",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact emissions-intensities --member 'Environment_Emissions_intensities_E_All_Data_(Normalized).csv' --area-code 100 --item-element 867:723113 --item-element 867:71761 --suffix .india-cattle-meat",
+  "data_rows_total": 409511,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 15304,
+  "fixture_sha256": "79f70d83af72c5d02de8081cdbedbf83c74b3f10ed5831aa9c9f6539f0899967",
+  "full_bytes": 3640396,
+  "full_sha256": "1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Environment_Emissions_intensities_E_All_Data_(Normalized).csv",
+  "member_bytes": 57935083,
+  "member_sha256": "054c7b2eaceff95298446c20d21580b57db00ddb91eb3559aa710a13a8082292",
+  "rows_kept": "93 of 409511 data rows: Area Code 100, (Item Code:Element Code) in 867:723113, 867:71761",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip"
+}

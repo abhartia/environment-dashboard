@@ -1,0 +1,18 @@
+{
+  "artifact_id": "emissions-intensities",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact emissions-intensities --member 'Environment_Emissions_intensities_E_All_Data_(Normalized).csv' --area-code 351 --item-element 867:723113 --suffix .china-group",
+  "data_rows_total": 409511,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 10359,
+  "fixture_sha256": "f0a963b173d30ce5767427c73c2b6976bb923a17e4c55922d74e0171e62d36aa",
+  "full_bytes": 3640396,
+  "full_sha256": "1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "Environment_Emissions_intensities_E_All_Data_(Normalized).csv",
+  "member_bytes": 57935083,
+  "member_sha256": "054c7b2eaceff95298446c20d21580b57db00ddb91eb3559aa710a13a8082292",
+  "rows_kept": "63 of 409511 data rows: Area Code 351, (Item Code:Element Code) in 867:723113",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip"
+}
