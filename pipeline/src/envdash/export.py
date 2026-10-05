@@ -1,7 +1,8 @@
 """Write the published files.
 
 data/ (committed, public; redistributable classes only):
-  v1/indicators/<id>.json   canonical Indicator JSON
+  v1/indicators/<id>.json   canonical IndicatorFile JSON: the indicator with its observations as columns (one array
+                            per field, notes interned; see models.IndicatorFile)
   v1/indicators/<id>.csv    tidy CSV; '#' header lines carry the title, credit line, notice, licence and the URL of
                             the indicator's page (/data/<id with dots as slashes>). Columns: CSV_FIXED, then one per
                             dimension. An indicator dated in years before 1950 has an empty period and an age_bp.
@@ -11,7 +12,7 @@ data/ (committed, public; redistributable classes only):
   datapackage.json          Frictionless Data Package v2 of the CSVs, each with its own licence
   SHA256SUMS                every file above (status.json is rewritten each run and is not listed)
 data-private/ (never committed or deployed as a file):
-  v1/indicators/<id>.json   no-derivatives and display-only indicators
+  v1/indicators/<id>.json   no-derivatives and display-only indicators, as IndicatorFile JSON
 """
 
 from __future__ import annotations
@@ -24,7 +25,7 @@ from pathlib import Path
 
 from envdash import canonical
 from envdash.build import IndicatorOutcome, build_key, build_one, export_path, lock_sha, write_build_record
-from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, Provenance, SourceList
+from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, IndicatorFile, Provenance, SourceList
 from envdash.paths import Paths
 from envdash.registry import Registry
 from envdash.snapshots import read_current
@@ -119,10 +120,15 @@ def csv_bytes(ind: Indicator) -> bytes:
     return out.getvalue().encode("utf-8")
 
 
+def export_bytes(ind: Indicator) -> bytes:
+    """The canonical published JSON of an indicator: its IndicatorFile, observations stored as columns."""
+    return canonical.dump_bytes(IndicatorFile.from_indicator(ind))
+
+
 def write_indicator(paths: Paths, ind: Indicator) -> Path:
     """Write the indicator to data/ or data-private/ by its licence class, removing any copy on the other side."""
     dest = export_path(paths, ind.id, ind.licence_class)
-    canonical.write_if_changed(dest, canonical.dump_bytes(ind))
+    canonical.write_if_changed(dest, export_bytes(ind))
     public_json = paths.public_indicators / f"{ind.id}.json"
     public_csv = paths.public_indicators / f"{ind.id}.csv"
     private_json = paths.private_indicators / f"{ind.id}.json"

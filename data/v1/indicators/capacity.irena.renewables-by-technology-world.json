@@ -1,0 +1,107 @@
+{
+  "attribution": "Calculated by Environment Dashboard from IRENA (2026), Renewable capacity statistics 2026. © IRENA 2026. Changes: converted from megawatts to gigawatts.",
+  "description": "Capacity of the world's renewable power plants by technology (hydropower, marine, onshore and offshore wind, solar photovoltaic, concentrated solar power, bioenergy and geothermal) at the end of each year since 2016, as compiled by IRENA.",
+  "dimensions": [
+    {
+      "id": "technology",
+      "label": "Technology",
+      "values": [
+        {"id": "hydropower", "label": "Hydropower (renewable, excluding pure pumped storage)"},
+        {"id": "marine", "label": "Marine energy"},
+        {"id": "onshore-wind", "label": "Onshore wind"},
+        {"id": "offshore-wind", "label": "Offshore wind"},
+        {"id": "solar-pv", "label": "Solar photovoltaic"},
+        {"id": "csp", "label": "Concentrated solar power"},
+        {"id": "bioenergy", "label": "Bioenergy"},
+        {"id": "geothermal", "label": "Geothermal energy"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "capacity.irena.renewables-by-technology-world",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "technology": "solar-pv"
+    },
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 2383.162
+  },
+  "licence": {
+    "name": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)",
+    "spdx": null,
+    "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "capacity-statistics-pdf", "bytes": 1681315, "citation_full": "IRENA (2026), Renewable capacity statistics 2026, International Renewable Energy Agency, Abu Dhabi.", "date_accessed": "2026-10-05", "date_published": "2026-03-31", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)", "spdx": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf"}, "producer": "International Renewable Energy Agency (IRENA)", "r2_url": null, "sha256": "fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "source_id": "irena-capacity-2026", "title": "Renewable capacity statistics 2026", "url_download": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf", "url_main": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "version_producer": "2026-03-31", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "capacity-highlights-pdf", "bytes": 1973926, "citation_full": "IRENA (2026), Renewable capacity statistics 2026, International Renewable Energy Agency, Abu Dhabi.", "date_accessed": "2026-10-05", "date_published": "2026-03-31", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)", "spdx": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf"}, "producer": "International Renewable Energy Agency (IRENA)", "r2_url": null, "sha256": "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b", "source_id": "irena-capacity-2026", "title": "Renewable capacity statistics 2026", "url_download": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf", "url_main": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "version_producer": "2026-03-31", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read IRENA's Renewable capacity statistics 2026 (PDF created 31 March 2026, sha256 fc580bd4f4ee…; its metadata title and the citation on page 2 name this edition) and took the World row of each table from the text of pages 14, 18, 21, 25, 26, 29, 32, 33, 37, 41, 42, 53, 64, read with the columns kept apart, for 2016 to 2025.",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    },
+    {
+      "description": "Checked that Total renewable energy is the sum of renewable hydropower, marine, onshore and offshore wind, solar photovoltaic, concentrated solar power, bioenergy and geothermal in every year, and that the wind, solar and hydropower tables add up from their parts, each to within the rounding of the megawatt values. Pure pumped storage is not part of IRENA's renewable total.",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    },
+    {
+      "description": "Found the quotes used as publisher checks in the highlights PDF (pages 1, 5).",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    },
+    {
+      "description": "Published the eight technologies that make up IRENA's total, in gigawatts.",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Maximum net generating capacity of renewable power plants installed and connected at the end of each year, as compiled by IRENA from official and unofficial sources and its own estimates. Capacity is not generation. Pure pumped storage hydropower and stationary batteries are not included. Values are revised in later editions.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "technology": ["hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "marine", "marine", "marine", "marine", "marine", "marine", "marine", "marine", "marine", "marine", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [1138.787, 1157.246, 1176.25, 1191.764, 1212.07, 1235.533, 1260.033, 1270.018, 1277.381, 1295.765, 0.524, 0.527, 0.527, 0.525, 0.491, 0.491, 0.492, 0.494, 0.49, 0.49, 452.939, 496.167, 539.956, 594.813, 698.934, 769.925, 840.466, 943.837, 1049.945, 1199.987, 14.377, 18.805, 23.56, 28.263, 34.34, 54.268, 62.622, 74.387, 82.745, 91.38, 293.159, 386.711, 481.485, 583.393, 714.728, 859.674, 1051.471, 1415.161, 1872.813, 2383.162, 4.97, 5.07, 5.811, 6.368, 6.406, 6.366, 6.564, 6.864, 7.583, 8.422, 103.867, 109.663, 116.751, 122.535, 129.765, 136.411, 143.044, 146.976, 150.969, 154.399, 12.169, 12.754, 13.196, 13.824, 14.165, 14.451, 14.696, 15.092, 15.415, 15.674]
+  },
+  "time_basis": "calendar",
+  "title": "World renewable power capacity by technology",
+  "unit": {
+    "code": "GW",
+    "label": "gigawatts",
+    "short": "GW"
+  },
+  "vintage": "2026-03-31"
+}

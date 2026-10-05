@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Figure } from "@/components/viz/figure";
 import { SeriesChart, type Series } from "@/components/viz/series-chart";
 import { catalogEntry, indicator } from "@/lib/data";
-import { formatValue } from "@/lib/format";
+import { calendarPeriod, formatValue, formatWhen } from "@/lib/format";
 import { dataPath } from "@/lib/routes";
-import { periodToYear } from "@/lib/viz/period";
+import { timeToYear } from "@/lib/viz/period";
 
 type Line = { label?: string; entity?: string; dims?: Record<string, string> };
 
@@ -38,7 +38,7 @@ export function IndicatorFigure({
     const obs = ind.observations.filter(
       (o) =>
         o.entity === entity &&
-        (from === undefined || o.period >= from) &&
+        (from === undefined || calendarPeriod(o) >= from) &&
         Object.entries(dims).every(([k, v]) => o.dims[k] === v) &&
         Object.keys(o.dims).length === Object.keys(dims).length,
     );
@@ -49,7 +49,7 @@ export function IndicatorFigure({
     return {
       key: `${entity}-${JSON.stringify(dims)}`,
       label: l.label ?? (dimLabel || entry.title),
-      points: obs.map((o) => ({ x: periodToYear(o.period), y: o.value, lo: o.lower, hi: o.upper })),
+      points: obs.map((o) => ({ x: timeToYear(o), y: o.value, lo: o.lower, hi: o.upper })),
     };
   });
   const periods = [...new Set(series.flatMap((s) => s.points.map((p) => p.x)))].length;
@@ -58,11 +58,12 @@ export function IndicatorFigure({
     const entity = l.entity ?? ind.headline_entity;
     const dims = l.dims ?? {};
     for (const o of ind.observations) {
-      if (o.entity !== entity || (from !== undefined && o.period < from)) continue;
+      if (o.entity !== entity || (from !== undefined && calendarPeriod(o) < from)) continue;
       if (!Object.entries(dims).every(([k, v]) => o.dims[k] === v) || Object.keys(o.dims).length !== Object.keys(dims).length) continue;
-      const row = rowsByPeriod.get(o.period) ?? wanted.map(() => null);
+      const when = o.period ?? formatWhen(o);
+      const row = rowsByPeriod.get(when) ?? wanted.map(() => null);
       row[i] = o.value === null ? null : formatValue(o.value, ind.display.decimals);
-      rowsByPeriod.set(o.period, row);
+      rowsByPeriod.set(when, row);
     }
   });
   return (

@@ -159,6 +159,12 @@ export type CatalogEntry = {
      */
     source_ids: Array<string>;
     /**
+     * Time Basis
+     *
+     * The indicator's time_basis: whether latest carries a period or an age_bp.
+     */
+    time_basis: 'calendar' | 'years-before-1950';
+    /**
      * Title
      */
     title: string;
@@ -323,6 +329,9 @@ export type Display = {
 
 /**
  * Indicator
+ *
+ * An indicator with its observations as records: the pipeline's in-memory form, and the shape the site works
+ * with after expanding a published IndicatorFile (web/src/lib/indicator-table.ts). Not itself a published file.
  */
 export type Indicator = {
     /**
@@ -391,6 +400,108 @@ export type Indicator = {
      */
     superseded_by: string | null;
     /**
+     * Time Basis
+     *
+     * calendar: every observation (and latest) has an ISO period and a null age_bp. years-before-1950: every observation (and latest) has age_bp and a null period; observations run from the oldest age to the youngest, and latest is the youngest.
+     */
+    time_basis: 'calendar' | 'years-before-1950';
+    /**
+     * Title
+     */
+    title: string;
+    unit: Unit;
+    /**
+     * Vintage
+     *
+     * Producer version or release label of the newest input.
+     */
+    vintage: string;
+};
+
+/**
+ * IndicatorFile
+ *
+ * data/v1/indicators/<id>.json (and data-private/v1/indicators/<id>.json): an Indicator with its observations
+ * stored as columns. `table` holds one array per Observation field; notes are interned in `notes`, which lists each
+ * distinct note once (sorted by code point) and is indexed by table.note. Expanding row i of the table (absent
+ * columns read as null, table.note[i] read through notes) gives exactly Indicator.observations[i].
+ */
+export type IndicatorFile = {
+    /**
+     * Attribution
+     *
+     * Credit line as rendered (placeholders filled, modified variant if any).
+     */
+    attribution: string;
+    /**
+     * Description
+     */
+    description: string;
+    /**
+     * Dimensions
+     */
+    dimensions: Array<Dimension>;
+    display: Display;
+    /**
+     * Geo Coverage
+     */
+    geo_coverage: 'global-only' | 'country' | 'mixed';
+    /**
+     * Headline Entity
+     *
+     * The entity whose latest value is the headline (usually WLD).
+     */
+    headline_entity: string;
+    /**
+     * Id
+     */
+    id: string;
+    /**
+     * Kind
+     */
+    kind: 'series' | 'published-value' | 'derived';
+    latest: Latest;
+    licence: Licence;
+    /**
+     * Licence Class
+     */
+    licence_class: 'open' | 'share-alike' | 'noncommercial' | 'no-derivatives' | 'display-only' | 'excluded';
+    /**
+     * Notes
+     *
+     * Every distinct Observation.note, each once, sorted by code point; table.note indexes into it.
+     */
+    notes: Array<string>;
+    /**
+     * Notice
+     */
+    notice: string | null;
+    /**
+     * Origins
+     */
+    origins: Array<Origin>;
+    /**
+     * Processing
+     */
+    processing: Array<ProcessingStep>;
+    published_value: PublishedValueRef | null;
+    /**
+     * Schema Version
+     */
+    schema_version: 1;
+    scope: Scope;
+    /**
+     * Superseded By
+     */
+    superseded_by: string | null;
+    table: ObservationTable;
+    /**
+     * Time Basis
+     *
+     * calendar: every observation (and latest) has an ISO period and a null age_bp. years-before-1950: every observation (and latest) has age_bp and a null period; observations run from the oldest age to the youngest, and latest is the youngest.
+     */
+    time_basis: 'calendar' | 'years-before-1950';
+    /**
      * Title
      */
     title: string;
@@ -408,6 +519,12 @@ export type Indicator = {
  */
 export type Latest = {
     /**
+     * Age Bp
+     *
+     * As Observation.age_bp: the youngest age, set exactly when the time_basis is years-before-1950.
+     */
+    age_bp: number | null;
+    /**
      * Dims
      */
     dims: {
@@ -419,8 +536,10 @@ export type Latest = {
     entity: string;
     /**
      * Period
+     *
+     * As Observation.period: null exactly when the time_basis is years-before-1950.
      */
-    period: string;
+    period: string | null;
     /**
      * Status
      */
@@ -566,6 +685,12 @@ export type Obligations = {
  */
 export type Observation = {
     /**
+     * Age Bp
+     *
+     * Age in years before 1950 as the producer publishes it (e.g. ice-core gas age; negative after 1950). Set exactly when the indicator's time_basis is years-before-1950; otherwise null.
+     */
+    age_bp: number | null;
+    /**
      * Dims
      */
     dims: {
@@ -597,8 +722,10 @@ export type Observation = {
     note: string | null;
     /**
      * Period
+     *
+     * ISO 8601 year, year-month, date or range. Null exactly when the indicator's time_basis is years-before-1950 (then age_bp is set).
      */
-    period: string;
+    period: string | null;
     /**
      * Status
      */
@@ -611,6 +738,83 @@ export type Observation = {
      * Value
      */
     value: number | null;
+};
+
+/**
+ * ObservationTable
+ *
+ * The observations of an indicator as columns: row i of the table is the i-th observation, in the order the
+ * pipeline produced them (the same order as the CSV's rows). Every column present has one entry per row.
+ */
+export type ObservationTable = {
+    /**
+     * Age Bp
+     *
+     * Observation.age_bp of each row. Present exactly when the time_basis is years-before-1950.
+     */
+    age_bp?: Array<number>;
+    /**
+     * Dims
+     *
+     * One column per declared dimension id: each row's dimension value id (Observation.dims).
+     */
+    dims: {
+        [key: string]: Array<string>;
+    };
+    /**
+     * Entity
+     *
+     * Observation.entity of each row.
+     */
+    entity: Array<string>;
+    /**
+     * Interval
+     *
+     * Observation.interval; absent when all null.
+     */
+    interval?: Array<'1sigma' | '2sigma' | '90ci' | '95ci' | 'likely' | 'very-likely' | 'range' | null>;
+    /**
+     * Lower
+     *
+     * Observation.lower; absent when all null.
+     */
+    lower?: Array<number | null>;
+    /**
+     * Missing Reason
+     *
+     * Observation.missing_reason; absent when all null.
+     */
+    missing_reason?: Array<string | null>;
+    /**
+     * Note
+     *
+     * Index into the file's notes of each row's Observation.note, null for none; absent when no row has a note.
+     */
+    note?: Array<number | null>;
+    /**
+     * Period
+     *
+     * Observation.period of each row. Present exactly when the time_basis is calendar.
+     */
+    period?: Array<string>;
+    /**
+     * Status
+     *
+     * Observation.status of each row.
+     */
+    status: Array<'final' | 'preliminary' | 'projection'>;
+    /**
+     * Upper
+     *
+     * Observation.upper; absent when all null.
+     */
+    upper?: Array<number | null>;
+    /**
+     * Value
+     *
+     * Observation.value of each row; null where missing_reason says why.
+     */
+    value: Array<number | null>;
 };
 
 /**
@@ -1071,7 +1275,7 @@ export type GetIndicatorResponses = {
     /**
      * The indicator.
      */
-    200: Indicator;
+    200: IndicatorFile;
 };
 
 export type GetIndicatorResponse = GetIndicatorResponses[keyof GetIndicatorResponses];

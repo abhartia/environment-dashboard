@@ -1,0 +1,97 @@
+{
+  "attribution": "Scarborough, P., Clark, M., Cobiac, L. et al. (2023). Vegans, vegetarians, fish-eaters and meat-eaters in the UK show discrepant environmental impacts. Nature Food 4, 565–574. doi:10.1038/s43016-023-00795-w. CC BY 4.0.",
+  "description": "Greenhouse gas emissions caused by producing the food eaten in a day by vegans, vegetarians, fish-eaters and low, medium and high meat-eaters in a large UK study, per 2,000 kilocalories, in kilograms of carbon dioxide equivalent, with the range that holds 95% of the authors' uncertainty estimates (Scarborough et al. 2023).",
+  "dimensions": [
+    {
+      "id": "diet",
+      "label": "Diet group",
+      "values": [
+        {"id": "vegans", "label": "Vegans"},
+        {"id": "vegetarians", "label": "Vegetarians"},
+        {"id": "fish-eaters", "label": "Fish-eaters"},
+        {"id": "low-meat-eaters", "label": "Low meat-eaters"},
+        {"id": "medium-meat-eaters", "label": "Medium meat-eaters"},
+        {"id": "high-meat-eaters", "label": "High meat-eaters"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "country",
+  "headline_entity": "GBR",
+  "id": "food.scarborough-2023.diet-ghg-per-day",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "diet": "high-meat-eaters"
+    },
+    "entity": "GBR",
+    "period": "1993/1999",
+    "status": "final",
+    "value": 10.24
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 1422647, "citation_full": "Scarborough, P., Clark, M., Cobiac, L. et al. Vegans, vegetarians, fish-eaters and meat-eaters in the UK show discrepant environmental impacts. Nat Food 4, 565–574 (2023). https://doi.org/10.1038/s43016-023-00795-w", "date_accessed": "2026-10-04", "date_published": "2023-07-20", "doi": "10.1038/s43016-023-00795-w", "etag": "\"48ec88b22f02a3cb8be1964463a38945\"", "last_modified": "Thu, 26 Oct 2023 09:18:48 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Oxford (Scarborough, Clark, Springmann et al.), published in Nature Food", "r2_url": null, "sha256": "b061fbc4e0b22a1a548061df007ced7a17ec66c380f8e19ab5ea870ce5a81ecc", "source_id": "scarborough-2023", "title": "Environmental impacts of UK diet groups (Scarborough et al. 2023)", "url_download": "https://www.nature.com/articles/s43016-023-00795-w.pdf", "url_main": "https://doi.org/10.1038/s43016-023-00795-w", "version_producer": "Nature Food 4, 565–574 (2023)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the article's version-of-record PDF (sha256 b061fbc4e0b2…). Found Table 3's title, column header, note and all 6 rows on PDF page 5 (printed p. 569), and the Methods sentence on the GWP100 factors on PDF page 7, word for word, before publishing.",
+      "inputs": ["b061fbc4e0b22a1a548061df007ced7a17ec66c380f8e19ab5ea870ce5a81ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/scarborough_2023.py",
+      "transform_sha256": "3cdc437bb7f0c85722f03cec374e3643a9b94df69c2e3eec6953130fcc616d51"
+    },
+    {
+      "description": "Published the GWP100 column (the first of the table's three metrics): for each diet group the median as the value and the 2.5th and 97.5th percentiles of the authors' 1,000-iteration Monte Carlo analysis as the 95% uncertainty interval, exactly as printed. The GTP100 and GWP20 columns are not published here.",
+      "inputs": ["b061fbc4e0b22a1a548061df007ced7a17ec66c380f8e19ab5ea870ce5a81ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/scarborough_2023.py",
+      "transform_sha256": "3cdc437bb7f0c85722f03cec374e3643a9b94df69c2e3eec6953130fcc616d51"
+    }
+  ],
+  "published_value": {
+    "document": "scarborough-2023",
+    "locator": "Table 3, p. 569",
+    "quote": "High meat-eaters 10.24 (7.04, 15.95) 8.97 (6.17, 14.15) 14.77 (10.23, 22.55)"
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Dietary footprint from farm to retail of the food eaten (self-reported in a food frequency questionnaire at the cohort's baseline, 1993–1999), standardized to 2,000 kcal a day and to the cohort's age and gender mix; food-level emissions from a database of life-cycle assessments published 2000–2016. Median and 2.5th–97.5th percentiles of a 1,000-iteration Monte Carlo analysis. GWP100 with IPCC AR6 factors (CH4 27, N2O 273). The period is the years the diets were reported.",
+    "bunkers": null,
+    "geography": "United Kingdom: 55,504 adults of the EPIC-Oxford cohort (not a representative sample of the UK population)",
+    "gwp": "AR6-GWP100",
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "diet": ["vegans", "vegetarians", "fish-eaters", "low-meat-eaters", "medium-meat-eaters", "high-meat-eaters"]
+    },
+    "entity": ["GBR", "GBR", "GBR", "GBR", "GBR", "GBR"],
+    "interval": ["95ci", "95ci", "95ci", "95ci", "95ci", "95ci"],
+    "lower": [2.09, 3.31, 3.85, 4.26, 5.26, 7.04],
+    "period": ["1993/1999", "1993/1999", "1993/1999", "1993/1999", "1993/1999", "1993/1999"],
+    "status": ["final", "final", "final", "final", "final", "final"],
+    "upper": [3.36, 5.82, 6.27, 6.99, 9.39, 15.95],
+    "value": [2.47, 4.16, 4.74, 5.37, 7.04, 10.24]
+  },
+  "time_basis": "calendar",
+  "title": "Greenhouse gas emissions of UK diets, by diet group",
+  "unit": {
+    "code": "kgCO2e-per-person-per-day",
+    "label": "kilograms of carbon dioxide equivalent per person per day (2,000 kcal)",
+    "short": "kg CO₂e/day"
+  },
+  "vintage": "Nature Food 4, 565–574 (2023)"
+}

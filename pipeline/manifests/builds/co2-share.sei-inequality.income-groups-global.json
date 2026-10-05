@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/co2-share.sei-inequality.income-groups-global.json",
+  "export_sha256": "7b6c9a235ab2d1aa76a6ab14d78b38236823cb2bd50e328aeb4206c46b7b852e",
+  "indicator_id": "co2-share.sei-inequality.income-groups-global",
+  "key": "bc86999f0bab0125fa8e5876a8e6ee3a75a56d2c522f4455522ffbf4ddb59b78",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "sei-emissions-inequality/global-percentile-shares": {
+        "manifest_sha256": "951c313b526c2eabf59932aca34de6c6f03c398c6da683180797cfe61786f6b7",
+        "sha256": "9ad0752d138df5969a5b5b1069dab34ea2da07de35b18398bfc2fe9360c437f7"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "sei-emissions-inequality": "5bf73457d9e89bc14672b6451e7f8ea87f2f074ad5e43075866f4154a8672069"
+    },
+    "transform_sha256": "3087fa13268a430f83ad5934ab5a8703fa430a16bf13c1888b0f4bfcf3e55f05"
+  },
+  "publisher_checks": []
+}

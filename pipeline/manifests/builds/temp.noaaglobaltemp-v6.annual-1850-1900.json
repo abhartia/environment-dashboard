@@ -1,0 +1,34 @@
+{
+  "export": "data/v1/indicators/temp.noaaglobaltemp-v6.annual-1850-1900.json",
+  "export_sha256": "fe48fec5166afd80f91e991fe58e29bf459bcdd1c5d2c376d8a2c59872600f23",
+  "indicator_id": "temp.noaaglobaltemp-v6.annual-1850-1900",
+  "key": "99e6adf032292f304085339ee7f398c5fb064535c3f0b85f3155ebd3ce00b9bd",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "noaaglobaltemp-v6/arctic-annual": {
+        "manifest_sha256": "4ca607d0b65734a88e416d62fe558ed3c0fc7c4c42b85220198ef1d37eac5638",
+        "sha256": "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2"
+      },
+      "noaaglobaltemp-v6/global-annual": {
+        "manifest_sha256": "e04d7bcc6bc840ab2bf800fb4f670452f2ac6a5e8ec5ffd17d058c37e79e2c39",
+        "sha256": "ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666"
+      },
+      "noaaglobaltemp-v6/global-monthly": {
+        "manifest_sha256": "c8c43a51b40969eca9147d5826953d288a90b329bae44e3dfa2ef5e813c8557f",
+        "sha256": "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc"
+      },
+      "noaaglobaltemp-v6/timeseries-readme": {
+        "manifest_sha256": "49adc24ed30aff50bd3066a19d1c72f0cb245fb3dc5cfd69c335f102235bae7c",
+        "sha256": "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "noaaglobaltemp-v6": "35fec8c10fdf2daa2f1272dfd840433e39fc1f84fb48f21d2aead3654e3ee2f1"
+    },
+    "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
+  },
+  "publisher_checks": []
+}

@@ -24,6 +24,7 @@ from envdash import models as models_mod
 from envdash.models import (
     REDISTRIBUTABLE,
     Indicator,
+    IndicatorFile,
     Latest,
     Origin,
     ProcessingStep,
@@ -90,7 +91,8 @@ def _build_record(paths: Paths, indicator_id: str) -> dict | None:
 
 
 def load_export(path: Path) -> Indicator:
-    return Indicator.model_validate_json(path.read_bytes())
+    """A published IndicatorFile (data/ or data-private/), expanded to the Indicator it was written from."""
+    return IndicatorFile.model_validate_json(path.read_bytes()).to_indicator()
 
 
 def existing_export(paths: Paths, indicator_id: str) -> Path | None:

@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/temp.gistemp-v4.annual-1880-1899.json",
+  "export_sha256": "eab81365b1f3385a28e8a01e4ff507c6f2576b41c7f84f6c704bd0872de37b56",
+  "indicator_id": "temp.gistemp-v4.annual-1880-1899",
+  "key": "336f08ba66f9411afc47f494ebcf49fd3fc4340d85e41ee411734536595b3901",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "gistemp-v4/glb-monthly": {
+        "manifest_sha256": "096f8cb88c5e4c261eeb7bbeea47218b439fd5281dc8ed6f86ea819ecd7b8c2a",
+        "sha256": "c9ce0750ca93a8241c42fe86cd5bf54d07b28b21ae650b0ae49a206907018cd9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "gistemp-v4": "46d2d42612c961624edcfa8bf6a7bc2057bb65c4a6dccf468be1aee3931c3245"
+    },
+    "transform_sha256": "8cd1cacfd44b039ea84fa61167c98e2840f2fe9a8fcf7891b03d5c1747ddfbf4"
+  },
+  "publisher_checks": []
+}

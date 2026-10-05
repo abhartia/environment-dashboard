@@ -9,6 +9,8 @@ from envdash.models import Access, Artifact
 from envdash.paths import Paths
 from envdash.registry import load_registry
 
+from support import exported
+
 URL = "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/WPP2024_CSV_files_update.zip"
 
 
@@ -73,12 +75,10 @@ def test_observation_has_exactly_one_of_period_and_age():
 
 
 def test_indicator_time_basis_must_match_its_observations():
-    import json
-
     from envdash.models import Indicator, Latest, Observation
 
     path = Paths.default().data / "v1" / "indicators" / "co2.noaa-gml.annual-global.json"
-    raw = json.loads(path.read_text())
+    raw = exported(path)
     ind = Indicator.model_validate(raw)
     assert ind.time_basis == "calendar"
     # The youngest row of bereiter-2015-co2, put into another indicator's export only to test the model's rules.

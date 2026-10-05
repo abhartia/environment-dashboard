@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/sst.c3s-climate-pulse.daily-60s-60n-1991-2020.json",
+  "export_sha256": "f23943a2775ec21dabfe2aff4a4d5789712aa67dacc63c7ff5f44872572bdd73",
+  "indicator_id": "sst.c3s-climate-pulse.daily-60s-60n-1991-2020",
+  "key": "0e84836d3cd43cec5423bc25bcf5b5012963f873462abfc1b7146026cb6151e9",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "c3s-climate-pulse/sea-surface-temperature-daily": {
+        "manifest_sha256": "60dd0bcfe48c64fe98f4a27aba3a7047cac46fdd044390aec8260d30a125e83e",
+        "sha256": "a1aeb7de1f8d2c2c77f1ba0bb026e2447a82b3b2449f7e8edc733ed641da9b6b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "c3s-climate-pulse": "9bcc32154c6907dc1834077df46f39c1e117867cbd5f4296a6300b26d9ed1f19"
+    },
+    "transform_sha256": "20988e29489d4b585261de3a2f60b7df2a2cd3d8646521020647b8f0dc7e5d8a"
+  },
+  "publisher_checks": []
+}

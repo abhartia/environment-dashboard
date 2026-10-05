@@ -1,0 +1,108 @@
+{
+  "attribution": "IRENA (2026), Renewable power generation costs in 2025. Source and copyright holder © IRENA 2026.",
+  "description": "The average lifetime cost of each megawatt-hour of electricity from renewable power projects that started operating each year since 2010, by technology, worldwide, in 2025 US dollars, as calculated by IRENA.",
+  "dimensions": [
+    {
+      "id": "technology",
+      "label": "Technology",
+      "values": [
+        {"id": "solar-pv", "label": "Solar photovoltaic"},
+        {"id": "onshore-wind", "label": "Onshore wind"},
+        {"id": "offshore-wind", "label": "Offshore wind"},
+        {"id": "csp", "label": "Concentrated solar power"},
+        {"id": "hydropower", "label": "Hydropower"},
+        {"id": "geothermal", "label": "Geothermal"},
+        {"id": "bioenergy", "label": "Bioenergy"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "lcoe.irena.by-technology-world",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "technology": "solar-pv"
+    },
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 43.5389566578384
+  },
+  "licence": {
+    "name": "IRENA publication terms (free use with acknowledgement of IRENA as source and copyright holder)",
+    "spdx": null,
+    "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf"
+  },
+  "licence_class": "open",
+  "notes": ["IRENA's workbook stores this value as the whole number 43."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "data-file", "bytes": 12908268, "citation_full": "IRENA (2026), Renewable power generation costs in 2025, International Renewable Energy Agency, Abu Dhabi.", "date_accessed": "2026-10-05", "date_published": "2026-07-02", "doi": null, "etag": "76f027738bf84e0491e6c0ab0bb332d0", "last_modified": "Thu, 02 Jul 2026 07:51:14 GMT", "licence": {"name": "IRENA publication terms (free use with acknowledgement of IRENA as source and copyright holder)", "spdx": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf"}, "producer": "International Renewable Energy Agency (IRENA)", "r2_url": null, "sha256": "44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "source_id": "irena-costs-2025", "title": "Renewable power generation costs in 2025", "url_download": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx", "url_main": "https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025", "version_producer": "2026-07-02", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "executive-summary-pdf", "bytes": 2737306, "citation_full": "IRENA (2026), Renewable power generation costs in 2025, International Renewable Energy Agency, Abu Dhabi.", "date_accessed": "2026-10-05", "date_published": "2026-07-02", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "IRENA publication terms (free use with acknowledgement of IRENA as source and copyright holder)", "spdx": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf"}, "producer": "International Renewable Energy Agency (IRENA)", "r2_url": null, "sha256": "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905", "source_id": "irena-costs-2025", "title": "Renewable power generation costs in 2025", "url_download": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "url_main": "https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025", "version_producer": "2026-07-02", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read sheet 'Fig S.2' (Figure S.2 LCOE of renewable power technologies, 2010-2025, unit 'LCOE (2025 USD/MWh)') of IRENA's data file for Renewable power generation costs in 2025, last modified on 2026-07-02 (sha256 44dd32bc07cf…), whose Contents sheet cites this edition. Values are taken as stored in the workbook, one per technology and year, 2010–2025; an empty cell is published as a null value.",
+      "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
+      "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
+    },
+    {
+      "description": "Sheets labelled as based on third-party data, which are never read: 'Fig. 9.5' (Based on BNEF data); 'Fig. 9.7' (Based on BNEF data); 'Fig. 9.8' (Based on Carbon Limiting Technologies).",
+      "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
+      "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
+    },
+    {
+      "description": "Checked that sheet 'Fig S.1' row 'LCOE 2025 (USD/MWh)' equals each technology's 2025 value rounded to a whole dollar, and found the executive summary's statements of the 2025 values on its page 5.",
+      "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
+      "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
+    },
+    {
+      "description": "Published the global weighted averages as stored. 'Solar thermal' in the sheet is concentrated solar power (the summary sheet's label).",
+      "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
+      "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Global weighted-average levelised cost of electricity (LCOE) of utility-scale projects commissioned in the year, in real 2025 US dollars, from IRENA's cost database, with IRENA's standard assumptions for the cost of capital and economic life. Excludes the cost of integrating variable power into grids. Weighted by capacity; wide differences between countries and projects lie behind each average.",
+    "bunkers": null,
+    "geography": "World (projects commissioned in each year)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "technology": ["solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "solar-pv", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "onshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "offshore-wind", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "csp", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "hydropower", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "geothermal", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy", "bioenergy"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "missing_reason": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "IRENA's data file has no value for Geothermal in 2011.", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    "note": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    "period": ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [407.7145886667587, 343.8468419732884, 259.7733303933277, 202.6195037405598, 180.77093815999024, 133.68667348334756, 117.43260308348452, 93.562627664656, 79.15304849033119, 68.4986141769178, 60.777712063747515, 54.34739482745397, 50.45336512325491, 42.61228409894881, 43.0, 43.5389566578384, 113.62477591902031, 107.71292734675829, 98.84091192347155, 99.04958478154153, 87.61300693787871, 76.00691518747104, 69.7863240426911, 64.79078702568185, 55.63329864095906, 49.26404431197164, 40.92596902111336, 36.08031593376551, 34.02001129145055, 33.14035228086442, 34.28341071143132, 32.949986439398714, 208.4261206762695, 221.20158058639723, 188.84064071550742, 155.2804262185269, 196.748226701589, 157.261447860974, 129.89524397293516, 118.62993013247512, 115.014376636749, 94.26623654964683, 92.20972617875292, 81.59657906145773, 80.67106631428936, 76.69104282197424, 80.72710339037113, 77.90795085056327, 411.59070224677, 381.5177153156832, 385.5947014348099, 282.2076281766802, 249.10911833273195, 248.77328913735641, 299.37138744767907, 251.3752832171135, 154.96988212009313, 213.41105493950218, 121.1439389534869, 129.29336554135782, 126.90917094418627, 122.03576055659961, 105.70431738175688, 114.83293283595305, 43.7056606010813, 41.315909934304344, 41.41835802103522, 47.01660496624406, 37.323296865377245, 41.365815773768524, 54.425713545223566, 56.1405769424267, 46.31386928403431, 47.993593848972004, 51.494827372120234, 56.530179597604324, 67.84769110870857, 57.933298102424054, 56.509615484552576, 61.69417119094118, 57.83685454347841, null, 99.66606617038327, 73.3667425973079, 74.08275495915635, 68.3781167125183, 77.2787584322722, 81.34919190104763, 78.79730725010116, 78.33053842031856, 66.73974259785523, 77.43751072390634, 62.080362536744474, 76.3520891504063, 57.77669605632201, 88.685104655013, 88.47206241423704, 85.35203372303046, 71.3803662033632, 94.58503955761746, 91.74504637759162, 83.09018931697243, 79.4056797542658, 78.71184039818777, 61.02583401317587, 72.12618098647529, 80.65545774507297, 74.90364009615331, 65.15455307474566, 74.03111564648785, 86.81340934921892, 85.50512550711129]
+  },
+  "time_basis": "calendar",
+  "title": "Cost of electricity from new renewable power plants",
+  "unit": {
+    "code": "USD2025/MWh",
+    "label": "US dollars per megawatt-hour, at 2025 prices",
+    "short": "USD/MWh"
+  },
+  "vintage": "2026-07-02"
+}

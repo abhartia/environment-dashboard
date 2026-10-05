@@ -1,0 +1,89 @@
+{
+  "attribution": "AVISO Global Mean Sea Level Indicator (CNES, CLS), doi:10.24400/527896/AVISO-2025.010; credits EU Copernicus Marine Service/CNES/LEGOS/CLS, https://aviso.altimetry.fr/msl, accessed 2026-10-04. Licence: AVISO License Agreement Issue 20, https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf",
+  "description": "AVISO's stated average rate of global mean sea level rise measured by satellite altimetry from 1999: 3.6 millimetres per year, with a 90% confidence interval of plus or minus 0.3 millimetres per year. AVISO's figure, quoted from its product page, not computed by us.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "gmsl.aviso.rate",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "1999/2026",
+    "status": "final",
+    "value": 3.6
+  },
+  "licence": {
+    "name": "AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0)",
+    "spdx": null,
+    "url": "https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf"
+  },
+  "licence_class": "open",
+  "notes": ["AVISO states the period as \"from 1999\" and gives no end date."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "msl-product-page", "bytes": 51308, "citation_full": "CNES, & CLS. (2026). AVISO Global Mean Sea Level Indicator [Dataset]. CNES. https://doi.org/10.24400/527896/AVISO-2025.010. Credits: EU Copernicus Marine Service/CNES/LEGOS/CLS, https://aviso.altimetry.fr/msl", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.24400/527896/AVISO-2025.010", "etag": null, "last_modified": null, "licence": {"name": "AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0)", "spdx": null, "url": "https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf"}, "producer": "CNES / AVISO+ (produced with CLS and LEGOS)", "r2_url": null, "sha256": "40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "source_id": "aviso-gmsl", "title": "AVISO reference global mean sea level from satellite altimetry", "url_download": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html", "url_main": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html", "version_producer": "product page read 2026-10-04", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "msl-global-filter2m-nc", "bytes": 66087, "citation_full": "CNES, & CLS. (2026). AVISO Global Mean Sea Level Indicator [Dataset]. CNES. https://doi.org/10.24400/527896/AVISO-2025.010. Credits: EU Copernicus Marine Service/CNES/LEGOS/CLS, https://aviso.altimetry.fr/msl", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.24400/527896/AVISO-2025.010", "etag": "\"10227-65ce67010d8c2\"", "last_modified": "Sat, 03 Oct 2026 02:30:52 GMT", "licence": {"name": "AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0)", "spdx": null, "url": "https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf"}, "producer": "CNES / AVISO+ (produced with CLS and LEGOS)", "r2_url": null, "sha256": "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862", "source_id": "aviso-gmsl", "title": "AVISO reference global mean sea level from satellite altimetry", "url_download": "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.nc", "url_main": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html", "version_producer": "product page read 2026-10-04", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Quoted from AVISO's Mean Sea Level product page, section 'At the global scale'. The quote was found in the visible text of the page snapshot (sha256 40fb325e7cac…) before publishing.",
+      "inputs": ["40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
+      "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
+    },
+    {
+      "description": "Value: \"3.6 mm per year (+/-0.3 mm/yr, 90%CI)\" is published as 3.6 millimetres per year with the 90% range 3.3 to 3.9 (the value minus and plus 0.3). The page states the period only as \"from 1999\"; it is published as 1999/2026, 2026 being the year the page was read (4 October 2026). The page carries no date, so the vintage is that reading date.",
+      "inputs": ["40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
+      "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
+    },
+    {
+      "description": "Consistency check (not published): an ordinary least-squares slope through the cycle values from 1 January 1999 of the NetCDF created on 26 September 2026 (sha256 d7a57922352a…, to 15 August 2026) is 3.67 mm per year, inside AVISO's stated 90% range; the build stops if it is not.",
+      "inputs": ["40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
+      "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
+    }
+  ],
+  "published_value": {
+    "document": "aviso-gmsl",
+    "locator": "Mean Sea Level product page, section 'At the global scale'",
+    "quote": "The average sea level rise rate is 3.6 mm per year (+/-0.3 mm/yr, 90%CI) over the globe and from 1999."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": "None: a rate of change, from 1999",
+    "basis": "Average rate over the satellite altimetry record from 1999 as stated by AVISO, with its 90% confidence interval; the page names no end date. The same page notes that the processing of the 1993–1999 part of the record changed in the latest release.",
+    "bunkers": null,
+    "geography": "Global ocean (AVISO: 'over the globe')",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD"],
+    "interval": ["90ci"],
+    "lower": [3.3],
+    "note": [0],
+    "period": ["1999/2026"],
+    "status": ["final"],
+    "upper": [3.9],
+    "value": [3.6]
+  },
+  "time_basis": "calendar",
+  "title": "Average rate of global sea level rise since 1999 (AVISO)",
+  "unit": {
+    "code": "mm/yr",
+    "label": "millimetres per year",
+    "short": "mm/yr"
+  },
+  "vintage": "product page read 2026-10-04"
+}

@@ -1,0 +1,73 @@
+{
+  "attribution": "Calculated by Environment Dashboard from EUMETSAT OSI SAF, Sea-Ice Index v3.0 (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026, produced by the Norwegian Meteorological Institute. CC BY 4.0. Changes: extent converted from km² to million km².",
+  "description": "Mean extent of Arctic sea ice in September since 1979 from EUMETSAT's OSI SAF Sea-Ice Index v3.0: the area of ocean with more than 15% ice cover. An independent European estimate made with a different algorithm from NSIDC's Sea Ice Index, so its values are higher; the two are shown side by side, never combined. Recent months come from OSI SAF's operational extension of its climate data record (OSI-438).",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "NH",
+  "id": "sea-ice-extent.osisaf.arctic-september",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "NH",
+    "period": "2026-09",
+    "status": "final",
+    "value": 5.341662
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "nh-extent-monthly", "bytes": 17861, "citation_full": "EUMETSAT OSI SAF, Sea-Ice Index (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026", "date_accessed": "2026-10-05", "date_published": "2026-10-05", "doi": "10.15770/EUM_SAF_OSI_0026", "etag": null, "last_modified": "Mon, 05 Oct 2026 10:22:11 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "EUMETSAT Ocean and Sea Ice SAF (OSI SAF), produced by the Norwegian Meteorological Institute", "r2_url": null, "sha256": "1df8e747017c43d744a8be016e5a910dc7f36987d6e6c46d26a922eaab8284b0", "source_id": "osisaf-sea-ice-index", "title": "EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)", "url_download": "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt", "url_main": "https://osi-saf.eumetsat.int/products/osi-420-a", "version_producer": "3.0", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the September rows of ice_extent_nh_sii-v3p0_monthly.txt (OSI SAF Sea-Ice Index v3.0, Northern Hemisphere monthly mean extent in km²), created by OSI SAF on 5 October 2026. Only Septembers that had ended when the file was created are used.",
+      "inputs": ["1df8e747017c43d744a8be016e5a910dc7f36987d6e6c46d26a922eaab8284b0"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/osisaf_sea_ice.py",
+      "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"
+    },
+    {
+      "description": "Converted km² to million km² (divided by 1,000,000, exact decimal arithmetic). Months marked -999 after the record starts would be published as missing.",
+      "inputs": ["1df8e747017c43d744a8be016e5a910dc7f36987d6e6c46d26a922eaab8284b0"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/osisaf_sea_ice.py",
+      "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Sea ice extent: monthly mean area with more than 15% ice concentration, from the OSI SAF sea ice concentration climate data records OSI-450-a1, OSI-430-a and OSI-438. Not sea ice area, and not NSIDC's index.",
+    "bunkers": null,
+    "geography": "Northern Hemisphere oceans (the Arctic Ocean and surrounding seas)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH"],
+    "period": ["1979-09", "1980-09", "1981-09", "1982-09", "1983-09", "1984-09", "1985-09", "1986-09", "1987-09", "1988-09", "1989-09", "1990-09", "1991-09", "1992-09", "1993-09", "1994-09", "1995-09", "1996-09", "1997-09", "1998-09", "1999-09", "2000-09", "2001-09", "2002-09", "2003-09", "2004-09", "2005-09", "2006-09", "2007-09", "2008-09", "2009-09", "2010-09", "2011-09", "2012-09", "2013-09", "2014-09", "2015-09", "2016-09", "2017-09", "2018-09", "2019-09", "2020-09", "2021-09", "2022-09", "2023-09", "2024-09", "2025-09", "2026-09"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [7.488542, 8.253906, 7.72524, 7.775385, 7.931583, 7.320031, 7.351938, 7.872271, 7.649125, 7.654896, 7.267521, 6.453167, 6.768396, 7.724417, 6.725104, 7.476312, 6.3625, 7.845542, 6.864167, 6.879542, 6.425812, 6.598125, 6.999354, 6.111271, 6.440625, 6.205708, 5.714229, 6.167417, 4.56275, 5.08675, 5.680021, 5.303208, 4.977667, 3.993812, 5.462438, 5.615771, 5.075104, 4.967104, 5.218708, 5.092771, 4.749146, 4.364437, 5.472792, 5.284188, 4.864625, 4.748045, 5.243966, 5.341662]
+  },
+  "time_basis": "calendar",
+  "title": "Arctic sea ice extent in September (OSI SAF)",
+  "unit": {
+    "code": "million-km2",
+    "label": "million square kilometres",
+    "short": "million km²"
+  },
+  "vintage": "3.0"
+}

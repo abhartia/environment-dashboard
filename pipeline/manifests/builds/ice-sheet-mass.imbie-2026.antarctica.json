@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/ice-sheet-mass.imbie-2026.antarctica.json",
+  "export_sha256": "287e38ef2734c7781dc1073a853222aa584e66a9435627addd78c857efffca0c",
+  "indicator_id": "ice-sheet-mass.imbie-2026.antarctica",
+  "key": "8be8f90e4f26aea1c12096f09d27c33e2a4ccce742441948314d3720e591121d",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "imbie-2026/antarctica-gt": {
+        "manifest_sha256": "6a3b9dba43213f2df1c40f59d94809e0f585e85217b8b773c4d7ad937cbbf7ff",
+        "sha256": "cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "imbie-2026": "d75c93911d8b407190393d8ead327e24336b29b6d943915bf517a6b2ea6e5ad3"
+    },
+    "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
+  },
+  "publisher_checks": []
+}

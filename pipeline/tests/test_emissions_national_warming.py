@@ -7,7 +7,6 @@ declared metadata against the registry.
 
 from __future__ import annotations
 
-import json
 import shutil
 from decimal import Decimal
 
@@ -19,6 +18,8 @@ from envdash.paths import REPO_ROOT, Paths
 from envdash.registry import load_registry
 from envdash.transform import InputFile, discover
 from envdash.transforms.emissions import jones_warming as jones
+
+from support import exported
 
 ID = "warming.jones-2025.national-contribution"
 
@@ -119,7 +120,7 @@ def test_build_exports_noncommercial_indicator(tmp_paths):
     ts = [t for t in discover(tmp_paths) if t.spec.id == ID]
     report = build_and_export(tmp_paths, reg, ts)
     assert [o.state for o in report.outcomes] == ["built"], [o.reason for o in report.outcomes]
-    ind = json.loads((tmp_paths.public_indicators / f"{ID}.json").read_text())
+    ind = exported(tmp_paths.public_indicators / f"{ID}.json")
     assert ind["licence_class"] == "noncommercial"
     assert ind["licence"]["spdx"] == "CC-BY-NC-SA-4.0"
     assert "PRIMAP-hist v2.7" in ind["notice"]

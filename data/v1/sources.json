@@ -698,7 +698,8 @@
       "acquisition": "automatic",
       "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "All-GHG booklet: totals, by sector and gas, per person, per GDP and LULUCF, by country, 1970-2025 (Mt CO2eq, AR5 GWP-100).", "discover": null, "format": "xlsx", "id": "ghg-booklet", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026.xlsx"},
-        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Fossil-CO2-only booklet: totals, by sector, per person and per GDP, by country, 1970-2025 (Mt CO2).", "discover": null, "format": "xlsx", "id": "fossil-co2-booklet", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026_fossilCO2only.xlsx"}
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Fossil-CO2-only booklet: totals, by sector, per person and per GDP, by country, 1970-2025 (Mt CO2).", "discover": null, "format": "xlsx", "id": "fossil-co2-booklet", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://edgar.jrc.ec.europa.eu/booklet/EDGAR_2026_GHG_booklet_2026_fossilCO2only.xlsx"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The report itself, \"GHG emissions of all world countries - 2026 Report\" (JRC147815, 301 pages): main findings, gas and sector statements, and a one-page profile for the world, international transport, the EU27 and every country.", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://edgar.jrc.ec.europa.eu/booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf"}
       ],
       "citation": {
         "DOI": "10.2760/7717504",
@@ -2536,6 +2537,65 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The Summary for Policymakers as published (32 pages, Last-Modified 17 June 2022), with the printed page numbers 3 to 32 of the Cambridge University Press volume.", "discover": null, "format": "pdf", "id": "spm-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf"}
+      ],
+      "citation": {
+        "DOI": "10.1017/9781009157896.001",
+        "URL": "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/",
+        "author": [
+          {"family": null, "given": null, "literal": "IPCC"}
+        ],
+        "container-title": "Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change",
+        "issued": "2021",
+        "page": "3-32",
+        "publisher": "Cambridge University Press",
+        "text": "IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.",
+        "title": "Summary for Policymakers",
+        "type": "chapter",
+        "version": null,
+        "volume": null
+      },
+      "description": "The approved summary of the IPCC's latest assessment of the physical science of climate change (2021). Statements carry paragraph identifiers (for example B.5.3) and confidence levels. Only short quoted statements and the numbers in them are shown, with the paragraph and page; IPCC figures are never reproduced or redrawn from the report.",
+      "evidence": {
+        "checked_on": "2026-10-05",
+        "licence_quote": "You may freely download and copy the material contained on this website for your personal, non-commercial use, without any right to resell or redistribute it or to compile or create derivative works there from, subject to more specific restrictions that may apply to specific materials.",
+        "terms_check": "page",
+        "terms_url": "https://www.ipcc.ch/copyright/"
+      },
+      "id": "ipcc-ar6-wg1-spm",
+      "landing_url": "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/",
+      "licence": {
+        "name": "© IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works)",
+        "spdx": null,
+        "url": "https://www.ipcc.ch/copyright/"
+      },
+      "licence_class": "display-only",
+      "next_release": null,
+      "obligations": {
+        "attribution": "IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press, pp. 3−32. doi:10.1017/9781009157896.001",
+        "attribution_modified": null,
+        "derived_disclaimer": null,
+        "mirror_raw": false,
+        "no_endorsement": false,
+        "no_logo": true,
+        "notice": "Quoted from the IPCC report with its statement number and page. IPCC material may not be redistributed or altered; the full report is at https://www.ipcc.ch/report/ar6/wg1/.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Intergovernmental Panel on Climate Change (IPCC), Working Group I",
+      "research_ref": "docs/research/sources-ocean-and-ice.json#IPCC AR6 Sea Level Projections (FACTS; NASA/IPCC Sea Level Projection Tool)",
+      "status": {
+        "note": "AR6 WGI (2021) is a completed assessment; only the IPCC's seventh-cycle Working Group I report will supersede it.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Climate Change 2021: The Physical Science Basis. Summary for Policymakers",
+      "twins": [],
+      "update_cadence": "IPCC assessment cycle, about 6 to 8 years"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Reconstructed global surface temperature change relative to 1850-1900, decadal smoothed, for years centred on 5-1995 CE (degrees C, with 5th and 95th percentiles).", "discover": null, "format": "csv", "id": "panel-a-recon-1-2000", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/SPM1_1-2000_recon.csv"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Observed global surface temperature change relative to 1850-1900, decadal smoothed, for years centred on 1855-2016 CE (AR6 Chapter 2 assessed mean, degrees C).", "discover": null, "format": "csv", "id": "panel-a-obs-1850-2020", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/SPM1_1850-2020_obs.csv"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Very likely range (5th and 95th percentiles, degrees C relative to 1850-1900) of the warmest multi-century period in more than 100,000 years, around 6,500 years ago.", "discover": null, "format": "csv", "id": "panel-a-6500-recon", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20221116/panel_a/spm1_6500_recon.csv"},
@@ -2720,7 +2780,7 @@
     {
       "acquisition": "automatic",
       "artifacts": [
-        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Data behind every figure and table of the report, one sheet each (108 sheets including section dividers). Sheets \"Fig. 9.5\" and \"Fig. 9.7\" are BNEF-based and excluded.", "discover": null, "format": "xlsx", "id": "data-file", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Data behind every figure and table of the report, one sheet each (108 sheets including section dividers). Sheets \"Fig. 9.5\" and \"Fig. 9.7\" are BNEF-based and \"Fig. 9.8\" is based on Carbon Limiting Technologies; all three are excluded.", "discover": null, "format": "xlsx", "id": "data-file", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx"},
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Executive summary with the terms and citation on page 2 and the headline cost figures.", "discover": null, "format": "pdf", "id": "executive-summary-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf"}
       ],
       "citation": {
@@ -4609,7 +4669,7 @@
     {
       "acquisition": "manual",
       "artifacts": [
-        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The English report (191 pages): Table 1 and Table 23 give global food waste in 2022 by sector (tonnes and kg per person per year); Annex 3 lists household estimates by country (M49 code, kg per person per year, tonnes per year, confidence). Country food service and retail tables are in the report's separate Appendix, which is not registered here. A person opens https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, downloads food_waste_index_report_2024.pdf (the English file, not the _PT or _SP translations), and records it with `uv run envdash snapshot add --source unep-food-waste-index-2024 --file food_waste_index_report_2024.pdf`.", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The English report (191 pages): Table 1 and Table 23 give global food waste in 2022 by sector (tonnes and kg per person per year); Annex 3 lists household estimates by country (M49 code, kg per person per year, tonnes per year, confidence). Country food service and retail tables are in the report's separate Appendix, which is not registered here. A person opens https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, downloads food_waste_index_report_2024.pdf (the English file, not the _PT or _SP translations), and records it with `uv run envdash snapshot add --source unep-food-waste-index-2024 --file food_waste_index_report_2024.pdf`. The snapshot recorded on 2026-10-05 (sha256 14d3955a9d58…, 26,521,890 bytes) is the Internet Archive capture of that producer URL made on 2024-03-28 (https://web.archive.org/web/20240328101605/https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf), the same capture the licence quote was read from; its manifest note says so.", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
       ],
       "citation": {
         "DOI": null,

@@ -24,7 +24,7 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
 export const getCatalog = <ThrowOnError extends boolean = false>(options?: Options<GetCatalogData, ThrowOnError>): RequestResult<GetCatalogResponses, unknown, ThrowOnError> => (options?.client ?? client).get<GetCatalogResponses, unknown, ThrowOnError>({ url: '/data/v1/catalog.json', ...options });
 
 /**
- * One indicator with its observations and provenance
+ * One indicator with its observations (as columns) and provenance
  */
 export const getIndicator = <ThrowOnError extends boolean = false>(options: Options<GetIndicatorData, ThrowOnError>): RequestResult<GetIndicatorResponses, GetIndicatorErrors, ThrowOnError> => (options.client ?? client).get<GetIndicatorResponses, GetIndicatorErrors, ThrowOnError>({ url: '/data/v1/indicators/{id}.json', ...options });
 

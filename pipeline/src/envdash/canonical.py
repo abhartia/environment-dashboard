@@ -2,7 +2,8 @@
 
 JSON: UTF-8, keys sorted, two-space indent, LF line endings, a trailing newline, floats in Python's shortest
 round-trip form (repr), no NaN or Infinity. A list element that is a flat record (a dict with no list values and
-only flat dicts inside) is written on one line, so an observation is one line and diffs stay readable.
+only flat dicts inside) is written on one line, and so is a list of scalars (an indicator file's table column), so
+diffs stay readable.
 """
 
 from __future__ import annotations

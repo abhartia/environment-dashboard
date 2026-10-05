@@ -9,13 +9,13 @@ import { Figure } from "@/components/viz/figure";
 import { SeriesChart, type Series } from "@/components/viz/series-chart";
 import type { Indicator, Observation } from "@/gen/hey-api/types.gen";
 import { catalog, catalogEntry, indicator, source } from "@/lib/data";
-import { formatPeriod, formatValue } from "@/lib/format";
+import { formatValue, formatWhen } from "@/lib/format";
 import { citeAs, licenceSentence } from "@/lib/provenance";
-import { dataPath, downloadPath, idFromSegments, sourcePath } from "@/lib/routes";
+import { dataPath, downloadPath, idFromSegments, sourcePath, timeAnchor } from "@/lib/routes";
 import { BRAND, reportProblemUrl } from "@/lib/site";
 import { ogImages } from "@/lib/seo/og";
 import { absoluteUrl, canonical } from "@/lib/site-url";
-import { periodToYear } from "@/lib/viz/period";
+import { timeToYear } from "@/lib/viz/period";
 
 export const dynamicParams = false;
 
@@ -35,6 +35,11 @@ export async function generateMetadata({ params }: PageProps<"/data/[...id]">): 
 }
 
 const MAX_SERIES = 5;
+/**
+ * A page holds at most this many table rows (a daily series has tens of thousands, past the host's file-size limit).
+ * A longer table shows the latest rows and says so; every value is always in the CSV and JSON downloads.
+ */
+const MAX_TABLE_ROWS = 5000;
 
 /** The headline entity's series: one line per combination of dimension values (at most five). */
 function chartSeries(ind: Indicator): Series[] {
@@ -61,7 +66,7 @@ function chartSeries(ind: Indicator): Series[] {
   return [...groups.entries()].slice(0, MAX_SERIES).map(([key, obs]) => ({
     key: key || "value",
     label: label(key),
-    points: obs.map((o) => ({ x: periodToYear(o.period), y: o.value, lo: o.lower, hi: o.upper })),
+    points: obs.map((o) => ({ x: timeToYear(o), y: o.value, lo: o.lower, hi: o.upper })),
   }));
 }
 
@@ -97,12 +102,12 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
             <h2 id="latest" className="eyebrow font-sans">
               Latest value
             </h2>
-            <p className="font-serif text-4xl num">
+            <p className="font-semibold tracking-tight text-4xl num">
               {formatValue(latest.value, dec)}
               <span className="ml-2 text-xl text-muted-foreground">{ind.unit.short}</span>
             </p>
             <p className="text-sm text-muted-foreground">
-              {p.scope.geography}, {formatPeriod(latest.period)}
+              {p.scope.geography}, {formatWhen(latest)}
               {latest.status !== "final" ? ` (${latest.status})` : ""}. Version {ind.vintage}.
             </p>
           </section>
@@ -112,7 +117,7 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
               <h2 id="quoted" className="text-2xl">
                 As published
               </h2>
-              <blockquote className="border-l-2 border-foreground pl-4 font-serif text-lg">“{p.published_value.quote}”</blockquote>
+              <blockquote className="border-l-2 border-foreground pl-4 font-semibold tracking-tight text-lg">“{p.published_value.quote}”</blockquote>
               <p className="text-sm text-muted-foreground">
                 {source(p.published_value.document).title}, {p.published_value.locator}. Checked word for word against
                 the stored copy of the document every time the data is rebuilt.
@@ -168,7 +173,7 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
               title={`${entry.title} (${ind.unit.label})`}
               takeaway={
                 <>
-                  {rows.length} values from {formatPeriod(rows[0].period)} to {formatPeriod(rows[rows.length - 1].period)}.
+                  {rows.length} values from {formatWhen(rows[0])} to {formatWhen(rows[rows.length - 1])}.
                   {series.length > 1 ? ` Lines: ${series.map((s) => s.label).join(", ")}.` : ""}
                   {hasRange ? " The shaded band is the uncertainty range the producer gives." : ""}
                 </>
@@ -179,11 +184,15 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
                 </>
               }
               table={{
-                caption: `${entry.title}, every value`,
+                caption: rows.length > MAX_TABLE_ROWS ? `${entry.title}, the latest values` : `${entry.title}, every value`,
+                note:
+                  rows.length > MAX_TABLE_ROWS
+                    ? `The latest ${formatValue(MAX_TABLE_ROWS, 0)} of ${formatValue(rows.length, 0)} values. Every value is in the CSV and JSON downloads.`
+                    : undefined,
                 columns: ["Period", ...dimCols, `Value (${ind.unit.short})`, ...(hasRange ? ["Range"] : []), "Status"],
-                rows: rows.map((o) => [
-                  <span key="p" id={o.period}>
-                    {o.period}
+                rows: rows.slice(-MAX_TABLE_ROWS).map((o) => [
+                  <span key="p" id={timeAnchor(o)}>
+                    {o.period ?? formatWhen(o)}
                   </span>,
                   ...ind.dimensions.map((d) => d.values.find((v) => v.id === o.dims[d.id])?.label ?? o.dims[d.id]),
                   o.value === null ? `none (${o.missing_reason})` : formatValue(o.value, dec),

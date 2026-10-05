@@ -19,6 +19,8 @@ from envdash.transform import discover
 from envdash.transforms.action import ivanova_2020 as iv
 from envdash.validate import validate_all
 
+from support import exported
+
 FIXTURES = Path(__file__).parent / "fixtures"
 SOURCE, ARTIFACT = "ivanova-2020", "article-pdf"
 
@@ -163,7 +165,7 @@ def test_build_exports_an_open_published_value(tmp_path):
     ts = [t for t in discover(paths) if t.spec.id == iv.INDICATOR]
     report = build_and_export(paths, reg, ts)
     assert [o.state for o in report.outcomes] == ["built"], report.outcomes[0].reason
-    ind = json.loads((paths.public_indicators / f"{iv.INDICATOR}.json").read_text())
+    ind = exported(paths.public_indicators / f"{iv.INDICATOR}.json")
     assert ind["kind"] == "published-value" and ind["licence_class"] == "open"
     assert ind["latest"]["value"] == 2.0 and ind["latest"]["dims"]["option"] == "living-car-free"
     assert ind["published_value"]["quote"].startswith("Living car-free has the highest median")

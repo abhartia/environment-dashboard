@@ -4,7 +4,8 @@ Returns a list of problems; empty means valid. Checks:
 - every source and literature YAML loads;
 - every snapshot manifest parses, is named by its sha256, and matches its cached bytes when they are present;
 - current.json points only at manifests that exist;
-- every exported indicator parses, is in canonical form, sits on the side (data/ or data-private/) its licence class
+- every exported indicator parses as an IndicatorFile whose expansion is a valid Indicator, is in canonical form
+  (re-exporting the expansion gives the same bytes), sits on the side (data/ or data-private/) its licence class
   allows, and matches its catalogue entry's sha256; no non-redistributable value or file is under data/;
 - an indicator dated in years before 1950 runs from the oldest age to the youngest within each (entity, dims) series,
   and its latest is the youngest observation of its headline series (the model checks period/age_bp consistency);
@@ -20,8 +21,8 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from envdash import canonical, snapshots
-from envdash.export import SUMS_EXCLUDE
-from envdash.models import REDISTRIBUTABLE, Catalog, Indicator, Snapshot, SourceList
+from envdash.export import SUMS_EXCLUDE, export_bytes
+from envdash.models import REDISTRIBUTABLE, Catalog, Indicator, IndicatorFile, Snapshot, SourceList
 from envdash.paths import Paths
 from envdash.registry import Registry
 
@@ -35,6 +36,18 @@ def _canonical(path: Path, model) -> tuple[object | None, list[str]]:
     if canonical.dump_bytes(obj) != data:
         return obj, [f"{path.name}: not in canonical form (rebuild with envdash build)"]
     return obj, []
+
+
+def _indicator(path: Path) -> tuple[Indicator | None, list[str]]:
+    """An exported IndicatorFile, expanded and checked as an Indicator, and re-exported to the same bytes."""
+    data = path.read_bytes()
+    try:
+        ind = IndicatorFile.model_validate_json(data).to_indicator()
+    except ValidationError as e:
+        return None, [f"{path.name}: invalid IndicatorFile: {e.errors()[:3]}"]
+    if export_bytes(ind) != data:
+        return ind, [f"{path.name}: not in canonical form (rebuild with envdash build)"]
+    return ind, []
 
 
 def _paleo_order(ind: Indicator) -> list[str]:
@@ -90,11 +103,10 @@ def validate_all(paths: Paths, registry: Registry) -> list[str]:
     seen: set[str] = set()
     for base, public in ((paths.public_indicators, True), (paths.private_indicators, False)):
         for p in sorted(base.glob("*.json")) if base.exists() else []:
-            obj, errs = _canonical(p, Indicator)
+            ind, errs = _indicator(p)
             problems += errs
-            if obj is None:
+            if ind is None:
                 continue
-            ind: Indicator = obj  # type: ignore[assignment]
             seen.add(ind.id)
             if p.stem != ind.id:
                 problems.append(f"{p.name} holds indicator {ind.id}")

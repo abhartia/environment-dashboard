@@ -67,11 +67,11 @@ def test_reads_legend_and_forest_area():
     assert by["AFG"][1990] == (Decimal("1209.44"), "I")
 
 
-def test_area_world_is_the_sum_and_unmapped_areas_only_count_in_it():
+def test_area_world_is_the_sum_and_overseas_areas_are_published():
     by, legend = _by()
     obs = fra.area_observations(by, legend)
     entities = {o.entity for o in obs}
-    assert "GUF" not in entities and "FRA" not in entities and "BRA" in entities and "WLD" in entities
+    assert "GUF" in entities and "FRA" not in entities and "BRA" in entities and "WLD" in entities
     world = {o.period: o.value for o in obs if o.entity == "WLD"}
     assert world["2025"] == float(sum(by[c][2025][0] for c in by))
     bra = next(o for o in obs if o.entity == "BRA" and o.period == "2025")

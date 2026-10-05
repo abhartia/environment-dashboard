@@ -34,3 +34,10 @@ function periodEnd(period: string): number {
   if (d === null) return y + mo / 12;
   return y + (mo - 1) / 12 + d / daysIn(y, mo) / 12;
 }
+
+/** Any observation's time as a decimal year: its period's midpoint, or for an age-dated value the year 1950 - age. */
+export function timeToYear(t: { period: string | null; age_bp?: number | null }): number {
+  if (t.period !== null) return periodToYear(t.period);
+  if (t.age_bp === null || t.age_bp === undefined) throw new Error("timeToYear: neither a period nor an age");
+  return 1950 - t.age_bp;
+}

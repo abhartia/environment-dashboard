@@ -4,6 +4,7 @@
  * make the text wrong (plan: "Latest, claims and cross-checks"). Pure functions over indicator JSON, no I/O.
  */
 import type { Indicator, Observation } from "@/gen/hey-api/types.gen";
+import { calendarPeriod } from "@/lib/format";
 
 export type Ref = { indicator: string; entity?: string; period?: string; dims?: Record<string, string> };
 
@@ -49,7 +50,7 @@ export function evaluate(claim: Claim, load: (id: string) => Indicator): string 
       return best.period === c.period ? null : `${claim.text}: the ${c.kind === "argmax" ? "highest" : "lowest"} value is now in ${best.period}, not ${c.period}`;
     }
     case "rising-every-period": {
-      const s = series(load(c.series.indicator), c.series).filter((o) => o.period >= c.from);
+      const s = series(load(c.series.indicator), c.series).filter((o) => calendarPeriod(o) >= c.from);
       for (let i = 1; i < s.length; i++) {
         if ((s[i].value as number) <= (s[i - 1].value as number)) return `${claim.text}: ${s[i].period} is not above ${s[i - 1].period}`;
       }

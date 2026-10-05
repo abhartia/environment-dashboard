@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/warming.jones-2025.national-contribution.json",
+  "export_sha256": "51e47d349906f5db7d915d08a469c74f212598e4b1927305d819dc204421314f",
+  "indicator_id": "warming.jones-2025.national-contribution",
+  "key": "5c4a1913d182d72a4678c13efedd00fc3568d040cd196b03b690e28b32a788a1",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "jones-2025-national-contributions/gmst-response-1851": {
+        "manifest_sha256": "ba015dfe6ba858d2fd18d4a2c0bd2e189f713b3edd300f33a4f9a45c0561baf3",
+        "sha256": "84f6cee695abf6a522de77b9899b094a982356ceb421e1c18c109530596de238"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "jones-2025-national-contributions": "040863fe22c4438969f5577a8a8a14a78fae29a63e22dae5778a106456534b9f"
+    },
+    "transform_sha256": "55996f070bcd5c8420fce5619ce6c8a3695ac28cd4fc04012e4f3aa54d2e3fad"
+  },
+  "publisher_checks": []
+}

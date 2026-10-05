@@ -5,6 +5,44 @@
   "name": "environment-dashboard",
   "resources": [
     {
+      "bytes": 361748,
+      "description": "The part of each country's and the world's population that has access to electricity, each year since 1990, from the World Bank's World Development Indicators.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:8fb635549f27aaf167b30389e16455cbc57d3dde1dbc4aee80d14989bce58b74",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (World Bank dataset terms, with their additional terms)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "access.wb-wdi.electricity",
+      "path": "v1/indicators/access.wb-wdi.electricity.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of population (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators", "title": "World Bank: World Development Indicators"}
+      ],
+      "title": "Share of people with access to electricity"
+    },
+    {
       "bytes": 16745,
       "description": "How much each of 28 household consumption options cut greenhouse gas emissions per person per year in the studies reviewed by Ivanova et al. (2020): the mean, the median and the range across studies, for the options whose values the article's text states. The values mostly come from high-income settings, depend on context (the electricity mix, the car replaced, the starting diet) and do not add up across options.",
       "dialect": {
@@ -84,6 +122,121 @@
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (50% likelihood)"
     },
     {
+      "bytes": 1432,
+      "description": "The part of the world's installed electricity generating capacity that is renewable, at the end of each year since 2016, as published by IRENA.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0e47592b216566d1ba8b0b82c7ee9c12bacd9a659fc36843aede9602d2c8bb44",
+      "licenses": [
+        {"path": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf", "title": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "capacity.irena.renewable-share-world",
+      "path": "v1/indicators/capacity.irena.renewable-share-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of total electricity generating capacity (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "title": "International Renewable Energy Agency (IRENA): Renewable capacity statistics 2026"}
+      ],
+      "title": "Renewables' share of world power capacity"
+    },
+    {
+      "bytes": 7616,
+      "description": "Capacity of the world's renewable power plants by technology (hydropower, marine, onshore and offshore wind, solar photovoltaic, concentrated solar power, bioenergy and geothermal) at the end of each year since 2016, as compiled by IRENA.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5a6adb1d3aea0f4d1f11cd4627617b1f4edbb68c97964f5df3b882ce498b250d",
+      "licenses": [
+        {"path": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf", "title": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "capacity.irena.renewables-by-technology-world",
+      "path": "v1/indicators/capacity.irena.renewables-by-technology-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigawatts (GW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "technology", "title": "Technology", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "title": "International Renewable Energy Agency (IRENA): Renewable capacity statistics 2026"}
+      ],
+      "title": "World renewable power capacity by technology"
+    },
+    {
+      "bytes": 1443,
+      "description": "Total capacity of the world's renewable power plants (hydropower, wind, solar, bioenergy, geothermal and marine) at the end of each year since 2016, as compiled by IRENA.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b7db2fdce261ee6485c8a69d2799ee4a15f8e8ac93bb8fac7e7536219c04d36c",
+      "licenses": [
+        {"path": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf", "title": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "capacity.irena.renewables-world",
+      "path": "v1/indicators/capacity.irena.renewables-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigawatts (GW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "title": "International Renewable Energy Agency (IRENA): Renewable capacity statistics 2026"}
+      ],
+      "title": "World renewable power capacity"
+    },
+    {
       "bytes": 3998,
       "description": "Annual mean methane in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 1984.",
       "dialect": {
@@ -120,6 +273,45 @@
         {"path": "https://gml.noaa.gov/ccgg/trends_doi.html", "title": "NOAA Global Monitoring Laboratory: Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride"}
       ],
       "title": "Methane, global annual mean"
+    },
+    {
+      "bytes": 10547,
+      "description": "The share of the world's consumption-based carbon dioxide emissions caused by the richest 10%, the richest 1% and the poorest 50% of people, ranked by income across the world, each year from 1990. Consumption emissions count what a country's people buy, including imports, and exclude what it makes for export. The split between people depends on the Stockholm Environment Institute's assumptions about how emissions rise with income.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5ad7ae975b861c44276bd1d5f4ee259840b7a3a0fe89587db623167b9c96ff69",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (the About page says \"CC BY\" and links the 4.0 licence)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "co2-share.sei-inequality.income-groups-global",
+      "path": "v1/indicators/co2-share.sei-inequality.income-groups-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of world consumption carbon dioxide emissions (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "group", "title": "Income group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://emissions-inequality.org/", "title": "Stockholm Environment Institute (SEI): Emissions Inequality Dashboard"}
+      ],
+      "title": "Share of world consumption carbon dioxide by income group (SEI)"
     },
     {
       "bytes": 154598,
@@ -312,6 +504,44 @@
       "title": "Carbon dioxide at Mauna Loa, monthly mean"
     },
     {
+      "bytes": 382048,
+      "description": "Share of each country's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember, with the world for comparison.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4f63bf6e7d48c5d7ca419d4c5d250108073670498f3c3cd03b259e1545e209ea",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.clean-share-by-country",
+      "path": "v1/indicators/electricity.ember.clean-share-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "Share of electricity from clean sources, by country"
+    },
+    {
       "bytes": 3059,
       "description": "Share of the world's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember.",
       "dialect": {
@@ -348,6 +578,83 @@
         {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
       ],
       "title": "Share of world electricity from clean sources"
+    },
+    {
+      "bytes": 432707,
+      "description": "Greenhouse gas emissions per kilowatt-hour of electricity generated in each country, counting the whole lifecycle of each power source (fuel extraction, methane leaks, building the plants), each year since 2000, as estimated by Ember, with the world for comparison.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:8052fc892e8c9a383f37cc857da2071d0e4eb054dc3f88739bb1610d340040ea",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.lifecycle-intensity-by-country",
+      "path": "v1/indicators/electricity.ember.lifecycle-intensity-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "grams of carbon dioxide equivalent per kilowatt-hour (lifecycle) (gCO2e/kWh)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "Carbon intensity of electricity (lifecycle), by country"
+    },
+    {
+      "bytes": 3267136,
+      "description": "Share of each country's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels), each year since 2000, as published by Ember, with the world for comparison.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4e96c84278c16fba5ea7c3aa4a2c3e372fafb8c5a4327a02efd06065ec7bbf86",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.mix-by-country",
+      "path": "v1/indicators/electricity.ember.mix-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "source", "title": "Electricity source", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "Electricity generation by source, by country"
     },
     {
       "bytes": 22830,
@@ -387,6 +694,121 @@
         {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
       ],
       "title": "World electricity generation by source"
+    },
+    {
+      "bytes": 22504,
+      "description": "Share of the world's electricity generation from renewables and nuclear power together in each month since January 2019, as estimated by Ember.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:8da0b6d55e2544b9b58568c3561a93bfca5ee314240b568a21f6f75bf5245058",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.monthly-clean-share-world",
+      "path": "v1/indicators/electricity.ember.monthly-clean-share-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/monthly-electricity-data/", "title": "Ember: Monthly electricity data"}
+      ],
+      "title": "Share of world electricity from clean sources, monthly"
+    },
+    {
+      "bytes": 20546,
+      "description": "How much more or less electricity the world generated from coal, gas and other fossil fuels in each month than in the same month a year earlier, in percent, since January 2020, as estimated by Ember.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:903f19d681da7a8e59c4b452e24cf78a1c970015d6610cc8aaa4d80634a1ab90",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.monthly-fossil-change-world",
+      "path": "v1/indicators/electricity.ember.monthly-fossil-change-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent change from the same month a year earlier (percent-change)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/monthly-electricity-data/", "title": "Ember: Monthly electricity data"}
+      ],
+      "title": "Change in world fossil-fuel electricity from a year earlier, monthly"
+    },
+    {
+      "bytes": 197363,
+      "description": "Share of the world's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels) in each month since January 2019, as estimated by Ember.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:53b3059044a9ca1328f785a18c04e57a20b0d1d1e4ab0d43ad8746c2a3fa4e5f",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.monthly-mix-world",
+      "path": "v1/indicators/electricity.ember.monthly-mix-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "source", "title": "Electricity source", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/monthly-electricity-data/", "title": "Ember: Monthly electricity data"}
+      ],
+      "title": "World electricity generation by source, monthly"
     },
     {
       "bytes": 46263,
@@ -580,6 +1002,45 @@
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (Global Carbon Budget)"
     },
     {
+      "bytes": 1141909,
+      "description": "Each country's fossil carbon dioxide emissions counted two ways since 1990: where they are released (territorial), and where the goods and services they went into are finally consumed (consumption-based). Where consumption-based emissions are higher, the country's imports carried more emissions than its exports.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d6405233eb58eecf50775e89cdd2f0cf1e4a5adeaa80ac11cb2b2431dc44d169",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.territorial-vs-consumption",
+      "path": "v1/indicators/emissions.gcb-2025.territorial-vs-consumption.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "accounting", "title": "Accounting", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.icos-cp.eu/GCP/2025", "title": "Global Carbon Project: Global Carbon Budget 2025: national fossil and land-use change carbon dioxide emissions"}
+      ],
+      "title": "Territorial and consumption-based fossil carbon dioxide emissions by country"
+    },
+    {
       "bytes": 6478,
       "description": "Carbon dioxide released each year since 1959 by fossil fuels and industry (net of the cement carbonation sink) and by land-use change such as deforestation.",
       "dialect": {
@@ -616,6 +1077,428 @@
         {"path": "https://www.icos-cp.eu/GCP/2025", "title": "Global Carbon Project: Global Carbon Budget 2025: global sources and sinks of carbon dioxide"}
       ],
       "title": "Total carbon dioxide emissions from human activity, world (Global Carbon Budget)"
+    },
+    {
+      "bytes": 1716098,
+      "description": "Carbon dioxide released each year since 1750 by burning coal, oil and gas, making cement, flaring gas and other industrial uses of carbonates, in each country where it was emitted. International aviation and shipping are shown on their own and counted in the world total.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:10075af520b9af4188f024497c547e3d651773bc821c773c7ada468728ece825",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcp-2025.fossil-co2-by-country",
+      "path": "v1/indicators/emissions.gcp-2025.fossil-co2-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17417124", "title": "Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO): The Global Carbon Project's fossil CO2 emissions dataset, 2025 release"}
+      ],
+      "title": "Fossil carbon dioxide emissions by country"
+    },
+    {
+      "bytes": 6897190,
+      "description": "Each country's fossil carbon dioxide emissions since 1750 split by source: coal, oil, gas, cement production, gas flaring and other carbonates.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2a84b25c522b64f088cc41e8453863a58afbae39d272ecc113609de9312bf42c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcp-2025.fossil-co2-by-fuel",
+      "path": "v1/indicators/emissions.gcp-2025.fossil-co2-by-fuel.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "fuel", "title": "Fuel or source", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17417124", "title": "Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO): The Global Carbon Project's fossil CO2 emissions dataset, 2025 release"}
+      ],
+      "title": "Fossil carbon dioxide emissions by country and fuel"
+    },
+    {
+      "bytes": 2679588,
+      "description": "All the fossil carbon dioxide each country has emitted from 1750 up to each year: the running total of its annual emissions.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0f60b5fa7339704847242b3e8d70b4072fd4f0f3d31f4057ef71182748595808",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcp-2025.fossil-co2-cumulative",
+      "path": "v1/indicators/emissions.gcp-2025.fossil-co2-cumulative.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide (GtCO2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17417124", "title": "Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO): The Global Carbon Project's fossil CO2 emissions dataset, 2025 release"}
+      ],
+      "title": "Cumulative fossil carbon dioxide emissions since 1750"
+    },
+    {
+      "bytes": 3017019,
+      "description": "Each country's cumulative fossil carbon dioxide emissions since 1750 as a percentage of the world's, up to each year.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:cf7dcb3180bbf5281c37568f52977ea460c26c4c4fb13065d3de07c575b25ef3",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcp-2025.fossil-co2-cumulative-share",
+      "path": "v1/indicators/emissions.gcp-2025.fossil-co2-cumulative-share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17417124", "title": "Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO): The Global Carbon Project's fossil CO2 emissions dataset, 2025 release"}
+      ],
+      "title": "Share of the world's cumulative fossil carbon dioxide emissions since 1750"
+    },
+    {
+      "bytes": 1644829,
+      "description": "Each country's fossil carbon dioxide emissions in a year divided by its population, as the Global Carbon Project publishes them.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2f56871864f36b3800609f15064ddf12ee38d2629fab2b3baaed4f1b757866a4",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcp-2025.fossil-co2-per-capita",
+      "path": "v1/indicators/emissions.gcp-2025.fossil-co2-per-capita.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "tonnes of carbon dioxide per person per year (tCO2/person/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17417124", "title": "Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO): The Global Carbon Project's fossil CO2 emissions dataset, 2025 release"}
+      ],
+      "title": "Fossil carbon dioxide emissions per person"
+    },
+    {
+      "bytes": 723392,
+      "description": "The part of each country's and the world's total energy use that comes from coal, oil and natural gas, each year since 1980, calculated from US Energy Information Administration data.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:008d51112c17d7c99a604001aaa647743e0aea66e60540529dd9840e139c7cb4",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "energy.eia.fossil-share",
+      "path": "v1/indicators/energy.eia.fossil-share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of total primary energy consumption (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/international/data/world", "title": "U.S. Energy Information Administration: International energy data"}
+      ],
+      "title": "Share of primary energy from fossil fuels"
+    },
+    {
+      "bytes": 3658177,
+      "description": "Energy each country and the world use each year since 1980, by fuel: coal, natural gas, oil and other liquids, nuclear, and renewables and other sources, as accounted for by the US Energy Information Administration.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:76d1d50a6e9ed739401c41901d641a9bddf1b0bfad778bc2a5c2f6e48af6e006",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "energy.eia.primary-by-fuel",
+      "path": "v1/indicators/energy.eia.primary-by-fuel.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "quadrillion British thermal units (quad-Btu)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "fuel", "title": "Fuel", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/international/data/world", "title": "U.S. Energy Information Administration: International energy data"}
+      ],
+      "title": "Primary energy consumption by fuel"
+    },
+    {
+      "bytes": 661725,
+      "description": "Total energy each country and the world use each year since 1980, counting every fuel, as accounted for by the US Energy Information Administration.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4cc672772c50e500bb96f50b52c53a43632f19e6f5529406069d37db2d52c1a3",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "energy.eia.primary-total",
+      "path": "v1/indicators/energy.eia.primary-total.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "quadrillion British thermal units (quad-Btu)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/international/data/world", "title": "U.S. Energy Information Administration: International energy data"}
+      ],
+      "title": "Total primary energy consumption"
+    },
+    {
+      "bytes": 116794,
+      "description": "The part of new cars, vans, buses, trucks and two- and three-wheelers sold each year since 2010 that were electric (battery-electric or plug-in hybrid), by country and for the world, as published by the IEA.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d7bdf4c65ec2aaae0f7164342ef46c06fb5abdf26c1b81a381a83418808e647c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ev.iea.sales-share",
+      "path": "v1/indicators/ev.iea.sales-share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of new vehicle sales (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "mode", "title": "Vehicle type", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer", "title": "International Energy Agency: Global EV Outlook 2026 and Global EV Data Explorer"}
+      ],
+      "title": "Electric share of new vehicle sales"
+    },
+    {
+      "bytes": 4583,
+      "description": "The share of the world's food, by economic value, lost after harvest on the farm, in storage, transport and processing, before it reaches shops, each year since 2015, in total and for four commodity groups, as estimated by FAO for SDG indicator 12.3.1a.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b8f733f6b359bb9c474bc19e845246d6626ddca03eafe0b8086f53f5084257fa",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food-loss.faostat.sdg-12-3-1a",
+      "path": "v1/indicators/food-loss.faostat.sdg-12-3-1a.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of food produced, by economic value (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "commodity", "title": "Commodity group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Food lost between harvest and retail (SDG 12.3.1a)"
+    },
+    {
+      "bytes": 586080,
+      "description": "Greenhouse gas emissions from each country's food and farming system each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO with the same method for every country.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:39b24fb147f6988f4f77ff55fbb3a703b2b58ee39b1411e88e3a4821e03e46fc",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.agrifood-emissions-by-country",
+      "path": "v1/indicators/food.faostat.agrifood-emissions-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Greenhouse gas emissions from agrifood systems, by country"
     },
     {
       "bytes": 3321,
@@ -732,6 +1615,45 @@
       "title": "Methane from livestock, world"
     },
     {
+      "bytes": 1471,
+      "description": "Greenhouse gas emissions caused by producing the food eaten in a day by vegans, vegetarians, fish-eaters and low, medium and high meat-eaters in a large UK study, per 2,000 kilocalories, in kilograms of carbon dioxide equivalent, with the range that holds 95% of the authors' uncertainty estimates (Scarborough et al. 2023).",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c018f8ec0912cdceccc537de488ca9c4d066730892c103ca90c4d79c43192f9b",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.scarborough-2023.diet-ghg-per-day",
+      "path": "v1/indicators/food.scarborough-2023.diet-ghg-per-day.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilograms of carbon dioxide equivalent per person per day (2,000 kcal) (kgCO2e-per-person-per-day)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "diet", "title": "Diet group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s43016-023-00795-w", "title": "University of Oxford (Scarborough, Clark, Springmann et al.), published in Nature Food: Environmental impacts of UK diet groups (Scarborough et al. 2023)"}
+      ],
+      "title": "Greenhouse gas emissions of UK diets, by diet group"
+    },
+    {
       "bytes": 487851,
       "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750 to 2025, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025. Human-caused agents are counted from zero in 1750; solar and volcanic forcing are IGCC's time series, which do not start from zero in 1750.",
       "dialect": {
@@ -769,6 +1691,234 @@
         {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
       ],
       "title": "Effective radiative forcing by agent, 1750–2025 (IGCC 2025)"
+    },
+    {
+      "bytes": 170145,
+      "description": "The area of forest in each country and in the world in 1990, 2000, 2010, 2015, 2020 and 2025, in thousands of hectares, as reported to FAO's Global Forest Resources Assessment 2025.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:38f56e3043695320b8f18996c0b008c9ef23063fee1a90c0328d3bed258495dd",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use; report CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "forest.fao-fra-2025.area",
+      "path": "v1/indicators/forest.fao-fra-2025.area.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "thousand hectares (kha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://fra-data.fao.org/assessments/fra/2025/WO/home/overview", "title": "Food and Agriculture Organization of the United Nations (FAO), Forestry Division: Global Forest Resources Assessment 2025"}
+      ],
+      "title": "Forest area"
+    },
+    {
+      "bytes": 153975,
+      "description": "How much the area of forest grew or shrank each year, on average, in each country and in the world over 1990–2000, 2000–2010, 2010–2015, 2015–2020 and 2020–2025: new forest from planting and natural expansion minus forest lost to deforestation, in thousands of hectares a year, from FAO's Global Forest Resources Assessment 2025. Negative values are net loss.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e3afb253688102806513b08972ceae28e666127fc8674dbd1e2e045fc9be409b",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use; report CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "forest.fao-fra-2025.net-change",
+      "path": "v1/indicators/forest.fao-fra-2025.net-change.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "thousand hectares per year (kha-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://fra-data.fao.org/assessments/fra/2025/WO/home/overview", "title": "Food and Agriculture Organization of the United Nations (FAO), Forestry Division: Global Forest Resources Assessment 2025"}
+      ],
+      "title": "Annual net change in forest area"
+    },
+    {
+      "bytes": 4831,
+      "description": "Change in the mass of the world's glaciers in each hydrological year since 1976, from the World Glacier Monitoring Service's annual estimates, with the one-sigma uncertainty. Negative values are a loss of ice.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:1e7fa66ffcb8bcccfd76cbd6efbedc325afd0088d67ad39d38fd5acf784f1137",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "glacier-mass.wgms-amce.annual",
+      "path": "v1/indicators/glacier-mass.wgms-amce.annual.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigatonnes (Gt)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://wgms.ch/mass_change_estimates/", "title": "World Glacier Monitoring Service (WGMS), University of Zurich: Annual mass-change estimates for the world's glaciers (version 2026-02-10)"}
+      ],
+      "title": "Global glacier mass change each year (WGMS)"
+    },
+    {
+      "bytes": 5176,
+      "description": "Cumulative change in the mass of the world's glaciers since the start of hydrological year 1976 (late 1975), from the World Glacier Monitoring Service's annual estimates, with the one-sigma uncertainty. Negative values are a loss of ice.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:419b7cb86be916c8b95056ba3fc8899177d288a37a9a7d0ec3720fd0fb1125d9",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "glacier-mass.wgms-amce.cumulative",
+      "path": "v1/indicators/glacier-mass.wgms-amce.cumulative.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigatonnes (Gt)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://wgms.ch/mass_change_estimates/", "title": "World Glacier Monitoring Service (WGMS), University of Zurich: Annual mass-change estimates for the world's glaciers (version 2026-02-10)"}
+      ],
+      "title": "Global glacier mass change since 1975 (WGMS)"
+    },
+    {
+      "bytes": 25892,
+      "description": "How much the global average sea level has risen since 1993, month by month, measured by the reference satellite altimetry missions TOPEX/Poseidon, Jason-1, Jason-2, Jason-3 and Sentinel-6 Michael Freilich. Calculated by Environment Dashboard from AVISO's values about every 10 days: averaged to calendar months and set so that the 1993 average is zero. Seasonal (annual and semi-annual) cycles are removed by AVISO.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:18832ad09b8def6431787ead08bf81ccf5f3650bd900ee950a9704aeabde29a6",
+      "licenses": [
+        {"path": "https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf", "title": "AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "gmsl.aviso.monthly",
+      "path": "v1/indicators/gmsl.aviso.monthly.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "millimetres (mm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html", "title": "CNES / AVISO+ (produced with CLS and LEGOS): AVISO reference global mean sea level from satellite altimetry"}
+      ],
+      "title": "Global mean sea level change since 1993, monthly (AVISO satellite altimetry)"
+    },
+    {
+      "bytes": 1097,
+      "description": "AVISO's stated average rate of global mean sea level rise measured by satellite altimetry from 1999: 3.6 millimetres per year, with a 90% confidence interval of plus or minus 0.3 millimetres per year. AVISO's figure, quoted from its product page, not computed by us.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:a78157ecc8e42d9219c6d7550c82c48f74d115d4660020bcc65d1971bddbfc71",
+      "licenses": [
+        {"path": "https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf", "title": "AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "gmsl.aviso.rate",
+      "path": "v1/indicators/gmsl.aviso.rate.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "millimetres per year (mm/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html", "title": "CNES / AVISO+ (produced with CLS and LEGOS): AVISO reference global mean sea level from satellite altimetry"}
+      ],
+      "title": "Average rate of global sea level rise since 1999 (AVISO)"
     },
     {
       "bytes": 3336,
@@ -887,6 +2037,238 @@
       "title": "Potential work hours lost to heat, world"
     },
     {
+      "bytes": 82740,
+      "description": "The average number of days a year whose maximum temperature reaches 35 °C or more, over each country's area, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. 1995–2014 is the models' simulation of the recent past (not observations); 2040–2059 is projected under three emissions scenarios. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:809cd2aadf55d0e670ab9f35747b6f39c08c786612f36ca2d925c17969bd1e5a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "hot-days-35c.wb-cckp.cmip6",
+      "path": "v1/indicators/hot-days-35c.wb-cckp.cmip6.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days per year with a daily maximum of 35 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Period and scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Days a year at 35 °C or hotter by country, 1995–2014 and 2040–2059 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 52767,
+      "description": "Cumulative change in the mass of the Antarctic Ice Sheet each month from January 1979 to December 2023, from the IMBIE team's reconciliation of satellite surveys, with the one-sigma uncertainty. Negative values are a loss of ice.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c6e98acc0506253e3f296a255b511788044e40f758feb96aaee040184c9130c6",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ice-sheet-mass.imbie-2026.antarctica",
+      "path": "v1/indicators/ice-sheet-mass.imbie-2026.antarctica.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigatonnes (Gt)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074", "title": "IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre: Mass balance of the Greenland and Antarctic ice sheets from the 1970s to 2023 (IMBIE 2026)"}
+      ],
+      "title": "Antarctic Ice Sheet mass change since January 1979 (IMBIE)"
+    },
+    {
+      "bytes": 65342,
+      "description": "Cumulative change in the mass of the Greenland Ice Sheet each month from July 1971 to December 2023, from the IMBIE team's reconciliation of satellite surveys, with the one-sigma uncertainty. Negative values are a loss of ice.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f3277c4eb1293016e223319acce2f529633b32037fa92f823e2185beaed969d4",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ice-sheet-mass.imbie-2026.greenland",
+      "path": "v1/indicators/ice-sheet-mass.imbie-2026.greenland.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigatonnes (Gt)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074", "title": "IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre: Mass balance of the Greenland and Antarctic ice sheets from the 1970s to 2023 (IMBIE 2026)"}
+      ],
+      "title": "Greenland Ice Sheet mass change since July 1971 (IMBIE)"
+    },
+    {
+      "bytes": 5209574,
+      "description": "How much land each country, the European Union and the world use as cropland and as permanent meadows and pastures (together, agricultural land), and how much is forest, each year since 1961 (forest since 1990), in thousands of hectares, as reported to and estimated by FAO.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9e7f9a6a7f008135f15f205f87577390a5c534dc036ae63c2a492540c7ba02a5",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "land-use.faostat.area",
+      "path": "v1/indicators/land-use.faostat.area.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "thousand hectares (kha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "category", "title": "Land use", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Agricultural land, cropland, pasture and forest area"
+    },
+    {
+      "bytes": 3784704,
+      "description": "The part of each country's land area, and of the world's, that is cropland, permanent meadows and pastures (together, agricultural land) or forest, each year since 1961 (forest since 1990), as calculated by FAO.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d96592df8be421417a4e6baee7e347e98bd55c015aedf221cb397ed7f69cc9f4",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "land-use.faostat.share-of-land-area",
+      "path": "v1/indicators/land-use.faostat.share-of-land-area.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of land area (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "category", "title": "Land use", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Agricultural land, cropland, pasture and forest as a share of land area"
+    },
+    {
+      "bytes": 9945,
+      "description": "The average lifetime cost of each megawatt-hour of electricity from renewable power projects that started operating each year since 2010, by technology, worldwide, in 2025 US dollars, as calculated by IRENA.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:af9cde62c352989a38b55cbefc4a8af1cbafa8ed8f21fc69277ec8b451abb4c2",
+      "licenses": [
+        {"path": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "title": "IRENA publication terms (free use with acknowledgement of IRENA as source and copyright holder)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "lcoe.irena.by-technology-world",
+      "path": "v1/indicators/lcoe.irena.by-technology-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "US dollars per megawatt-hour, at 2025 prices (USD2025/MWh)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "technology", "title": "Technology", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025", "title": "International Renewable Energy Agency (IRENA): Renewable power generation costs in 2025"}
+      ],
+      "title": "Cost of electricity from new renewable power plants"
+    },
+    {
       "bytes": 2644,
       "description": "Annual mean nitrous oxide in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 2001.",
       "dialect": {
@@ -925,6 +2307,730 @@
       "title": "Nitrous oxide, global annual mean"
     },
     {
+      "bytes": 6000,
+      "description": "Heat stored in the top 2,000 metres of the world ocean as running five-year means since 1955–59 (NCEI's basin time series have no yearly or three-month 0–2,000 m values before 2005), as the difference from NCEI's long-term average, in units of 10²² joules, with one standard error.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:3ae5aa37d695042c285c39f856d84139c1cd6143135b1c38dee5ae7f0104c8dd",
+      "licenses": [
+        {"path": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf", "title": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ohc.ncei.pentadal-0-2000m",
+      "path": "v1/indicators/ohc.ncei.pentadal-0-2000m.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "10²² joules (10 zettajoules) (1e22J)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/access/global-ocean-heat-content/", "title": "NOAA National Centers for Environmental Information (NCEI): Global ocean heat content basin time series"}
+      ],
+      "title": "Ocean heat content, 0–2000 m, five-year means (NCEI)"
+    },
+    {
+      "bytes": 2354,
+      "description": "Heat stored in the top 2,000 metres of the world ocean in each year since 2005, as the difference from NCEI's long-term average, in units of 10²² joules, with one standard error.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:85d38a9d9a790663fce941aadb15a586bf293e595786f42ef3fc9c3589c9dbed",
+      "licenses": [
+        {"path": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf", "title": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ohc.ncei.yearly-0-2000m",
+      "path": "v1/indicators/ohc.ncei.yearly-0-2000m.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "10²² joules (10 zettajoules) (1e22J)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/access/global-ocean-heat-content/", "title": "NOAA National Centers for Environmental Information (NCEI): Global ocean heat content basin time series"}
+      ],
+      "title": "Ocean heat content, 0–2000 m, yearly (NCEI)"
+    },
+    {
+      "bytes": 5699,
+      "description": "Heat stored in the top 700 metres of the world ocean in each year since 1955, as the difference from NCEI's long-term average, in units of 10²² joules, with one standard error.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:cbe3d744a306b0978219ecbee7a5fa31746d1e9681a46851f225e2a30dc9650b",
+      "licenses": [
+        {"path": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf", "title": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ohc.ncei.yearly-0-700m",
+      "path": "v1/indicators/ohc.ncei.yearly-0-700m.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "10²² joules (10 zettajoules) (1e22J)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/access/global-ocean-heat-content/", "title": "NOAA National Centers for Environmental Information (NCEI): Global ocean heat content basin time series"}
+      ],
+      "title": "Ocean heat content, 0–700 m, yearly (NCEI)"
+    },
+    {
+      "bytes": 27479,
+      "description": "Partial pressure of carbon dioxide in surface seawater at Station ALOHA, north of Oahu, for each Hawaii Ocean Time-series cruise since October 1988, in microatmospheres.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:927bdbf8587ad5a353af8b3feffc7d3a8997bef556c22f4000e6847ed339df54",
+      "licenses": [
+        {"title": "No licence stated; free and open access with an NSF acknowledgement (HOT data policy)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "pco2.hot-aloha.surface-insitu",
+      "path": "v1/indicators/pco2.hot-aloha.surface-insitu.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "microatmospheres (uatm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://hahana.soest.hawaii.edu/hot/hotco2/hotco2.html", "title": "Hawaii Ocean Time-series, School of Ocean and Earth Science and Technology, University of Hawai'i at Mānoa: Hawaii Ocean Time-series surface CO2 system data, Station ALOHA"}
+      ],
+      "title": "Seawater carbon dioxide (pCO₂) at Station ALOHA, Hawaii, each cruise"
+    },
+    {
+      "bytes": 27065,
+      "description": "Surface seawater pH in the open North Pacific at Station ALOHA, north of Oahu, for each Hawaii Ocean Time-series cruise since October 1988. A fall in pH means the water is becoming more acidic.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e290436a1378261df95e95f023598d2a175af2ac26ef94d6bc50af7bc62feddc",
+      "licenses": [
+        {"title": "No licence stated; free and open access with an NSF acknowledgement (HOT data policy)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ph.hot-aloha.surface-insitu",
+      "path": "v1/indicators/ph.hot-aloha.surface-insitu.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "pH (total hydrogen-ion scale) (pH)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://hahana.soest.hawaii.edu/hot/hotco2/hotco2.html", "title": "Hawaii Ocean Time-series, School of Ocean and Earth Science and Technology, University of Hawai'i at Mānoa: Hawaii Ocean Time-series surface CO2 system data, Station ALOHA"}
+      ],
+      "title": "Seawater pH at Station ALOHA, Hawaii, each cruise"
+    },
+    {
+      "bytes": 4506,
+      "description": "The lowest Arctic sea ice extent of each year since 1987, on the 5-day trailing mean NSIDC uses for its minimum announcements, and the day it was reached. Earlier years are not shown: the satellite record then has a value only every other day.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:bf4ad26b4b26d94b998f690dff0170358247696f1af8e7bfc4fd204f5c90fad1",
+      "licenses": [
+        {"path": "https://nsidc.org/about/data-use-and-copyright", "title": "No licence stated; free use with citation as a condition of use (NSIDC)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sea-ice-extent.nsidc.arctic-minimum-5day",
+      "path": "v1/indicators/sea-ice-extent.nsidc.arctic-minimum-5day.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million square kilometres (million-km2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://nsidc.org/data/g02135/versions/4", "title": "NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder): Sea Ice Index, Version 4 (G02135)"}
+      ],
+      "title": "Arctic sea ice yearly minimum extent (NSIDC, 5-day mean)"
+    },
+    {
+      "bytes": 4335,
+      "description": "Mean extent of Arctic sea ice in September, the month of the yearly minimum, since 1979: the area of ocean where satellites measure at least 15% ice cover, from NSIDC's Sea Ice Index. From 2025 NSIDC uses JAXA's AMSR2 satellite record instead of the DMSP record.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:216dba15abb364272fde70c58b37000078702fd748db46269ec72fa1a42b959c",
+      "licenses": [
+        {"path": "https://nsidc.org/about/data-use-and-copyright", "title": "No licence stated; free use with citation as a condition of use (NSIDC)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sea-ice-extent.nsidc.arctic-september",
+      "path": "v1/indicators/sea-ice-extent.nsidc.arctic-september.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million square kilometres (million-km2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://nsidc.org/data/g02135/versions/4", "title": "NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder): Sea Ice Index, Version 4 (G02135)"}
+      ],
+      "title": "Arctic sea ice extent in September (NSIDC)"
+    },
+    {
+      "bytes": 4232,
+      "description": "Mean extent of Arctic sea ice in September since 1979 from EUMETSAT's OSI SAF Sea-Ice Index v3.0: the area of ocean with more than 15% ice cover. An independent European estimate made with a different algorithm from NSIDC's Sea Ice Index, so its values are higher; the two are shown side by side, never combined. Recent months come from OSI SAF's operational extension of its climate data record (OSI-438).",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:6a9bc64a0c19db2f0bee385fcf3fe92aaa6a86f886c8b0960b2a07dd043f6d77",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sea-ice-extent.osisaf.arctic-september",
+      "path": "v1/indicators/sea-ice-extent.osisaf.arctic-september.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million square kilometres (million-km2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://osi-saf.eumetsat.int/products/osi-420-a", "title": "EUMETSAT Ocean and Sea Ice SAF (OSI SAF), produced by the Norwegian Meteorological Institute: EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)"}
+      ],
+      "title": "Arctic sea ice extent in September (OSI SAF)"
+    },
+    {
+      "bytes": 59947,
+      "description": "How much the Antarctic Ice Sheet's loss of ice has added to global mean sea level each month from January 1979 to December 2023, from the IMBIE team's reconciliation of satellite surveys, with the one-sigma uncertainty. IMBIE converts 360 Gt of ice to 1 mm of sea level.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:11fa6d3ef72c970d9c0ea4f22a65a9531fda4af49ae0144bf0816ded96054517",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sea-level-contribution.imbie-2026.antarctica",
+      "path": "v1/indicators/sea-level-contribution.imbie-2026.antarctica.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "millimetres (mm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074", "title": "IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre: Mass balance of the Greenland and Antarctic ice sheets from the 1970s to 2023 (IMBIE 2026)"}
+      ],
+      "title": "Sea level rise from the Antarctic Ice Sheet since January 1979 (IMBIE)"
+    },
+    {
+      "bytes": 69764,
+      "description": "How much the Greenland Ice Sheet's loss of ice has added to global mean sea level each month from July 1971 to December 2023, from the IMBIE team's reconciliation of satellite surveys, with the one-sigma uncertainty. IMBIE converts 360 Gt of ice to 1 mm of sea level.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9b92b1ba0837913dc81eb8e72f20df8d980af70306870561e2b416c43c37cdfd",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sea-level-contribution.imbie-2026.greenland",
+      "path": "v1/indicators/sea-level-contribution.imbie-2026.greenland.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "millimetres (mm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/02074", "title": "IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre: Mass balance of the Greenland and Antarctic ice sheets from the 1970s to 2023 (IMBIE 2026)"}
+      ],
+      "title": "Sea level rise from the Greenland Ice Sheet since July 1971 (IMBIE)"
+    },
+    {
+      "bytes": 5707,
+      "description": "How much the world's glaciers have added to global mean sea level since the start of hydrological year 1976 (late 1975), from the World Glacier Monitoring Service's annual estimates, with the one-sigma uncertainty.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2b3d8d3135fdbaafc7b423912f2763457ab6a5bd57907fc81026729a0d6f048d",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sea-level-contribution.wgms-amce.glaciers-cumulative",
+      "path": "v1/indicators/sea-level-contribution.wgms-amce.glaciers-cumulative.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "millimetres (mm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://wgms.ch/mass_change_estimates/", "title": "World Glacier Monitoring Service (WGMS), University of Zurich: Annual mass-change estimates for the world's glaciers (version 2026-02-10)"}
+      ],
+      "title": "Sea level rise from glaciers since 1975 (WGMS)"
+    },
+    {
+      "bytes": 59723,
+      "description": "Area of Northern Hemisphere land covered by snow, as a monthly mean since November 1966, computed from the weekly snow maps of the NOAA climate data record made at Rutgers University. Before June 1999 the maps were drawn by NOAA analysts from satellite images; since then they come from the US National Ice Center's daily snow and ice analysis. Nine months in 1968-1971 have no maps.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0e91eb4322de7b9570d54240820d05d6de095f00c9adfee354a27f68e2daf350",
+      "licenses": [
+        {"path": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Snow_Cover_Extent_Northern_Hemisphere/UseAgreement_01B-12.pdf", "title": "No restrictions on access or use (NOAA CDR Program Open Data Policy)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "snow-cover.rutgers-snow-cdr.nh-monthly",
+      "path": "v1/indicators/snow-cover.rutgers-snow-cdr.nh-monthly.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million square kilometres (million-km2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/products/climate-data-records/snow-cover-extent", "title": "NOAA National Centers for Environmental Information (data by the Rutgers University Global Snow Lab): Northern Hemisphere snow cover extent climate data record"}
+      ],
+      "title": "Northern Hemisphere snow cover extent by month"
+    },
+    {
+      "bytes": 1674,
+      "description": "How many of the species assessed for the IUCN Red List are listed as Critically Endangered, Endangered or Vulnerable, in total and for nine groups, in the current version of the Red List.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:09f1e4b173db0f7cafc79c63b8dc5c018c473898fd41972f40e79b11f709ef35",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/legalcode", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "species.iucn-red-list.threatened-count",
+      "path": "v1/indicators/species.iucn-red-list.threatened-count.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "species (species)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "group", "title": "Group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3", "title": "International Union for Conservation of Nature (IUCN), published through GBIF: IUCN Red List of Threatened Species, version 2026-1 (GBIF checklist)"}
+      ],
+      "title": "Number of species threatened with extinction"
+    },
+    {
+      "bytes": 1859,
+      "description": "Of the species assessed for the IUCN Red List, the percentage listed as Critically Endangered, Endangered or Vulnerable, for all assessed species and for nine groups, in the current version of the Red List.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4207e1f3e1d1f998824f545faec35ab30cc6fd7f895e9129afd012e22e143628",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/legalcode", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "species.iucn-red-list.threatened-share",
+      "path": "v1/indicators/species.iucn-red-list.threatened-share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of assessed species (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "group", "title": "Group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3", "title": "International Union for Conservation of Nature (IUCN), published through GBIF: IUCN Red List of Threatened Species, version 2026-1 (GBIF checklist)"}
+      ],
+      "title": "Share of assessed species that are threatened with extinction"
+    },
+    {
+      "bytes": 1386977,
+      "description": "Daily mean sea-surface temperature over the ocean between 60° S and 60° N since 1 January 1979 from the ERA5 reanalysis, as the difference from the 1991–2020 average for the same day of the year. The newest days can be preliminary.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9527600a391686c06b17ab1aa039d39b33289d87de2a038496304d8bbc1fb620",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sst.c3s-climate-pulse.daily-60s-60n-1991-2020",
+      "path": "v1/indicators/sst.c3s-climate-pulse.daily-60s-60n-1991-2020.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://pulse.climate.copernicus.eu/", "title": "Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission: C3S Climate Pulse daily global temperatures (ERA5)"}
+      ],
+      "title": "Sea-surface temperature against 1991–2020, 60° S–60° N, daily (ERA5 Climate Pulse)"
+    },
+    {
+      "bytes": 15533,
+      "description": "Global mean sea-surface temperature for each complete year since 1850, from ship and buoy measurements, as the difference from the 1961–1990 average, with a one-standard-deviation range.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:41488d5d8ffb6bb1ec0757907b19e8bc3f33a57c78e70e173891269dd3d0a3bf",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "sst.hadsst4.annual-1961-1990",
+      "path": "v1/indicators/sst.hadsst4.annual-1961-1990.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.metoffice.gov.uk/hadobs/hadsst4/", "title": "Met Office Hadley Centre: HadSST.4 sea-surface temperature anomalies"}
+      ],
+      "title": "Global sea-surface temperature against 1961–1990 (HadSST4)"
+    },
+    {
+      "bytes": 2303111,
+      "description": "Daily global mean air temperature at 2 metres since 1 January 1940 from the ERA5 reanalysis, as the difference from the 1991–2020 average for the same day of the year. The newest days are preliminary.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:38922736b98ca8490a39581e01b4fe97182c72b7763114c14d815a81dd443004",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.c3s-climate-pulse.daily-1991-2020",
+      "path": "v1/indicators/temp.c3s-climate-pulse.daily-1991-2020.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://pulse.climate.copernicus.eu/", "title": "Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission: C3S Climate Pulse daily global temperatures (ERA5)"}
+      ],
+      "title": "Global air temperature against 1991–2020, daily (ERA5 Climate Pulse)"
+    },
+    {
+      "bytes": 75744,
+      "description": "Global mean surface air temperature for each month since January 1940 from the ERA5 reanalysis, as the difference from the 1850–1900 level that C3S estimates for that calendar month. Published monthly with the Copernicus Climate Bulletin.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:520cfd02ff3d3de0498054c480f3ade8fdfdeddc33c81fd4301ee9804c046a4c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.c3s-era5-bulletin.monthly-1850-1900",
+      "path": "v1/indicators/temp.c3s-era5-bulletin.monthly-1850-1900.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climate.copernicus.eu/climate-bulletin", "title": "Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission: C3S Climate Bulletin global surface air temperature (ERA5)"}
+      ],
+      "title": "Global surface air temperature above 1850–1900, monthly (ERA5, C3S)"
+    },
+    {
+      "bytes": 9761,
+      "description": "Global mean surface temperature for each complete year since 1880, as the difference from the 1880–1899 average of the same dataset. NASA GISS has no observations before 1880, so this series is not relative to 1850–1900.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f2eec98bed6a39d0a269facadba2148709cc930b2439d1ed8f42ba37a4f8827a",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.gistemp-v4.annual-1880-1899",
+      "path": "v1/indicators/temp.gistemp-v4.annual-1880-1899.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data.giss.nasa.gov/gistemp/", "title": "NASA Goddard Institute for Space Studies: GISS Surface Temperature Analysis, version 4 (GISTEMP v4)"}
+      ],
+      "title": "Global surface temperature above 1880–1899 (GISTEMP v4)"
+    },
+    {
       "bytes": 17061,
       "description": "Global mean near-surface temperature for each complete year since 1850, as the difference from the 1850–1900 average of the same dataset, with the 95% range.",
       "dialect": {
@@ -961,6 +3067,120 @@
         {"path": "https://www.metoffice.gov.uk/hadobs/hadcrut5/", "title": "Met Office Hadley Centre and University of East Anglia Climatic Research Unit: HadCRUT5 near-surface temperature anomalies"}
       ],
       "title": "Global surface temperature above 1850–1900 (HadCRUT5)"
+    },
+    {
+      "bytes": 15138,
+      "description": "Global mean surface temperature for each complete year since 1850, as the difference from the 1850–1900 average of the same dataset.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:3d1c54e3b87345a979baed5780c79db9f5b2fde5d85b65443d53ac1f62945044",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.noaaglobaltemp-v6.annual-1850-1900",
+      "path": "v1/indicators/temp.noaaglobaltemp-v6.annual-1850-1900.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp", "title": "NOAA National Centers for Environmental Information: NOAA Global Surface Temperature (NOAAGlobalTemp), version 6.1"}
+      ],
+      "title": "Global surface temperature above 1850–1900 (NOAAGlobalTemp)"
+    },
+    {
+      "bytes": 1157932,
+      "description": "How much warmer or cooler each year since 1950 was than the 1991–2020 average, for each country and for the world, from the ERA5 reanalysis as aggregated by the World Bank's Climate Change Knowledge Portal. The 1991–2020 average is the one CCKP publishes for the same area; it is a recent baseline, so values near zero already include most of the warming since pre-industrial times.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b7ba2d74ab625042c0230c7fb4dd66c8f46a453b65279c736c85d99c92fbe48f",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.wb-cckp.era5-annual-1991-2020",
+      "path": "v1/indicators/temp.wb-cckp.era5-annual-1991-2020.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Annual temperature compared with 1991–2020 by country (ERA5, World Bank CCKP)"
+    },
+    {
+      "bytes": 1141417,
+      "description": "Average near-surface air temperature over each country's area for every year since 1950, in degrees Celsius, from the ERA5 reanalysis as aggregated by the World Bank's Climate Change Knowledge Portal. These are reanalysis averages over the whole country, not weather-station records; World is the global average of the same reanalysis.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:6906259dd3e9bb53a660f152972fc3bf06bc8e1235030c89df5eaa5bb4226a0d",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "temp.wb-cckp.era5-annual-absolute",
+      "path": "v1/indicators/temp.wb-cckp.era5-annual-absolute.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Annual mean temperature by country (ERA5, World Bank CCKP)"
     },
     {
       "bytes": 13431,
@@ -1037,6 +3257,44 @@
         {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
       ],
       "title": "Human-induced warming in 2025 (IGCC 2025)"
+    },
+    {
+      "bytes": 3887311,
+      "description": "How much each country's emissions of carbon dioxide, methane and nitrous oxide since 1850, from fossil fuels and from land use, have raised the global mean surface temperature, up to each year from 1851. Aerosols and fluorinated gases are not included, so the world value is larger than the observed human-induced warming.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:130ebc7432d607bc02332bf6ee3f00cff2e2da2a1aebcdb8e751b69faa8c3d1c",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "warming.jones-2025.national-contribution",
+      "path": "v1/indicators/warming.jones-2025.national-contribution.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/16640595", "title": "Jones et al. (University of East Anglia, CICERO and others): National contributions to climate change due to historical emissions of carbon dioxide, methane and nitrous oxide"}
+      ],
+      "title": "Contribution to global warming by country"
     }
   ],
   "title": "Environment Dashboard data"

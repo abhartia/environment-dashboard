@@ -1,0 +1,34 @@
+{
+  "export": "data/v1/indicators/temp.wb-cckp.era5-annual-1991-2020.json",
+  "export_sha256": "6b0a82eb8e376424a23b210dee10f64b98a3743582c5babf01043488bd8c58bd",
+  "indicator_id": "temp.wb-cckp.era5-annual-1991-2020",
+  "key": "6b66a7aae2328c5b7cb1aec5960fc477844ddeadf688b1444fd41c7308335b66",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "wb-cckp/era5-tas-annual-countries": {
+        "manifest_sha256": "77ec793cc05ade293b55dfade80a3d628825d485373747e57d5de69fc3c49c23",
+        "sha256": "62effa974e359adb02b6e4346d385997af9987a9437e31d58cf0f433cf364824"
+      },
+      "wb-cckp/era5-tas-annual-global": {
+        "manifest_sha256": "b792c266e3c15260dc6f61e90cc1a88db9023180d6b6d20a88acdbf051e06269",
+        "sha256": "589d54de415a9c6f6f7a8fdc67b913b9afcf5e147cdfd58cbce54e0c404efe7f"
+      },
+      "wb-cckp/era5-tas-climatology-1991-2020-countries": {
+        "manifest_sha256": "d833b2cc5b3731baaeb0b2eb5ca70a968a3df25fd470576e21155b8248c0e77c",
+        "sha256": "8b34b2306902cb994e25c3a0cd76f20a185dd09206f36c209db9043006c6b1cc"
+      },
+      "wb-cckp/era5-tas-climatology-1991-2020-global": {
+        "manifest_sha256": "db1df663c6a6b31ae87251a672df811ef4601ada4ed9522c3c2abccd5f12fb19",
+        "sha256": "ac58ff0206fa4b1fad2e3ac66916c1209e793d4923393499f2defabdd3364792"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "wb-cckp": "199aea53b459284d1bf5702c7b2d1ef5b809b340d2eca8b686da0f2d67877493"
+    },
+    "transform_sha256": "5cfdd50878c9ffae5d481cc971232bf1460dc17d3a486d6b825936085104a74a"
+  },
+  "publisher_checks": []
+}

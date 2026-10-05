@@ -3,7 +3,8 @@ import type { ReactNode } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 
-export type FigureTable = { caption: string; columns: string[]; rows: ReactNode[][] };
+/** `note` is shown above the table (e.g. that a very long series shows only its latest rows here). */
+export type FigureTable = { caption: string; columns: string[]; rows: ReactNode[][]; note?: string };
 
 /**
  * The frame every data figure sits in (pattern from gigabiome's figure.tsx): a title, the chart, a written takeaway
@@ -46,6 +47,7 @@ export function Figure({
           Show as a table
         </summary>
         <div className="max-h-96 overflow-auto px-4 pb-4">
+          {table.note ? <p className="pb-2 text-xs text-muted-foreground">{table.note}</p> : null}
           <Table className="text-xs">
             <caption className="sr-only">{table.caption}</caption>
             <TableHeader className="sticky top-0 bg-card">

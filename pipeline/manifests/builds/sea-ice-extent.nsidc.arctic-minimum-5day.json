@@ -1,0 +1,25 @@
+{
+  "export": "data/v1/indicators/sea-ice-extent.nsidc.arctic-minimum-5day.json",
+  "export_sha256": "f8c6fa22e7af5a0b926721fcb411a70089e4c9cb7ca12f5d0519c878a376dbc5",
+  "indicator_id": "sea-ice-extent.nsidc.arctic-minimum-5day",
+  "key": "6ebadc1028b1c93037dfd72e997ca82a23baf27b0066b7d903bde77075090468",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "nsidc-sea-ice-index/north-daily-extent": {
+        "manifest_sha256": "ce8967b38a21d048edfd1fbe751196747704572887557594fb0df0cf8ad54461",
+        "sha256": "411d93b321748650ef213a8ff81e72636efef0722248e2b8504c5e284c98c5c7"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "nsidc-sea-ice-index": "5db606fac901a177dc48a7d3b9ecceea54d5099a7fb3a6c1be8fa40993aae10d"
+    },
+    "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+  },
+  "publisher_checks": [
+    {"detail": "ours 4.5976 vs stated 4.60 (tolerance ±0.005, difference 0.0024)", "entity": "NH", "period": "2026-09-12", "quote": "On September 12, Arctic sea ice likely reached its annual minimum extent of 4.60 million square kilometers (1.78 million square miles).", "source_id": "nsidc-sea-ice-index", "stated": "4.60", "status": "pass", "url": "https://nsidc.org/sea-ice-today/analyses/arctic-sea-ice-minimum-ties-tenth-lowest-0", "vintage": "4.0"},
+    {"detail": "ours 3.3866 vs stated 3.39 (tolerance ±0.005, difference 0.0034)", "entity": "NH", "period": "2012-09-17", "quote": "the satellite-era record minimum extent of 3.39 million square kilometers (1.31 million square miles), which occurred on September 17, 2012", "source_id": "nsidc-sea-ice-index", "stated": "3.39", "status": "pass", "url": "https://nsidc.org/sea-ice-today/analyses/arctic-sea-ice-minimum-ties-tenth-lowest-0", "vintage": "4.0"}
+  ]
+}

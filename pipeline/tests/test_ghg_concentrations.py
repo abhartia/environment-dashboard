@@ -207,7 +207,7 @@ def test_bereiter_builds_and_exports_with_age_bp(tmp_paths, tmp_path):
     from envdash.registry import load_registry
     from envdash.validate import validate_all
 
-    from support import REPO_ROOT, load_fixture_snapshot
+    from support import REPO_ROOT, exported, load_fixture_snapshot
 
     shutil.copy(REPO_ROOT / "pipeline" / "sources" / "bereiter-2015-co2.yaml", tmp_paths.sources)
     load_fixture_snapshot(tmp_paths, "bereiter-2015-co2", "composite")
@@ -215,7 +215,7 @@ def test_bereiter_builds_and_exports_with_age_bp(tmp_paths, tmp_path):
     ts = [t for t in discover(tmp_paths) if t.spec.id in (SERIES, MAXIMUM)]
     report = build_and_export(tmp_paths, reg, ts)
     assert report.ok, [(o.id, o.reason) for o in report.failed]
-    ind = json.loads((tmp_paths.public_indicators / f"{SERIES}.json").read_text())
+    ind = exported(tmp_paths.public_indicators / f"{SERIES}.json")
     assert ind["time_basis"] == "years-before-1950"
     assert ind["latest"] == {
         "age_bp": -51.03,
@@ -225,7 +225,7 @@ def test_bereiter_builds_and_exports_with_age_bp(tmp_paths, tmp_path):
         "status": "final",
         "value": 368.02,
     }
-    mx = json.loads((tmp_paths.public_indicators / f"{MAXIMUM}.json").read_text())
+    mx = exported(tmp_paths.public_indicators / f"{MAXIMUM}.json")
     assert (mx["latest"]["age_bp"], mx["latest"]["value"]) == (335102.31, 298.6)
     assert mx["attribution"].startswith("Calculated by Environment Dashboard from Bereiter et al. (2015)")
     csv = (tmp_paths.public_indicators / f"{SERIES}.csv").read_text().splitlines()

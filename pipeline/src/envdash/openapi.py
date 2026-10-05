@@ -4,6 +4,10 @@ There is no API server: each GET path is a file the site serves. Component schem
 (serialization mode, so every field the exports always write is required). The web generates its client and
 TanStack Query options from this file (`npm run gen:api`), so component names are the model names and must stay
 stable.
+
+getIndicator returns an IndicatorFile (observations as columns). Indicator, the same indicator with its observations
+as records, is listed as a component though no path returns it: it is the shape web/src/lib/indicator-table.ts
+expands an IndicatorFile into, so the web's types for it are generated from the same models.
 """
 
 from __future__ import annotations
@@ -11,7 +15,7 @@ from __future__ import annotations
 from pydantic.json_schema import models_json_schema
 
 from envdash import canonical
-from envdash.models import SCHEMA_VERSION, Catalog, Indicator, SourceList, Status
+from envdash.models import SCHEMA_VERSION, Catalog, Indicator, IndicatorFile, SourceList, Status
 from envdash.paths import Paths
 
 REF = "#/components/schemas/{model}"
@@ -26,7 +30,7 @@ def _ok(schema: str, description: str) -> dict:
 
 def document() -> dict:
     _, defs = models_json_schema(
-        [(m, "serialization") for m in (Catalog, Indicator, SourceList, Status)], ref_template=REF
+        [(m, "serialization") for m in (Catalog, IndicatorFile, Indicator, SourceList, Status)], ref_template=REF
     )
     not_found = {"description": "No such file."}
     return {
@@ -54,7 +58,7 @@ def document() -> dict:
             "/data/v1/indicators/{id}.json": {
                 "get": {
                     "operationId": "getIndicator",
-                    "summary": "One indicator with its observations and provenance",
+                    "summary": "One indicator with its observations (as columns) and provenance",
                     "tags": ["data"],
                     "parameters": [
                         {
@@ -65,7 +69,7 @@ def document() -> dict:
                             "schema": {"type": "string", "pattern": r"^[a-z0-9-]+(\.[a-z0-9-]+){1,3}$"},
                         }
                     ],
-                    "responses": {"200": _ok("Indicator", "The indicator."), "404": not_found},
+                    "responses": {"200": _ok("IndicatorFile", "The indicator."), "404": not_found},
                 }
             },
             "/data/v1/sources.json": {

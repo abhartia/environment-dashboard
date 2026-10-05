@@ -15,17 +15,17 @@ the GT, RL and SDGB zips (Emissions_Totals_E_AreaCodes.csv, Inputs_LandUse_E_Are
 SDG_BulkDownloads_E_AreaCodes.csv in the snapshots of 2026-10-04/05). Each entry also states the area's M49 code, and
 a row whose "Area Code (M49)" differs from it stops the transform, so a re-used FAO code cannot be mapped silently.
 Our codes were checked against Natural Earth's ISO_N3 for the same M49 number (ISO 3166-1 numeric codes are the M49
-country codes); France (250) and Norway (578), which Natural Earth gives ISO_N3 -99, and Christmas Island (162,
-EXTRA_TERRITORIES in envdash/geo.py) are declared by hand. Every code then goes through geo.resolve(…, "iso3"), which
-raises for anything not in pipeline/geo/entities.csv.
+country codes); France (250) and Norway (578), which Natural Earth gives ISO_N3 -99, and the territories of
+EXTRA_TERRITORIES in envdash/geo.py (Christmas Island, Bouvet Island, Cocos (Keeling) Islands, French Guiana, Réunion,
+United States Minor Outlying Islands, the Channel Islands, Svalbard and Jan Mayen, Mayotte), which have no Natural
+Earth polygon of their own, are declared by hand. FAO's "Serbia and Montenegro" (186, reported 1992-2005, before
+Serbia (272) and Montenegro (273)) is SRB_MNE, Serbia and Montenegro as reported together. Every code then goes
+through geo.resolve(…, "iso3"), which raises for anything not in pipeline/geo/entities.csv.
 
 Areas that are not published, each listed with its reason (an area in neither table stops the transform):
 - FORMER: states and territories FAO reports only before their dissolution (USSR to 1991, Sudan (former) to 2011,
   ...). There is no entity for them, and their values are never re-assigned to successor states.
-- NO_ENTITY: territories FAO reports separately that have no row in pipeline/geo/entities.csv, because Natural Earth's
-  1:50m layers draw them inside another country (French Guiana, Réunion and Mayotte inside France; Svalbard and Jan
-  Mayen inside Norway; Cocos (Keeling) Islands inside Indian Ocean Territories) or not at all; and the Channel
-  Islands, which FAO reports as one area while the entity table has Jersey and Guernsey.
+- NO_ENTITY: areas FAO reports separately that have no row in pipeline/geo/entities.csv (Sark).
 - FAO_GROUPS: FAO's regional and analytical groups (M49 regions, LDCs, OECD, Annex I, ...). M49 regions are not
   entities here (M49 is registered as display-only terms). "China" (351) is FAO's sum of mainland China, Hong Kong,
   Macao and Taiwan, which are published separately. World (5000) and the European Union (27) (5707) are published as
@@ -294,6 +294,16 @@ AREAS: dict[str, tuple[str, str]] = {
     "283": ("832", "JEY"),  # Jersey
     "284": ("248", "ALA"),  # Åland Islands
     "299": ("275", "PSE"),  # Palestine
+    # envdash/geo.py EXTRA_TERRITORIES (no Natural Earth polygon of their own) and AGGREGATES.
+    "31": ("074", "BVT"),  # Bouvet Island
+    "43": ("166", "CCK"),  # Cocos (Keeling) Islands
+    "69": ("254", "GUF"),  # French Guiana
+    "182": ("638", "REU"),  # Réunion
+    "186": ("891", "SRB_MNE"),  # Serbia and Montenegro (1992-2005)
+    "232": ("581", "UMI"),  # United States Minor Outlying Islands
+    "259": ("830", "CHI"),  # Channel Islands
+    "260": ("744", "SJM"),  # Svalbard and Jan Mayen Islands
+    "270": ("175", "MYT"),  # Mayotte
     "5000": ("001", "WLD"),  # World
     "5707": ("097", "EU27"),  # European Union (27)
 }
@@ -305,20 +315,11 @@ FORMER: dict[str, tuple[str, str]] = {
     "62": ("230", "Ethiopia PDR"),
     "151": ("530", "Netherlands Antilles (former)"),
     "164": ("582", "Pacific Islands Trust Territory"),
-    "186": ("891", "Serbia and Montenegro"),
     "206": ("736", "Sudan (former)"),
     "228": ("810", "USSR"),
     "248": ("890", "Yugoslav SFR"),
 }
 NO_ENTITY: dict[str, tuple[str, str]] = {
-    "31": ("074", "Bouvet Island"),
-    "43": ("166", "Cocos (Keeling) Islands"),
-    "69": ("254", "French Guiana"),
-    "182": ("638", "Réunion"),
-    "232": ("581", "United States Minor Outlying Islands"),
-    "259": ("830", "Channel Islands"),
-    "260": ("744", "Svalbard and Jan Mayen Islands"),
-    "270": ("175", "Mayotte"),
     "285": ("680", "Sark"),
 }
 FAO_GROUPS: dict[str, tuple[str, str]] = {

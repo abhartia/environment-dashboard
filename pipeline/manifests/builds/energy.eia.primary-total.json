@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/energy.eia.primary-total.json",
+  "export_sha256": "ae3762bb89e27daf3e7f5a187a12252ded89588ec29a3e6008d4dd6c837cb1e2",
+  "indicator_id": "energy.eia.primary-total",
+  "key": "8e4514906c3254e2f3e5b0c8f57a0e2862c5a4ac59cecf788df486de2243d212",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "eia-international/bulk-manifest": {
+        "manifest_sha256": "325ce2011bf7e1bba4b2da3934c6707be68f29ec51c26bfca0e860cd3c0336f6",
+        "sha256": "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"
+      },
+      "eia-international/intl-bulk": {
+        "manifest_sha256": "8ab7f4393d4ca69791bb6bf33930e43468eeba265d5c9eb4c629ac971f534845",
+        "sha256": "9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "eia-international": "ef4a063458abf28cdf29788cbfcdea110202c34d24bfa617fece2361c3f23c52"
+    },
+    "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+  },
+  "publisher_checks": []
+}

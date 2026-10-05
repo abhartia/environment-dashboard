@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/emissions.gcb-2025.territorial-vs-consumption.json",
+  "export_sha256": "8d79f2c9bf027ee22964724ef1dfb0ce9e5519f0ea7bd846fda06a79dd3c787a",
+  "indicator_id": "emissions.gcb-2025.territorial-vs-consumption",
+  "key": "1946b8fa277bf047b77f7a6d9460cc9a72fab429d9415cf507a920db0e995cf0",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "gcb-2025-national/national-fossil": {
+        "manifest_sha256": "33362fb90d0bfc84c9f45319ab600d02b01deb34d8892f7ae18e25522ae3b061",
+        "sha256": "968097cacb1a6a5bfa0cf74ee90763f74a90ef10499e060ab43d1a74c671d46b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "gcb-2025-national": "e322e877251e05cf749e9dde3e1b85a6414990664479875f13c5f4a20afe0698"
+    },
+    "transform_sha256": "b2048d4a16c8112cc30377657d7b0e3894a02b8aa09d05c1224d4059a5208ef9"
+  },
+  "publisher_checks": []
+}

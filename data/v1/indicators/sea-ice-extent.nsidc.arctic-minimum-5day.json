@@ -1,0 +1,88 @@
+{
+  "attribution": "Calculated by Environment Dashboard from Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed 2026-10-05. Changes: 5-day trailing means of the daily extent, and the lowest of them in each year.",
+  "description": "The lowest Arctic sea ice extent of each year since 1987, on the 5-day trailing mean NSIDC uses for its minimum announcements, and the day it was reached. Earlier years are not shown: the satellite record then has a value only every other day.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "NH",
+  "id": "sea-ice-extent.nsidc.arctic-minimum-5day",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "NH",
+    "period": "2026-09-12",
+    "status": "preliminary",
+    "value": 4.5976
+  },
+  "licence": {
+    "name": "No licence stated; free use with citation as a condition of use (NSIDC)",
+    "spdx": null,
+    "url": "https://nsidc.org/about/data-use-and-copyright"
+  },
+  "licence_class": "open",
+  "notes": ["NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025.", "NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025. The year is not over: the lowest 5-day mean from 1 January to 4 October 2026.", "No 5-day mean can be formed for 1 January 1987 to 23 August 1987; 3 December 1987 to 31 December 1987, because NSIDC's file lacks a value for at least one day of those windows.", "No 5-day mean can be formed for 1 January 1988 to 16 January 1988, because NSIDC's file lacks a value for at least one day of those windows."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "north-daily-extent", "bytes": 1902717, "citation_full": "Fetterer, F., Knowles, K., Meier, W. N., Savoie, M., Windnagel, A. K. & Stafford, T. (2025). Sea Ice Index. (G02135, Version 4). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center. https://doi.org/10.7265/a98x-0f50. Daily and monthly sea ice extent, Northern and Southern Hemispheres. Date Accessed 2026-10-05.", "date_accessed": "2026-10-05", "date_published": "2026-10-05", "doi": "10.7265/a98x-0f50", "etag": "\"6ac38124-1d087d\"", "last_modified": "Mon, 05 Oct 2026 10:51:16 GMT", "licence": {"name": "No licence stated; free use with citation as a condition of use (NSIDC)", "spdx": null, "url": "https://nsidc.org/about/data-use-and-copyright"}, "producer": "NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder)", "r2_url": null, "sha256": "411d93b321748650ef213a8ff81e72636efef0722248e2b8504c5e284c98c5c7", "source_id": "nsidc-sea-ice-index", "title": "Sea Ice Index, Version 4 (G02135)", "url_download": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv", "url_main": "https://nsidc.org/data/g02135/versions/4", "version_producer": "4.0", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the Extent column of N_seaice_extent_daily_v4.0.csv (million km², data to 4 October 2026).",
+      "inputs": ["411d93b321748650ef213a8ff81e72636efef0722248e2b8504c5e284c98c5c7"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
+      "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+    },
+    {
+      "description": "For every day whose four preceding days also have a value, took the mean of the five (NSIDC's 5-day trailing mean, exact decimal arithmetic). Windows with a missing day are skipped, never filled; no window may contain 14 September 1984, which NSIDC's user guide says is in error.",
+      "inputs": ["411d93b321748650ef213a8ff81e72636efef0722248e2b8504c5e284c98c5c7"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
+      "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+    },
+    {
+      "description": "For each calendar year, published the lowest of those means, dated by the day it ends on (the earlier day if two tie). Years with no complete window are not published: 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986 (the file has a value only every other day before 21 August 1987).",
+      "inputs": ["411d93b321748650ef213a8ff81e72636efef0722248e2b8504c5e284c98c5c7"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
+      "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+    },
+    {
+      "description": "The last year is marked preliminary until the file reaches 31 December.",
+      "inputs": ["411d93b321748650ef213a8ff81e72636efef0722248e2b8504c5e284c98c5c7"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
+      "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Lowest 5-day trailing mean of NSIDC's daily sea ice extent (area of cells with at least 15% ice concentration) in each calendar year; the period is the last day of that 5-day window.",
+    "bunkers": null,
+    "geography": "Northern Hemisphere oceans (the Arctic Ocean and surrounding seas)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH"],
+    "note": [2, 3, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1],
+    "period": ["1987-09-05", "1988-09-12", "1989-09-15", "1990-09-22", "1991-09-18", "1992-09-09", "1993-09-09", "1994-09-08", "1995-09-08", "1996-09-11", "1997-09-23", "1998-09-19", "1999-09-13", "2000-09-12", "2001-09-20", "2002-09-14", "2003-09-18", "2004-09-20", "2005-09-22", "2006-09-17", "2007-09-18", "2008-09-20", "2009-09-13", "2010-09-21", "2011-09-11", "2012-09-17", "2013-09-13", "2014-09-17", "2015-09-09", "2016-09-10", "2017-09-13", "2018-09-23", "2019-09-18", "2020-09-16", "2021-09-16", "2022-09-19", "2023-09-19", "2024-09-14", "2025-09-10", "2026-09-12"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary"],
+    "value": [6.963, 7.1264, 6.9068, 6.0364, 6.3018, 7.2088, 6.1846, 6.9608, 6.027, 7.191, 6.6274, 6.3516, 5.7574, 5.9784, 6.6026, 5.638, 6.0072, 5.7936, 5.3186, 5.774, 4.1544, 4.5856, 5.1196, 4.615, 4.3442, 3.3866, 5.0546, 5.0284, 4.433, 4.1654, 4.6648, 4.6558, 4.1918, 3.8178, 4.7722, 4.7036, 4.257, 4.2516, 4.6018, 4.5976]
+  },
+  "time_basis": "calendar",
+  "title": "Arctic sea ice yearly minimum extent (NSIDC, 5-day mean)",
+  "unit": {
+    "code": "million-km2",
+    "label": "million square kilometres",
+    "short": "million km²"
+  },
+  "vintage": "4.0"
+}

@@ -60,7 +60,7 @@ export const getCatalogOptions = (options?: Options<GetCatalogData>) => queryOpt
 export const getIndicatorQueryKey = (options: Options<GetIndicatorData>) => createQueryKey('getIndicator', options);
 
 /**
- * One indicator with its observations and provenance
+ * One indicator with its observations (as columns) and provenance
  */
 export const getIndicatorOptions = (options: Options<GetIndicatorData>) => queryOptions<GetIndicatorResponse, DefaultError, GetIndicatorResponse, ReturnType<typeof getIndicatorQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {

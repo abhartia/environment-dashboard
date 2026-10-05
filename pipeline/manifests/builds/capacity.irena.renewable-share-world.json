@@ -1,0 +1,29 @@
+{
+  "export": "data/v1/indicators/capacity.irena.renewable-share-world.json",
+  "export_sha256": "7cc0d7846d147249b9f206f7d0ee0cf8a74bcda4b17f98bbce8d08adec260b9b",
+  "indicator_id": "capacity.irena.renewable-share-world",
+  "key": "ea90e3b4a016fe186aab655f0053092621f8cab1c7c257133ea82b1c223421a5",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "irena-capacity-2026/capacity-highlights-pdf": {
+        "manifest_sha256": "5406d33f80ce00d3c5d4963137f0fa5ddcdbb78844c8a2785954461aac7439a8",
+        "sha256": "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"
+      },
+      "irena-capacity-2026/capacity-statistics-pdf": {
+        "manifest_sha256": "f9e94ff1bf3515aa3414c6427476aedcee6976bf41e9480560296bfd4040d48f",
+        "sha256": "fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "irena-capacity-2026": "7a4e1ec5486dcbc6cf7c5afa2880f00c1d62d8102d04eda6532e26e698676a08"
+    },
+    "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+  },
+  "publisher_checks": [
+    {"detail": "ours 46.3 vs stated 46.3 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2024", "quote": "the renewable share of total installed power capacity rose by more than three percentage points from 46.3% in 2024 to 49.4% in 2025.", "source_id": "irena-capacity-2026", "stated": "46.3", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf", "vintage": "2026-03-31"},
+    {"detail": "ours 49.4 vs stated 49.4 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2025", "quote": "the renewable share of total installed power capacity rose by more than three percentage points from 46.3% in 2024 to 49.4% in 2025.", "source_id": "irena-capacity-2026", "stated": "49.4", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf", "vintage": "2026-03-31"}
+  ]
+}

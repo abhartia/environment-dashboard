@@ -1,6 +1,6 @@
 import { indicator } from "@/lib/data";
 import { linePath, linear } from "@/lib/viz/scale";
-import { periodToYear } from "@/lib/viz/period";
+import { timeToYear } from "@/lib/viz/period";
 
 /**
  * A small trend line for an indicator's headline series (decorative: the sentence beside it carries the number).
@@ -13,7 +13,7 @@ export function Sparkline({ id, dims, className }: { id: string; dims?: Record<s
     (o) => o.entity === ind.headline_entity && o.value !== null && Object.entries(want).every(([k, v]) => o.dims[k] === v),
   );
   if (obs.length < 2) throw new Error(`Sparkline(${id}): fewer than two values`);
-  const xs = obs.map((o) => periodToYear(o.period));
+  const xs = obs.map((o) => timeToYear(o));
   const ys = obs.map((o) => o.value as number);
   const x = linear([Math.min(...xs), Math.max(...xs)], [2, 158]);
   const y = linear([Math.min(...ys), Math.max(...ys)], [46, 4]);

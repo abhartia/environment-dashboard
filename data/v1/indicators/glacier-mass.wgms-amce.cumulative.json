@@ -1,0 +1,83 @@
+{
+  "attribution": "WGMS (2026), Annual mass-change estimates for the world's glaciers, version 2026-02-10, doi:10.5904/wgms-amce-2026-02-10; Dussaillant et al. (2025), Earth System Science Data 17, 1977–2006, doi:10.5194/essd-17-1977-2025. CC BY 4.0.",
+  "description": "Cumulative change in the mass of the world's glaciers since the start of hydrological year 1976 (late 1975), from the World Glacier Monitoring Service's annual estimates, with the one-sigma uncertainty. Negative values are a loss of ice.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "glacier-mass.wgms-amce.cumulative",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": -9583.132
+  },
+  "licence": {
+    "name": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "amce-2026-02-10", "bytes": 53589520, "citation_full": "WGMS (2026): Annual mass-change estimates for the world's glaciers. Individual glacier time series and gridded data products. Digital media. https://doi.org/10.5904/wgms-amce-2026-02-10 Dussaillant, I., Hugonnet, R., Huss, M., Berthier, E., Bannwart, J., Paul, F., and Zemp, M. (2025): Annual mass change of the world's glaciers from 1976 to 2024 by temporal downscaling of satellite data with in-situ observations. Earth System Science Data 17(5): 1977–2006. https://doi.org/10.5194/essd-17-1977-2025", "date_accessed": "2026-10-05", "date_published": "2026-02-10", "doi": "10.5904/wgms-amce-2026-02-10", "etag": "\"331b610-64b93f5a76d99\"", "last_modified": "Tue, 24 Feb 2026 15:58:33 GMT", "licence": {"name": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "World Glacier Monitoring Service (WGMS), University of Zurich", "r2_url": null, "sha256": "b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc", "source_id": "wgms-amce", "title": "Annual mass-change estimates for the world's glaciers (version 2026-02-10)", "url_download": "https://wgms.ch/downloads/wgms-amce-2026-02-10.zip", "url_main": "https://wgms.ch/mass_change_estimates/", "version_producer": "2026-02-10", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read global.csv from wgms-amce-2026-02-10.zip (hydrological years 1976 to 2025) and published the gt_cumsum column (cumulative glacier mass change in Gt) as printed.",
+      "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
+      "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+    },
+    {
+      "description": "Lower and upper are gt_cumsum minus and plus gt_cumsum_sigma, which the release README defines as the 1-sigma uncertainty (exact decimal arithmetic).",
+      "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
+      "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+    },
+    {
+      "description": "Checked that gt_cumsum and mmsle_cumsum are the running sums of gt and mmsle (within rounding), and that mmsle has the opposite sign of gt, so that positive mm is a rise in sea level.",
+      "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
+      "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": "Zero at the start of hydrological year 1976 (October 1975 in the Northern Hemisphere, April 1975 in the Southern Hemisphere, January 1976 in the tropics).",
+    "basis": "All glaciers outside the Greenland and Antarctic ice sheets (Randolph Glacier Inventory 6.0 outlines), from satellite elevation changes downscaled to single years with field measurements. Hydrological years, labelled by the year they end: from 1 October in the Northern Hemisphere, 1 April in the Southern Hemisphere and 1 January in the tropics.",
+    "bunkers": null,
+    "geography": "All glaciers worldwide, excluding the two ice sheets",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "interval": ["1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma"],
+    "lower": [-94.238, -178.755, -262.582, -376.641, -370.427, -331.591, -448.114, -352.083, -468.821, -518.954, -588.687, -522.342, -493.105, -623.694, -902.086, -1014.988, -1003.229, -1198.441, -1352.243, -1570.855, -1709.792, -2039.74, -2157.402, -2428.257, -2567.037, -2748.602, -2913.936, -3146.552, -3493.321, -3824.6, -4100.101, -4390.757, -4554.65, -4869.605, -5027.241, -5385.173, -5597.961, -5831.096, -5972.353, -6259.115, -6611.936, -6862.926, -7090.575, -7528.57, -7993.388, -8303.811, -8765.402, -9324.698, -9788.991, -10200.761],
+    "period": ["1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "upper": [119.102, 122.551, 105.912, 48.319, 103.961, 187.673, 112.176, 246.085, 164.571, 147.66, 109.297, 205.282, 262.803, 159.242, -93.172, -181.182, -145.371, -317.327, -448.695, -645.515, -763.552, -1073.106, -1170.988, -1422.631, -1550.457, -1721.724, -1876.29, -2098.512, -2434.947, -2756.152, -3021.891, -3302.971, -3457.56, -3763.353, -3911.985, -4261.021, -4465.131, -4689.76, -4822.645, -5101.127, -5445.818, -5688.802, -5908.543, -6338.644, -6795.65, -7098.473, -7552.52, -8104.214, -8561.071, -8965.503],
+    "value": [12.432, -28.102, -78.335, -164.161, -133.233, -71.959, -167.969, -52.999, -152.125, -185.647, -239.695, -158.53, -115.151, -232.226, -497.629, -598.085, -574.3, -757.884, -900.469, -1108.185, -1236.672, -1556.423, -1664.195, -1925.444, -2058.747, -2235.163, -2395.113, -2622.532, -2964.134, -3290.376, -3560.996, -3846.864, -4006.105, -4316.479, -4469.613, -4823.097, -5031.546, -5260.428, -5397.499, -5680.121, -6028.877, -6275.864, -6499.559, -6933.607, -7394.519, -7701.142, -8158.961, -8714.456, -9175.031, -9583.132]
+  },
+  "time_basis": "calendar",
+  "title": "Global glacier mass change since 1975 (WGMS)",
+  "unit": {
+    "code": "Gt",
+    "label": "gigatonnes",
+    "short": "Gt"
+  },
+  "vintage": "2026-02-10"
+}

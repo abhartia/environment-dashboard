@@ -6,8 +6,8 @@ key of every indicator here, through key_files).
 
 Entities. The World (Area "World", Area type "Region") and every row of Area type "Country or economy", by its
 "ISO 3 code" resolved with envdash.geo (column iso3). Ember's other regions (continents, EU, OECD, G20 and so on) are
-not published. ISO_ALIASES and NOT_IN_CROSSWALK below are the only exceptions, each declared from the file of
-22 September 2026; any other code that is not in pipeline/geo/entities.csv stops the build.
+not published. ISO_ALIASES below is the only exception, declared from the file of 22 September 2026; any other code
+that is not in pipeline/geo/entities.csv stops the build (French Guiana, GUF, and Reunion, REU, are entities there).
 
 Years. Ember's methodology says "We provide data for 215 countries from 2000" (checked in the PDF at every build).
 The file also has rows from 1985 to 1999 for some countries, and they are partial: Germany 1985-1989 has only a
@@ -83,9 +83,6 @@ FIRST_YEAR = 2000
 
 # Ember's "ISO 3 code" -> our entity code, where the two differ (file of 22 September 2026).
 ISO_ALIASES = {"XKX": "KOS"}  # Kosovo: Ember uses the user-assigned code XKX; entities.csv uses Natural Earth's KOS.
-# Areas with no row in pipeline/geo/entities.csv (Natural Earth's 1:50m layers draw them as part of France). They are
-# not published until the crosswalk has them (envdash/geo.py EXTRA_TERRITORIES).
-NOT_IN_CROSSWALK = {"GUF": "French Guiana", "REU": "Reunion"}
 
 # Each must be found in the methodology PDF before anything is published.
 METHODOLOGY_REQUIRED = (
@@ -132,35 +129,23 @@ class AreaYear:
     """Ember source label -> the row."""
 
 
-def entity_of(iso3: str | None, area: str) -> str | None:
-    """Our entity code for a country row, None for a declared NOT_IN_CROSSWALK area; anything else unknown raises."""
+def entity_of(iso3: str | None, area: str) -> str:
+    """Our entity code for a country row; a code not in the crosswalk raises."""
     if iso3 is None:
         raise EmberFormatError(f"country row {area!r} has no ISO 3 code")
-    if iso3 in NOT_IN_CROSSWALK:
-        if NOT_IN_CROSSWALK[iso3] != area:
-            raise EmberFormatError(f"{iso3} is {area!r} in the file, not {NOT_IN_CROSSWALK[iso3]!r}")
-        return None
     return geo.resolve(ISO_ALIASES.get(iso3, iso3), "iso3")
 
 
-def area_years(df: pl.DataFrame) -> tuple[list[AreaYear], list[str]]:
-    """World and country rows from FIRST_YEAR, grouped by area and year, sorted by entity then year; plus the
-    names of the areas left out because they are not in the crosswalk."""
+def area_years(df: pl.DataFrame) -> list[AreaYear]:
+    """World and country rows from FIRST_YEAR, grouped by area and year, sorted by entity then year."""
     keep = df.filter(
         (((pl.col("Area") == WORLD) & (pl.col("Area type") == "Region")) | (pl.col("Area type") == COUNTRY))
         & (pl.col("Year").cast(pl.Int32) >= FIRST_YEAR)
     )
     groups: dict[tuple[str, str], dict[str, dict]] = defaultdict(dict)
     names: dict[str, str] = {}
-    skipped: set[str] = set()
     for r in keep.iter_rows(named=True):
-        if r["Area type"] == COUNTRY:
-            ent = entity_of(r["ISO 3 code"], r["Area"])
-            if ent is None:
-                skipped.add(r["Area"])
-                continue
-        else:
-            ent = "WLD"
+        ent = entity_of(r["ISO 3 code"], r["Area"]) if r["Area type"] == COUNTRY else "WLD"
         if names.setdefault(ent, r["Area"]) != r["Area"]:
             raise EmberFormatError(f"{ent} is both {names[ent]!r} and {r['Area']!r}")
         g = groups[(ent, r["Year"])]
@@ -168,7 +153,7 @@ def area_years(df: pl.DataFrame) -> tuple[list[AreaYear], list[str]]:
             raise EmberFormatError(f"{r['Area']} {r['Year']} has two rows for {r['Electricity source']!r}")
         g[r["Electricity source"]] = r
     out = [AreaYear(e, names[e], y, rows) for (e, y), rows in groups.items()]
-    return sorted(out, key=lambda a: (a.entity, int(a.year))), sorted(skipped)
+    return sorted(out, key=lambda a: (a.entity, int(a.year)))
 
 
 def negative_rows(ay: AreaYear) -> list[str]:
@@ -271,16 +256,15 @@ def _obs(ay: AreaYear, st: Status, value: Decimal | None, what: str, dims: dict[
 @dataclass(frozen=True)
 class Read:
     groups: list[AreaYear]
-    skipped: list[str]
     status: Status
 
 
 def read(df: pl.DataFrame) -> Read:
-    groups, skipped = area_years(df)
+    groups = area_years(df)
     for ay in groups:
         check_area_year(ay)
     latest = max(int(y) for y in df["Year"].unique())
-    return Read(groups, skipped, Status(ey.country_gaps(df), str(latest)))
+    return Read(groups, Status(ey.country_gaps(df), str(latest)))
 
 
 def mix_observations(r: Read) -> list[Observation]:
@@ -322,8 +306,7 @@ def _steps(files: dict[str, InputFile], r: Read, pages: dict[str, int], vintage:
         f"on was found in the PDF (pages {page_list}) before publishing.",
         f"Kept the World and the {countries} countries and economies in pipeline/geo/entities.csv, from {FIRST_YEAR}, "
         "the first year of Ember's stated coverage (earlier rows exist for some countries and are partial). Each "
-        "country is matched by Ember's ISO 3 code; Ember's XKX is Kosovo (KOS). Not published because they have no "
-        f"entity in the crosswalk: {', '.join(r.skipped) if r.skipped else 'none'}.",
+        "country is matched by Ember's ISO 3 code; Ember's XKX is Kosovo (KOS).",
         "Checked, for every country and year, that the shares of the generating sources in the file add up to 100%, "
         "that Clean generation is Renewables plus Nuclear and the Clean share is Clean over Total generation, and "
         "that the emissions intensity is emissions over generation, each to within the rounding of the printed "

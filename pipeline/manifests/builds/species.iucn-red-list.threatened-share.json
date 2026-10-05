@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/species.iucn-red-list.threatened-share.json",
+  "export_sha256": "9187eebdeff24a85e261f9794b2b11da2c45bffbb757afd4ef8a9ac3b32143c8",
+  "indicator_id": "species.iucn-red-list.threatened-share",
+  "key": "36e0390f5659eff72a7c018f92f39d2e47c3ff2b9610c0a08bd2f7009050357d",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "iucn-red-list-gbif/checklist-2026-1": {
+        "manifest_sha256": "15ed36f8647459e10241d316d8a437ed77d4da6da27bd7f41a6235b7a6966f79",
+        "sha256": "2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "iucn-red-list-gbif": "787de093d945da4db4f478135414aba7576021149dad132968f3d4e1d0897a2e"
+    },
+    "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
+  },
+  "publisher_checks": []
+}

@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/emissions.gcp-2025.fossil-co2-per-capita.json",
+  "export_sha256": "514683802cd18b3dae87db3aa335ccf0cf1461121be2206ad374c7e6a49804ef",
+  "indicator_id": "emissions.gcp-2025.fossil-co2-per-capita",
+  "key": "eca501693a65a02cf320214d8ab5749855fd2c206bd2af8ca2f0cc2ae221de72",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "gcp-fossil-co2-2025/mtco2-flat": {
+        "manifest_sha256": "df8204ede53258fec56e7ee67c34da2fbd3dcf8545e04bc449df98fb2630544d",
+        "sha256": "20650c19b394d91b6b31cddff2fbc9508bcdbbed7c3f93660336f2f655f367ff"
+      },
+      "gcp-fossil-co2-2025/mtco2-metadata": {
+        "manifest_sha256": "69975bce9ef7c0ae37514c3619b1187472340419427bc4c0316e0ba96f7a4589",
+        "sha256": "b41c76163ac6258fee7203c417a0def6b2e7300dc59943de654b913e824f3cd4"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "gcp-fossil-co2-2025": "75a7836005e508dc509e32256622c2d23adeb05aae90b6275b1141081facaaec"
+    },
+    "transform_sha256": "9cbf1047ea48dc4b3cd8bebf1ad58a2f8c972ff9fc41c01d3f110933e694e366"
+  },
+  "publisher_checks": []
+}

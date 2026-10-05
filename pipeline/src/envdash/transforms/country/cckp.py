@@ -25,9 +25,9 @@ Definitions, from CCKP's Metadata page (read in a browser on 2026-10-05; the sit
 
 Entities. CCKP keys countries by World Bank Official Boundaries codes, which are ISO 3166-1 alpha-3 except for the
 two in ALIASES (each seen in the snapshots below). Every other code goes through geo.resolve(code, "iso3"), which
-raises on anything unknown. NO_ENTITY lists, by name, the seven CCKP areas that have no row in
-pipeline/geo/entities.csv (Natural Earth 1:50m draws them inside another polygon, or not at all); they are left out
-and named in a processing step, never folded into another entity. Any other unknown code stops the build. CCKP's
+raises on anything unknown, so an unknown code stops the build. Seven CCKP areas that Natural Earth 1:50m draws inside
+another polygon, or not at all (Bouvet Island, Cocos (Keeling) Islands, French Guiana, Mayotte, Réunion, Svalbard and
+Jan Mayen, United States Minor Outlying Islands) are entities through envdash/geo.py EXTRA_TERRITORIES. CCKP's
 boundaries are the World Bank's, not Natural Earth's de facto ones: CCKP has no separate series for Western Sahara,
 Somaliland, Northern Cyprus, the Falkland Islands or South Georgia, so those entities have no data here.
 
@@ -82,19 +82,6 @@ ALIASES: dict[str, str] = {
     "KSV": "KOS",
     # The geocode of the "global" aggregation (the only key of the /global files).
     "GLOBAL": "WLD",
-}
-
-# CCKP areas with no entity in pipeline/geo/entities.csv (Natural Earth 1:50m has no separate polygon or point for
-# them). Left out by name; adding them needs rows in envdash/geo.py EXTRA_TERRITORIES, after which they move out of
-# this table and resolve like every other code.
-NO_ENTITY: dict[str, str] = {
-    "BVT": "Bouvet Island",
-    "CCK": "Cocos (Keeling) Islands",
-    "GUF": "French Guiana",
-    "MYT": "Mayotte",
-    "REU": "Réunion",
-    "SJM": "Svalbard and Jan Mayen",
-    "UMI": "United States Minor Outlying Islands",
 }
 
 COLLECTION_URL = re.compile(
@@ -226,36 +213,23 @@ def read_file(f: InputFile, name: str, **want: object) -> tuple[Collection, dict
     return c, data
 
 
-def entities_of(codes: set[str], name: str) -> tuple[dict[str, str], list[str]]:
-    """Producer code -> our entity for every code, and the NO_ENTITY codes present (left out). Raises on any other
-    code geo.resolve does not know, and on two codes resolving to one entity."""
+def entities_of(codes: set[str], name: str) -> dict[str, str]:
+    """Producer code -> our entity for every code. Raises on a code geo.resolve does not know, and on two codes
+    resolving to one entity."""
     mapped: dict[str, str] = {}
-    left_out: list[str] = []
     for code in sorted(codes):
-        if code in NO_ENTITY:
-            left_out.append(code)
-            continue
         try:
             mapped[code] = geo.resolve(ALIASES.get(code, code), "iso3")
         except geo.UnknownEntity as e:
             raise CckpFormatError(
-                f"{name}: CCKP code {code!r} has no entity ({e}); declare it in ALIASES or NO_ENTITY after checking "
-                "what CCKP means by it"
+                f"{name}: CCKP code {code!r} has no entity ({e}); declare it in ALIASES (or envdash/geo.py) after "
+                "checking what CCKP means by it"
             ) from None
     targets = list(mapped.values())
     dupes = sorted({t for t in targets if targets.count(t) > 1})
     if dupes:
         raise CckpFormatError(f"{name}: several CCKP codes resolve to {dupes}")
-    return mapped, left_out
-
-
-def left_out_sentence(left_out: list[str]) -> str:
-    named = ", ".join(f"{NO_ENTITY[c]} ({c})" for c in left_out)
-    return (
-        f"Left out {len(left_out)} CCKP areas that have no entity in the site's entity table "
-        f"(pipeline/geo/entities.csv, from Natural Earth 1:50m): {named}. Their values stay in the raw file; none was "
-        "added to another entity."
-    )
+    return mapped
 
 
 def _fetched(files: list[InputFile]) -> str:
@@ -273,7 +247,6 @@ class Era5:
     """Our entity -> CCKP's 1991–2020 mean (°C)."""
     start: int
     end: int
-    left_out: list[str]
     vintage: str
 
 
@@ -293,7 +266,7 @@ def read_era5(files: dict[str, InputFile]) -> Era5:
         raise CckpFormatError(f"the climatology and the annual series cover different areas: {diff}")
     if not (ts.start <= CLIMATOLOGY[0] and CLIMATOLOGY[1] <= ts.end):
         raise CckpFormatError(f"the series {ts.start}-{ts.end} does not cover {CLIMATOLOGY[0]}-{CLIMATOLOGY[1]}")
-    mapped, left_out = entities_of(set(countries), TAS_COUNTRIES.key)
+    mapped = entities_of(set(countries), TAS_COUNTRIES.key)
     mapped["GLOBAL"] = geo.resolve(ALIASES["GLOBAL"], "iso3")
     raw_annual = countries | world
     raw_clim = c_countries | c_world
@@ -303,7 +276,7 @@ def read_era5(files: dict[str, InputFile]) -> Era5:
         annual[ent] = [(int(stamp[:4]), v) for stamp, v in raw_annual[code].items()]
         climatology[ent] = next(iter(raw_clim[code].values()))
     vintage = f"era5-x0.25 {ts.start}-{ts.end}, fetched {_fetched(list(files.values()))}"
-    return Era5(annual, climatology, ts.start, ts.end, left_out, vintage)
+    return Era5(annual, climatology, ts.start, ts.end, vintage)
 
 
 def check_climatology(e: Era5) -> Decimal:
@@ -341,15 +314,13 @@ def change_observations(e: Era5) -> list[Observation]:
 
 
 def _era5_steps(e: Era5) -> list[str]:
-    steps = [
+    return [
         f"Read CCKP's ERA5 0.25° annual mean near-surface air temperature for every country and territory and for "
         f'the globe, {e.start}–{e.end} (absolute °C; CCKP stamps each year\'s value "YYYY-07", read as the year).',
         "Mapped CCKP's codes to the site's entities: ISO 3166-1 alpha-3 codes as they are, KSV (CCKP's code for "
-        "Kosovo) to KOS and GLOBAL to WLD.",
+        "Kosovo) to KOS and GLOBAL to WLD. Every CCKP area is published, including the overseas territories Natural "
+        "Earth draws inside another country (envdash/geo.py EXTRA_TERRITORIES).",
     ]
-    if e.left_out:
-        steps.append(left_out_sentence(e.left_out))
-    return steps
 
 
 def _run_absolute(files: dict[str, InputFile]) -> Result:
@@ -384,8 +355,8 @@ def _run_change(files: dict[str, InputFile]) -> Result:
 # --- CMIP6 hot days -----------------------------------------------------------------------------------------------
 
 
-def hd35_observations(files: dict[str, InputFile]) -> tuple[list[Observation], list[str]]:
-    """Median with the 10th–90th percentile range, per scenario and area; and the NO_ENTITY codes left out."""
+def hd35_observations(files: dict[str, InputFile]) -> list[Observation]:
+    """Median with the 10th–90th percentile range, per scenario and area."""
     values: dict[tuple[str, str], dict[str, Decimal]] = {}
     codes: set[str] | None = None
     for s in SCENARIOS:
@@ -411,7 +382,7 @@ def hd35_observations(files: dict[str, InputFile]) -> tuple[list[Observation], l
                 raise CckpFormatError(f"{i.key} covers different areas: {sorted(set(data) ^ codes)}")
             values[(s.id, st)] = {code: next(iter(series.values())) for code, series in data.items()}
     assert codes is not None
-    mapped, left_out = entities_of(codes, "cmip6-hd35")
+    mapped = entities_of(codes, "cmip6-hd35")
     obs: list[Observation] = []
     for code, ent in sorted(mapped.items(), key=lambda kv: kv[1]):
         for s in SCENARIOS:
@@ -427,21 +398,20 @@ def hd35_observations(files: dict[str, InputFile]) -> tuple[list[Observation], l
                     dims={"scenario": s.id},
                 )
             )
-    return obs, left_out
+    return obs
 
 
 def _run_hd35(files: dict[str, InputFile]) -> Result:
-    obs, left_out = hd35_observations(files)
+    obs = hd35_observations(files)
     steps = [
         "Read CCKP's CMIP6 0.25° climatologies of hd35, the number of days a year with a daily maximum temperature of "
         "35 °C or more, for every country and territory: the multi-model ensemble median, 10th and 90th percentiles "
         "for the 1995–2014 historical runs and for 2040–2059 under SSP1-2.6, SSP2-4.5 and SSP5-8.5.",
         "Published the median as the value and the 10th and 90th percentiles as the range, as printed. Mapped CCKP's "
         "codes to the site's entities: ISO 3166-1 alpha-3 codes as they are and KSV (CCKP's code for Kosovo) to "
-        "KOS.",
+        "KOS. Every CCKP area is published, including the overseas territories Natural Earth draws inside another "
+        "country (envdash/geo.py EXTRA_TERRITORIES).",
     ]
-    if left_out:
-        steps.append(left_out_sentence(left_out))
     vintage = f"cmip6-x0.25 hd35, fetched {_fetched(list(files.values()))}"
     return Result(observations=obs, vintage=vintage, steps=steps)
 

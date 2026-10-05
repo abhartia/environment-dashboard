@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/land-use.faostat.share-of-land-area.json",
+  "export_sha256": "33c9680ff5f19d76900ed1c8c35dfbc05a90fc07b81644249e245f0bfd44b0ca",
+  "indicator_id": "land-use.faostat.share-of-land-area",
+  "key": "a7d28eff084f12b5b082d6ebfb6d1d14b8bf1fdff85f838d5bd95d12c4bef979",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "faostat/datasets-catalogue": {
+        "manifest_sha256": "bc646412c97139536878e748e171502090aa722995a1de8f6fff062c1b7e3383",
+        "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"
+      },
+      "faostat/land-use": {
+        "manifest_sha256": "7d1e7ca1243746ed8380abd2bd24aa4e21159d6a659baeca2bdf351ba3792ca8",
+        "sha256": "39b739fbfb694971207a2efa572c41e8de2386fc5cb33caaf2a188e9c9a6ca3f"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "faostat": "83c5397350b6684b0cd1dd419ffd8fe799366487bc9976d926e36f82b4bb8193"
+    },
+    "transform_sha256": "534fd841c2025e33540546bb006b112a181cf353bafcddc6c22133957d0fbb53"
+  },
+  "publisher_checks": []
+}

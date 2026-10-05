@@ -20,3 +20,17 @@ def test_paths_and_components():
     for name in ("Catalog", "CatalogEntry", "Indicator", "Observation", "SourceList", "Status", "Source"):
         assert name in doc["components"]["schemas"]
     assert "note" in doc["components"]["schemas"]["Observation"]["required"]
+
+
+def test_get_indicator_returns_the_columnar_file():
+    doc = openapi.document()
+    ok = doc["paths"]["/data/v1/indicators/{id}.json"]["get"]["responses"]["200"]
+    assert ok["content"]["application/json"]["schema"] == {"$ref": "#/components/schemas/IndicatorFile"}
+    schemas = doc["components"]["schemas"]
+    assert {"table", "notes"} <= set(schemas["IndicatorFile"]["required"])
+    assert "observations" not in schemas["IndicatorFile"]["properties"]
+    table = schemas["ObservationTable"]
+    assert set(table["required"]) == {"entity", "value", "status", "dims"}
+    # Optional columns are absent, never null: the schema is the array alone.
+    assert table["properties"]["lower"]["type"] == "array"
+    assert table["properties"]["note"]["items"] == {"anyOf": [{"minimum": 0, "type": "integer"}, {"type": "null"}]}

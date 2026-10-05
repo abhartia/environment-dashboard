@@ -39,7 +39,9 @@ def test_region_names_resolve_explicitly():
     assert iea.entity_of("European Union") is None
     with pytest.raises(geo.UnknownEntity):
         iea.entity_of("Rest of Europe")
-    assert wdi.entity_of("XKX", "Kosovo") == "KOS" and wdi.entity_of("CHI", "Channel Islands") is None
+    assert wdi.entity_of("XKX") == "KOS" and wdi.entity_of("CHI") == "CHI"
+    with pytest.raises(geo.UnknownEntity):
+        wdi.entity_of("XXK")
 
 
 # --- full snapshot ------------------------------------------------------------------------------------------------
@@ -93,4 +95,4 @@ def test_access_to_electricity_full_run():
     assert by[("WLD", "2024")] == 91.9264843853681
     assert min(p for e, p in by if e == "WLD") == "1998"
     assert res.vintage == "2026-07-13"
-    assert "Channel Islands" in res.steps[1]
+    assert "Channel Islands" in res.steps[1] and "CHI" in {e for e, _ in by}

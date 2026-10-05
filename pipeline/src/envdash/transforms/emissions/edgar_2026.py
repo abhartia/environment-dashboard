@@ -34,15 +34,14 @@ Preliminary years. The report says (PDF page 50) "the emissions for the Fast-Tra
 booklet will be updated in subsequent editions of this booklet". Values for 2024 and 2025 are published with status
 preliminary and that sentence as their note.
 
-Entities. EDGAR codes are ISO 3166-1 alpha-3 except the ones declared in ALIASES (aggregates and international
-transport) and WITHHELD; every other code goes through geo.resolve(code, "iso3"), which raises for anything unknown.
-Six rows cover a country together with a neighbour, as their names in the file say (COMBINED, e.g. ESP "Spain and
-Andorra"): they are published under the code EDGAR gives them, with the producer's row name as a note on every value.
-WITHHELD rows have no entity of ours that means the same thing, so they are not published until one is declared in
-envdash/geo.py: SCG "Serbia and Montenegro" (one row for two countries, under a code that is neither), and GUF
-"French Guiana" and REU "Réunion", which have ISO codes but no row in pipeline/geo/entities.csv because Natural Earth's
-1:50m layers draw them inside France. ANT is labelled "Curaçao" in the workbook and on its report profile page (PDF
-page 128, population 168.000k in 2025), so it is published as CUW.
+Entities. EDGAR codes are ISO 3166-1 alpha-3 except the ones declared in ALIASES (aggregates, international
+transport, and two codes that are not current ISO codes); every other code goes through geo.resolve(code, "iso3"),
+which raises for anything unknown. Six rows cover a country together with a neighbour, as their names in the file say
+(COMBINED, e.g. ESP "Spain and Andorra"): they are published under the code EDGAR gives them, with the producer's row
+name as a note on every value. SCG "Serbia and Montenegro" is one row for two countries (EDGAR has no separate Serbia
+or Montenegro rows) and is published as SRB_MNE, Serbia and Montenegro as reported together. GUF "French Guiana" and
+REU "Réunion" are published under their ISO codes (envdash/geo.py EXTRA_TERRITORIES). ANT is labelled "Curaçao" in
+the workbook and on its report profile page (PDF page 128, population 168.000k in 2025), so it is published as CUW.
 
 Publisher cross-checks. The report's profile pages print each total and per-person value for 1990, 2005, 2015 and 2025
 to three decimals (World on PDF page 75, China 119, the United States 278); those rows are the checks below, for this
@@ -134,6 +133,8 @@ ALIASES: dict[str, tuple[str, str]] = {
     "SEA": ("International Shipping", "INTL_SEA"),
     # Old ISO code of the Netherlands Antilles; EDGAR names the row and its profile page (PDF page 128) Curaçao.
     "ANT": ("Curaçao", "CUW"),
+    # One row for two countries, under a code that is neither; EDGAR has no separate SRB or MNE rows.
+    "SCG": ("Serbia and Montenegro", "SRB_MNE"),
 }
 # Rows covering a country with a neighbour, by their names in the workbook; published under the code EDGAR gives.
 COMBINED: dict[str, str] = {
@@ -143,15 +144,6 @@ COMBINED: dict[str, str] = {
     "ISR": "Israel and Palestine, State of",
     "ITA": "Italy, San Marino and the Holy See",
     "SDN": "Sudan and South Sudan",
-}
-# Rows not published: EDGAR code -> (row name in the workbook, why).
-WITHHELD: dict[str, tuple[str, str]] = {
-    "SCG": (
-        "Serbia and Montenegro",
-        "one row for two countries under a code that is neither; no entity of ours means the same thing",
-    ),
-    "GUF": ("French Guiana", "not in pipeline/geo/entities.csv (Natural Earth 1:50m draws it inside France)"),
-    "REU": ("Réunion", "not in pipeline/geo/entities.csv (Natural Earth 1:50m draws it inside France)"),
 }
 
 SECTORS: tuple[tuple[str, str], ...] = (
@@ -258,13 +250,8 @@ def read_sheet(rows: list[tuple], sheet: str) -> list[Row]:
     return out
 
 
-def entity_for(row: Row) -> tuple[str | None, str | None]:
-    """(our entity code, note) for an EDGAR row; (None, why) for a withheld row. Raises for an undeclared code."""
-    if row.code in WITHHELD:
-        name, why = WITHHELD[row.code]
-        if row.name != name:
-            raise EdgarFormatError(f"withheld row {row.code} is named {row.name!r}, not {name!r}")
-        return None, why
+def entity_for(row: Row) -> tuple[str, str | None]:
+    """(our entity code, note) for an EDGAR row. Raises for an undeclared code."""
     if row.code in ALIASES:
         name, ours = ALIASES[row.code]
         if row.name != name:
@@ -281,15 +268,11 @@ def entity_for(row: Row) -> tuple[str | None, str | None]:
     return code, None
 
 
-def observations(rows: list[Row]) -> tuple[list[Observation], list[Row]]:
-    """Observations for every published row, and the rows withheld."""
+def observations(rows: list[Row]) -> list[Observation]:
+    """Observations for every row."""
     obs: list[Observation] = []
-    withheld: list[Row] = []
     for row in rows:
         code, note = entity_for(row)
-        if code is None:
-            withheld.append(row)
-            continue
         for year, v in zip(range(FIRST_YEAR, LAST_YEAR + 1), row.values, strict=True):
             fast = year in FAST_TRACK_YEARS
             notes = " ".join(n for n in (note, FAST_TRACK_NOTE if fast else None) if n) or None
@@ -302,7 +285,7 @@ def observations(rows: list[Row]) -> tuple[list[Observation], list[Row]]:
                     note=notes,
                 )
             )
-    return obs, withheld
+    return obs
 
 
 # --- report PDF --------------------------------------------------------------------------------------------------
@@ -393,9 +376,8 @@ def _sheet_result(files: dict[str, InputFile], sheet: str, unit_words: str) -> R
     check_statements(sheets)
     rows = read_sheet(sheets[sheet], sheet)
     _scope_pages(files, set())
-    obs, withheld = observations(rows)
+    obs = observations(rows)
     booklet, report = files[BOOKLET.key].snapshot, files[REPORT.key].snapshot
-    held = "; ".join(f'{r.code} "{r.name}" ({WITHHELD[r.code][1]})' for r in withheld)
     present = {r.code for r in rows}
     combined = ", ".join(f'{c} "{n}"' for c, n in COMBINED.items() if c in present)
     aliased = ", ".join(f'{c} "{n}" is {ours}' for c, (n, ours) in ALIASES.items() if c in present)
@@ -409,10 +391,10 @@ def _sheet_result(files: dict[str, InputFile], sheet: str, unit_words: str) -> R
             "rounded, added up, divided or converted, because the licence of the fossil CO₂ part (IEA-EDGAR CO2, "
             "CC BY-NC-ND 4.0) allows no derivatives.",
             f"Matched EDGAR's codes to ours: ISO 3166-1 alpha-3 codes directly, except {aliased} (ANT is the old "
-            "code of the Netherlands Antilles; EDGAR names the row Curaçao, here and on its report profile). Rows "
-            f"that cover a country together with a neighbour ({combined}) are published under the code EDGAR gives "
-            "them, with EDGAR's row name as a note on every value. "
-            + (f"Not published, {len(withheld)} rows without a matching entity: {held}." if withheld else ""),
+            "code of the Netherlands Antilles; EDGAR names the row Curaçao, here and on its report profile; SCG is "
+            "one row for Serbia and Montenegro together). Rows that cover a country together with a neighbour "
+            f"({combined}) are published under the code EDGAR gives them, with EDGAR's row name as a note on every "
+            "value.",
             f"Checked against the report PDF (sha256 {report.sha256[:12]}…): the totals exclude land use, land-use "
             f"change and forestry (page {LULUCF_QUOTE.page}: {LULUCF_QUOTE.text!r}), and the world total includes "
             f"international shipping and aviation (page {BUNKERS_QUOTE.page}: {BUNKERS_QUOTE.text!r}).",

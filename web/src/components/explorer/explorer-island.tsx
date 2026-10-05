@@ -10,7 +10,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { getIndicatorOptions } from "@/gen/hey-api/@tanstack/react-query.gen";
 import type { Observation } from "@/gen/hey-api/types.gen";
-import { formatValue } from "@/lib/format";
+import { calendarPeriod, formatValue } from "@/lib/format";
+import { expandIndicator } from "@/lib/indicator-table";
 
 import type { ExplorerSpec } from "./explorer-launcher";
 
@@ -30,7 +31,7 @@ function matches(o: Observation, entity: string, fixed: Record<string, string>):
 }
 
 function Island({ spec }: { spec: ExplorerSpec }) {
-  const { data, isPending, isError } = useQuery({ ...getIndicatorOptions({ path: { id: spec.id } }), throwOnError: false });
+  const { data, isPending, isError } = useQuery({ ...getIndicatorOptions({ path: { id: spec.id } }), select: expandIndicator, throwOnError: false });
   const [selected, setSelected] = useState<string[]>(spec.initial);
   const dim = spec.dimension;
   const keys = useMemo(() => (dim ? selected : ["value"]), [dim, selected]);
@@ -42,9 +43,10 @@ function Island({ spec }: { spec: ExplorerSpec }) {
       if (!matches(o, spec.headlineEntity, spec.fixedDims)) continue;
       const key = dim ? o.dims[dim.id] : "value";
       if (!keys.includes(key)) continue;
-      const row = byPeriod.get(o.period) ?? { period: o.period };
+      const period = calendarPeriod(o);
+      const row = byPeriod.get(period) ?? { period };
       row[key] = o.value;
-      byPeriod.set(o.period, row);
+      byPeriod.set(period, row);
     }
     return [...byPeriod.values()].sort((a, b) => String(a.period).localeCompare(String(b.period)));
   }, [data, dim, keys, spec.fixedDims, spec.headlineEntity]);

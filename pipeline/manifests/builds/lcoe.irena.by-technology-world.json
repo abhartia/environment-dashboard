@@ -1,0 +1,34 @@
+{
+  "export": "data/v1/indicators/lcoe.irena.by-technology-world.json",
+  "export_sha256": "c071e8f004b237386aa3a1ceca0d33df1c46dafebd69415a9a7f46ea0d11a6bb",
+  "indicator_id": "lcoe.irena.by-technology-world",
+  "key": "a5d58848624babe6e0b34712445948cf9e012624668383fb563d216407f1ba71",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "irena-costs-2025/data-file": {
+        "manifest_sha256": "3af782a6e5db99e97f68588e6e58c4c98004c52ff24552bc398f4f9608ad0649",
+        "sha256": "44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172"
+      },
+      "irena-costs-2025/executive-summary-pdf": {
+        "manifest_sha256": "9a9291117e56310ab35ac12da8e684f6c4d247669f1a7d3d130833576c2bbdd4",
+        "sha256": "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "irena-costs-2025": "7b4bc7dc7fe93673def9d1055a1e057398034d79e65bcf084d20261a57c248c2"
+    },
+    "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
+  },
+  "publisher_checks": [
+    {"detail": "ours 43.5389566578384 vs stated 44 (tolerance ±0.5, difference 0.461043)", "entity": "WLD", "period": "2025", "quote": "In 2025, the global, weighted-average levelised cost of electricity (LCOE) for solar PV remained unchanged compared to 2024, at USD 44 per megawatt hour (MWh).", "source_id": "irena-costs-2025", "stated": "44", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"},
+    {"detail": "ours 32.949986439398714 vs stated 33 (tolerance ±0.5, difference 0.0500136)", "entity": "WLD", "period": "2025", "quote": "the LCOE of onshore wind decreased to USD 33/MWh and offshore wind to USD 78/MWh.", "source_id": "irena-costs-2025", "stated": "33", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"},
+    {"detail": "ours 77.90795085056327 vs stated 78 (tolerance ±0.5, difference 0.0920491)", "entity": "WLD", "period": "2025", "quote": "the LCOE of onshore wind decreased to USD 33/MWh and offshore wind to USD 78/MWh.", "source_id": "irena-costs-2025", "stated": "78", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"},
+    {"detail": "ours 61.69417119094118 vs stated 62 (tolerance ±0.5, difference 0.305829)", "entity": "WLD", "period": "2025", "quote": "Hydropower rose to USD 62/MWh, geothermal to USD 89/MWh and concentrated solar power (CSP) to USD 115/MWh.", "source_id": "irena-costs-2025", "stated": "62", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"},
+    {"detail": "ours 88.685104655013 vs stated 89 (tolerance ±0.5, difference 0.314895)", "entity": "WLD", "period": "2025", "quote": "Hydropower rose to USD 62/MWh, geothermal to USD 89/MWh and concentrated solar power (CSP) to USD 115/MWh.", "source_id": "irena-costs-2025", "stated": "89", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"},
+    {"detail": "ours 114.83293283595305 vs stated 115 (tolerance ±0.5, difference 0.167067)", "entity": "WLD", "period": "2025", "quote": "Hydropower rose to USD 62/MWh, geothermal to USD 89/MWh and concentrated solar power (CSP) to USD 115/MWh.", "source_id": "irena-costs-2025", "stated": "115", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"},
+    {"detail": "ours 85.50512550711129 vs stated 86 (tolerance ±0.5, difference 0.494874)", "entity": "WLD", "period": "2025", "quote": "Bioenergy was the exception, with LCOE declining to USD 86/MWh due to increased output.", "source_id": "irena-costs-2025", "stated": "86", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf", "vintage": "2026-07-02"}
+  ]
+}

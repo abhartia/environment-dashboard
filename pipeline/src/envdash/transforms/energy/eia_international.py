@@ -15,9 +15,10 @@ missing_reason quotes the code. EIA's file does not define these codes.
 
 Entities. EIA's geography for a country is its ISO 3166 alpha-3 code, resolved with envdash.geo; an aggregate's is
 the '+'-joined list of its members and is not published (regions, OECD, OPEC...), except the World (WLD). EIA's XKS
-is Kosovo (KOS). Geographies that are not in pipeline/geo/entities.csv are declared in NOT_IN_CROSSWALK (former
-states, territories Natural Earth draws inside another country, EIA's own trade zones) and are not published; any
-other unknown code stops the build.
+is Kosovo (KOS); EIA's SCG, "Former Serbia and Montenegro" (values 1992-2005, before Serbia and Montenegro have their
+own series), is our SRB_MNE, Serbia and Montenegro as reported together. Geographies that are not in
+pipeline/geo/entities.csv are declared in NOT_IN_CROSSWALK (former states, EIA's own trade zones and groupings of US
+territories) and are not published; any other unknown code stops the build.
 
 Accounting method. EIA counts primary energy with the captured-energy approach for non-combustible renewables: the
 electricity from hydro, wind, solar, geothermal and tide and wave power enters at its own energy content, 3,412 Btu
@@ -98,17 +99,14 @@ BTU_TOLERANCE = Decimal("0.5")
 MIN_BKWH = Decimal("0.01")
 CAPTURED_EXCEPTIONS = {"USA"}
 
-ISO_ALIASES = {"XKS": "KOS"}
+ISO_ALIASES = {"XKS": "KOS", "SCG": "SRB_MNE"}
 # EIA geography -> EIA's name for it (file of 3 October 2026). Not in pipeline/geo/entities.csv, so not published.
 NOT_IN_CROSSWALK = {
     "CSK": "Former Czechoslovakia",
     "DDR": "Germany, East",
     "DEUW": "Germany, West",
-    "GUF": "French Guiana",
     "HITZ": "Hawaiian Trade Zone",
     "NLDA": "Netherlands Antilles",
-    "REU": "Reunion",
-    "SCG": "Former Serbia and Montenegro",
     "SUN": "Former U.S.S.R.",
     "USIQ": "U.S. Pacific Islands",
     "USOH": "U.S. Territories",
@@ -431,7 +429,8 @@ def _steps(r: _Read) -> list[str]:
         "Kept the annual consumption series in quadrillion Btu: total energy consumption and its five fuels (coal, "
         "natural gas, petroleum and other liquids, nuclear, renewables and other), checking each series' name and "
         f"units. Kept the World and the {len(t.by_entity) - 1} countries and territories in "
-        "pipeline/geo/entities.csv, matched by EIA's ISO 3 code (EIA's XKS is Kosovo, KOS); EIA's regional "
+        "pipeline/geo/entities.csv, matched by EIA's ISO 3 code (EIA's XKS is Kosovo, KOS, and its SCG, Former Serbia "
+        "and Montenegro, is Serbia and Montenegro as reported together, SRB_MNE); EIA's regional "
         "aggregates are left out, and so are these geographies, which have no entity in the crosswalk: "
         f"{'; '.join(sorted(NOT_IN_CROSSWALK.values()))}.",
         "Checked EIA's accounting method against its own generation series: for every country other than the "

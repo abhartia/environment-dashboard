@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/sst.hadsst4.annual-1961-1990.json",
+  "export_sha256": "0e629eebac0b4067e5722d92cb3d743b799d4bde9f69e5a8df9b3a0ab9f128cf",
+  "indicator_id": "sst.hadsst4.annual-1961-1990",
+  "key": "7fd4126bef2d77a529d916cb484bc95d92cf2ee34f893fb46acc1207169ba429",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "hadsst4/global-annual": {
+        "manifest_sha256": "197e1bcb938a8b4d776e817b08b594dc35b25453481fa0b7d776dd00b13c924e",
+        "sha256": "38dd997dc6716cdae019e41d37a5436178d07554a7d69287411904c14e67fa01"
+      },
+      "hadsst4/global-monthly": {
+        "manifest_sha256": "1f00fb225e850dd9798a11309b2f5f6bc411896883272f2b4f8150f39f97f891",
+        "sha256": "07444a0e9be79dfe546f29d34e8dbbf561036e172b89eea45c3487c2b58dada6"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "hadsst4": "02b52350b7c06eec7e4662df22dd8c366cb0ba538204cf5af7ea158915242b56"
+    },
+    "transform_sha256": "d556dbda6cbcbcbc49a8268c77c5c8258ccb5de152fb04cb6fe453af2d2f716e"
+  },
+  "publisher_checks": []
+}

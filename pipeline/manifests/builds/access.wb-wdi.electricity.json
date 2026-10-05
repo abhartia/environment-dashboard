@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/access.wb-wdi.electricity.json",
+  "export_sha256": "b6a204f2cbfac358695193e7a9abf87293f53deee25fe256f0e74b9bb6054e83",
+  "indicator_id": "access.wb-wdi.electricity",
+  "key": "b14f5930a02f73aa39cff33a3088b4fd1b0d49a882405fc0cd392b08d4142bf2",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "wb-wdi/countries": {
+        "manifest_sha256": "52983260da4921f8d5bc4c72ef41ef407830e29c8d693224f85f8bc5172ed8cb",
+        "sha256": "d29d57f8adf954c5e2a1520a02fb2c7b45575d8db3bd327a9dff47d66914231c"
+      },
+      "wb-wdi/eg-elc-accs-zs": {
+        "manifest_sha256": "7f1defc6481dccf363ce9afe7b954c243eeb4381451e0c2d7edc85e6daba7544",
+        "sha256": "56938ff3d8201e8a7c8fc52dc8200394055bffab40234535ef552ed28dc6c94a"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "wb-wdi": "bcbb93da9dbfd132c1e2e6968af8e004041a0fe881a5cfabe842d1797fe426cc"
+    },
+    "transform_sha256": "2bf9f6cb7dde3b12f44fda80c55fcd4cdee0a2edb391e7065c8a21d50b4af9d0"
+  },
+  "publisher_checks": []
+}

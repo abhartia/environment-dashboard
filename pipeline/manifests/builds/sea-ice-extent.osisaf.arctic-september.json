@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/sea-ice-extent.osisaf.arctic-september.json",
+  "export_sha256": "8b9f624a5fdbd02f06a2ccf153f528dc38ac8e25c1f39dc9d5143c4008c48bd7",
+  "indicator_id": "sea-ice-extent.osisaf.arctic-september",
+  "key": "6d684eb9e6244fc22519bf8c15bd6b1a5b129d7c08371ab179e0854b5867d7d9",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "osisaf-sea-ice-index/nh-extent-monthly": {
+        "manifest_sha256": "28f77fec08a39bba790f450eef94922efded70cd2f4a6bc3cb220bc579cff23e",
+        "sha256": "1df8e747017c43d744a8be016e5a910dc7f36987d6e6c46d26a922eaab8284b0"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "osisaf-sea-ice-index": "af137e90526d6dc777ea16204297368d3cfd6a212ca8d8290942045094178f17"
+    },
+    "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"
+  },
+  "publisher_checks": []
+}

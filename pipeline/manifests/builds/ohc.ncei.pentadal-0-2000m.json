@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/ohc.ncei.pentadal-0-2000m.json",
+  "export_sha256": "a5cd57b2fadfa10f968897388a55c63fef673b861a65e25d3ba9879b1f88f53f",
+  "indicator_id": "ohc.ncei.pentadal-0-2000m",
+  "key": "6e17dee7550163bb5ca8d26e6d178b171d8b0d09fd3dd7da07397f9554516aca",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "ncei-ocean-heat/world-0-2000m-pentadal": {
+        "manifest_sha256": "eae5bdd71c3c38c2eb538f6615540a073c728b2056ffa2acfdbea8b669a090fe",
+        "sha256": "2160656a7afed5d87e95b079374efb83e3ade2f9d1a58e0649290ce0eddf73b4"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "ncei-ocean-heat": "acd31f9f9e150f68c6ee358ccd0296160124dbe572edcdb9e3d78b8c07df7a58"
+    },
+    "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
+  },
+  "publisher_checks": []
+}

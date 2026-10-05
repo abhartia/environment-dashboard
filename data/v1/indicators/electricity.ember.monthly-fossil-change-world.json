@@ -1,0 +1,95 @@
+{
+  "attribution": "Ember, Monthly Electricity Data (file of 2026-09-18), CC BY 4.0.",
+  "description": "How much more or less electricity the world generated from coal, gas and other fossil fuels in each month than in the same month a year earlier, in percent, since January 2020, as estimated by Ember.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "electricity.ember.monthly-fossil-change-world",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2026-07",
+    "status": "preliminary",
+    "value": -0.886
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Ember's World estimate for this month; the file has Total generation for 56 countries and economies. 32 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 64 countries and economies. 24 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 71 countries and economies. 17 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 72 countries and economies. 16 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 80 countries and economies. 8 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 82 countries and economies. 6 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 83 countries and economies. 5 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 84 countries and economies. 4 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 85 countries and economies. 3 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 86 countries and economies.", "Ember's World estimate for this month; the file has Total generation for 86 countries and economies. 2 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 87 countries and economies.", "Ember's World estimate for this month; the file has Total generation for 87 countries and economies. 1 of the 87 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 87 countries and economies. 1 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "generation-monthly-global", "bytes": 28333064, "citation_full": "Monthly electricity generation data, Ember", "date_accessed": "2026-10-05", "date_published": "2026-09-18", "doi": null, "etag": "\"1932fe694a4679159e119c2f6b9255e5\"", "last_modified": "Fri, 18 Sep 2026 21:29:31 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": null, "sha256": "6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55", "source_id": "ember-monthly", "title": "Monthly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_monthly_global.csv", "url_main": "https://ember-energy.org/data/monthly-electricity-data/", "version_producer": "2026-09-18", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read release_generation_monthly_global.csv, last modified by Ember on 2026-09-18 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World', 2020-01 to 2026-07.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Checked that every month's shares mean what is published: the nine non-aggregated sources add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Noted on each month how many countries and economies have Total generation in the file for it (from 86 in 2020-01 to 56 in 2026-07), and marked a month preliminary when a country with generation for an earlier month has none for it, because the World total then includes Ember's estimate for that country. Preliminary months in this vintage: 46, the first 2022-10 and the last 2026-07.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Checked that the Fossil row's 'Generation YoY change (TWh)' is this month's generation minus the same month's a year earlier in the file, and that 'Generation YoY change (%)' is that change over the earlier month, to within the rounding of the printed values.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Published Ember's 'Generation YoY change (%)' of its aggregated source 'Fossil' as printed.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Ember's aggregated source 'Fossil' (coal, gas and other fossil fuels), generation in the month compared with the same month of the previous year. The World total is Ember's estimate built from the countries with monthly data; values are revised as data arrive.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "note": [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 10, 10, 10, 10, 10, 10, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 6, 5, 4, 4, 4, 3, 2, 1, 0],
+    "period": ["2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary"],
+    "value": [-2.769, -6.555, -6.68, -8.238, -6.133, -2.356, -2.942, 0.552, -2.0, -3.189, -0.066, 5.204, 7.301, 6.51, 13.06, 16.091, 8.991, 9.298, 6.46, 3.136, 2.809, 4.463, 1.989, -1.959, 3.243, 2.689, -0.04, -3.567, -0.932, -0.591, 2.789, 5.747, 3.36, -1.015, -0.778, 2.913, -7.29, 3.799, 1.08, 1.366, 4.049, 2.656, 2.647, -0.226, 2.539, 4.486, 2.678, 1.231, 6.457, 7.008, 1.063, 1.598, 1.014, -0.87, -0.706, 1.441, 2.909, 1.5, 2.46, 0.439, 0.426, -2.041, -0.863, 0.495, -1.228, -0.492, 2.206, 0.346, -2.424, 1.872, -2.65, 0.365, -0.147, 2.203, 1.925, 1.343, 1.95, 0.788, -0.886]
+  },
+  "time_basis": "calendar",
+  "title": "Change in world fossil-fuel electricity from a year earlier, monthly",
+  "unit": {
+    "code": "percent-change",
+    "label": "percent change from the same month a year earlier",
+    "short": "%"
+  },
+  "vintage": "2026-09-18"
+}

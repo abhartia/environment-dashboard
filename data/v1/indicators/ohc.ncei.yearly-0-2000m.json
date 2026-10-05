@@ -1,0 +1,76 @@
+{
+  "attribution": "NOAA NCEI Ocean Heat Content Climate Data Record (Levitus, Antonov, Boyer et al.), NCEI Accession 0164586, doi:10.7289/V53F4MVP, accessed 2026-10-05; Levitus et al. (2012), Geophys. Res. Lett. 39, L10603, doi:10.1029/2012GL051106.",
+  "description": "Heat stored in the top 2,000 metres of the world ocean in each year since 2005, as the difference from NCEI's long-term average, in units of 10²² joules, with one standard error.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "ohc.ncei.yearly-0-2000m",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 32.533
+  },
+  "licence": {
+    "name": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)",
+    "spdx": null,
+    "url": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "world-0-2000m-yearly", "bytes": 1254, "citation_full": "Levitus, Sydney; Antonov, John I.; Boyer, Tim P.; Baranova, Olga K.; García, Hernán E.; Locarnini, Ricardo A.; Mishonov, Alexey V.; Reagan, James R.; Seidov, Dan; Yarosh, Evgeney; Zweng, Melissa M. (2017). NCEI ocean heat content, temperature anomalies, salinity anomalies, thermosteric sea level anomalies, halosteric sea level anomalies, and total steric sea level anomalies from 1955 to present calculated from in situ oceanographic subsurface profile data (NCEI Accession 0164586). Global Ocean Heat and Salt Content - Seasonal, Yearly, and Pentadal Fields. NOAA National Centers for Environmental Information. Dataset. https://doi.org/10.7289/v53f4mvp. Accessed 2026-10-05. Levitus, S., J. I. Antonov, T. P. Boyer, O. K. Baranova, H. E. Garcia, R. A. Locarnini, A.V. Mishonov, J. R. Reagan, D. Seidov, E. S. Yarosh, M. M. Zweng, 2012: World Ocean heat content and thermosteric sea level change (0-2000 m) 1955-2010. Geophys. Res. Lett. , 39, L10603, doi:10.1029/2012GL051106.", "date_accessed": "2026-10-05", "date_published": "2026-07-06", "doi": "10.7289/V53F4MVP", "etag": "\"4e6-655f989663dd4\"", "last_modified": "Mon, 06 Jul 2026 23:21:40 GMT", "licence": {"name": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)", "spdx": null, "url": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf"}, "producer": "NOAA National Centers for Environmental Information (NCEI)", "r2_url": null, "sha256": "5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4", "source_id": "ncei-ocean-heat", "title": "Global ocean heat content basin time series", "url_download": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-2000m.dat", "url_main": "https://www.ncei.noaa.gov/access/global-ocean-heat-content/", "version_producer": "2026-07-06", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read h22-w0-2000m.dat (World Ocean heat content, 0-2000 m, in 10^22 joules; last modified by NCEI on 2026-07-06, which is the vintage, since the file carries no version), 21 rows from 2005 to 2025. The time column (year + 0.5) became the year.",
+      "inputs": ["5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/ncei_ohc.py",
+      "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
+    },
+    {
+      "description": "Published the World Ocean column as printed. Lower and upper are that value minus and plus NCEI's standard error from the next column (one standard error). The hemisphere columns are not published.",
+      "inputs": ["5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/ncei_ohc.py",
+      "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": "Difference from NCEI's long-term climatological mean (the World Ocean Atlas series); the files and product pages do not name the climatology's period",
+    "basis": "Yearly means. Heat content anomaly integrated over the layer, calculated by NCEI from in situ subsurface temperature profiles quality controlled in the World Ocean Database (method of Levitus et al. 2012).",
+    "bunkers": null,
+    "geography": "World Ocean (including the Arctic Ocean), sea surface to 2000 m depth",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "interval": ["1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma"],
+    "lower": [9.336, 12.311, 11.96, 12.738, 12.795, 14.01, 14.887, 15.714, 17.591, 19.521, 22.016, 19.967, 23.026, 23.231, 25.149, 24.601, 26.912, 27.942, 28.674, 30.127, 32.266],
+    "period": ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "upper": [11.006, 12.965, 12.828, 13.776, 14.067, 15.064, 15.901, 16.66, 19.709, 20.699, 22.786, 21.631, 24.152, 24.887, 25.723, 26.449, 27.648, 28.442, 29.766, 30.505, 32.8],
+    "value": [10.171, 12.638, 12.394, 13.257, 13.431, 14.537, 15.394, 16.187, 18.65, 20.11, 22.401, 20.799, 23.589, 24.059, 25.436, 25.525, 27.28, 28.192, 29.22, 30.316, 32.533]
+  },
+  "time_basis": "calendar",
+  "title": "Ocean heat content, 0–2000 m, yearly (NCEI)",
+  "unit": {
+    "code": "1e22J",
+    "label": "10²² joules (10 zettajoules)",
+    "short": "10²² J"
+  },
+  "vintage": "2026-07-06"
+}

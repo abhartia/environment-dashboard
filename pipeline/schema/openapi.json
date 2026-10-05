@@ -429,6 +429,7 @@
       },
       "Indicator": {
         "additionalProperties": false,
+        "description": "An indicator with its observations as records: the pipeline's in-memory form, and the shape the site works\nwith after expanding a published IndicatorFile (web/src/lib/indicator-table.ts). Not itself a published file.",
         "properties": {
           "attribution": {
             "description": "Credit line as rendered (placeholders filled, modified variant if any).",
@@ -555,8 +556,144 @@
             "type": "string"
           }
         },
-        "required": ["schema_version", "id", "title", "description", "kind", "unit", "display", "scope", "geo_coverage", "headline_entity", "time_basis", "dimensions", "observations", "latest", "vintage", "origins", "processing", "licence_class", "licence", "attribution", "notice", "published_value", "superseded_by"],
+        "required": ["schema_version", "id", "title", "description", "kind", "unit", "display", "scope", "geo_coverage", "headline_entity", "time_basis", "dimensions", "latest", "vintage", "origins", "processing", "licence_class", "licence", "attribution", "notice", "published_value", "superseded_by", "observations"],
         "title": "Indicator",
+        "type": "object"
+      },
+      "IndicatorFile": {
+        "additionalProperties": false,
+        "description": "data/v1/indicators/<id>.json (and data-private/v1/indicators/<id>.json): an Indicator with its observations\nstored as columns. `table` holds one array per Observation field; notes are interned in `notes`, which lists each\ndistinct note once (sorted by code point) and is indexed by table.note. Expanding row i of the table (absent\ncolumns read as null, table.note[i] read through notes) gives exactly Indicator.observations[i].",
+        "properties": {
+          "attribution": {
+            "description": "Credit line as rendered (placeholders filled, modified variant if any).",
+            "title": "Attribution",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "dimensions": {
+            "items": {
+              "$ref": "#/components/schemas/Dimension"
+            },
+            "title": "Dimensions",
+            "type": "array"
+          },
+          "display": {
+            "$ref": "#/components/schemas/Display"
+          },
+          "geo_coverage": {
+            "enum": ["global-only", "country", "mixed"],
+            "title": "Geo Coverage",
+            "type": "string"
+          },
+          "headline_entity": {
+            "description": "The entity whose latest value is the headline (usually WLD).",
+            "title": "Headline Entity",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": ["series", "published-value", "derived"],
+            "title": "Kind",
+            "type": "string"
+          },
+          "latest": {
+            "$ref": "#/components/schemas/Latest"
+          },
+          "licence": {
+            "$ref": "#/components/schemas/Licence"
+          },
+          "licence_class": {
+            "enum": ["open", "share-alike", "noncommercial", "no-derivatives", "display-only", "excluded"],
+            "title": "Licence Class",
+            "type": "string"
+          },
+          "notes": {
+            "description": "Every distinct Observation.note, each once, sorted by code point; table.note indexes into it.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          },
+          "notice": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Notice"
+          },
+          "origins": {
+            "items": {
+              "$ref": "#/components/schemas/Origin"
+            },
+            "minItems": 1,
+            "title": "Origins",
+            "type": "array"
+          },
+          "processing": {
+            "items": {
+              "$ref": "#/components/schemas/ProcessingStep"
+            },
+            "minItems": 1,
+            "title": "Processing",
+            "type": "array"
+          },
+          "published_value": {
+            "anyOf": [
+              {"$ref": "#/components/schemas/PublishedValueRef"},
+              {"type": "null"}
+            ],
+            "default": null
+          },
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Scope"
+          },
+          "superseded_by": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Superseded By"
+          },
+          "table": {
+            "$ref": "#/components/schemas/ObservationTable"
+          },
+          "time_basis": {
+            "default": "calendar",
+            "description": "calendar: every observation (and latest) has an ISO period and a null age_bp. years-before-1950: every observation (and latest) has age_bp and a null period; observations run from the oldest age to the youngest, and latest is the youngest.",
+            "enum": ["calendar", "years-before-1950"],
+            "title": "Time Basis",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "vintage": {
+            "description": "Producer version or release label of the newest input.",
+            "title": "Vintage",
+            "type": "string"
+          }
+        },
+        "required": ["schema_version", "id", "title", "description", "kind", "unit", "display", "scope", "geo_coverage", "headline_entity", "time_basis", "dimensions", "latest", "vintage", "origins", "processing", "licence_class", "licence", "attribution", "notice", "published_value", "superseded_by", "table", "notes"],
+        "title": "IndicatorFile",
         "type": "object"
       },
       "Latest": {
@@ -860,6 +997,129 @@
         },
         "required": ["entity", "period", "age_bp", "value", "lower", "upper", "interval", "status", "missing_reason", "note", "dims"],
         "title": "Observation",
+        "type": "object"
+      },
+      "ObservationTable": {
+        "additionalProperties": false,
+        "description": "The observations of an indicator as columns: row i of the table is the i-th observation, in the order the\npipeline produced them (the same order as the CSV's rows). Every column present has one entry per row.",
+        "properties": {
+          "age_bp": {
+            "description": "Observation.age_bp of each row. Present exactly when the time_basis is years-before-1950.",
+            "items": {
+              "type": "number"
+            },
+            "title": "Age Bp",
+            "type": "array"
+          },
+          "dims": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "description": "One column per declared dimension id: each row's dimension value id (Observation.dims).",
+            "title": "Dims",
+            "type": "object"
+          },
+          "entity": {
+            "description": "Observation.entity of each row.",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Entity",
+            "type": "array"
+          },
+          "interval": {
+            "description": "Observation.interval; absent when all null.",
+            "items": {
+              "anyOf": [
+                {
+                  "enum": ["1sigma", "2sigma", "90ci", "95ci", "likely", "very-likely", "range"],
+                  "type": "string"
+                },
+                {"type": "null"}
+              ]
+            },
+            "title": "Interval",
+            "type": "array"
+          },
+          "lower": {
+            "description": "Observation.lower; absent when all null.",
+            "items": {
+              "anyOf": [
+                {"type": "number"},
+                {"type": "null"}
+              ]
+            },
+            "title": "Lower",
+            "type": "array"
+          },
+          "missing_reason": {
+            "description": "Observation.missing_reason; absent when all null.",
+            "items": {
+              "anyOf": [
+                {"type": "string"},
+                {"type": "null"}
+              ]
+            },
+            "title": "Missing Reason",
+            "type": "array"
+          },
+          "note": {
+            "description": "Index into the file's notes of each row's Observation.note, null for none; absent when no row has a note.",
+            "items": {
+              "anyOf": [
+                {"minimum": 0, "type": "integer"},
+                {"type": "null"}
+              ]
+            },
+            "title": "Note",
+            "type": "array"
+          },
+          "period": {
+            "description": "Observation.period of each row. Present exactly when the time_basis is calendar.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Period",
+            "type": "array"
+          },
+          "status": {
+            "description": "Observation.status of each row.",
+            "items": {
+              "enum": ["final", "preliminary", "projection"],
+              "type": "string"
+            },
+            "title": "Status",
+            "type": "array"
+          },
+          "upper": {
+            "description": "Observation.upper; absent when all null.",
+            "items": {
+              "anyOf": [
+                {"type": "number"},
+                {"type": "null"}
+              ]
+            },
+            "title": "Upper",
+            "type": "array"
+          },
+          "value": {
+            "description": "Observation.value of each row; null where missing_reason says why.",
+            "items": {
+              "anyOf": [
+                {"type": "number"},
+                {"type": "null"}
+              ]
+            },
+            "title": "Value",
+            "type": "array"
+          }
+        },
+        "required": ["entity", "value", "status", "dims"],
+        "title": "ObservationTable",
         "type": "object"
       },
       "Origin": {
@@ -1490,7 +1750,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Indicator"
+                  "$ref": "#/components/schemas/IndicatorFile"
                 }
               }
             },
@@ -1500,7 +1760,7 @@
             "description": "No such file."
           }
         },
-        "summary": "One indicator with its observations and provenance",
+        "summary": "One indicator with its observations (as columns) and provenance",
         "tags": ["data"]
       }
     },

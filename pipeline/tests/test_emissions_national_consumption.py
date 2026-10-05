@@ -7,7 +7,6 @@ line slice of it is a readable workbook); its sidecar records that the fixture s
 from __future__ import annotations
 
 import io
-import json
 import shutil
 from decimal import Decimal
 
@@ -23,7 +22,7 @@ from envdash.transforms.emissions import gcb_national as gcb
 from envdash.transforms.emissions import gcp_fossil_national as gcp
 from envdash.validate import validate_all
 
-from support import fixture, load_fixture_snapshot
+from support import exported, fixture, load_fixture_snapshot
 
 ID = "emissions.gcb-2025.territorial-vs-consumption"
 
@@ -149,7 +148,7 @@ def test_build_exports_a_valid_indicator(tmp_paths):
     ts = [t for t in discover(paths) if t.spec.id == ID]
     report = build_and_export(paths, reg, ts)
     assert [o.state for o in report.outcomes] == ["built"], [o.reason for o in report.outcomes]
-    ind = json.loads((paths.public_indicators / f"{ID}.json").read_text())
+    ind = exported(paths.public_indicators / f"{ID}.json")
     assert ind["vintage"] == "2025 v1.0"
     assert ind["latest"]["dims"] == {"accounting": "territorial"} and ind["latest"]["period"] == "2024"
     assert [v["id"] for v in ind["dimensions"][0]["values"]] == ["territorial", "consumption"]

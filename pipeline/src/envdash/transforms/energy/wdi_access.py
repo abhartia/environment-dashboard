@@ -10,9 +10,9 @@ Electrification Dataset (registry evidence); its sibling EG.CFT.ACCS.ZS (clean c
 licence and is not read.
 
 Entities. The country list marks aggregates with region "Aggregates"; every other entry is an economy, matched to
-pipeline/geo/entities.csv by its ISO 3 code (the API's XKX is Kosovo, KOS). Channel Islands (CHI) has no entity in the
-crosswalk and is not published. Aggregates other than the World (WLD) are not published: income groups and World
-Bank regions are classifications of the World Bank, not places.
+pipeline/geo/entities.csv by its ISO 3 code (the API's XKX is Kosovo, KOS; CHI, the Channel Islands, is reported as one
+economy and is one entity there). A code not in the crosswalk stops the build. Aggregates other than the World (WLD)
+are not published: income groups and World Bank regions are classifications of the World Bank, not places.
 
 Values are published as the API gives them (full precision; WDI displays one decimal). Years without a value in the
 response (all of 1960-1989 and 2025 in the release of 13 July 2026) have no observation.
@@ -38,7 +38,6 @@ ACCESS = Input(SOURCE, "eg-elc-accs-zs")
 COUNTRIES = Input(SOURCE, "countries")
 INDICATOR = ("EG.ELC.ACCS.ZS", "Access to electricity (% of population)")
 ISO_ALIASES = {"XKX": "KOS"}
-NOT_IN_CROSSWALK = {"CHI": "Channel Islands"}
 
 
 class WdiFormatError(ValueError):
@@ -53,21 +52,16 @@ def economies(raw: bytes) -> dict[str, str]:
     return {r["id"]: r["name"] for r in rows if r["region"]["value"] != "Aggregates"}
 
 
-def entity_of(code: str, name: str) -> str | None:
-    if code in NOT_IN_CROSSWALK:
-        if NOT_IN_CROSSWALK[code] != name:
-            raise WdiFormatError(f"{code} is {name!r}, not {NOT_IN_CROSSWALK[code]!r}")
-        return None
+def entity_of(code: str) -> str:
     return geo.resolve(ISO_ALIASES.get(code, code), "iso3")
 
 
-def read(raw: bytes, econ: dict[str, str]) -> tuple[list[Observation], str, list[str]]:
-    """(observations sorted by entity and year, lastupdated, economies left out)."""
+def read(raw: bytes, econ: dict[str, str]) -> tuple[list[Observation], str]:
+    """(observations sorted by entity and year, lastupdated)."""
     meta, rows = json.loads(raw, parse_float=Decimal)
     if int(meta["pages"]) != 1 or int(meta["total"]) != len(rows) or meta["sourceid"] != "2":
         raise WdiFormatError(f"response header {meta} is not one complete WDI page of {len(rows)} rows")
     out: dict[tuple[str, str], Observation] = {}
-    left_out: set[str] = set()
     for r in rows:
         if (r["indicator"]["id"], r["indicator"]["value"]) != INDICATOR:
             raise WdiFormatError(f"row for {r['indicator']} in the {INDICATOR[0]} response")
@@ -77,10 +71,7 @@ def read(raw: bytes, econ: dict[str, str]) -> tuple[list[Observation], str, list
         if code == "WLD":
             ent: str | None = "WLD"
         elif code in econ:
-            ent = entity_of(code, econ[code])
-            if ent is None:
-                left_out.add(econ[code])
-                continue
+            ent = entity_of(code)
         else:
             continue  # an aggregate (region, income group, lending group)
         if r["value"] is None:
@@ -89,13 +80,13 @@ def read(raw: bytes, econ: dict[str, str]) -> tuple[list[Observation], str, list
         if key in out:
             raise WdiFormatError(f"two values for {key}")
         out[key] = Observation(entity=ent, period=r["date"], value=float(r["value"]))  # type: ignore[arg-type]
-    return [out[k] for k in sorted(out)], meta["lastupdated"], sorted(left_out)
+    return [out[k] for k in sorted(out)], meta["lastupdated"]
 
 
 def run(files: dict[str, InputFile]) -> Result:
     econ = economies(files[COUNTRIES.key].path.read_bytes())
     f = files[ACCESS.key]
-    obs, updated, left_out = read(f.path.read_bytes(), econ)
+    obs, updated = read(f.path.read_bytes(), econ)
     years = sorted({o.period for o in obs})
     n = len({o.entity for o in obs} - {"WLD"})
     return Result(
@@ -106,9 +97,8 @@ def run(files: dict[str, InputFile]) -> Result:
             f"Read the World Bank Indicators API response for {INDICATOR[0]} ('{INDICATOR[1]}'), WDI source 2, last "
             f"updated {updated}, one page holding every row (sha256 {f.snapshot.sha256[:12]}…).",
             f"Kept the World and the {n} economies with a value, matched by ISO 3 code to pipeline/geo/entities.csv "
-            "(the API's XKX is Kosovo, KOS), from the API's country list; World Bank regions, income and lending "
-            "groups were left out. Not published because they have no entity in the crosswalk: "
-            f"{', '.join(left_out) if left_out else 'none'}.",
+            "(the API's XKX is Kosovo, KOS; CHI is the Channel Islands, reported as one economy), from the API's "
+            "country list; World Bank regions, income and lending groups were left out.",
             f"Published every non-empty value as given, {years[0]}–{years[-1]}; years without a value have no "
             "observation.",
         ],

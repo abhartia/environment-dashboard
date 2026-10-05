@@ -1,0 +1,66 @@
+{
+  "export": "data/v1/indicators/hot-days-35c.wb-cckp.cmip6.json",
+  "export_sha256": "40d788ae4138c37873db45051eb3ae80655df643db7b79d459fcfc56607b785d",
+  "indicator_id": "hot-days-35c.wb-cckp.cmip6",
+  "key": "8d03c39e4ca246bd1dad59cb8e67fe898b125ee49e6eba18184cd58000167e67",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "wb-cckp/cmip6-hd35-1995-2014-median": {
+        "manifest_sha256": "4ebf8a90542762315f00a2f83b8e16fcfbf8a9b1a14acd5e48698e8dfda2c627",
+        "sha256": "9b5de9cb0f52a46f02eafe26c7f156c380b7d45766ca3fcdb36a537da235908d"
+      },
+      "wb-cckp/cmip6-hd35-1995-2014-p10": {
+        "manifest_sha256": "5b55ca464af8613b60edfcbb87392b4e3bb7e6d144f5ea8a077433e99816e6b6",
+        "sha256": "90ddace0604ca99cf997d0034484464d30c204020d62197e9bafb565a64871bf"
+      },
+      "wb-cckp/cmip6-hd35-1995-2014-p90": {
+        "manifest_sha256": "e721e8d25387b5ad43f7ea0ea466d959d782524b4f1bd8d31b67f4b7344da2f2",
+        "sha256": "ae440c1154fa3c5e1613b5fe267df4de0961125fb7bb252cd1ec314642470898"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp126-median": {
+        "manifest_sha256": "05ab19b4bf0ed2dcbb98522bed736f7904d1b8b2ad615e9f127e1585c34c55ec",
+        "sha256": "8cb672eeb19bbd211d2717b5d7a6214c163d4d5207248fe2f34ced473f468477"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp126-p10": {
+        "manifest_sha256": "d171f2ff32b8d988ce672381d2d8af5fc62d21f17e20a7ec1e4b76dcec52b542",
+        "sha256": "fdd6a9dd2d4a8a28e0a830f951142def8943d370c40e39c0a22b40515e49fc51"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp126-p90": {
+        "manifest_sha256": "5a6efbbbeef9a89801e96d4a33e7f35774652635ca8abee3747a5e82da23b307",
+        "sha256": "d5150be95a24b80c18794b7d46a70e38bf41f7646d35f5792250d1e70b992859"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp245-median": {
+        "manifest_sha256": "08c0b29f996d89162e005db1e9c4db07d231711b0cb89249881a058d4dd862b2",
+        "sha256": "19d514a9a6ea6771cf98b89da926cd085b52b73d64d882436b67bad332f704e8"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp245-p10": {
+        "manifest_sha256": "1cc2afc16d6d8cd23839a26ffc08db0e2dd79425550275fccedc4b4ffafc0333",
+        "sha256": "a6cfc086d43a3712f0d9183a71b004a5fa17fa06b64a39c9db2a4b36ccb6af20"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp245-p90": {
+        "manifest_sha256": "5f4a9dfa84f7a01ec45c98f5e7d19612433db10b96320c9a4a8310bd273045e6",
+        "sha256": "7e4e25d44447f54e4ee767447f09279562fc80b7337d4916385de0d830a67325"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp585-median": {
+        "manifest_sha256": "039a603523db64998fc2b5358e79a208d0880b4e20644ed38207148aa01c95d6",
+        "sha256": "0d1de2c9fca4b2a5b7170c0160203612ad9fd25d0590cfdf497e7b63550dd564"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp585-p10": {
+        "manifest_sha256": "7ca4d66f96b42274567a7ef483994e034c16ead6a1b7053d272fdbeba757bcf8",
+        "sha256": "18d7423668ab6f8ac6251b0f8111842ec410804bf592b93ec24344a4071a5f3d"
+      },
+      "wb-cckp/cmip6-hd35-2040-2059-ssp585-p90": {
+        "manifest_sha256": "c1c027e30e65eb4f8c2b81fb52225e8889a610541b2c23bf58bb92f543ec5390",
+        "sha256": "3b6b510159195592252adb23cde94c8d340eae93054a59947196544c85f1e733"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "wb-cckp": "199aea53b459284d1bf5702c7b2d1ef5b809b340d2eca8b686da0f2d67877493"
+    },
+    "transform_sha256": "5cfdd50878c9ffae5d481cc971232bf1460dc17d3a486d6b825936085104a74a"
+  },
+  "publisher_checks": []
+}

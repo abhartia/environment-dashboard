@@ -7,11 +7,13 @@ import type {
   Catalog,
   CatalogEntry,
   Indicator,
+  IndicatorFile,
   Observation,
   Source,
   SourceList,
   Status,
 } from "@/gen/hey-api/types.gen";
+import { expandIndicator } from "@/lib/indicator-table";
 
 /**
  * The one data door (pattern from gigabiome's lib/demo/data.ts). Pages read published numbers only through these
@@ -45,12 +47,15 @@ export function catalogEntry(id: string): CatalogEntry {
   return entry;
 }
 
-/** The full indicator, public or private. Private values may only be rendered on the server, never passed to a client component. */
+/**
+ * The full indicator, public or private, with its observations as records (the file stores them as columns; see
+ * lib/indicator-table.ts). Private values may only be rendered on the server, never passed to a client component.
+ */
 export function indicator(id: string): Indicator {
   const cached = MEMO ? indicatorCache.get(id) : undefined;
   if (cached) return cached;
   catalogEntry(id);
-  const ind = readJson<Indicator>(`indicators/${id}.json`);
+  const ind = expandIndicator(readJson<IndicatorFile>(`indicators/${id}.json`));
   indicatorCache.set(id, ind);
   return ind;
 }

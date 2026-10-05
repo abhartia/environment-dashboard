@@ -7,6 +7,13 @@ export function dataPath(id: string, period?: string): string {
   return `/data/${id.split(".").join("/")}${period ? `#${period}` : ""}`;
 }
 
+/** The anchor of one observation's row on its data page: its period, or "age-<n>" for an age-dated value. */
+export function timeAnchor(t: { period: string | null; age_bp?: number | null }): string {
+  if (t.period !== null) return t.period;
+  if (t.age_bp === null || t.age_bp === undefined) throw new Error("timeAnchor: neither a period nor an age");
+  return `age-${t.age_bp}`;
+}
+
 export function idFromSegments(segments: string[]): string {
   return segments.join(".");
 }

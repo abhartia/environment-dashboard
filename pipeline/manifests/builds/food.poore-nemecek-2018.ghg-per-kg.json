@@ -1,0 +1,22 @@
+{
+  "export": "data-private/v1/indicators/food.poore-nemecek-2018.ghg-per-kg.json",
+  "export_sha256": "de61e40f95cd26bb7e9927db912fb181b5967fc48f7d2b81534e8bbed28019d6",
+  "indicator_id": "food.poore-nemecek-2018.ghg-per-kg",
+  "key": "2346b8c738010845c4d5e422e09c0f1ce7c7fd77d9ba6915bcc2fdaab79c322d",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "poore-nemecek-2018/ghg-per-kg": {
+        "manifest_sha256": "f64d0beeb7790a4c5576b4978da64df99b8ea7822d95e6167725e72446e1eef0",
+        "sha256": "aa9425a00b37eb1e8d716596e67b3e072864d9c14b67b519aec618d69296e36a"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "poore-nemecek-2018": "b76bf95612686348ddfecb312eeea33f4e6b56f4e5333bc9aeac3c6401590e6d"
+    },
+    "transform_sha256": "357d2dccb0239ece8a50ccee970833c5e0335f6c2002d343eed4c51422a5e395"
+  },
+  "publisher_checks": []
+}

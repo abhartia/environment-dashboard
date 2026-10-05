@@ -1,0 +1,115 @@
+{
+  "attribution": "Calculated by Environment Dashboard from IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on 2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on 2026-10-05. CC BY 4.0. Changes: share of assessed species that are threatened calculated from the species' Red List categories.",
+  "description": "Of the species assessed for the IUCN Red List, the percentage listed as Critically Endangered, Endangered or Vulnerable, for all assessed species and for nine groups, in the current version of the Red List.",
+  "dimensions": [
+    {
+      "id": "group",
+      "label": "Group",
+      "values": [
+        {"id": "all", "label": "All assessed species"},
+        {"id": "mammals", "label": "Mammals"},
+        {"id": "birds", "label": "Birds"},
+        {"id": "amphibians", "label": "Amphibians"},
+        {"id": "reptiles", "label": "Reptiles"},
+        {"id": "ray-finned-fishes", "label": "Ray-finned fishes"},
+        {"id": "sharks-rays-chimaeras", "label": "Sharks, rays and chimaeras"},
+        {"id": "insects", "label": "Insects"},
+        {"id": "plants", "label": "Plants"},
+        {"id": "fungi", "label": "Fungi"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "species.iucn-red-list.threatened-share",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "group": "all"
+    },
+    "entity": "WLD",
+    "period": "2026",
+    "status": "final",
+    "value": 28.142391804853645
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "checklist-2026-1", "bytes": 21140648, "citation_full": "IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on 2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on 2026-10-05.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.15468/0qnb58", "etag": "\"14294a8-657ace70f2bf7\"", "last_modified": "Tue, 28 Jul 2026 14:46:22 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"}, "producer": "International Union for Conservation of Nature (IUCN), published through GBIF", "r2_url": null, "sha256": "2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d", "source_id": "iucn-red-list-gbif", "title": "IUCN Red List of Threatened Species, version 2026-1 (GBIF checklist)", "url_download": "https://hosted-datasets.gbif.org/datasets/iucn/iucn-2026-1.zip", "url_main": "https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3", "version_producer": "2026-1", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read meta.xml, eml.xml, taxon.txt and distribution.txt from the IUCN Red List version 2026-1 archive on GBIF; checked the column positions against meta.xml and the version against eml.xml's citation.",
+      "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
+      "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
+    },
+    {
+      "description": "Counted accepted taxa of rank species (175,909), each by the category of its single Global distribution row: Least Concern 91,357; Data Deficient 23,037; Endangered 20,372; Vulnerable 18,186; Critically Endangered 10,947; Near Threatened 10,259; Extinct 951; near threatened 442; least concern 160; conservation dependent 115; Extinct in the Wild 83. Left out accepted taxa below species (2 subspecies, 1,133 subspecies (plantae), 967 variety).",
+      "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
+      "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
+    },
+    {
+      "description": "Threatened = Critically Endangered + Endangered + Vulnerable. The lower-case categories are assessments under IUCN's 1994 criteria (Lower Risk) and are counted as not threatened.",
+      "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
+      "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
+    },
+    {
+      "description": "Groups, matched exactly on the archive's kingdom and class: Mammals: kingdom ANIMALIA, class MAMMALIA; Birds: kingdom ANIMALIA, class AVES; Amphibians: kingdom ANIMALIA, class AMPHIBIA; Reptiles: kingdom ANIMALIA, class REPTILIA; Ray-finned fishes: kingdom ANIMALIA, class ACTINOPTERYGII; Sharks, rays and chimaeras: kingdom ANIMALIA, class CHONDRICHTHYES; Insects: kingdom ANIMALIA, class INSECTA; Plants: kingdom PLANTAE; Fungi: kingdom FUNGI.",
+      "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
+      "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
+    },
+    {
+      "description": "Share = threatened species / all assessed species in the group × 100 (exact decimal arithmetic), with every category, including Extinct and Data Deficient, in the denominator.",
+      "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
+      "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Species assessed for the IUCN Red List (global assessments); threatened = Critically Endangered, Endangered or Vulnerable. Only assessed species are counted: birds, mammals, amphibians, sharks and rays are almost fully assessed, insects, plants and fungi only in small, non-random part, so their figures describe the assessed species, not the whole group. The period is the year of the Red List version. Denominator: all assessed species in the group, including Extinct, Extinct in the Wild and Data Deficient.",
+    "bunkers": null,
+    "geography": "World (global Red List assessments)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "group": ["all", "mammals", "birds", "amphibians", "reptiles", "ray-finned-fishes", "sharks-rays-chimaeras", "insects", "plants", "fungi"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [28.142391804853645, 22.662702345556657, 11.229324988824319, 36.31871525633107, 17.982836756339793, 13.302112751581882, 33.333333333333336, 19.372376298947078, 38.58718520879822, 30.495928941524795]
+  },
+  "time_basis": "calendar",
+  "title": "Share of assessed species that are threatened with extinction",
+  "unit": {
+    "code": "percent",
+    "label": "percent of assessed species",
+    "short": "%"
+  },
+  "vintage": "2026-1"
+}

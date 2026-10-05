@@ -23,10 +23,8 @@
     "url": null
   },
   "licence_class": "open",
+  "notes": [],
   "notice": null,
-  "observations": [
-    {"age_bp": 335102.31, "dims": {}, "entity": "ANT_ICECORES", "interval": "1sigma", "lower": 295.6, "missing_reason": null, "note": null, "period": null, "status": "final", "upper": 301.6, "value": 298.6}
-  ],
   "origins": [
     {"acquisition": "automatic", "artifact_id": "composite", "bytes": 51875, "citation_full": "Bereiter, B.; Eggleston, S.; Schmitt, J.; Nehrbass-Ahles, C.; Stocker, T.F.; Fischer, H.; Kipfstuhl, S.; Chappellaz, J.A. (2015-02-04): NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data. Antarctic Ice Core Revised Composite CO2 Data. NOAA National Centers for Environmental Information. https://doi.org/10.25921/n8y4-bp27. Accessed 2026-10-04. Bereiter, B., S. Eggleston, J. Schmitt, C. Nehrbass-Ahles, T. F. Stocker, H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015. Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), 542-549. doi: 10.1002/2014GL061957. Lüthi, D., M. Le Floch, B. Bereiter, T. Blunier, J.-M. Barnola, U. Siegenthaler, D. Raynaud, J. Jouzel, H. Fischer, K. Kawamura, and T.F. Stocker. 2008. High-resolution carbon dioxide concentration record 650,000-800,000 years before present. Nature, 453, 379-382. doi: 10.1038/nature06949", "date_accessed": "2026-10-04", "date_published": "2015-02-04", "doi": "10.25921/n8y4-bp27", "etag": "\"caa3-6204a387e9f70\"", "last_modified": "Thu, 22 Aug 2024 18:56:47 GMT", "licence": {"name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)", "spdx": null, "url": null}, "producer": "NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners)", "r2_url": null, "sha256": "40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f", "source_id": "bereiter-2015-co2", "title": "Antarctic ice cores revised 800,000-year CO2 composite", "url_download": "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite-noaa.txt", "url_main": "https://www.ncei.noaa.gov/access/paleo-search/study/17975", "version_producer": "2015-02-04", "wayback_url": null}
   ],
@@ -57,6 +55,16 @@
     "lulucf": null
   },
   "superseded_by": null,
+  "table": {
+    "age_bp": [335102.31],
+    "dims": {},
+    "entity": ["ANT_ICECORES"],
+    "interval": ["1sigma"],
+    "lower": [295.6],
+    "status": ["final"],
+    "upper": [301.6],
+    "value": [298.6]
+  },
   "time_basis": "years-before-1950",
   "title": "Highest carbon dioxide in Antarctic ice before the industrial era",
   "unit": {

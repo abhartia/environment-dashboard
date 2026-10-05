@@ -11,7 +11,7 @@ from envdash.registry import load_registry
 from envdash.transform import discover
 from envdash.validate import validate_all
 
-from support import copy_sources, load_fixture_snapshot
+from support import copy_sources, exported, load_fixture_snapshot
 
 ANNUAL = "co2.noaa-gml.annual-global"
 
@@ -27,7 +27,7 @@ def test_build_then_skip_then_rebuild_on_key_change(tmp_paths, tmp_path):
     first = build_and_export(tmp_paths, reg, ts)
     assert [o.state for o in first.outcomes] == ["built"], first.outcomes[0].reason
     out = tmp_paths.public_indicators / f"{ANNUAL}.json"
-    before = out.read_bytes()
+    before = exported(out)["observations"]
 
     assert [o.state for o in build_and_export(tmp_paths, reg, ts).outcomes] == ["skipped"]
 
@@ -39,9 +39,9 @@ def test_build_then_skip_then_rebuild_on_key_change(tmp_paths, tmp_path):
     p2 = tmp_paths.with_(lock=lock)
     again = build_and_export(p2, reg, ts)
     assert [o.state for o in again.outcomes] == ["built"]
-    ind = json.loads(out.read_text())
+    ind = exported(out)
     assert ind["processing"][0]["lock_sha256"] == canonical.sha256_file(lock)
-    assert json.loads(before)["observations"] == ind["observations"]
+    assert before == ind["observations"]
 
     # --force always rebuilds; a tampered export is rebuilt rather than trusted.
     assert [o.state for o in build_and_export(p2, reg, ts, force=True).outcomes] == ["built"]

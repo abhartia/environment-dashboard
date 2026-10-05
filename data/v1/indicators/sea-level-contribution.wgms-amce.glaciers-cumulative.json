@@ -1,0 +1,83 @@
+{
+  "attribution": "WGMS (2026), Annual mass-change estimates for the world's glaciers, version 2026-02-10, doi:10.5904/wgms-amce-2026-02-10; Dussaillant et al. (2025), Earth System Science Data 17, 1977–2006, doi:10.5194/essd-17-1977-2025. CC BY 4.0.",
+  "description": "How much the world's glaciers have added to global mean sea level since the start of hydrological year 1976 (late 1975), from the World Glacier Monitoring Service's annual estimates, with the one-sigma uncertainty.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "sea-level-contribution.wgms-amce.glaciers-cumulative",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 26.436
+  },
+  "licence": {
+    "name": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "amce-2026-02-10", "bytes": 53589520, "citation_full": "WGMS (2026): Annual mass-change estimates for the world's glaciers. Individual glacier time series and gridded data products. Digital media. https://doi.org/10.5904/wgms-amce-2026-02-10 Dussaillant, I., Hugonnet, R., Huss, M., Berthier, E., Bannwart, J., Paul, F., and Zemp, M. (2025): Annual mass change of the world's glaciers from 1976 to 2024 by temporal downscaling of satellite data with in-situ observations. Earth System Science Data 17(5): 1977–2006. https://doi.org/10.5194/essd-17-1977-2025", "date_accessed": "2026-10-05", "date_published": "2026-02-10", "doi": "10.5904/wgms-amce-2026-02-10", "etag": "\"331b610-64b93f5a76d99\"", "last_modified": "Tue, 24 Feb 2026 15:58:33 GMT", "licence": {"name": "CC BY 4.0 (WGMS data policy, open access on condition of correct citation)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "World Glacier Monitoring Service (WGMS), University of Zurich", "r2_url": null, "sha256": "b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc", "source_id": "wgms-amce", "title": "Annual mass-change estimates for the world's glaciers (version 2026-02-10)", "url_download": "https://wgms.ch/downloads/wgms-amce-2026-02-10.zip", "url_main": "https://wgms.ch/mass_change_estimates/", "version_producer": "2026-02-10", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read global.csv from wgms-amce-2026-02-10.zip (hydrological years 1976 to 2025) and published the mmsle_cumsum column (cumulative sea level equivalent in mm) as printed.",
+      "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
+      "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+    },
+    {
+      "description": "Lower and upper are mmsle_cumsum minus and plus mmsle_cumsum_sigma, which the release README defines as the 1-sigma uncertainty (exact decimal arithmetic).",
+      "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
+      "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+    },
+    {
+      "description": "Checked that gt_cumsum and mmsle_cumsum are the running sums of gt and mmsle (within rounding), and that mmsle has the opposite sign of gt, so that positive mm is a rise in sea level.",
+      "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
+      "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": "Zero at the start of hydrological year 1976 (October 1975 in the Northern Hemisphere, April 1975 in the Southern Hemisphere, January 1976 in the tropics).",
+    "basis": "All glaciers outside the Greenland and Antarctic ice sheets (Randolph Glacier Inventory 6.0 outlines), from satellite elevation changes downscaled to single years with field measurements. Hydrological years, labelled by the year they end: from 1 October in the Northern Hemisphere, 1 April in the Southern Hemisphere and 1 January in the tropics. Positive values raise global mean sea level.",
+    "bunkers": null,
+    "geography": "All glaciers worldwide, excluding the two ice sheets",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "interval": ["1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma"],
+    "lower": [-0.328, -0.338, -0.292, -0.133, -0.286, -0.517, -0.31, -0.679, -0.454, -0.407, -0.302, -0.567, -0.725, -0.439, 0.257, 0.5, 0.401, 0.876, 1.238, 1.781, 2.107, 2.961, 3.23, 3.925, 4.277, 4.75, 5.176, 5.789, 6.717, 7.603, 8.336, 9.112, 9.538, 10.382, 10.792, 11.754, 12.317, 12.938, 13.304, 14.072, 15.023, 15.694, 16.3, 17.486, 18.747, 19.582, 20.834, 22.357, 23.616, 24.732],
+    "period": ["1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "upper": [0.26, 0.494, 0.724, 1.039, 1.022, 0.915, 1.236, 0.971, 1.294, 1.431, 1.624, 1.441, 1.361, 1.721, 2.489, 2.8, 2.767, 3.306, 3.73, 4.333, 4.717, 5.627, 5.952, 6.699, 7.081, 7.582, 8.038, 8.681, 9.637, 10.551, 11.31, 12.112, 12.564, 13.434, 13.868, 14.856, 15.443, 16.086, 16.476, 17.266, 18.239, 18.932, 19.56, 20.768, 22.051, 22.908, 24.18, 25.723, 27.004, 28.14],
+    "value": [-0.034, 0.078, 0.216, 0.453, 0.368, 0.199, 0.463, 0.146, 0.42, 0.512, 0.661, 0.437, 0.318, 0.641, 1.373, 1.65, 1.584, 2.091, 2.484, 3.057, 3.412, 4.294, 4.591, 5.312, 5.679, 6.166, 6.607, 7.235, 8.177, 9.077, 9.823, 10.612, 11.051, 11.908, 12.33, 13.305, 13.88, 14.512, 14.89, 15.669, 16.631, 17.313, 17.93, 19.127, 20.399, 21.245, 22.507, 24.04, 25.31, 26.436]
+  },
+  "time_basis": "calendar",
+  "title": "Sea level rise from glaciers since 1975 (WGMS)",
+  "unit": {
+    "code": "mm",
+    "label": "millimetres",
+    "short": "mm"
+  },
+  "vintage": "2026-02-10"
+}

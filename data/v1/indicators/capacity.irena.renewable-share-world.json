@@ -1,0 +1,88 @@
+{
+  "attribution": "IRENA (2026), Renewable capacity statistics 2026. © IRENA 2026.",
+  "description": "The part of the world's installed electricity generating capacity that is renewable, at the end of each year since 2016, as published by IRENA.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "capacity.irena.renewable-share-world",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 49.4
+  },
+  "licence": {
+    "name": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)",
+    "spdx": null,
+    "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "capacity-statistics-pdf", "bytes": 1681315, "citation_full": "IRENA (2026), Renewable capacity statistics 2026, International Renewable Energy Agency, Abu Dhabi.", "date_accessed": "2026-10-05", "date_published": "2026-03-31", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)", "spdx": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf"}, "producer": "International Renewable Energy Agency (IRENA)", "r2_url": null, "sha256": "fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "source_id": "irena-capacity-2026", "title": "Renewable capacity statistics 2026", "url_download": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf", "url_main": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "version_producer": "2026-03-31", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "capacity-highlights-pdf", "bytes": 1973926, "citation_full": "IRENA (2026), Renewable capacity statistics 2026, International Renewable Energy Agency, Abu Dhabi.", "date_accessed": "2026-10-05", "date_published": "2026-03-31", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "IRENA publication terms (free use with attribution to IRENA and the notation © IRENA 2026)", "spdx": null, "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_Capacity_Statistics_2026.pdf"}, "producer": "International Renewable Energy Agency (IRENA)", "r2_url": null, "sha256": "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b", "source_id": "irena-capacity-2026", "title": "Renewable capacity statistics 2026", "url_download": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf", "url_main": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "version_producer": "2026-03-31", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read IRENA's Renewable capacity statistics 2026 (PDF created 31 March 2026, sha256 fc580bd4f4ee…; its metadata title and the citation on page 2 name this edition) and took the World row of each table from the text of pages 14, 18, 21, 25, 26, 29, 32, 33, 37, 41, 42, 53, 64, read with the columns kept apart, for 2016 to 2025.",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    },
+    {
+      "description": "Checked that Total renewable energy is the sum of renewable hydropower, marine, onshore and offshore wind, solar photovoltaic, concentrated solar power, bioenergy and geothermal in every year, and that the wind, solar and hydropower tables add up from their parts, each to within the rounding of the megawatt values. Pure pumped storage is not part of IRENA's renewable total.",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    },
+    {
+      "description": "Found the quotes used as publisher checks in the highlights PDF (pages 1, 5).",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    },
+    {
+      "description": "Published IRENA's share as printed (one decimal).",
+      "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
+      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "IRENA's 'Renewable energy share of electricity capacity': renewable capacity over the capacity of all power plants at the end of the year. A share of capacity, not of generation.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [30.8, 32.1, 33.1, 34.5, 36.5, 38.3, 40.2, 43.1, 46.3, 49.4]
+  },
+  "time_basis": "calendar",
+  "title": "Renewables' share of world power capacity",
+  "unit": {
+    "code": "percent",
+    "label": "percent of total electricity generating capacity",
+    "short": "%"
+  },
+  "vintage": "2026-03-31"
+}

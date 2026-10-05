@@ -74,9 +74,10 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `cat-2025-thermometer` | Climate Action Tracker (Climate Analytics and NewClimate Institute) | © Climate Analytics and NewClimate Institute, all rights reserved; non-commercial reproduction and distribution allowed with credit and the copyright notice; no adaptation granted | no-derivatives | no | automatic | 2026-10-04 (page) |
 | `edgar-2026-ghg` | European Commission, Joint Research Centre (JRC), with the International Energy Agency (IEA) for fossil CO2 | CC BY-NC-ND 4.0 for IEA-EDGAR CO2 and every total that includes it; CC BY 4.0 for EU-owned EDGAR CH4, N2O and F-gases | no-derivatives | no | automatic | 2026-10-04 (page) |
 | `energy-institute-review-2026` | Energy Institute | All rights reserved (© Energy Institute 2026); quotation with attribution permitted | display-only | no | manual | 2026-10-04 (manual) |
+| `ipcc-ar6-wg1-spm` | Intergovernmental Panel on Climate Change (IPCC), Working Group I | © IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-05 (page) |
 | `ipcc-ar6-wg3-spm` | Intergovernmental Panel on Climate Change (IPCC), Working Group III | © IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `unep-egr-2025` | United Nations Environment Programme (UNEP) | © 2025 United Nations Environment Programme; reproduction allowed for educational or non-profit services with acknowledgement, no commercial use | display-only | no | manual | 2026-10-04 (manual) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-74 sources: 58 open, 2 share-alike, 6 noncommercial, 3 no-derivatives, 5 display-only.
+75 sources: 58 open, 2 share-alike, 6 noncommercial, 3 no-derivatives, 6 display-only.

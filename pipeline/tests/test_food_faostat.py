@@ -68,6 +68,9 @@ def test_area_entity_checks_m49_and_refuses_unknown_codes():
     assert area_entity("41", "'156") == "CHN"
     assert area_entity("5000", "'001") == "WLD"
     assert area_entity("228", "'810") is None  # USSR
+    # Territories and Serbia and Montenegro, published since envdash/geo.py declares them; Sark is still left out.
+    assert area_entity("69", "'254") == "GUF" and area_entity("259", "'830") == "CHI"
+    assert area_entity("186", "'891") == "SRB_MNE" and area_entity("285", "'680") is None
     with pytest.raises(FaostatBulkError, match="M49"):
         area_entity("41", "'159")
     with pytest.raises(FaostatBulkError, match="not declared"):

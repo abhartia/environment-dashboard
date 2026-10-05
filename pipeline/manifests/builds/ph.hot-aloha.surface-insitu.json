@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/ph.hot-aloha.surface-insitu.json",
+  "export_sha256": "29d5b118368b5a103cb78d9adca12806bf6d6922a67a799fb1ef84698bc20b46",
+  "indicator_id": "ph.hot-aloha.surface-insitu",
+  "key": "2a0e325d60e86d38ed215ef206fc657a68ecf8e45f315998743caadf30c7b842",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "hot-aloha/hot-surface-co2": {
+        "manifest_sha256": "0534d2f59f4b4fab5410d4661c5dab4a12f59c83e2dcecd942b9be1ab17c961c",
+        "sha256": "4356aa4650188b99f623ac2423e4d5a2af4b189077fd1efd1e2cfd8167161665"
+      },
+      "hot-aloha/readme": {
+        "manifest_sha256": "352b15da86ffdfd760bc069a2efadbb04411c73f8e8938b62c036c094d20291a",
+        "sha256": "95ebe322ac08c965cc859679cad57bddbe596ebc138ec0381ed787ea9a03ba93"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "hot-aloha": "13e691cf4d56da12c5a8d384f223d8b8009276c55336fd199a8c773b93c22672"
+    },
+    "transform_sha256": "c2648443192ff4296c90a535d2853089cfdde5edad68bd86081289a7db44e582"
+  },
+  "publisher_checks": []
+}

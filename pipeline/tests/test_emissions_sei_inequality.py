@@ -25,6 +25,8 @@ from envdash.transform import InputFile, discover, validate
 from envdash.transforms.emissions import sei_inequality as sei
 from envdash.validate import validate_all
 
+from support import exported
+
 FIXTURES = Path(__file__).parent / "fixtures" / "sei-emissions-inequality"
 SIDECARS = sorted(FIXTURES.glob("*/*.provenance.json"))
 ID = "co2-share.sei-inequality.income-groups-global"
@@ -193,7 +195,7 @@ def test_build_exports_publicly(tmp_paths):
     reg = load_registry(paths)
     report = build_and_export(paths, reg, [t for t in discover(paths) if t.spec.id == ID])
     assert [o.state for o in report.outcomes] == ["built"], [o.reason for o in report.outcomes]
-    ind = json.loads((paths.public_indicators / f"{ID}.json").read_text())
+    ind = exported(paths.public_indicators / f"{ID}.json")
     assert ind["licence_class"] == "open"
     assert ind["latest"]["dims"] == {"group": "top-10"} and ind["latest"]["period"] == "2023"
     assert "Calculated by Environment Dashboard from Stockholm Environment Institute data" in ind["attribution"]

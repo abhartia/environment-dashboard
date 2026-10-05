@@ -26,7 +26,7 @@ from envdash.transform import InputFile, discover
 from envdash.transforms.emissions import gcp_fossil_national as gcp
 from envdash.validate import validate_all
 
-from support import fixture, load_fixture_snapshot
+from support import exported, fixture, load_fixture_snapshot
 
 IDS = (
     "emissions.gcp-2025.fossil-co2-by-country",
@@ -179,11 +179,11 @@ def test_transforms_build_with_the_full_minimums_relaxed(tmp_paths):
     ]
     report = build_and_export(paths, reg, ts)
     assert [o.state for o in report.outcomes] == ["built", "built"], [o.reason for o in report.outcomes]
-    fuel = json.loads((paths.public_indicators / "emissions.gcp-2025.fossil-co2-by-fuel.json").read_text())
+    fuel = exported(paths.public_indicators / "emissions.gcp-2025.fossil-co2-by-fuel.json")
     assert fuel["vintage"] == "2025v15"
     assert fuel["origins"][0]["date_published"] == "2025-10-22"
-    assert fuel["latest"] == {"dims": {"fuel": "coal"}, "entity": "WLD", "period": "2024", "status": "final",
-                              "value": 15805.254152}  # fmt: skip
+    assert fuel["latest"] == {"age_bp": None, "dims": {"fuel": "coal"}, "entity": "WLD", "period": "2024",
+                              "status": "final", "value": 15805.254152}  # fmt: skip
     assert fuel["scope"]["lulucf"] == "excluded" and fuel["scope"]["bunkers"] == "excluded"
     assert "before the cement carbonation sink" in fuel["scope"]["basis"]
     assert fuel["origins"][0]["version_producer"] == "2025v15"

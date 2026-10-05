@@ -1,0 +1,8 @@
+# Average rate of global sea level rise since 1999 (AVISO)
+# Indicator: gmsl.aviso.rate (vintage product page read 2026-10-04); unit: millimetres per year (mm/yr)
+# Source: CNES / AVISO+ (produced with CLS and LEGOS) <https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html>
+# Credit: AVISO Global Mean Sea Level Indicator (CNES, CLS), doi:10.24400/527896/AVISO-2025.010; credits EU Copernicus Marine Service/CNES/LEGOS/CLS, https://aviso.altimetry.fr/msl, accessed 2026-10-04. Licence: AVISO License Agreement Issue 20, https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf
+# Licence: AVISO License Agreement, Issue 20 (custom CC BY-like licence; not CC BY 4.0) <https://www.aviso.altimetry.fr/fileadmin/documents/data/License_Aviso_ini.pdf>
+# Provenance and processing: https://environmentdashboard.org/data/gmsl/aviso/rate
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+gmsl.aviso.rate,WLD,1999/2026,3.6,3.3,3.9,90ci,final,"AVISO states the period as ""from 1999"" and gives no end date.",,

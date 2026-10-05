@@ -83,6 +83,16 @@ def test_countries_and_world_only():
     assert t.geography["KOS"] == "XKS" and t.geography["WLD"] == "WLD"
 
 
+def test_overseas_regions_and_serbia_and_montenegro_resolve():
+    def series(geography: str, name: str) -> e.Series:
+        return e.Series("44", geography, f"Total energy consumption, {name}, Annual", e.QBTU, {})
+
+    assert e.entity_of(series("GUF", "French Guiana")) == "GUF"
+    assert e.entity_of(series("REU", "Reunion")) == "REU"
+    assert e.entity_of(series("SCG", "Former Serbia and Montenegro")) == "SRB_MNE"
+    assert e.entity_of(series("SUN", "Former U.S.S.R.")) is None
+
+
 def test_values_as_given():
     t = _table()
     w = t.by_entity["WLD"]

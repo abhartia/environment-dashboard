@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/gmsl.aviso.monthly.json",
+  "export_sha256": "88c1b689fce8812a2d392c0bf06182df60504b6abbd8ad5f40ad5339a255ca82",
+  "indicator_id": "gmsl.aviso.monthly",
+  "key": "20bd34315eaa0529a0c300c1d13bfa011d611b11c4b1f0ee747a1b5dc9f3b0b9",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "aviso-gmsl/msl-global-filter2m-nc": {
+        "manifest_sha256": "2bee47920c8fd2fead7d8d5bab983b5d55a14441ec5872ca1cbfe5b7d9bfab21",
+        "sha256": "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "aviso-gmsl": "e1fd9d8b768ed03c64a986cfd535a50b332e8dded5e511163ca0e5cd491cc7e7"
+    },
+    "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
+  },
+  "publisher_checks": []
+}

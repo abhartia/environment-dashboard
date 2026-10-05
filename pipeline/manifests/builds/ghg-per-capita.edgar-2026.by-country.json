@@ -1,0 +1,31 @@
+{
+  "export": "data-private/v1/indicators/ghg-per-capita.edgar-2026.by-country.json",
+  "export_sha256": "925752a16e34f105bafa5957b9034201bd5bfa92b39db8a8855ca6f707615627",
+  "indicator_id": "ghg-per-capita.edgar-2026.by-country",
+  "key": "680706f7f2318134c341478a8a8121c3f72d232e247f6a6cfff8ada26cba52ae",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "edgar-2026-ghg/ghg-booklet": {
+        "manifest_sha256": "327ae7f4df1c47eb85659705f14cce15cda13e261234f68f4ea4f8824eb4dc26",
+        "sha256": "bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c"
+      },
+      "edgar-2026-ghg/report-pdf": {
+        "manifest_sha256": "98f326b3cd11d46d0c4862d74af7ab5c908ed65c2f0af38f55fcfbac9de9ab40",
+        "sha256": "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "edgar-2026-ghg": "7d7a96a222a2b6eb1cb47c8e13c421696e901fdb837a7f1273d83cecd0a6202b"
+    },
+    "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+  },
+  "publisher_checks": [
+    {"detail": "ours 6.6157426936634 vs stated 6.616 (tolerance ±0.0005, difference 0.000257306)", "entity": "WLD", "period": "2025", "quote": "2025 54149.174 6.616 0.301 8.185G", "source_id": "edgar-2026-ghg", "stated": "6.616", "status": "pass", "url": "https://edgar.jrc.ec.europa.eu/booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf", "vintage": "EDGAR_2026_GHG"},
+    {"detail": "ours 6.0298099807193 vs stated 6.030 (tolerance ±0.0005, difference 0.000190019)", "entity": "WLD", "period": "1990", "quote": "1990 32137.148 6.030 0.535 5.330G", "source_id": "edgar-2026-ghg", "stated": "6.030", "status": "pass", "url": "https://edgar.jrc.ec.europa.eu/booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf", "vintage": "EDGAR_2026_GHG"},
+    {"detail": "ours 11.106876698178 vs stated 11.107 (tolerance ±0.0005, difference 0.000123302)", "entity": "CHN", "period": "2025", "quote": "2025 15980.974 11.107 0.453 1.439G", "source_id": "edgar-2026-ghg", "stated": "11.107", "status": "pass", "url": "https://edgar.jrc.ec.europa.eu/booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf", "vintage": "EDGAR_2026_GHG"},
+    {"detail": "ours 17.533032996426 vs stated 17.533 (tolerance ±0.0005, difference 3.29964e-05)", "entity": "USA", "period": "2025", "quote": "2025 6018.301 17.533 0.230 343.255M", "source_id": "edgar-2026-ghg", "stated": "17.533", "status": "pass", "url": "https://edgar.jrc.ec.europa.eu/booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf", "vintage": "EDGAR_2026_GHG"}
+  ]
+}

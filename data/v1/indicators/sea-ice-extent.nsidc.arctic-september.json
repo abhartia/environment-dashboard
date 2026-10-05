@@ -1,0 +1,74 @@
+{
+  "attribution": "Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed 2026-10-05.",
+  "description": "Mean extent of Arctic sea ice in September, the month of the yearly minimum, since 1979: the area of ocean where satellites measure at least 15% ice cover, from NSIDC's Sea Ice Index. From 2025 NSIDC uses JAXA's AMSR2 satellite record instead of the DMSP record.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "NH",
+  "id": "sea-ice-extent.nsidc.arctic-september",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "NH",
+    "period": "2026-09",
+    "status": "final",
+    "value": 4.81
+  },
+  "licence": {
+    "name": "No licence stated; free use with citation as a condition of use (NSIDC)",
+    "spdx": null,
+    "url": "https://nsidc.org/about/data-use-and-copyright"
+  },
+  "licence_class": "open",
+  "notes": ["NSIDC's file gives the source data set as NSIDC-0803: JAXA's AMSR2 record, the input from 1 January 2025 (earlier years use the DMSP passive microwave record, NSIDC-0051)."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "north-monthly-september", "bytes": 2352, "citation_full": "Fetterer, F., Knowles, K., Meier, W. N., Savoie, M., Windnagel, A. K. & Stafford, T. (2025). Sea Ice Index. (G02135, Version 4). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center. https://doi.org/10.7265/a98x-0f50. Daily and monthly sea ice extent, Northern and Southern Hemispheres. Date Accessed 2026-10-05.", "date_accessed": "2026-10-05", "date_published": "2026-10-02", "doi": "10.7265/a98x-0f50", "etag": "\"6abfb390-930\"", "last_modified": "Fri, 02 Oct 2026 13:37:20 GMT", "licence": {"name": "No licence stated; free use with citation as a condition of use (NSIDC)", "spdx": null, "url": "https://nsidc.org/about/data-use-and-copyright"}, "producer": "NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder)", "r2_url": null, "sha256": "3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f", "source_id": "nsidc-sea-ice-index", "title": "Sea Ice Index, Version 4 (G02135)", "url_download": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv", "url_main": "https://nsidc.org/data/g02135/versions/4", "version_producer": "4.0", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the extent column of N_09_extent_v4.0.csv, NSIDC's Northern Hemisphere September file (one row per year, 1979 to 2026), as printed in million km². NSIDC computes each value as the mean of the month's daily extents (cells with at least 15% ice concentration, the unobserved area around the pole counted as ice covered).",
+      "inputs": ["3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
+      "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+    },
+    {
+      "description": "Rows whose source data set is NSIDC-0803 (JAXA's AMSR2 record, used from 1 January 2025) carry that as a note.",
+      "inputs": ["3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
+      "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Sea ice extent: mean over the month of the daily area of grid cells with at least 15% ice concentration (25 km grid, passive microwave), the unobserved area around the pole counted as ice covered. Not sea ice area, and not OSI SAF's index.",
+    "bunkers": null,
+    "geography": "Northern Hemisphere oceans (the Arctic Ocean and surrounding seas)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH", "NH"],
+    "note": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0],
+    "period": ["1979-09", "1980-09", "1981-09", "1982-09", "1983-09", "1984-09", "1985-09", "1986-09", "1987-09", "1988-09", "1989-09", "1990-09", "1991-09", "1992-09", "1993-09", "1994-09", "1995-09", "1996-09", "1997-09", "1998-09", "1999-09", "2000-09", "2001-09", "2002-09", "2003-09", "2004-09", "2005-09", "2006-09", "2007-09", "2008-09", "2009-09", "2010-09", "2011-09", "2012-09", "2013-09", "2014-09", "2015-09", "2016-09", "2017-09", "2018-09", "2019-09", "2020-09", "2021-09", "2022-09", "2023-09", "2024-09", "2025-09", "2026-09"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [7.05, 7.67, 7.14, 7.3, 7.39, 6.81, 6.7, 7.41, 7.28, 7.37, 7.01, 6.14, 6.47, 7.47, 6.4, 7.14, 6.08, 7.58, 6.69, 6.54, 6.12, 6.25, 6.73, 5.83, 6.12, 5.98, 5.5, 5.86, 4.27, 4.69, 5.26, 4.87, 4.56, 3.57, 5.21, 5.22, 4.62, 4.53, 4.82, 4.79, 4.36, 4.0, 4.95, 4.9, 4.38, 4.35, 4.75, 4.81]
+  },
+  "time_basis": "calendar",
+  "title": "Arctic sea ice extent in September (NSIDC)",
+  "unit": {
+    "code": "million-km2",
+    "label": "million square kilometres",
+    "short": "million km²"
+  },
+  "vintage": "4.0"
+}

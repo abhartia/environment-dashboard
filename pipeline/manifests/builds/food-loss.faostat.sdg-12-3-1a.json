@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/food-loss.faostat.sdg-12-3-1a.json",
+  "export_sha256": "bc7a8bc92ca7686ae1567f9168891c40a7d8d1d099e530564083e2619268ff72",
+  "indicator_id": "food-loss.faostat.sdg-12-3-1a",
+  "key": "c7f9f77fed7adf347654441436d6d93928a32576f316e3301e3ed45fcf311b38",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "faostat/datasets-catalogue": {
+        "manifest_sha256": "bc646412c97139536878e748e171502090aa722995a1de8f6fff062c1b7e3383",
+        "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"
+      },
+      "faostat/sdg-indicators": {
+        "manifest_sha256": "534a55e2bef1a6214e8d20b6b993966fe5298dc7373a407991effdef02649b7a",
+        "sha256": "ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "faostat": "83c5397350b6684b0cd1dd419ffd8fe799366487bc9976d926e36f82b4bb8193"
+    },
+    "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
+  },
+  "publisher_checks": []
+}

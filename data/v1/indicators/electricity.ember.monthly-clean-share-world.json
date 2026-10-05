@@ -1,0 +1,88 @@
+{
+  "attribution": "Ember, Monthly Electricity Data (file of 2026-09-18), CC BY 4.0.",
+  "description": "Share of the world's electricity generation from renewables and nuclear power together in each month since January 2019, as estimated by Ember.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "electricity.ember.monthly-clean-share-world",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2026-07",
+    "status": "preliminary",
+    "value": 43.503
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Ember's World estimate for this month; the file has Total generation for 56 countries and economies. 32 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 64 countries and economies. 24 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 71 countries and economies. 17 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 72 countries and economies. 16 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 80 countries and economies. 8 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 82 countries and economies. 6 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 83 countries and economies. 5 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 84 countries and economies.", "Ember's World estimate for this month; the file has Total generation for 84 countries and economies. 4 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 85 countries and economies. 3 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 86 countries and economies.", "Ember's World estimate for this month; the file has Total generation for 86 countries and economies. 2 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 87 countries and economies.", "Ember's World estimate for this month; the file has Total generation for 87 countries and economies. 1 of the 87 with generation for an earlier month have none for this month, so their part of the World total is estimated.", "Ember's World estimate for this month; the file has Total generation for 87 countries and economies. 1 of the 88 with generation for an earlier month have none for this month, so their part of the World total is estimated."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "generation-monthly-global", "bytes": 28333064, "citation_full": "Monthly electricity generation data, Ember", "date_accessed": "2026-10-05", "date_published": "2026-09-18", "doi": null, "etag": "\"1932fe694a4679159e119c2f6b9255e5\"", "last_modified": "Fri, 18 Sep 2026 21:29:31 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": null, "sha256": "6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55", "source_id": "ember-monthly", "title": "Monthly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_monthly_global.csv", "url_main": "https://ember-energy.org/data/monthly-electricity-data/", "version_producer": "2026-09-18", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read release_generation_monthly_global.csv, last modified by Ember on 2026-09-18 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World', 2019-01 to 2026-07.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Checked that every month's shares mean what is published: the nine non-aggregated sources add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Noted on each month how many countries and economies have Total generation in the file for it (from 84 in 2019-01 to 56 in 2026-07), and marked a month preliminary when a country with generation for an earlier month has none for it, because the World total then includes Ember's estimate for that country. Preliminary months in this vintage: 46, the first 2022-10 and the last 2026-07.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    },
+    {
+      "description": "Published Ember's 'Share of generation (%)' of its aggregated source 'Clean' (renewables plus nuclear) as printed.",
+      "inputs": ["6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
+      "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Share of electricity generation in the month, not of consumption: net imports are not included. The World total is Ember's estimate built from the countries with monthly data; values are revised as data arrive. Clean means renewables plus nuclear.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "note": [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 11, 11, 11, 11, 11, 11, 9, 9, 9, 9, 8, 8, 8, 8, 8, 8, 6, 5, 4, 4, 4, 3, 2, 1, 0],
+    "period": ["2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary", "preliminary"],
+    "value": [34.107, 36.636, 37.689, 38.825, 39.312, 37.54, 35.723, 35.379, 36.053, 36.956, 36.377, 35.363, 34.872, 39.804, 40.097, 40.783, 40.546, 38.832, 37.388, 36.296, 38.008, 39.985, 37.135, 35.144, 34.903, 38.965, 38.243, 38.88, 40.676, 37.867, 36.977, 36.531, 38.511, 39.487, 38.078, 37.151, 35.251, 39.67, 39.644, 41.998, 42.582, 40.156, 37.575, 35.977, 37.64, 40.077, 38.94, 36.944, 38.211, 39.493, 40.034, 41.849, 41.287, 38.789, 37.725, 38.046, 39.385, 40.953, 40.476, 38.444, 38.021, 39.941, 41.468, 43.667, 43.911, 42.627, 40.817, 39.59, 40.092, 41.854, 40.328, 39.859, 39.625, 41.595, 43.655, 45.172, 45.399, 44.441, 41.792, 40.677, 42.933, 43.032, 43.462, 41.397, 41.022, 42.408, 44.13, 46.061, 46.414, 45.658, 43.503]
+  },
+  "time_basis": "calendar",
+  "title": "Share of world electricity from clean sources, monthly",
+  "unit": {
+    "code": "percent",
+    "label": "percent of electricity generation",
+    "short": "%"
+  },
+  "vintage": "2026-09-18"
+}

@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/sea-level-contribution.wgms-amce.glaciers-cumulative.json",
+  "export_sha256": "a0af55c8f2c07c8c887afb6d0e302edc50469400af2a1d4f488df1e1636e1b25",
+  "indicator_id": "sea-level-contribution.wgms-amce.glaciers-cumulative",
+  "key": "e2ce35d598cce20faf02e768c6611e5d0d72caa0226db8c345fc3be957d68113",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "wgms-amce/amce-2026-02-10": {
+        "manifest_sha256": "2232a38535d48babb5a103416d4bcf2b02265cf3b0f87b24ab6d8f5d39f5251b",
+        "sha256": "b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "wgms-amce": "7be0a91153240d7379d079c3514e1d8eb8a7b8d7f27c4fa7a5dbcce71670d8cd"
+    },
+    "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
+  },
+  "publisher_checks": [
+    {"detail": "ours 26.436 vs stated 26.4 (tolerance ±0.05, difference 0.036)", "entity": "WLD", "period": "2025", "quote": "Since 1975, glacier mass loss has totalled 9,583 ± 1,211 Gt, equivalent to 26.4 ± 3.3 mm of sea-level rise", "source_id": "wgms-amce", "stated": "26.4", "status": "pass", "url": "https://www.nature.com/articles/s43017-026-00777-z", "vintage": "2026-02-10"}
+  ]
+}

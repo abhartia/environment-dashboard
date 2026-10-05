@@ -1,0 +1,17 @@
+# Number of species threatened with extinction
+# Indicator: species.iucn-red-list.threatened-count (vintage 2026-1); unit: species (species)
+# Source: International Union for Conservation of Nature (IUCN), published through GBIF <https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3>
+# Credit: Calculated by Environment Dashboard from IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on 2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on 2026-10-05. CC BY 4.0. Changes: threatened species counted from the species' Red List categories.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>
+# Provenance and processing: https://environmentdashboard.org/data/species/iucn-red-list/threatened-count
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,group
+species.iucn-red-list.threatened-count,WLD,2026,49505.0,,,,final,,,,all
+species.iucn-red-list.threatened-count,WLD,2026,1372.0,,,,final,,,,mammals
+species.iucn-red-list.threatened-count,WLD,2026,1256.0,,,,final,,,,birds
+species.iucn-red-list.threatened-count,WLD,2026,2940.0,,,,final,,,,amphibians
+species.iucn-red-list.threatened-count,WLD,2026,1865.0,,,,final,,,,reptiles
+species.iucn-red-list.threatened-count,WLD,2026,3721.0,,,,final,,,,ray-finned-fishes
+species.iucn-red-list.threatened-count,WLD,2026,422.0,,,,final,,,,sharks-rays-chimaeras
+species.iucn-red-list.threatened-count,WLD,2026,2815.0,,,,final,,,,insects
+species.iucn-red-list.threatened-count,WLD,2026,30262.0,,,,final,,,,plants
+species.iucn-red-list.threatened-count,WLD,2026,412.0,,,,final,,,,fungi

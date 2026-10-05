@@ -11,9 +11,18 @@ from __future__ import annotations
 import math
 import re
 from datetime import date
-from typing import Annotated, Literal
+from typing import Annotated, Any, Literal
 
-from pydantic import AfterValidator, BaseModel, ConfigDict, Field, HttpUrl, model_validator
+from pydantic import (
+    AfterValidator,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl,
+    SerializerFunctionWrapHandler,
+    model_serializer,
+    model_validator,
+)
 
 SCHEMA_VERSION = 1
 
@@ -542,7 +551,9 @@ class PublishedValueRef(Strict):
     quote: str = Field(description="Verbatim text the value is taken from.")
 
 
-class Indicator(Strict):
+class IndicatorBase(Strict):
+    """What an indicator is, without its values: the fields Indicator and IndicatorFile share."""
+
     schema_version: Literal[1] = SCHEMA_VERSION
     id: IndicatorId
     title: str
@@ -560,7 +571,6 @@ class Indicator(Strict):
         "oldest age to the youngest, and latest is the youngest.",
     )
     dimensions: list[Dimension] = Field(default_factory=list)
-    observations: list[Observation] = Field(min_length=1)
     latest: Latest
     vintage: str = Field(description="Producer version or release label of the newest input.")
     origins: list[Origin] = Field(min_length=1)
@@ -573,11 +583,22 @@ class Indicator(Strict):
     superseded_by: IndicatorId | None = None
 
     @model_validator(mode="after")
-    def _consistent(self) -> Indicator:
+    def _meta_consistent(self) -> IndicatorBase:
         if self.licence_class == "excluded":
             raise ValueError(f"{self.id}: excluded sources are never published")
         if (self.kind == "published-value") != (self.published_value is not None):
             raise ValueError(f"{self.id}: published-value indicators (and only they) carry published_value")
+        return self
+
+
+class Indicator(IndicatorBase):
+    """An indicator with its observations as records: the pipeline's in-memory form, and the shape the site works
+    with after expanding a published IndicatorFile (web/src/lib/indicator-table.ts). Not itself a published file."""
+
+    observations: list[Observation] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def _consistent(self) -> Indicator:
         paleo = self.time_basis == "years-before-1950"
         for when in [*self.observations, self.latest]:
             if paleo and when.period is not None:
@@ -594,6 +615,166 @@ class Indicator(Strict):
                 raise ValueError(f"{self.id}: duplicate observation {key}")
             seen.add(key)
         return self
+
+
+# --- the published indicator file ---------------------------------------------------------------------------------
+
+ObservationStatus = Literal["final", "preliminary", "projection"]
+
+TABLE_OPTIONAL_COLUMNS: tuple[str, ...] = ("period", "age_bp", "lower", "upper", "interval", "missing_reason", "note")
+"""Columns written only when they apply: period for calendar time, age_bp for years before 1950, the others only
+when at least one row has a value. An absent column means null in every row; a column is never written as null."""
+
+
+def _absent_not_null(schema: dict[str, Any]) -> None:
+    # An optional column is left out, never written as null: its schema is the array alone, not required.
+    for name in TABLE_OPTIONAL_COLUMNS:
+        prop = schema["properties"][name]
+        (array,) = [b for b in prop.pop("anyOf") if b.get("type") != "null"]
+        prop.pop("default", None)
+        prop.update(array)
+
+
+class ObservationTable(BaseModel):
+    """The observations of an indicator as columns: row i of the table is the i-th observation, in the order the
+    pipeline produced them (the same order as the CSV's rows). Every column present has one entry per row."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True, json_schema_extra=_absent_not_null)
+
+    entity: list[EntityCode] = Field(min_length=1, description="Observation.entity of each row.")
+    period: list[Period] | None = Field(
+        default=None, description="Observation.period of each row. Present exactly when the time_basis is calendar."
+    )
+    age_bp: list[float] | None = Field(
+        default=None,
+        description="Observation.age_bp of each row. Present exactly when the time_basis is years-before-1950.",
+    )
+    value: list[float | None] = Field(description="Observation.value of each row; null where missing_reason says why.")
+    lower: list[float | None] | None = Field(default=None, description="Observation.lower; absent when all null.")
+    upper: list[float | None] | None = Field(default=None, description="Observation.upper; absent when all null.")
+    interval: list[Interval | None] | None = Field(
+        default=None, description="Observation.interval; absent when all null."
+    )
+    status: list[ObservationStatus] = Field(description="Observation.status of each row.")
+    missing_reason: list[str | None] | None = Field(
+        default=None, description="Observation.missing_reason; absent when all null."
+    )
+    note: list[Annotated[int, Field(ge=0)] | None] | None = Field(
+        default=None,
+        description="Index into the file's notes of each row's Observation.note, null for none; absent when no row "
+        "has a note.",
+    )
+    dims: dict[str, list[str]] = Field(
+        description="One column per declared dimension id: each row's dimension value id (Observation.dims)."
+    )
+
+    @model_serializer(mode="wrap")
+    def _drop_absent(self, handler: SerializerFunctionWrapHandler):
+        out = handler(self)
+        return {k: v for k, v in out.items() if not (k in TABLE_OPTIONAL_COLUMNS and v is None)}
+
+
+class IndicatorFile(IndicatorBase):
+    """data/v1/indicators/<id>.json (and data-private/v1/indicators/<id>.json): an Indicator with its observations
+    stored as columns. `table` holds one array per Observation field; notes are interned in `notes`, which lists each
+    distinct note once (sorted by code point) and is indexed by table.note. Expanding row i of the table (absent
+    columns read as null, table.note[i] read through notes) gives exactly Indicator.observations[i]."""
+
+    table: ObservationTable
+    notes: list[str] = Field(
+        description="Every distinct Observation.note, each once, sorted by code point; table.note indexes into it."
+    )
+
+    @model_validator(mode="after")
+    def _table_consistent(self) -> IndicatorFile:
+        t = self.table
+        rows = len(t.entity)
+        columns: dict[str, list | None] = {
+            "period": t.period,
+            "age_bp": t.age_bp,
+            "value": t.value,
+            "lower": t.lower,
+            "upper": t.upper,
+            "interval": t.interval,
+            "status": t.status,
+            "missing_reason": t.missing_reason,
+            "note": t.note,
+            **{f"dims.{k}": v for k, v in t.dims.items()},
+        }
+        for name, col in columns.items():
+            if col is not None and len(col) != rows:
+                raise ValueError(f"{self.id}: table column {name} has {len(col)} rows, entity has {rows}")
+        declared = {d.id for d in self.dimensions}
+        if set(t.dims) != declared:
+            raise ValueError(f"{self.id}: table dims {sorted(t.dims)} != declared {sorted(declared)}")
+        paleo = self.time_basis == "years-before-1950"
+        if paleo and (t.age_bp is None or t.period is not None):
+            raise ValueError(f"{self.id}: time_basis years-before-1950 needs the age_bp column and no period column")
+        if not paleo and (t.period is None or t.age_bp is not None):
+            raise ValueError(f"{self.id}: time_basis calendar needs the period column and no age_bp column")
+        for name in ("lower", "upper", "interval", "missing_reason", "note"):
+            col = columns[name]
+            if col is not None and all(v is None for v in col):
+                raise ValueError(f"{self.id}: table column {name} is all null; it is written only when a row has one")
+        if self.notes != sorted(set(self.notes)):
+            raise ValueError(f"{self.id}: notes must be distinct and sorted")
+        used = {i for i in t.note or [] if i is not None}
+        if used != set(range(len(self.notes))):
+            raise ValueError(f"{self.id}: table.note must use every entry of notes, and only those")
+        return self
+
+    @classmethod
+    def from_indicator(cls, ind: Indicator) -> IndicatorFile:
+        obs = ind.observations
+        notes = sorted({o.note for o in obs if o.note is not None})
+        index = {s: i for i, s in enumerate(notes)}
+
+        def present(values: list) -> list | None:
+            return values if any(v is not None for v in values) else None
+
+        paleo = ind.time_basis == "years-before-1950"
+        table = ObservationTable(
+            entity=[o.entity for o in obs],
+            period=None if paleo else [o.period for o in obs],
+            age_bp=[o.age_bp for o in obs] if paleo else None,
+            value=[o.value for o in obs],
+            lower=present([o.lower for o in obs]),
+            upper=present([o.upper for o in obs]),
+            interval=present([o.interval for o in obs]),
+            status=[o.status for o in obs],
+            missing_reason=present([o.missing_reason for o in obs]),
+            note=present([None if o.note is None else index[o.note] for o in obs]),
+            dims={d.id: [o.dims[d.id] for o in obs] for d in ind.dimensions},
+        )
+        return cls(**{name: getattr(ind, name) for name in IndicatorBase.model_fields}, table=table, notes=notes)
+
+    def to_indicator(self) -> Indicator:
+        t = self.table
+        rows = range(len(t.entity))
+
+        def column(values: list | None) -> list:
+            return values if values is not None else [None] * len(rows)
+
+        period, age_bp, lower, upper = column(t.period), column(t.age_bp), column(t.lower), column(t.upper)
+        interval, missing_reason, note = column(t.interval), column(t.missing_reason), column(t.note)
+        observations = [
+            Observation(
+                entity=t.entity[i],
+                period=period[i],
+                age_bp=age_bp[i],
+                value=t.value[i],
+                lower=lower[i],
+                upper=upper[i],
+                interval=interval[i],
+                status=t.status[i],
+                missing_reason=missing_reason[i],
+                note=None if note[i] is None else self.notes[note[i]],
+                dims={k: v[i] for k, v in t.dims.items()},
+            )
+            for i in rows
+        ]
+        meta = {name: getattr(self, name) for name in IndicatorBase.model_fields}
+        return Indicator(**meta, observations=observations)
 
 
 # --- catalogue, status --------------------------------------------------------------------------------------------

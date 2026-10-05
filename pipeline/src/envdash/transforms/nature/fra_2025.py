@@ -12,10 +12,9 @@ country must have all six years, and no forest area may be empty, or the transfo
 FRA "forest" is a land-use definition (land over 0.5 ha with trees over 5 m and canopy cover over 10 percent, not
 mainly under agricultural or urban use), reported by countries; it is not satellite tree cover.
 
-Entities. Countries are matched by their ISO 3166-1 alpha-3 code through geo.resolve(…, "iso3"). Four areas FRA
-reports have no entity in pipeline/geo/entities.csv because Natural Earth's 1:50m layers draw them inside France or
-Norway: French Guiana (GUF), Mayotte (MYT), Réunion (REU) and Svalbard and Jan Mayen Islands (SJM). They are declared
-in NO_ENTITY, not published on their own, and included in the world total. Any other unknown code stops the transform.
+Entities. Countries and areas are matched by their ISO 3166-1 alpha-3 code through geo.resolve(…, "iso3"), including
+French Guiana (GUF), Mayotte (MYT), Réunion (REU) and Svalbard and Jan Mayen Islands (SJM), which Natural Earth's
+1:50m layers draw inside France or Norway (envdash/geo.py EXTRA_TERRITORIES). Any unknown code stops the transform.
 
 World. FAO's world forest area is built from the country data for the reporting years "for all 236 countries and
 areas" (report, chapter 2, printed p. 12). The world value here is the sum over every row of the file, exact decimal
@@ -64,14 +63,6 @@ AREA_COL, FLAG_COL, LEGEND_COL = "1a_forestArea", "1a_forestArea_flag", "Flag"
 LEGEND = re.compile(r"([A-Z]) = (.+)")
 REPORT_PUBLISHED = "2025-10-21"
 
-# FRA iso3 -> FRA's name, for areas with no entity here (counted in the world total, not published on their own).
-NO_ENTITY: dict[str, str] = {
-    "GUF": "French Guiana",
-    "MYT": "Mayotte",
-    "REU": "Réunion",
-    "SJM": "Svalbard and Jan Mayen Islands",
-}
-
 # The report's WORLD rows, verbatim (PDF page, text). Table 5: forest area (1 000 ha) in 1990, 2000, 2010, 2015, 2020,
 # 2025. Table 6: annual net change (1 000 ha/year, and %) for 1990–2000, 2000–2015, 2015–2025.
 REPORT_TABLE_5 = (35, "WORLD 4 343 534 4 236 587 4 201 001 4 181 435 4 165 241 4 140 217")
@@ -118,7 +109,6 @@ def read_rows(raw: bytes) -> tuple[list[dict[str, str]], dict[str, str]]:
 def forest_area(rows: list[dict[str, str]], legend: dict[str, str]):
     """{iso3: {year: (area, flag)}}, every country with all six years, every area present and flagged."""
     by: dict[str, dict[int, tuple[Decimal, str]]] = defaultdict(dict)
-    names: dict[str, str] = {}
     for r in rows:
         code, year = r["iso3"], r["year"]
         if not year.isdigit() or int(year) not in YEARS:
@@ -130,19 +120,13 @@ def forest_area(rows: list[dict[str, str]], legend: dict[str, str]):
         if int(year) in by[code]:
             raise FraFormatError(f"{code} {year}: more than one row")
         by[code][int(year)] = (Decimal(r[AREA_COL]), r[FLAG_COL])
-        names[code] = r["name"]
     for code, years in by.items():
         if tuple(sorted(years)) != YEARS:
             raise FraFormatError(f"{code}: years {sorted(years)} are not {list(YEARS)}")
-    for code, name in NO_ENTITY.items():
-        if code in names and names[code] != name:
-            raise FraFormatError(f"{code} is named {names[code]!r}, but {name!r} is declared in NO_ENTITY")
     return by
 
 
-def entity_of(code: str) -> str | None:
-    if code in NO_ENTITY:
-        return None
+def entity_of(code: str) -> str:
     return geo.resolve(code, "iso3")
 
 
@@ -157,8 +141,6 @@ def area_observations(by, legend) -> list[Observation]:
         obs.append(Observation(entity="WLD", period=str(y), value=float(world[y])))
     for code in sorted(by):
         entity = entity_of(code)
-        if entity is None:
-            continue
         for y in YEARS:
             area, flag = by[code][y]
             obs.append(Observation(entity=entity, period=str(y), value=float(area), note=_flag_note({flag}, legend)))
@@ -172,8 +154,6 @@ def net_change_observations(by, legend) -> list[Observation]:
         obs.append(Observation(entity="WLD", period=f"{a}/{b}", value=float((world[b] - world[a]) / (b - a))))
     for code in sorted(by):
         entity = entity_of(code)
-        if entity is None:
-            continue
         for a, b in INTERVALS:
             (va, fa), (vb, fb) = by[code][a], by[code][b]
             obs.append(
@@ -229,9 +209,8 @@ def _common(files: dict[str, InputFile]):
         f"and the six reporting years {', '.join(map(str, YEARS))}. Flags: "
         + "; ".join(f'{f} "{legend[f]}" ({n} countries and areas)' for f, n in n_flag.items())
         + "; each country's values name their flag in a note.",
-        "French Guiana, Mayotte, Réunion and Svalbard and Jan Mayen Islands are reported by FRA but have no entity "
-        "here (Natural Earth draws them inside France or Norway): they are not published on their own and are "
-        "counted in the world total.",
+        "Matched each country and area by its ISO 3 code; French Guiana, Mayotte, Réunion and Svalbard and Jan "
+        "Mayen Islands, which FRA reports separately, are published as their own entities.",
         f"World = the sum of the forest area of all {len(by)} countries and areas in the file for each year (exact "
         "decimal arithmetic), as FAO computes its global figure.",
     ]

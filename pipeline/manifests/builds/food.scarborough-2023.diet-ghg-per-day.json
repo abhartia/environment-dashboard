@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/food.scarborough-2023.diet-ghg-per-day.json",
+  "export_sha256": "e7bf993bc13516c2c3205b7085e7d9d89685e479ee74b2f83822f1a3069cc45a",
+  "indicator_id": "food.scarborough-2023.diet-ghg-per-day",
+  "key": "93ef8c5a1462c7d730b18be527f8adc274fe08b0190e154b2cfe497a01805877",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "scarborough-2023/article-pdf": {
+        "manifest_sha256": "f8b59d4c53c6048c9f4b375826e5704bcc4edfdbf96df8fc861e639e519fdb6b",
+        "sha256": "b061fbc4e0b22a1a548061df007ced7a17ec66c380f8e19ab5ea870ce5a81ecc"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "scarborough-2023": "f0e3f4c21a90ee2c61e94b2fe2a17d83f76a9ffcca1ccc43820e6deabe5810d8"
+    },
+    "transform_sha256": "3cdc437bb7f0c85722f03cec374e3643a9b94df69c2e3eec6953130fcc616d51"
+  },
+  "publisher_checks": []
+}

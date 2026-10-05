@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/ohc.ncei.yearly-0-700m.json",
+  "export_sha256": "5741447a58b9b67aed367ef96f7eed05ffb96838a9dcb481093b04d047798d2c",
+  "indicator_id": "ohc.ncei.yearly-0-700m",
+  "key": "db76ef981e8115a137cdc465bba21923f174b5c7d4744c1741ff469d129cf09e",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "ncei-ocean-heat/world-0-700m-yearly": {
+        "manifest_sha256": "555fd345872dc290868ad8d7f02b94e041e3b7d1ebd76024ce9183595f3f039a",
+        "sha256": "29114e2df7b856f88876f97ca4f073b5a04786ca86c0d643565a9f035046489b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "ncei-ocean-heat": "acd31f9f9e150f68c6ee358ccd0296160124dbe572edcdb9e3d78b8c07df7a58"
+    },
+    "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
+  },
+  "publisher_checks": []
+}

@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/sea-level-contribution.imbie-2026.antarctica.json",
+  "export_sha256": "dfb7a0f5eceb3ea57c32aa1e1bd4dd5c9de824c3b73d415dbab00b84685a1e7b",
+  "indicator_id": "sea-level-contribution.imbie-2026.antarctica",
+  "key": "bc9135499dad7f98a9c4cedbe68c977d941c536d375331ed074318abd0bc381b",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "imbie-2026/antarctica-gt": {
+        "manifest_sha256": "6a3b9dba43213f2df1c40f59d94809e0f585e85217b8b773c4d7ad937cbbf7ff",
+        "sha256": "cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2"
+      },
+      "imbie-2026/antarctica-mm": {
+        "manifest_sha256": "fc844ce357f39171626746c63d8e76a003f3b879eb25660372b5141721fcb547",
+        "sha256": "2a45ff6a5ca9492762421fb4dc895dc9c5a9744b91f9e7ad764c48b699cdede9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "imbie-2026": "d75c93911d8b407190393d8ead327e24336b29b6d943915bf517a6b2ea6e5ad3"
+    },
+    "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
+  },
+  "publisher_checks": [
+    {"detail": "ours 13.27631111 vs stated 13.3 (tolerance ±0.05, difference 0.0236889)", "entity": "ATA", "period": "2023-12", "quote": "In all, the Antarctic Ice Sheet lost 4,780 ± 513 Gt of ice between 1979 and 2023, raising the global sea level by 13.3 ± 1.4 mm", "source_id": "imbie-2026", "stated": "13.3", "status": "pass", "url": "https://www.nature.com/articles/s41597-026-08088-0", "vintage": "1.0"}
+  ]
+}

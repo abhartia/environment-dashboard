@@ -3,14 +3,15 @@ import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import type { Indicator } from "@/gen/hey-api/types.gen";
+import type { Indicator, IndicatorFile } from "@/gen/hey-api/types.gen";
 import { evaluate } from "@/lib/claims";
+import { expandIndicator } from "@/lib/indicator-table";
 import { SECTIONS } from "@/lib/sections";
 import { STORIES } from "@/lib/stories";
 
 /** Claims are checked against the public data/ (the same files the site renders). */
 const DATA = path.resolve(__dirname, "../../../data/v1/indicators");
-const load = (id: string): Indicator => JSON.parse(readFileSync(path.join(DATA, `${id}.json`), "utf8"));
+const load = (id: string): Indicator => expandIndicator(JSON.parse(readFileSync(path.join(DATA, `${id}.json`), "utf8")) as IndicatorFile);
 
 const CONTENT = path.resolve(__dirname, "../content/stories");
 

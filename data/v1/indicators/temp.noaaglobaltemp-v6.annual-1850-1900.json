@@ -1,0 +1,90 @@
+{
+  "attribution": "Calculated by Environment Dashboard from NOAA National Centers for Environmental Information NOAAGlobalTemp version 6.1.0.202608 (Huang, Yin, Menne & Vose), doi:10.25921/vvaa-wq11, accessed 2026-10-04. Changes: annual anomalies re-based from 1991–2020 to the 1850–1900 mean of the same dataset; 2026 left out as a partial year.",
+  "description": "Global mean surface temperature for each complete year since 1850, as the difference from the 1850–1900 average of the same dataset.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "temp.noaaglobaltemp-v6.annual-1850-1900",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 1.2910621568627452
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "global-annual", "bytes": 11505, "citation_full": "Huang, Boyin; Yin, Xungang; Menne, Matthew J.; and Vose, Russell S. 2026. NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.1. Areal-average time series. NOAA National Centers for Environmental Information. https://doi.org/10.25921/vvaa-wq11. Accessed 2026-10-04.", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.25921/vvaa-wq11", "etag": "\"2cf1-65afaa2263240\"", "last_modified": "Tue, 08 Sep 2026 15:46:09 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA National Centers for Environmental Information", "r2_url": null, "sha256": "ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "source_id": "noaaglobaltemp-v6", "title": "NOAA Global Surface Temperature (NOAAGlobalTemp), version 6.1", "url_download": "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.90S.90N.v6.1.0.202608.asc", "url_main": "https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp", "version_producer": "6.1.0.202608", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "global-monthly", "bytes": 220480, "citation_full": "Huang, Boyin; Yin, Xungang; Menne, Matthew J.; and Vose, Russell S. 2026. NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.1. Areal-average time series. NOAA National Centers for Environmental Information. https://doi.org/10.25921/vvaa-wq11. Accessed 2026-10-04.", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.25921/vvaa-wq11", "etag": "\"35d40-65afaa244b6c0\"", "last_modified": "Tue, 08 Sep 2026 15:46:11 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA National Centers for Environmental Information", "r2_url": null, "sha256": "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "source_id": "noaaglobaltemp-v6", "title": "NOAA Global Surface Temperature (NOAAGlobalTemp), version 6.1", "url_download": "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.mon.land_ocean.90S.90N.v6.1.0.202608.asc", "url_main": "https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp", "version_producer": "6.1.0.202608", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "arctic-annual", "bytes": 11505, "citation_full": "Huang, Boyin; Yin, Xungang; Menne, Matthew J.; and Vose, Russell S. 2026. NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.1. Areal-average time series. NOAA National Centers for Environmental Information. https://doi.org/10.25921/vvaa-wq11. Accessed 2026-10-04.", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.25921/vvaa-wq11", "etag": "\"2cf1-65afaa2263240\"", "last_modified": "Tue, 08 Sep 2026 15:46:09 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA National Centers for Environmental Information", "r2_url": null, "sha256": "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "source_id": "noaaglobaltemp-v6", "title": "NOAA Global Surface Temperature (NOAAGlobalTemp), version 6.1", "url_download": "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.60N.90N.v6.1.0.202608.asc", "url_main": "https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp", "version_producer": "6.1.0.202608", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "timeseries-readme", "bytes": 1032, "citation_full": "Huang, Boyin; Yin, Xungang; Menne, Matthew J.; and Vose, Russell S. 2026. NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.1. Areal-average time series. NOAA National Centers for Environmental Information. https://doi.org/10.25921/vvaa-wq11. Accessed 2026-10-04.", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.25921/vvaa-wq11", "etag": "\"408-65afaa02ea800\"", "last_modified": "Tue, 08 Sep 2026 15:45:36 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA National Centers for Environmental Information", "r2_url": null, "sha256": "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f", "source_id": "noaaglobaltemp-v6", "title": "NOAA Global Surface Temperature (NOAAGlobalTemp), version 6.1", "url_download": "https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/00_Readme_timeseries.txt", "url_main": "https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp", "version_producer": "6.1.0.202608", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the global (90°S–90°N) annual land-ocean anomaly of NOAAGlobalTemp v6.1.0, release 202608 (kelvin relative to 1991–2020, as the readme states; a difference of 1 K equals 1 °C). The error-variance columns are all -999 and are not used.",
+      "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
+      "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
+    },
+    {
+      "description": "Confirmed one release: the global annual, global monthly and 60°N–90°N annual file names all carry v6.1.0.202608, and the monthly file's last month is 2026-08.",
+      "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
+      "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
+    },
+    {
+      "description": "Left out 2026: the release runs to month 8 of 2026, so the annual file's value for it averages only those months. Earlier years are complete: the file names give the month of the latest data.",
+      "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
+      "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
+    },
+    {
+      "description": "Re-based to the dataset's own 1850–1900 mean: subtracted the mean of the 51 annual anomalies 1850–1900, -0.7768811568627451 K relative to 1991–2020 (exact decimal arithmetic on the printed values), from every year.",
+      "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
+      "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": "1850–1900 mean of this dataset",
+    "basis": "NOAAGlobalTemp 6.1: NOAA GHCN monthly land-station temperatures merged with ERSST version 6 sea-surface temperatures, with gaps filled by an artificial neural network.",
+    "bunkers": null,
+    "geography": "Global mean (90° S–90° N)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["1850", "1851", "1852", "1853", "1854", "1855", "1856", "1857", "1858", "1859", "1860", "1861", "1862", "1863", "1864", "1865", "1866", "1867", "1868", "1869", "1870", "1871", "1872", "1873", "1874", "1875", "1876", "1877", "1878", "1879", "1880", "1881", "1882", "1883", "1884", "1885", "1886", "1887", "1888", "1889", "1890", "1891", "1892", "1893", "1894", "1895", "1896", "1897", "1898", "1899", "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [0.016900156862745097, 0.1137851568627451, 0.1441651568627451, 0.0954341568627451, 0.1237741568627451, 0.0928731568627451, 0.040405156862745095, -0.0249498431372549, 0.026180156862745097, 0.10284715686274509, -0.0344978431372549, -0.0796748431372549, -0.1497858431372549, -0.0844938431372549, -0.0605498431372549, 0.1245481568627451, 0.0534061568627451, -0.0391108431372549, 0.0425451568627451, 0.0913861568627451, -0.010264843137254903, -0.004422843137254902, 0.006700156862745098, 0.001086156862745098, -0.060726843137254904, -0.0417898431372549, -0.0651768431372549, 0.2449731568627451, 0.2735771568627451, -0.003881843137254902, -0.021700843137254903, 0.0734871568627451, -0.009345843137254901, -0.009269843137254902, -0.1104698431372549, -0.0656178431372549, -0.10152684313725491, -0.1812918431372549, 0.0432871568627451, 0.1086581568627451, -0.1464748431372549, -0.06734884313725491, -0.1539778431372549, -0.1578918431372549, -0.1655008431372549, -0.061863843137254904, 0.0410551568627451, 0.0497681568627451, -0.09350584313725491, 0.005152156862745098, 0.0891181568627451, 0.0460361568627451, -0.046551843137254904, -0.1630188431372549, -0.2209538431372549, -0.0980778431372549, -0.007305843137254902, -0.1790018431372549, -0.2201358431372549, -0.2137558431372549, -0.1776838431372549, -0.2017858431372549, -0.1351628431372549, -0.1118088431372549, 0.049648156862745096, 0.0973941568627451, -0.1176068431372549, -0.2501298431372549, -0.1567218431372549, -0.029956843137254902, -0.013203843137254902, 0.015049156862745099, -0.0585848431372549, -0.052899843137254904, -0.044892843137254904, -0.017073843137254904, 0.0976491568627451, 0.0021821568627450982, 0.0161321568627451, -0.1307518431372549, 0.06597715686274509, 0.1218821568627451, 0.0598281568627451, -0.06913884313725491, 0.0697251568627451, 0.0391381568627451, 0.0765771568627451, 0.1664581568627451, 0.1827901568627451, 0.1913091568627451, 0.3268511568627451, 0.3809041568627451, 0.2470551568627451, 0.2547841568627451, 0.3781821568627451, 0.3037791568627451, 0.1645761568627451, 0.1670791568627451, 0.1318651568627451, 0.1254621568627451, 0.0407961568627451, 0.1536651568627451, 0.2135401568627451, 0.2702591568627451, 0.0936081568627451, 0.0403131568627451, 0.001947156862745098, 0.2245141568627451, 0.2557031568627451, 0.2473531568627451, 0.1589381568627451, 0.2444491568627451, 0.2086451568627451, 0.2255011568627451, -0.012707843137254902, 0.08509815686274509, 0.1312981568627451, 0.1616781568627451, 0.1178921568627451, 0.2581901568627451, 0.2050701568627451, 0.08730515686274509, 0.2231781568627451, 0.3378701568627451, 0.1201811568627451, 0.1627731568627451, 0.1072641568627451, 0.3658831568627451, 0.2818811568627451, 0.3570421568627451, 0.4557241568627451, 0.4986781568627451, 0.3226671568627451, 0.4896961568627451, 0.3380741568627451, 0.3138851568627451, 0.3877981568627451, 0.4967211568627451, 0.5480201568627451, 0.4285241568627451, 0.5879121568627451, 0.573906156862745, 0.4020261568627451, 0.4267421568627451, 0.4867981568627451, 0.6286341568627452, 0.5129601568627451, 0.645954156862745, 0.7785481568627451, 0.5682661568627451, 0.5705231568627451, 0.6948681568627451, 0.7605361568627451, 0.7669371568627451, 0.7027641568627451, 0.8330661568627451, 0.7990941568627451, 0.7903771568627451, 0.6934761568627451, 0.8141591568627451, 0.8771361568627452, 0.7683551568627451, 0.8009371568627451, 0.8299901568627451, 0.9011971568627452, 1.0456421568627452, 1.165095156862745, 1.096753156862745, 1.032956156862745, 1.157801156862745, 1.180943156862745, 1.027425156862745, 1.062713156862745, 1.3368951568627452, 1.423608156862745, 1.2910621568627452]
+  },
+  "time_basis": "calendar",
+  "title": "Global surface temperature above 1850–1900 (NOAAGlobalTemp)",
+  "unit": {
+    "code": "degC",
+    "label": "degrees Celsius",
+    "short": "°C"
+  },
+  "vintage": "6.1.0.202608"
+}

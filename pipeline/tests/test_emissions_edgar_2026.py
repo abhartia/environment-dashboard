@@ -23,6 +23,8 @@ from envdash.transform import InputFile, discover
 from envdash.transforms.emissions import edgar_2026 as ed
 from envdash.validate import validate_all
 
+from support import exported
+
 SOURCE = "edgar-2026-ghg"
 IDS = {
     "ghg.edgar-2026.total-by-country",
@@ -79,12 +81,12 @@ def test_entity_tables_match_the_crosswalk():
         assert geo.resolve(ours, "iso3") == ours, code
     for code in ed.COMBINED:
         assert geo.entity(code).kind == "country"
-    # Withheld rows stay withheld only while the crosswalk has no entity for them; once geo.py declares one, this
-    # fails so that the row is published.
-    for code in ed.WITHHELD:
-        with pytest.raises(geo.UnknownEntity):
-            geo.resolve(code, "iso3")
-    assert not set(ed.ALIASES) & set(ed.COMBINED) and not set(ed.ALIASES) & set(ed.WITHHELD)
+    assert not set(ed.ALIASES) & set(ed.COMBINED)
+    # Rows once withheld for want of an entity: published since envdash/geo.py declares one.
+    years = (1.0,) * (ed.LAST_YEAR - ed.FIRST_YEAR + 1)
+    assert ed.entity_for(ed.Row("SCG", "Serbia and Montenegro", years)) == ("SRB_MNE", None)
+    assert ed.entity_for(ed.Row("GUF", "French Guiana", years)) == ("GUF", None)
+    assert ed.entity_for(ed.Row("REU", "Réunion", years)) == ("REU", None)
 
 
 def test_undeclared_code_is_refused():
@@ -118,16 +120,16 @@ def test_totals_are_the_cells_unchanged():
     assert fra["1990"].note == 'EDGAR reports this row as "France and Monaco": the value covers them together.'
     assert fra["2025"].note.endswith(ed.FAST_TRACK_NOTE)
     entities = {o.entity for o in obs}
-    assert not entities & {"SCG", "GUF", "REU", "SRB", "MNE"}
-    # 212 coded rows less the three withheld; 56 years each.
-    assert len(entities) == 209 and len(obs) == 209 * 56
-    assert any('SCG "Serbia and Montenegro"' in s for s in result.steps)
+    assert {"SRB_MNE", "GUF", "REU"} <= entities and not entities & {"SCG", "SRB", "MNE"}
+    # Every one of the 212 coded rows; 56 years each.
+    assert len(entities) == 212 and len(obs) == 212 * 56
+    assert any('SCG "Serbia and Montenegro" is SRB_MNE' in s for s in result.steps)
 
 
 @pytest.mark.snapshot
 def test_the_world_row_is_the_sum_of_the_others_as_published():
     # Not used to publish anything (no sums of ours): it shows that GLOBAL TOTAL includes international aviation and
-    # shipping and the withheld rows, as the report says.
+    # shipping, as the report says.
     raw, _ = _current("ghg-booklet")
     rows = ed.read_sheet(ed._cells(raw, (ed.TOTALS_SHEET,))[ed.TOTALS_SHEET], ed.TOTALS_SHEET)
     world = next(r for r in rows if r.code == "GLOBAL TOTAL")
@@ -141,7 +143,8 @@ def test_per_capita_cells_unchanged():
     assert _by(obs, "WLD")["2025"].value == 6.6157426936634
     assert _by(obs, "USA")["2025"].value == 17.533032996426
     assert not {o.entity for o in obs} & {"INTL_AIR", "INTL_SEA"}
-    assert len({o.entity for o in obs}) == 207
+    # SRB_MNE, GUF and REU included.
+    assert len({o.entity for o in obs}) == 210
 
 
 @pytest.mark.snapshot
@@ -233,10 +236,10 @@ def test_build_exports_privately_with_passing_checks(tmp_paths):
         assert (paths.private_indicators / f"{i}.json").exists()
         assert not (paths.public_indicators / f"{i}.json").exists()
         assert not (paths.public_indicators / f"{i}.csv").exists()
-    total = json.loads((paths.private_indicators / "ghg.edgar-2026.total-by-country.json").read_text())
+    total = exported(paths.private_indicators / "ghg.edgar-2026.total-by-country.json")
     assert total["licence_class"] == "no-derivatives"
     assert total["latest"] == {"entity": "WLD", "period": "2025", "value": 54149.174008064, "status": "preliminary",
-                               "dims": {}}  # fmt: skip
+                               "dims": {}, "age_bp": None}  # fmt: skip
     assert "Changes:" not in total["attribution"]
     catalog = json.loads((paths.data / "v1" / "catalog.json").read_text())
     assert all(e["latest"] is None and not e["downloadable"] for e in catalog["indicators"] if e["id"] in IDS)

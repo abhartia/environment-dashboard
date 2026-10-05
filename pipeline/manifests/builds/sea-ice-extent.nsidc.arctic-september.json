@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/sea-ice-extent.nsidc.arctic-september.json",
+  "export_sha256": "e65dbb8cc0ccd0e320038d5d2bc2dedba7ac8a4991f274ce0acdb55b12383f54",
+  "indicator_id": "sea-ice-extent.nsidc.arctic-september",
+  "key": "cdebe51d2b7f53d5867334b4db6d806662f4b498d77dc1b887e63177fe5d5de1",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "nsidc-sea-ice-index/north-monthly-september": {
+        "manifest_sha256": "a1e774a2b0206b8c53003a5359c40b0a1bef955422664b0291de1a74952d14e4",
+        "sha256": "3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "nsidc-sea-ice-index": "5db606fac901a177dc48a7d3b9ecceea54d5099a7fb3a6c1be8fa40993aae10d"
+    },
+    "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
+  },
+  "publisher_checks": []
+}

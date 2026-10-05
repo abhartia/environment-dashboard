@@ -7,7 +7,6 @@ line slice of it is a readable workbook); its sidecar records that the fixture s
 from __future__ import annotations
 
 import dataclasses
-import json
 import shutil
 from decimal import Decimal
 
@@ -30,7 +29,7 @@ from envdash.transforms.emissions.gcb_global import (
 from envdash.transforms.literature import verify_quote
 from envdash.validate import validate_all
 
-from support import fixture, load_fixture_snapshot
+from support import exported, fixture, load_fixture_snapshot
 
 IDS = (
     "emissions.gcb-2025.budget-global",
@@ -131,12 +130,12 @@ def test_build_exports_three_valid_indicators_with_passing_checks(tmp_paths):
     assert [o.state for o in report.outcomes] == ["built"] * 3, [o.reason for o in report.outcomes]
     checks = [c for o in report.outcomes for c in o.checks]
     assert [c.status for c in checks] == ["pass", "pass"]
-    net = json.loads((paths.public_indicators / "emissions.gcb-2025.fossil-net-global.json").read_text())
+    net = exported(paths.public_indicators / "emissions.gcb-2025.fossil-net-global.json")
     assert net["vintage"] == "2025 v1.0"
     assert net["latest"]["period"] == "2024"
     assert any("3.664" in p["description"] for p in net["processing"])
     assert "Changes: cement carbonation sink subtracted" in net["attribution"]
-    budget = json.loads((paths.public_indicators / "emissions.gcb-2025.budget-global.json").read_text())
+    budget = exported(paths.public_indicators / "emissions.gcb-2025.budget-global.json")
     assert budget["latest"]["dims"] == {"component": "fossil"}
     assert [v["id"] for v in budget["dimensions"][0]["values"]] == [
         "fossil",

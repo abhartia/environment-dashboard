@@ -1,6 +1,6 @@
 import { indicator, observation, type Pick } from "@/lib/data";
-import { dataPath } from "@/lib/routes";
-import { formatSigned, formatValue } from "@/lib/format";
+import { dataPath, timeAnchor } from "@/lib/routes";
+import { calendarPeriod, formatSigned, formatValue } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 /**
@@ -30,7 +30,7 @@ export function Num({
 }) {
   const ind = indicator(id);
   if (samePeriodAs && period) throw new Error(`<Num id="${id}">: give period or samePeriodAs, not both`);
-  const obs = observation(id, { entity, period: samePeriodAs ? indicator(samePeriodAs).latest.period : period, dims });
+  const obs = observation(id, { entity, period: samePeriodAs ? calendarPeriod(indicator(samePeriodAs).latest) : period, dims });
   const places = decimals ?? ind.display.decimals;
   if (places > ind.display.decimals) {
     throw new Error(`<Num id="${id}"> asks for ${places} decimals; the indicator is published to ${ind.display.decimals}`);
@@ -40,7 +40,7 @@ export function Num({
   const unitText = unit === "none" ? "" : unit === "label" ? ` ${ind.unit.label}` : unitSpacing(ind.unit.short);
   return (
     <a
-      href={dataPath(id, obs.period)}
+      href={dataPath(id, timeAnchor(obs))}
       data-indicator={id}
       data-period={obs.period}
       data-entity={obs.entity}

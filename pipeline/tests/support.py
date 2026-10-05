@@ -7,7 +7,8 @@ import shutil
 from datetime import date
 from pathlib import Path
 
-from envdash import snapshots
+from envdash import canonical, snapshots
+from envdash.build import load_export
 from envdash.paths import REPO_ROOT, Paths
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -21,6 +22,12 @@ def fixture(source_id: str, artifact_id: str) -> tuple[Path, dict]:
         if meta["artifact_id"] == artifact_id:
             return side.with_name(side.name.removesuffix(".provenance.json")), meta
     raise LookupError(f"no fixture for {source_id}/{artifact_id}")
+
+
+def exported(path: Path) -> dict:
+    """An exported indicator file (an IndicatorFile, observations as columns) expanded to the Indicator it was written
+    from, as plain JSON (observations as records)."""
+    return canonical.to_plain(load_export(path))
 
 
 def make_tmp_paths(tmp_path: Path) -> Paths:

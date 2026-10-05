@@ -29,6 +29,8 @@ from envdash.transform import discover, run_checks, validate
 from envdash.transforms.future import cat_thermometer as cat
 from envdash.validate import validate_all
 
+from support import exported
+
 ID = "warming.cat-2025.thermometer"
 SHA = "44044cda8f851f77d6ca0eeb0750848fb6ee32bab50939df2cc2363e63a8c6c1"
 """The COP30 workbook, 1,165,847 bytes, fetched 2026-10-04 (pipeline/manifests/snapshots/<SHA>.json)."""
@@ -177,7 +179,7 @@ def test_build_writes_only_the_private_export(tmp_path):
     report = build_and_export(paths, reg, [_transform(paths)])
     assert report.ok, [(o.id, o.reason) for o in report.outcomes]
 
-    ind = json.loads((paths.private_indicators / f"{ID}.json").read_text())
+    ind = exported(paths.private_indicators / f"{ID}.json")
     assert ind["licence_class"] == "no-derivatives" and ind["vintage"] == "November 2025"
     assert ind["notice"].startswith("Copyright © 2025 by Climate Analytics and NewClimate Institute.")
     assert "Changes:" not in ind["attribution"]

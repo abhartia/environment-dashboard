@@ -1,0 +1,76 @@
+{
+  "attribution": "NOAA NCEI Ocean Heat Content Climate Data Record (Levitus, Antonov, Boyer et al.), NCEI Accession 0164586, doi:10.7289/V53F4MVP, accessed 2026-10-05; Levitus et al. (2012), Geophys. Res. Lett. 39, L10603, doi:10.1029/2012GL051106.",
+  "description": "Heat stored in the top 700 metres of the world ocean in each year since 1955, as the difference from NCEI's long-term average, in units of 10²² joules, with one standard error.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "ohc.ncei.yearly-0-700m",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 22.845
+  },
+  "licence": {
+    "name": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)",
+    "spdx": null,
+    "url": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "world-0-700m-yearly", "bytes": 4104, "citation_full": "Levitus, Sydney; Antonov, John I.; Boyer, Tim P.; Baranova, Olga K.; García, Hernán E.; Locarnini, Ricardo A.; Mishonov, Alexey V.; Reagan, James R.; Seidov, Dan; Yarosh, Evgeney; Zweng, Melissa M. (2017). NCEI ocean heat content, temperature anomalies, salinity anomalies, thermosteric sea level anomalies, halosteric sea level anomalies, and total steric sea level anomalies from 1955 to present calculated from in situ oceanographic subsurface profile data (NCEI Accession 0164586). Global Ocean Heat and Salt Content - Seasonal, Yearly, and Pentadal Fields. NOAA National Centers for Environmental Information. Dataset. https://doi.org/10.7289/v53f4mvp. Accessed 2026-10-05. Levitus, S., J. I. Antonov, T. P. Boyer, O. K. Baranova, H. E. Garcia, R. A. Locarnini, A.V. Mishonov, J. R. Reagan, D. Seidov, E. S. Yarosh, M. M. Zweng, 2012: World Ocean heat content and thermosteric sea level change (0-2000 m) 1955-2010. Geophys. Res. Lett. , 39, L10603, doi:10.1029/2012GL051106.", "date_accessed": "2026-10-05", "date_published": "2026-07-06", "doi": "10.7289/V53F4MVP", "etag": "\"1008-655f98966e5cc\"", "last_modified": "Mon, 06 Jul 2026 23:21:40 GMT", "licence": {"name": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)", "spdx": null, "url": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Ocean_Heat_Content/UseAgreement_01B-41.pdf"}, "producer": "NOAA National Centers for Environmental Information (NCEI)", "r2_url": null, "sha256": "29114e2df7b856f88876f97ca4f073b5a04786ca86c0d643565a9f035046489b", "source_id": "ncei-ocean-heat", "title": "Global ocean heat content basin time series", "url_download": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/yearly/h22-w0-700m.dat", "url_main": "https://www.ncei.noaa.gov/access/global-ocean-heat-content/", "version_producer": "2026-07-06", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read h22-w0-700m.dat (World Ocean heat content, 0-700 m, in 10^22 joules; last modified by NCEI on 2026-07-06, which is the vintage, since the file carries no version), 71 rows from 1955 to 2025. The time column (year + 0.5) became the year.",
+      "inputs": ["29114e2df7b856f88876f97ca4f073b5a04786ca86c0d643565a9f035046489b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/ncei_ohc.py",
+      "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
+    },
+    {
+      "description": "Published the World Ocean column as printed. Lower and upper are that value minus and plus NCEI's standard error from the next column (one standard error). The hemisphere columns are not published.",
+      "inputs": ["29114e2df7b856f88876f97ca4f073b5a04786ca86c0d643565a9f035046489b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/ocean/ncei_ohc.py",
+      "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": "Difference from NCEI's long-term climatological mean (the World Ocean Atlas series); the files and product pages do not name the climatology's period",
+    "basis": "Yearly means. Heat content anomaly integrated over the layer, calculated by NCEI from in situ subsurface temperature profiles quality controlled in the World Ocean Database (method of Levitus et al. 2012).",
+    "bunkers": null,
+    "geography": "World Ocean (including the Arctic Ocean), sea surface to 700 m depth",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "interval": ["1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma", "1sigma"],
+    "lower": [-4.901, -3.327, -5.009, -2.22, -3.052, -1.941, -2.536, -2.022, -2.922, -4.043, -3.367, -4.4, -4.733, -6.586, -5.014, -6.16, -4.277, -6.393, -4.775, -3.504, -2.018, -3.219, -0.685, -0.38, -1.46, 0.669, -0.427, -3.222, -4.634, -1.721, -1.117, -2.146, -1.424, 0.666, 0.382, -0.729, 2.365, 0.214, 0.245, 0.764, 1.615, 3.479, 2.706, 3.747, 5.674, 5.14, 3.002, 6.266, 9.33, 9.957, 8.095, 10.231, 9.245, 9.588, 9.769, 10.001, 10.424, 10.58, 11.999, 12.783, 14.858, 13.402, 15.526, 16.173, 17.498, 16.842, 18.368, 19.367, 20.318, 21.274, 22.67],
+    "period": ["1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "upper": [-1.501, -1.889, -4.217, -0.846, -1.326, -0.943, -1.694, -0.128, -1.622, -2.199, -2.753, -3.488, -3.989, -4.87, -3.948, -4.436, -3.257, -4.085, -2.263, -2.046, -1.084, -1.987, 0.749, 0.484, -0.46, 1.513, 0.671, -1.39, -0.892, 0.803, 1.337, 0.072, -0.362, 1.51, 1.424, 1.083, 2.927, 0.93, 1.123, 2.256, 2.913, 5.609, 3.784, 4.861, 6.212, 6.204, 5.232, 7.312, 10.574, 10.523, 8.729, 10.629, 9.711, 10.516, 10.483, 10.733, 11.314, 11.302, 13.203, 13.739, 15.386, 14.542, 16.23, 17.271, 17.954, 18.206, 19.102, 20.007, 21.146, 21.664, 23.02],
+    "value": [-3.201, -2.608, -4.613, -1.533, -2.189, -1.442, -2.115, -1.075, -2.272, -3.121, -3.06, -3.944, -4.361, -5.728, -4.481, -5.298, -3.767, -5.239, -3.519, -2.775, -1.551, -2.603, 0.032, 0.052, -0.96, 1.091, 0.122, -2.306, -2.763, -0.459, 0.11, -1.037, -0.893, 1.088, 0.903, 0.177, 2.646, 0.572, 0.684, 1.51, 2.264, 4.544, 3.245, 4.304, 5.943, 5.672, 4.117, 6.789, 9.952, 10.24, 8.412, 10.43, 9.478, 10.052, 10.126, 10.367, 10.869, 10.941, 12.601, 13.261, 15.122, 13.972, 15.878, 16.722, 17.726, 17.524, 18.735, 19.687, 20.732, 21.469, 22.845]
+  },
+  "time_basis": "calendar",
+  "title": "Ocean heat content, 0–700 m, yearly (NCEI)",
+  "unit": {
+    "code": "1e22J",
+    "label": "10²² joules (10 zettajoules)",
+    "short": "10²² J"
+  },
+  "vintage": "2026-07-06"
+}

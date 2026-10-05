@@ -22,7 +22,6 @@ from envdash.transforms.country import cckp
 from envdash.transforms.country.cckp import (
     CLIM_GLOBAL,
     HD35_INPUTS,
-    NO_ENTITY,
     SCENARIOS,
     SOURCE,
     TAS_GLOBAL,
@@ -40,7 +39,8 @@ from envdash.transforms.country.cckp import (
 
 from support import fixture
 
-LEFT_OUT = ["BVT", "CCK", "GUF", "MYT", "REU", "SJM", "UMI"]
+# Areas once left out for want of an entity; published since envdash/geo.py EXTRA_TERRITORIES declares them.
+TERRITORIES = ["BVT", "CCK", "GUF", "MYT", "REU", "SJM", "UMI"]
 
 
 def _input(artifact_id: str, raw: bytes | None = None, tmp_path=None) -> InputFile:
@@ -108,7 +108,7 @@ def test_collection_is_read_from_the_url():
 
 
 def test_hd35_publishes_median_with_the_10_90_range_as_printed():
-    obs, left_out = hd35_observations(_hd35_files())
+    obs = hd35_observations(_hd35_files())
     by = {(o.entity, o.dims["scenario"]): o for o in obs}
     # As printed in the files (the source research read the same two medians by hand on 2026-10-04).
     ind_hist, ind_245 = by[("IND", "historical")], by[("IND", "ssp245")]
@@ -117,10 +117,10 @@ def test_hd35_publishes_median_with_the_10_90_range_as_printed():
     assert ind_hist.status == "final" and ind_245.status == "projection" and ind_245.interval == "range"
     assert by[("ARE", "historical")].value == 183.07
     assert by[("AFG", "ssp126")].value == 58.73
-    # KSV is published as KOS; the seven areas without an entity are left out, never folded into another one.
-    assert ("KOS", "ssp585") in by and not any(e in {"KSV", *LEFT_OUT} for e, _ in by)
-    assert left_out == LEFT_OUT
-    assert len({e for e, _ in by}) == 239 and len(obs) == 239 * len(SCENARIOS)
+    # KSV is published as KOS; the seven overseas territories are published as themselves.
+    assert ("KOS", "ssp585") in by and ("KSV", "ssp585") not in by
+    assert all((e, "ssp245") in by for e in TERRITORIES)
+    assert len({e for e, _ in by}) == 246 and len(obs) == 246 * len(SCENARIOS)
 
 
 def test_hd35_passes_its_validation():
@@ -129,7 +129,7 @@ def test_hd35_passes_its_validation():
     validate(t, res.observations)
     assert res.changes is None
     assert res.vintage == "cmip6-x0.25 hd35, fetched 2026-10-05"
-    assert "Réunion (REU)" in res.steps[-1] and "none was added to another entity" in res.steps[-1]
+    assert "Every CCKP area is published" in res.steps[-1]
 
 
 def test_hd35_refuses_a_file_under_the_wrong_artifact():
@@ -150,9 +150,9 @@ def test_hd35_refuses_a_file_under_the_wrong_artifact():
 def test_codes_resolve_through_geo_with_declared_aliases_only():
     path, _ = fixture(SOURCE, "era5-tas-climatology-1991-2020-countries")
     codes = set(read_payload(path.read_bytes(), "clim"))
-    mapped, left_out = entities_of(codes, "clim")
+    mapped = entities_of(codes, "clim")
     assert mapped["KSV"] == "KOS" and mapped["IND"] == "IND" and mapped["FRA"] == "FRA"
-    assert left_out == LEFT_OUT == sorted(NO_ENTITY)
+    assert all(mapped[c] == c for c in TERRITORIES)
     with pytest.raises(CckpFormatError, match="'XKX' has no entity"):
         entities_of(codes | {"XKX"}, "clim")
 
@@ -168,7 +168,6 @@ def _global_era5() -> Era5:
         climatology={"WLD": clim["GLOBAL"]["1991-07"]},
         start=1950,
         end=2025,
-        left_out=[],
         vintage="test",
     )
 
@@ -185,7 +184,7 @@ def test_global_series_and_its_change_from_1991_2020():
 
 def test_a_climatology_from_another_series_is_refused():
     e = _global_era5()
-    shifted = Era5(e.annual, {"WLD": e.climatology["WLD"] + Decimal("0.02")}, e.start, e.end, [], "test")
+    shifted = Era5(e.annual, {"WLD": e.climatology["WLD"] + Decimal("0.02")}, e.start, e.end, "test")
     with pytest.raises(CckpFormatError, match="more than rounding"):
         check_climatology(shifted)
 
@@ -230,21 +229,22 @@ def test_full_era5_indicators():
         res = t.run({i.key: _current(i.key) for i in t.inputs})
         validate(t, res.observations)
         by = {(o.entity, o.period): o.value for o in res.observations}
-        assert len(res.observations) == 240 * 76
+        # 240 areas before the seven overseas territories were added to the crosswalk, 76 years each.
+        assert len(res.observations) == 247 * 76
         assert res.vintage.startswith("era5-x0.25 1950-2025, fetched ")
         if tid.endswith("absolute"):
             assert (by[("WLD", "2025")], by[("IND", "2025")], by[("KOS", "2025")]) == (14.97, 24.27, 11.75)
             assert res.changes is None
         else:
             assert (by[("WLD", "2025")], by[("IND", "2025")], by[("KOS", "2025")]) == (0.6, 0.06, 1.16)
-            assert "largest difference 0.006 °C" in res.steps[3]
+            assert "largest difference 0.006 °C" in res.steps[2]
             assert res.changes is not None
-        assert not {e for e, _ in by} & {"KSV", "GLOBAL", *LEFT_OUT}
+        assert not {e for e, _ in by} & {"KSV", "GLOBAL"} and set(TERRITORIES) <= {e for e, _ in by}
 
 
 @pytest.mark.snapshot
 def test_full_country_series_matches_the_country_climatology():
     files = {i.key: _current(i.key) for i in cckp.ERA5_INPUTS}
     e = cckp.read_era5(files)
-    assert e.left_out == LEFT_OUT and (e.start, e.end) == (1950, 2025)
+    assert set(TERRITORIES) <= set(e.annual) and (e.start, e.end) == (1950, 2025)
     assert check_climatology(e) == Decimal("0.006")

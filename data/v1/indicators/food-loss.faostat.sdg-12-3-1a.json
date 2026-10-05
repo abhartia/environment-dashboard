@@ -1,0 +1,111 @@
+{
+  "attribution": "FAO. 2026. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.",
+  "description": "The share of the world's food, by economic value, lost after harvest on the farm, in storage, transport and processing, before it reaches shops, each year since 2015, in total and for four commodity groups, as estimated by FAO for SDG indicator 12.3.1a.",
+  "dimensions": [
+    {
+      "id": "commodity",
+      "label": "Commodity group",
+      "values": [
+        {"id": "total", "label": "All commodities"},
+        {"id": "cereals-and-pulses", "label": "Cereals and pulses"},
+        {"id": "fruits-and-vegetables", "label": "Fruits and vegetables"},
+        {"id": "roots-tubers-and-oil-bearing-crops", "label": "Roots, tubers and oil-bearing crops"},
+        {"id": "meat-and-animal-products", "label": "Meat and animal products"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "food-loss.faostat.sdg-12-3-1a",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "commodity": "total"
+    },
+    "entity": "WLD",
+    "period": "2024",
+    "status": "final",
+    "value": 13.4
+  },
+  "licence": {
+    "name": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "sdg-indicators", "bytes": 4721843, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2026-09-29", "doi": null, "etag": "\"197aaefa82038dd11b87f1964f7f77b6\"", "last_modified": "Tue, 29 Sep 2026 07:16:22 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-09-29", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2026-09-29", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-09-29", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read SDG_BulkDownloads_E_All_Data_(Normalized).csv from FAOSTAT's SDGB bulk zip. The vintage is the domain's DateUpdate, 29 September 2026, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 478,304, the number of data rows in this file. The zip was last modified on the server on Tue, 29 Sep 2026 07:16:22 GMT.",
+      "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
+      "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
+    },
+    {
+      "description": "Kept the rows of the five \"12.3.1a Food loss percentage\" items (total and four commodity groups), element \"Value\" (code 6121), unit \"%\", 2015–2024, for WLD; values are published as printed.",
+      "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
+      "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
+    },
+    {
+      "description": "Left out FAO regional and analytical groups (Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, Central Asia and Southern Asia, Eastern Africa, Eastern Asia, Eastern Asia and South-eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Melanesia, Micronesia, Middle Africa, Northern Africa, Northern America, Northern America and Europe, Northern Europe, Oceania, Oceania excluding Australia and New Zealand, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Sub-Saharan Africa, Western Africa, Western Asia, Western Asia and Northern Africa, Western Europe). Their values are never re-assigned to other entities.",
+      "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
+      "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
+    },
+    {
+      "description": "Every value used carries FAO's flag A, which the file's codebook defines as \"Official value\".",
+      "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
+      "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
+    },
+    {
+      "description": "50 of the values carry FAO's note that before July 2022 the series was disseminated under the SDG code \"AG_FLS_IDX\".",
+      "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
+      "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "SDG 12.3.1a food loss percentage (FAO custodian): losses from post-harvest up to, but not including, retail, as a share of production weighted by economic value (international dollar prices). Pre-harvest losses and waste at retail, in food service and in households (SDG 12.3.1b) are not included.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "commodity": ["total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "cereals-and-pulses", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "fruits-and-vegetables", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "roots-tubers-and-oil-bearing-crops", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products", "meat-and-animal-products"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [13.0, 12.8, 12.8, 13.1, 13.3, 13.3, 13.3, 13.2, 13.3, 13.4, 8.5, 8.2, 8.3, 8.5, 8.5, 8.4, 8.4, 8.4, 8.4, 8.4, 23.2, 22.8, 22.4, 24.1, 25.4, 25.4, 25.4, 25.4, 25.4, 26.4, 12.6, 12.3, 12.3, 12.4, 12.3, 12.3, 12.3, 12.3, 12.3, 12.2, 13.9, 13.7, 13.8, 13.9, 14.0, 14.0, 14.0, 14.0, 14.0, 14.1]
+  },
+  "time_basis": "calendar",
+  "title": "Food lost between harvest and retail (SDG 12.3.1a)",
+  "unit": {
+    "code": "percent",
+    "label": "percent of food produced, by economic value",
+    "short": "%"
+  },
+  "vintage": "2026-09-29"
+}

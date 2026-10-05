@@ -44,7 +44,6 @@ def test_world_and_the_three_countries_from_2000():
     r = _read()
     assert {ay.entity for ay in r.groups} == {"WLD", "YEM", "ZMB", "ZWE"}
     assert min(int(ay.year) for ay in r.groups) == 2000
-    assert r.skipped == []
 
 
 def test_shares_and_intensity_are_published_as_printed():
@@ -112,10 +111,10 @@ def test_refuses_an_intensity_that_is_not_emissions_over_generation():
 
 def test_entity_codes_are_resolved_explicitly():
     assert ec.entity_of("XKX", "Kosovo") == "KOS"
-    assert ec.entity_of("GUF", "French Guiana") is None
+    assert ec.entity_of("GUF", "French Guiana") == "GUF" and ec.entity_of("REU", "Reunion") == "REU"
     assert ec.entity_of("ZMB", "Zambia") == "ZMB"
-    with pytest.raises(EmberFormatError, match="not 'Reunion'"):
-        ec.entity_of("REU", "Réunion")
+    with pytest.raises(EmberFormatError, match="no ISO 3 code"):
+        ec.entity_of(None, "Zambia")
     with pytest.raises(geo.UnknownEntity):
         ec.entity_of("ZZZ", "an ISO code with no entity")
 
@@ -132,9 +131,9 @@ def _current(key: str) -> InputFile:
 
 
 @pytest.mark.snapshot
-def test_full_file_withholds_negative_generation_years_and_skips_two_territories():
+def test_full_file_withholds_negative_generation_years_and_publishes_the_overseas_regions():
     r = ec.read(read_table(_current(GENERATION.key).path.read_bytes()))
-    assert r.skipped == ["French Guiana", "Reunion"]
+    assert {"GUF", "REU"} <= {ay.entity for ay in r.groups}
     withheld = [(ay.entity, ay.year) for ay in r.groups if ec.negative_rows(ay)]
     assert ("CRI", "2025") in withheld and len(withheld) == 11
     clean = _by(ec.clean_observations(r))

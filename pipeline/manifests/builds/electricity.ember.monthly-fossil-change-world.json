@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/electricity.ember.monthly-fossil-change-world.json",
+  "export_sha256": "27ea279b6b97b4a741453bbf0f70245395b4cc503590b6ceaa660fbca7035c92",
+  "indicator_id": "electricity.ember.monthly-fossil-change-world",
+  "key": "bfa3f9f240296fad15b4b7b6d87551868657e0a4badad222530a50dd69ad3937",
+  "key_parts": {
+    "contract_sha256": "07d353b04fc1ace41a115dad8c58139a4d859c5dbeefcb63ae534bd2a2564829",
+    "inputs": {
+      "ember-monthly/generation-monthly-global": {
+        "manifest_sha256": "4981ac292a381de5ed6ca8419f29648a0139c6a52c1ea72b272148c2f965bc21",
+        "sha256": "6c8a587a5dfe32277616135e3c5af8e3cb60dff8eba1d4bc18b9b936b0c75d55"
+      }
+    },
+    "key_files": {
+      "pipeline/src/envdash/transforms/energy/ember_yearly.py": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "ember-monthly": "58c27c057dd38dfb5398bb49c40c9a3a183abf4ddae4031a57f363d4bd87a5c8"
+    },
+    "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
+  },
+  "publisher_checks": []
+}

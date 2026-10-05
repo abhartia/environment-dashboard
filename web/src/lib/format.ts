@@ -42,3 +42,19 @@ export function formatPeriod(period: string): string {
   if (!month) throw new Error(`formatPeriod: bad month in ${period}`);
   return d ? `${Number(d)} ${month} ${y}` : `${month} ${y}`;
 }
+
+/**
+ * When an observation is, in words: its ISO period ("August 2026"), or for a series dated by age (an ice core) its
+ * age ("12,000 years before 1950").
+ */
+export function formatWhen(t: { period: string | null; age_bp?: number | null }): string {
+  if (t.period !== null) return formatPeriod(t.period);
+  if (t.age_bp === null || t.age_bp === undefined) throw new Error("formatWhen: neither a period nor an age");
+  return `${formatValue(t.age_bp, 0)} years before 1950`;
+}
+
+/** A calendar observation's period. Age-dated (years-before-1950) values have none; callers that need one fail loudly. */
+export function calendarPeriod(t: { period: string | null }): string {
+  if (t.period === null) throw new Error("expected a calendar period, got an age-dated (years-before-1950) value");
+  return t.period;
+}

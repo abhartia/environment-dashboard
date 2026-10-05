@@ -5,7 +5,7 @@ import { Container } from "@/components/site/container";
 import { PageHeader } from "@/components/site/page-header";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { catalog } from "@/lib/data";
-import { formatPeriod, formatValue } from "@/lib/format";
+import { formatValue, formatWhen } from "@/lib/format";
 import { producers } from "@/lib/provenance";
 import { dataPath } from "@/lib/routes";
 import { canonical } from "@/lib/site-url";
@@ -52,7 +52,7 @@ export default function Page() {
                     </Link>
                   </TableCell>
                   <TableCell className="num whitespace-nowrap">
-                    {e.latest ? `${formatValue(e.latest.value, e.display.decimals)} ${e.unit.short}, ${formatPeriod(e.latest.period)}` : "on its page"}
+                    {e.latest ? `${formatValue(e.latest.value, e.display.decimals)} ${e.unit.short}, ${formatWhen(e.latest)}` : "on its page"}
                   </TableCell>
                   <TableCell>{producers(e).join(", ")}</TableCell>
                   <TableCell className="num">{e.vintage}</TableCell>
