@@ -17,6 +17,12 @@
 #     GHG_totals_by_country, GHG_by_sector_and_country (by substance: CO2, GWP_100_AR5_CH4, _N2O, _F-gases),
 #     GHG_per_GDP_by_country, GHG_per_capita_by_country, LULUCF_macroregions, LULUCF_countries. Fossil-CO2-only booklet:
 #     200, 1,550,592 bytes, Last-Modified 3 Sep 2026. If-Modified-Since -> 304 on both.
+#   - Report PDF (booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf, linked from report_2026 as
+#     "GHG emissions of all world countries - 2026 Report"): checked 2026-10-05, 200, 6,465,096 bytes, Last-Modified
+#     9 Sep 2026, If-Modified-Since -> 304. 301 pages. It states the gas shares of the 2025 world total (PDF page 11)
+#     and, in Annex 5 (PDF page 75), the World profile: gas shares and the change by sector (2025 vs 1990, 2005 and
+#     2024). The report_2026 web page is not registered: its HTML carries a new nonce on every request, so every fetch
+#     would be a new vintage.
 #   - attribution_modified is deliberately null: this class allows no transformation beyond extracting the published
 #     values, so the plain attribution applies.
 id: edgar-2026-ghg
@@ -109,6 +115,13 @@ artifacts:
     format: xlsx
     description: >-
       Fossil-CO2-only booklet: totals, by sector, per person and per GDP, by country, 1970-2025 (Mt CO2).
+  - id: report-pdf
+    url: https://edgar.jrc.ec.europa.eu/booklet/GHG_emissions_of_all_world_countries_booklet_2026report.pdf
+    format: pdf
+    description: >-
+      The report itself, "GHG emissions of all world countries - 2026 Report" (JRC147815, 301 pages): main findings,
+      gas and sector statements, and a one-page profile for the world, international transport, the EU27 and every
+      country.
 status:
   state: active
   note: >-
