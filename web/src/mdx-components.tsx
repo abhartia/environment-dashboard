@@ -4,6 +4,7 @@ import { isValidElement, type ComponentProps, type ReactNode } from "react";
 
 import { Num } from "@/components/data/num";
 import { PeriodOf } from "@/components/data/period-of";
+import { Explorer } from "@/components/explorer/explorer";
 import { IndicatorFigure } from "@/components/viz/indicator-figure";
 import { WarmingStripes } from "@/components/viz/warming-stripes";
 import { slugify } from "@/lib/slugify";
@@ -97,6 +98,7 @@ const components: MDXComponents = {
   Num,
   PeriodOf,
   IndicatorFigure,
+  Explorer,
   WarmingStripes,
 };
 
