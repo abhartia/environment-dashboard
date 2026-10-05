@@ -21,6 +21,11 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
 - **Data and sources** (`/data/...`, `/sources/...`) stay as they are: every number links to its data page and the
   Trace panel. The one-line credit under each view names the producers and licences and links to the data pages,
   which carry each licence's full attribution.
+- **One screen, no footer.** Home and the chapters live in the `(dash)` route group, whose layout is exactly the
+  viewport (`h-svh`, overflow hidden): views fill the space left under the header with `h-full`, never a calc. The
+  reference pages (`(site)`: data, sources, methods, about) scroll as documents. There is no footer anywhere: the
+  header menu holds the reference links and the disclaimers, every page links to `/about`, and `/about` carries the
+  disclaimers (check-build enforces both).
 
 ## How a node is made
 

@@ -36,9 +36,9 @@ export function SiteSearch() {
         }}
       >
         <Search aria-hidden="true" />
-        <span className="hidden lg:inline">Search</span>
-        <kbd className="hidden rounded border border-border px-1 font-sans text-[0.7rem] lg:inline">⌘K</kbd>
-        <span className="sr-only lg:hidden">Search</span>
+        {/* Visible where the header has room (lg without the chapter nav, 2xl with it); a screen-reader label elsewhere. */}
+        <span className="sr-only lg:not-sr-only xl:sr-only 2xl:not-sr-only">Search</span>
+        <kbd className="hidden rounded border border-border px-1 font-sans text-[0.7rem] lg:inline xl:hidden 2xl:inline">⌘K</kbd>
       </Button>
       {requested ? <SearchDialog open={open} onOpenChange={setOpen} /> : null}
     </>

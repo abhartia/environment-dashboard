@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { Disclaimers } from "@/components/site/disclaimers";
 import { ProsePage } from "@/components/site/prose-page";
 import { BRAND } from "@/lib/site";
 import { canonical } from "@/lib/site-url";
@@ -42,6 +43,8 @@ export default function Page() {
         <Link href="/corrections">Corrections</Link>. If a number looks wrong, open its data page and use “Report a
         problem”, or write to <span className="select-all">{BRAND.email}</span>.
       </p>
+      <h2>Terms</h2>
+      <Disclaimers className="not-prose text-sm" />
     </ProsePage>
   );
 }

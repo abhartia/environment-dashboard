@@ -62,7 +62,7 @@ export function StoryTimeline({ rows, from, to }: { rows: StoryRow[]; from: numb
   const ticks = scaleLinear().domain([from, to]).ticks(6).filter(Number.isInteger);
 
   return (
-    <div className="flex h-[calc(100svh-3.5rem)] min-h-[36rem] flex-col py-3 sm:py-5">
+    <div className="flex h-full flex-col py-3 sm:py-5">
       <div className="flex items-end justify-between gap-4 pb-2 sm:pb-4">
         <div>
           <h1 className="text-2xl sm:text-4xl">The climate, {from} to today</h1>

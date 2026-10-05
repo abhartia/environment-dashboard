@@ -8,20 +8,23 @@ import { Mark, Wordmark } from "@/components/site/wordmark";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+    <header className="sticky top-0 z-40 h-14 shrink-0 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-sm focus:text-primary-foreground"
       >
         Skip to content
       </a>
-      <Container className="flex h-14 items-center gap-6">
+      <Container className="flex h-full max-w-7xl items-center gap-6">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Environment Dashboard home">
           <Mark />
           <Wordmark />
         </Link>
         <NavLinks />
         <div className="ml-auto flex items-center gap-1">
+          <Link href="/about" className="hidden px-2 text-sm text-muted-foreground hover:text-foreground sm:inline">
+            About
+          </Link>
           <SiteSearch />
           <MobileNav />
         </div>

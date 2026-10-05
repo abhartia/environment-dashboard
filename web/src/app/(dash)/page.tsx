@@ -10,7 +10,7 @@ export default function Home() {
   const rows = storyRows();
   const to = Math.max(...rows.flatMap((r) => [...r.values.map((v) => v.x), ...r.series.flatMap((s) => s.points.map((p) => p[0]))]));
   return (
-    <Container className="max-w-7xl">
+    <Container className="h-full max-w-7xl">
       <StoryTimeline rows={rows} from={STORY_FROM} to={to} />
     </Container>
   );

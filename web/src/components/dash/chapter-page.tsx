@@ -6,7 +6,7 @@ import type { ChapterSlug } from "@/lib/dash/meta";
 /** A chapter: the drill-down canvas opened on the chapter's first node, filling the screen below the header. */
 export function ChapterPage({ slug }: { slug: ChapterSlug }) {
   return (
-    <Container>
+    <Container className="h-full max-w-7xl">
       <DrillCanvas chapter={slug} initial={CHAPTERS[slug].node("root")} />
     </Container>
   );

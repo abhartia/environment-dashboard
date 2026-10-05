@@ -25,8 +25,8 @@ Tests: `cd pipeline && uv run pytest` · `cd web && npm run typecheck && npm run
 ## Licences
 
 - Code: MIT (`LICENSE`).
-- Site text: CC BY 4.0 (`LICENSE-CONTENT`). Figures and data carry the licence shown in their footer and in
-  `data/datapackage.json`, which follows each producer's terms.
+- Site text: CC BY 4.0 (`LICENSE-CONTENT`). Figures and data carry the licence named under each view and on its
+  data page, and in `data/datapackage.json`, which follows each producer's terms.
 - Producers and their required credits: `NOTICE` and each page under `/sources`.
 
 ## Report a problem with a number

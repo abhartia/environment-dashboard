@@ -104,7 +104,7 @@ function Canvas({ chapter, initial }: { chapter: string; initial: DrillNode }) {
 
   if (query.isError && !query.data) {
     return (
-      <div className="grid h-[calc(100svh-3.5rem)] content-center gap-4">
+      <div className="grid h-full content-center gap-4">
         <p className="text-2xl font-bold tracking-tight">This view could not be loaded.</p>
         <p className="text-muted-foreground">
           The file <code className="code-id">{nodeUrl(chapter, id)}</code> did not load ({String(query.error.message)}).
@@ -125,7 +125,7 @@ function Canvas({ chapter, initial }: { chapter: string; initial: DrillNode }) {
   const t = { duration: reduce ? 0 : 0.45, ease: EASE };
 
   return (
-    <div className="flex h-[calc(100svh-3.5rem)] min-h-[34rem] flex-col gap-3 py-3 sm:gap-4 sm:py-5" aria-busy={loading}>
+    <div className="flex h-full flex-col gap-3 py-3 sm:gap-4 sm:py-5" aria-busy={loading}>
       {/* The path so far: each earlier idea, then this one. */}
       <nav aria-label="The path so far" className="flex min-h-8 items-center gap-2 overflow-x-auto text-sm whitespace-nowrap">
         {parent ? (

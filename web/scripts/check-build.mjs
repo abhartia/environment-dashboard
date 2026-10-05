@@ -1,7 +1,7 @@
 // Post-build checks on the static export in out/ (structure and helpers from gigabiome). Fails the build on:
 //  - missing robots.txt, sitemap.xml, llms.txt, 404.html or the IndexNow key file
 //  - a sitemap URL without an HTML file, or whose canonical isn't itself on https://environmentdashboard.org
-//  - an indexable page without exactly one <h1>, or without the footer disclaimers
+//  - an indexable page without exactly one <h1>, or without a link to /about; /about without the disclaimers
 //  - "live"/"real-time" claims, fabricated social proof, or imperative advice ("you should") in visible text
 //  - implementation vocabulary in story copy (format names are fine on /data, /sources, /methods, /status)
 //  - a [data-indicator] that doesn't resolve in the catalogue, or whose indicator has no /data page
@@ -157,7 +157,8 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
   if (page !== "404.html" && !html.includes(NOINDEX)) {
     const h1s = count(markup, /<h1[\s>]/g);
     if (h1s !== 1) fail(`${page}: ${h1s} <h1> elements, expected exactly 1`);
-    if (!markup.includes("data-footer-disclaimers")) fail(`${page}: missing the footer disclaimers`);
+    // No footer: every page links to /about, which carries the disclaimers (checked below).
+    if (!/<a\b[^>]*\shref="\/about"/.test(markup)) fail(`${page}: no link to /about (where the disclaimers are)`);
   }
 
   // Internal links must land on a page or a file in the export (no links to stories that do not exist yet).
@@ -170,6 +171,11 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
     if (!indicators.has(id)) fail(`${page}: data-indicator="${id}" is not in data/v1/catalog.json`);
     else if (!existsSync(join(OUT, "data", `${id.split(".").join("/")}.html`))) fail(`${page}: ${id} has no data page`);
   }
+}
+
+{
+  const about = join(OUT, "about.html");
+  if (!existsSync(about) || !readFileSync(about, "utf8").includes("data-disclaimers")) fail("about.html: missing the disclaimers");
 }
 
 if (errors.length) {

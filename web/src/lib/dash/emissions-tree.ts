@@ -78,7 +78,7 @@ function sources(): Built {
     id: "sources",
     parent: "root",
     crumb: "By source",
-    kicker: "Where it comes from",
+    kicker: "Carbon dioxide from burning fuel, or from clearing land",
     headline: headline(BUDGET, "WLD", { component: "fossil" }),
     sentence: `from fossil fuels and industry; the green band is clearing and burning land. The first view's total also subtracts the carbon cement takes back up as it ages.`,
     chart: area(s, ind.unit.short, ind.display.decimals, true),
@@ -135,7 +135,7 @@ function fuelCountries(f: (typeof FUELS)[number]): Built {
     id: `fuel-${f.id}-countries`,
     parent: `fuel-${f.id}`,
     crumb: "By country",
-    kicker: `Where ${f.label.toLowerCase()} is burned`,
+    kicker: `Which countries emit the most from ${f.label.toLowerCase()}`,
     headline: headline(BY_FUEL, top[0].entity, { fuel: f.id }, year),
     sentence: `from ${f.label.toLowerCase()} in ${entityName(top[0].entity)}, the largest, in ${year}. Select a country.`,
     chart: bars(
@@ -160,7 +160,7 @@ function countries(): Built {
     id: "countries",
     parent: "root",
     crumb: "By country",
-    kicker: "The largest emitters",
+    kicker: "Which countries emit the most carbon dioxide",
     headline: headline(BY_COUNTRY, top[0].entity, {}, year),
     sentence: `from fossil fuels in ${entityName(top[0].entity)}, the largest emitter, in ${year}. Select a country.`,
     chart: bars(
@@ -184,10 +184,10 @@ function perPerson(): Built {
   return {
     id: "per-person",
     parent: "root",
-    crumb: "Per person",
-    kicker: "The largest emitters, per person",
+    crumb: "Average per person",
+    kicker: "Each country's average per person",
     headline: headline(PER_CAPITA, "WLD", {}, year),
-    sentence: `from fossil fuels, on average worldwide, in ${year}. The bars are the largest emitters.`,
+    sentence: `from fossil fuels, the world average in ${year}. Each bar is a large emitter's national average: its total divided by its people, not any one person's footprint.`,
     chart: bars(
       rows.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: COUNTRY_COLOUR, drill: `c-${r.entity}-per-person` })),
       ind.unit.short,
@@ -254,10 +254,10 @@ function countryPerPerson(iso: string): Built {
   return {
     id: `c-${iso}-per-person`,
     parent: `c-${iso}`,
-    crumb: "Per person",
-    kicker: `${name}, per person, against the world average`,
+    crumb: "Average per person",
+    kicker: `${name}: the average per person, against the world`,
     headline: headline(PER_CAPITA, iso),
-    sentence: `from fossil fuels in ${name}, in ${headline(PER_CAPITA, iso).period}. The grey line is the world average.`,
+    sentence: `from fossil fuels, ${name}'s national average in ${headline(PER_CAPITA, iso).period}: its total divided by its people. The grey line is the world average.`,
     chart: line(
       [
         { key: iso, label: name, colour: COUNTRY_COLOUR, points: points(PER_CAPITA, iso) },

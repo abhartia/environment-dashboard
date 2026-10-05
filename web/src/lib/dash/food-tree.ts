@@ -90,7 +90,7 @@ function countries(): Built {
     id: "countries",
     parent: "root",
     crumb: "By country",
-    kicker: "Where food emissions come from",
+    kicker: "Which countries' food systems emit the most",
     headline: headline(BY_COUNTRY, top[0].entity, {}, year),
     sentence: `from ${entityName(top[0].entity)}'s food and farming in ${year}, the largest. Select a country.`,
     chart: bars(

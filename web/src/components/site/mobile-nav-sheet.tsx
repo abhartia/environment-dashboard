@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { Disclaimers } from "@/components/site/disclaimers";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { FOOTER_NAV, NAV } from "@/lib/site";
@@ -51,15 +52,16 @@ export function MobileNavSheet({
         <SheetHeader>
           <SheetTitle className="eyebrow">Menu</SheetTitle>
         </SheetHeader>
-        <nav aria-label="Main mobile" className="grid gap-1 px-4">
+        <nav aria-label="Chapters, menu" className="grid gap-1 px-4">
           {NAV.map((n) => item(n.href, n.label, true))}
         </nav>
         <div className="px-4">
           <Separator />
         </div>
-        <nav aria-label="About the data, mobile" className="grid grid-cols-2 gap-1 px-4">
+        <nav aria-label="About the data, menu" className="grid grid-cols-2 gap-1 px-4">
           {FOOTER_NAV.map((n) => item(n.href, n.label, false))}
         </nav>
+        <Disclaimers className="mt-auto px-6 pb-6" />
       </SheetContent>
     </Sheet>
   );
