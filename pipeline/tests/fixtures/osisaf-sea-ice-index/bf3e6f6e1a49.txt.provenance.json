@@ -1,0 +1,13 @@
+{
+  "artifact_id": "nh-extent-monthly",
+  "command": "uv run python tests/fixtures/make_fixture.py --source osisaf-sea-ice-index --artifact nh-extent-monthly --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 17861,
+  "fixture_sha256": "bf3e6f6e1a49c6aaaf33049ad456ec27f49ecee27e007f2b66465633802d6607",
+  "full_bytes": 17861,
+  "full_sha256": "bf3e6f6e1a49c6aaaf33049ad456ec27f49ecee27e007f2b66465633802d6607",
+  "licence": "CC BY 4.0",
+  "rows_kept": "the whole file (17,861 bytes)",
+  "source_id": "osisaf-sea-ice-index",
+  "url": "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt"
+}
