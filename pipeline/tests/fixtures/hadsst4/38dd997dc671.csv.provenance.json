@@ -1,0 +1,15 @@
+{
+  "artifact_id": "global-annual",
+  "command": "uv run python tests/fixtures/make_fixture.py --source hadsst4 --artifact global-annual --first 3 --last 3",
+  "data_rows_total": 176,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 670,
+  "fixture_sha256": "dfa1134c0a4e4c7189d21e43231c11d8a1e4a6937724261a44bb2967852bb30e",
+  "full_bytes": 14097,
+  "full_sha256": "38dd997dc6716cdae019e41d37a5436178d07554a7d69287411904c14e67fa01",
+  "header_lines": 1,
+  "licence": "Open Government Licence v3.0 (Crown copyright)",
+  "rows_kept": "data rows 1-3 and 174-176 of 176",
+  "source_id": "hadsst4",
+  "url": "https://www.metoffice.gov.uk/hadobs/hadsst4/data/data/HadSST.4.2.0.0_annual_GLOBE.csv"
+}

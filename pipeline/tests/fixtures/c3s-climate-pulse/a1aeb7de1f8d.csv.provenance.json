@@ -1,0 +1,15 @@
+{
+  "artifact_id": "sea-surface-temperature-daily",
+  "command": "uv run python tests/fixtures/make_fixture.py --source c3s-climate-pulse --artifact sea-surface-temperature-daily --first 3 --last 10",
+  "data_rows_total": 17443,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 1668,
+  "fixture_sha256": "e9818f96eee75e3db20f4fd2bcf355e5cfaf04849680f7ec8568609997e79926",
+  "full_bytes": 656402,
+  "full_sha256": "a1aeb7de1f8d2c2c77f1ba0bb026e2447a82b3b2449f7e8edc733ed641da9b6b",
+  "header_lines": 19,
+  "licence": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)",
+  "rows_kept": "data rows 1-3 and 17434-17443 of 17443",
+  "source_id": "c3s-climate-pulse",
+  "url": "https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_sst_60S-60N_ocean.csv"
+}
