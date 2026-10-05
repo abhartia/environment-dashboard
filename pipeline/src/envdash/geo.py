@@ -88,6 +88,7 @@ AGGREGATES: dict[str, str] = {
 
 STATIONS: dict[str, str] = {
     "MLO": "Mauna Loa Observatory, Hawaii",
+    "LAWDOME": "Law Dome ice cores, Antarctica",
 }
 
 

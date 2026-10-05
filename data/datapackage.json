@@ -5,6 +5,157 @@
   "name": "environment-dashboard",
   "resources": [
     {
+      "bytes": 16699,
+      "description": "How much each of 28 household consumption options cut greenhouse gas emissions per person per year in the studies reviewed by Ivanova et al. (2020): the mean, the median and the range across studies, for the options whose values the article's text states. The values mostly come from high-income settings, depend on context (the electricity mix, the car replaced, the starting diet) and do not add up across options.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0520fce9b7eb643aba6f3edaf8375d53a2b456af038f7d8449c714bb8bdc3df4",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "action.ivanova-2020.options",
+      "path": "v1/indicators/action.ivanova-2020.options.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "tonnes of CO₂-equivalent per person per year (tCO2e-per-capita-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"name": "domain", "title": "Consumption domain", "type": "string"},
+          {"name": "option", "title": "Consumption option", "type": "string"},
+          {"name": "statistic", "title": "Statistic", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1088/1748-9326/ab8589", "title": "Ivanova, Barrett, Wiedenhofer, Macura, Callaghan and Creutzig (University of Leeds, BOKU Vienna, Stockholm Environment Institute, MCC Berlin); published in Environmental Research Letters (IOP Publishing): Mitigation potential of household consumption options (Ivanova et al. 2020)"}
+      ],
+      "title": "Emission cuts from household consumption options (Ivanova et al. 2020)"
+    },
+    {
+      "bytes": 871,
+      "description": "How much more carbon dioxide could be emitted from the start of 2026 while keeping a 50% chance of limiting global warming to 1.5 °C, as estimated by Indicators of Global Climate Change 2025. The likelihood reflects only uncertainty in how much warming each tonne of carbon dioxide causes. The estimate assumes deep cuts in other greenhouse gases and aerosols; IGCC states it could be around 200 billion tonnes higher or lower depending on how far those cuts go.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:61341a5ef5d43a1e2bdeae6a4d7a8d09e030142bd8abaf6d5f06a4a6636d06a7",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "budget.igcc-2025.remaining-1p5",
+      "path": "v1/indicators/budget.igcc-2025.remaining-1p5.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide (GtCO2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
+      ],
+      "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (50% likelihood)"
+    },
+    {
+      "bytes": 3949,
+      "description": "Annual mean methane in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 1984.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:6249c003604c29ee106a6e88373e8eb2e4fb2f26659f6f5cb60348f5747c282f",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ch4.noaa-gml.annual-global",
+      "path": "v1/indicators/ch4.noaa-gml.annual-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "parts per billion (ppb)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://gml.noaa.gov/ccgg/trends_doi.html", "title": "NOAA Global Monitoring Laboratory: Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride"}
+      ],
+      "title": "Methane, global annual mean"
+    },
+    {
+      "bytes": 92652,
+      "description": "Carbon dioxide in air trapped in ice and firn at Law Dome, East Antarctica, as CSIRO's smoothing-spline fit for each year from 154 to 1996 CE.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:24939cab71dae8eede4584959a6fe97294393f82ae98641afb49c3bf2e26dc10",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "co2.law-dome.2k",
+      "path": "v1/indicators/co2.law-dome.2k.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "parts per million (ppm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data.csiro.au/collection/csiro:37077", "title": "CSIRO (with the Australian Antarctic Division and ANSTO): Law Dome ice core 2000-year CO2, CH4, N2O and delta-13C-CO2"}
+      ],
+      "title": "Carbon dioxide over the last 2,000 years (Law Dome ice cores)"
+    },
+    {
       "bytes": 4318,
       "description": "Annual mean carbon dioxide in dry air averaged over NOAA's global network of marine surface sites, since 1979.",
       "dialect": {
@@ -37,7 +188,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide, methane and nitrous oxide"}
+        {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide"}
       ],
       "title": "Carbon dioxide, global annual mean"
     },
@@ -74,9 +225,606 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide, methane and nitrous oxide"}
+        {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide"}
       ],
       "title": "Carbon dioxide at Mauna Loa, monthly mean"
+    },
+    {
+      "bytes": 3026,
+      "description": "Share of the world's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:6c415f3230fa4e2e7e82b1f7a3fad8929cf833d15b2b650026d33604925fd9a5",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.clean-share-world",
+      "path": "v1/indicators/electricity.ember.clean-share-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "Share of world electricity from clean sources"
+    },
+    {
+      "bytes": 22589,
+      "description": "Share of the world's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels), each year since 2000, as published by Ember.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:81e767855df3f96af1fd5a072e1fbee12152623e79959286ab22d3cb61844efe",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.ember.mix-world",
+      "path": "v1/indicators/electricity.ember.mix-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"name": "source", "title": "Electricity source", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "World electricity generation by source"
+    },
+    {
+      "bytes": 45794,
+      "description": "Each year since 1959, the carbon dioxide released by fossil fuels and industry and by land-use change, and where it went: growth in the atmosphere, uptake by the ocean, by land ecosystems and by cement as it ages (the cement carbonation sink). The budget imbalance is what the estimates of emissions and sinks do not account for.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:281ac86adaf9e830a7c770512bfd3e2f370e91ede021c50764cc5f611729a0ac",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.budget-global",
+      "path": "v1/indicators/emissions.gcb-2025.budget-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"name": "component", "title": "Budget component", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.icos-cp.eu/GCP/2025", "title": "Global Carbon Project: Global Carbon Budget 2025: global sources and sinks of carbon dioxide"}
+      ],
+      "title": "Global carbon dioxide budget: emissions and where they go"
+    },
+    {
+      "bytes": 894,
+      "description": "The Global Carbon Project's projection that carbon dioxide emissions from fossil fuels and industry grew by 1.0 percent from 2024 to 2025 (range 0.2 to 1.7 percent), made from data for part of 2025.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4d1dde7a465be5fe6ba4ffb1ec10ff5c5a477c0bc385507c481b30069b6c00bf",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.fossil-growth-2025-projection",
+      "path": "v1/indicators/emissions.gcb-2025.fossil-growth-2025-projection.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "percent change from 2024 (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5194/essd-18-3211-2026", "title": "Global Carbon Project; published by Copernicus Publications in Earth System Science Data: Global Carbon Budget 2025 (Friedlingstein et al. 2026, Earth System Science Data)"}
+      ],
+      "title": "Projected change in fossil carbon dioxide emissions, 2024 to 2025 (Global Carbon Budget)"
+    },
+    {
+      "bytes": 889,
+      "description": "The Global Carbon Project's projection of carbon dioxide emissions from fossil fuels and industry in 2025, made from data for part of the year: 38.1 billion tonnes, 1.0 percent more than in 2024 (range 0.2 to 1.7 percent). It is net of the carbon dioxide that cement takes back up as it ages (the cement carbonation sink), like the paper's headline value for 2024.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:30328c06152ef747b63794b84fdf3329280e7074903aacc472f45456384d23e0",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.fossil-net-2025-projection",
+      "path": "v1/indicators/emissions.gcb-2025.fossil-net-2025-projection.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5194/essd-18-3211-2026", "title": "Global Carbon Project; published by Copernicus Publications in Earth System Science Data: Global Carbon Budget 2025 (Friedlingstein et al. 2026, Earth System Science Data)"}
+      ],
+      "title": "Fossil carbon dioxide emissions projected for 2025 (Global Carbon Budget)"
+    },
+    {
+      "bytes": 6421,
+      "description": "Carbon dioxide released each year since 1959 by burning fossil fuels, making cement and other industrial processes, minus the carbon dioxide that cement takes back up as it ages. This is the Global Carbon Budget's headline fossil emissions value.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:37045a8bc219420c2ce7b324592d9117b38c897b28f35115ef48b53d0254f282",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.fossil-net-global",
+      "path": "v1/indicators/emissions.gcb-2025.fossil-net-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.icos-cp.eu/GCP/2025", "title": "Global Carbon Project: Global Carbon Budget 2025: global sources and sinks of carbon dioxide"}
+      ],
+      "title": "Fossil carbon dioxide emissions, world (Global Carbon Budget)"
+    },
+    {
+      "bytes": 872,
+      "description": "How much more carbon dioxide could be emitted from the beginning of 2026 for an even (50 percent) chance of limiting global warming to 1.5 °C, according to the Global Carbon Budget 2025: 170 billion tonnes, which the paper puts at around 4 years of emissions at the 2025 level.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:11ad171f961ad863392a2f280a7efc62b10b9dad51668e8b5c89d4c3636d5d2e",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.remaining-budget-1-5c",
+      "path": "v1/indicators/emissions.gcb-2025.remaining-budget-1-5c.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide (GtCO2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5194/essd-18-3211-2026", "title": "Global Carbon Project; published by Copernicus Publications in Earth System Science Data: Global Carbon Budget 2025 (Friedlingstein et al. 2026, Earth System Science Data)"}
+      ],
+      "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (Global Carbon Budget)"
+    },
+    {
+      "bytes": 6405,
+      "description": "Carbon dioxide released each year since 1959 by fossil fuels and industry (net of the cement carbonation sink) and by land-use change such as deforestation.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:1f2a0ad0698ead3bf8bfb4fe4cc6c0bd6b34d454685a208e0d9f68b72eb73d1e",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "emissions.gcb-2025.total-co2-global",
+      "path": "v1/indicators/emissions.gcb-2025.total-co2-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.icos-cp.eu/GCP/2025", "title": "Global Carbon Project: Global Carbon Budget 2025: global sources and sinks of carbon dioxide"}
+      ],
+      "title": "Total carbon dioxide emissions from human activity, world (Global Carbon Budget)"
+    },
+    {
+      "bytes": 3276,
+      "description": "Greenhouse gas emissions from the world's food and farming systems each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e37cb4d7ba5801914c0cd678cd3797acaa1fb4a3650ec466bc8690ed51307357",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.agrifood-emissions-world",
+      "path": "v1/indicators/food.faostat.agrifood-emissions-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion tonnes of carbon dioxide equivalent (GtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Greenhouse gas emissions from agrifood systems, world"
+    },
+    {
+      "bytes": 3719,
+      "description": "The part of the world's greenhouse gas emissions, including land use, land-use change and forestry, that comes from food and farming systems, each year since 1990, as estimated by FAO.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d0e46e61974b0f86f7661e5ae48411dbb42c22ea16f9d6b0ba763d31b171aa56",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.agrifood-emissions-world.share",
+      "path": "v1/indicators/food.faostat.agrifood-emissions-world.share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "percent of global greenhouse gas emissions (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Agrifood systems' share of global greenhouse gas emissions"
+    },
+    {
+      "bytes": 4818,
+      "description": "Methane released each year since 1961 by the world's farm animals, from digestion (enteric fermentation) and from manure management, as estimated by FAO.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:69d5af06610c861a30f9da4bf1ec9eff2682c3999be798ea18914e7d0999ac91",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food.faostat.livestock-ch4-world",
+      "path": "v1/indicators/food.faostat.livestock-ch4-world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "million tonnes of methane (MtCH4)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, land use and food loss"}
+      ],
+      "title": "Methane from livestock, world"
+    },
+    {
+      "bytes": 482874,
+      "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent since 1750, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:3da0952c6b13876a1e741b1a4c35acbfc1268a184093b412e2cd53a5aacf7306",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "forcing.igcc-2025.erf-by-agent",
+      "path": "v1/indicators/forcing.igcc-2025.erf-by-agent.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "watts per square metre (W/m2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"name": "agent", "title": "Agent", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
+      ],
+      "title": "Effective radiative forcing by agent since 1750 (IGCC 2025)"
+    },
+    {
+      "bytes": 3297,
+      "description": "Deaths attributable to heat each year worldwide, 1990–2021, as estimated by the Lancet Countdown (indicator 1.1.5). The numbers are modelled from temperature–mortality relationships, not counted.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c8bac93033ed800cd6a76af0729de201e59f9ce4b06e9753f35609b75580a3f2",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "heat.lancet-2025.deaths-global",
+      "path": "v1/indicators/heat.lancet-2025.deaths-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "deaths (deaths)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"}
+      ],
+      "title": "Heat-related deaths, world"
+    },
+    {
+      "bytes": 2765,
+      "description": "Heatwave days that people were exposed to on average each year, 2020–2024, as observed, as expected in a modelled climate without human-caused warming, and the difference attributable to climate change, from the Lancet Countdown (indicator 1.1.1).",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0d2c4f0649574c6915c6767f3e81a64fa7063ecdd6a855c6a516d01084986674",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "heat.lancet-2025.heatwave-days-global",
+      "path": "v1/indicators/heat.lancet-2025.heatwave-days-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "days per person (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"name": "scenario", "title": "Scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"}
+      ],
+      "title": "Heatwave days per person, observed and attributable to climate change, world"
+    },
+    {
+      "bytes": 16434,
+      "description": "Working hours that heat stress could have cost each year worldwide, 1990–2024, in services, manufacturing, agriculture and construction, as estimated by the Lancet Countdown (indicator 1.1.3).",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2af71ce83c0188e79a5955ee02eb9db3deb30f48705340d2226decff66e1bfe2",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "heat.lancet-2025.labour-hours-global",
+      "path": "v1/indicators/heat.lancet-2025.labour-hours-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "billion hours (bn-hours)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"name": "sector", "title": "Sector", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"}
+      ],
+      "title": "Potential work hours lost to heat, world"
+    },
+    {
+      "bytes": 2612,
+      "description": "Annual mean nitrous oxide in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 2001.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b652d40617c657ac815d31205e173cc6e1d81a0f795899516537ac063982a5be",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "n2o.noaa-gml.annual-global",
+      "path": "v1/indicators/n2o.noaa-gml.annual-global.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "parts per billion (ppb)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://gml.noaa.gov/ccgg/trends_doi.html", "title": "NOAA Global Monitoring Laboratory: Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride"}
+      ],
+      "title": "Nitrous oxide, global annual mean"
     },
     {
       "bytes": 16878,
@@ -114,6 +862,43 @@
         {"path": "https://www.metoffice.gov.uk/hadobs/hadcrut5/", "title": "Met Office Hadley Centre and University of East Anglia Climatic Research Unit: HadCRUT5 near-surface temperature anomalies"}
       ],
       "title": "Global surface temperature above 1850–1900 (HadCRUT5)"
+    },
+    {
+      "bytes": 13224,
+      "description": "How much of the global surface warming in each year since 1850 was caused by human activity, relative to the 1850–1900 average, with the likely range. Indicators of Global Climate Change combines three attribution methods; this series applies its stated assessment rule to each year's annual-mean estimate. IGCC's own headline figure for a single year uses a trend-based definition from the IPCC 1.5 °C report and can differ by a few hundredths of a degree.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f7ba9bceeeadd0c53cde19ac58b3ec42a54a79cc2e5f0c32f71aead657cca8e2",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "warming.igcc-2025.human-induced",
+      "path": "v1/indicators/warming.igcc-2025.human-induced.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
+      ],
+      "title": "Human-induced warming since 1850–1900, each year (IGCC 2025)"
     }
   ],
   "title": "Environment Dashboard data"

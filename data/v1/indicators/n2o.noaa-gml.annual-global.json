@@ -1,0 +1,97 @@
+{
+  "attribution": "NOAA Global Monitoring Laboratory (Lan, Thoning & Dlugokencky), version 2026-09, doi:10.15138/P8XG-AA10.",
+  "description": "Annual mean nitrous oxide in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 2001.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "n2o.noaa-gml.annual-global",
+  "kind": "series",
+  "latest": {
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "preliminary",
+    "value": 338.85
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notice": "The NOAA Global Monitoring Laboratory methane and nitrous oxide global marine surface means are US Government material and are not subject to copyright protection in the United States.",
+  "observations": [
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 316.24, "missing_reason": null, "note": null, "period": "2001", "status": "final", "upper": 316.48, "value": 316.36},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 316.81, "missing_reason": null, "note": null, "period": "2002", "status": "final", "upper": 317.07, "value": 316.94},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 317.49, "missing_reason": null, "note": null, "period": "2003", "status": "final", "upper": 317.77, "value": 317.63},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 318.13, "missing_reason": null, "note": null, "period": "2004", "status": "final", "upper": 318.37, "value": 318.25},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 318.78, "missing_reason": null, "note": null, "period": "2005", "status": "final", "upper": 319.04, "value": 318.91},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 319.69, "missing_reason": null, "note": null, "period": "2006", "status": "final", "upper": 319.95, "value": 319.82},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 320.33, "missing_reason": null, "note": null, "period": "2007", "status": "final", "upper": 320.55, "value": 320.44},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 321.38, "missing_reason": null, "note": null, "period": "2008", "status": "final", "upper": 321.62, "value": 321.5},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 322.13, "missing_reason": null, "note": null, "period": "2009", "status": "final", "upper": 322.41, "value": 322.27},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 323.05, "missing_reason": null, "note": null, "period": "2010", "status": "final", "upper": 323.31, "value": 323.18},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 324.09, "missing_reason": null, "note": null, "period": "2011", "status": "final", "upper": 324.33, "value": 324.21},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 324.93, "missing_reason": null, "note": null, "period": "2012", "status": "final", "upper": 325.17, "value": 325.05},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 325.82, "missing_reason": null, "note": null, "period": "2013", "status": "final", "upper": 326.06, "value": 325.94},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 326.98, "missing_reason": null, "note": null, "period": "2014", "status": "final", "upper": 327.2, "value": 327.09},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 328.05, "missing_reason": null, "note": null, "period": "2015", "status": "final", "upper": 328.29, "value": 328.17},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 328.83, "missing_reason": null, "note": null, "period": "2016", "status": "final", "upper": 329.07, "value": 328.95},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 329.63, "missing_reason": null, "note": null, "period": "2017", "status": "final", "upper": 329.85, "value": 329.74},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 330.78, "missing_reason": null, "note": null, "period": "2018", "status": "final", "upper": 331.02, "value": 330.9},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 331.76, "missing_reason": null, "note": null, "period": "2019", "status": "final", "upper": 332.0, "value": 331.88},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 332.94, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": 333.06, "value": 333.0},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 334.24, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": 334.3, "value": 334.27},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 335.58, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": 335.64, "value": 335.61},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 336.65, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": 336.71, "value": 336.68},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 337.69, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": 337.73, "value": 337.71},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 338.83, "missing_reason": null, "note": null, "period": "2025", "status": "preliminary", "upper": 338.87, "value": 338.85}
+  ],
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "n2o-annmean-gl", "bytes": 2455, "citation_full": "Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09, https://doi.org/10.15138/P8XG-AA10", "date_accessed": "2026-10-04", "date_published": "2026-09-05", "doi": "10.15138/P8XG-AA10", "etag": "\"997-65af9c509e106\"", "last_modified": "Tue, 08 Sep 2026 14:44:19 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d", "source_id": "noaa-gml-trends-ch4-n2o-sf6", "title": "Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv", "url_main": "https://gml.noaa.gov/ccgg/trends_doi.html", "version_producer": "2026-09", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read n2o_annmean_gl.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
+      "inputs": ["4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d"],
+      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
+      "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
+    },
+    {
+      "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the standard deviations of 100 bootstrap (network) and 100 Monte Carlo (measurement) global averages taken in quadrature (one standard deviation).",
+      "inputs": ["4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d"],
+      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
+      "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
+    },
+    {
+      "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
+      "inputs": ["4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d"],
+      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
+      "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Dry-air mole fraction; NOAA's global average of its marine surface air-sampling network, from smoothed site records weighted by latitude.",
+    "bunkers": null,
+    "geography": "Global mean of marine surface sites",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "title": "Nitrous oxide, global annual mean",
+  "unit": {
+    "code": "ppb",
+    "label": "parts per billion",
+    "short": "ppb"
+  },
+  "vintage": "2026-09"
+}

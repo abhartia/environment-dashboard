@@ -1,0 +1,21 @@
+{
+  "export": "data/v1/indicators/emissions.gcb-2025.budget-global.json",
+  "export_sha256": "92677befc78383f108fad87243f3753b4ae6df6086186c86469b93ae7ee21fc2",
+  "indicator_id": "emissions.gcb-2025.budget-global",
+  "key": "6089d8fe2ebe1eebbeba95b31728037a7d45f5aa8bfa3cac69702681b2666efc",
+  "key_parts": {
+    "inputs": {
+      "gcb-2025-global/global-budget": {
+        "manifest_sha256": "1e0f21b66c880c600f8bec8512f54a9213775dac4e4d64517a8fcdc773954481",
+        "sha256": "a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "gcb-2025-global": "bf032e1c77a924ece51d3b89bfe186135725b79948f716ec728f4286be76aa96"
+    },
+    "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
+  },
+  "publisher_checks": []
+}

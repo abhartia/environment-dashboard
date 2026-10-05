@@ -1,0 +1,21 @@
+{
+  "export": "data/v1/indicators/heat.lancet-2025.heatwave-days-global.json",
+  "export_sha256": "0fd54e848ac66d1f80afde36a31a6965fac38cdcb710a2a1f04c61327e5facde",
+  "indicator_id": "heat.lancet-2025.heatwave-days-global",
+  "key": "f495cedfcbfa83a83df6f10457963821214bf45414e7bceaaf531b3a3ae72ea5",
+  "key_parts": {
+    "inputs": {
+      "lancet-countdown-2025/heatwave-days-attributable-1-1-1": {
+        "manifest_sha256": "3578a0a8906a79fb28f6180d3addccda871a4b3eb812ca8515336a92319b89cc",
+        "sha256": "53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "lancet-countdown-2025": "604dd866c253b616dbf9dd0053b17b9fe9591fd06223b312ce72659f780e2f7e"
+    },
+    "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
+  },
+  "publisher_checks": []
+}

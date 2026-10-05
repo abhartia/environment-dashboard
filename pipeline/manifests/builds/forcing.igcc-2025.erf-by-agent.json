@@ -1,0 +1,44 @@
+{
+  "export": "data/v1/indicators/forcing.igcc-2025.erf-by-agent.json",
+  "export_sha256": "54a8756a8472154950bccaa0fe24eb95606d621132a22bceec17149034ec0379",
+  "indicator_id": "forcing.igcc-2025.erf-by-agent",
+  "key": "ca199b6118e65e2ae9b0d0eb3791cd5b0da95be9612a96266f476989135110af",
+  "key_parts": {
+    "inputs": {
+      "igcc-2025/data-igcc-2025a": {
+        "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
+        "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd"
+      },
+      "igcc-2025/erf-best-aggregates": {
+        "manifest_sha256": "99118ea9de25de266444d7cfe89b161bc2282f74ea6deab3a3b3f5a348790314",
+        "sha256": "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9"
+      },
+      "igcc-2025/erf-p05-aggregates": {
+        "manifest_sha256": "b3457067e759fe64c343319f4394515cdfa8fe41a607eaa29b3724b7c6c0e405",
+        "sha256": "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed"
+      },
+      "igcc-2025/erf-p95-aggregates": {
+        "manifest_sha256": "f0cb67e0daca8b8c43d24b17bb6e696680b86b699aa85f4f679ce175893bfaee",
+        "sha256": "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
+    },
+    "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+  },
+  "publisher_checks": [
+    {"detail": "ours 3.103548614 vs stated 3.10 (tolerance ±0.005, difference 0.00354861)", "entity": "WLD", "period": "2025", "quote": "Total anthropogenic ERF has increased to 3.10 [2.35 to 3.83] W m⁻² in 2025 relative to 1750", "source_id": "igcc-2025", "stated": "3.10", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 3.584635519 vs stated 3.58 (tolerance ±0.005, difference 0.00463552)", "entity": "WLD", "period": "2025", "quote": "The ERF from well-mixed GHGs is 3.58 [3.27 to 3.91] W m⁻² for 1750–2025, of which 2.37 W m⁻² is from CO₂, 0.57 W m⁻² from CH₄, 0.23 W m⁻² from N₂O and 0.41 W m⁻² from halogenated gases.", "source_id": "igcc-2025", "stated": "3.58", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 2.370924636 vs stated 2.37 (tolerance ±0.005, difference 0.000924636)", "entity": "WLD", "period": "2025", "quote": "The ERF from well-mixed GHGs is 3.58 [3.27 to 3.91] W m⁻² for 1750–2025, of which 2.37 W m⁻² is from CO₂, 0.57 W m⁻² from CH₄, 0.23 W m⁻² from N₂O and 0.41 W m⁻² from halogenated gases.", "source_id": "igcc-2025", "stated": "2.37", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 0.569585072 vs stated 0.57 (tolerance ±0.005, difference 0.000414928)", "entity": "WLD", "period": "2025", "quote": "The ERF from well-mixed GHGs is 3.58 [3.27 to 3.91] W m⁻² for 1750–2025, of which 2.37 W m⁻² is from CO₂, 0.57 W m⁻² from CH₄, 0.23 W m⁻² from N₂O and 0.41 W m⁻² from halogenated gases.", "source_id": "igcc-2025", "stated": "0.57", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 0.231590531 vs stated 0.23 (tolerance ±0.005, difference 0.00159053)", "entity": "WLD", "period": "2025", "quote": "The ERF from well-mixed GHGs is 3.58 [3.27 to 3.91] W m⁻² for 1750–2025, of which 2.37 W m⁻² is from CO₂, 0.57 W m⁻² from CH₄, 0.23 W m⁻² from N₂O and 0.41 W m⁻² from halogenated gases.", "source_id": "igcc-2025", "stated": "0.23", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 0.41253528 vs stated 0.41 (tolerance ±0.005, difference 0.00253528)", "entity": "WLD", "period": "2025", "quote": "The ERF from well-mixed GHGs is 3.58 [3.27 to 3.91] W m⁻² for 1750–2025, of which 2.37 W m⁻² is from CO₂, 0.57 W m⁻² from CH₄, 0.23 W m⁻² from N₂O and 0.41 W m⁻² from halogenated gases.", "source_id": "igcc-2025", "stated": "0.41", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours -0.961805093 vs stated -0.96 (tolerance ±0.005, difference 0.00180509)", "entity": "WLD", "period": "2025", "quote": "The total aerosol ERF (sum of the ERF from aerosol–radiation interactions (ERFari) and aerosol–cloud interactions (ERFaci)) for 1750–2025 is −0.96 [−1.58 to −0.40] W m⁻²", "source_id": "igcc-2025", "stated": "-0.96", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 0.482354429 vs stated 0.48 (tolerance ±0.005, difference 0.00235443)", "entity": "WLD", "period": "2025", "quote": "Ozone ERF is determined to be 0.48 [0.24 to 0.72] W m⁻² for 1750–2025", "source_id": "igcc-2025", "stated": "0.48", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 0.067500187 vs stated 0.07 (tolerance ±0.005, difference 0.00249981)", "entity": "WLD", "period": "2025", "quote": "We estimate ERF from contrails and contrail-induced cirrus to be 0.07 [0.02 to 0.12] W m⁻² in 2025.", "source_id": "igcc-2025", "stated": "0.07", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
+    {"detail": "ours 0.10486714 vs stated 0.10 (tolerance ±0.005, difference 0.00486714)", "entity": "WLD", "period": "2025", "quote": "we provide a single-year solar ERF for 2025 of +0.10 [+0.02 to +0.19] W m⁻²", "source_id": "igcc-2025", "stated": "0.10", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "export": "data/v1/indicators/budget.igcc-2025.remaining-1p5.json",
+  "export_sha256": "894837c6992c08212bd9635178e573782f67d983c71d19a1bd431b098fd00df9",
+  "indicator_id": "budget.igcc-2025.remaining-1p5",
+  "key": "0ca412362a646f7652e4565c8ff5b81026c3e6931bd6d58f26cfdba06933fbe4",
+  "key_parts": {
+    "inputs": {
+      "igcc-2025/data-igcc-2025a": {
+        "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
+        "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd"
+      },
+      "igcc-2025/essd-paper-pdf": {
+        "manifest_sha256": "2e7c7e8ce43e8877ee2367428ba5ea8cfc1919e645231f322c8347601af71761",
+        "sha256": "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb"
+      },
+      "igcc-2025/rcb-magicc-hdt-1p24": {
+        "manifest_sha256": "f8ea6f381fa9691b06df64d4f86c44d19dbb89a977fb56047cd487b39e29d3d5",
+        "sha256": "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
+    },
+    "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+  },
+  "publisher_checks": []
+}

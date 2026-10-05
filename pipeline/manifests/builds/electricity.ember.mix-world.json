@@ -1,0 +1,25 @@
+{
+  "export": "data/v1/indicators/electricity.ember.mix-world.json",
+  "export_sha256": "83297bc31ea16f6889289b8da23fd4cdfa1e6bb7e101ed32582d1379cdd528a4",
+  "indicator_id": "electricity.ember.mix-world",
+  "key": "91b948d962109a1449fd1f3c76ae4d02f86c39c569191551e878b1512841ed8c",
+  "key_parts": {
+    "inputs": {
+      "ember-yearly/generation-yearly-global": {
+        "manifest_sha256": "9eb9c57340870af85f5641bb184e0bed1f311bf61f0c808cc4e7604104d1a65f",
+        "sha256": "ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7"
+      },
+      "ember-yearly/methodology-pdf": {
+        "manifest_sha256": "a16865681d9052c0c1abf53e314308ebd2751a41c26f6464038b30a22fb5a7d6",
+        "sha256": "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "ember-yearly": "f6f2037aa4f997f182a3a96f0fc4dee47a71aa09482a96a60cf06c478421fca5"
+    },
+    "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
+  },
+  "publisher_checks": []
+}

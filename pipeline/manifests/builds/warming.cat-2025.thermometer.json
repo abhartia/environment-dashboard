@@ -1,0 +1,26 @@
+{
+  "export": "data-private/v1/indicators/warming.cat-2025.thermometer.json",
+  "export_sha256": "6dd8875daa9590ce2be598397c094b428dd605aa4850a84a6f2a78c85163ae6c",
+  "indicator_id": "warming.cat-2025.thermometer",
+  "key": "c434da2b8b81a3a66b456c18f06ce79e37b4b1ad3df65c9603c7afa1f16a0679",
+  "key_parts": {
+    "inputs": {
+      "cat-2025-thermometer/global-temperature-estimates": {
+        "manifest_sha256": "f1387bf7c9c466933f8bf3543802f33e2d56a0bf45fd4422787aab2a08556c0b",
+        "sha256": "44044cda8f851f77d6ca0eeb0750848fb6ee32bab50939df2cc2363e63a8c6c1"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "cat-2025-thermometer": "c9a91403181eba18716e74301734356899c33dda71d9d2dbff11b0f9814dce6b"
+    },
+    "transform_sha256": "94523270ef29587110c626620597d951b0741b5bbf5a652c430b297d01ae0809"
+  },
+  "publisher_checks": [
+    {"detail": "ours 2.6 vs stated 2.6 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2100", "quote": "Current policies in place around the world are projected to result in about 2.6°C", "source_id": "cat-2025-thermometer", "stated": "2.6", "status": "pass", "url": "https://climateactiontracker.org/global/emissions-pathways/", "vintage": "November 2025"},
+    {"detail": "ours 2.2 vs stated 2.2 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2100", "quote": "When binding long-term or net-zero targets are included (our “pledges and targets” scenario), warming would be limited to about 2.2°C", "source_id": "cat-2025-thermometer", "stated": "2.2", "status": "pass", "url": "https://climateactiontracker.org/global/emissions-pathways/", "vintage": "November 2025"},
+    {"detail": "ours 1.9 vs stated 1.9 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2100", "quote": "Under the optimistic assumption that governments will achieve these targets, the median warming estimate is 1.9°C", "source_id": "cat-2025-thermometer", "stated": "1.9", "status": "pass", "url": "https://climateactiontracker.org/global/emissions-pathways/", "vintage": "November 2025"},
+    {"detail": "ours 2.6 vs stated 2.6 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2100", "quote": "Our “2030 & 2035 targets scenario” which includes the impact of all submitted NDCs to date, remains at 2.6°C, the same as last year.", "source_id": "cat-2025-thermometer", "stated": "2.6", "status": "pass", "url": "https://climateactiontracker.org/documents/1348/CAT_2025-11-13_GlobalUpdate_COP30.pdf", "vintage": "November 2025"}
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "attribution": "NOAA Global Monitoring Laboratory (Lan, Thoning & Dlugokencky), version 2026-09, doi:10.15138/P8XG-AA10.",
+  "description": "Annual mean methane in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 1984.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "ch4.noaa-gml.annual-global",
+  "kind": "series",
+  "latest": {
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "preliminary",
+    "value": 1935.94
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notice": "The NOAA Global Monitoring Laboratory methane and nitrous oxide global marine surface means are US Government material and are not subject to copyright protection in the United States.",
+  "observations": [
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1644.24, "missing_reason": null, "note": null, "period": "1984", "status": "final", "upper": 1645.44, "value": 1644.84},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1656.75, "missing_reason": null, "note": null, "period": "1985", "status": "final", "upper": 1657.85, "value": 1657.3},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1669.32, "missing_reason": null, "note": null, "period": "1986", "status": "final", "upper": 1670.86, "value": 1670.09},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1682.2, "missing_reason": null, "note": null, "period": "1987", "status": "final", "upper": 1683.22, "value": 1682.71},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1692.57, "missing_reason": null, "note": null, "period": "1988", "status": "final", "upper": 1693.81, "value": 1693.19},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1704.02, "missing_reason": null, "note": null, "period": "1989", "status": "final", "upper": 1705.08, "value": 1704.55},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1713.74, "missing_reason": null, "note": null, "period": "1990", "status": "final", "upper": 1715.12, "value": 1714.43},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1724.11, "missing_reason": null, "note": null, "period": "1991", "status": "final", "upper": 1725.47, "value": 1724.79},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1734.89, "missing_reason": null, "note": null, "period": "1992", "status": "final", "upper": 1736.05, "value": 1735.47},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1736.01, "missing_reason": null, "note": null, "period": "1993", "status": "final", "upper": 1736.95, "value": 1736.48},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1741.51, "missing_reason": null, "note": null, "period": "1994", "status": "final", "upper": 1742.65, "value": 1742.08},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1748.36, "missing_reason": null, "note": null, "period": "1995", "status": "final", "upper": 1749.4, "value": 1748.88},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1750.67, "missing_reason": null, "note": null, "period": "1996", "status": "final", "upper": 1751.93, "value": 1751.3},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1754.13, "missing_reason": null, "note": null, "period": "1997", "status": "final", "upper": 1754.89, "value": 1754.51},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1764.96, "missing_reason": null, "note": null, "period": "1998", "status": "final", "upper": 1766.18, "value": 1765.57},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1771.74, "missing_reason": null, "note": null, "period": "1999", "status": "final", "upper": 1772.86, "value": 1772.3},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1772.52, "missing_reason": null, "note": null, "period": "2000", "status": "final", "upper": 1773.92, "value": 1773.22},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1770.77, "missing_reason": null, "note": null, "period": "2001", "status": "final", "upper": 1771.81, "value": 1771.29},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1772.22, "missing_reason": null, "note": null, "period": "2002", "status": "final", "upper": 1773.14, "value": 1772.68},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1776.82, "missing_reason": null, "note": null, "period": "2003", "status": "final", "upper": 1777.84, "value": 1777.33},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1776.64, "missing_reason": null, "note": null, "period": "2004", "status": "final", "upper": 1777.62, "value": 1777.13},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1773.64, "missing_reason": null, "note": null, "period": "2005", "status": "final", "upper": 1774.82, "value": 1774.23},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1774.43, "missing_reason": null, "note": null, "period": "2006", "status": "final", "upper": 1775.43, "value": 1774.93},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1780.75, "missing_reason": null, "note": null, "period": "2007", "status": "final", "upper": 1781.87, "value": 1781.31},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1786.45, "missing_reason": null, "note": null, "period": "2008", "status": "final", "upper": 1787.57, "value": 1787.01},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1792.92, "missing_reason": null, "note": null, "period": "2009", "status": "final", "upper": 1794.1, "value": 1793.51},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1798.22, "missing_reason": null, "note": null, "period": "2010", "status": "final", "upper": 1799.64, "value": 1798.93},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1802.47, "missing_reason": null, "note": null, "period": "2011", "status": "final", "upper": 1803.59, "value": 1803.03},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1807.49, "missing_reason": null, "note": null, "period": "2012", "status": "final", "upper": 1808.65, "value": 1808.07},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1812.85, "missing_reason": null, "note": null, "period": "2013", "status": "final", "upper": 1813.99, "value": 1813.42},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1822.02, "missing_reason": null, "note": null, "period": "2014", "status": "final", "upper": 1823.14, "value": 1822.58},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1833.7, "missing_reason": null, "note": null, "period": "2015", "status": "final", "upper": 1834.68, "value": 1834.19},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1842.6, "missing_reason": null, "note": null, "period": "2016", "status": "final", "upper": 1843.76, "value": 1843.18},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1848.93, "missing_reason": null, "note": null, "period": "2017", "status": "final", "upper": 1850.31, "value": 1849.62},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1856.56, "missing_reason": null, "note": null, "period": "2018", "status": "final", "upper": 1858.1, "value": 1857.33},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1866.02, "missing_reason": null, "note": null, "period": "2019", "status": "final", "upper": 1867.16, "value": 1866.59},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1878.06, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": 1879.38, "value": 1878.72},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1894.16, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": 1895.42, "value": 1894.79},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1910.06, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": 1911.84, "value": 1910.95},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1920.7, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": 1922.1, "value": 1921.4},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1928.82, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": 1930.0, "value": 1929.41},
+    {"dims": {}, "entity": "WLD", "interval": "1sigma", "lower": 1935.46, "missing_reason": null, "note": null, "period": "2025", "status": "preliminary", "upper": 1936.42, "value": 1935.94}
+  ],
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "ch4-annmean-gl", "bytes": 2786, "citation_full": "Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-09, https://doi.org/10.15138/P8XG-AA10", "date_accessed": "2026-10-04", "date_published": "2026-09-05", "doi": "10.15138/P8XG-AA10", "etag": "\"ae2-65af9c4fffe44\"", "last_modified": "Tue, 08 Sep 2026 14:44:18 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d", "source_id": "noaa-gml-trends-ch4-n2o-sf6", "title": "Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv", "url_main": "https://gml.noaa.gov/ccgg/trends_doi.html", "version_producer": "2026-09", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read ch4_annmean_gl.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
+      "inputs": ["fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d"],
+      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
+      "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
+    },
+    {
+      "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the standard deviations of 100 bootstrap (network) and 100 Monte Carlo (measurement) global averages taken in quadrature (one standard deviation).",
+      "inputs": ["fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d"],
+      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
+      "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
+    },
+    {
+      "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
+      "inputs": ["fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d"],
+      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
+      "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Dry-air mole fraction; NOAA's global average of its marine surface air-sampling network, from smoothed site records weighted by latitude.",
+    "bunkers": null,
+    "geography": "Global mean of marine surface sites",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "title": "Methane, global annual mean",
+  "unit": {
+    "code": "ppb",
+    "label": "parts per billion",
+    "short": "ppb"
+  },
+  "vintage": "2026-09"
+}

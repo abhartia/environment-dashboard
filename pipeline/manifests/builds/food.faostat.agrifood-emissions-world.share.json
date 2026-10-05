@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/food.faostat.agrifood-emissions-world.share.json",
+  "export_sha256": "a0e569e52e54275edbfa4fb0657be3d818657db30548e4d898e643a7697ab47e",
+  "indicator_id": "food.faostat.agrifood-emissions-world.share",
+  "key": "fded36e9047e87056cb3971bba99846bd998f22d1803e761882665dcff5df534",
+  "key_parts": {
+    "inputs": {
+      "faostat/datasets-catalogue": {
+        "manifest_sha256": "bc646412c97139536878e748e171502090aa722995a1de8f6fff062c1b7e3383",
+        "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"
+      },
+      "faostat/emissions-totals": {
+        "manifest_sha256": "2f92e3d602ab91252a331544ab10a3301dab569559ba69710dfa6942f9d42da7",
+        "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "faostat": "999c0f39f6baf1538e230448ba58ec0592b208291aea71eaee5861450bf3be62"
+    },
+    "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+  },
+  "publisher_checks": [
+    {"detail": "ours 38.37156028007063 vs stated 38 (tolerance ±0.5, difference 0.37156)", "entity": "WLD", "period": "2001", "quote": "Their share in total emissions fell from 38 to 32 percent in 2023.", "source_id": "faostat", "stated": "38", "status": "pass", "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en", "vintage": "2025-10-28"},
+    {"detail": "ours 31.733690435677588 vs stated 32 (tolerance ±0.5, difference 0.26631)", "entity": "WLD", "period": "2023", "quote": "Their share in total emissions fell from 38 to 32 percent in 2023.", "source_id": "faostat", "stated": "32", "status": "pass", "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en", "vintage": "2025-10-28"}
+  ]
+}

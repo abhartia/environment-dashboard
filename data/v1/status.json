@@ -1,56 +1,155 @@
 {
-  "generated_at": "2026-10-05T02:48:50Z",
+  "generated_at": "2026-10-05T05:28:18Z",
   "run_url": null,
   "schema_version": 1,
   "sources": {
+    "andre-2024": {
+      "checked_at": "2026-10-05T05:23:22Z",
+      "last_success": "2026-10-05T05:23:22Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
     "aviso-gmsl": {
-      "checked_at": "2026-10-05T02:27:05Z",
-      "last_success": "2026-10-05T02:27:05Z",
-      "manual_last_verified": null,
-      "reason": null,
-      "state": "ok",
-      "terms": "unchanged",
-      "vintage": null
-    },
-    "bereiter-2015-co2": {
-      "checked_at": "2026-10-05T01:26:04Z",
-      "last_success": "2026-10-05T01:26:04Z",
-      "manual_last_verified": null,
-      "reason": null,
-      "state": "ok",
-      "terms": "unchanged",
-      "vintage": null
-    },
-    "c3s-climate-pulse": {
-      "checked_at": "2026-10-05T01:26:04Z",
-      "last_success": "2026-10-05T01:26:04Z",
-      "manual_last_verified": null,
-      "reason": "terms_check 'api' has no automated check yet",
-      "state": "ok",
-      "terms": "unverifiable",
-      "vintage": null
-    },
-    "c3s-era5-bulletin": {
-      "checked_at": "2026-10-05T02:38:49Z",
-      "last_success": "2026-10-05T02:38:49Z",
+      "checked_at": "2026-10-05T05:23:24Z",
+      "last_success": "2026-10-05T05:23:24Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
-    "edgar-2026-ghg": {
-      "checked_at": "2026-10-05T01:26:07Z",
-      "last_success": "2026-10-05T01:26:07Z",
+    "bereiter-2015-co2": {
+      "checked_at": "2026-10-05T05:23:28Z",
+      "last_success": "2026-10-05T05:23:28Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "c3s-climate-pulse": {
+      "checked_at": "2026-10-05T05:23:28Z",
+      "last_success": "2026-10-05T05:23:28Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
       "terms": "unchanged",
       "vintage": null
     },
+    "c3s-era5-bulletin": {
+      "checked_at": "2026-10-05T05:23:31Z",
+      "last_success": "2026-10-05T05:23:31Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "carbon-brief-attribution": {
+      "checked_at": "2026-10-05T05:23:32Z",
+      "last_success": "2026-10-05T05:23:32Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "cat-2025-thermometer": {
+      "checked_at": "2026-10-05T05:23:32Z",
+      "last_success": "2026-10-05T05:23:32Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": "November 2025"
+    },
+    "climate-watch-ndc": {
+      "checked_at": "2026-10-05T05:23:34Z",
+      "last_success": "2026-10-05T05:23:34Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "desnz-ghg-factors-2026": {
+      "checked_at": "2026-10-05T05:23:34Z",
+      "last_success": "2026-10-05T05:23:34Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "drawdown-explorer": {
+      "checked_at": "2026-10-05T05:23:37Z",
+      "last_success": "2026-10-05T05:23:37Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "edgar-2026-ghg": {
+      "checked_at": "2026-10-05T05:24:11Z",
+      "last_success": "2026-10-05T05:24:11Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "effis": {
+      "checked_at": "2026-10-05T05:24:13Z",
+      "last_success": "2026-10-05T05:24:13Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "eia-international": {
+      "checked_at": "2026-10-05T05:24:19Z",
+      "last_success": "2026-10-05T05:24:19Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "ember-monthly": {
+      "checked_at": "2026-10-05T05:24:20Z",
+      "last_success": "2026-10-05T05:24:20Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "ember-yearly": {
+      "checked_at": "2026-10-05T05:24:21Z",
+      "last_success": "2026-10-05T05:24:21Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": "2026-09-22"
+    },
+    "energy-institute-review-2026": {
+      "checked_at": "2026-10-05T05:24:23Z",
+      "last_success": "2026-10-05T05:24:23Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": "manual",
+      "vintage": null
+    },
     "fao-fra-2025": {
-      "checked_at": "2026-10-05T02:39:42Z",
-      "last_success": "2026-10-05T02:39:42Z",
+      "checked_at": "2026-10-05T05:24:23Z",
+      "last_success": "2026-10-05T05:24:23Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
@@ -58,43 +157,61 @@
       "vintage": null
     },
     "faostat": {
-      "checked_at": "2026-10-05T01:26:17Z",
-      "last_success": "2026-10-05T01:26:17Z",
+      "checked_at": "2026-10-05T05:24:27Z",
+      "last_success": "2026-10-05T05:24:27Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": "2025-10-28"
+    },
+    "gcb-2025-essd": {
+      "checked_at": "2026-10-05T05:24:27Z",
+      "last_success": "2026-10-05T05:24:27Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
       "terms": "unchanged",
-      "vintage": null
+      "vintage": "Global Carbon Budget 2025 (ESSD 18, 3211–3288, 2026)"
     },
     "gcb-2025-global": {
-      "checked_at": "2026-10-05T01:26:23Z",
-      "last_success": "2026-10-05T01:26:23Z",
+      "checked_at": "2026-10-05T05:24:29Z",
+      "last_success": "2026-10-05T05:24:29Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
-      "vintage": null
+      "vintage": "2025 v1.0"
     },
     "gcb-2025-national": {
-      "checked_at": "2026-10-05T01:26:24Z",
-      "last_success": "2026-10-05T01:26:24Z",
+      "checked_at": "2026-10-05T05:24:30Z",
+      "last_success": "2026-10-05T05:24:30Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
     "gcp-fossil-co2-2025": {
-      "checked_at": "2026-10-05T01:26:25Z",
-      "last_success": "2026-10-05T01:26:25Z",
+      "checked_at": "2026-10-05T05:24:33Z",
+      "last_success": "2026-10-05T05:24:33Z",
       "manual_last_verified": null,
-      "reason": "terms_check 'api' has no automated check yet",
-      "state": "ok",
-      "terms": "unverifiable",
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "gem-coal-plant-tracker": {
+      "checked_at": "2026-10-05T05:24:35Z",
+      "last_success": "2026-10-05T05:24:35Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": "manual",
       "vintage": null
     },
     "gfw-tree-cover-loss": {
-      "checked_at": "2026-10-05T01:26:27Z",
+      "checked_at": "2026-10-05T05:24:35Z",
       "last_success": null,
       "manual_last_verified": null,
       "reason": "loss-global-annual: artifact loss-global-annual needs the credential in $GFW_API_KEY, which is not set; loss-country-annual: artifact loss-country-annual needs the credential in $GFW_API_KEY, which is not set; loss-primary-forest-country-annual: artifact loss-primary-forest-country-annual needs the credential in $GFW_API_KEY, which is not set; loss-drivers-country-annual: artifact loss-drivers-country-annual needs the credential in $GFW_API_KEY, which is not set",
@@ -103,8 +220,17 @@
       "vintage": null
     },
     "gistemp-v4": {
-      "checked_at": "2026-10-05T01:26:28Z",
-      "last_success": "2026-10-05T01:26:28Z",
+      "checked_at": "2026-10-05T05:24:35Z",
+      "last_success": "2026-10-05T05:24:35Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "gwis-burned-area": {
+      "checked_at": "2026-10-05T05:24:36Z",
+      "last_success": "2026-10-05T05:24:36Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
@@ -112,62 +238,197 @@
       "vintage": null
     },
     "hadcrut5": {
-      "checked_at": "2026-10-05T02:48:44Z",
-      "last_success": "2026-10-05T02:48:44Z",
+      "checked_at": "2026-10-05T05:24:38Z",
+      "last_success": "2026-10-05T05:24:38Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
       "terms": "unchanged",
       "vintage": "5.2.0.0"
     },
-    "igcc-2025": {
-      "checked_at": "2026-10-05T01:26:28Z",
-      "last_success": "2026-10-05T01:26:28Z",
-      "manual_last_verified": null,
-      "reason": "terms_check 'api' has no automated check yet",
-      "state": "ok",
-      "terms": "unverifiable",
-      "vintage": null
-    },
-    "ipcc-ar6-wg1-spm1": {
-      "checked_at": "2026-10-05T01:26:30Z",
-      "last_success": "2026-10-05T01:26:30Z",
+    "hadsst4": {
+      "checked_at": "2026-10-05T05:24:39Z",
+      "last_success": "2026-10-05T05:24:39Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
       "terms": "unchanged",
       "vintage": null
     },
+    "hot-aloha": {
+      "checked_at": "2026-10-05T05:24:40Z",
+      "last_success": "2026-10-05T05:24:40Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "icct-lca-2025": {
+      "checked_at": "2026-10-05T05:24:41Z",
+      "last_success": "2026-10-05T05:24:41Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "idmc-gidd": {
+      "checked_at": "2026-10-05T05:24:42Z",
+      "last_success": "2026-10-05T05:24:42Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": null,
+      "vintage": null
+    },
+    "iea-gevo-2026": {
+      "checked_at": "2026-10-05T05:24:42Z",
+      "last_success": "2026-10-05T05:24:42Z",
+      "manual_last_verified": null,
+      "reason": "terms page not reachable: https://iea.blob.core.windows.net/assets/857aa690-2a43-453f-9f12-147cc8f0a1dd/GlobalEVOutlook2026.pdf is 20,175,354 bytes, over the 20,000,000-byte limit",
+      "state": "ok",
+      "terms": "unverifiable",
+      "vintage": null
+    },
+    "igcc-2025": {
+      "checked_at": "2026-10-05T05:24:48Z",
+      "last_success": "2026-10-05T05:24:48Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": "IGCC-2025a"
+    },
+    "imbie-2026": {
+      "checked_at": "2026-10-05T05:24:53Z",
+      "last_success": "2026-10-05T05:24:53Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "ipcc-ar6-sea-level-projections": {
+      "checked_at": "2026-10-05T05:24:56Z",
+      "last_success": "2026-10-05T05:24:56Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": null,
+      "vintage": null
+    },
+    "ipcc-ar6-wg1-spm1": {
+      "checked_at": "2026-10-05T05:24:56Z",
+      "last_success": "2026-10-05T05:24:56Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
     "ipcc-ar6-wg3-spm": {
-      "checked_at": "2026-10-05T02:48:44Z",
-      "last_success": "2026-10-05T02:48:44Z",
+      "checked_at": "2026-10-05T05:24:59Z",
+      "last_success": "2026-10-05T05:24:59Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
       "terms": "unchanged",
       "vintage": "AR6 WGIII (2022)"
     },
-    "jones-2025-national-contributions": {
-      "checked_at": "2026-10-05T01:26:33Z",
-      "last_success": "2026-10-05T01:26:33Z",
+    "irena-capacity-2026": {
+      "checked_at": "2026-10-05T05:25:00Z",
+      "last_success": "2026-10-05T05:25:00Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
       "terms": "unchanged",
       "vintage": null
     },
-    "law-dome-2k": {
-      "checked_at": "2026-10-05T01:26:48Z",
-      "last_success": "2026-10-05T01:26:48Z",
+    "irena-costs-2025": {
+      "checked_at": "2026-10-05T05:25:14Z",
+      "last_success": "2026-10-05T05:25:14Z",
       "manual_last_verified": null,
-      "reason": "terms_check 'api' has no automated check yet",
+      "reason": null,
       "state": "ok",
-      "terms": "unverifiable",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "iucn-red-list-gbif": {
+      "checked_at": "2026-10-05T05:25:22Z",
+      "last_success": "2026-10-05T05:25:22Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "ivanova-2020": {
+      "checked_at": "2026-10-05T05:28:14Z",
+      "last_success": "2026-10-05T05:28:14Z",
+      "manual_last_verified": "2026-10-04",
+      "reason": null,
+      "state": "manual",
+      "terms": null,
+      "vintage": "Environ. Res. Lett. 15 093001 (2020)"
+    },
+    "jones-2025-national-contributions": {
+      "checked_at": "2026-10-05T05:25:25Z",
+      "last_success": "2026-10-05T05:25:25Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "lancet-countdown-2025": {
+      "checked_at": "2026-10-05T05:25:38Z",
+      "last_success": "2026-10-05T05:25:38Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": "2025 report"
+    },
+    "law-dome-2k": {
+      "checked_at": "2026-10-05T05:25:41Z",
+      "last_success": "2026-10-05T05:25:41Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": "v3"
+    },
+    "living-planet-index": {
+      "checked_at": "2026-10-05T05:25:48Z",
+      "last_success": "2026-10-05T05:25:48Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": null,
+      "vintage": null
+    },
+    "nasa-ssh-gmsl": {
+      "checked_at": "2026-10-05T05:25:48Z",
+      "last_success": null,
+      "manual_last_verified": null,
+      "reason": "gmsl-indicator: artifact gmsl-indicator needs the credential in $EARTHDATA_TOKEN, which is not set",
+      "state": "failed",
+      "terms": "unchanged",
       "vintage": null
     },
     "natural-earth": {
-      "checked_at": "2026-10-05T02:27:08Z",
-      "last_success": "2026-10-05T02:27:08Z",
+      "checked_at": "2026-10-05T05:25:48Z",
+      "last_success": "2026-10-05T05:25:48Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "ncei-ocean-heat": {
+      "checked_at": "2026-10-05T05:25:49Z",
+      "last_success": "2026-10-05T05:25:49Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
@@ -175,44 +436,80 @@
       "vintage": null
     },
     "noaa-aggi": {
-      "checked_at": "2026-10-05T01:26:52Z",
-      "last_success": "2026-10-05T01:26:52Z",
+      "checked_at": "2026-10-05T05:25:50Z",
+      "last_success": "2026-10-05T05:25:50Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
     "noaa-crw": {
-      "checked_at": "2026-10-05T02:27:08Z",
-      "last_success": "2026-10-05T02:27:08Z",
+      "checked_at": "2026-10-05T05:25:50Z",
+      "last_success": "2026-10-05T05:25:50Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
     "noaa-gml-trends": {
-      "checked_at": "2026-10-05T02:48:45Z",
-      "last_success": "2026-10-05T02:48:45Z",
+      "checked_at": "2026-10-05T05:25:51Z",
+      "last_success": "2026-10-05T05:25:51Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
       "terms": "unchanged",
       "vintage": "2026-09"
     },
+    "noaa-gml-trends-ch4-n2o-sf6": {
+      "checked_at": "2026-10-05T05:25:52Z",
+      "last_success": "2026-10-05T05:25:52Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": "2026-09"
+    },
     "noaaglobaltemp-v6": {
-      "checked_at": "2026-10-05T02:38:51Z",
-      "last_success": "2026-10-05T02:38:51Z",
+      "checked_at": "2026-10-05T05:25:52Z",
+      "last_success": "2026-10-05T05:25:52Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
+    "nsidc-sea-ice-index": {
+      "checked_at": "2026-10-05T05:25:53Z",
+      "last_success": "2026-10-05T05:25:53Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
     "oisst-v2": {
-      "checked_at": "2026-10-05T02:38:53Z",
-      "last_success": "2026-10-05T02:38:53Z",
+      "checked_at": "2026-10-05T05:25:57Z",
+      "last_success": "2026-10-05T05:25:57Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "osisaf-sea-ice-index": {
+      "checked_at": "2026-10-05T05:25:58Z",
+      "last_success": "2026-10-05T05:25:58Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "ourairports": {
+      "checked_at": "2026-10-05T05:26:01Z",
+      "last_success": "2026-10-05T05:26:01Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
@@ -220,48 +517,156 @@
       "vintage": null
     },
     "poore-nemecek-2018": {
-      "checked_at": "2026-10-05T01:26:54Z",
-      "last_success": "2026-10-05T01:26:54Z",
+      "checked_at": "2026-10-05T05:26:01Z",
+      "last_success": "2026-10-05T05:26:01Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
     "rutgers-snow-cdr": {
-      "checked_at": "2026-10-05T02:38:55Z",
-      "last_success": "2026-10-05T02:38:55Z",
+      "checked_at": "2026-10-05T05:26:04Z",
+      "last_success": "2026-10-05T05:26:04Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
     "scarborough-2023": {
-      "checked_at": "2026-10-05T01:26:56Z",
-      "last_success": "2026-10-05T01:26:56Z",
+      "checked_at": "2026-10-05T05:26:05Z",
+      "last_success": "2026-10-05T05:26:05Z",
       "manual_last_verified": null,
-      "reason": "terms_check 'api' has no automated check yet",
-      "state": "ok",
-      "terms": "unverifiable",
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
       "vintage": null
     },
     "scripps-co2": {
-      "checked_at": "2026-10-05T01:26:57Z",
-      "last_success": "2026-10-05T01:26:57Z",
+      "checked_at": "2026-10-05T05:26:07Z",
+      "last_success": "2026-10-05T05:26:07Z",
       "manual_last_verified": null,
       "reason": null,
-      "state": "ok",
+      "state": "unchanged",
       "terms": "unchanged",
       "vintage": null
     },
     "sei-emissions-inequality": {
-      "checked_at": "2026-10-05T01:26:59Z",
-      "last_success": "2026-10-05T01:26:59Z",
+      "checked_at": "2026-10-05T05:26:08Z",
+      "last_success": "2026-10-05T05:26:08Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "unchanged",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "stechemesser-2024": {
+      "checked_at": "2026-10-05T05:26:10Z",
+      "last_success": "2026-10-05T05:26:10Z",
       "manual_last_verified": null,
       "reason": null,
       "state": "ok",
       "terms": "unchanged",
+      "vintage": null
+    },
+    "systems-change-lab": {
+      "checked_at": "2026-10-05T05:26:11Z",
+      "last_success": "2026-10-05T05:26:11Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "un-m49": {
+      "checked_at": "2026-10-05T05:26:12Z",
+      "last_success": "2026-10-05T05:26:12Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "un-wpp-2024": {
+      "checked_at": "2026-10-05T05:26:13Z",
+      "last_success": "2026-10-05T05:26:13Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "unep-egr-2025": {
+      "checked_at": "2026-10-05T05:26:16Z",
+      "last_success": "2026-10-05T05:26:16Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": "manual",
+      "vintage": null
+    },
+    "unep-food-waste-index-2024": {
+      "checked_at": "2026-10-05T05:26:16Z",
+      "last_success": "2026-10-05T05:26:16Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": "manual",
+      "vintage": null
+    },
+    "unsd-energy": {
+      "checked_at": "2026-10-05T05:26:16Z",
+      "last_success": "2026-10-05T05:26:16Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "wb-carbon-pricing-2026": {
+      "checked_at": "2026-10-05T05:26:28Z",
+      "last_success": "2026-10-05T05:26:28Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "wb-cckp": {
+      "checked_at": "2026-10-05T05:26:54Z",
+      "last_success": "2026-10-05T05:26:54Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "wb-wdi": {
+      "checked_at": "2026-10-05T05:26:56Z",
+      "last_success": "2026-10-05T05:26:56Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "wgms-amce": {
+      "checked_at": "2026-10-05T05:26:56Z",
+      "last_success": "2026-10-05T05:26:56Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "ok",
+      "terms": "unchanged",
+      "vintage": null
+    },
+    "wynes-nicholas-2017": {
+      "checked_at": "2026-10-05T05:27:04Z",
+      "last_success": "2026-10-05T05:27:04Z",
+      "manual_last_verified": null,
+      "reason": null,
+      "state": "manual",
+      "terms": "manual",
       "vintage": null
     }
   }

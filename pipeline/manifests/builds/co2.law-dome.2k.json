@@ -1,0 +1,21 @@
+{
+  "export": "data/v1/indicators/co2.law-dome.2k.json",
+  "export_sha256": "0206e7962bddfbd3e48adb55128161e8bd8575cf1966b908efb6ee90f9036c1a",
+  "indicator_id": "co2.law-dome.2k",
+  "key": "9feadd4b1401fc43c71e62443bb75f362f4c634561d858361005311241dc72c1",
+  "key_parts": {
+    "inputs": {
+      "law-dome-2k/law-dome-ghg-2000years": {
+        "manifest_sha256": "d43d82614bbf745612725bc22f0b6dad7f0807914a56e48e138820ed1d16683c",
+        "sha256": "e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "law-dome-2k": "078598582e7949ff42c9cc2ea84649732672088ba268e40faf4a8ee89d9bc00b"
+    },
+    "transform_sha256": "c67459fecb8e83feb79e7e5649df410e093a6a529adf10cd7c37368e72fcb62f"
+  },
+  "publisher_checks": []
+}

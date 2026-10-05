@@ -1,0 +1,23 @@
+{
+  "export": "data/v1/indicators/emissions.gcb-2025.fossil-net-2025-projection.json",
+  "export_sha256": "5471aa52cd4c23fe2fc2f1ebd8b1283796a9921f997b4caf94dc7d947fad5fd4",
+  "indicator_id": "emissions.gcb-2025.fossil-net-2025-projection",
+  "key": "7bb3984e20c4bcdb059caece6c298c501b3cd21715a15b1bc1d5c61454aeff5c",
+  "key_parts": {
+    "inputs": {
+      "gcb-2025-essd/article-pdf": {
+        "manifest_sha256": "107a9a5523dde5caa4b5366ed630663b927aa881a66ae4bb7a29397d8e0035fa",
+        "sha256": "166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/gcb-2025-essd-fossil-2025.yaml": "38bc30f677610a3da28e823418c2c635d886047c43aeafa6e81b5eef9861fecc"
+    },
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "gcb-2025-essd": "1e3fb3836aaa0629c161df8fc90b0e361e02ee35e15ac5c8edcc2cb69d649b1a"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

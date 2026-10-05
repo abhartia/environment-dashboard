@@ -1,0 +1,39 @@
+{
+  "export": "data/v1/indicators/warming.igcc-2025.human-induced.json",
+  "export_sha256": "6e31e8376c56b0e4ccb4aee891ef3f49cafbb52311befc0899906f01621ebbd4",
+  "indicator_id": "warming.igcc-2025.human-induced",
+  "key": "492a374bab6ed26f9966fa9ff474bcb5ae97a03de5f38af49ea9954c44dd54bd",
+  "key_parts": {
+    "inputs": {
+      "igcc-2025/data-igcc-2025a": {
+        "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
+        "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd"
+      },
+      "igcc-2025/warming-assessment-headlines": {
+        "manifest_sha256": "73352758b65b468d01b6905c4d86da4b72e445427b658fdeb4754ddc0bb07366",
+        "sha256": "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"
+      },
+      "igcc-2025/warming-gillett-timeseries": {
+        "manifest_sha256": "0c74dee652345a7809a421d45ad4b953ad1b8ce1e4f0696bc6f5c3449dfe3359",
+        "sha256": "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe"
+      },
+      "igcc-2025/warming-ribes-timeseries": {
+        "manifest_sha256": "aead33ac2d5ceacc562ae1c5c98961fc9ea2cd802a655edbf0201f7bdc2a9076",
+        "sha256": "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df"
+      },
+      "igcc-2025/warming-walsh-timeseries": {
+        "manifest_sha256": "8cb160d7eb99b9e1d4d145888791c4b7f1ac6e056baea2548fc6e8f22d9fe09c",
+        "sha256": "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
+    },
+    "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+  },
+  "publisher_checks": [
+    {"detail": "ours 1.38 vs stated 1.38 (tolerance ±0.005, difference 0)", "entity": "WLD", "period": "2025", "quote": "2025.5,2025,2026,1.1,1.38,1.7,1.1,1.63,2.1,-0.8,-0.26,0.2,-0.1,0.04,0.2,", "source_id": "igcc-2025", "stated": "1.38", "status": "pass", "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv", "vintage": "IGCC-2025a"}
+  ]
+}

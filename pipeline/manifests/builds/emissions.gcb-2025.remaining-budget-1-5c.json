@@ -1,0 +1,23 @@
+{
+  "export": "data/v1/indicators/emissions.gcb-2025.remaining-budget-1-5c.json",
+  "export_sha256": "0a49b9cd555d968bfeec46713a06d6be6ac500258acf7bf9be1e65cfe85c9e0d",
+  "indicator_id": "emissions.gcb-2025.remaining-budget-1-5c",
+  "key": "48b84dee11a70424b31a350d8f3e953e7bd517c5e4616e4f3eea71fdec7227d7",
+  "key_parts": {
+    "inputs": {
+      "gcb-2025-essd/article-pdf": {
+        "manifest_sha256": "107a9a5523dde5caa4b5366ed630663b927aa881a66ae4bb7a29397d8e0035fa",
+        "sha256": "166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/gcb-2025-essd-remaining-budget-1-5c.yaml": "349c6de27263f5f85cb38a46a1f4b2d0ec52b972481b2afc96aced45e22c76b4"
+    },
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "gcb-2025-essd": "1e3fb3836aaa0629c161df8fc90b0e361e02ee35e15ac5c8edcc2cb69d649b1a"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

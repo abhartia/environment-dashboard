@@ -1,0 +1,23 @@
+{
+  "export": "data/v1/indicators/emissions.gcb-2025.fossil-net-global.json",
+  "export_sha256": "597938504907576da39492732dd7e243ca118ef6e8ab009b8994528b441ad2ec",
+  "indicator_id": "emissions.gcb-2025.fossil-net-global",
+  "key": "6089d8fe2ebe1eebbeba95b31728037a7d45f5aa8bfa3cac69702681b2666efc",
+  "key_parts": {
+    "inputs": {
+      "gcb-2025-global/global-budget": {
+        "manifest_sha256": "1e0f21b66c880c600f8bec8512f54a9213775dac4e4d64517a8fcdc773954481",
+        "sha256": "a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "sources": {
+      "gcb-2025-global": "bf032e1c77a924ece51d3b89bfe186135725b79948f716ec728f4286be76aa96"
+    },
+    "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
+  },
+  "publisher_checks": [
+    {"detail": "ours 37.776777629967036 vs stated 37.8 (tolerance ±0.05, difference 0.0232224)", "entity": "WLD", "period": "2024", "quote": "Consolidated data confirm a growth of 1.1 % in 2024 relative to 2023, with fossil CO2 emissions of 10.3 ± 0.5 GtC yr−1 (37.8 ± 1.8 GtCO2 yr−1) in 2024.", "source_id": "gcb-2025-global", "stated": "37.8", "status": "pass", "url": "https://essd.copernicus.org/articles/18/3211/2026/", "vintage": "2025 v1.0"}
+  ]
+}
