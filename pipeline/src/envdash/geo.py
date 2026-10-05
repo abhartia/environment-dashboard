@@ -71,6 +71,17 @@ EXTRA_TERRITORIES: dict[str, tuple[str, str]] = {
     # gcp-fossil-co2-2025 mtco2-flat has "Christmas Island","CXR"; Natural Earth draws it inside Indian Ocean
     # Territories (ADM0_A3 IOA, ISO_A3_EH AUS) together with the Cocos (Keeling) Islands.
     "CXR": ("Christmas Island", "gcp-fossil-co2-2025"),
+    # Overseas regions and dependencies that producers report separately but Natural Earth draws inside another
+    # country's polygon (FRA, NOR) or omits. Reported separately by: Ember, EIA, EDGAR, FAOSTAT, FRA, CCKP.
+    "GUF": ("French Guiana", "ember-yearly"),
+    "REU": ("Réunion", "ember-yearly"),
+    "MYT": ("Mayotte", "faostat"),
+    "SJM": ("Svalbard and Jan Mayen", "faostat"),
+    "BVT": ("Bouvet Island", "wb-cckp"),
+    "CCK": ("Cocos (Keeling) Islands", "wb-cckp"),
+    "UMI": ("United States Minor Outlying Islands", "wb-cckp"),
+    # The World Bank's WDI reports the Channel Islands (Jersey and Guernsey) as one economy, code CHI.
+    "CHI": ("Channel Islands", "wb-wdi"),
 }
 
 # Aggregates and producer pseudo-entities: no polygon. Codes are ours (ENTITY: [A-Z0-9_]{2,12}).
@@ -84,11 +95,16 @@ AGGREGATES: dict[str, str] = {
     "KWT_OILFIRES": "Kuwaiti oil fires (1991)",
     "PAC_ISLANDS": "Pacific Islands Trust Territory (Palau), as reported before Palau's independence",
     "RYUKYU": "Ryukyu Islands, as reported while under US administration",
+    "NH": "Northern Hemisphere",
+    "SH": "Southern Hemisphere",
+    # EDGAR's row "Serbia and Montenegro" (code SCG), reported as one entity in its historical years.
+    "SRB_MNE": "Serbia and Montenegro (as reported together)",
 }
 
 STATIONS: dict[str, str] = {
     "MLO": "Mauna Loa Observatory, Hawaii",
     "LAWDOME": "Law Dome ice cores, Antarctica",
+    "ALOHA": "Station ALOHA, North Pacific north of Oahu, Hawaii",
     # bereiter-2015-co2: a composite of several Antarctic cores (Law Dome, Dome C, WAIS Divide, Siple Dome, Talos
     # Dome, EDML, Vostok), so not one site.
     "ANT_ICECORES": "Antarctic ice cores (composite of several sites)",
