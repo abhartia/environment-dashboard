@@ -10,3 +10,9 @@ paths = [
   '''data/SHA256SUMS''',
   '''pipeline/manifests/.*''',
 ]
+# Indicator ids (quantity.source.variant, e.g. emissions.gcp-2025.fossil-co2-per-capita) are public names; a
+# constant such as PER_CAPITA trips the generic-api-key rule on the "API" inside "CAPITA".
+regexes = [
+  '''^[a-z0-9-]+(\.[a-z0-9-]+){1,3}$''',
+]
+regexTarget = "secret"
