@@ -118,6 +118,48 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
             </section>
           ) : null}
 
+          {!series.length && rows.length > 1 ? (
+            <section aria-labelledby="values" className="grid gap-3">
+              <h2 id="values" className="text-2xl">
+                Every value
+              </h2>
+              <div className="overflow-x-auto rounded-xl border border-border bg-card">
+                <table className="w-full text-sm">
+                  <caption className="sr-only">{entry.title}, every published value</caption>
+                  <thead className="bg-muted text-left">
+                    <tr>
+                      {[...dimCols, "Period", `Value (${ind.unit.short})`, ...(hasRange ? ["Range"] : []), "Status"].map((c) => (
+                        <th key={c} className="px-3 py-2 font-medium">
+                          {c}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((o, i) => (
+                      <tr key={i} className="border-t border-border align-top">
+                        {ind.dimensions.map((d) => (
+                          <td key={d.id} className="px-3 py-2">
+                            {d.values.find((v) => v.id === o.dims[d.id])?.label ?? o.dims[d.id]}
+                            {o.note ? <span className="mt-1 block text-xs text-muted-foreground">{o.note}</span> : null}
+                          </td>
+                        ))}
+                        <td className="num px-3 py-2">{o.period}</td>
+                        <td className="num px-3 py-2 text-right">{o.value === null ? `none (${o.missing_reason})` : formatValue(o.value, dec)}</td>
+                        {hasRange ? (
+                          <td className="num px-3 py-2 text-right">
+                            {o.lower === null ? "" : `${formatValue(o.lower, dec)} to ${formatValue(o.upper as number, dec)}`}
+                          </td>
+                        ) : null}
+                        <td className="px-3 py-2">{o.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          ) : null}
+
           {series.length ? (
             <Figure
               id="series"
@@ -152,7 +194,7 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
             </Figure>
           ) : null}
 
-          {notes.length ? (
+          {notes.length > 0 && series.length > 0 ? (
             <section aria-labelledby="notes" className="grid gap-2">
               <h2 id="notes" className="text-2xl">
                 Notes on individual values

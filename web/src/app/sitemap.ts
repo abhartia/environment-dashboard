@@ -4,6 +4,7 @@ import { catalog, sources } from "@/lib/data";
 import { STATIC_PAGES } from "@/lib/pages";
 import { dataPath, sourcePath } from "@/lib/routes";
 import { absoluteUrl } from "@/lib/site-url";
+import { STORIES } from "@/lib/stories";
 
 export const dynamic = "force-static";
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .at(-1);
   return [
     ...STATIC_PAGES.map((p) => ({ url: absoluteUrl(p.path), lastModified: p.updated, priority: p.priority })),
+    ...STORIES.map((s) => ({ url: absoluteUrl(`/${s.section}/${s.slug}`), lastModified: s.updated, priority: 0.9 })),
     ...entries.map((e) => ({ url: absoluteUrl(dataPath(e.id)), lastModified: lastData([e.id]), priority: 0.6 })),
     ...sources().map((s) => ({
       url: absoluteUrl(sourcePath(s.id)),

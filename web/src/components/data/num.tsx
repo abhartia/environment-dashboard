@@ -17,8 +17,11 @@ export function Num({
   signed = false,
   unit = "short",
   className,
+  samePeriodAs,
 }: Pick & {
   id: string;
+  /** Use the period of another indicator's latest value (e.g. the same year as the emissions headline). */
+  samePeriodAs?: string;
   /** Fewer decimals than the indicator's own, for reading ("about 1.4"). Never more. */
   decimals?: number;
   signed?: boolean;
@@ -26,7 +29,8 @@ export function Num({
   className?: string;
 }) {
   const ind = indicator(id);
-  const obs = observation(id, { entity, period, dims });
+  if (samePeriodAs && period) throw new Error(`<Num id="${id}">: give period or samePeriodAs, not both`);
+  const obs = observation(id, { entity, period: samePeriodAs ? indicator(samePeriodAs).latest.period : period, dims });
   const places = decimals ?? ind.display.decimals;
   if (places > ind.display.decimals) {
     throw new Error(`<Num id="${id}"> asks for ${places} decimals; the indicator is published to ${ind.display.decimals}`);
@@ -40,7 +44,7 @@ export function Num({
       data-indicator={id}
       data-period={obs.period}
       data-entity={obs.entity}
-      aria-label={`${text}${unitText}, show source`}
+      aria-label={`${text}${unitText}${obs.status !== "final" ? ` (${obs.status === "projection" ? "projected" : "preliminary"})` : ""}, show source`}
       aria-haspopup="dialog"
       className={cn("traced whitespace-nowrap", className)}
     >

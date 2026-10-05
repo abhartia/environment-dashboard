@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Num } from "@/components/data/num";
+import { CausalChain } from "@/components/home/causal-chain";
 import { PeriodOf } from "@/components/data/period-of";
 import { Container } from "@/components/site/container";
 import { WarmingStripes } from "@/components/viz/warming-stripes";
@@ -11,8 +12,8 @@ import { SECTIONS } from "@/lib/sections";
 const TEMPERATURE = "temp.hadcrut5.annual-1850-1900";
 
 /**
- * Home. The causal chain (emissions → concentrations → warming → sea level → budget left) renders here from data/
- * once those indicators are published; until then the page states what the site does and links the three questions.
+ * Home: warming stripes and the latest warming, the causal chain (emissions → the air → warming → what is left), then
+ * the three questions. Every number is a traced <Num> rendered from data/.
  */
 export default function Home() {
   return (
@@ -39,6 +40,13 @@ export default function Home() {
           </p>
         </Container>
       </section>
+
+      <Container className="pt-16">
+        <h2 className="text-3xl">From cause to consequence, in four steps</h2>
+        <div className="mt-6">
+          <CausalChain />
+        </div>
+      </Container>
 
       <Container className="py-16">
         <h2 className="sr-only">Three questions</h2>

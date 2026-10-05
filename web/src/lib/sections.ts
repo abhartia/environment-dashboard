@@ -12,7 +12,7 @@ export const SECTIONS: Section[] = [
     question: "Why is it happening?",
     intro: "What people burn, farm and clear, which gases that puts in the air, and how those gases trap heat.",
     stories: [
-      { slug: "greenhouse-gases", title: "Greenhouse gases", question: "What is in the air, and how do we know it is us?", ready: false },
+      { slug: "greenhouse-gases", title: "Greenhouse gases", question: "What is in the air, and how much extra heat does it hold in?", ready: true },
       { slug: "emissions", title: "Emissions", question: "Who emits, from what, and how much over time?", ready: false },
       { slug: "energy", title: "Energy", question: "Where does our energy come from, and how fast is that changing?", ready: false },
       { slug: "food-and-land", title: "Food and land", question: "How do farming and forests add to the problem?", ready: false },

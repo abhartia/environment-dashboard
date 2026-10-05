@@ -154,6 +154,12 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
     if (!markup.includes("data-footer-disclaimers")) fail(`${page}: missing the footer disclaimers`);
   }
 
+  // Internal links must land on a page or a file in the export (no links to stories that do not exist yet).
+  for (const [, href] of markup.matchAll(/<a\b[^>]*\shref="(\/[^"#?]*)/g)) {
+    const p = decodeURIComponent(href).replace(/\/$/, "");
+    const target = p === "" ? "index.html" : p.slice(1);
+    if (![target, `${target}.html`, `${target}/index.html`].some((t) => existsSync(join(OUT, t)))) fail(`${page}: links to ${href}, which is not in the export`);
+  }
   for (const [, id] of markup.matchAll(/\sdata-indicator="([^"]+)"/g)) {
     if (!indicators.has(id)) fail(`${page}: data-indicator="${id}" is not in data/v1/catalog.json`);
     else if (!existsSync(join(OUT, "data", `${id.split(".").join("/")}.html`))) fail(`${page}: ${id} has no data page`);

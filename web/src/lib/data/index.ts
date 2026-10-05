@@ -25,11 +25,16 @@ function readJson<T>(rel: string): T {
   return JSON.parse(readFileSync(path.join(ROOT, rel), "utf8")) as T;
 }
 
+// Memoised for a build (one read per file); re-read on every request in development, where `npm run build`'s
+// sync-data can replace .generated/ while the dev server keeps running.
+const MEMO = process.env.NODE_ENV === "production";
+
 let catalogCache: Catalog | null = null;
 let sourcesCache: Map<string, Source> | null = null;
 const indicatorCache = new Map<string, Indicator>();
 
 export function catalog(): Catalog {
+  if (!MEMO) return readJson<Catalog>("catalog.json");
   catalogCache ??= readJson<Catalog>("catalog.json");
   return catalogCache;
 }
@@ -42,7 +47,7 @@ export function catalogEntry(id: string): CatalogEntry {
 
 /** The full indicator, public or private. Private values may only be rendered on the server, never passed to a client component. */
 export function indicator(id: string): Indicator {
-  const cached = indicatorCache.get(id);
+  const cached = MEMO ? indicatorCache.get(id) : undefined;
   if (cached) return cached;
   catalogEntry(id);
   const ind = readJson<Indicator>(`indicators/${id}.json`);
@@ -51,6 +56,7 @@ export function indicator(id: string): Indicator {
 }
 
 export function sources(): Source[] {
+  if (!MEMO) sourcesCache = null;
   sourcesCache ??= new Map(readJson<SourceList>("sources.json").sources.map((s) => [s.id, s]));
   return [...sourcesCache.values()];
 }
