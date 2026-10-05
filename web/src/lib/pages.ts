@@ -12,6 +12,9 @@ const SITE_START = "2026-10-04";
 export const STATIC_PAGES: StaticPage[] = [
   { path: "/", title: "Home", summary: "The three questions and how to check any number.", updated: SITE_START, priority: 1 },
   ...SECTIONS.map((s) => ({ path: s.href, title: s.label, summary: `${s.question} ${s.intro}`, updated: SITE_START, priority: 0.9 })),
+  { path: "/data", title: "Data", summary: "Every published number with its producer, version, licence and provenance.", updated: SITE_START, priority: 0.8 },
+  { path: "/sources", title: "Sources", summary: "Every data source, its licence quoted from its own terms, and its status.", updated: SITE_START, priority: 0.7 },
+  { path: "/status", title: "Status", summary: "How each source fared in the latest weekly check.", updated: SITE_START, priority: 0.3 },
   { path: "/methods", title: "Methods", summary: "How every number is sourced, fetched, archived, transformed, checked and licensed.", updated: SITE_START, priority: 0.7 },
   { path: "/about", title: "About", summary: "Why the site exists and how it is kept honest.", updated: SITE_START, priority: 0.5 },
   { path: "/corrections", title: "Corrections", summary: "Our mistakes and method changes, with dates and before-and-after values.", updated: SITE_START, priority: 0.4 },

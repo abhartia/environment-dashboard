@@ -6,9 +6,10 @@
 import { createHash } from "node:crypto";
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("../../", import.meta.url).pathname;
-const WEB = new URL("../", import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL("../../", import.meta.url));
+const WEB = fileURLToPath(new URL("../", import.meta.url));
 const DATA = join(ROOT, "data");
 const PRIVATE = join(ROOT, "data-private");
 const PUBLIC_OUT = join(WEB, "public/data");

@@ -1,5 +1,5 @@
 # Copernicus Climate Change Service (C3S) Climate Pulse: daily global surface air temperature and sea-surface
-# temperature from ERA5, near real time.
+# temperature from ERA5, about two days after the fact.
 # Evidence: docs/research/sources-atmosphere-and-temperature.json ("Copernicus C3S ERA5 global temperature and Climate
 # Pulse"; verifier corrected the licence to CC BY 4.0 and added the EC/ECMWF disclaimer).
 #
@@ -17,8 +17,8 @@ landing_url: https://pulse.climate.copernicus.eu/
 description: >-
   Daily global-mean surface air temperature (2 metres) from 1 January 1940 and daily mean sea-surface temperature
   averaged over 60°S–60°N from 1 January 1979, from the ERA5 reanalysis, updated each day with data up to two days
-  behind real time. Each row gives the absolute value, the smoothed 1991–2020 daily climatology, the anomaly from
-  1991–2020 and a status. Days 2 to 5 behind real time use ERA5 data not yet released on the Climate Data Store, and
+  behind the present. Each row gives the absolute value, the smoothed 1991–2020 daily climatology, the anomaly from
+  1991–2020 and a status. Days 2 to 5 behind the present use ERA5 data not yet released on the Climate Data Store, and
   rows marked PRELIMINARY (usually the newest day) are likely to change slightly; the site keeps that status and labels
   those days preliminary.
 citation:
@@ -92,7 +92,7 @@ artifacts:
 status:
   state: active
   note: >-
-    Updated once a day, usually before 05:00 UTC, with ERA5 data up to two days behind real time. EU Copernicus
+    Updated once a day, usually before 05:00 UTC, with ERA5 data up to two days behind the present. EU Copernicus
     programme, implemented by ECMWF; not exposed to US federal cuts.
   us_federal: false
 update_cadence: Daily, usually before 05:00 UTC

@@ -11,9 +11,10 @@
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const OUT = new URL("../out/", import.meta.url).pathname;
-const DATA = new URL("../../data/", import.meta.url).pathname;
+const OUT = fileURLToPath(new URL("../out/", import.meta.url));
+const DATA = fileURLToPath(new URL("../../data/", import.meta.url));
 const CANONICAL_ORIGIN = "https://environmentdashboard.org";
 const MAX_FILE_BYTES = 20 * 1024 * 1024;
 const MAX_FILES = 15_000;
@@ -126,6 +127,7 @@ const IMPERATIVE = /\byou (?:should|must|need to|have to)\b/i;
 /** How the site is built, not what it means for the reader. Allowed on the pages whose job is to describe the data files. */
 const IMPLEMENTATION_WORDS = [/\bPython\b/, /\bpipeline\b/i, /\bregex\b/i, /\bschema\b/i, /\bpolars\b/i, /\bpydantic\b/i];
 const TECHNICAL_PAGES = /^(data|sources|methods|status)(\/|\.html$)/;
+for (const id of indicators.keys()) if (id.startsWith("v1.")) fail(`indicator id ${id} would collide with /data/v1/`);
 const NOINDEX = '<meta name="robots" content="noindex';
 
 for (const f of files.filter((f) => f.endsWith(".html"))) {
@@ -133,9 +135,11 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
   const page = rel(f);
   const markup = markupOf(html);
   const text = visibleText(markup);
+  // Producers' own words (licence terms, quoted statements) are shown verbatim in <blockquote>; voice rules apply to ours.
+  const ownText = visibleText(markup.replace(/<blockquote\b[\s\S]*?<\/blockquote>/gi, " "));
 
-  for (const { re, why } of BANNED) if (re.test(text)) fail(`${page}: matches ${re} (${why})`);
-  const imperative = text.match(IMPERATIVE);
+  for (const { re, why } of BANNED) if (re.test(ownText)) fail(`${page}: matches ${re} (${why})`);
+  const imperative = ownText.match(IMPERATIVE);
   if (imperative) fail(`${page}: '${imperative[0]}' (describe options by their effect; see docs/style.md)`);
   if (!TECHNICAL_PAGES.test(page)) {
     for (const re of IMPLEMENTATION_WORDS) {
@@ -152,7 +156,7 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
 
   for (const [, id] of markup.matchAll(/\sdata-indicator="([^"]+)"/g)) {
     if (!indicators.has(id)) fail(`${page}: data-indicator="${id}" is not in data/v1/catalog.json`);
-    else if (!existsSync(join(OUT, "data", `${id}.html`))) fail(`${page}: ${id} has no /data/${id} page`);
+    else if (!existsSync(join(OUT, "data", `${id.split(".").join("/")}.html`))) fail(`${page}: ${id} has no data page`);
   }
 }
 
