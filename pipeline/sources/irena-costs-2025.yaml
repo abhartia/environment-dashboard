@@ -4,8 +4,10 @@
 # Licence: page 2 of the executive summary PDF (terms_url), read 2026-10-04. It continues: "Material in this
 # publication that is attributed to third parties may be subject to separate terms of use and restrictions, and
 # appropriate permissions from these third parties may need to be secured before any use of such material." In the
-# data file, sheets "Fig. 9.5" and "Fig. 9.7" (energy storage costs) are labelled "Based on BNEF data": they are never
-# ingested, and for that reason the unmodified workbook is not mirrored.
+# data file, sheets "Fig. 9.5" and "Fig. 9.7" (energy storage costs) are labelled "Based on BNEF data", and sheet
+# "Fig. 9.8" (long-duration storage) "Based on Carbon Limiting Technologies" (found by energy/irena_costs.py, which
+# lists every "Based on ..." sheet at each build, 2026-10-05): they are never ingested, and for that reason the
+# unmodified workbook is not mirrored.
 # citation.text is verbatim from both the PDF and the workbook's Contents sheet ("This data should be cited as: ...").
 id: irena-costs-2025
 title: Renewable power generation costs in 2025
@@ -56,7 +58,8 @@ artifacts:
     format: xlsx
     description: >-
       Data behind every figure and table of the report, one sheet each (108 sheets including section dividers).
-      Sheets "Fig. 9.5" and "Fig. 9.7" are BNEF-based and excluded.
+      Sheets "Fig. 9.5" and "Fig. 9.7" are BNEF-based and "Fig. 9.8" is based on Carbon Limiting Technologies; all
+      three are excluded.
   # GET 200 on 2026-10-04: 2,737,306 bytes, no ETag or Last-Modified. ISBN 978-92-9260-749-4.
   - id: executive-summary-pdf
     url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
