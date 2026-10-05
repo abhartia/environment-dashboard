@@ -16,6 +16,11 @@
 #     copy of the table or a download. The verifier read counts we compute from the rows (e.g. studies per country) as
 #     acceptable with credit; that reading goes beyond this class and needs the owner's decision or Carbon Brief's
 #     permission before any such count is published.
+#   - Added 2026-10-05, artifact article-page: index.html itself -> 200, text/html, 1,518,493 bytes, Last-Modified
+#     5 May 2026, If-Modified-Since -> 304, byte-identical on two fetches (sha256 bb784eb01e72…). Carbon Brief's own
+#     totals are quoted from it verbatim as published values (pipeline/literature/carbon-brief-attribution-*.yaml):
+#     "In total, the map (above) contains 967 extremes from 819 studies." and "Across all cases, 77% were found to
+#     have been made more likely or severe because of climate change." No count or share is computed from the CSV.
 #   - Carbon Brief gives no suggested citation; the terms require crediting "Carbon Brief" with a link to the article.
 #     citation.text names the article as the page prints it.
 #   - Classifications are Carbon Brief's summaries of each paper; coverage is skewed towards Europe, East Asia and
@@ -74,6 +79,14 @@ artifacts:
       One row per attributed extreme: Name, Event year/Trend, Event type, Classification, Publication year, Citation,
       Rapid study?, Source, Link, Summary statement, cb-region, iso country code, iso sub region. 967 rows on
       2026-10-04.
+  - id: article-page
+    url: https://interactive.carbonbrief.org/attribution-studies/index.html
+    format: html
+    description: >-
+      The article page itself (server-rendered HTML, about 1.5 MB, Last-Modified 5 May 2026, answers
+      If-Modified-Since with 304), for Carbon Brief's own published totals quoted verbatim with their sentence: "In
+      total, the map (above) contains 967 extremes from 819 studies" and "Across all cases, 77% were found to have
+      been made more likely or severe because of climate change". No count or share is computed by us from the CSV.
 status:
   state: active
   note: >-

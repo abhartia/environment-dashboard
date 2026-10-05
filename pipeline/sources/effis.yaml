@@ -12,6 +12,10 @@
 #     read from its network requests; countries per area come from /statistics/utils/countriesbyaoi?aoi=effis (EU: 27
 #     members; Non_EU: ALB, AND, BIH, XKO, MNE, MKD, NOR, SRB, CHE, TUR, UKR, GBR). All three return 200 JSON with
 #     no ETag or Last-Modified (conditional false). Not yet run from a GitHub runner.
+#   - Added 2026-10-05: estimatesbycountry?country=UCPM (200 JSON, same structure) and the countriesbyaoi list itself
+#     (200 JSON, 7,071 bytes, no ETag or Last-Modified). EFFIS's UCPM area has 43 entries: the EU27, ALB, BIH, ISL,
+#     MDA, MKD, MNE, NOR, SRB, TUR, UKR, and GLP, MTQ, MYT, REU, MAF and GUY (EFFIS names it "Guyana"; the EU's
+#     outermost region in South America is French Guiana, GUF). The UCPM total is published as EFFIS serves it.
 #   - estimatesbycountry returns the same values with or without firesize=30; the portal labels them "Fires mapped in
 #     EFFIS of approx. 30 ha or larger". The series include the current year to date (2026: EU 689,324 ha on
 #     2026-10-04), which is a partial year. In the 2025 country overview the per-country values sum exactly to the EU
@@ -29,11 +33,12 @@ publisher: European Commission, Joint Research Centre (JRC), Copernicus Emergenc
 landing_url: https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates
 description: >-
   Area burnt (hectares) and number of fires mapped by EFFIS from satellite imagery, for fires of about 30 hectares or
-  larger, every year from 2006. Two series: the 27 EU member states together, and 12 other European countries
-  together (including Türkiye, Ukraine and the United Kingdom). A third file gives each of those 39 countries' 2025
-  total next to its 2006-2024 average. Fires burning natural land are counted, including prescribed burns; values
-  differ from national statistics, and from GWIS's MODIS-based Europe totals. The Advance report gives the JRC's
-  analysis of the 2025 season.
+  larger, every year from 2006. Three series: the 27 EU member states together; 12 other European countries together
+  (including Türkiye, Ukraine and the United Kingdom); and the countries EFFIS groups under the EU's Union Civil
+  Protection Mechanism (UCPM), with a membership file that defines each group. Another file gives each of the 39
+  countries' 2025 total next to its 2006-2024 average. Fires burning natural land are counted, including prescribed
+  burns; values differ from national statistics, and from GWIS's MODIS-based Europe totals. The Advance report gives
+  the JRC's analysis of the 2025 season.
 citation:
   type: report
   title: Advance report on forest fires in Europe, Middle East and North Africa 2025
@@ -102,6 +107,23 @@ artifacts:
     description: >-
       Total for the 12 European countries outside the EU that EFFIS covers (ALB, AND, BIH, XKO, MNE, MKD, NOR, SRB,
       CHE, TUR, UKR, GBR), same structure as estimates-eu.
+    access:
+      conditional: false
+  - id: estimates-ucpm
+    url: https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=UCPM
+    format: json
+    description: >-
+      Total for the countries EFFIS groups as UCPM (Union Civil Protection Mechanism; members listed in
+      areas-of-interest), same structure as estimates-eu. The last year is the current year to date.
+    access:
+      conditional: false
+  - id: areas-of-interest
+    url: https://api2.effis.emergency.copernicus.eu/statistics/utils/countriesbyaoi?aoi=effis
+    format: json
+    description: >-
+      EFFIS's own membership list for each area of interest, one object per (area, country) with aoi_code, iso2,
+      iso3 and name: EU (27), Non_EU (12), UCPM (43) and MENA (18) on 2026-10-05. This is the definition of the EU and
+      UCPM totals above.
     access:
       conditional: false
   - id: overview-2025-europe

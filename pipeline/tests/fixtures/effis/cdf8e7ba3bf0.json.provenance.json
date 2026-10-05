@@ -1,0 +1,13 @@
+{
+  "artifact_id": "estimates-ucpm",
+  "command": "uv run python tests/fixtures/make_fixture.py --source effis --artifact estimates-ucpm --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 879,
+  "fixture_sha256": "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106",
+  "full_bytes": 879,
+  "full_sha256": "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106",
+  "licence": "CC BY 4.0 (European Commission reuse policy)",
+  "rows_kept": "the whole file (879 bytes)",
+  "source_id": "effis",
+  "url": "https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=UCPM"
+}

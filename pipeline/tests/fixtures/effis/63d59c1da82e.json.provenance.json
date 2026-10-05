@@ -1,0 +1,13 @@
+{
+  "artifact_id": "areas-of-interest",
+  "command": "uv run python tests/fixtures/make_fixture.py --source effis --artifact areas-of-interest --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 7071,
+  "fixture_sha256": "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632",
+  "full_bytes": 7071,
+  "full_sha256": "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632",
+  "licence": "CC BY 4.0 (European Commission reuse policy)",
+  "rows_kept": "the whole file (7,071 bytes)",
+  "source_id": "effis",
+  "url": "https://api2.effis.emergency.copernicus.eu/statistics/utils/countriesbyaoi?aoi=effis"
+}

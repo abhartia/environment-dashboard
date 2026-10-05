@@ -1,0 +1,46 @@
+# NOAA Coral Reef Watch, "Current Global Bleaching: Status Update" (updated 2 June 2026): the share of the world's
+# coral reef area that had bleaching-level heat stress in the fourth global coral bleaching event.
+# The build checks that `quote` appears in the visible text of the snapshot of noaa-crw/global-bleaching-status
+# (sha256 d48ccb9c370e…, first fetched 2026-10-04; HTML, so no PDF page). In the HTML the sentence runs over three
+# source lines and uses a curly apostrophe (world’s); textmatch ignores both.
+# CRW's value is published as is: recomputing it from the DHW maps would need CRW's own reef-pixel definition. The
+# page gives no percentage for the 1998 or 2010 events (docs/research/sources-impacts.json, verdict "corrected").
+id: noaa-crw-fourth-event-reef-area
+indicator_id: coral.noaa-crw.fourth-event-reef-area
+source_id: noaa-crw
+artifact_id: global-bleaching-status
+title: Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event
+description: >-
+  The share of the world's coral reef area that experienced heat stress high enough to cause bleaching between 1
+  January 2023 and 30 September 2025, the fourth global coral bleaching event, as published by NOAA Coral Reef Watch.
+  Heat stress measures the risk of bleaching, not observed bleaching or coral death.
+unit:
+  code: percent
+  label: percent of the world's coral reef area
+  short: "%"
+display:
+  decimals: 1
+scope:
+  geography: World (coral reef areas in Coral Reef Watch's global 5 km satellite products)
+  basis: >-
+    Reef area that had bleaching-level heat stress at least once between 1 January 2023 and 30 September 2025, from
+    satellite sea surface temperature (CRW's 5 km Bleaching Alert Area products). The same page gives 68.2% for the
+    third global event (2014–2017). NOAA said on 2 June 2026 that the fourth event likely ended in 2025.
+geo_coverage: global-only
+headline_entity: WLD
+vintage: Status update of 2 June 2026
+locator: "Current Global Bleaching: Status Update (Updated: June 2, 2026), first paragraph under the headline"
+pdf_page: null
+quote: >-
+  From 1 January 2023 to 30 September 2025, bleaching-level heat stress has impacted ~84.4% of the world's coral reef
+  area and mass coral bleaching has been documented in at least 83 countries and territories.
+value_text: ~84.4%
+value_reading: >-
+  "~84.4%" is published as 84.4 percent of the world's coral reef area for 1 January 2023 to 30 September 2025; the
+  page gives no range.
+observations:
+  - {entity: WLD, period: "2023-01-01/2025-09-30", value: 84.4}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-impacts.json#NOAA Coral Reef Watch (CRW): global 5 km Degree Heating Week and the fourth
+  global coral bleaching event statistics

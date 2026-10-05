@@ -1,0 +1,48 @@
+# Carbon Brief, "Mapped: How climate change affects extreme weather around the world" (last updated 19 March 2026):
+# the share of the extremes in its map that studies found were made more likely or more severe by climate change, as
+# Carbon Brief itself states it.
+# Source class no-derivatives (CC BY-NC-ND 4.0): only Carbon Brief's own published share is shown, verbatim, with its
+# sentence. We do not compute a share from papers-download.csv.
+# The build checks that `quote` appears in the visible text of the snapshot of carbon-brief-attribution/article-page
+# (sha256 bb784eb01e72…, first fetched 2026-10-05; HTML, so no PDF page). The page's introduction says the same in
+# other words ("Across all these cases, 77% were made more likely or severe because of climate change."); the
+# sentence quoted is the one in the section on the map's results.
+id: carbon-brief-attribution-share-more-likely-or-severe
+indicator_id: attribution.carbon-brief.share-more-likely-or-severe
+source_id: carbon-brief-attribution
+artifact_id: article-page
+title: Share of studied extremes made more likely or severe by climate change (Carbon Brief map)
+description: >-
+  Of the extreme weather events and trends in Carbon Brief's map of attribution studies, the share that studies found
+  were made more likely or more severe by human-caused climate change: 77%, as of the update of 19 March 2026. The
+  share describes the studies collected, which cluster in Europe, East Asia and North America; it is not the share of
+  all extreme weather.
+unit:
+  code: percent
+  label: percent of the extremes studied
+  short: "%"
+display:
+  decimals: 0
+scope:
+  geography: World (studies of extremes anywhere, as collected by Carbon Brief)
+  basis: >-
+    Carbon Brief's classification of each study's finding: more severe or more likely, less severe or less likely, no
+    discernible human influence, or inconclusive. Shares are of the 967 extremes in the map.
+geo_coverage: global-only
+headline_entity: WLD
+vintage: Seventh update, 19 March 2026
+locator: >-
+  "Extremes across the world" section, the paragraph after "To explore the data for a specific region, click the
+  relevant circles on the map" (page last updated 19 March 2026)
+pdf_page: null
+quote: Across all cases, 77% were found to have been made more likely or severe because of climate change.
+value_text: 77%
+value_reading: >-
+  "77%" is published as 77 percent of the extremes in the map, the share Carbon Brief states; it is not recomputed
+  from the data table.
+observations:
+  - {entity: WLD, period: "2026-03-19", value: 77}
+checked_on: 2026-10-05
+research_ref: >-
+  docs/research/sources-impacts.json#Carbon Brief: Mapped – how climate change affects extreme weather around the
+  world (attribution studies database)
