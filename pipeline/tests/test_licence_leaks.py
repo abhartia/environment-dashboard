@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import json
 
-from envdash.models import CatalogEntry, Indicator, IndicatorFile, PublishedValueCitation
+import pytest
+
+from envdash.models import CatalogEntry, IndicatorFile, PublishedValueCitation
 from envdash.paths import Paths
 from envdash.registry import _literature_leak_problem, load_registry
 from envdash.validate import _private_values_in_catalogue
@@ -27,18 +29,26 @@ def test_a_description_that_states_a_no_derivatives_value_is_refused() -> None:
     assert problem is not None and "states the value" in problem
 
 
-def _private(paths: Paths, indicator_id: str) -> tuple[Indicator, CatalogEntry]:
-    raw = (paths.private_indicators / f"{indicator_id}.json").read_bytes()
-    ind = IndicatorFile.model_validate_json(raw).to_indicator()
+def _entry(paths: Paths, indicator_id: str) -> CatalogEntry:
     catalog = json.loads((paths.data / "v1" / "catalog.json").read_text(encoding="utf-8"))
-    entry = CatalogEntry.model_validate(next(e for e in catalog["indicators"] if e["id"] == indicator_id))
-    return ind, entry
+    return CatalogEntry.model_validate(next(e for e in catalog["indicators"] if e["id"] == indicator_id))
 
 
-def test_the_catalogue_carries_no_quote_or_value_for_a_display_only_indicator() -> None:
+def test_the_public_catalogue_has_no_quote_for_non_redistributable_values() -> None:
+    catalog = json.loads((Paths.default().data / "v1" / "catalog.json").read_text(encoding="utf-8"))
+    for raw in catalog["indicators"]:
+        entry = CatalogEntry.model_validate(raw)
+        pv = entry.provenance.published_value
+        if entry.licence_class not in {"open", "share-alike", "noncommercial"} and pv is not None:
+            assert pv.quote is None, entry.id
+
+
+@pytest.mark.snapshot  # reads data-private/, which data-refresh pulls from R2 and CI does not have
+def test_the_catalogue_does_not_state_a_display_only_value() -> None:
     paths = Paths.default()
-    ind, entry = _private(paths, "gmsl.ipcc-ar6.rise-2100-likely")
-    assert entry.provenance.published_value is not None and entry.provenance.published_value.quote is None
+    raw = (paths.private_indicators / "gmsl.ipcc-ar6.rise-2100-likely.json").read_bytes()
+    ind = IndicatorFile.model_validate_json(raw).to_indicator()
+    entry = _entry(paths, ind.id)
     assert _private_values_in_catalogue(ind, entry) == []
     value = next(o.value for o in ind.observations if o.value is not None)
     leaky = entry.model_copy(
