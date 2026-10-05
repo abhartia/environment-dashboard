@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/action.ivanova-2020.options.json",
-  "export_sha256": "9583c384fae40b1ff6a6fb13bc4f13e1746454cddd2034acb0b04d79282830ec",
+  "export_sha256": "d39e9db11fb47fdad63d43a7628f6d934c5f54e05792a35b095e76982bf6b39e",
   "indicator_id": "action.ivanova-2020.options",
-  "key": "533ef384835df7b3cdec68d04fd9b451165a8576a967204f0635fb745228fe5f",
+  "key": "845275a2c499ddfb33bc4cb1fafb836d84d48d3159a791c6b58e2c5474107a76",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "ivanova-2020/article-pdf": {
         "manifest_sha256": "0382cc9a93b192a97d7506f99382d85f375034cb039cc2382f91a9c243629f0a",
@@ -11,11 +12,11 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "ivanova-2020": "9fe2799a47b6e6bfc203844d959f5cec067d8543698f6b23360d1477e19c8bf2"
     },
-    "transform_sha256": "027daffb5d428519cdc1d9b0321681ebdcb4996bfddc46be840dda371f79aa05"
+    "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
   },
   "publisher_checks": []
 }

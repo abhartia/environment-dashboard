@@ -617,6 +617,8 @@ def transforms(paths: Paths) -> list[Transform]:
                     label="tonnes of CO₂-equivalent per person per year",
                     short="t CO₂e/person/yr",
                 ),
+                # Not 1: most values are printed to one decimal, but the article also prints 0.03 (food waste
+                # management, mean) and range ends 1.46 and 0.01, which one decimal would show as 0.0, 1.5 and 0.0.
                 display=Display(decimals=2),
                 scope=Scope(
                     geography="Studies reviewed worldwide, mostly from high-income countries",

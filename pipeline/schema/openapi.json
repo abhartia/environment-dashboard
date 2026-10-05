@@ -214,6 +214,13 @@
             "title": "Source Ids",
             "type": "array"
           },
+          "time_basis": {
+            "default": "calendar",
+            "description": "The indicator's time_basis: whether latest carries a period or an age_bp.",
+            "enum": ["calendar", "years-before-1950"],
+            "title": "Time Basis",
+            "type": "string"
+          },
           "title": {
             "title": "Title",
             "type": "string"
@@ -226,7 +233,7 @@
             "type": "string"
           }
         },
-        "required": ["id", "title", "unit", "display", "licence_class", "source_ids", "vintage", "latest", "geo_coverage", "entities", "downloadable", "export_sha256", "provenance"],
+        "required": ["id", "title", "unit", "display", "licence_class", "source_ids", "vintage", "time_basis", "latest", "geo_coverage", "entities", "downloadable", "export_sha256", "provenance"],
         "title": "CatalogEntry",
         "type": "object"
       },
@@ -528,6 +535,13 @@
             "default": null,
             "title": "Superseded By"
           },
+          "time_basis": {
+            "default": "calendar",
+            "description": "calendar: every observation (and latest) has an ISO period and a null age_bp. years-before-1950: every observation (and latest) has age_bp and a null period; observations run from the oldest age to the youngest, and latest is the youngest.",
+            "enum": ["calendar", "years-before-1950"],
+            "title": "Time Basis",
+            "type": "string"
+          },
           "title": {
             "title": "Title",
             "type": "string"
@@ -541,13 +555,22 @@
             "type": "string"
           }
         },
-        "required": ["schema_version", "id", "title", "description", "kind", "unit", "display", "scope", "geo_coverage", "headline_entity", "dimensions", "observations", "latest", "vintage", "origins", "processing", "licence_class", "licence", "attribution", "notice", "published_value", "superseded_by"],
+        "required": ["schema_version", "id", "title", "description", "kind", "unit", "display", "scope", "geo_coverage", "headline_entity", "time_basis", "dimensions", "observations", "latest", "vintage", "origins", "processing", "licence_class", "licence", "attribution", "notice", "published_value", "superseded_by"],
         "title": "Indicator",
         "type": "object"
       },
       "Latest": {
         "additionalProperties": false,
         "properties": {
+          "age_bp": {
+            "anyOf": [
+              {"type": "number"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "As Observation.age_bp: the youngest age, set exactly when the time_basis is years-before-1950.",
+            "title": "Age Bp"
+          },
           "dims": {
             "additionalProperties": {
               "type": "string"
@@ -560,8 +583,13 @@
             "type": "string"
           },
           "period": {
-            "title": "Period",
-            "type": "string"
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "As Observation.period: null exactly when the time_basis is years-before-1950.",
+            "title": "Period"
           },
           "status": {
             "enum": ["final", "preliminary", "projection"],
@@ -573,7 +601,7 @@
             "type": "number"
           }
         },
-        "required": ["entity", "period", "value", "status", "dims"],
+        "required": ["entity", "period", "age_bp", "value", "status", "dims"],
         "title": "Latest",
         "type": "object"
       },
@@ -742,6 +770,15 @@
       "Observation": {
         "additionalProperties": false,
         "properties": {
+          "age_bp": {
+            "anyOf": [
+              {"type": "number"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Age in years before 1950 as the producer publishes it (e.g. ice-core gas age; negative after 1950). Set exactly when the indicator's time_basis is years-before-1950; otherwise null.",
+            "title": "Age Bp"
+          },
           "dims": {
             "additionalProperties": {
               "type": "string"
@@ -791,8 +828,13 @@
             "title": "Note"
           },
           "period": {
-            "title": "Period",
-            "type": "string"
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "ISO 8601 year, year-month, date or range. Null exactly when the indicator's time_basis is years-before-1950 (then age_bp is set).",
+            "title": "Period"
           },
           "status": {
             "default": "final",
@@ -816,7 +858,7 @@
             "title": "Value"
           }
         },
-        "required": ["entity", "period", "value", "lower", "upper", "interval", "status", "missing_reason", "note", "dims"],
+        "required": ["entity", "period", "age_bp", "value", "lower", "upper", "interval", "status", "missing_reason", "note", "dims"],
         "title": "Observation",
         "type": "object"
       },

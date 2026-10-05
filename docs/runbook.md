@@ -122,3 +122,29 @@ Also: email ch.datainfo@idmc.ch to request an IDMC API key. Until it arrives, ID
   as the fix.
 - **Rotate a key:** create the new key, `security add-generic-password -U …` to replace it, pipe it into
   `gh secret set …` again, then revoke the old key.
+
+### Registry features and housekeeping commands
+
+Every command is listed in `pipeline/README.md`; these are the ones that come up when adding or repairing a source.
+
+- **A file whose name changes on a schedule** (a month or date in the name, a new folder each month): give the
+  artifact a `discover` rule instead of a `url`: the listing page, a `link_pattern` with a named group `key` (or
+  `year` and `month`), and optionally a `sublisting_pattern`. The largest key wins; a tie or no match fails the fetch,
+  never a guess. `uv run envdash resolve --source <id>` shows what it resolves to today without downloading.
+- **A zip rebuilt on every request** (two downloads seconds apart hash differently): set
+  `content_key: zip-members` (plus `member_name_ignore` if the producer stamps the date into member names). A fetch
+  whose member fingerprint is unchanged keeps the current snapshot, so no false new vintage is recorded.
+- **An API that needs a key:** `access.auth: api-key`, `access.auth_env: <ENV_VAR>` and either `key_header` or
+  `key_query`. The key lives in the Keychain (table in step 4), is exported into the environment for a local run
+  (`export GFW_API_KEY=$(security find-generic-password -s gfw-api-key -w)`) and reaches CI as a GitHub secret. A
+  missing variable fails that source with its name, never silently.
+- **A new country, station or aggregate code:** declare it in `pipeline/src/envdash/geo.py` (`STATIONS`,
+  `AGGREGATES`, `EXTRA_TERRITORIES`, or a source's alias table) and run `uv run envdash geo build`; unknown codes
+  raise.
+- **A fresh checkout or runner:** `uv run envdash snapshots pull` restores from R2 every snapshot the build and the
+  snapshot tests need, each checked against its sha256 (R2 variables as in step 3). It fails, naming them, for
+  snapshots never archived: run `uv run envdash archive` where those bytes are and commit
+  `pipeline/manifests/snapshots/`. Do this once by hand before the first scheduled data refresh, which pulls before it
+  fetches.
+- **After a registry change:** `uv run envdash docs licensing` regenerates `docs/licensing.md`; a test fails until it
+  matches the registry.

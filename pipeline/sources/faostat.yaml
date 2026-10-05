@@ -9,7 +9,8 @@
 # incorporate FAO's "Terms and Conditions regarding the Reuse of Web content" (https://www.fao.org/contact-us/terms/en/,
 # HTTP 200), which say the FAO logo "is prohibited without prior permission"; hence no_logo.
 # Additional terms we meet: no use "in conjunction with the promotion of a commercial enterprise", no implied FAO
-# endorsement, no misrepresentation. The citation's date is "DD Month YYYY" (e.g. 4 October 2026).
+# endorsement, no misrepresentation. The citation's date is "D Month YYYY" (e.g. 4 October 2026): the
+# {date_accessed_long} placeholder renders it.
 # Conflict noted, not adopted: the GT methodological note (files-faostat.fao.org/production/GT/GT_en.pdf, release
 # October 2023, Last-Modified 2025-09-18) ends with boilerplate "This work is made available under the Creative
 # Commons Attribution-NonCommercial-ShareAlike 3.0 IGO license". That refers to the note itself; its "Copyright" row
@@ -19,7 +20,9 @@
 # PRIMAP-hist v2.4 (CC BY 4.0); pre/post-production estimates use UNSD and IEA activity data. No dataset-specific
 # restriction is stated in the metadata. We use "FAO TIER 1" rows; never mix them with "UNFCCC" rows.
 # Artifacts checked 2026-10-04 (HEAD): GT 200, 20,501,708 bytes, Last-Modified 2025-12-06 (catalogue DateUpdate
-# 2025-10-28: the zip was re-uploaded after its DateUpdate, so vintage = sha256, not DateUpdate); GLE 200, 55,881,712
+# 2025-10-28: the zip was re-uploaded after its DateUpdate, so the date alone does not identify the bytes; the GT
+# transform takes DateUpdate as the vintage only after checking that the catalogue entry's FileLocation is this zip's
+# URL and its FileRows equal the CSV's data rows, and stops otherwise); GLE 200, 55,881,712
 # bytes, Last-Modified 2025-10-29; RL 200, 2,970,716 bytes, Last-Modified 2026-10-02; SDGB 200, 4,721,843 bytes,
 # Last-Modified 2026-09-29 (contains items 24044 "12.3.1a Food loss percentage" and 24045 "12.3.1a Global food loss
 # index", total and four commodity groups); datasets_E.json 200, 109,120 bytes. All serve ETag and Last-Modified.
@@ -49,7 +52,7 @@ citation:
   # Format prescribed by the FAO Statistical Database Terms of Use, section 3, at database level ("Name of database").
   # {year} is the year of the dataset's last update (DateUpdate in datasets_E.json).
   text: >-
-    FAO. {year}. FAOSTAT. Accessed on {date_accessed}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+    FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
 licence_class: open
 licence:
   name: CC BY 4.0 (FAO Statistical Database Terms of Use)
@@ -65,9 +68,9 @@ evidence:
   terms_check: page
 obligations:
   attribution: >-
-    FAO. {year}. FAOSTAT. Accessed on {date_accessed}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+    FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
   attribution_modified: >-
-    Calculated by Environment Dashboard from FAO. {year}. FAOSTAT. Accessed on {date_accessed}.
+    Calculated by Environment Dashboard from FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}.
     https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
   mirror_raw: true
   no_logo: true

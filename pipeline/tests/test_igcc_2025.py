@@ -94,7 +94,8 @@ def test_warming_publisher_check_quotes_the_file_row_and_passes():
 
 
 def _erf():
-    return igcc.erf_by_agent(*(raw(i.artifact_id) for i in (igcc.ERF_BEST, igcc.ERF_P05, igcc.ERF_P95)))
+    obs, _ = igcc.erf_by_agent(*(raw(i.artifact_id) for i in (igcc.ERF_BEST, igcc.ERF_P05, igcc.ERF_P95)))
+    return obs
 
 
 def test_erf_by_agent_values_and_range():
@@ -136,6 +137,42 @@ def test_erf_column_meanings_are_checked_by_their_sums():
         igcc.erf_by_agent(b"".join(out), raw(igcc.ERF_P05.artifact_id), raw(igcc.ERF_P95.artifact_id))
 
 
+def test_erf_minor_columns_are_sums_of_published_columns():
+    assert {t for t, _ in igcc.SUMS} >= set(igcc.UNPUBLISHED)
+    # Swap the real "minor" and "nonco2wmghg" cells: the sum checks must notice.
+    lines = raw(igcc.ERF_BEST.artifact_id).splitlines(keepends=True)
+    cols = lines[0].decode().rstrip("\n").split(",")
+    a, b = cols.index("minor"), cols.index("nonco2wmghg")
+    out = [lines[0]]
+    for ln in lines[1:]:
+        cells = ln.decode().rstrip("\n").split(",")
+        cells[a], cells[b] = cells[b], cells[a]
+        out.append((",".join(cells) + "\n").encode())
+    with pytest.raises(igcc.IgccFormatError, match="is not the sum"):
+        igcc.erf_by_agent(b"".join(out), raw(igcc.ERF_P05.artifact_id), raw(igcc.ERF_P95.artifact_id))
+
+
+def test_erf_human_caused_columns_start_at_zero_and_natural_do_not():
+    files = [raw(i.artifact_id) for i in (igcc.ERF_BEST, igcc.ERF_P05, igcc.ERF_P95)]
+    _, natural = igcc.erf_by_agent(*files)
+    # ERF_best_aggregates.csv row 1750.5: solar 0.02159121, volcanic 0.234943996.
+    assert natural == {"solar": Decimal("0.02159121"), "volcanic": Decimal("0.234943996")}
+    t = transform("forcing.igcc-2025.erf-by-agent")
+    assert "1750 for every human-caused agent" in (t.spec.scope.baseline or "")
+    assert "since 1750" not in t.spec.title
+    # The real 1750 row with its CO2 cell set to a non-zero value: no longer "the change since 1750".
+    lines = files[0].splitlines(keepends=True)
+    cols = lines[0].decode().rstrip("\n").split(",")
+    cells = lines[1].decode().rstrip("\n").split(",")
+    assert cells[0] == "1750.5"
+    cells[cols.index("CO2")] = cells[cols.index("solar")]
+    cells[cols.index("wmghg")] = cells[cols.index("solar")]
+    cells[cols.index("anthro")] = cells[cols.index("solar")]
+    lines[1] = (",".join(cells) + "\n").encode()
+    with pytest.raises(igcc.IgccFormatError, match="not zero in 1750"):
+        igcc.first_year_natural([(igcc.read_rows(b"".join(lines), "ERF_best_aggregates.csv", ())[1], "x")])
+
+
 # --- remaining carbon budget ---------------------------------------------------------------------------------------
 
 
@@ -157,10 +194,49 @@ def test_budget_file_must_carry_table_8_assumptions():
 def test_budget_is_labelled_from_the_start_of_2026():
     t = transform("budget.igcc-2025.remaining-1p5")
     assert t.spec.kind == "published-value"
+    assert (t.spec.scope.lulucf, t.spec.scope.bunkers) == ("included", "included")
     assert "from the start of 2026" in t.spec.title and "from the start of 2026" in t.spec.description
     (o,) = igcc.BUDGET.observations
     assert (o.period, o.value) == ("2026-01-01", 130.0)
     assert igcc.BUDGET.value_text in igcc.BUDGET.quote
+
+
+# --- headline: human-induced warming in 2025 -----------------------------------------------------------------------
+
+
+def test_headline_value_and_range_read_from_the_quote():
+    assert igcc.HEADLINE_VALUE_TEXT in igcc.HEADLINE_QUOTE
+    assert igcc.read_value_and_range(igcc.HEADLINE_VALUE_TEXT) == (Decimal("1.37"), Decimal("1.1"), Decimal("1.7"))
+    with pytest.raises(igcc.IgccFormatError, match="is not"):
+        igcc.read_value_and_range("1.37 °C")
+
+
+def test_headline_matches_the_releases_sr15_row():
+    # Assessment-Update-2025_GMST_headlines.csv: "2025.5,2025,2026,1.1,1.37,1.7,...,SR15 definition".
+    assert igcc.sr15_row(raw(igcc.HEADLINES.artifact_id), "2025") == (Decimal("1.1"), Decimal("1.37"), Decimal("1.7"))
+    assert igcc.sr15_row(raw(igcc.HEADLINES.artifact_id), "2017") == (Decimal("0.9"), Decimal("1.12"), Decimal("1.3"))
+    with pytest.raises(igcc.IgccFormatError, match="0 'SR15 definition' rows"):
+        igcc.sr15_row(raw(igcc.HEADLINES.artifact_id), "2024")
+
+
+def test_headline_spec_and_annual_mean_series_are_labelled():
+    head = transform("warming.igcc-2025.human-induced-2025")
+    assert head.spec.kind == "published-value" and head.spec.scope.baseline == "1850–1900"
+    assert "trend-based" in head.spec.description and "SR1.5" in head.spec.scope.basis  # type: ignore[operator]
+    (check,) = head.checks
+    assert (check.stated, check.quote, check.url) == ("1.37", igcc.HEADLINE_QUOTE, igcc.PAPER_URL)
+    series = transform("warming.igcc-2025.human-induced")
+    assert "annual-mean definition" in series.spec.title and "annual-mean definition" in series.spec.description
+
+
+def test_paper_origin_has_its_own_date_and_doi():
+    meta = igcc._origin_meta()
+    assert set(meta) == {igcc.PAPER.key}
+    assert (meta[igcc.PAPER.key].date_published, meta[igcc.PAPER.key].doi) == (
+        "2026-06-11",
+        "10.5194/essd-18-3889-2026",
+    )
+    assert RELEASE.published.isoformat() == "2026-07-22"
 
 
 # --- release -------------------------------------------------------------------------------------------------------
@@ -214,6 +290,10 @@ def test_quotes_are_in_the_paper():
     verify_quote(pdf, igcc.RCB_PAGE, igcc.RCB_CAPTION)
     for c in igcc.ERF_CHECKS:
         verify_quote(pdf, 11, c.quote)
+    verify_quote(pdf, igcc.HEADLINE_PAGE, igcc.HEADLINE_QUOTE)
+    verify_quote(pdf, igcc.PRIORITY_PAGE, igcc.PRIORITY_QUOTE)
+    with pytest.raises(Exception, match="quote not found"):
+        verify_quote(pdf, igcc.HEADLINE_PAGE, igcc.HEADLINE_QUOTE.replace("1.37", "1.38"))
 
 
 @pytest.mark.snapshot
@@ -226,3 +306,9 @@ def test_full_transforms_on_the_snapshots():
             assert len(result.observations) == 176
         if t.spec.id == "forcing.igcc-2025.erf-by-agent":
             assert len(result.observations) == 276 * len(igcc.AGENTS)
+        if t.spec.id in ("warming.igcc-2025.human-induced-2025", "budget.igcc-2025.remaining-1p5"):
+            assert result.date_published == "2026-07-22"
+            assert result.origin_meta[igcc.PAPER.key].doi == "10.5194/essd-18-3889-2026"
+        if t.spec.id == "warming.igcc-2025.human-induced-2025":
+            (o,) = result.observations
+            assert (o.period, o.value, o.lower, o.upper, o.interval) == ("2025", 1.37, 1.1, 1.7, "likely")

@@ -89,6 +89,9 @@ AGGREGATES: dict[str, str] = {
 STATIONS: dict[str, str] = {
     "MLO": "Mauna Loa Observatory, Hawaii",
     "LAWDOME": "Law Dome ice cores, Antarctica",
+    # bereiter-2015-co2: a composite of several Antarctic cores (Law Dome, Dome C, WAIS Divide, Siple Dome, Talos
+    # Dome, EDML, Vostok), so not one site.
+    "ANT_ICECORES": "Antarctic ice cores (composite of several sites)",
 }
 
 

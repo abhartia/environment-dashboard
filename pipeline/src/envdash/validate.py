@@ -6,6 +6,8 @@ Returns a list of problems; empty means valid. Checks:
 - current.json points only at manifests that exist;
 - every exported indicator parses, is in canonical form, sits on the side (data/ or data-private/) its licence class
   allows, and matches its catalogue entry's sha256; no non-redistributable value or file is under data/;
+- an indicator dated in years before 1950 runs from the oldest age to the youngest within each (entity, dims) series,
+  and its latest is the youngest observation of its headline series (the model checks period/age_bp consistency);
 - datapackage.json lists exactly the public CSVs with the right hashes and only redistributable licences;
 - SHA256SUMS matches the files.
 """
@@ -33,6 +35,26 @@ def _canonical(path: Path, model) -> tuple[object | None, list[str]]:
     if canonical.dump_bytes(obj) != data:
         return obj, [f"{path.name}: not in canonical form (rebuild with envdash build)"]
     return obj, []
+
+
+def _paleo_order(ind: Indicator) -> list[str]:
+    """Ages strictly decrease (oldest first) within each series, and latest is the youngest headline observation."""
+    out: list[str] = []
+    last: dict[tuple, float] = {}
+    for o in ind.observations:
+        series = (o.entity, tuple(sorted(o.dims.items())))
+        assert o.age_bp is not None  # the model guarantees it for this time basis
+        if series in last and not o.age_bp < last[series]:
+            out.append(f"{ind.id}: {o.entity} age {o.age_bp!r} yr BP does not follow {last[series]!r} (oldest first)")
+        last[series] = o.age_bp
+    head = [
+        o.age_bp
+        for o in ind.observations
+        if o.entity == ind.headline_entity and o.dims == ind.latest.dims and o.value is not None
+    ]
+    if head and ind.latest.age_bp != min(a for a in head if a is not None):
+        out.append(f"{ind.id}: latest age {ind.latest.age_bp!r} yr BP is not the youngest headline observation")
+    return out
 
 
 def validate_all(paths: Paths, registry: Registry) -> list[str]:
@@ -83,6 +105,8 @@ def validate_all(paths: Paths, registry: Registry) -> list[str]:
                 problems.append(f"{ind.id} is not in the catalogue")
             elif e.export_sha256 != canonical.sha256_file(p):
                 problems.append(f"{ind.id}: catalogue export_sha256 does not match {paths.rel(p)}")
+            if ind.time_basis == "years-before-1950":
+                problems += _paleo_order(ind)
             if public and not (base / f"{ind.id}.csv").exists():
                 problems.append(f"{ind.id}: CSV missing")
     for e in entries.values():

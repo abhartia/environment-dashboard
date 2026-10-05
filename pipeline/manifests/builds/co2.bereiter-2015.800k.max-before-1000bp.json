@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/co2.bereiter-2015.800k.max-before-1000bp.json",
+  "export_sha256": "a729e728a8bc9b7ebb68bf57066c6fbd6f6f5c551e90d30a01e9e45cd0278b72",
+  "indicator_id": "co2.bereiter-2015.800k.max-before-1000bp",
+  "key": "e345c4d25eaaedfff0e67efae9f312a4326a8d47f96655bcdd3813a75b8da730",
+  "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
+    "inputs": {
+      "bereiter-2015-co2/composite": {
+        "manifest_sha256": "ef1c209dad8e990449e991d34ecc6024eaa9c21554478f8d2cc233360750baf3",
+        "sha256": "40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "bereiter-2015-co2": "57e775e4b13e17246ca037193d8dde134db56ea4aa731d70798ec85069fea577"
+    },
+    "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+  },
+  "publisher_checks": []
+}

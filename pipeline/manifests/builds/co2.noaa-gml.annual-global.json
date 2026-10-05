@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/co2.noaa-gml.annual-global.json",
-  "export_sha256": "907c8cb24a4387f7e7cb9a0c5291a5084d16da39f4aac742f25c7f8b96a0d406",
+  "export_sha256": "bb8d594ff3a103235a18842c35e9bace75bdcdef24095bec1a0a2fc90a9b75c7",
   "indicator_id": "co2.noaa-gml.annual-global",
-  "key": "ee7dd8324164c885d188ce1e195ee1d090409e2ce4d5284333f4600c5ad690ed",
+  "key": "caf854d8d4267f3dc260d8fbdfc4892152bb19a37ed42ae84304a2221951a541",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "noaa-gml-trends/co2-annmean-gl": {
         "manifest_sha256": "e34d410de435d129eee4e92813c17334aef188d2b369ac8e2e6032ed543270ee",
@@ -11,7 +12,7 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "noaa-gml-trends": "2b9d230e36b5dbfe3d5f5a8682eec8ddd97e534bc634dc44c4fa117758a02076"
     },

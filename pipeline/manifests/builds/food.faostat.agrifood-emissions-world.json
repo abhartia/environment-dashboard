@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/food.faostat.agrifood-emissions-world.json",
-  "export_sha256": "a18649bd61b07f27dcf2db254bcc97115bd858ff51106469dd2420e8aebf3ff9",
+  "export_sha256": "8921508951d66f011a08200c3c84832d77dc596d284f741162ffb454bdf44b8f",
   "indicator_id": "food.faostat.agrifood-emissions-world",
-  "key": "fded36e9047e87056cb3971bba99846bd998f22d1803e761882665dcff5df534",
+  "key": "e0ac5648423699c54b17c38be9c27ec80060342251dc81fd86c5a5382306ff3b",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "faostat/datasets-catalogue": {
         "manifest_sha256": "bc646412c97139536878e748e171502090aa722995a1de8f6fff062c1b7e3383",
@@ -15,11 +16,11 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
-      "faostat": "999c0f39f6baf1538e230448ba58ec0592b208291aea71eaee5861450bf3be62"
+      "faostat": "83c5397350b6684b0cd1dd419ffd8fe799366487bc9976d926e36f82b4bb8193"
     },
-    "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+    "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
   },
   "publisher_checks": [
     {"detail": "ours 16.5350723737 vs stated 16.5 (tolerance ±0.05, difference 0.0350724)", "entity": "WLD", "period": "2023", "quote": "According to the latest data available, global agrifood systems emissions reached 16.5 billion tonnes of carbon dioxide equivalent (Gt CO2eq) in 2023, up 21 percent since 2001.", "source_id": "faostat", "stated": "16.5", "status": "pass", "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en", "vintage": "2025-10-28"}

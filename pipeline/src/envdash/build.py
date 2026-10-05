@@ -1,8 +1,9 @@
 """Run every transform whose inputs changed, validate the result and export it.
 
 Build key = sha256 over: each input's raw sha256 and the sha256 of its snapshot manifest, the transform module's
-sha256, uv.lock's sha256, the sha256 of each source registry YAML read, and of any other file the transform names
-(a literature YAML). The manifest and YAML hashes are there because their text is copied into the export (ETag,
+sha256, uv.lock's sha256, the sha256 of the data contract (envdash/models.py, which decides how an export is
+serialised), the sha256 of each source registry YAML read, and of any other file the transform names (a literature
+YAML). The manifest and YAML hashes are there because their text is copied into the export (ETag,
 archive URLs, credit lines, licence); without them an edit there would be silently skipped. When the key equals the
 one recorded for the existing export (pipeline/manifests/builds/<id>.json) and that file is unchanged, the transform
 is not run. The git SHA is never part of an export.
@@ -19,6 +20,7 @@ from datetime import date
 from pathlib import Path
 
 from envdash import canonical, snapshots
+from envdash import models as models_mod
 from envdash.models import (
     REDISTRIBUTABLE,
     Indicator,
@@ -73,6 +75,7 @@ def build_key(
         },
         "transform_sha256": canonical.sha256_file(t.module_file),
         "lock_sha256": lock_sha256,
+        "contract_sha256": canonical.sha256_file(Path(models_mod.__file__)),
         "sources": {
             sid: canonical.sha256_file(registry.source_files[sid]) for sid in sorted({i.source_id for i in t.inputs})
         },
@@ -115,9 +118,13 @@ def assemble(
     """Turn a transform's result into the published Indicator, with origins, steps, licence and credit lines."""
     source_ids = sorted({i.source_id for i in t.inputs})
     accessed = {sid: max(snaps[i.key].date_accessed for i in t.inputs if i.source_id == sid) for sid in source_ids}
+    unknown = sorted(set(result.origin_meta) - {i.key for i in t.inputs})
+    if unknown:
+        raise BuildError(f"{t.spec.id}: origin_meta names {unknown}, which are not inputs of this transform")
     origins: list[Origin] = []
     for i in t.inputs:
         src, snap = sources[i.source_id], snaps[i.key]
+        meta = result.origin_meta.get(i.key)
         origins.append(
             Origin(
                 source_id=src.id,
@@ -128,7 +135,9 @@ def assemble(
                 citation_full=_render_for(src, result, accessed[src.id], src.citation.text) or "",
                 url_main=src.landing_url,
                 url_download=snap.url,
-                date_published=result.date_published,
+                date_published=meta.date_published
+                if meta is not None and meta.date_published is not None
+                else result.date_published,
                 date_accessed=snap.date_accessed,
                 licence=src.licence,
                 sha256=snap.sha256,
@@ -139,7 +148,7 @@ def assemble(
                 r2_url=f"{PUBLIC_FILES_BASE}{snap.r2_key}"
                 if snap.r2_bucket == "envdash-public" and snap.r2_key
                 else None,
-                doi=src.citation.DOI,
+                doi=meta.doi if meta is not None and meta.doi is not None else src.citation.DOI,
                 acquisition=snap.acquisition,
             )
         )
@@ -178,7 +187,10 @@ def assemble(
     ]
     if not candidates:
         raise BuildError(f"{t.spec.id}: no non-null value for headline entity {t.spec.headline_entity}")
-    last = max(candidates, key=lambda o: o.period)
+    if t.spec.time_basis == "years-before-1950":
+        last = min(candidates, key=lambda o: o.age_bp if o.age_bp is not None else float("inf"))
+    else:
+        last = max(candidates, key=lambda o: o.period or "")
     assert last.value is not None
     return Indicator(
         id=t.spec.id,
@@ -192,7 +204,15 @@ def assemble(
         headline_entity=t.spec.headline_entity,
         dimensions=list(t.spec.dimensions),
         observations=result.observations,
-        latest=Latest(entity=last.entity, period=last.period, value=last.value, status=last.status, dims=last.dims),
+        time_basis=t.spec.time_basis,
+        latest=Latest(
+            entity=last.entity,
+            period=last.period,
+            age_bp=last.age_bp,
+            value=last.value,
+            status=last.status,
+            dims=last.dims,
+        ),
         vintage=result.vintage,
         origins=origins,
         processing=processing,

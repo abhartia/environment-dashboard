@@ -1,9 +1,10 @@
 {
   "export": "data-private/v1/indicators/mitigation.ipcc-ar6.cost-under-100-2030.json",
-  "export_sha256": "12c21cf454989d6de3a73bcd984703b4f2eb17e56db8cf44fe48d697196bec4b",
+  "export_sha256": "50bdc3974f27365f972fcc0570691b4430a52dcfd36d12f77423cc35c770fc55",
   "indicator_id": "mitigation.ipcc-ar6.cost-under-100-2030",
-  "key": "519723659f9f1f09b43c52f01e089a6748c29cd77e1075146445ba46f73a8120",
+  "key": "4ee6204b1ed1745354587b4133f3ed55d0b3cd03007ef52fef12ec354639efc2",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "ipcc-ar6-wg3-spm/spm-pdf": {
         "manifest_sha256": "d6e89988fa531e3e1327b2628f4bc9f78e4647a1aa2d2e22543632d870666ab9",
@@ -13,7 +14,7 @@
     "key_files": {
       "pipeline/literature/ipcc-ar6-wg3-spm-c12.yaml": "ebf99859abbb1acc6c806f80b66fa8e6fb0d60995d5c4ed6d28a6890a6d596c5"
     },
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "ipcc-ar6-wg3-spm": "d7d08648758bb25d1e0c43351dd4960a9b66cbb109dc86f2e1edcb7b21c46d9d"
     },

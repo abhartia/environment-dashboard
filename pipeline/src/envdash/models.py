@@ -8,6 +8,7 @@ sha256) it was computed from and the ProcessingSteps applied. Each Origin points
 
 from __future__ import annotations
 
+import math
 import re
 from datetime import date
 from typing import Annotated, Literal
@@ -417,10 +418,37 @@ class Dimension(Strict):
 
 Interval = Literal["1sigma", "2sigma", "90ci", "95ci", "likely", "very-likely", "range"]
 
+TimeBasis = Literal["calendar", "years-before-1950"]
+"""How an indicator's observations are placed in time.
+
+calendar            `period` is an ISO 8601 year, year-month, date or range; `age_bp` is null.
+years-before-1950   `age_bp` is the age as the producer publishes it, in years before 1950 (e.g. the gas age of air
+                    in an ice core; negative after 1950); `period` is null. Ages are published as printed, never
+                    rounded to calendar years (fractional ages would collide and pre-CE ages have no ISO year).
+"""
+
+
+def _time_problem(where: str, period: str | None, age_bp: float | None) -> str | None:
+    """Exactly one of period and age_bp is set; an age must be a finite number."""
+    if (period is None) == (age_bp is None):
+        return f"{where}: set exactly one of period (calendar time) and age_bp (years before 1950)"
+    if age_bp is not None and not math.isfinite(age_bp):
+        return f"{where}: age_bp {age_bp!r} is not a finite number"
+    return None
+
 
 class Observation(Strict):
     entity: EntityCode
-    period: Period
+    period: Period | None = Field(
+        default=None,
+        description="ISO 8601 year, year-month, date or range. Null exactly when the indicator's time_basis is "
+        "years-before-1950 (then age_bp is set).",
+    )
+    age_bp: float | None = Field(
+        default=None,
+        description="Age in years before 1950 as the producer publishes it (e.g. ice-core gas age; negative after "
+        "1950). Set exactly when the indicator's time_basis is years-before-1950; otherwise null.",
+    )
     value: float | None
     lower: float | None = None
     upper: float | None = None
@@ -434,23 +462,44 @@ class Observation(Strict):
     )
     dims: dict[str, str] = Field(default_factory=dict)
 
+    @property
+    def when(self) -> str:
+        """The time label for messages: the period, or the age in years before 1950."""
+        return self.period if self.period is not None else f"{self.age_bp!r} yr BP"
+
     @model_validator(mode="after")
     def _consistent(self) -> Observation:
+        problem = _time_problem(f"{self.entity}", self.period, self.age_bp)
+        if problem:
+            raise ValueError(problem)
         if self.value is None and not self.missing_reason:
-            raise ValueError(f"{self.entity} {self.period}: null value needs missing_reason")
+            raise ValueError(f"{self.entity} {self.when}: null value needs missing_reason")
         if (self.lower is None) != (self.upper is None):
-            raise ValueError(f"{self.entity} {self.period}: lower and upper come together")
+            raise ValueError(f"{self.entity} {self.when}: lower and upper come together")
         if self.lower is not None and self.interval is None:
-            raise ValueError(f"{self.entity} {self.period}: an uncertainty range needs its interval type")
+            raise ValueError(f"{self.entity} {self.when}: an uncertainty range needs its interval type")
         return self
 
 
 class Latest(Strict):
     entity: EntityCode
-    period: Period
+    period: Period | None = Field(
+        default=None, description="As Observation.period: null exactly when the time_basis is years-before-1950."
+    )
+    age_bp: float | None = Field(
+        default=None,
+        description="As Observation.age_bp: the youngest age, set exactly when the time_basis is years-before-1950.",
+    )
     value: float
     status: Literal["final", "preliminary", "projection"]
     dims: dict[str, str] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _consistent(self) -> Latest:
+        problem = _time_problem(f"latest {self.entity}", self.period, self.age_bp)
+        if problem:
+            raise ValueError(problem)
+        return self
 
 
 class Origin(Strict):
@@ -504,6 +553,12 @@ class Indicator(Strict):
     scope: Scope
     geo_coverage: Literal["global-only", "country", "mixed"]
     headline_entity: EntityCode = Field(description="The entity whose latest value is the headline (usually WLD).")
+    time_basis: TimeBasis = Field(
+        default="calendar",
+        description="calendar: every observation (and latest) has an ISO period and a null age_bp. "
+        "years-before-1950: every observation (and latest) has age_bp and a null period; observations run from the "
+        "oldest age to the youngest, and latest is the youngest.",
+    )
     dimensions: list[Dimension] = Field(default_factory=list)
     observations: list[Observation] = Field(min_length=1)
     latest: Latest
@@ -523,12 +578,18 @@ class Indicator(Strict):
             raise ValueError(f"{self.id}: excluded sources are never published")
         if (self.kind == "published-value") != (self.published_value is not None):
             raise ValueError(f"{self.id}: published-value indicators (and only they) carry published_value")
+        paleo = self.time_basis == "years-before-1950"
+        for when in [*self.observations, self.latest]:
+            if paleo and when.period is not None:
+                raise ValueError(f"{self.id}: time_basis years-before-1950 needs age_bp, not period {when.period!r}")
+            if not paleo and when.period is None:
+                raise ValueError(f"{self.id}: time_basis calendar needs a period, not age_bp {when.age_bp!r}")
         dim_ids = {d.id for d in self.dimensions}
         seen: set[tuple] = set()
         for o in self.observations:
             if set(o.dims) != dim_ids:
                 raise ValueError(f"{self.id}: observation dims {sorted(o.dims)} != declared {sorted(dim_ids)}")
-            key = (o.entity, o.period, tuple(sorted(o.dims.items())))
+            key = (o.entity, o.period, o.age_bp, tuple(sorted(o.dims.items())))
             if key in seen:
                 raise ValueError(f"{self.id}: duplicate observation {key}")
             seen.add(key)
@@ -564,6 +625,9 @@ class CatalogEntry(Strict):
     licence_class: LicenceClass
     source_ids: list[SourceId]
     vintage: str
+    time_basis: TimeBasis = Field(
+        default="calendar", description="The indicator's time_basis: whether latest carries a period or an age_bp."
+    )
     latest: Latest | None = Field(
         description="The headline value. Null for no-derivatives and display-only indicators: their values never "
         "appear under data/, so the site reads them from the private export on the server."

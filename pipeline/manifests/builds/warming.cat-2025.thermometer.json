@@ -1,9 +1,10 @@
 {
   "export": "data-private/v1/indicators/warming.cat-2025.thermometer.json",
-  "export_sha256": "6dd8875daa9590ce2be598397c094b428dd605aa4850a84a6f2a78c85163ae6c",
+  "export_sha256": "afb2bbba9889112f937006bff61a08b1a1d39482cc59d427409a67da36815516",
   "indicator_id": "warming.cat-2025.thermometer",
-  "key": "c434da2b8b81a3a66b456c18f06ce79e37b4b1ad3df65c9603c7afa1f16a0679",
+  "key": "18ee23bc9b881fffd56995191b931f66e4943c4d79631c0f0bd2f8929b36771c",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "cat-2025-thermometer/global-temperature-estimates": {
         "manifest_sha256": "f1387bf7c9c466933f8bf3543802f33e2d56a0bf45fd4422787aab2a08556c0b",
@@ -11,7 +12,7 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "cat-2025-thermometer": "c9a91403181eba18716e74301734356899c33dda71d9d2dbff11b0f9814dce6b"
     },

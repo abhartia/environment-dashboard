@@ -9,7 +9,8 @@ from typing import Annotated
 import typer
 
 from envdash import archive as archive_mod
-from envdash import canonical, contentkey, geo, snapshots
+from envdash import canonical, contentkey, geo, snapshot_pull, snapshots
+from envdash import docs as docs_mod
 from envdash import issues as issues_mod
 from envdash import openapi as openapi_mod
 from envdash import private as private_mod
@@ -28,6 +29,10 @@ private_app = typer.Typer(no_args_is_help=True, help="Exports we may show but no
 app.add_typer(private_app, name="private")
 geo_app = typer.Typer(no_args_is_help=True, help="The entity crosswalk (pipeline/geo/entities.csv).")
 app.add_typer(geo_app, name="geo")
+snapshots_app = typer.Typer(no_args_is_help=True, help="The local cache of raw snapshots (pipeline/.snapshots).")
+app.add_typer(snapshots_app, name="snapshots")
+docs_app = typer.Typer(no_args_is_help=True, help="Documents generated from the registry.")
+app.add_typer(docs_app, name="docs")
 
 SourceOpt = Annotated[list[str] | None, typer.Option("--source", "-s", help="Only these source ids (repeatable).")]
 
@@ -59,7 +64,8 @@ def _print_build(report: BuildReport) -> None:
         latest = ""
         if o.indicator is not None:
             lt = o.indicator.latest
-            latest = f" latest {lt.entity} {lt.period} = {lt.value!r} ({lt.status}); vintage {o.indicator.vintage}"
+            when = lt.period if lt.period is not None else f"{lt.age_bp!r} yr BP"
+            latest = f" latest {lt.entity} {when} = {lt.value!r} ({lt.status}); vintage {o.indicator.vintage}"
         typer.echo(f"  {o.state:<8} {o.id}{latest}")
         if o.reason:
             typer.echo(f"           {o.reason}")
@@ -328,6 +334,46 @@ def private_pull() -> None:
         typer.echo(str(e), err=True)
         raise typer.Exit(1) from None
     typer.echo(f"private pull: {len(done)} export(s) present and verified")
+
+
+@snapshots_app.command("pull")
+def snapshots_pull() -> None:
+    """Download from R2 every snapshot current.json points at and every input of every published indicator, each
+    checked against its sha256; already-cached files are verified and kept."""
+    paths = _paths()
+    try:
+        todo = snapshot_pull.plan(paths)
+    except snapshot_pull.PullError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    for p in todo.problems:
+        typer.echo(f"  problem: {p}")
+    if todo.problems:
+        typer.echo(f"snapshots pull: {len(todo.problems)} snapshot(s) cannot be pulled; nothing downloaded", err=True)
+        raise typer.Exit(1)
+    if not todo.download:
+        typer.echo(f"snapshots pull: all {len(todo.present)} snapshot(s) already cached and verified")
+        return
+    client = _r2_or_exit()
+    try:
+        done = snapshot_pull.pull(paths, client, todo.download)
+    except snapshot_pull.PullError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(f"snapshots pull: {len(done)} downloaded and verified, {len(todo.present)} already cached")
+
+
+@docs_app.command("licensing")
+def docs_licensing() -> None:
+    """Regenerate docs/licensing.md (every registered source, its licence and class) from pipeline/sources/."""
+    paths = _paths()
+    reg = load_registry(paths)
+    if reg.source_errors:
+        for e in reg.source_errors.values():
+            typer.echo(f"  problem: {e}", err=True)
+        raise typer.Exit(1)
+    changed = docs_mod.write_licensing(paths, reg)
+    typer.echo(f"{paths.rel(docs_mod.licensing_path(paths))} {'written' if changed else 'unchanged'}")
 
 
 @geo_app.command("build")

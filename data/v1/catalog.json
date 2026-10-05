@@ -6,10 +6,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "9583c384fae40b1ff6a6fb13bc4f13e1746454cddd2034acb0b04d79282830ec",
+      "export_sha256": "d39e9db11fb47fdad63d43a7628f6d934c5f54e05792a35b095e76982bf6b39e",
       "geo_coverage": "global-only",
       "id": "action.ivanova-2020.options",
       "latest": {
+        "age_bp": null,
         "dims": {
           "domain": "transport",
           "option": "living-car-free",
@@ -38,23 +39,23 @@
           {
             "description": "Read the text of the article's version-of-record PDF (sha256 f41eb020a2b6…, the copy the authors deposited on Zenodo). Found each of 21 sentences from the abstract and section 3 word for word on its page before publishing; a minus sign had to match a minus sign.",
             "inputs": ["f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/ivanova_2020.py",
-            "transform_sha256": "027daffb5d428519cdc1d9b0321681ebdcb4996bfddc46be840dda371f79aa05"
+            "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
           },
           {
             "description": "Published the mean, the median and the range across the reviewed studies for the 28 options whose values the text states, exactly as printed. Values listed with several options are read in the order the options are named; 'between A and B' is the range across studies. Each value's sentence is in its note.",
             "inputs": ["f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/ivanova_2020.py",
-            "transform_sha256": "027daffb5d428519cdc1d9b0321681ebdcb4996bfddc46be840dda371f79aa05"
+            "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
           },
           {
             "description": "Left out statements that give one number for several options, a bound ('more than', 'up to'), an approximate value ('around') or a total; the other 33 of the 61 options are only in the article's figures and its supplementary spreadsheet. Where the article states one value twice with different numbers, the value is null and both statements are given.",
             "inputs": ["f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/ivanova_2020.py",
-            "transform_sha256": "027daffb5d428519cdc1d9b0321681ebdcb4996bfddc46be840dda371f79aa05"
+            "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
           }
         ],
         "published_value": {
@@ -72,6 +73,7 @@
         }
       },
       "source_ids": ["ivanova-2020"],
+      "time_basis": "calendar",
       "title": "Emission cuts from household consumption options (Ivanova et al. 2020)",
       "unit": {
         "code": "tCO2e-per-capita-per-year",
@@ -86,10 +88,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "894837c6992c08212bd9635178e573782f67d983c71d19a1bd431b098fd00df9",
+      "export_sha256": "4f7a77258838a8b4f65ecb990265db879c6978371f743597faeee0c5fe6fd5b7",
       "geo_coverage": "global-only",
       "id": "budget.igcc-2025.remaining-1p5",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2026-01-01",
@@ -108,38 +111,38 @@
         },
         "notice": null,
         "origins": [
-          {"acquisition": "automatic", "artifact_id": "data-igcc-2025a", "bytes": 1495354, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-06-11", "doi": "10.5281/zenodo.21494229", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null},
-          {"acquisition": "automatic", "artifact_id": "essd-paper-pdf", "bytes": 9736703, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-06-11", "doi": "10.5281/zenodo.21494229", "etag": "\"9491ff-653ed6ee5a83f\"", "last_modified": "Wed, 10 Jun 2026 22:04:53 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null},
-          {"acquisition": "automatic", "artifact_id": "rcb-magicc-hdt-1p24", "bytes": 2580, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-06-11", "doi": "10.5281/zenodo.21494229", "etag": "W/\"5bbbea335b5efffcb85b0d2b64be7d9a74f6d84bbe58d03d4e57a1b79b623031\"", "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null}
+          {"acquisition": "automatic", "artifact_id": "data-igcc-2025a", "bytes": 1495354, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-07-22", "doi": "10.5281/zenodo.21494229", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "essd-paper-pdf", "bytes": 9736703, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-06-11", "doi": "10.5194/essd-18-3889-2026", "etag": "\"9491ff-653ed6ee5a83f\"", "last_modified": "Wed, 10 Jun 2026 22:04:53 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "rcb-magicc-hdt-1p24", "bytes": 2580, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-07-22", "doi": "10.5281/zenodo.21494229", "etag": "W/\"5bbbea335b5efffcb85b0d2b64be7d9a74f6d84bbe58d03d4e57a1b79b623031\"", "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null}
         ],
         "processing": [
           {
             "description": "Quoted from Sect. 9, p. 3910 (with Table 8 on the same page) of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found in the text of page 22 of the PDF snapshot (sha256 795eb30a2ed5…) before publishing, and so was the Table 8 caption that dates the budgets: 'Estimates are expressed relative to the start of 2026.'",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
             "description": "Value: \"130 GtCO₂ (50 % likelihood)\" is published as 130 billion tonnes of carbon dioxide from the start of 2026, as Table 8 on the same page dates it.",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
             "description": "Checked that each file read (budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
             "description": "Cross-check: the release's budget file with the Table 8 assumptions (budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv) gives 134.22 GtCO₂ for 1.5 °C at 50% likelihood. The paper rounds to the nearest 10 GtCO₂; the build stops if the file value is more than 5 GtCO₂ from the quoted 130. Difference: 4.22 GtCO₂.",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           }
         ],
         "published_value": {
@@ -149,14 +152,15 @@
         },
         "scope": {
           "baseline": null,
-          "basis": "Carbon dioxide budget from the start of 2026 (1 January 2026) for 1.5 °C above 1850–1900, 50% likelihood considering only uncertainty in the transient climate response to cumulative emissions (TCRE); rounded by IGCC to the nearest 10 GtCO₂. Non-CO₂ warming from the AR6 scenarios that reach net zero CO₂, modelled with MAGICC; starts from 1.24 °C of human-induced warming over 2016–2025.",
-          "bunkers": null,
+          "basis": "Carbon dioxide budget from the start of 2026 (1 January 2026) for 1.5 °C above 1850–1900, 50% likelihood considering only uncertainty in the transient climate response to cumulative emissions (TCRE); rounded by IGCC to the nearest 10 GtCO₂. Non-CO₂ warming from the AR6 scenarios that reach net zero CO₂, modelled with MAGICC; starts from 1.24 °C of human-induced warming over 2016–2025. It counts all net carbon dioxide from human activity (IGCC: \"the total amount of CO₂ that can ever be emitted\"), which IGCC compares with 2025 emissions of 42 GtCO₂ a year from its Table 1, fossil and land-use change together, international aviation and shipping included.",
+          "bunkers": "included",
           "geography": "World",
           "gwp": null,
-          "lulucf": null
+          "lulucf": "included"
         }
       },
       "source_ids": ["igcc-2025"],
+      "time_basis": "calendar",
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (50% likelihood)",
       "unit": {
         "code": "GtCO2",
@@ -171,10 +175,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "036c67ab8eafed631c4282750f9d586555ec4df04634e7d62460f3539ee9447e",
+      "export_sha256": "04c65b8c6f86617ebd5fee527d3f7f6650a59d1ee6c02ba8bb7e4dde84492baa",
       "geo_coverage": "global-only",
       "id": "ch4.noaa-gml.annual-global",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -199,21 +204,21 @@
           {
             "description": "Read ch4_annmean_gl.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
             "inputs": ["fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
             "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
           },
           {
             "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the standard deviations of 100 bootstrap (network) and 100 Monte Carlo (measurement) global averages taken in quadrature (one standard deviation).",
             "inputs": ["fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
             "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
           },
           {
             "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
             "inputs": ["fac1f4e1b0e7f0449f8f496da46509c0c20410ccb368d2462ccb9f22900ef88d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
             "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
           }
@@ -229,6 +234,7 @@
         }
       },
       "source_ids": ["noaa-gml-trends-ch4-n2o-sf6"],
+      "time_basis": "calendar",
       "title": "Methane, global annual mean",
       "unit": {
         "code": "ppb",
@@ -242,11 +248,153 @@
         "decimals": 1
       },
       "downloadable": true,
+      "entities": ["ANT_ICECORES"],
+      "export_sha256": "a9bc4c3370ad4f35dce1886c402d6cf24e523dfaa4a51b4b03c5e0c2e40049af",
+      "geo_coverage": "global-only",
+      "id": "co2.bereiter-2015.800k",
+      "latest": {
+        "age_bp": -51.03,
+        "dims": {},
+        "entity": "ANT_ICECORES",
+        "period": null,
+        "status": "final",
+        "value": 368.02
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Bereiter et al. (2015), Geophysical Research Letters, doi:10.1002/2014GL061957; data: NOAA/WDS Paleoclimatology, Antarctic Ice Cores Revised 800KYr CO2 Data, doi:10.25921/n8y4-bp27, https://www.ncei.noaa.gov/access/paleo-search/study/17975, accessed 2026-10-04.",
+        "description": "Carbon dioxide in air trapped in Antarctic ice, from 805,669 years before 1950 to 2001, as the composite record of Bereiter et al. (2015). Each value is one ice or firn sample, dated by the age of its air in years before 1950, with one standard deviation.",
+        "kind": "series",
+        "licence": {
+          "name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)",
+          "spdx": null,
+          "url": null
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "composite", "bytes": 51875, "citation_full": "Bereiter, B.; Eggleston, S.; Schmitt, J.; Nehrbass-Ahles, C.; Stocker, T.F.; Fischer, H.; Kipfstuhl, S.; Chappellaz, J.A. (2015-02-04): NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data. Antarctic Ice Core Revised Composite CO2 Data. NOAA National Centers for Environmental Information. https://doi.org/10.25921/n8y4-bp27. Accessed 2026-10-04. Bereiter, B., S. Eggleston, J. Schmitt, C. Nehrbass-Ahles, T. F. Stocker, H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015. Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), 542-549. doi: 10.1002/2014GL061957. Lüthi, D., M. Le Floch, B. Bereiter, T. Blunier, J.-M. Barnola, U. Siegenthaler, D. Raynaud, J. Jouzel, H. Fischer, K. Kawamura, and T.F. Stocker. 2008. High-resolution carbon dioxide concentration record 650,000-800,000 years before present. Nature, 453, 379-382. doi: 10.1038/nature06949", "date_accessed": "2026-10-04", "date_published": "2015-02-04", "doi": "10.25921/n8y4-bp27", "etag": "\"caa3-6204a387e9f70\"", "last_modified": "Thu, 22 Aug 2024 18:56:47 GMT", "licence": {"name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)", "spdx": null, "url": null}, "producer": "NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners)", "r2_url": null, "sha256": "40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f", "source_id": "bereiter-2015-co2", "title": "Antarctic ice cores revised 800,000-year CO2 composite", "url_download": "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite-noaa.txt", "url_main": "https://www.ncei.noaa.gov/access/paleo-search/study/17975", "version_producer": "2015-02-04", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read all 1,901 samples of antarctica2015co2composite-noaa.txt (NOAA template v4, contributed 2015-02-04): gas age in calendar years before 1950 (age_gas_calBP), carbon dioxide in parts per million (co2_ppm) and its one standard deviation (co2_1s_ppm), each as printed.",
+            "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+            "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+          },
+          {
+            "description": "Published each sample's gas age as age_bp, unrounded, with no calendar period (time basis years-before-1950), from the oldest (805668.87) to the youngest (-51.03); the file lists them youngest first.",
+            "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+            "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+          },
+          {
+            "description": "Range: value minus and plus the published one standard deviation (exact decimal arithmetic on the printed digits). The file's header says that where a sample has no sigma of its own, the average for the system or record is given.",
+            "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+            "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Carbon dioxide in air trapped in Antarctic ice, by gas age (AICC2012 chronology except Law Dome, WAIS and Siple Dome). Composite stitched by the producers from Law Dome (the most recent 2,000 years), Dome C, WAIS Divide (lowered by 4 ppm by the producers), Siple Dome, Talos Dome, EDML, Dome C sublimation, Vostok and Dome C. Ice smooths the air record over decades to centuries, so short peaks do not show. Range: ± one standard deviation as published (an average for the system or record where a sample has none of its own).",
+          "bunkers": null,
+          "geography": "Antarctica (composite of several ice cores)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["bereiter-2015-co2"],
+      "time_basis": "years-before-1950",
+      "title": "Carbon dioxide over the last 800,000 years (Antarctic ice cores)",
+      "unit": {
+        "code": "ppm",
+        "label": "parts per million",
+        "short": "ppm"
+      },
+      "vintage": "2015-02-04"
+    },
+    {
+      "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
+      "entities": ["ANT_ICECORES"],
+      "export_sha256": "a729e728a8bc9b7ebb68bf57066c6fbd6f6f5c551e90d30a01e9e45cd0278b72",
+      "geo_coverage": "global-only",
+      "id": "co2.bereiter-2015.800k.max-before-1000bp",
+      "latest": {
+        "age_bp": 335102.31,
+        "dims": {},
+        "entity": "ANT_ICECORES",
+        "period": null,
+        "status": "final",
+        "value": 298.6
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from Bereiter et al. (2015), Geophysical Research Letters, doi:10.1002/2014GL061957; data: NOAA/WDS Paleoclimatology, Antarctic Ice Cores Revised 800KYr CO2 Data, doi:10.25921/n8y4-bp27, https://www.ncei.noaa.gov/access/paleo-search/study/17975, accessed 2026-10-04. Changes: selected the highest carbon dioxide value among the samples older than 1,000 years before 1950.",
+        "description": "The highest carbon dioxide value in the 800,000-year Antarctic ice-core composite of Bereiter et al. (2015) among the samples older than 1,000 years before 1950 (before 950 CE), with the age of that sample's air and its one standard deviation. Today's carbon dioxide, measured directly in the air, can be compared with it.",
+        "kind": "derived",
+        "licence": {
+          "name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)",
+          "spdx": null,
+          "url": null
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "composite", "bytes": 51875, "citation_full": "Bereiter, B.; Eggleston, S.; Schmitt, J.; Nehrbass-Ahles, C.; Stocker, T.F.; Fischer, H.; Kipfstuhl, S.; Chappellaz, J.A. (2015-02-04): NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data. Antarctic Ice Core Revised Composite CO2 Data. NOAA National Centers for Environmental Information. https://doi.org/10.25921/n8y4-bp27. Accessed 2026-10-04. Bereiter, B., S. Eggleston, J. Schmitt, C. Nehrbass-Ahles, T. F. Stocker, H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015. Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), 542-549. doi: 10.1002/2014GL061957. Lüthi, D., M. Le Floch, B. Bereiter, T. Blunier, J.-M. Barnola, U. Siegenthaler, D. Raynaud, J. Jouzel, H. Fischer, K. Kawamura, and T.F. Stocker. 2008. High-resolution carbon dioxide concentration record 650,000-800,000 years before present. Nature, 453, 379-382. doi: 10.1038/nature06949", "date_accessed": "2026-10-04", "date_published": "2015-02-04", "doi": "10.25921/n8y4-bp27", "etag": "\"caa3-6204a387e9f70\"", "last_modified": "Thu, 22 Aug 2024 18:56:47 GMT", "licence": {"name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)", "spdx": null, "url": null}, "producer": "NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners)", "r2_url": null, "sha256": "40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f", "source_id": "bereiter-2015-co2", "title": "Antarctic ice cores revised 800,000-year CO2 composite", "url_download": "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite-noaa.txt", "url_main": "https://www.ncei.noaa.gov/access/paleo-search/study/17975", "version_producer": "2015-02-04", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read all 1,901 samples of antarctica2015co2composite-noaa.txt (contributed 2015-02-04), as for co2.bereiter-2015.800k.",
+            "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+            "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+          },
+          {
+            "description": "Kept the 1,679 samples with a gas age above 1,000 years before 1950 (before 950 CE) and took the one with the highest co2_ppm: 298.60 ppm at 335102.31 years before 1950, one standard deviation 3.00 ppm. No other sample has that value. The value, age and standard deviation are published as printed; the range is value ± one standard deviation.",
+            "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+            "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Maximum of co2_ppm over every sample of the composite with a gas age above 1,000 years before 1950. Carbon dioxide in air trapped in Antarctic ice, by gas age (AICC2012 chronology except Law Dome, WAIS and Siple Dome). Composite stitched by the producers from Law Dome (the most recent 2,000 years), Dome C, WAIS Divide (lowered by 4 ppm by the producers), Siple Dome, Talos Dome, EDML, Dome C sublimation, Vostok and Dome C. Ice smooths the air record over decades to centuries, so short peaks do not show. Range: ± one standard deviation as published (an average for the system or record where a sample has none of its own).",
+          "bunkers": null,
+          "geography": "Antarctica (composite of several ice cores)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["bereiter-2015-co2"],
+      "time_basis": "years-before-1950",
+      "title": "Highest carbon dioxide in Antarctic ice before the industrial era",
+      "unit": {
+        "code": "ppm",
+        "label": "parts per million",
+        "short": "ppm"
+      },
+      "vintage": "2015-02-04"
+    },
+    {
+      "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
       "entities": ["LAWDOME"],
-      "export_sha256": "0206e7962bddfbd3e48adb55128161e8bd8575cf1966b908efb6ee90f9036c1a",
+      "export_sha256": "a12dd00491045f8abe722417fef6dbab3bf6113e3803bdc5e07dd07abd1b3370",
       "geo_coverage": "global-only",
       "id": "co2.law-dome.2k",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "LAWDOME",
         "period": "1996",
@@ -271,14 +419,14 @@
           {
             "description": "Read the sheet 'Splines fits' of Law_Dome_GHG_2000years.xlsx, CSIRO collection version v3 (data last updated 11/2018).",
             "inputs": ["e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/law_dome_co2.py",
             "transform_sha256": "c67459fecb8e83feb79e7e5649df410e093a6a529adf10cd7c37368e72fcb62f"
           },
           {
             "description": "Published the column 'CO2 spline (20 yr, ppm)' as printed for each year of its 'Year AD' column, 0154 to 1996, as ISO calendar years. The spline is CSIRO's fit to the ice and firn measurements, which halves variations with periods shorter than 20 years; the growth-rate column and the individual samples are not published here.",
             "inputs": ["e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/law_dome_co2.py",
             "transform_sha256": "c67459fecb8e83feb79e7e5649df410e093a6a529adf10cd7c37368e72fcb62f"
           }
@@ -294,6 +442,7 @@
         }
       },
       "source_ids": ["law-dome-2k"],
+      "time_basis": "calendar",
       "title": "Carbon dioxide over the last 2,000 years (Law Dome ice cores)",
       "unit": {
         "code": "ppm",
@@ -308,10 +457,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "907c8cb24a4387f7e7cb9a0c5291a5084d16da39f4aac742f25c7f8b96a0d406",
+      "export_sha256": "bb8d594ff3a103235a18842c35e9bace75bdcdef24095bec1a0a2fc90a9b75c7",
       "geo_coverage": "global-only",
       "id": "co2.noaa-gml.annual-global",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -336,21 +486,21 @@
           {
             "description": "Read co2_annmean_gl.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
             "inputs": ["36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
             "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
           },
           {
             "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the mean of the standard deviations of 200 Monte Carlo global averages (one standard deviation).",
             "inputs": ["36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
             "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
           },
           {
             "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
             "inputs": ["36d6a6dd6bb5db53100d300b35fc6cb5ea6ad8756dd93326f847e4251c70bd14"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
             "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
           }
@@ -366,6 +516,7 @@
         }
       },
       "source_ids": ["noaa-gml-trends"],
+      "time_basis": "calendar",
       "title": "Carbon dioxide, global annual mean",
       "unit": {
         "code": "ppm",
@@ -380,10 +531,11 @@
       },
       "downloadable": true,
       "entities": ["MLO"],
-      "export_sha256": "5cc6305e011aa4a4745ecbbcef7118abd9b117c2ec8c51899a7c4921edfc770f",
+      "export_sha256": "85e8b4e9149e50554213564a949861976223378befc03ac59d7d740fc3da5c67",
       "geo_coverage": "global-only",
       "id": "co2.noaa-gml.monthly-mlo",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "MLO",
         "period": "2026-08",
@@ -408,14 +560,14 @@
           {
             "description": "Read the monthly mean column (average) of co2_mm_mlo.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
             "inputs": ["dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
             "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
           },
           {
             "description": "Kept every month as published. Where NOAA's own markers say something about a month (a Scripps-era value, a month with no measurement days that NOAA interpolated, a month without a standard deviation, or a month measured at Maunakea after the 2022 eruption) the observation carries that as a note. The deseasonalized, days, standard deviation and uncertainty columns are not published.",
             "inputs": ["dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
             "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
           }
@@ -431,6 +583,7 @@
         }
       },
       "source_ids": ["noaa-gml-trends"],
+      "time_basis": "calendar",
       "title": "Carbon dioxide at Mauna Loa, monthly mean",
       "unit": {
         "code": "ppm",
@@ -445,10 +598,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "0a05ad8f8a2d903d2f6f2789563d7c2ab51873a860519c0258d8f5b759cb082e",
+      "export_sha256": "f16dd533397e28937cb89b3fb58ec43687fa17e03ce59c1157d5e066a0d3946e",
       "geo_coverage": "global-only",
       "id": "electricity.ember.clean-share-world",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -474,28 +628,28 @@
           {
             "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-09-22 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World'.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           },
           {
             "description": "Checked that the shares mean what is published: the nine non-aggregated sources (Solar, Wind, Hydro, Bioenergy, Other renewables, Nuclear, Coal, Gas, Other fossil) add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           },
           {
             "description": "Marked a year preliminary, with a note giving the count, when the file has no Total generation for that year for a country or economy that has it for an earlier year. Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…; both sentences were found on pages 10, 12 before publishing) says it estimates the latest annual generation from monthly data and a country's missing years from historical trends, so the World value for such a year is partly Ember's estimate. Preliminary years in this vintage: 2023, 2024, 2025.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           },
           {
             "description": "Published Ember's 'Share of generation (%)' of its aggregated source 'Clean' (renewables plus nuclear) as printed.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           }
@@ -511,6 +665,7 @@
         }
       },
       "source_ids": ["ember-yearly"],
+      "time_basis": "calendar",
       "title": "Share of world electricity from clean sources",
       "unit": {
         "code": "percent",
@@ -525,10 +680,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "83297bc31ea16f6889289b8da23fd4cdfa1e6bb7e101ed32582d1379cdd528a4",
+      "export_sha256": "99cbdb3a28a91b61c1dd413b9d4c18d1c73c79be9a8d212c56daba755023bd3d",
       "geo_coverage": "global-only",
       "id": "electricity.ember.mix-world",
       "latest": {
+        "age_bp": null,
         "dims": {
           "source": "solar"
         },
@@ -556,28 +712,28 @@
           {
             "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-09-22 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World'.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           },
           {
             "description": "Checked that the shares mean what is published: the nine non-aggregated sources (Solar, Wind, Hydro, Bioenergy, Other renewables, Nuclear, Coal, Gas, Other fossil) add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           },
           {
             "description": "Marked a year preliminary, with a note giving the count, when the file has no Total generation for that year for a country or economy that has it for an earlier year. Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…; both sentences were found on pages 10, 12 before publishing) says it estimates the latest annual generation from monthly data and a country's missing years from historical trends, so the World value for such a year is partly Ember's estimate. Preliminary years in this vintage: 2023, 2024, 2025.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           },
           {
             "description": "Published Ember's 'Share of generation (%)' for each of the nine sources as printed, one series per source.",
             "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
             "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
           }
@@ -593,6 +749,7 @@
         }
       },
       "source_ids": ["ember-yearly"],
+      "time_basis": "calendar",
       "title": "World electricity generation by source",
       "unit": {
         "code": "percent",
@@ -607,10 +764,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "92677befc78383f108fad87243f3753b4ae6df6086186c86469b93ae7ee21fc2",
+      "export_sha256": "1a9ba685bf52c7302ae390fceaf2638ac57a262277dea47bb96c533c1fc4a782",
       "geo_coverage": "global-only",
       "id": "emissions.gcb-2025.budget-global",
       "latest": {
+        "age_bp": null,
         "dims": {
           "component": "fossil"
         },
@@ -637,28 +795,28 @@
           {
             "description": "Read the sheet 'Global Carbon Budget' of Global_Carbon_Budget_2025_v1.0.xlsx (Global Carbon Budget 2025 v1.0, ICOS object qSjPBsV1drZnYdH-yCJMmkGn): one row per year 1959–2024, in billion tonnes of carbon per year. Sinks are positive numbers in the sheet and stay positive here.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Checked the sheet's definition of the budget imbalance on every year: fossil emissions plus land-use change emissions, minus atmospheric growth, ocean sink, land sink and cement carbonation sink, equals the imbalance column (largest difference 3.3e-14 GtC/yr). This confirms that the fossil column is before the cement carbonation sink is subtracted.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Converted from billion tonnes of carbon to billion tonnes of carbon dioxide by multiplying by 3.664, the factor the sheet states (\"multiply the numbers below by 3.664\"), with exact decimal arithmetic on the stored values.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Lower and upper are given for two components only, from the one-sigma uncertainties the sheet states: ±5 % of fossil emissions, and ±0.7 billion tonnes of carbon (2.5648 billion tonnes of carbon dioxide) per year for land-use change. The sheet gives the ocean sink (±0.4) and land sink (±0.5 billion tonnes of carbon per year) uncertainties only 'on average' and atmospheric growth's as 'variable', so those components and the imbalance have no range.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           }
@@ -674,6 +832,7 @@
         }
       },
       "source_ids": ["gcb-2025-global"],
+      "time_basis": "calendar",
       "title": "Global carbon dioxide budget: emissions and where they go",
       "unit": {
         "code": "GtCO2/yr",
@@ -688,10 +847,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "87b7b708a02ed0eb32ff79ba1d8f301d252e09817a1cb613c2e1fab5debdf5f8",
+      "export_sha256": "fde84a1b4716b28cfdf227ee3dd726771ceacb7ddffc28a97e2f5b014cea335e",
       "geo_coverage": "global-only",
       "id": "emissions.gcb-2025.fossil-growth-2025-projection",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -716,14 +876,14 @@
           {
             "description": "Quoted from Executive summary, p. 3215. The quote was found in the text of page 5 of the snapshot (sha256 166e10a66b4d…) before publishing.",
             "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           },
           {
             "description": "Value: \"increase in 2025 by 1.0 % relative to 2024\" is published as +1.0 percent for 2025. The paper's range (0.2 % to 1.7 %) is stated in the scope, not published as values.",
             "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           }
@@ -736,13 +896,14 @@
         "scope": {
           "baseline": null,
           "basis": "Fossil fuels and industry including the cement carbonation sink (net), with international aviation and shipping. The paper states that its growth rates are adjusted for the extra day in the leap year 2024. A projection from preliminary data for 2025; the paper gives the range 0.2 to 1.7 percent.",
-          "bunkers": null,
+          "bunkers": "included",
           "geography": "World",
           "gwp": null,
-          "lulucf": null
+          "lulucf": "excluded"
         }
       },
       "source_ids": ["gcb-2025-essd"],
+      "time_basis": "calendar",
       "title": "Projected change in fossil carbon dioxide emissions, 2024 to 2025 (Global Carbon Budget)",
       "unit": {
         "code": "percent",
@@ -757,10 +918,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "5471aa52cd4c23fe2fc2f1ebd8b1283796a9921f997b4caf94dc7d947fad5fd4",
+      "export_sha256": "2a7ee692e675437ecf6b4f73cf0e3e05121f7d1409ecbc85ab1e2bcb3c7d75de",
       "geo_coverage": "global-only",
       "id": "emissions.gcb-2025.fossil-net-2025-projection",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -785,14 +947,14 @@
           {
             "description": "Quoted from Executive summary, p. 3215. The quote was found in the text of page 5 of the snapshot (sha256 166e10a66b4d…) before publishing.",
             "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           },
           {
             "description": "Value: \"38.1 GtCO₂ yr⁻¹\" is published as 38.1 billion tonnes of carbon dioxide per year in 2025, the paper's own value in carbon dioxide units (not converted by us from the 10.4 GtC it also states).",
             "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           }
@@ -805,13 +967,14 @@
         "scope": {
           "baseline": null,
           "basis": "Fossil fuels and industry including the cement carbonation sink (net), with international aviation and shipping. A projection from preliminary data for 2025, published in May 2026; the final 2025 value comes with the Global Carbon Budget 2026.",
-          "bunkers": null,
+          "bunkers": "included",
           "geography": "World",
           "gwp": null,
-          "lulucf": null
+          "lulucf": "excluded"
         }
       },
       "source_ids": ["gcb-2025-essd"],
+      "time_basis": "calendar",
       "title": "Fossil carbon dioxide emissions projected for 2025 (Global Carbon Budget)",
       "unit": {
         "code": "GtCO2/yr",
@@ -826,10 +989,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "597938504907576da39492732dd7e243ca118ef6e8ab009b8994528b441ad2ec",
+      "export_sha256": "cef1c738e4d89fdab13276886ba609c2846c83d69fd00630129dac83abcdade4",
       "geo_coverage": "global-only",
       "id": "emissions.gcb-2025.fossil-net-global",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2024",
@@ -854,28 +1018,28 @@
           {
             "description": "Read the sheet 'Global Carbon Budget' of Global_Carbon_Budget_2025_v1.0.xlsx (Global Carbon Budget 2025 v1.0, ICOS object qSjPBsV1drZnYdH-yCJMmkGn): one row per year 1959–2024, in billion tonnes of carbon per year. Sinks are positive numbers in the sheet and stay positive here.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Checked the sheet's definition of the budget imbalance on every year: fossil emissions plus land-use change emissions, minus atmospheric growth, ocean sink, land sink and cement carbonation sink, equals the imbalance column (largest difference 3.3e-14 GtC/yr). This confirms that the fossil column is before the cement carbonation sink is subtracted.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Subtracted the cement carbonation sink from fossil emissions (excluding carbonation) for each year, which gives the Global Carbon Budget's headline fossil value.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Converted from billion tonnes of carbon to billion tonnes of carbon dioxide by multiplying by 3.664, the factor the sheet states (\"multiply the numbers below by 3.664\"), with exact decimal arithmetic on the stored values.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           }
@@ -891,6 +1055,7 @@
         }
       },
       "source_ids": ["gcb-2025-global"],
+      "time_basis": "calendar",
       "title": "Fossil carbon dioxide emissions, world (Global Carbon Budget)",
       "unit": {
         "code": "GtCO2/yr",
@@ -905,10 +1070,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "0a49b9cd555d968bfeec46713a06d6be6ac500258acf7bf9be1e65cfe85c9e0d",
+      "export_sha256": "f4ba2efaac4033ffb2d25b02b2cccb0b596c97d3c4210c7a7c416901f297a1bf",
       "geo_coverage": "global-only",
       "id": "emissions.gcb-2025.remaining-budget-1-5c",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2026-01-01",
@@ -933,14 +1099,14 @@
           {
             "description": "Quoted from Executive summary, p. 3215. The quote was found in the text of page 5 of the snapshot (sha256 166e10a66b4d…) before publishing.",
             "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           },
           {
             "description": "Value: \"170 GtCO₂ left\" is published as 170 billion tonnes of carbon dioxide, dated 2026-01-01 because the paper counts the budget \"from the beginning of 2026\".",
             "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           }
@@ -952,14 +1118,15 @@
         },
         "scope": {
           "baseline": null,
-          "basis": "Cumulative carbon dioxide emissions from 1 January 2026 for a 50 percent likelihood of limiting warming to 1.5 °C above 1850–1900, as assessed in the Global Carbon Budget 2025. Assessments made with other methods, such as Indicators of Global Climate Change 2025, give different values from the same date.",
-          "bunkers": null,
+          "basis": "Cumulative carbon dioxide emissions from 1 January 2026 for a 50 percent likelihood of limiting warming to 1.5 °C above 1850–1900, as assessed in the Global Carbon Budget 2025. The budget is for total anthropogenic carbon dioxide, fossil and land-use change together (the paper updates the underlying IPCC AR6 estimate \"accounting for the 2020 to 2025 GCB estimated anthropogenic emissions from fossil combustion (EFOS) and land use change (ELUC)\" and states how long the budgets last \"at the 2025 level of total anthropogenic CO2 emissions\", p. 3259). Assessments made with other methods, such as Indicators of Global Climate Change 2025, give different values from the same date.",
+          "bunkers": "included",
           "geography": "World",
           "gwp": null,
-          "lulucf": null
+          "lulucf": "included"
         }
       },
       "source_ids": ["gcb-2025-essd"],
+      "time_basis": "calendar",
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (Global Carbon Budget)",
       "unit": {
         "code": "GtCO2",
@@ -974,10 +1141,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "1205259c55c40138a8448902c146c8479f06fc6cee9c03836e5c0847828e656f",
+      "export_sha256": "a06416a738b390688a68399e5c43dcb93ad49dba24fb1b785d195681025e2423",
       "geo_coverage": "global-only",
       "id": "emissions.gcb-2025.total-co2-global",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2024",
@@ -1002,28 +1170,28 @@
           {
             "description": "Read the sheet 'Global Carbon Budget' of Global_Carbon_Budget_2025_v1.0.xlsx (Global Carbon Budget 2025 v1.0, ICOS object qSjPBsV1drZnYdH-yCJMmkGn): one row per year 1959–2024, in billion tonnes of carbon per year. Sinks are positive numbers in the sheet and stay positive here.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Checked the sheet's definition of the budget imbalance on every year: fossil emissions plus land-use change emissions, minus atmospheric growth, ocean sink, land sink and cement carbonation sink, equals the imbalance column (largest difference 3.3e-14 GtC/yr). This confirms that the fossil column is before the cement carbonation sink is subtracted.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "For each year: fossil emissions (excluding carbonation) minus the cement carbonation sink, plus land-use change emissions.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           },
           {
             "description": "Converted from billion tonnes of carbon to billion tonnes of carbon dioxide by multiplying by 3.664, the factor the sheet states (\"multiply the numbers below by 3.664\"), with exact decimal arithmetic on the stored values.",
             "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
             "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
           }
@@ -1039,6 +1207,7 @@
         }
       },
       "source_ids": ["gcb-2025-global"],
+      "time_basis": "calendar",
       "title": "Total carbon dioxide emissions from human activity, world (Global Carbon Budget)",
       "unit": {
         "code": "GtCO2/yr",
@@ -1053,10 +1222,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "a18649bd61b07f27dcf2db254bcc97115bd858ff51106469dd2420e8aebf3ff9",
+      "export_sha256": "8921508951d66f011a08200c3c84832d77dc596d284f741162ffb454bdf44b8f",
       "geo_coverage": "global-only",
       "id": "food.faostat.agrifood-emissions-world",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2023",
@@ -1065,7 +1235,7 @@
       },
       "licence_class": "open",
       "provenance": {
-        "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: converted from kilotonnes to billion tonnes of CO₂-equivalent.",
+        "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: converted from kilotonnes to billion tonnes of CO₂-equivalent.",
         "description": "Greenhouse gas emissions from the world's food and farming systems each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO.",
         "kind": "series",
         "licence": {
@@ -1075,43 +1245,43 @@
         },
         "notice": null,
         "origins": [
-          {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
-          {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
+          {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
         ],
         "processing": [
           {
             "description": "Read Emissions_Totals_E_All_Data_(Normalized).csv from FAOSTAT's Emissions totals (GT) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 2,500,090, the number of data rows in this file. The zip was last modified on the server on Sat, 06 Dec 2025 15:13:44 GMT.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Kept the World (area code 5000), \"FAO TIER 1\" rows of item \"Agrifood systems\" (code 6518), element \"Emissions (CO2eq) (AR5)\" (code 723113): one value per year, 1990–2023, in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global warming potentials). Rows from FAO's \"UNFCCC\" source are not used.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Converted kilotonnes to billion tonnes by dividing by 1,000,000 (exact decimal arithmetic on the printed values).",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           }
         ],
         "published_value": null,
         "scope": {
           "baseline": null,
-          "basis": "FAOSTAT item \"Agrifood systems\": emissions within the farm gate (crops and livestock), from land-use change (deforestation, biomass fires and peatland degradation), and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal). FAO Tier 1 estimates, not country inventory submissions.",
+          "basis": "FAOSTAT item \"Agrifood systems\": emissions within the farm gate (crops and livestock), from land-use change, and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal). Land-use change counts only what FAO attributes to agriculture: its item \"Land-use change\" is net forest conversion (deforestation) plus fires in humid tropical forests and fires in organic soils (peat). The carbon taken up by forests (FAOSTAT item \"Forestland\", a net removal) is not subtracted. FAO Tier 1 estimates, not country inventory submissions.",
           "bunkers": null,
           "geography": "World",
           "gwp": "AR5-GWP100",
@@ -1119,6 +1289,7 @@
         }
       },
       "source_ids": ["faostat"],
+      "time_basis": "calendar",
       "title": "Greenhouse gas emissions from agrifood systems, world",
       "unit": {
         "code": "GtCO2e",
@@ -1133,10 +1304,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "a0e569e52e54275edbfa4fb0657be3d818657db30548e4d898e643a7697ab47e",
+      "export_sha256": "5cd527081f20b4765c7aa2e54c057a585cf8807ab9b837703fa4e17ae685da95",
       "geo_coverage": "global-only",
       "id": "food.faostat.agrifood-emissions-world.share",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2023",
@@ -1145,7 +1317,7 @@
       },
       "licence_class": "open",
       "provenance": {
-        "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: share calculated as agrifood systems emissions divided by all-sector emissions including land use, land-use change and forestry.",
+        "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: share calculated as agrifood systems emissions divided by all-sector emissions including land use, land-use change and forestry.",
         "description": "The part of the world's greenhouse gas emissions, including land use, land-use change and forestry, that comes from food and farming systems, each year since 1990, as estimated by FAO.",
         "kind": "derived",
         "licence": {
@@ -1155,50 +1327,51 @@
         },
         "notice": null,
         "origins": [
-          {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
-          {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
+          {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
         ],
         "processing": [
           {
             "description": "Read Emissions_Totals_E_All_Data_(Normalized).csv from FAOSTAT's Emissions totals (GT) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 2,500,090, the number of data rows in this file. The zip was last modified on the server on Sat, 06 Dec 2025 15:13:44 GMT.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Kept the World (area code 5000), \"FAO TIER 1\" rows of element \"Emissions (CO2eq) (AR5)\" (code 723113) for items \"Agrifood systems\" (code 6518) and \"All sectors with LULUCF\" (code 6825), 1990–2023, in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global warming potentials). Both items cover the same years.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Share = \"Agrifood systems\" divided by \"All sectors with LULUCF\" for the same year, times 100 (exact decimal arithmetic on the printed values). The denominator is FAO's total of all IPCC sectors including land use, land-use change and forestry.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           }
         ],
         "published_value": null,
         "scope": {
           "baseline": null,
-          "basis": "FAOSTAT item \"Agrifood systems\": emissions within the farm gate (crops and livestock), from land-use change (deforestation, biomass fires and peatland degradation), and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal). FAO Tier 1 estimates, not country inventory submissions. Denominator: FAOSTAT item \"All sectors with LULUCF\", the total of all IPCC sectors including land use, land-use change and forestry.",
-          "bunkers": null,
+          "basis": "FAOSTAT item \"Agrifood systems\": emissions within the farm gate (crops and livestock), from land-use change, and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal). Land-use change counts only what FAO attributes to agriculture: its item \"Land-use change\" is net forest conversion (deforestation) plus fires in humid tropical forests and fires in organic soils (peat). The carbon taken up by forests (FAOSTAT item \"Forestland\", a net removal) is not subtracted. FAO Tier 1 estimates, not country inventory submissions. Denominator: FAOSTAT item \"All sectors with LULUCF\", the total of all IPCC sectors including land use, land-use change and forestry (energy, industrial processes, waste, other, agriculture and LULUCF, with the forest sink netted in); international aviation and shipping bunkers are a separate FAOSTAT item (\"International bunkers\") and are not in it.",
+          "bunkers": "excluded",
           "geography": "World",
           "gwp": "AR5-GWP100",
           "lulucf": "included"
         }
       },
       "source_ids": ["faostat"],
+      "time_basis": "calendar",
       "title": "Agrifood systems' share of global greenhouse gas emissions",
       "unit": {
         "code": "percent",
@@ -1213,10 +1386,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "925c3a413de8b5eddbb8c3a2921caa05a55a1f60abe252b3d807978d30960427",
+      "export_sha256": "c1e70e0bba7fdcffede463985bdc6f43436c8d05962702fdaa039b778a1bfdf6",
       "geo_coverage": "global-only",
       "id": "food.faostat.livestock-ch4-world",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2023",
@@ -1225,7 +1399,7 @@
       },
       "licence_class": "open",
       "provenance": {
-        "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: converted from kilotonnes to million tonnes of methane.",
+        "attribution": "Calculated by Environment Dashboard from FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Changes: converted from kilotonnes to million tonnes of methane.",
         "description": "Methane released each year since 1961 by the world's farm animals, from digestion (enteric fermentation) and from manure management, as estimated by FAO.",
         "kind": "series",
         "licence": {
@@ -1235,44 +1409,44 @@
         },
         "notice": null,
         "origins": [
-          {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
-          {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 2026-10-04. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
+          {"acquisition": "automatic", "artifact_id": "emissions-totals", "bytes": 20501708, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"99a1f7889c9873df9bdb619a99572a1f-3\"", "last_modified": "Sat, 06 Dec 2025 15:13:44 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 4 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "W/\"8e42e8b5ed3b4a8dc4fc0052075ee28c\"", "last_modified": "Fri, 02 Oct 2026 08:16:55 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
         ],
         "processing": [
           {
             "description": "Read Emissions_Totals_E_All_Data_(Normalized).csv from FAOSTAT's Emissions totals (GT) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 2,500,090, the number of data rows in this file. The zip was last modified on the server on Sat, 06 Dec 2025 15:13:44 GMT.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Kept the World (area code 5000), \"FAO TIER 1\" rows of item \"Emissions from livestock\" (code 5085), element \"Emissions (CH4)\" (code 7225): methane from enteric fermentation and manure management, one value per year, 1961–2023, in kilotonnes of methane.",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed values).",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           },
           {
             "description": "Left out FAO's projections for 2030 and 2050, which the file flags F (\"Forecast value\").",
             "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "54b055217beef610971581c3af55dd34081665c236a5f58038c83b75ac2a0482"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/food/faostat_emissions.py",
-            "transform_sha256": "db8f25b92c201e9bdd129a74a0994bfd04f08ceda88917f6aa282cd1c4335fd7"
+            "transform_sha256": "7d80f77c9871f3f96dc16a9559558ec6e61e001a2c0d5a8e42f3b7f80c48bd45"
           }
         ],
         "published_value": null,
@@ -1286,6 +1460,7 @@
         }
       },
       "source_ids": ["faostat"],
+      "time_basis": "calendar",
       "title": "Methane from livestock, world",
       "unit": {
         "code": "MtCH4",
@@ -1300,10 +1475,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "54a8756a8472154950bccaa0fe24eb95606d621132a22bceec17149034ec0379",
+      "export_sha256": "fea58af3c5281775870e4992e635c3135e23ca9cb528a0f9e45c9a8d21fbc0be",
       "geo_coverage": "global-only",
       "id": "forcing.igcc-2025.erf-by-agent",
       "latest": {
+        "age_bp": null,
         "dims": {
           "agent": "anthropogenic"
         },
@@ -1315,7 +1491,7 @@
       "licence_class": "open",
       "provenance": {
         "attribution": "Indicators of Global Climate Change 2025: Forster et al. (2026), Earth Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a, doi:10.5281/zenodo.21494229. CC BY 4.0.",
-        "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent since 1750, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025.",
+        "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750 to 2025, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025. Human-caused agents are counted from zero in 1750; solar and volcanic forcing are IGCC's time series, which do not start from zero in 1750.",
         "kind": "series",
         "licence": {
           "name": "CC BY 4.0",
@@ -1333,29 +1509,36 @@
           {
             "description": "Checked that each file read (ERF_best_aggregates.csv, ERF_p05_aggregates.csv, ERF_p95_aggregates.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
-            "description": "Read the best estimate, 5th and 95th percentile of effective radiative forcing relative to 1750 for each year and each of 18 agents and aggregates, as published (W/m²). The 5–95% range is IGCC's, taken from its own percentile files; nothing is re-estimated.",
+            "description": "Read the best estimate, 5th and 95th percentile of effective radiative forcing for each year from 1750 and each of 18 agents and aggregates, as published (W/m²). The 5–95% range is IGCC's, taken from its own percentile files; nothing is re-estimated.",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
-            "description": "Checked in the best-estimate file that each aggregate equals the sum of its parts to 1e-6 W/m² (aerosols, well-mixed greenhouse gases, total human-caused, natural, total), which confirms what each column means. Not published: minor, nonco2wmghg, anthro_nonwmghg, which the release does not define.",
+            "description": "Checked that every human-caused column is exactly zero in 1750 in all three files, so its values are the change since 1750. Solar and volcanic forcing are not zero in 1750 (best estimates 0.02159121 and 0.234943996 W/m²), so the natural and total values are IGCC's time series as published, not changes since 1750. IGCC gives solar for 2025 as a single-year value, separate from its assessment over complete solar cycles, and includes volcanic forcing in the time series without a single-year assessment for 2025 (ESSD Sect. 5).",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+          },
+          {
+            "description": "Checked in the best-estimate file that each aggregate equals the sum of its parts to 1e-6 W/m² (aerosols, well-mixed greenhouse gases, total human-caused, natural, total), which confirms what each column means. Not published as agents of their own: minor, nonco2wmghg, anthro_nonwmghg, which are sums of published columns (non-CO₂ well-mixed greenhouse gases = methane + nitrous oxide + halogenated gases; minor = contrails + land use + black carbon on snow + stratospheric water vapour; human-caused other than well-mixed greenhouse gases = ozone + stratospheric water vapour + aerosols + contrails + land use + black carbon on snow), checked to 1e-6 W/m² the same way.",
+            "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           }
         ],
         "published_value": null,
         "scope": {
-          "baseline": "1750",
-          "basis": "Single-year values (solar included as the single-year estimate, volcanic included), relative to 1750; 5th to 95th percentile range from IGCC's ensemble.",
+          "baseline": "1750 for every human-caused agent (each is zero in 1750 in IGCC's files); solar and volcanic as in IGCC's time series, which are not zero in 1750",
+          "basis": "IGCC's ERF time series 1750–2025 (ESSD Fig. 5b), single-year values. Solar is IGCC's single-year solar ERF, separate from its assessment over complete solar cycles; volcanic is included in the time series, though IGCC gives no single-year volcanic assessment for 2025. Natural and total include both. 5th to 95th percentile range from IGCC's ensemble.",
           "bunkers": null,
           "geography": "Global mean",
           "gwp": null,
@@ -1363,7 +1546,8 @@
         }
       },
       "source_ids": ["igcc-2025"],
-      "title": "Effective radiative forcing by agent since 1750 (IGCC 2025)",
+      "time_basis": "calendar",
+      "title": "Effective radiative forcing by agent, 1750–2025 (IGCC 2025)",
       "unit": {
         "code": "W/m2",
         "label": "watts per square metre",
@@ -1377,10 +1561,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "7f45dac35b454a57bed19437d451ad561afc2d037a07aa73de3a9021e266f975",
+      "export_sha256": "9f424c3755e1fbd2be8afb19e9e4e5b30809bc895452563faa53d6f853fbd619",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.deaths-global",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2021",
@@ -1405,14 +1590,14 @@
           {
             "description": "Read the AN column (number of deaths attributable to heat) of the sheet '2025 Report Data_Global' of the indicator 1.1.5 workbook of the Lancet Countdown 2025 report, one value a year 1990–2021. Values are published as in the workbook.",
             "inputs": ["f6a18bdec8434973269c095727a13a0375e78b0e674124cf8c9827ec267131e0"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           },
           {
             "description": "The workbook's guidance sheet gives the unit of AN as deaths. The share of all deaths (AF) and the regional sheets are not published here.",
             "inputs": ["f6a18bdec8434973269c095727a13a0375e78b0e674124cf8c9827ec267131e0"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           }
@@ -1428,6 +1613,7 @@
         }
       },
       "source_ids": ["lancet-countdown-2025"],
+      "time_basis": "calendar",
       "title": "Heat-related deaths, world",
       "unit": {
         "code": "deaths",
@@ -1442,10 +1628,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "0fd54e848ac66d1f80afde36a31a6965fac38cdcb710a2a1f04c61327e5facde",
+      "export_sha256": "dea23293e42f67395e93b546b3e0199f2bc5ec87e3107b5f2f01258373248c4d",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.heatwave-days-global",
       "latest": {
+        "age_bp": null,
         "dims": {
           "scenario": "observed"
         },
@@ -1472,14 +1659,14 @@
           {
             "description": "Read the sheet '2025_Report _Data_Global' of the indicator 1.1.1 (attributable heatwave days) workbook of the Lancet Countdown 2025 report, 2020–2024: heatwave days observed, expected without climate change (Counterfactual) and attributable to climate change (Attributable_to_CC), published as in the workbook.",
             "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           },
           {
             "description": "Checked that observed days equal expected days plus attributable days in every year.",
             "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           }
@@ -1495,6 +1682,7 @@
         }
       },
       "source_ids": ["lancet-countdown-2025"],
+      "time_basis": "calendar",
       "title": "Heatwave days per person, observed and attributable to climate change, world",
       "unit": {
         "code": "days",
@@ -1509,10 +1697,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "f70110c9ec4b971b3b316dbba66f8e2dca030c071482f7f68281817f236eafdb",
+      "export_sha256": "adfab02fb1d9ce6bfc2d283c16c609c37005d85bcd9a3e28cc1da76471b8203b",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.labour-hours-global",
       "latest": {
+        "age_bp": null,
         "dims": {
           "sector": "total"
         },
@@ -1539,21 +1728,21 @@
           {
             "description": "Read the sheet '2025 Report Data_Global' of the indicator 1.1.3 workbook of the Lancet Countdown 2025 report, 1990–2024: potential work hours lost in services (WHL200Serv), manufacturing (WHL300Manuf), agriculture (WHL400sunAgr), construction (WHL400sunConstr) and in total (TotalSunAgCon), in thousands of hours as the guidance sheet states.",
             "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           },
           {
             "description": "Checked that the total equals the sum of the four sectors in every year (to one part in a billion).",
             "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           },
           {
             "description": "Divided every value by one million to give billions of hours (exact decimal arithmetic on the values as stored in the workbook). Employment and hours lost per worker are not published here.",
             "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
             "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
           }
@@ -1569,6 +1758,7 @@
         }
       },
       "source_ids": ["lancet-countdown-2025"],
+      "time_basis": "calendar",
       "title": "Potential work hours lost to heat, world",
       "unit": {
         "code": "bn-hours",
@@ -1583,7 +1773,7 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "12c21cf454989d6de3a73bcd984703b4f2eb17e56db8cf44fe48d697196bec4b",
+      "export_sha256": "50bdc3974f27365f972fcc0570691b4430a52dcfd36d12f77423cc35c770fc55",
       "geo_coverage": "global-only",
       "id": "mitigation.ipcc-ar6.cost-under-100-2030",
       "latest": null,
@@ -1605,14 +1795,14 @@
           {
             "description": "Quoted from SPM statement C.12, p. 37. The quote was found in the text of page 41 of the snapshot (sha256 fdec68c55cbf…) before publishing.",
             "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           },
           {
             "description": "Value: \"at least half the 2019 level\" is published as 50 percent of 2019 global greenhouse gas emissions, the lower bound the statement gives; the IPCC states no upper bound.",
             "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           }
@@ -1632,6 +1822,7 @@
         }
       },
       "source_ids": ["ipcc-ar6-wg3-spm"],
+      "time_basis": "calendar",
       "title": "Emission cuts available by 2030 from options costing up to 100 US dollars per tonne",
       "unit": {
         "code": "percent",
@@ -1646,10 +1837,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "039147d3d707eb51e57123a8e39d83c8760f9db4eb83a701ef5acda2f64b2c3f",
+      "export_sha256": "e3207ee1ec44f2621959c4904c4d8e91cdc6d8cb5accecad7214f3f28b217b7c",
       "geo_coverage": "global-only",
       "id": "n2o.noaa-gml.annual-global",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -1674,21 +1866,21 @@
           {
             "description": "Read n2o_annmean_gl.csv, created by NOAA on 5 September 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
             "inputs": ["4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
             "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
           },
           {
             "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the standard deviations of 100 bootstrap (network) and 100 Monte Carlo (measurement) global averages taken in quadrature (one standard deviation).",
             "inputs": ["4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
             "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
           },
           {
             "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
             "inputs": ["4ef7de075201af680fe28b262d4df8f092303c3450d1a7d8c1884e5c3bff070d"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
             "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
           }
@@ -1704,6 +1896,7 @@
         }
       },
       "source_ids": ["noaa-gml-trends-ch4-n2o-sf6"],
+      "time_basis": "calendar",
       "title": "Nitrous oxide, global annual mean",
       "unit": {
         "code": "ppb",
@@ -1718,10 +1911,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "7f299ced8a28e65df8f265e0318a72299f2a0b7763938151150e9bda9fcfb640",
+      "export_sha256": "4226ec7985f9f8d9f9209ef641e9d09562e2e44c85c9e1f96a94bd9ba71ab8df",
       "geo_coverage": "global-only",
       "id": "temp.hadcrut5.annual-1850-1900",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -1747,21 +1941,21 @@
           {
             "description": "Read the global annual and global monthly summary series of HadCRUT.5.2.0.0 (analysis ensemble means; anomalies relative to 1961–1990 with the 2.5% and 97.5% limits).",
             "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
             "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
           },
           {
             "description": "Excluded 2026: the monthly file has 8 of its 12 months, so the annual file's value for it is a partial-year average. A year is published only when all 12 months are in the monthly file.",
             "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
             "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
           },
           {
             "description": "Re-based to the dataset's own 1850–1900 mean: subtracted the mean of the 51 annual anomalies 1850–1900, -0.359435557 °C relative to 1961–1990 (exact decimal arithmetic on the printed values), from every anomaly and from both limits of the 95% range.",
             "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
             "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
           }
@@ -1777,6 +1971,7 @@
         }
       },
       "source_ids": ["hadcrut5"],
+      "time_basis": "calendar",
       "title": "Global surface temperature above 1850–1900 (HadCRUT5)",
       "unit": {
         "code": "degC",
@@ -1791,7 +1986,7 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "6dd8875daa9590ce2be598397c094b428dd605aa4850a84a6f2a78c85163ae6c",
+      "export_sha256": "afb2bbba9889112f937006bff61a08b1a1d39482cc59d427409a67da36815516",
       "geo_coverage": "global-only",
       "id": "warming.cat-2025.thermometer",
       "latest": null,
@@ -1813,21 +2008,21 @@
           {
             "description": "Read the CAT Thermometer sheet of CAT_2025-11_PublicData_GlobalTemperatureEstimates_COP30.xlsx. The Info sheet gives the Date Published, 13 November 2025; the vintage is that month, as CAT labels the update.",
             "inputs": ["44044cda8f851f77d6ca0eeb0750848fb6ee32bab50939df2cc2363e63a8c6c1"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/future/cat_thermometer.py",
             "transform_sha256": "94523270ef29587110c626620597d951b0741b5bbf5a652c430b297d01ae0809"
           },
           {
             "description": "Kept the four rows the sheet prints in bold, which it says are the values used in the CAT Thermometer: Policies & action (Combined), 2030 & 2035 Targets only, Pledges & targets, and Optimistic scenario (net-zero pledges). Not published: the High and Low variants of Policies & action, the 2030 targets only row and an unlabelled row, none of which is in bold.",
             "inputs": ["44044cda8f851f77d6ca0eeb0750848fb6ee32bab50939df2cc2363e63a8c6c1"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/future/cat_thermometer.py",
             "transform_sha256": "94523270ef29587110c626620597d951b0741b5bbf5a652c430b297d01ae0809"
           },
           {
             "description": "Each value is the sheet's cell unchanged: Median as the value, Lower bound and Upper bound as the range. Every cell was checked to be displayed with one decimal and to store no more digits than it displays, because CAT asks that only the displayed rounded values be reproduced. Nothing was computed.",
             "inputs": ["44044cda8f851f77d6ca0eeb0750848fb6ee32bab50939df2cc2363e63a8c6c1"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/future/cat_thermometer.py",
             "transform_sha256": "94523270ef29587110c626620597d951b0741b5bbf5a652c430b297d01ae0809"
           }
@@ -1843,6 +2038,7 @@
         }
       },
       "source_ids": ["cat-2025-thermometer"],
+      "time_basis": "calendar",
       "title": "Projected warming in 2100 under current policies and pledges (Climate Action Tracker)",
       "unit": {
         "code": "degC",
@@ -1857,10 +2053,11 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "6e31e8376c56b0e4ccb4aee891ef3f49cafbb52311befc0899906f01621ebbd4",
+      "export_sha256": "54be5aedcbc6caf0163bb04daa63847b2a392df5bcbfdc27c736f44384ca0b64",
       "geo_coverage": "global-only",
       "id": "warming.igcc-2025.human-induced",
       "latest": {
+        "age_bp": null,
         "dims": {},
         "entity": "WLD",
         "period": "2025",
@@ -1870,7 +2067,7 @@
       "licence_class": "open",
       "provenance": {
         "attribution": "Calculated by Environment Dashboard from Indicators of Global Climate Change 2025: Forster et al. (2026), Earth Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a, doi:10.5281/zenodo.21494229. CC BY 4.0. Changes: best estimate and likely range for each year computed from the three methods' annual percentiles with IGCC's stated multi-method assessment rule.",
-        "description": "How much of the global surface warming in each year since 1850 was caused by human activity, relative to the 1850–1900 average, with the likely range. Indicators of Global Climate Change combines three attribution methods; this series applies its stated assessment rule to each year's annual-mean estimate. IGCC's own headline figure for a single year uses a trend-based definition from the IPCC 1.5 °C report and can differ by a few hundredths of a degree.",
+        "description": "How much of the global surface warming in each year since 1850 was caused by human activity, relative to the 1850–1900 average, with the likely range, by the annual-mean definition. Indicators of Global Climate Change combines three attribution methods; this series applies its stated assessment rule to each year's annual-mean estimate. IGCC's headline figure for a single year uses the trend-based definition of the IPCC 1.5 °C report instead (published separately as human-induced warming in 2025) and can differ by a few hundredths of a degree.",
         "kind": "series",
         "licence": {
           "name": "CC BY 4.0",
@@ -1889,30 +2086,30 @@
           {
             "description": "Checked that each file read (Assessment-Update-2025_GMST_headlines.csv, Gillett_GMST_timeseries.csv, Ribes_GMST_timeseries.csv, Walsh_GMST_timeseries.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879", "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a", "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe", "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
             "description": "Read the annual 5th, 50th and 95th percentiles of human-induced (anthropogenic) warming relative to 1850–1900 from the timeseries files of the three attribution methods IGCC assesses: Global Warming Index (Walsh), regularised optimal fingerprinting (Gillett) and kriging for climate change (Ribes).",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879", "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a", "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe", "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
             "description": "Applied IGCC's stated assessment rule to every year (ESSD Sect. 8): the best estimate is the mean of the three medians to 0.01 °C (rounded half up), and the likely range runs from the lowest 5th percentile rounded down to 0.1 °C to the highest 95th percentile rounded up to 0.1 °C.",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879", "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a", "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe", "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           },
           {
-            "description": "Checked that this reproduces every single-year annual-mean assessment IGCC published in Assessment-Update-2025_GMST_headlines.csv (2017: 1.14 [0.9 to 1.4] °C; 2025: 1.38 [1.1 to 1.7] °C); it does, exactly. IGCC's headline single-year figure uses the trend-based definition of the IPCC 1.5 °C report instead, which is not this series.",
+            "description": "Checked that this reproduces every single-year annual-mean assessment IGCC published in Assessment-Update-2025_GMST_headlines.csv (2017: 1.14 [0.9 to 1.4] °C; 2025: 1.38 [1.1 to 1.7] °C); it does, exactly. IGCC's headline single-year figure uses the trend-based definition of the IPCC 1.5 °C report instead, which IGCC prioritises where the two differ; it is published as warming.igcc-2025.human-induced-2025, not in this series.",
             "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879", "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a", "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe", "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df"],
-            "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
-            "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
           }
         ],
         "published_value": null,
@@ -1926,7 +2123,95 @@
         }
       },
       "source_ids": ["igcc-2025"],
-      "title": "Human-induced warming since 1850–1900, each year (IGCC 2025)",
+      "time_basis": "calendar",
+      "title": "Human-induced warming since 1850–1900, each year, annual-mean definition (IGCC 2025)",
+      "unit": {
+        "code": "degC",
+        "label": "degrees Celsius",
+        "short": "°C"
+      },
+      "vintage": "IGCC-2025a"
+    },
+    {
+      "display": {
+        "decimals": 2
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "a46feb2769fc81b46b4f434568fc02436852cadfc59ad66d1bfe2ef4ea40f9a4",
+      "geo_coverage": "global-only",
+      "id": "warming.igcc-2025.human-induced-2025",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 1.37
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Indicators of Global Climate Change 2025: Forster et al. (2026), Earth Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a, doi:10.5281/zenodo.21494229. CC BY 4.0.",
+        "description": "How much of the global surface warming in 2025 was caused by human activity, relative to the 1850–1900 average, with the likely range, as assessed by Indicators of Global Climate Change 2025. IGCC uses the trend-based single-year definition of the IPCC 1.5 °C report (SR1.5), which it prioritises where it differs from the annual mean because it reduces the effect of year-to-year natural variability.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "data-igcc-2025a", "bytes": 1495354, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-07-22", "doi": "10.5281/zenodo.21494229", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "essd-paper-pdf", "bytes": 9736703, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-06-11", "doi": "10.5194/essd-18-3889-2026", "etag": "\"9491ff-653ed6ee5a83f\"", "last_modified": "Wed, 10 Jun 2026 22:04:53 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "warming-assessment-headlines", "bytes": 683, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-07-22", "doi": "10.5281/zenodo.21494229", "etag": "W/\"9a20ce76744835485a38171386d4a8dfd0b83afea59b1c94a596a809ea375aee\"", "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": null, "sha256": "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from Sect. 8.1, p. 3906 (also the abstract and Table 6) of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found in the text of page 18 of the PDF snapshot (sha256 795eb30a2ed5…) before publishing, and so was IGCC's statement on page 17 of which single-year definition it uses: 'where they differ we prioritise the SR1.5 trend-based definition' (rather than the annual mean).",
+            "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+          },
+          {
+            "description": "Value: \"1.37 [1.1 to 1.7] °C\" is published as 1.37 °C for 2025 with the likely range 1.1 to 1.7 °C, relative to 1850–1900.",
+            "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+          },
+          {
+            "description": "Checked that each file read (Assessment-Update-2025_GMST_headlines.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
+            "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+          },
+          {
+            "description": "Cross-check: the release's own 'SR15 definition' row for 2025 in Assessment-Update-2025_GMST_headlines.csv gives 5th, 50th and 95th percentiles 1.1, 1.37 and 1.7 °C, the same as the quoted value and range; the build stops if they differ. (The annual-mean row for 2025 gives 1.38 °C; that definition is published as warming.igcc-2025.human-induced.)",
+            "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+            "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+          }
+        ],
+        "published_value": {
+          "document": "igcc-2025",
+          "locator": "Sect. 8.1, p. 3906 (also the abstract and Table 6)",
+          "quote": "The single year average human-induced warming is assessed to be 1.37 [1.1 to 1.7] °C in 2025 relative to 1850–1900."
+        },
+        "scope": {
+          "baseline": "1850–1900",
+          "basis": "Global mean surface temperature (GMST); warming attributed to all human influences (greenhouse gases, aerosols and other human forcings) in the single year 2025, SR1.5 trend-based definition. IGCC's multi-method assessment of three attribution methods: best estimate to 0.01 °C, likely range to 0.1 °C.",
+          "bunkers": null,
+          "geography": "Global mean",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["igcc-2025"],
+      "time_basis": "calendar",
+      "title": "Human-induced warming in 2025 (IGCC 2025)",
       "unit": {
         "code": "degC",
         "label": "degrees Celsius",

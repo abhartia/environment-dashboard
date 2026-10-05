@@ -10,6 +10,7 @@
   "id": "emissions.gcb-2025.fossil-net-2025-projection",
   "kind": "published-value",
   "latest": {
+    "age_bp": null,
     "dims": {},
     "entity": "WLD",
     "period": "2025",
@@ -24,7 +25,7 @@
   "licence_class": "open",
   "notice": null,
   "observations": [
-    {"dims": {}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2025", "status": "projection", "upper": null, "value": 38.1}
+    {"age_bp": null, "dims": {}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2025", "status": "projection", "upper": null, "value": 38.1}
   ],
   "origins": [
     {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 13426392, "citation_full": "Friedlingstein, P., O'Sullivan, M., Jones, M. W., Andrew, R. M., Bakker, D. C. E., Hauck, J., Landschützer, P., Le Quéré, C., Li, H., Luijkx, I. T., Peters, G. P., Peters, W., Pongratz, J., Schwingshackl, C., Sitch, S., Canadell, J. G., Ciais, P., Aas, K., Alin, S. R., Anthoni, P., Barbero, L., Bates, N. R., Bellouin, N., Benoit-Cattin, A., Berghoff, C. F., Bernardello, R., Bopp, L., Brasika, I. B. M., Chamberlain, M. A., Chandra, N., Chevallier, F., Chini, L. P., Collier, N. O., Colligan, T. H., Cronin, M., Djeutchouang, L. M., Dou, X., Enright, M. P., Enyo, K., Erb, M., Evans, W., Feely, R. A., Feng, L., Ford, D. J., Foster, A., Fransner, F., Gasser, T., Gehlen, M., Gkritzalis, T., Goncalves De Souza, J., Grassi, G., Gregor, L., Gruber, N., Guenet, B., Gürses, Ö., Harrington, K., Harris, I., Heinke, J., Hurtt, G. C., Iida, Y., Ilyina, T., Ito, A., Jacobson, A. R., Jain, A. K., Jarníková, T., Jersild, A., Jiang, F., Jones, S. D., Kato, E., Keeling, R. F., Klein Goldewijk, K., Knauer, J., Kong, Y., Korsbakken, J. I., Koven, C., Kunimitsu, T., Lan, X., Liu, J., Liu, Z., Liu, Z., Lo Monaco, C., Ma, L., Marland, G., McGuire, P. C., McKinley, G. A., Melton, J. R., Monacci, N., Monier, E., Morgan, E. J., Munro, D. R., Müller, J. D., Nakaoka, S.-I., Nayagam, L. R., Niwa, Y., Nutzel, T., Olsen, A., Omar, A. M., Pan, N., Pandey, S., Pierrot, D., Qin, Z., Regnier, P., Rehder, G., Resplandy, L., Roobaert, A., Rosan, T. M., Rödenbeck, C., Schwinger, J., Skjelvan, I., Smallman, T. L., Spada, V., Sreeush, M. G., Sun, Q., Sutton, A. J., Sweeney, C., Swingedouw, D., Séférian, R., Takao, S., Tatebe, H., Tian, H., Tian, X., Tilbrook, B., Tsujino, H., Tubiello, F., van Ooijen, E., van der Werf, G. R., van de Velde, S. J., Walker, A. P., Wanninkhof, R., Yang, X., Yuan, W., Yue, X., and Zeng, J.: Global Carbon Budget 2025, Earth Syst. Sci. Data, 18, 3211–3288, https://doi.org/10.5194/essd-18-3211-2026, 2026.", "date_accessed": "2026-10-04", "date_published": null, "doi": "10.5194/essd-18-3211-2026", "etag": "\"ccded8-65af2497bdb07\"", "last_modified": "Tue, 08 Sep 2026 05:48:41 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Global Carbon Project; published by Copernicus Publications in Earth System Science Data", "r2_url": null, "sha256": "166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12", "source_id": "gcb-2025-essd", "title": "Global Carbon Budget 2025 (Friedlingstein et al. 2026, Earth System Science Data)", "url_download": "https://essd.copernicus.org/articles/18/3211/2026/essd-18-3211-2026.pdf", "url_main": "https://doi.org/10.5194/essd-18-3211-2026", "version_producer": "Global Carbon Budget 2025 (ESSD 18, 3211–3288, 2026)", "wayback_url": null}
@@ -33,14 +34,14 @@
     {
       "description": "Quoted from Executive summary, p. 3215. The quote was found in the text of page 5 of the snapshot (sha256 166e10a66b4d…) before publishing.",
       "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     },
     {
       "description": "Value: \"38.1 GtCO₂ yr⁻¹\" is published as 38.1 billion tonnes of carbon dioxide per year in 2025, the paper's own value in carbon dioxide units (not converted by us from the 10.4 GtC it also states).",
       "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     }
@@ -54,12 +55,13 @@
   "scope": {
     "baseline": null,
     "basis": "Fossil fuels and industry including the cement carbonation sink (net), with international aviation and shipping. A projection from preliminary data for 2025, published in May 2026; the final 2025 value comes with the Global Carbon Budget 2026.",
-    "bunkers": null,
+    "bunkers": "included",
     "geography": "World",
     "gwp": null,
-    "lulucf": null
+    "lulucf": "excluded"
   },
   "superseded_by": null,
+  "time_basis": "calendar",
   "title": "Fossil carbon dioxide emissions projected for 2025 (Global Carbon Budget)",
   "unit": {
     "code": "GtCO2/yr",

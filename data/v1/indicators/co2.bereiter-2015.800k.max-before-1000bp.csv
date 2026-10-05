@@ -1,0 +1,9 @@
+# Highest carbon dioxide in Antarctic ice before the industrial era
+# Indicator: co2.bereiter-2015.800k.max-before-1000bp (vintage 2015-02-04); unit: parts per million (ppm)
+# Source: NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners) <https://www.ncei.noaa.gov/access/paleo-search/study/17975>
+# Credit: Calculated by Environment Dashboard from Bereiter et al. (2015), Geophysical Research Letters, doi:10.1002/2014GL061957; data: NOAA/WDS Paleoclimatology, Antarctic Ice Cores Revised 800KYr CO2 Data, doi:10.25921/n8y4-bp27, https://www.ncei.noaa.gov/access/paleo-search/study/17975, accessed 2026-10-04. Changes: selected the highest carbon dioxide value among the samples older than 1,000 years before 1950.
+# Licence: No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)
+# Time: age_bp is the age in years before 1950 as published (negative after 1950); period is empty.
+# Provenance and processing: https://environmentdashboard.org/data/co2/bereiter-2015/800k/max-before-1000bp
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+co2.bereiter-2015.800k.max-before-1000bp,ANT_ICECORES,,298.6,295.6,301.6,1sigma,final,,,335102.31

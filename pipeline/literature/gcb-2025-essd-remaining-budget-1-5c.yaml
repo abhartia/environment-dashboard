@@ -22,10 +22,16 @@ display:
   decimals: 0
 scope:
   geography: World
+  lulucf: included
+  bunkers: included
   basis: >-
     Cumulative carbon dioxide emissions from 1 January 2026 for a 50 percent likelihood of limiting warming to
-    1.5 °C above 1850–1900, as assessed in the Global Carbon Budget 2025. Assessments made with other methods, such
-    as Indicators of Global Climate Change 2025, give different values from the same date.
+    1.5 °C above 1850–1900, as assessed in the Global Carbon Budget 2025. The budget is for total anthropogenic
+    carbon dioxide, fossil and land-use change together (the paper updates the underlying IPCC AR6 estimate
+    "accounting for the 2020 to 2025 GCB estimated anthropogenic emissions from fossil combustion (EFOS) and land use
+    change (ELUC)" and states how long the budgets last "at the 2025 level of total anthropogenic CO2 emissions",
+    p. 3259). Assessments made with other methods, such as Indicators of Global Climate Change
+    2025, give different values from the same date.
 geo_coverage: global-only
 headline_entity: WLD
 vintage: Global Carbon Budget 2025 (ESSD 18, 3211–3288, 2026)

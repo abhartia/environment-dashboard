@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/heat.lancet-2025.heatwave-days-global.json",
-  "export_sha256": "0fd54e848ac66d1f80afde36a31a6965fac38cdcb710a2a1f04c61327e5facde",
+  "export_sha256": "dea23293e42f67395e93b546b3e0199f2bc5ec87e3107b5f2f01258373248c4d",
   "indicator_id": "heat.lancet-2025.heatwave-days-global",
-  "key": "f495cedfcbfa83a83df6f10457963821214bf45414e7bceaaf531b3a3ae72ea5",
+  "key": "6a4e830d869a3f5fd921419fcdb2abcfc20ada7e0d0fbe0c69443f2facc6e203",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "lancet-countdown-2025/heatwave-days-attributable-1-1-1": {
         "manifest_sha256": "3578a0a8906a79fb28f6180d3addccda871a4b3eb812ca8515336a92319b89cc",
@@ -11,7 +12,7 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "lancet-countdown-2025": "604dd866c253b616dbf9dd0053b17b9fe9591fd06223b312ce72659f780e2f7e"
     },

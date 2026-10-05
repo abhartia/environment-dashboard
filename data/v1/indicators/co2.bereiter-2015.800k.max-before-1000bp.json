@@ -1,0 +1,68 @@
+{
+  "attribution": "Calculated by Environment Dashboard from Bereiter et al. (2015), Geophysical Research Letters, doi:10.1002/2014GL061957; data: NOAA/WDS Paleoclimatology, Antarctic Ice Cores Revised 800KYr CO2 Data, doi:10.25921/n8y4-bp27, https://www.ncei.noaa.gov/access/paleo-search/study/17975, accessed 2026-10-04. Changes: selected the highest carbon dioxide value among the samples older than 1,000 years before 1950.",
+  "description": "The highest carbon dioxide value in the 800,000-year Antarctic ice-core composite of Bereiter et al. (2015) among the samples older than 1,000 years before 1950 (before 950 CE), with the age of that sample's air and its one standard deviation. Today's carbon dioxide, measured directly in the air, can be compared with it.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "ANT_ICECORES",
+  "id": "co2.bereiter-2015.800k.max-before-1000bp",
+  "kind": "derived",
+  "latest": {
+    "age_bp": 335102.31,
+    "dims": {},
+    "entity": "ANT_ICECORES",
+    "period": null,
+    "status": "final",
+    "value": 298.6
+  },
+  "licence": {
+    "name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)",
+    "spdx": null,
+    "url": null
+  },
+  "licence_class": "open",
+  "notice": null,
+  "observations": [
+    {"age_bp": 335102.31, "dims": {}, "entity": "ANT_ICECORES", "interval": "1sigma", "lower": 295.6, "missing_reason": null, "note": null, "period": null, "status": "final", "upper": 301.6, "value": 298.6}
+  ],
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "composite", "bytes": 51875, "citation_full": "Bereiter, B.; Eggleston, S.; Schmitt, J.; Nehrbass-Ahles, C.; Stocker, T.F.; Fischer, H.; Kipfstuhl, S.; Chappellaz, J.A. (2015-02-04): NOAA/WDS Paleoclimatology - Antarctic Ice Cores Revised 800KYr CO2 Data. Antarctic Ice Core Revised Composite CO2 Data. NOAA National Centers for Environmental Information. https://doi.org/10.25921/n8y4-bp27. Accessed 2026-10-04. Bereiter, B., S. Eggleston, J. Schmitt, C. Nehrbass-Ahles, T. F. Stocker, H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015. Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), 542-549. doi: 10.1002/2014GL061957. Lüthi, D., M. Le Floch, B. Bereiter, T. Blunier, J.-M. Barnola, U. Siegenthaler, D. Raynaud, J. Jouzel, H. Fischer, K. Kawamura, and T.F. Stocker. 2008. High-resolution carbon dioxide concentration record 650,000-800,000 years before present. Nature, 453, 379-382. doi: 10.1038/nature06949", "date_accessed": "2026-10-04", "date_published": "2015-02-04", "doi": "10.25921/n8y4-bp27", "etag": "\"caa3-6204a387e9f70\"", "last_modified": "Thu, 22 Aug 2024 18:56:47 GMT", "licence": {"name": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)", "spdx": null, "url": null}, "producer": "NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners)", "r2_url": null, "sha256": "40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f", "source_id": "bereiter-2015-co2", "title": "Antarctic ice cores revised 800,000-year CO2 composite", "url_download": "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite-noaa.txt", "url_main": "https://www.ncei.noaa.gov/access/paleo-search/study/17975", "version_producer": "2015-02-04", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read all 1,901 samples of antarctica2015co2composite-noaa.txt (contributed 2015-02-04), as for co2.bereiter-2015.800k.",
+      "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+      "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+    },
+    {
+      "description": "Kept the 1,679 samples with a gas age above 1,000 years before 1950 (before 950 CE) and took the one with the highest co2_ppm: 298.60 ppm at 335102.31 years before 1950, one standard deviation 3.00 ppm. No other sample has that value. The value, age and standard deviation are published as printed; the range is value ± one standard deviation.",
+      "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
+      "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Maximum of co2_ppm over every sample of the composite with a gas age above 1,000 years before 1950. Carbon dioxide in air trapped in Antarctic ice, by gas age (AICC2012 chronology except Law Dome, WAIS and Siple Dome). Composite stitched by the producers from Law Dome (the most recent 2,000 years), Dome C, WAIS Divide (lowered by 4 ppm by the producers), Siple Dome, Talos Dome, EDML, Dome C sublimation, Vostok and Dome C. Ice smooths the air record over decades to centuries, so short peaks do not show. Range: ± one standard deviation as published (an average for the system or record where a sample has none of its own).",
+    "bunkers": null,
+    "geography": "Antarctica (composite of several ice cores)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "time_basis": "years-before-1950",
+  "title": "Highest carbon dioxide in Antarctic ice before the industrial era",
+  "unit": {
+    "code": "ppm",
+    "label": "parts per million",
+    "short": "ppm"
+  },
+  "vintage": "2015-02-04"
+}

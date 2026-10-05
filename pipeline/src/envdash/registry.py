@@ -17,7 +17,26 @@ from envdash.models import LiteratureValue, Source
 from envdash.paths import Paths
 
 PLACEHOLDER = re.compile(r"\{([a-z_]+)\}")
-PLACEHOLDERS = frozenset({"version", "date_accessed", "year"})
+PLACEHOLDERS = frozenset({"version", "date_accessed", "date_accessed_long", "year"})
+MONTHS = (
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+)
+
+
+def long_date(d: date) -> str:
+    """'D Month YYYY' in English, whatever the locale: date(2026, 10, 4) -> '4 October 2026'."""
+    return f"{d.day} {MONTHS[d.month - 1]} {d.year}"
 
 
 @dataclass
@@ -134,10 +153,13 @@ def _bad_placeholders(src: Source) -> set[str]:
 
 
 def render(template: str, *, version: str | None, date_accessed: date | None, year: str | None) -> str:
-    """Fill {version}, {date_accessed} (ISO date) and {year}. A placeholder with no value is an error, never blank."""
+    """Fill {version}, {date_accessed} (ISO date, 2026-10-04), {date_accessed_long} (the same day as 'D Month YYYY',
+    4 October 2026, for producers whose citation format asks for it) and {year}. A placeholder with no value is an
+    error, never blank."""
     values = {
         "version": version,
         "date_accessed": date_accessed.isoformat() if date_accessed else None,
+        "date_accessed_long": long_date(date_accessed) if date_accessed else None,
         "year": year,
     }
 

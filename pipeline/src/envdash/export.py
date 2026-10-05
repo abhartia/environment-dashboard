@@ -2,7 +2,9 @@
 
 data/ (committed, public; redistributable classes only):
   v1/indicators/<id>.json   canonical Indicator JSON
-  v1/indicators/<id>.csv    tidy CSV; '#' header lines carry the title, credit line, notice and licence
+  v1/indicators/<id>.csv    tidy CSV; '#' header lines carry the title, credit line, notice, licence and the URL of
+                            the indicator's page (/data/<id with dots as slashes>). Columns: CSV_FIXED, then one per
+                            dimension. An indicator dated in years before 1950 has an empty period and an age_bp.
   v1/catalog.json           every indicator that is not excluded (no-derivatives and display-only entries carry
                             no values: latest is null and there is no download)
   v1/sources.json           the source registry
@@ -41,7 +43,15 @@ CSV_FIXED = [
     "status",
     "note",
     "missing_reason",
+    "age_bp",
 ]
+"""age_bp is last so that the columns before it keep their positions from before it was added."""
+
+
+def page_url(indicator_id: str) -> str:
+    """The indicator's page on the site: /data/ then the id with each dot as a path segment
+    (co2.noaa-gml.monthly-mlo -> /data/co2/noaa-gml/monthly-mlo)."""
+    return f"{SITE}/data/{indicator_id.replace('.', '/')}"
 
 
 @dataclass
@@ -80,7 +90,11 @@ def csv_bytes(ind: Indicator) -> bytes:
         lines.append(f"Notice: {ind.notice}")
     lic = ind.licence
     lines.append(f"Licence: {lic.name}" + (f" <{lic.url}>" if lic.url else ""))
-    lines.append(f"Provenance and processing: {SITE}/data/{ind.id}")
+    if ind.time_basis == "years-before-1950":
+        lines.append(
+            "Time: age_bp is the age in years before 1950 as published (negative after 1950); period is empty."
+        )
+    lines.append(f"Provenance and processing: {page_url(ind.id)}")
     for ln in lines:
         out.write("# " + _one_line(ln) + "\n")
     w = csv.writer(out, lineterminator="\n")
@@ -90,7 +104,7 @@ def csv_bytes(ind: Indicator) -> bytes:
             [
                 ind.id,
                 o.entity,
-                o.period,
+                o.period or "",
                 _num(o.value),
                 _num(o.lower),
                 _num(o.upper),
@@ -98,6 +112,7 @@ def csv_bytes(ind: Indicator) -> bytes:
                 o.status,
                 o.note or "",
                 o.missing_reason or "",
+                _num(o.age_bp),
             ]
             + [o.dims[d] for d in dim_ids]
         )
@@ -130,6 +145,7 @@ def catalog_entry(paths: Paths, ind: Indicator) -> CatalogEntry:
         licence_class=ind.licence_class,
         source_ids=sorted({o.source_id for o in ind.origins}),
         vintage=ind.vintage,
+        time_basis=ind.time_basis,
         latest=ind.latest if redistributable else None,
         geo_coverage=ind.geo_coverage,
         entities=sorted({o.entity for o in ind.observations}),
@@ -164,7 +180,11 @@ def datapackage(paths: Paths, indicators: list[Indicator]) -> dict:
         fields = [
             {"name": "indicator_id", "type": "string"},
             {"name": "entity", "type": "string"},
-            {"name": "period", "type": "string", "description": "ISO 8601 year, year-month or date"},
+            {
+                "name": "period",
+                "type": "string",
+                "description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp",
+            },
             {"name": "value", "type": "number", "description": f"{ind.unit.label} ({ind.unit.code})"},
             {"name": "lower", "type": "number"},
             {"name": "upper", "type": "number"},
@@ -172,6 +192,12 @@ def datapackage(paths: Paths, indicators: list[Indicator]) -> dict:
             {"name": "status", "type": "string"},
             {"name": "note", "type": "string"},
             {"name": "missing_reason", "type": "string"},
+            {
+                "name": "age_bp",
+                "type": "number",
+                "description": "Age in years before 1950 as published (negative after 1950); empty when the row is "
+                "dated by period",
+            },
         ] + [{"name": d.id, "type": "string", "title": d.label} for d in ind.dimensions]
         resources.append(
             {
@@ -252,6 +278,10 @@ def build_and_export(
             dest = write_indicator(paths, outcome.indicator)
             key, parts = build_key(paths, t, registry, pointers, lock)
             write_build_record(paths, outcome, key, parts, dest)
+        elif outcome.state == "failed" and outcome.indicator is not None:
+            # The previous export stays, values unchanged; re-serialising it keeps it in the current canonical form
+            # (fields added to the contract since it was written appear with their defaults). A no-op otherwise.
+            write_indicator(paths, outcome.indicator)
         if outcome.indicator is not None:
             exported.append(outcome.indicator)
         report.outcomes.append(outcome)

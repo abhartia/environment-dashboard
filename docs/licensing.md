@@ -1,6 +1,6 @@
 # Licensing: every registered source and its class
 
-Generated from `pipeline/sources/*.yaml` (regenerate after any registry change). The class decides what the site may do with the data; see `docs/sources.md`. Each source's page under `/sources` quotes the terms verbatim.
+Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run it after any registry change). The class decides what the site may do with the data; see `docs/sources.md`. Each source's page under `/sources` quotes the terms verbatim.
 
 | Source | Publisher | Licence | Class | Raw mirror | Acquisition | Terms checked |
 |---|---|---|---|---|---|---|
@@ -19,6 +19,7 @@ Generated from `pipeline/sources/*.yaml` (regenerate after any registry change).
 | `gcb-2025-global` | Global Carbon Project | CC BY 4.0 (ICOS CCBY4 Data Licence) | open | yes | automatic | 2026-10-04 (page) |
 | `gcb-2025-national` | Global Carbon Project | CC BY 4.0 (ICOS CCBY4 Data Licence) | open | yes | automatic | 2026-10-04 (page) |
 | `gcp-fossil-co2-2025` | Global Carbon Project (Robbie M. Andrew and Glen P. Peters, CICERO) | CC BY 4.0 | open | yes | automatic | 2026-10-04 (api) |
+| `gcb-2025-essd` | Global Carbon Project; published by Copernicus Publications in Earth System Science Data | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `gem-coal-plant-tracker` | Global Energy Monitor | CC BY 4.0 | open | no | manual | 2026-10-04 (manual) |
 | `hot-aloha` | Hawaii Ocean Time-series, School of Ocean and Earth Science and Technology, University of Hawai'i at Mānoa | No licence stated; free and open access with an NSF acknowledgement (HOT data policy) | open | yes | automatic | 2026-10-04 (page) |
 | `imbie-2026` | IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre | Open Government Licence v3.0 | open | yes | automatic | 2026-10-04 (page) |
@@ -36,6 +37,7 @@ Generated from `pipeline/sources/*.yaml` (regenerate after any registry change).
 | `nasa-ssh-gmsl` | NASA Jet Propulsion Laboratory, Physical Oceanography Distributed Active Archive Center (PO.DAAC) | CC0 1.0 (NASA Earth science data default) | open | yes | automatic | 2026-10-04 (page) |
 | `noaa-aggi` | NOAA Global Monitoring Laboratory | Public domain (work of the US federal government) | open | yes | automatic | 2026-10-04 (page) |
 | `noaa-gml-trends` | NOAA Global Monitoring Laboratory | Public domain (work of the US federal government) | open | yes | automatic | 2026-10-04 (page) |
+| `noaa-gml-trends-ch4-n2o-sf6` | NOAA Global Monitoring Laboratory | Public domain (work of the US federal government) | open | yes | automatic | 2026-10-04 (page) |
 | `bereiter-2015-co2` | NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners) | No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology) | open | yes | automatic | 2026-10-04 (page) |
 | `noaa-crw` | NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch | Public domain (NOAA Coral Reef Watch; US federal government work) | open | yes | automatic | 2026-10-04 (page) |
 | `noaaglobaltemp-v6` | NOAA National Centers for Environmental Information | Public domain (work of the US federal government) | open | yes | automatic | 2026-10-04 (pdf) |
@@ -62,7 +64,6 @@ Generated from `pipeline/sources/*.yaml` (regenerate after any registry change).
 | `wgms-amce` | World Glacier Monitoring Service (WGMS), University of Zurich | CC BY 4.0 (WGMS data policy, open access on condition of correct citation) | open | yes | automatic | 2026-10-04 (page) |
 | `icct-lca-2025` | International Council on Clean Transportation (ICCT) | CC BY-SA 4.0 (ICCT terms of use, "except as otherwise noted") | share-alike | no | automatic | 2026-10-04 (page) |
 | `living-planet-index` | Zoological Society of London (Indicators & Assessments Unit) and WWF International | CC BY-SA 4.0 (published LPI trends) | share-alike | yes | manual | 2026-10-04 (pdf) |
-| `cat-2025-thermometer` | Climate Action Tracker (Climate Analytics and NewClimate Institute) | © Climate Analytics and NewClimate Institute, all rights reserved; non-commercial reproduction allowed with credit and the copyright notice | noncommercial | yes | automatic | 2026-10-04 (page) |
 | `idmc-gidd` | Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council | CC BY-NC-SA 3.0 IGO (IDMC API documentation; the export's own README states CC BY-NC) | noncommercial | yes | manual | 2026-10-04 (page) |
 | `jones-2025-national-contributions` | Jones et al. (University of East Anglia, CICERO and others) | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (page) |
 | `lancet-countdown-2025` | Lancet Countdown on Health and Climate Change (led by University College London) | CC BY-NC-SA 4.0 | noncommercial | yes | automatic | 2026-10-04 (page) |
@@ -70,6 +71,7 @@ Generated from `pipeline/sources/*.yaml` (regenerate after any registry change).
 | `unsd-energy` | United Nations Statistics Division | UNSD terms of use (free redistribution with citation of UNSD, not for profit) | noncommercial | yes | automatic | 2026-10-04 (page) |
 | `climate-watch-ndc` | World Resources Institute (Climate Watch) | CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (api) |
 | `carbon-brief-attribution` | Carbon Brief | CC BY-NC-ND 4.0 | no-derivatives | no | automatic | 2026-10-04 (page) |
+| `cat-2025-thermometer` | Climate Action Tracker (Climate Analytics and NewClimate Institute) | © Climate Analytics and NewClimate Institute, all rights reserved; non-commercial reproduction and distribution allowed with credit and the copyright notice; no adaptation granted | no-derivatives | no | automatic | 2026-10-04 (page) |
 | `edgar-2026-ghg` | European Commission, Joint Research Centre (JRC), with the International Energy Agency (IEA) for fossil CO2 | CC BY-NC-ND 4.0 for IEA-EDGAR CO2 and every total that includes it; CC BY 4.0 for EU-owned EDGAR CH4, N2O and F-gases | no-derivatives | no | automatic | 2026-10-04 (page) |
 | `energy-institute-review-2026` | Energy Institute | All rights reserved (© Energy Institute 2026); quotation with attribution permitted | display-only | no | manual | 2026-10-04 (manual) |
 | `ipcc-ar6-wg3-spm` | Intergovernmental Panel on Climate Change (IPCC), Working Group III | © IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
@@ -77,4 +79,4 @@ Generated from `pipeline/sources/*.yaml` (regenerate after any registry change).
 | `unep-egr-2025` | United Nations Environment Programme (UNEP) | © 2025 United Nations Environment Programme; reproduction allowed for educational or non-profit services with acknowledgement, no commercial use | display-only | no | manual | 2026-10-04 (manual) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-72 sources: 56 open, 2 no-derivatives, 7 noncommercial, 5 display-only, 2 share-alike.
+74 sources: 58 open, 2 share-alike, 6 noncommercial, 3 no-derivatives, 5 display-only.

@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/emissions.gcb-2025.fossil-growth-2025-projection.json",
-  "export_sha256": "87b7b708a02ed0eb32ff79ba1d8f301d252e09817a1cb613c2e1fab5debdf5f8",
+  "export_sha256": "fde84a1b4716b28cfdf227ee3dd726771ceacb7ddffc28a97e2f5b014cea335e",
   "indicator_id": "emissions.gcb-2025.fossil-growth-2025-projection",
-  "key": "5fd9c1c9074ba05747c50f519cba90fbe0694380d48d8ea3a3b566e86111fb49",
+  "key": "b4b1f813d3138ad7dd406141eec675f5938e6366bf222129434524a7ba4e60d6",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "gcb-2025-essd/article-pdf": {
         "manifest_sha256": "107a9a5523dde5caa4b5366ed630663b927aa881a66ae4bb7a29397d8e0035fa",
@@ -11,9 +12,9 @@
       }
     },
     "key_files": {
-      "pipeline/literature/gcb-2025-essd-fossil-growth-2025.yaml": "a571efb4240a5269ea9d0ea3d8eeafc5b248288e3aa658455708dc56a826a654"
+      "pipeline/literature/gcb-2025-essd-fossil-growth-2025.yaml": "c45efab02aa4026a73fc47562aa063f0bc2a9e930b3750c2f68e07a1d70b99cf"
     },
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "gcb-2025-essd": "1e3fb3836aaa0629c161df8fc90b0e361e02ee35e15ac5c8edcc2cb69d649b1a"
     },

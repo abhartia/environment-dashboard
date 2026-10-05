@@ -214,3 +214,72 @@ def test_full_snapshot_builds_all_three():
         r = t.run(files)
         assert r.vintage == "2025-10-28" and r.year == "2025"
         assert {o.status for o in run_checks(t, {"faostat": r.vintage}, r.observations)} <= {"pass"}
+
+
+@pytest.mark.snapshot
+def test_full_snapshot_scope_identities():
+    """What the share's scope says: the with-LULUCF total is the IPCC sectors without international bunkers, and the
+    agrifood land-use change is net forest conversion and fires, without the forest sink, in every World year."""
+    from decimal import Decimal
+
+    from envdash import snapshots
+    from envdash.transforms.food.faostat_emissions import CO2EQ_AR5, _read_zip, series
+
+    p = Paths.default()
+    s, _ = _read_zip(snapshots.cache_path(p, snapshots.read_current(p)["faostat/emissions-totals"]))
+
+    def by_year(code: str, name: str) -> dict[int, Decimal]:
+        pts, _ = series(s, (code, name), CO2EQ_AR5)
+        return {pt.year: pt.value for pt in pts}
+
+    total = by_year("6825", "All sectors with LULUCF")
+    sectors = [
+        by_year(c, n)
+        for c, n in (
+            ("6821", "Energy"),
+            ("6817", "IPPU"),
+            ("6818", "Waste"),
+            ("6819", "Other"),
+            ("1711", "IPCC Agriculture"),
+            ("1707", "LULUCF"),
+        )
+    ]
+    bunkers = by_year("6820", "International bunkers")
+    rounding = Decimal("0.0003")  # six values printed to 0.0001 kt
+    assert len(total) == 34
+    for y, v in total.items():
+        parts = sum((sec[y] for sec in sectors), Decimal(0))
+        assert abs(parts - v) <= rounding, y
+        assert abs(parts + bunkers[y] - v) > 1000, y  # adding bunkers (over 650,000 kt) would not match
+    luc = by_year("6516", "Land-use change")
+    luc_parts = [
+        by_year(c, n)
+        for c, n in (
+            ("6750", "Net Forest conversion"),
+            ("69921", "Fires in humid tropical forests"),
+            ("6993", "Fires in organic soils"),
+        )
+    ]
+    forest = by_year("6751", "Forestland")
+    for y, v in luc.items():
+        assert sum((x[y] for x in luc_parts), Decimal(0)) == v, y
+        assert forest[y] < 0, y  # a net removal, and not part of the item
+
+
+def test_share_scope_states_bunkers_and_agrifood_land_use_change():
+    share = next(t for t in transforms(Paths.default()) if t.spec.id == "food.faostat.agrifood-emissions-world.share")
+    sc = share.spec.scope
+    assert (sc.gwp, sc.lulucf, sc.bunkers) == ("AR5-GWP100", "included", "excluded")
+    assert sc.basis is not None
+    assert "only what FAO attributes to agriculture" in sc.basis and '"Forestland"' in sc.basis
+    assert '"International bunkers"' in sc.basis
+
+
+def test_gcb_published_values_carry_their_scope():
+    reg = load_registry(Paths.default())
+    lit = reg.literature
+    for lid in ("gcb-2025-essd-fossil-2025", "gcb-2025-essd-fossil-growth-2025"):
+        assert (lit[lid].scope.lulucf, lit[lid].scope.bunkers) == ("excluded", "included"), lid
+    budget = lit["gcb-2025-essd-remaining-budget-1-5c"]
+    assert (budget.scope.lulucf, budget.scope.bunkers) == ("included", "included")
+    assert "from the start of 2026" in budget.title

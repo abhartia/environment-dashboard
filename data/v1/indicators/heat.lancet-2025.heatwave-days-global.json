@@ -20,6 +20,7 @@
   "id": "heat.lancet-2025.heatwave-days-global",
   "kind": "series",
   "latest": {
+    "age_bp": null,
     "dims": {
       "scenario": "observed"
     },
@@ -36,21 +37,21 @@
   "licence_class": "noncommercial",
   "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. These indicators are computed from ERA5 and contain modified Copernicus Climate Change Service information 2025; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.",
   "observations": [
-    {"dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": null, "value": 16.1167785054611},
-    {"dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": null, "value": 14.9063813308231},
-    {"dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": null, "value": 12.2944670187265},
-    {"dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": null, "value": 22.5371157361687},
-    {"dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": null, "value": 30.7905888162652},
-    {"dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": null, "value": 1.88737880318116},
-    {"dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": null, "value": 2.31657062074337},
-    {"dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": null, "value": 2.31248065606442},
-    {"dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": null, "value": 3.7798730909066},
-    {"dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": null, "value": 5.03930085697919},
-    {"dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": null, "value": 14.2293997022799},
-    {"dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": null, "value": 12.5898107100797},
-    {"dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": null, "value": 9.98198636266211},
-    {"dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": null, "value": 18.7572426452621},
-    {"dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": null, "value": 25.751287959286}
+    {"age_bp": null, "dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": null, "value": 16.1167785054611},
+    {"age_bp": null, "dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": null, "value": 14.9063813308231},
+    {"age_bp": null, "dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": null, "value": 12.2944670187265},
+    {"age_bp": null, "dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": null, "value": 22.5371157361687},
+    {"age_bp": null, "dims": {"scenario": "observed"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": null, "value": 30.7905888162652},
+    {"age_bp": null, "dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": null, "value": 1.88737880318116},
+    {"age_bp": null, "dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": null, "value": 2.31657062074337},
+    {"age_bp": null, "dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": null, "value": 2.31248065606442},
+    {"age_bp": null, "dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": null, "value": 3.7798730909066},
+    {"age_bp": null, "dims": {"scenario": "counterfactual"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": null, "value": 5.03930085697919},
+    {"age_bp": null, "dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2020", "status": "final", "upper": null, "value": 14.2293997022799},
+    {"age_bp": null, "dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2021", "status": "final", "upper": null, "value": 12.5898107100797},
+    {"age_bp": null, "dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2022", "status": "final", "upper": null, "value": 9.98198636266211},
+    {"age_bp": null, "dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2023", "status": "final", "upper": null, "value": 18.7572426452621},
+    {"age_bp": null, "dims": {"scenario": "attributable"}, "entity": "WLD", "interval": null, "lower": null, "missing_reason": null, "note": null, "period": "2024", "status": "final", "upper": null, "value": 25.751287959286}
   ],
   "origins": [
     {"acquisition": "automatic", "artifact_id": "heatwave-days-attributable-1-1-1", "bytes": 205138, "citation_full": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.", "date_accessed": "2026-10-04", "date_published": "2025-10-29", "doi": "10.1016/S0140-6736(25)01919-1", "etag": "\"32152-6425ae06a502f\"", "last_modified": "Thu, 30 Oct 2025 07:05:39 GMT", "licence": {"name": "CC BY-NC-SA 4.0", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Lancet Countdown on Health and Climate Change (led by University College London)", "r2_url": null, "sha256": "53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632", "source_id": "lancet-countdown-2025", "title": "Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure", "url_download": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Attributable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "url_main": "https://lancetcountdown.org/explore-our-data/", "version_producer": "2025 report", "wayback_url": null}
@@ -59,14 +60,14 @@
     {
       "description": "Read the sheet '2025_Report _Data_Global' of the indicator 1.1.1 (attributable heatwave days) workbook of the Lancet Countdown 2025 report, 2020–2024: heatwave days observed, expected without climate change (Counterfactual) and attributable to climate change (Attributable_to_CC), published as in the workbook.",
       "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
-      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
     },
     {
       "description": "Checked that observed days equal expected days plus attributable days in every year.",
       "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
-      "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fd77ef680e8092050c0cd18a7df087fce266b78940d637009930508e0de3e676"
     }
@@ -82,6 +83,7 @@
     "lulucf": null
   },
   "superseded_by": null,
+  "time_basis": "calendar",
   "title": "Heatwave days per person, observed and attributable to climate change, world",
   "unit": {
     "code": "days",

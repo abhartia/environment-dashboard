@@ -46,11 +46,13 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - name: Install
         run: (cd pipeline && uv sync --frozen) && (cd web && npm ci)
-      - name: Refresh (fetch, archive, build, validate; failures are per source)
+      # A fresh runner has no raw snapshots: pull every current snapshot and every published indicator's inputs from
+      # R2 (sha256-checked) so unchanged sources still rebuild and the snapshot tests below have their files.
+      - name: Refresh (restore snapshots, fetch, archive, build, validate; failures are per source)
         id: refresh
         continue-on-error: true
         working-directory: pipeline
-        run: uv run envdash private pull && uv run envdash refresh && uv run envdash private push && uv run envdash archive
+        run: uv run envdash private pull && uv run envdash snapshots pull && uv run envdash refresh && uv run envdash private push && uv run envdash archive
       - name: Open or update one issue per failed source, and per release due
         if: always()
         working-directory: pipeline

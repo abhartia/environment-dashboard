@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/heat.lancet-2025.deaths-global.json",
-  "export_sha256": "7f45dac35b454a57bed19437d451ad561afc2d037a07aa73de3a9021e266f975",
+  "export_sha256": "9f424c3755e1fbd2be8afb19e9e4e5b30809bc895452563faa53d6f853fbd619",
   "indicator_id": "heat.lancet-2025.deaths-global",
-  "key": "e1edf37843386f3f8ae3b66cd18acfbfc1983dc089aaebbe387ecc52e9f77e9c",
+  "key": "342f7469d0325918c94441d5d9fec99938a0e6171df3347794827b1ede2336d5",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "lancet-countdown-2025/heat-mortality-1-1-5": {
         "manifest_sha256": "fd8771089080043bd3f246cf89a1c2dd7b94fb7634da9212a12e1307c4748e0f",
@@ -11,7 +12,7 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "lancet-countdown-2025": "604dd866c253b616dbf9dd0053b17b9fe9591fd06223b312ce72659f780e2f7e"
     },

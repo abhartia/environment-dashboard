@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/warming.igcc-2025.human-induced.json",
-  "export_sha256": "6e31e8376c56b0e4ccb4aee891ef3f49cafbb52311befc0899906f01621ebbd4",
+  "export_sha256": "54be5aedcbc6caf0163bb04daa63847b2a392df5bcbfdc27c736f44384ca0b64",
   "indicator_id": "warming.igcc-2025.human-induced",
-  "key": "492a374bab6ed26f9966fa9ff474bcb5ae97a03de5f38af49ea9954c44dd54bd",
+  "key": "5a8e247afdc3640c4479e6fe162497565beded64ace70b84f39a74749663f673",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "igcc-2025/data-igcc-2025a": {
         "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
@@ -27,11 +28,11 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
     },
-    "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+    "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
   },
   "publisher_checks": [
     {"detail": "ours 1.38 vs stated 1.38 (tolerance ±0.005, difference 0)", "entity": "WLD", "period": "2025", "quote": "2025.5,2025,2026,1.1,1.38,1.7,1.1,1.63,2.1,-0.8,-0.26,0.2,-0.1,0.04,0.2,", "source_id": "igcc-2025", "stated": "1.38", "status": "pass", "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv", "vintage": "IGCC-2025a"}

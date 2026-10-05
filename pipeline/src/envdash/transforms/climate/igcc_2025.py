@@ -1,12 +1,20 @@
 """Indicators of Global Climate Change 2025 (IGCC; Forster et al. 2026, data release IGCC-2025a).
 
-Three indicators, all in this one module so that its sha256 (recorded in every processing step and build key) covers
+Four indicators, all in this one module so that its sha256 (recorded in every processing step and build key) covers
 every line of code that decides them:
 
-- warming.igcc-2025.human-induced: human-induced warming in each year since 1850 with the likely range;
-- forcing.igcc-2025.erf-by-agent: effective radiative forcing relative to 1750 by agent, with the 5–95% range;
+- warming.igcc-2025.human-induced-2025: IGCC's headline, human-induced warming in 2025 (1.37 [1.1 to 1.7] °C) by the
+  SR1.5 trend-based definition that IGCC prioritises, quoted from the paper and cross-checked against the release's
+  assessment file;
+- warming.igcc-2025.human-induced: human-induced warming in each year since 1850 with the likely range, by the
+  annual-mean definition;
+- forcing.igcc-2025.erf-by-agent: effective radiative forcing by agent, 1750–2025, with the 5–95% range;
 - budget.igcc-2025.remaining-1p5: the remaining carbon budget for 1.5 °C (50% likelihood) from the start of 2026,
   quoted from the paper and cross-checked against the data file it was rounded from.
+
+Dates and DOIs per origin. The data files (the zip and the CSVs) carry the release date of IGCC-2025a (22 July 2026)
+and the data DOI; the paper PDF carries the paper's publication date (11 June 2026) and its own DOI
+(Result.origin_meta), so no origin is dated by the other's release.
 
 Release. The DOI-pinned deposit is the Zenodo zip (artifact data-igcc-2025a). The transforms read single CSVs from
 raw.githubusercontent.com at the commit that tag IGCC-2025a points to, so tests can use byte-exact slices of real
@@ -27,15 +35,32 @@ transform stops unless it reproduces both exactly, which is what shows the rule 
 timeseries file's 2017 and 2025 medians differ from its own headline file in the third decimal (1.3289 against
 1.3302 °C in 2025); the assessed values are the same either way, and the timeseries is what is used. IGCC's headline
 for a single year (1.37 °C in 2025) uses a different, trend-based definition from the IPCC 1.5 °C report, for which
-the release has no per-method annual percentiles, so it is not this series.
+the release has no per-method annual percentiles, so it is not this series: it is published on its own as
+warming.igcc-2025.human-induced-2025.
+
+Headline single-year warming. ESSD Sect. 8.1 (PDF page 17, printed p. 3905) states that of the two single-year
+definitions "where they differ we prioritise the SR1.5 trend-based definition", and the same section (PDF page 18,
+printed p. 3906) states the 2025 value. Both sentences must be in the PDF snapshot, and the value and likely range
+read from the quoted words must equal the release's own "SR15 definition" row for 2025 in
+Assessment-Update-2025_GMST_headlines.csv (5th, 50th and 95th percentile columns), or the build stops.
 
 Effective radiative forcing. ERF_best/p05/p95_aggregates.csv: best estimate, 5th and 95th percentiles in W/m2,
 1750–2025. Eighteen columns are published, one dimension value each. Their meaning is checked on every build: in the
 best-estimate file the aggregates must equal the sum of their parts to 1e-6 W/m2 (aerosol = aerosol–radiation +
 aerosol–cloud; well-mixed GHGs = CO2 + CH4 + N2O + halogenated gases; anthropogenic = well-mixed GHGs + ozone +
 stratospheric water vapour + aerosol + contrails + land use + black carbon on snow; natural = solar + volcanic;
-total = anthropogenic + natural). Three other columns (minor, nonco2wmghg, anthro_nonwmghg) are not defined in the
-release and are not published. Percentile files are not summed: a percentile of a sum is not a sum of percentiles.
+total = anthropogenic + natural). Three more columns are sums of published columns and are checked the same way but
+not published as agents of their own: nonco2wmghg = CH4 + N2O + halogenated gases; minor = contrails + land use + black
+carbon on snow + stratospheric water vapour; anthro_nonwmghg = ozone + stratospheric water vapour + aerosol + contrails
++ land use + black carbon on snow. Percentile files are not summed: a percentile of a sum is not a sum of percentiles.
+
+What the forcing is relative to. IGCC presents the series as the "Time evolution of ERF from 1750 to 2025" (Fig. 5b).
+In all three files every human-caused column is exactly zero in 1750 (checked on every build), so those values are
+the change since 1750. Solar and volcanic are not zero in 1750 (the processing step states their 1750 values), so for
+them, and for the natural and total columns that include them, "since 1750" is not literally true. IGCC says of
+solar that, "Separate to the assessment of solar forcing over complete solar cycles", it gives "a single-year solar
+ERF for 2025", and of volcanic forcing that it "is included in the overall time series (Fig. 5b), but following IPCC
+convention, we do not provide a single-year estimate for 2025 given the sporadic nature of volcanoes" (Sect. 5).
 
 Remaining carbon budget. The paper's figure is published as quoted. The quote and the Table 8 caption that dates
 it ("Estimates are expressed relative to the start of 2026.") must both be found on PDF page 22 (printed p. 3910).
@@ -67,7 +92,7 @@ from envdash.models import (
     Unit,
 )
 from envdash.paths import Paths
-from envdash.transform import Input, InputFile, PublisherCheck, Result, Spec, Transform, Validation
+from envdash.transform import Input, InputFile, OriginMeta, PublisherCheck, Result, Spec, Transform, Validation
 from envdash.transforms.literature import verify_quote
 
 SOURCE = "igcc-2025"
@@ -84,7 +109,11 @@ ERF_P95 = Input(SOURCE, "erf-p95-aggregates")
 RCB = Input(SOURCE, "rcb-magicc-hdt-1p24")
 PAPER = Input(SOURCE, "essd-paper-pdf")
 
-PAPER_URL = "https://doi.org/10.5194/essd-18-3889-2026"
+PAPER_DOI = "10.5194/essd-18-3889-2026"
+PAPER_URL = f"https://doi.org/{PAPER_DOI}"
+PAPER_PUBLISHED = date(2026, 6, 11)
+"""ESSD publication date of Forster et al. (2026), "Published: 11 June 2026" on the article page; the PDF snapshot's
+Last-Modified is 10 Jun 2026 (pipeline/sources/igcc-2025.yaml)."""
 
 
 @dataclass(frozen=True)
@@ -150,6 +179,12 @@ def verify_against_zip(files: dict[str, InputFile], csvs: tuple[Input, ...]) -> 
             if zf.read(member) != f.path.read_bytes():
                 raise IgccFormatError(f"{i.key}: bytes differ from {member} in the {label} zip")
     return label, release
+
+
+def _origin_meta() -> dict[str, OriginMeta]:
+    """The paper's own date and DOI for the PDF origin; data origins take the release date (Result.date_published)
+    and the data DOI (the source's citation)."""
+    return {PAPER.key: OriginMeta(date_published=PAPER_PUBLISHED.isoformat(), doi=PAPER_DOI)}
 
 
 def _zip_step(label: str, z: InputFile, csvs: list[InputFile]) -> str:
@@ -314,7 +349,8 @@ def _warming(files: dict[str, InputFile]) -> Result:
             "rounded down to 0.1 °C to the highest 95th percentile rounded up to 0.1 °C.",
             "Checked that this reproduces every single-year annual-mean assessment IGCC published in "
             f"Assessment-Update-2025_GMST_headlines.csv ({reproduced}); it does, exactly. IGCC's headline single-"
-            "year figure uses the trend-based definition of the IPCC 1.5 °C report instead, which is not this series.",
+            "year figure uses the trend-based definition of the IPCC 1.5 °C report instead, which IGCC prioritises "
+            "where the two differ; it is published as warming.igcc-2025.human-induced-2025, not in this series.",
         ],
         changes="best estimate and likely range for each year computed from the three methods' annual percentiles "
         "with IGCC's stated multi-method assessment rule.",
@@ -379,7 +415,13 @@ SUMS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("anthro", ("wmghg", "O3", "H2O_stratospheric", "aerosol", "contrails", "land_use", "BC_on_snow")),
     ("natural", ("solar", "volcanic")),
     ("total", ("anthro", "natural")),
+    # Not published as agents of their own (each is a sum of published columns), but checked the same way.
+    ("nonco2wmghg", ("CH4", "N2O", "halogen")),
+    ("minor", ("contrails", "land_use", "BC_on_snow", "H2O_stratospheric")),
+    ("anthro_nonwmghg", ("O3", "H2O_stratospheric", "aerosol", "contrails", "land_use", "BC_on_snow")),
 )
+NATURAL_COLUMNS = ("solar", "volcanic", "natural", "total")
+"""Columns that include solar or volcanic forcing: the only ones that may be non-zero in 1750."""
 SUM_TOLERANCE = Decimal("1e-6")
 
 AGENT_DIM = Dimension(
@@ -396,12 +438,30 @@ def _erf_table(raw: bytes, name: str) -> list[dict[str, str | None]]:
     return rows
 
 
-def erf_by_agent(best_raw: bytes, p05_raw: bytes, p95_raw: bytes) -> list[Observation]:
+def first_year_natural(tables: list[tuple[list[dict[str, str | None]], str]]) -> dict[str, Decimal]:
+    """Check every human-caused column is exactly zero in the first year (1750) of each file, so those values are the
+    change since 1750; return the best-estimate solar and volcanic values of that year, which are not zero."""
+    for rows, name in tables:
+        first = rows[0]
+        if annual_period(first, name) != "1750":
+            raise IgccFormatError(f"{name}: the first row is {first['time']}, not 1750")
+        nonzero = [c for c in ERF_COLUMNS[3:] if c not in NATURAL_COLUMNS and _dec(first, c, name) != 0]
+        if nonzero:
+            raise IgccFormatError(f"{name}: human-caused columns {nonzero} are not zero in 1750")
+    best, name = tables[0]
+    return {c: _dec(best[0], c, name) for c in ("solar", "volcanic")}
+
+
+def erf_by_agent(best_raw: bytes, p05_raw: bytes, p95_raw: bytes) -> tuple[list[Observation], dict[str, Decimal]]:
+    """Observations by agent, and the best-estimate solar and volcanic ERF of 1750 (see first_year_natural)."""
     best = _erf_table(best_raw, "ERF_best_aggregates.csv")
     p05 = _erf_table(p05_raw, "ERF_p05_aggregates.csv")
     p95 = _erf_table(p95_raw, "ERF_p95_aggregates.csv")
     if not (len(best) == len(p05) == len(p95)):
         raise IgccFormatError(f"ERF files have {len(best)}, {len(p05)} and {len(p95)} rows")
+    natural_1750 = first_year_natural(
+        [(best, "ERF_best_aggregates.csv"), (p05, "ERF_p05_aggregates.csv"), (p95, "ERF_p95_aggregates.csv")]
+    )
     obs: list[Observation] = []
     last = ""
     for b, lo, hi in zip(best, p05, p95, strict=True):
@@ -433,25 +493,35 @@ def erf_by_agent(best_raw: bytes, p05_raw: bytes, p95_raw: bytes) -> list[Observ
                     dims={"agent": dim},
                 )
             )
-    return obs
+    return obs, natural_1750
 
 
 def _erf(files: dict[str, InputFile]) -> Result:
     csvs = (ERF_BEST, ERF_P05, ERF_P95)
     label, release = verify_against_zip(files, csvs)
-    obs = erf_by_agent(*(files[i.key].path.read_bytes() for i in csvs))
+    obs, natural_1750 = erf_by_agent(*(files[i.key].path.read_bytes() for i in csvs))
     return Result(
         observations=obs,
         vintage=label,
         date_published=release.published.isoformat(),
         steps=[
             _zip_step(label, files[ZIP.key], [files[i.key] for i in csvs]),
-            "Read the best estimate, 5th and 95th percentile of effective radiative forcing relative to 1750 for "
-            f"each year and each of {len(AGENTS)} agents and aggregates, as published (W/m²). The 5–95% range is "
+            "Read the best estimate, 5th and 95th percentile of effective radiative forcing for each year from "
+            f"1750 and each of {len(AGENTS)} agents and aggregates, as published (W/m²). The 5–95% range is "
             "IGCC's, taken from its own percentile files; nothing is re-estimated.",
+            "Checked that every human-caused column is exactly zero in 1750 in all three files, so its values are "
+            "the change since 1750. Solar and volcanic forcing are not zero in 1750 (best estimates "
+            f"{natural_1750['solar']} and {natural_1750['volcanic']} W/m²), so the natural and total values are "
+            "IGCC's time series as published, not changes since 1750. IGCC gives solar for 2025 as a single-year "
+            "value, separate from its assessment over complete solar cycles, and includes volcanic forcing in the "
+            "time series without a single-year assessment for 2025 (ESSD Sect. 5).",
             "Checked in the best-estimate file that each aggregate equals the sum of its parts to 1e-6 W/m² "
             "(aerosols, well-mixed greenhouse gases, total human-caused, natural, total), which confirms what each "
-            f"column means. Not published: {', '.join(UNPUBLISHED)}, which the release does not define.",
+            f"column means. Not published as agents of their own: {', '.join(UNPUBLISHED)}, which are sums of "
+            "published columns (non-CO₂ well-mixed greenhouse gases = methane + nitrous oxide + halogenated gases; "
+            "minor = contrails + land use + black carbon on snow + stratospheric water vapour; human-caused other "
+            "than well-mixed greenhouse gases = ozone + stratospheric water vapour + aerosols + contrails + land use "
+            "+ black carbon on snow), checked to 1e-6 W/m² the same way.",
         ],
     )
 
@@ -532,11 +602,16 @@ BUDGET = LiteratureValue(
     display=Display(decimals=0),
     scope=Scope(
         geography="World",
+        lulucf="included",
+        bunkers="included",
         basis=(
             "Carbon dioxide budget from the start of 2026 (1 January 2026) for 1.5 °C above 1850–1900, 50% "
             "likelihood considering only uncertainty in the transient climate response to cumulative emissions "
             "(TCRE); rounded by IGCC to the nearest 10 GtCO₂. Non-CO₂ warming from the AR6 scenarios that reach net "
-            "zero CO₂, modelled with MAGICC; starts from 1.24 °C of human-induced warming over 2016–2025."
+            "zero CO₂, modelled with MAGICC; starts from 1.24 °C of human-induced warming over 2016–2025. It counts "
+            'all net carbon dioxide from human activity (IGCC: "the total amount of CO₂ that can ever be emitted"), '
+            "which IGCC compares with 2025 emissions of 42 GtCO₂ a year from its Table 1, fossil and land-use change "
+            "together, international aviation and shipping included."
         ),
     ),
     geo_coverage="global-only",
@@ -588,7 +663,7 @@ def cross_check_budget(file_value: Decimal, quoted: Decimal) -> None:
 
 
 def _budget(files: dict[str, InputFile]) -> Result:
-    label, _ = verify_against_zip(files, (RCB,))
+    label, release = verify_against_zip(files, (RCB,))
     pdf = files[PAPER.key]
     pdf_bytes = pdf.path.read_bytes()
     verify_quote(pdf_bytes, BUDGET.pdf_page, BUDGET.quote)
@@ -601,7 +676,8 @@ def _budget(files: dict[str, InputFile]) -> Result:
     return Result(
         observations=[Observation(entity=o.entity, period=o.period, value=o.value, status=o.status)],
         vintage=label,
-        date_published="2026-06-11",
+        date_published=release.published.isoformat(),
+        origin_meta=_origin_meta(),
         steps=[
             f"Quoted from {BUDGET.locator} of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found in "
             f"the text of page {BUDGET.pdf_page} of the PDF snapshot (sha256 {pdf.snapshot.sha256[:12]}…) before "
@@ -618,6 +694,96 @@ def _budget(files: dict[str, InputFile]) -> Result:
     )
 
 
+# --- headline: human-induced warming in 2025 (SR1.5 trend-based definition) -------------------------------------
+
+HEADLINE_PAGE = 18
+"""PDF page 18 = printed p. 3906 (ESSD Sect. 8.1)."""
+HEADLINE_QUOTE = (
+    "The single year average human-induced warming is assessed to be 1.37 [1.1 to 1.7] °C in 2025 relative to "
+    "1850–1900."
+)
+HEADLINE_VALUE_TEXT = "1.37 [1.1 to 1.7] °C"
+HEADLINE_LOCATOR = "Sect. 8.1, p. 3906 (also the abstract and Table 6)"
+PRIORITY_PAGE = 17
+"""PDF page 17 = printed p. 3905, the start of Sect. 8.1."""
+PRIORITY_QUOTE = "where they differ we prioritise the SR1.5 trend-based definition"
+VALUE_AND_RANGE = re.compile(r"^(?P<best>\d+\.\d+) \[(?P<lower>\d+\.\d+) to (?P<upper>\d+\.\d+)\] °C$")
+SR15_NOTE = "SR15 definition"
+
+
+def read_value_and_range(value_text: str) -> tuple[Decimal, Decimal, Decimal]:
+    """'1.37 [1.1 to 1.7] °C' -> (1.37, 1.1, 1.7): best estimate and likely range, as printed."""
+    m = VALUE_AND_RANGE.match(value_text)
+    if not m:
+        raise IgccFormatError(f"{value_text!r} is not '<best> [<lower> to <upper>] °C'")
+    return Decimal(m["best"]), Decimal(m["lower"]), Decimal(m["upper"])
+
+
+def sr15_row(raw: bytes, year: str) -> tuple[Decimal, Decimal, Decimal]:
+    """(p05, p50, p95) of the single "SR15 definition" row for `year` in the producer's assessment file."""
+    name = "Assessment-Update-2025_GMST_headlines.csv"
+    _, rows = read_rows(raw, name, ("time", "timebound_lower", "timebound_upper", P05, P50, P95, "notes"))
+    hits = [
+        r
+        for r in rows
+        if (r["notes"] or "").strip() == SR15_NOTE
+        and _dec(r, "timebound_upper", name) - _dec(r, "timebound_lower", name) == 1
+        and annual_period(r, name) == year
+    ]
+    if len(hits) != 1:
+        raise IgccFormatError(f"{name}: {len(hits)} '{SR15_NOTE}' rows for {year}, expected exactly one")
+    r = hits[0]
+    return _dec(r, P05, name), _dec(r, P50, name), _dec(r, P95, name)
+
+
+def _headline(files: dict[str, InputFile]) -> Result:
+    label, release = verify_against_zip(files, (HEADLINES,))
+    pdf = files[PAPER.key]
+    pdf_bytes = pdf.path.read_bytes()
+    verify_quote(pdf_bytes, HEADLINE_PAGE, HEADLINE_QUOTE)
+    verify_quote(pdf_bytes, PRIORITY_PAGE, PRIORITY_QUOTE)
+    if HEADLINE_VALUE_TEXT not in HEADLINE_QUOTE:
+        raise IgccFormatError(f"{HEADLINE_VALUE_TEXT!r} is not part of the quote")
+    best, lower, upper = read_value_and_range(HEADLINE_VALUE_TEXT)
+    headlines_raw = files[HEADLINES.key].path.read_bytes()
+    p05, p50, p95 = sr15_row(headlines_raw, "2025")
+    annual_mean = producer_assessment(headlines_raw)["2025"][1]
+    if (p05, p50, p95) != (lower, best, upper):
+        raise IgccFormatError(
+            f"the paper says {best} [{lower} to {upper}] but the release's {SR15_NOTE} row for 2025 gives "
+            f"{p50} [{p05} to {p95}]"
+        )
+    return Result(
+        observations=[
+            Observation(
+                entity="WLD",
+                period="2025",
+                value=float(best),
+                lower=float(lower),
+                upper=float(upper),
+                interval="likely",
+            )
+        ],
+        vintage=label,
+        date_published=release.published.isoformat(),
+        origin_meta=_origin_meta(),
+        steps=[
+            f"Quoted from {HEADLINE_LOCATOR} of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found "
+            f"in the text of page {HEADLINE_PAGE} of the PDF snapshot (sha256 {pdf.snapshot.sha256[:12]}…) before "
+            f"publishing, and so was IGCC's statement on page {PRIORITY_PAGE} of which single-year definition it "
+            f"uses: {PRIORITY_QUOTE!r} (rather than the annual mean).",
+            f'Value: "{HEADLINE_VALUE_TEXT}" is published as {best} °C for 2025 with the likely range {lower} to '
+            f"{upper} °C, relative to 1850–1900.",
+            _zip_step(label, files[ZIP.key], [files[HEADLINES.key]]),
+            f"Cross-check: the release's own '{SR15_NOTE}' row for 2025 in "
+            f"Assessment-Update-2025_GMST_headlines.csv gives 5th, 50th and 95th percentiles {p05}, {p50} and {p95} "
+            "°C, the same as the quoted value and range; the build stops if they differ. (The annual-mean row for "
+            f"2025 gives {annual_mean} °C; that definition is published as warming.igcc-2025.human-induced.)",
+        ],
+        published_value=PublishedValueRef(document=SOURCE, locator=HEADLINE_LOCATOR, quote=HEADLINE_QUOTE),
+    )
+
+
 # --- transforms --------------------------------------------------------------------------------------------------
 
 
@@ -626,13 +792,53 @@ def transforms(paths: Paths) -> list[Transform]:
     return [
         Transform(
             spec=Spec(
+                id="warming.igcc-2025.human-induced-2025",
+                title="Human-induced warming in 2025 (IGCC 2025)",
+                description="How much of the global surface warming in 2025 was caused by human activity, relative "
+                "to the 1850–1900 average, with the likely range, as assessed by Indicators of Global Climate Change "
+                "2025. IGCC uses the trend-based single-year definition of the IPCC 1.5 °C report (SR1.5), which it "
+                "prioritises where it differs from the annual mean because it reduces the effect of year-to-year "
+                "natural variability.",
+                kind="published-value",
+                unit=DEGC,
+                display=Display(decimals=2),
+                scope=Scope(
+                    geography="Global mean",
+                    baseline="1850–1900",
+                    basis="Global mean surface temperature (GMST); warming attributed to all human influences "
+                    "(greenhouse gases, aerosols and other human forcings) in the single year 2025, SR1.5 trend-based "
+                    "definition. IGCC's multi-method assessment of three attribution methods: best estimate to "
+                    "0.01 °C, likely range to 0.1 °C.",
+                ),
+                geo_coverage="global-only",
+                headline_entity="WLD",
+            ),
+            inputs=(ZIP, PAPER, HEADLINES),
+            run=_headline,
+            module_file=here,
+            validation=Validation(min_rows=1, value_range=(0.0, 3.0)),
+            checks=(
+                PublisherCheck(
+                    source_id=SOURCE,
+                    vintage="IGCC-2025a",
+                    entity="WLD",
+                    period="2025",
+                    stated="1.37",
+                    quote=HEADLINE_QUOTE,
+                    url=PAPER_URL,
+                ),
+            ),
+        ),
+        Transform(
+            spec=Spec(
                 id="warming.igcc-2025.human-induced",
-                title="Human-induced warming since 1850–1900, each year (IGCC 2025)",
+                title="Human-induced warming since 1850–1900, each year, annual-mean definition (IGCC 2025)",
                 description="How much of the global surface warming in each year since 1850 was caused by human "
-                "activity, relative to the 1850–1900 average, with the likely range. Indicators of Global Climate "
-                "Change combines three attribution methods; this series applies its stated assessment rule to each "
-                "year's annual-mean estimate. IGCC's own headline figure for a single year uses a trend-based "
-                "definition from the IPCC 1.5 °C report and can differ by a few hundredths of a degree.",
+                "activity, relative to the 1850–1900 average, with the likely range, by the annual-mean definition. "
+                "Indicators of Global Climate Change combines three attribution methods; this series applies its "
+                "stated assessment rule to each year's annual-mean estimate. IGCC's headline figure for a single "
+                "year uses the trend-based definition of the IPCC 1.5 °C report instead (published separately as "
+                "human-induced warming in 2025) and can differ by a few hundredths of a degree.",
                 kind="series",
                 unit=DEGC,
                 display=Display(decimals=2),
@@ -670,20 +876,24 @@ def transforms(paths: Paths) -> list[Transform]:
         Transform(
             spec=Spec(
                 id="forcing.igcc-2025.erf-by-agent",
-                title="Effective radiative forcing by agent since 1750 (IGCC 2025)",
+                title="Effective radiative forcing by agent, 1750–2025 (IGCC 2025)",
                 description="Effective radiative forcing: the change in the energy balance at the top of the "
-                "atmosphere caused by each agent since 1750, after the atmosphere has adjusted. Positive values warm "
-                "the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each "
-                "year from 1750, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate "
-                "Change 2025.",
+                "atmosphere caused by each agent, after the atmosphere has adjusted. Positive values warm the "
+                "planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year "
+                "from 1750 to 2025, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate "
+                "Change 2025. Human-caused agents are counted from zero in 1750; solar and volcanic forcing are "
+                "IGCC's time series, which do not start from zero in 1750.",
                 kind="series",
                 unit=WM2,
                 display=Display(decimals=2),
                 scope=Scope(
                     geography="Global mean",
-                    baseline="1750",
-                    basis="Single-year values (solar included as the single-year estimate, volcanic included), "
-                    "relative to 1750; 5th to 95th percentile range from IGCC's ensemble.",
+                    baseline="1750 for every human-caused agent (each is zero in 1750 in IGCC's files); solar and "
+                    "volcanic as in IGCC's time series, which are not zero in 1750",
+                    basis="IGCC's ERF time series 1750–2025 (ESSD Fig. 5b), single-year values. Solar is IGCC's "
+                    "single-year solar ERF, separate from its assessment over complete solar cycles; volcanic is "
+                    "included in the time series, though IGCC gives no single-year volcanic assessment for 2025. "
+                    "Natural and total include both. 5th to 95th percentile range from IGCC's ensemble.",
                 ),
                 geo_coverage="global-only",
                 headline_entity="WLD",

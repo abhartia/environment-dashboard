@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/forcing.igcc-2025.erf-by-agent.json",
-  "export_sha256": "54a8756a8472154950bccaa0fe24eb95606d621132a22bceec17149034ec0379",
+  "export_sha256": "fea58af3c5281775870e4992e635c3135e23ca9cb528a0f9e45c9a8d21fbc0be",
   "indicator_id": "forcing.igcc-2025.erf-by-agent",
-  "key": "ca199b6118e65e2ae9b0d0eb3791cd5b0da95be9612a96266f476989135110af",
+  "key": "ff0b33f3c3da0bb1223806c7b147c37925716bfef8d2789caca9aed823cfcfa4",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "igcc-2025/data-igcc-2025a": {
         "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
@@ -23,11 +24,11 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
     },
-    "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+    "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
   },
   "publisher_checks": [
     {"detail": "ours 3.103548614 vs stated 3.10 (tolerance ±0.005, difference 0.00354861)", "entity": "WLD", "period": "2025", "quote": "Total anthropogenic ERF has increased to 3.10 [2.35 to 3.83] W m⁻² in 2025 relative to 1750", "source_id": "igcc-2025", "stated": "3.10", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},

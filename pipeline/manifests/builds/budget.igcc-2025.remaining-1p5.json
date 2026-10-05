@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/budget.igcc-2025.remaining-1p5.json",
-  "export_sha256": "894837c6992c08212bd9635178e573782f67d983c71d19a1bd431b098fd00df9",
+  "export_sha256": "4f7a77258838a8b4f65ecb990265db879c6978371f743597faeee0c5fe6fd5b7",
   "indicator_id": "budget.igcc-2025.remaining-1p5",
-  "key": "0ca412362a646f7652e4565c8ff5b81026c3e6931bd6d58f26cfdba06933fbe4",
+  "key": "42655c63a72df5d58be5fc55c88465877cfc66804e64fba24a553f65f4eed1a8",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "igcc-2025/data-igcc-2025a": {
         "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
@@ -19,11 +20,11 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
     },
-    "transform_sha256": "ecaf4437c17ff557460cc6f112e2c3f9f60873d13ff4573e2142e05faf8ae2b4"
+    "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
   },
   "publisher_checks": []
 }

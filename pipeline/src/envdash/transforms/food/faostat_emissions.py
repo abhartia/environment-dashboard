@@ -17,6 +17,13 @@ elements are matched by code, and the names next to the codes must be the ones b
   management (for World 2023 the two items sum to 115,211.2589 kt against this item's 115,211.2600 kt). Published in
   million tonnes of methane (kt / 1,000).
 
+Scope of the share. FAO's denominator "All sectors with LULUCF" (item 6825) equals the sum of items Energy, IPPU,
+Waste, Other, IPCC Agriculture and LULUCF, without "International bunkers" (item 6820), and the agrifood item
+"Land-use change" (6516) equals Net Forest conversion + Fires in humid tropical forests + Fires in organic soils,
+without "Forestland" (6751, the forest sink). Both identities hold in every year of the World FAO TIER 1 rows of the
+release of 28 October 2025 (tests/test_faostat_emissions.py, snapshot test), which is what the scope's
+bunkers="excluded" and the basis text rely on.
+
 Projections. The file carries 2030 and 2050 rows for some items, flagged F ("Forecast value" in the codebook). Rows
 flagged F are not published, and they must come after the last year of measured-based estimates. Every other flag must
 be in the codebook; its description is stated in a processing step (one flag for the whole series) or on each
@@ -347,10 +354,12 @@ _CHANGES = {
 }
 
 _AGRIFOOD_BASIS = (
-    'FAOSTAT item "Agrifood systems": emissions within the farm gate (crops and livestock), from land-use change '
-    "(deforestation, biomass fires and peatland degradation), and from pre- and post-production "
-    "(fertilizer manufacturing, processing, packaging, transport, retail, household consumption and waste disposal). "
-    "FAO Tier 1 estimates, not country inventory submissions."
+    'FAOSTAT item "Agrifood systems": emissions within the farm gate (crops and livestock), from land-use change, and '
+    "from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, retail, household "
+    "consumption and waste disposal). Land-use change counts only what FAO attributes to agriculture: its item "
+    '"Land-use change" is net forest conversion (deforestation) plus fires in humid tropical forests and fires in '
+    'organic soils (peat). The carbon taken up by forests (FAOSTAT item "Forestland", a net removal) is not '
+    "subtracted. FAO Tier 1 estimates, not country inventory submissions."
 )
 
 
@@ -410,8 +419,11 @@ def transforms(paths: Paths) -> list[Transform]:
                     geography="World",
                     gwp="AR5-GWP100",
                     lulucf="included",
+                    bunkers="excluded",
                     basis=_AGRIFOOD_BASIS + ' Denominator: FAOSTAT item "All sectors with LULUCF", the total of all '
-                    "IPCC sectors including land use, land-use change and forestry.",
+                    "IPCC sectors including land use, land-use change and forestry (energy, industrial processes, "
+                    "waste, other, agriculture and LULUCF, with the forest sink netted in); international aviation "
+                    'and shipping bunkers are a separate FAOSTAT item ("International bunkers") and are not in it.',
                 ),
                 geo_coverage="global-only",
                 headline_entity="WLD",

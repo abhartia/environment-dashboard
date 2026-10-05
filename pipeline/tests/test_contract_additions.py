@@ -51,3 +51,48 @@ def test_registry_uses_the_new_fields():
     gml = reg.sources["noaa-gml-trends"].obligations
     assert gml.no_endorsement and gml.notice and "not subject to copyright protection" in gml.notice
     assert reg.literature["ipcc-ar6-wg3-spm-c12"].pdf_page == 41
+
+
+# --- time basis (calendar periods or years before 1950) ------------------------------------------------------------
+
+
+def test_observation_has_exactly_one_of_period_and_age():
+    from envdash.models import Latest, Observation
+
+    # Values from bereiter-2015-co2 (first file row) and noaa-gml-trends co2_annmean_gl.csv (2025 row).
+    Observation(entity="ANT_ICECORES", age_bp=-51.03, value=368.02)
+    Observation(entity="WLD", period="2025", value=425.62)
+    with pytest.raises(ValidationError, match="exactly one of period"):
+        Observation(entity="WLD", value=425.62)
+    with pytest.raises(ValidationError, match="exactly one of period"):
+        Observation(entity="ANT_ICECORES", period="2001", age_bp=-51.03, value=368.02)
+    with pytest.raises(ValidationError, match="finite"):
+        Observation(entity="ANT_ICECORES", age_bp=float("nan"), value=368.02)
+    with pytest.raises(ValidationError, match="exactly one of period"):
+        Latest(entity="WLD", value=425.62, status="final")
+
+
+def test_indicator_time_basis_must_match_its_observations():
+    import json
+
+    from envdash.models import Indicator, Latest, Observation
+
+    path = Paths.default().data / "v1" / "indicators" / "co2.noaa-gml.annual-global.json"
+    raw = json.loads(path.read_text())
+    ind = Indicator.model_validate(raw)
+    assert ind.time_basis == "calendar"
+    # The youngest row of bereiter-2015-co2, put into another indicator's export only to test the model's rules.
+    paleo_obs = Observation(entity="ANT_ICECORES", age_bp=-51.03, value=368.02)
+    with pytest.raises(ValidationError, match="time_basis calendar needs a period"):
+        Indicator.model_validate({**raw, "observations": [paleo_obs.model_dump()]})
+    with pytest.raises(ValidationError, match="years-before-1950 needs age_bp"):
+        Indicator.model_validate({**raw, "time_basis": "years-before-1950"})
+    latest = Latest(entity="ANT_ICECORES", age_bp=-51.03, value=368.02, status="final")
+    ok = {**raw, "time_basis": "years-before-1950", "observations": [paleo_obs.model_dump()]}
+    assert Indicator.model_validate({**ok, "latest": latest.model_dump()}).latest.age_bp == -51.03
+
+
+def test_csv_links_the_nested_page_path():
+    from envdash.export import page_url
+
+    assert page_url("co2.noaa-gml.monthly-mlo") == "https://environmentdashboard.org/data/co2/noaa-gml/monthly-mlo"

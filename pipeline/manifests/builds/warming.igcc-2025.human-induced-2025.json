@@ -1,0 +1,32 @@
+{
+  "export": "data/v1/indicators/warming.igcc-2025.human-induced-2025.json",
+  "export_sha256": "a46feb2769fc81b46b4f434568fc02436852cadfc59ad66d1bfe2ef4ea40f9a4",
+  "indicator_id": "warming.igcc-2025.human-induced-2025",
+  "key": "37f3ff9a3e701e929396e725a0be3c58cb7df85cc9b18bd16a0d32353086e786",
+  "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
+    "inputs": {
+      "igcc-2025/data-igcc-2025a": {
+        "manifest_sha256": "e184a281a4e3c169f625ca7450a8dbf5175d8d1d04778d2ca11328f2979f9431",
+        "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd"
+      },
+      "igcc-2025/essd-paper-pdf": {
+        "manifest_sha256": "2e7c7e8ce43e8877ee2367428ba5ea8cfc1919e645231f322c8347601af71761",
+        "sha256": "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb"
+      },
+      "igcc-2025/warming-assessment-headlines": {
+        "manifest_sha256": "73352758b65b468d01b6905c4d86da4b72e445427b658fdeb4754ddc0bb07366",
+        "sha256": "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
+    },
+    "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+  },
+  "publisher_checks": [
+    {"detail": "ours 1.37 vs stated 1.37 (tolerance ±0.005, difference 0)", "entity": "WLD", "period": "2025", "quote": "The single year average human-induced warming is assessed to be 1.37 [1.1 to 1.7] °C in 2025 relative to 1850–1900.", "source_id": "igcc-2025", "stated": "1.37", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"}
+  ]
+}

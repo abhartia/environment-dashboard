@@ -5,7 +5,7 @@
   "name": "environment-dashboard",
   "resources": [
     {
-      "bytes": 16699,
+      "bytes": 16745,
       "description": "How much each of 28 household consumption options cut greenhouse gas emissions per person per year in the studies reviewed by Ivanova et al. (2020): the mean, the median and the range across studies, for the options whose values the article's text states. The values mostly come from high-income settings, depend on context (the electricity mix, the car replaced, the starting diet) and do not add up across options.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -13,7 +13,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:0520fce9b7eb643aba6f3edaf8375d53a2b456af038f7d8449c714bb8bdc3df4",
+      "hash": "sha256:0d3b08a47f0b780fa77438ac8559cb529e51d29d4c718c317c8ff219fcd9500d",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -25,7 +25,7 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "tonnes of CO₂-equivalent per person per year (tCO2e-per-capita-per-year)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
@@ -33,6 +33,7 @@
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
           {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
           {"name": "domain", "title": "Consumption domain", "type": "string"},
           {"name": "option", "title": "Consumption option", "type": "string"},
           {"name": "statistic", "title": "Statistic", "type": "string"}
@@ -45,7 +46,7 @@
       "title": "Emission cuts from household consumption options (Ivanova et al. 2020)"
     },
     {
-      "bytes": 871,
+      "bytes": 879,
       "description": "How much more carbon dioxide could be emitted from the start of 2026 while keeping a 50% chance of limiting global warming to 1.5 °C, as estimated by Indicators of Global Climate Change 2025. The likelihood reflects only uncertainty in how much warming each tonne of carbon dioxide causes. The estimate assumes deep cuts in other greenhouse gases and aerosols; IGCC states it could be around 200 billion tonnes higher or lower depending on how far those cuts go.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -53,7 +54,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:61341a5ef5d43a1e2bdeae6a4d7a8d09e030142bd8abaf6d5f06a4a6636d06a7",
+      "hash": "sha256:7fe82f4ca800e8caf327ec7eb1154420b094feb4934aa5aacba514f11d485824",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -65,14 +66,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide (GtCO2)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -82,7 +84,7 @@
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (50% likelihood)"
     },
     {
-      "bytes": 3949,
+      "bytes": 3998,
       "description": "Annual mean methane in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 1984.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -90,7 +92,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:6249c003604c29ee106a6e88373e8eb2e4fb2f26659f6f5cb60348f5747c282f",
+      "hash": "sha256:6d9f1ced76986499c008bee3a1ecece3d4974042b52aefb99a04b6197fbfafb9",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -102,14 +104,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "parts per billion (ppb)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -119,7 +122,83 @@
       "title": "Methane, global annual mean"
     },
     {
-      "bytes": 92652,
+      "bytes": 154598,
+      "description": "Carbon dioxide in air trapped in Antarctic ice, from 805,669 years before 1950 to 2001, as the composite record of Bereiter et al. (2015). Each value is one ice or firn sample, dated by the age of its air in years before 1950, with one standard deviation.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:3704ae982c41e76486cea2616dda9fc9b9b8b0bb3ccb381776379ff3dcde47fc",
+      "licenses": [
+        {"title": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "co2.bereiter-2015.800k",
+      "path": "v1/indicators/co2.bereiter-2015.800k.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "parts per million (ppm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/access/paleo-search/study/17975", "title": "NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners): Antarctic ice cores revised 800,000-year CO2 composite"}
+      ],
+      "title": "Carbon dioxide over the last 800,000 years (Antarctic ice cores)"
+    },
+    {
+      "bytes": 1270,
+      "description": "The highest carbon dioxide value in the 800,000-year Antarctic ice-core composite of Bereiter et al. (2015) among the samples older than 1,000 years before 1950 (before 950 CE), with the age of that sample's air and its one standard deviation. Today's carbon dioxide, measured directly in the air, can be compared with it.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:bc452ab43fbab09f07a36b416fb9adf61b9a9244bd560963adca182154f903dc",
+      "licenses": [
+        {"title": "No licence stated; free use with citation (NOAA NCEI World Data Service for Paleoclimatology)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "co2.bereiter-2015.800k.max-before-1000bp",
+      "path": "v1/indicators/co2.bereiter-2015.800k.max-before-1000bp.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "parts per million (ppm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.ncei.noaa.gov/access/paleo-search/study/17975", "title": "NOAA NCEI World Data Service for Paleoclimatology (data by Bereiter et al., University of Bern and partners): Antarctic ice cores revised 800,000-year CO2 composite"}
+      ],
+      "title": "Highest carbon dioxide in Antarctic ice before the industrial era"
+    },
+    {
+      "bytes": 94502,
       "description": "Carbon dioxide in air trapped in ice and firn at Law Dome, East Antarctica, as CSIRO's smoothing-spline fit for each year from 154 to 1996 CE.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -127,7 +206,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:24939cab71dae8eede4584959a6fe97294393f82ae98641afb49c3bf2e26dc10",
+      "hash": "sha256:622bc318571e5119fe3902eb263295a601bf2703b311b04431168b79a9fb8af0",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -139,14 +218,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "parts per million (ppm)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -156,7 +236,7 @@
       "title": "Carbon dioxide over the last 2,000 years (Law Dome ice cores)"
     },
     {
-      "bytes": 4318,
+      "bytes": 4372,
       "description": "Annual mean carbon dioxide in dry air averaged over NOAA's global network of marine surface sites, since 1979.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -164,7 +244,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:57486ccd99a733ae26e7bf6c79699e41c299aed920bce571a0f8e9bae680da1c",
+      "hash": "sha256:be077ccd66b943793a14281d226b76df9d8101c68de6564f61838fe0e768dcbf",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -176,14 +256,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "parts per million (ppm)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -193,7 +274,7 @@
       "title": "Carbon dioxide, global annual mean"
     },
     {
-      "bytes": 80551,
+      "bytes": 81380,
       "description": "Monthly mean carbon dioxide in dry air measured at Mauna Loa Observatory, Hawaii, since March 1958: the Keeling Curve. Values before May 1974 were measured by the Scripps Institution of Oceanography.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -201,7 +282,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:c38c437f57efaba6c41a9478c79e12e03649e56008b5ba374b02c6a5c1b85cc0",
+      "hash": "sha256:b3c28be234e945c383c4893f0a7cfdfe32770e6b98d2a0de1540c244f8662ca8",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -213,14 +294,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "parts per million (ppm)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -230,7 +312,7 @@
       "title": "Carbon dioxide at Mauna Loa, monthly mean"
     },
     {
-      "bytes": 3026,
+      "bytes": 3059,
       "description": "Share of the world's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -238,7 +320,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:6c415f3230fa4e2e7e82b1f7a3fad8929cf833d15b2b650026d33604925fd9a5",
+      "hash": "sha256:f1da34ad267f7d306e0ea10a72dbff25b25706397e4864ebd39beff0671b31fe",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -250,14 +332,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -267,7 +350,7 @@
       "title": "Share of world electricity from clean sources"
     },
     {
-      "bytes": 22589,
+      "bytes": 22830,
       "description": "Share of the world's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels), each year since 2000, as published by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -275,7 +358,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:81e767855df3f96af1fd5a072e1fbee12152623e79959286ab22d3cb61844efe",
+      "hash": "sha256:b0c2749d77bbe749fa696230a322a15df9b8b107dcd5a49f7c584314c9adb14b",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -287,7 +370,7 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "percent of electricity generation (percent)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
@@ -295,6 +378,7 @@
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
           {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
           {"name": "source", "title": "Electricity source", "type": "string"}
         ],
         "missingValues": [""]
@@ -305,7 +389,7 @@
       "title": "World electricity generation by source"
     },
     {
-      "bytes": 45794,
+      "bytes": 46263,
       "description": "Each year since 1959, the carbon dioxide released by fossil fuels and industry and by land-use change, and where it went: growth in the atmosphere, uptake by the ocean, by land ecosystems and by cement as it ages (the cement carbonation sink). The budget imbalance is what the estimates of emissions and sinks do not account for.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -313,7 +397,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:281ac86adaf9e830a7c770512bfd3e2f370e91ede021c50764cc5f611729a0ac",
+      "hash": "sha256:83bde7cf4e53b30122a1f9289af534923e89914d4d5e201f67b865a32432f255",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
       ],
@@ -325,7 +409,7 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
@@ -333,6 +417,7 @@
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
           {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
           {"name": "component", "title": "Budget component", "type": "string"}
         ],
         "missingValues": [""]
@@ -343,7 +428,7 @@
       "title": "Global carbon dioxide budget: emissions and where they go"
     },
     {
-      "bytes": 894,
+      "bytes": 902,
       "description": "The Global Carbon Project's projection that carbon dioxide emissions from fossil fuels and industry grew by 1.0 percent from 2024 to 2025 (range 0.2 to 1.7 percent), made from data for part of 2025.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -351,7 +436,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:4d1dde7a465be5fe6ba4ffb1ec10ff5c5a477c0bc385507c481b30069b6c00bf",
+      "hash": "sha256:0653de7357ae24324f44c4dbc7531fb630ec6ec0e9ec32420590cd7bf3faf46b",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -363,14 +448,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "percent change from 2024 (percent)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -380,7 +466,7 @@
       "title": "Projected change in fossil carbon dioxide emissions, 2024 to 2025 (Global Carbon Budget)"
     },
     {
-      "bytes": 889,
+      "bytes": 897,
       "description": "The Global Carbon Project's projection of carbon dioxide emissions from fossil fuels and industry in 2025, made from data for part of the year: 38.1 billion tonnes, 1.0 percent more than in 2024 (range 0.2 to 1.7 percent). It is net of the carbon dioxide that cement takes back up as it ages (the cement carbonation sink), like the paper's headline value for 2024.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -388,7 +474,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:30328c06152ef747b63794b84fdf3329280e7074903aacc472f45456384d23e0",
+      "hash": "sha256:f20941dfb052907476764eeb5cd3d62d782125161c63a86e4013a13db40a29d4",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -400,14 +486,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -417,7 +504,7 @@
       "title": "Fossil carbon dioxide emissions projected for 2025 (Global Carbon Budget)"
     },
     {
-      "bytes": 6421,
+      "bytes": 6494,
       "description": "Carbon dioxide released each year since 1959 by burning fossil fuels, making cement and other industrial processes, minus the carbon dioxide that cement takes back up as it ages. This is the Global Carbon Budget's headline fossil emissions value.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -425,7 +512,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:37045a8bc219420c2ce7b324592d9117b38c897b28f35115ef48b53d0254f282",
+      "hash": "sha256:b15459a4ab4a65693b7339da20ca348a3ef08d4cce0361fcaeed7d6d1312ea4c",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
       ],
@@ -437,14 +524,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -454,7 +542,7 @@
       "title": "Fossil carbon dioxide emissions, world (Global Carbon Budget)"
     },
     {
-      "bytes": 872,
+      "bytes": 880,
       "description": "How much more carbon dioxide could be emitted from the beginning of 2026 for an even (50 percent) chance of limiting global warming to 1.5 °C, according to the Global Carbon Budget 2025: 170 billion tonnes, which the paper puts at around 4 years of emissions at the 2025 level.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -462,7 +550,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:11ad171f961ad863392a2f280a7efc62b10b9dad51668e8b5c89d4c3636d5d2e",
+      "hash": "sha256:be5e4ecab7d46b1ea1ea8ddd8d7ae76a2d1946cc19bf8e2948a6387e234e96a0",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -474,14 +562,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide (GtCO2)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -491,7 +580,7 @@
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (Global Carbon Budget)"
     },
     {
-      "bytes": 6405,
+      "bytes": 6478,
       "description": "Carbon dioxide released each year since 1959 by fossil fuels and industry (net of the cement carbonation sink) and by land-use change such as deforestation.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -499,7 +588,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:1f2a0ad0698ead3bf8bfb4fe4cc6c0bd6b34d454685a208e0d9f68b72eb73d1e",
+      "hash": "sha256:8d2eb049d714742ffc9ca016cb8073f504d59aabe0ccf6807ca4559466a4fae7",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ICOS CCBY4 Data Licence)"}
       ],
@@ -511,14 +600,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide per year (GtCO2/yr)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -528,7 +618,7 @@
       "title": "Total carbon dioxide emissions from human activity, world (Global Carbon Budget)"
     },
     {
-      "bytes": 3276,
+      "bytes": 3321,
       "description": "Greenhouse gas emissions from the world's food and farming systems each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -536,7 +626,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:e37cb4d7ba5801914c0cd678cd3797acaa1fb4a3650ec466bc8690ed51307357",
+      "hash": "sha256:c1046720917e571a62d1175614333951001b46bb2345ccd3448ffe057a610f56",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -548,14 +638,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion tonnes of carbon dioxide equivalent (GtCO2e)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -565,7 +656,7 @@
       "title": "Greenhouse gas emissions from agrifood systems, world"
     },
     {
-      "bytes": 3719,
+      "bytes": 3764,
       "description": "The part of the world's greenhouse gas emissions, including land use, land-use change and forestry, that comes from food and farming systems, each year since 1990, as estimated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -573,7 +664,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:d0e46e61974b0f86f7661e5ae48411dbb42c22ea16f9d6b0ba763d31b171aa56",
+      "hash": "sha256:15f6a07c37b4aa20f0c102457000c1f985a990ee4f8660368dfc7bd90aca4faf",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -585,14 +676,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "percent of global greenhouse gas emissions (percent)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -602,7 +694,7 @@
       "title": "Agrifood systems' share of global greenhouse gas emissions"
     },
     {
-      "bytes": 4818,
+      "bytes": 4892,
       "description": "Methane released each year since 1961 by the world's farm animals, from digestion (enteric fermentation) and from manure management, as estimated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -610,7 +702,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:69d5af06610c861a30f9da4bf1ec9eff2682c3999be798ea18914e7d0999ac91",
+      "hash": "sha256:470f2fcbd200452eb93965ffa11a69fffce8c43b986a9467aa3735a118ba08f3",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -622,14 +714,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "million tonnes of methane (MtCH4)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -639,15 +732,15 @@
       "title": "Methane from livestock, world"
     },
     {
-      "bytes": 482874,
-      "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent since 1750, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025.",
+      "bytes": 487851,
+      "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750 to 2025, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025. Human-caused agents are counted from zero in 1750; solar and volcanic forcing are IGCC's time series, which do not start from zero in 1750.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
         "commentChar": "#"
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:3da0952c6b13876a1e741b1a4c35acbfc1268a184093b412e2cd53a5aacf7306",
+      "hash": "sha256:76fabe67f4583876e6dbc50df8d1eb4bc24009c4029405eafaa3feae95c7217e",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -659,7 +752,7 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "watts per square metre (W/m2)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
@@ -667,6 +760,7 @@
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
           {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
           {"name": "agent", "title": "Agent", "type": "string"}
         ],
         "missingValues": [""]
@@ -674,10 +768,10 @@
       "sources": [
         {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
       ],
-      "title": "Effective radiative forcing by agent since 1750 (IGCC 2025)"
+      "title": "Effective radiative forcing by agent, 1750–2025 (IGCC 2025)"
     },
     {
-      "bytes": 3297,
+      "bytes": 3336,
       "description": "Deaths attributable to heat each year worldwide, 1990–2021, as estimated by the Lancet Countdown (indicator 1.1.5). The numbers are modelled from temperature–mortality relationships, not counted.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -685,7 +779,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:c8bac93033ed800cd6a76af0729de201e59f9ce4b06e9753f35609b75580a3f2",
+      "hash": "sha256:4d0e3f5fe96fd16d619be9b2c18a1bf84c9a4b2f933aebe975bbf5542ac99c83",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
       ],
@@ -697,14 +791,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "deaths (deaths)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -714,7 +809,7 @@
       "title": "Heat-related deaths, world"
     },
     {
-      "bytes": 2765,
+      "bytes": 2787,
       "description": "Heatwave days that people were exposed to on average each year, 2020–2024, as observed, as expected in a modelled climate without human-caused warming, and the difference attributable to climate change, from the Lancet Countdown (indicator 1.1.1).",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -722,7 +817,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:0d2c4f0649574c6915c6767f3e81a64fa7063ecdd6a855c6a516d01084986674",
+      "hash": "sha256:edd5ad1ecfb8e5ab8ff9cdc787c8f3c97d28de59a6ba8e4da2f14f7bb140ead8",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
       ],
@@ -734,7 +829,7 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "days per person (days)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
@@ -742,6 +837,7 @@
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
           {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
           {"name": "scenario", "title": "Scenario", "type": "string"}
         ],
         "missingValues": [""]
@@ -752,7 +848,7 @@
       "title": "Heatwave days per person, observed and attributable to climate change, world"
     },
     {
-      "bytes": 16434,
+      "bytes": 16616,
       "description": "Working hours that heat stress could have cost each year worldwide, 1990–2024, in services, manufacturing, agriculture and construction, as estimated by the Lancet Countdown (indicator 1.1.3).",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -760,7 +856,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:2af71ce83c0188e79a5955ee02eb9db3deb30f48705340d2226decff66e1bfe2",
+      "hash": "sha256:b02c237e435f4ca4195b57311331d92120318ad00dfd90c07a9d42e852335807",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
       ],
@@ -772,7 +868,7 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "billion hours (bn-hours)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
@@ -780,6 +876,7 @@
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
           {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
           {"name": "sector", "title": "Sector", "type": "string"}
         ],
         "missingValues": [""]
@@ -790,7 +887,7 @@
       "title": "Potential work hours lost to heat, world"
     },
     {
-      "bytes": 2612,
+      "bytes": 2644,
       "description": "Annual mean nitrous oxide in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 2001.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -798,7 +895,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:b652d40617c657ac815d31205e173cc6e1d81a0f795899516537ac063982a5be",
+      "hash": "sha256:cffe98a181ddd365a74f92da6946e45dbfb52122fb680685cec37b043e1453d2",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -810,14 +907,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "parts per billion (ppb)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -827,7 +925,7 @@
       "title": "Nitrous oxide, global annual mean"
     },
     {
-      "bytes": 16878,
+      "bytes": 17061,
       "description": "Global mean near-surface temperature for each complete year since 1850, as the difference from the 1850–1900 average of the same dataset, with the 95% range.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -835,7 +933,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:15477193784da3c7bb4456a08b7d700dd26ab9f07115e57019bcf5421089d561",
+      "hash": "sha256:6af36b6726644b111a819fd0d2cd68c83884766b56657d2dedaf3235a6d30c56",
       "licenses": [
         {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
       ],
@@ -847,14 +945,15 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
@@ -864,15 +963,15 @@
       "title": "Global surface temperature above 1850–1900 (HadCRUT5)"
     },
     {
-      "bytes": 13224,
-      "description": "How much of the global surface warming in each year since 1850 was caused by human activity, relative to the 1850–1900 average, with the likely range. Indicators of Global Climate Change combines three attribution methods; this series applies its stated assessment rule to each year's annual-mean estimate. IGCC's own headline figure for a single year uses a trend-based definition from the IPCC 1.5 °C report and can differ by a few hundredths of a degree.",
+      "bytes": 13431,
+      "description": "How much of the global surface warming in each year since 1850 was caused by human activity, relative to the 1850–1900 average, with the likely range, by the annual-mean definition. Indicators of Global Climate Change combines three attribution methods; this series applies its stated assessment rule to each year's annual-mean estimate. IGCC's headline figure for a single year uses the trend-based definition of the IPCC 1.5 °C report instead (published separately as human-induced warming in 2025) and can differ by a few hundredths of a degree.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
         "commentChar": "#"
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:f7ba9bceeeadd0c53cde19ac58b3ec42a54a79cc2e5f0c32f71aead657cca8e2",
+      "hash": "sha256:fb70352ed6aae4c595e6b1f20166e6434a0ecf3a25253983db3d6c103074ec97",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -884,21 +983,60 @@
         "fields": [
           {"name": "indicator_id", "type": "string"},
           {"name": "entity", "type": "string"},
-          {"description": "ISO 8601 year, year-month or date", "name": "period", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
           {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
           {"name": "lower", "type": "number"},
           {"name": "upper", "type": "number"},
           {"name": "interval", "type": "string"},
           {"name": "status", "type": "string"},
           {"name": "note", "type": "string"},
-          {"name": "missing_reason", "type": "string"}
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
         ],
         "missingValues": [""]
       },
       "sources": [
         {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
       ],
-      "title": "Human-induced warming since 1850–1900, each year (IGCC 2025)"
+      "title": "Human-induced warming since 1850–1900, each year, annual-mean definition (IGCC 2025)"
+    },
+    {
+      "bytes": 850,
+      "description": "How much of the global surface warming in 2025 was caused by human activity, relative to the 1850–1900 average, with the likely range, as assessed by Indicators of Global Climate Change 2025. IGCC uses the trend-based single-year definition of the IPCC 1.5 °C report (SR1.5), which it prioritises where it differs from the annual mean because it reduces the effect of year-to-year natural variability.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c6451b268bc888e01b949680d5c1e233849b022cf5253a4055c8ea24dc2ba2c6",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "warming.igcc-2025.human-induced-2025",
+      "path": "v1/indicators/warming.igcc-2025.human-induced-2025.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
+      ],
+      "title": "Human-induced warming in 2025 (IGCC 2025)"
     }
   ],
   "title": "Environment Dashboard data"

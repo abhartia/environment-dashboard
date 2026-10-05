@@ -1,9 +1,10 @@
 {
   "export": "data/v1/indicators/temp.hadcrut5.annual-1850-1900.json",
-  "export_sha256": "7f299ced8a28e65df8f265e0318a72299f2a0b7763938151150e9bda9fcfb640",
+  "export_sha256": "4226ec7985f9f8d9f9209ef641e9d09562e2e44c85c9e1f96a94bd9ba71ab8df",
   "indicator_id": "temp.hadcrut5.annual-1850-1900",
-  "key": "b3dd349fddc2119af8892e9f9a2a6e1b7bd87d58b3a22ae7122b90d3d37b7c04",
+  "key": "6a334bd867432e3cac2c688f870dc2bdc3a0e67cd9724198df7cfe49f3b09c6f",
   "key_parts": {
+    "contract_sha256": "cc1ad2802145b4d48d2f1ae0fa0c0836d9eb72d966581cf287845f065b496db1",
     "inputs": {
       "hadcrut5/global-annual": {
         "manifest_sha256": "3714a34f76af5e885ac0d60dc797d19c0b1d725fb91f6092724d618d31d2539c",
@@ -15,7 +16,7 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "de34122c3a9b023891cb0589048c02c6d237f38eef8477337d571405ae03d25d",
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
       "hadcrut5": "b8b27b1de3b91fd8aaa676e31cd7e6274e6de2adbd06be01fe3bf56211327de1"
     },

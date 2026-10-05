@@ -3,11 +3,13 @@
 Fixtures (tests/fixtures/<source>/, each with its .provenance.json sidecar):
 - noaa-gml-trends-ch4-n2o-sf6: ch4_annmean_gl.csv and n2o_annmean_gl.csv, whole files (version 2026-09).
 - law-dome-2k: Law_Dome_GHG_2000years.xlsx, the whole file (a zip cannot be cut by lines; fixture sha256 = full sha256).
-- bereiter-2015-co2: the header, data rows 1-60 and 1882-1901 of 1901.
+- bereiter-2015-co2: the whole file (51,875 bytes, sha256 40c9c175ab75...), so the composite's maximum is tested on
+  every real sample.
 """
 
 from __future__ import annotations
 
+import itertools
 import json
 from datetime import date
 from pathlib import Path
@@ -17,7 +19,13 @@ import pytest
 from envdash.models import Snapshot
 from envdash.paths import Paths
 from envdash.transform import InputFile, discover, validate
-from envdash.transforms.air.bereiter_co2 import BereiterFormatError, read_composite
+from envdash.transforms.air.bereiter_co2 import (
+    BereiterFormatError,
+    Sample,
+    contribution_date,
+    preindustrial_max,
+    read_composite,
+)
 from envdash.transforms.air.law_dome_co2 import COLLECTIONS, LawDomeFormatError, collection_of, read_spline
 from envdash.transforms.air.noaa_ch4_n2o import CH4, N2O, NoaaGhgFormatError, parse_annual_global
 
@@ -134,20 +142,54 @@ def test_law_dome_unknown_collection_or_last_update_stops():
         read_spline(path.read_bytes(), "01/2026")
 
 
-# --- Bereiter et al. 2015 composite reader ------------------------------------------------------------------------
+# --- Bereiter et al. 2015 composite (years before 1950) ----------------------------------------------------------
+
+SERIES = "co2.bereiter-2015.800k"
+MAXIMUM = "co2.bereiter-2015.800k.max-before-1000bp"
 
 
 def test_bereiter_reader_keeps_ages_as_printed():
     path, meta = fixture("bereiter-2015-co2", "composite")
+    assert meta["fixture_sha256"] == meta["full_sha256"]
     samples = read_composite(path.read_text())
-    assert len(samples) == 80 and meta["data_rows_total"] == 1901
+    assert len(samples) == 1901
     first, last = samples[0], samples[-1]
+    # File rows "-51.03\t368.02\t0.06" (first) and "805668.87\t207.29\t2.20" (last).
     assert (str(first.age_bp), str(first.co2_ppm), str(first.sigma_ppm)) == ("-51.03", "368.02", "0.06")
     assert (str(last.age_bp), str(last.co2_ppm), str(last.sigma_ppm)) == ("805668.87", "207.29", "2.20")
+    assert contribution_date(path.read_text()) == "2015-02-04"
 
 
-def test_bereiter_has_no_indicator_until_the_contract_carries_gas_ages():
-    assert not [t for t in discover(Paths.default()) if t.spec.id.startswith("co2.bereiter")]  # type: ignore[arg-type]
+def test_bereiter_series_is_dated_by_age_oldest_first():
+    r = run_transform(SERIES, ("bereiter-2015-co2", "composite"))
+    obs = r.observations
+    assert len(obs) == 1901 and r.vintage == "2015-02-04" and r.date_published == "2015-02-04"
+    assert all(o.period is None and o.age_bp is not None and o.entity == "ANT_ICECORES" for o in obs)
+    assert (obs[0].age_bp, obs[0].value, obs[0].lower, obs[0].upper) == (805668.87, 207.29, 205.09, 209.49)
+    assert (obs[-1].age_bp, obs[-1].value, obs[-1].lower, obs[-1].upper) == (-51.03, 368.02, 367.96, 368.08)
+    assert {o.interval for o in obs} == {"1sigma"}
+    assert all(a.age_bp > b.age_bp for a, b in itertools.pairwise(obs))  # type: ignore[operator]
+    assert r.changes is None
+
+
+def test_bereiter_maximum_before_1000_years_bp():
+    r = run_transform(MAXIMUM, ("bereiter-2015-co2", "composite"))
+    (o,) = r.observations
+    # File row "335102.31\t298.60\t3.00": the research note's awk scan found the same maximum.
+    assert (o.age_bp, o.value, o.lower, o.upper, o.interval) == (335102.31, 298.6, 295.6, 301.6, "1sigma")
+    assert "1,679 samples" in r.steps[1] and "298.60 ppm at 335102.31" in r.steps[1]
+    assert r.changes  # a selection, so the modified credit line applies
+
+
+def test_bereiter_maximum_refuses_a_tie_and_needs_old_samples():
+    path, _ = fixture("bereiter-2015-co2", "composite")
+    samples = read_composite(path.read_text())
+    top, _ = preindustrial_max(samples)
+    twin = Sample(top.age_bp + 1, top.co2_ppm, top.sigma_ppm)
+    with pytest.raises(BereiterFormatError, match="share the maximum"):
+        preindustrial_max([*samples, twin])
+    with pytest.raises(BereiterFormatError, match="no sample older"):
+        preindustrial_max([s for s in samples if s.age_bp < 1000])
 
 
 def test_bereiter_reader_refuses_a_changed_age_unit():
@@ -155,3 +197,44 @@ def test_bereiter_reader_refuses_a_changed_age_unit():
     raw = path.read_text().replace("Time_Unit: cal yr BP", "Time_Unit: yr b2k")
     with pytest.raises(BereiterFormatError, match="re-read"):
         read_composite(raw)
+
+
+def test_bereiter_builds_and_exports_with_age_bp(tmp_paths, tmp_path):
+    """Through the real build: the contract carries the ages, the CSV has age_bp, validate passes."""
+    import shutil
+
+    from envdash.export import build_and_export
+    from envdash.registry import load_registry
+    from envdash.validate import validate_all
+
+    from support import REPO_ROOT, load_fixture_snapshot
+
+    shutil.copy(REPO_ROOT / "pipeline" / "sources" / "bereiter-2015-co2.yaml", tmp_paths.sources)
+    load_fixture_snapshot(tmp_paths, "bereiter-2015-co2", "composite")
+    reg = load_registry(tmp_paths)
+    ts = [t for t in discover(tmp_paths) if t.spec.id in (SERIES, MAXIMUM)]
+    report = build_and_export(tmp_paths, reg, ts)
+    assert report.ok, [(o.id, o.reason) for o in report.failed]
+    ind = json.loads((tmp_paths.public_indicators / f"{SERIES}.json").read_text())
+    assert ind["time_basis"] == "years-before-1950"
+    assert ind["latest"] == {
+        "age_bp": -51.03,
+        "dims": {},
+        "entity": "ANT_ICECORES",
+        "period": None,
+        "status": "final",
+        "value": 368.02,
+    }
+    mx = json.loads((tmp_paths.public_indicators / f"{MAXIMUM}.json").read_text())
+    assert (mx["latest"]["age_bp"], mx["latest"]["value"]) == (335102.31, 298.6)
+    assert mx["attribution"].startswith("Calculated by Environment Dashboard from Bereiter et al. (2015)")
+    csv = (tmp_paths.public_indicators / f"{SERIES}.csv").read_text().splitlines()
+    assert "# Provenance and processing: https://environmentdashboard.org/data/co2/bereiter-2015/800k" in csv
+    header = csv.index("indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp")
+    assert csv[header + 1] == "co2.bereiter-2015.800k,ANT_ICECORES,,207.29,205.09,209.49,1sigma,final,,,805668.87"
+    catalog = json.loads((tmp_paths.data / "v1" / "catalog.json").read_text())
+    assert {e["id"]: e["time_basis"] for e in catalog["indicators"]} == {
+        SERIES: "years-before-1950",
+        MAXIMUM: "years-before-1950",
+    }
+    assert validate_all(tmp_paths, reg) == []
