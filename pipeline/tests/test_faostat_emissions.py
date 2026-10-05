@@ -1,6 +1,6 @@
-"""FAOSTAT Emissions totals (GT): world agrifood emissions, their share, livestock methane.
+"""FAOSTAT Emissions totals (GT): world agrifood emissions and livestock methane.
 
-Fixtures are byte-exact slices of the real GT snapshot (the World rows of three item/element pairs from the CSV inside
+Fixtures are byte-exact slices of the real GT snapshot (the World rows of two item/element pairs from the CSV inside
 the zip, and the whole flag codebook) and the whole datasets_E.json catalogue, cut by
 tests/fixtures/faostat/make_zip_fixture.py. They sit one directory lower than make_fixture.py's, so the two sidecar
 checks of test_fixtures_provenance.py are repeated here with the zip-aware cutter.
@@ -22,7 +22,6 @@ from envdash.transforms.food.faostat_emissions import (
     AGRIFOOD,
     CO2EQ_AR5,
     FaostatFormatError,
-    agrifood_share,
     agrifood_total,
     catalogue_entry,
     livestock_ch4,
@@ -97,7 +96,7 @@ def test_fixture_is_an_exact_slice_of_the_snapshot(side):
 
 def test_scan_keeps_world_rows_and_counts_all():
     s = _scan()
-    assert s.data_rows == 133 and len(s.world) == 133
+    assert s.data_rows == 99 and len(s.world) == 99
     assert {r["Area"] for r in s.world} == {"World"}
 
 
@@ -112,15 +111,6 @@ def test_agrifood_total_in_billion_tonnes():
     assert any('flag E, which the file\'s codebook defines as "Estimated value"' in s for s in steps)
 
 
-def test_share_uses_the_with_lulucf_total():
-    obs, _ = agrifood_share(_scan(), _flags())
-    by = _by(obs)
-    # 16,535,072.3737 / 52,105,734.1478 and 13,614,753.1515 / 35,481,364.4588, exact decimals.
-    assert round(by["2023"].value, 6) == 31.73369
-    assert round(by["2001"].value, 6) == 38.37156
-    assert len(obs) == 34
-
-
 def test_livestock_methane_leaves_out_projections():
     obs, steps = livestock_ch4(_scan(), _flags())
     by = _by(obs)
@@ -132,34 +122,21 @@ def test_livestock_methane_leaves_out_projections():
 
 def test_publisher_checks_pass_for_their_vintage_only():
     s, flags = _scan(), _flags()
-    for tid, compute in (
-        ("food.faostat.agrifood-emissions-world", agrifood_total),
-        ("food.faostat.agrifood-emissions-world.share", agrifood_share),
-    ):
-        t = _transform(tid)
-        obs, _ = compute(s, flags)
-        outcomes = run_checks(t, {"faostat": "2025-10-28"}, obs)
-        assert outcomes and {o.status for o in outcomes} == {"pass"}, [o.detail for o in outcomes]
-        later = run_checks(t, {"faostat": "2026-10-30"}, obs)
-        assert {o.status for o in later} == {"not-applicable"}
+    t = _transform("food.faostat.agrifood-emissions-world")
+    obs, _ = agrifood_total(s, flags)
+    outcomes = run_checks(t, {"faostat": "2025-10-28"}, obs)
+    assert outcomes and {o.status for o in outcomes} == {"pass"}, [o.detail for o in outcomes]
+    later = run_checks(t, {"faostat": "2026-10-30"}, obs)
+    assert {o.status for o in later} == {"not-applicable"}
 
 
-def test_share_check_would_fail_with_the_without_lulucf_total():
-    # The 2001 check is what pins the denominator: FAO prints 38, and the without-LULUCF total gives 38.57.
-    t = _transform("food.faostat.agrifood-emissions-world.share")
-    obs, _ = agrifood_share(_scan(), _flags())
-    shifted = [o.model_copy(update={"value": 38.57}) if o.period == "2001" else o for o in obs]
-    out = {o.check.period: o.status for o in run_checks(t, {"faostat": "2025-10-28"}, shifted)}
-    assert out == {"2001": "fail", "2023": "pass"}
+def test_share_is_no_longer_computed_here():
+    # FAO publishes the share itself (Emissions indicators), and its denominator holds PRIMAP-hist v2.7 (CC BY-NC-SA)
+    # values, so it lives in transforms/emissions/faostat_all_sectors.py under the noncommercial source.
+    assert "food.faostat.agrifood-emissions-world.share" not in {t.spec.id for t in transforms(Paths.default())}
 
 
 # --- refusals ------------------------------------------------------------------------------------------------------
-
-
-def test_refuses_mismatched_years_between_numerator_and_denominator():
-    lines = [ln for ln in _lines() if not (b'"6825"' in ln and b'"2023","2023"' in ln)]
-    with pytest.raises(FaostatFormatError, match="covers"):
-        agrifood_share(scan(lines), _flags())
 
 
 def test_refuses_a_duplicated_year():
@@ -199,7 +176,7 @@ def test_vintage_from_catalogue_entry_for_this_file():
 
 
 @pytest.mark.snapshot
-def test_full_snapshot_builds_all_three():
+def test_full_snapshot_builds_both():
     from envdash import snapshots
     from envdash.transform import InputFile
 
@@ -218,8 +195,8 @@ def test_full_snapshot_builds_all_three():
 
 @pytest.mark.snapshot
 def test_full_snapshot_scope_identities():
-    """What the share's scope says: the with-LULUCF total is the IPCC sectors without international bunkers, and the
-    agrifood land-use change is net forest conversion and fires, without the forest sink, in every World year."""
+    """What the agrifood basis says: the agrifood land-use change is net forest conversion and fires, without the
+    forest sink, in every World year; and FAO's with-LULUCF total is the IPCC sectors without international bunkers."""
     from decimal import Decimal
 
     from envdash import snapshots
@@ -264,15 +241,6 @@ def test_full_snapshot_scope_identities():
     for y, v in luc.items():
         assert sum((x[y] for x in luc_parts), Decimal(0)) == v, y
         assert forest[y] < 0, y  # a net removal, and not part of the item
-
-
-def test_share_scope_states_bunkers_and_agrifood_land_use_change():
-    share = next(t for t in transforms(Paths.default()) if t.spec.id == "food.faostat.agrifood-emissions-world.share")
-    sc = share.spec.scope
-    assert (sc.gwp, sc.lulucf, sc.bunkers) == ("AR5-GWP100", "included", "excluded")
-    assert sc.basis is not None
-    assert "only what FAO attributes to agriculture" in sc.basis and '"Forestland"' in sc.basis
-    assert '"International bunkers"' in sc.basis
 
 
 def test_gcb_published_values_carry_their_scope():

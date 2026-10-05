@@ -1,0 +1,148 @@
+# FAOSTAT all-sector greenhouse gas emissions: the IPCC-sector totals of Emissions totals (GT) and FAO's own shares and
+# per-capita values in Emissions indicators (EM), registered apart from the open `faostat` entry because their
+# non-farm items are PRIMAP-hist v2.7 (CC BY-NC-SA 4.0) data.
+# Evidence: docs/research/sources-ghg-food-personal-2026-10-05.json, research[0] candidate 1 ("FAOSTAT Emissions totals
+# (GT) ... plus FAOSTAT Emissions indicators (EM)") and verification[1] (verdict adopt-with-changes; every problem it
+# lists is addressed in the transform module envdash/transforms/emissions/faostat_all_sectors.py).
+#
+# Why noncommercial, not open. FAO labels FAOSTAT CC BY 4.0. FAO Statistical Database Terms of Use
+# (https://www.fao.org/contact-us/terms/db-terms-of-use/en/, HTTP 200 on 2026-10-05), section 1: "Unless specified
+# otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical databases (see
+# examples in Annex 1) are licensed under the Creative Commons Attribution-4.0 International licence (CC BY 4.0)".
+# Section 2, "Third party exceptions": "It is your responsibility to determine if a particular dataset is fully or
+# partially owned by third parties and/or whether additional restrictions may apply. It is your responsibility to act
+# in compliance with the terms and conditions of the third-party data providers."
+# GT's Energy (6821), IPPU (6817), Waste (6818) and Other (6819) items are PRIMAP-hist third-party-priority (HISTTP)
+# values. FAO's GT note and FAOSTAT Analytical Brief 115 name PRIMAP-hist v2.4 (CC BY), but the values in this release
+# are v2.7: Germany energy CO2 2021/2022/2023 is 625,000 / 618,000 / 550,000 kt in GT and in v2.7 HISTTP, against
+# 626,000 / 616,000 / 558,000 in v2.6.1; USA IPPU CO2 2021-2023 is 134,000 / 139,000 / 137,000 in GT and v2.7, against
+# 131,000 / 136,000 / 135,000 in v2.6.1; India energy CO2 2022 is 2,670,000 in GT and v2.7 against 2,680,000 in
+# v2.6.1 (researcher and verifier each streamed the three PRIMAP files). PRIMAP's own v2.7 description says "FAOSTAT is
+# based on PRIMAP-hist TP for non-AFOLU sectors". PRIMAP-hist v2.7 (Zenodo 17090760, licence field cc-by-nc-sa-4.0) is
+# non-commercial, and its commercial licence covers only the country-reported series. As with
+# jones-2025-national-contributions, a downstream CC BY label cannot lift upstream NC-SA terms, so the non-farm items,
+# the all-sector totals that include them, and every EM share or per-capita value whose denominator is such a total
+# are classed noncommercial and carry BY-NC-SA downloads. The evidence below quotes the upstream terms, which decide
+# the class; FAO's CC BY 4.0 sentence and third-party clause are quoted above.
+#
+# Open questions put to FAO (faostat@fao.org), not yet answered: which PRIMAP-hist version and terms apply; whether
+# the IEA activity data behind the pre- and post-production estimates carries restrictions (GT_en.pdf: those
+# estimates "are calculated based on data from the UN Statistical Division (UNSD), the International Energy Agency
+# (IEA) and other third-party as well as by integrating emission information from the PRIMAP-hist dataset v2.4").
+#
+# Artifacts. emissions-totals is the same URL and the same bytes as faostat/emissions-totals (sha256 d2c47e11...a89a9,
+# 20,501,708 bytes, Last-Modified 6 December 2025). emissions-indicators (EM) was GET 200, 4,655,416 bytes,
+# Last-Modified 29 October 2025, sha256 d48bf985...da34 (researcher and verifier, 2026-10-05); its CSV member has
+# 678,370 data rows, equal to FileRows in datasets_E.json (DateUpdate 2025-10-28). datasets-catalogue is FAOSTAT's
+# bulk catalogue, the same URL as faostat/datasets-catalogue, read for each domain's DateUpdate and FileRows.
+#
+# Re-check at FAO's October 2026 release (data to 2024): it will very likely use PRIMAP-hist v2.8 (Zenodo 22876287,
+# also CC BY-NC-SA 4.0, published 2026-09-29), whose TP World 2023 energy is 39.6 Gt CO2e against 38.79 here, so the
+# sector values will move by about 2 percent or more. v2.8's record adds "Do not use the TP scenario data without
+# proper checks."
+id: faostat-all-sectors
+title: FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)
+publisher: Food and Agriculture Organization of the United Nations (FAO), Statistics Division
+landing_url: https://www.fao.org/faostat/en/#data/GT
+description: >-
+  Two FAOSTAT domains of the Climate Change: Agrifood systems emissions group. Emissions totals (GT): emissions of
+  CO2, CH4, N2O and F-gases, and their CO2-equivalent (AR5 GWP100), in kilotonnes, for the IPCC sectors Energy,
+  Industrial processes and product use (IPPU), Agriculture, Land use, land-use change and forestry (LULUCF, net of the
+  forest sink), Waste and Other, their total with and without LULUCF, and the agrifood-system items, by country and
+  region, 1990-2023 for the totals. FAO computes Agriculture and LULUCF itself (Tier 1); Energy, IPPU, Waste and Other
+  are the PRIMAP-hist v2.7 third-party-priority series (Gütschow, Busch and Pflüger, 2025). Emissions indicators (EM):
+  FAO's own shares of each item in the all-sector total (by CO2-equivalent and by gas) and emissions per person, per
+  value of agricultural production and per hectare of agricultural land, 1990-2023.
+citation:
+  type: dataset
+  title: FAOSTAT
+  author:
+    - {literal: FAO}
+  issued: "{year}"
+  publisher: Food and Agriculture Organization of the United Nations
+  URL: https://www.fao.org/faostat/en/
+  # Format prescribed by the FAO Statistical Database Terms of Use, section 3, at database level ("Name of database").
+  # {year} is the year of the domain's last update (DateUpdate in datasets_E.json).
+  text: >-
+    FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+    Energy, industrial processes, waste and other emissions: Gütschow, J., Busch, D. & Pflüger, M. (2025). The
+    PRIMAP-hist national historical emissions time series (1750-2024) v2.7. Zenodo.
+    https://doi.org/10.5281/zenodo.17090760 Licence: CC BY-NC-SA 4.0.
+licence_class: noncommercial
+licence:
+  name: CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)
+  spdx: CC-BY-NC-SA-4.0
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+evidence:
+  # The upstream terms that decide the class (see the header for FAO's own terms and the version evidence).
+  terms_url: https://zenodo.org/records/17090760
+  licence_quote: >-
+    Since v2.7 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users
+    can not use it freely and have to obtain a commercial license.
+  checked_on: 2026-10-05
+  terms_check: page
+obligations:
+  attribution: >-
+    FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.
+    Energy, industrial processes, waste and other emissions from Gütschow, J., Busch, D. & Pflüger, M. (2025), The
+    PRIMAP-hist national historical emissions time series (1750-2024) v2.7, doi:10.5281/zenodo.17090760, licensed
+    CC BY-NC-SA 4.0; method in Gütschow et al. (2016), Earth System Science Data 8, 571-603,
+    doi:10.5194/essd-8-571-2016.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from FAO. {year}. FAOSTAT. Accessed on {date_accessed_long}.
+    https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0. Energy, industrial processes, waste and other emissions
+    from Gütschow, J., Busch, D. & Pflüger, M. (2025), The PRIMAP-hist national historical emissions time series
+    (1750-2024) v2.7, doi:10.5281/zenodo.17090760, licensed CC BY-NC-SA 4.0; method in Gütschow et al. (2016), Earth
+    System Science Data 8, 571-603, doi:10.5194/essd-8-571-2016.
+  notice: >-
+    FAOSTAT's energy, industrial processes, waste and other emissions, and every total, share or per-person value that
+    includes them, are PRIMAP-hist v2.7 data (Gütschow, Busch and Pflüger, 2025, doi:10.5281/zenodo.17090760),
+    licensed CC BY-NC-SA 4.0. Values from this source are shared under CC BY-NC-SA 4.0, for non-commercial use only.
+  mirror_raw: true
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: emissions-totals
+    url: https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      Climate Change: Agrifood systems emissions: Emissions totals (GT). Zipped normalized CSV (latin-1): Area, Item,
+      Element, Year, Source, Unit, Value, Flag, Note. The same file as faostat/emissions-totals; here we read the IPCC
+      sector items (6821, 6817, 1711, 1707, 6818, 6819) and the all-sector total (6825), "FAO TIER 1" rows only.
+  - id: emissions-indicators
+    url: https://bulks-faostat.fao.org/production/Climate_change_Emissions_indicators_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      Climate Change: Agrifood systems emissions: Emissions indicators (EM). Zipped normalized CSV: Area, Item,
+      Element, Year, Unit, Value, Flag. FAO's shares of each item in the all-sector total including LULUCF (by
+      CO2-equivalent and by gas, percent) and emissions per capita (t CO2eq per person), per value of agricultural
+      production and per hectare of agricultural land, 1990-2023.
+  - id: datasets-catalogue
+    url: https://bulks-faostat.fao.org/production/datasets_E.json
+    format: json
+    description: >-
+      FAOSTAT bulk-download catalogue: DatasetCode, DateUpdate, FileRows and FileLocation for every domain. The same
+      file as faostat/datasets-catalogue. Supplies the vintage (DateUpdate) and {year} for the citation, after its
+      FileRows is matched against the data rows of the GT or EM file.
+    max_bytes: 5000000
+status:
+  state: active
+  note: >-
+    The emissions domains (GT, EM) were last updated 28 October 2025 with data to 2023. FAO's documentation names
+    PRIMAP-hist v2.4 for the non-farm sectors, but the values are v2.7 (see the registry file's header); the question
+    is with FAO. FAO is not on the January 2026 US withdrawal memorandum (FR Doc 2026-00976).
+  us_federal: false
+update_cadence: >-
+  Annual, each October-November. DateUpdate in datasets_E.json changes with each release, but zips are sometimes
+  re-uploaded later.
+next_release:
+  expected: 2026-10-31
+  note: >-
+    FAO's 2026 release calendar lists FAOSTAT Emissions totals (data to 2024) under October 2026 without a day; 31
+    October is the end of that window. The PRIMAP-hist version and its terms must be re-checked at that release.
+  url: https://www.fao.org/statistics/data-releases/upcoming-data-releases/en
+twins: []
+research_ref: >-
+  docs/research/sources-ghg-food-personal-2026-10-05.json#research[0] FAOSTAT Emissions totals (GT) + Emissions
+  indicators (EM); #verification[1] ghg-by-sector

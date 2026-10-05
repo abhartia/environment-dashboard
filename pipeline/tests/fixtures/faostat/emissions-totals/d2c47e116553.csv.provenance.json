@@ -1,10 +1,10 @@
 {
   "artifact_id": "emissions-totals",
-  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact emissions-totals --member 'Emissions_Totals_E_All_Data_(Normalized).csv' --area-code 5000 --item-element 6518:723113 --item-element 6825:723113 --item-element 5085:7225",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact emissions-totals --member 'Emissions_Totals_E_All_Data_(Normalized).csv' --area-code 5000 --item-element 6518:723113 --item-element 5085:7225",
   "data_rows_total": 2500090,
   "date_accessed": "2026-10-04",
-  "fixture_bytes": 19476,
-  "fixture_sha256": "c1688f3344d19255e70f24562a4719ce192980c2c01c6d5ae5abbfa67b8ca6ad",
+  "fixture_bytes": 14274,
+  "fixture_sha256": "7625dc6255cefcf8986831c9034bf397a08ed7e6acf685ec8b03c95a908f342f",
   "full_bytes": 20501708,
   "full_sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9",
   "header_lines": 1,
@@ -12,7 +12,7 @@
   "member": "Emissions_Totals_E_All_Data_(Normalized).csv",
   "member_bytes": 364012291,
   "member_sha256": "88b044d08e0f851d34c76acbe802b91ebcd2da635223718d89581a50e2f8d048",
-  "rows_kept": "133 of 2500090 data rows: Area Code 5000, (Item Code:Element Code) in 6518:723113, 6825:723113, 5085:7225",
+  "rows_kept": "99 of 2500090 data rows: Area Code 5000, (Item Code:Element Code) in 6518:723113, 5085:7225",
   "source_id": "faostat",
   "url": "https://bulks-faostat.fao.org/production/Emissions_Totals_E_All_Data_(Normalized).zip"
 }

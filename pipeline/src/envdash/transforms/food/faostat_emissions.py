@@ -1,4 +1,4 @@
-"""FAOSTAT Emissions totals (GT): world agrifood-systems emissions, their share of all emissions, and livestock methane.
+"""FAOSTAT Emissions totals (GT): world agrifood-systems emissions and livestock methane.
 
 Input. The GT bulk zip holds Emissions_Totals_E_All_Data_(Normalized).csv (latin-1, CRLF, every field quoted; columns
 Area Code, Area Code (M49), Area, Item Code, Item, Element Code, Element, Year Code, Year, Source Code, Source, Unit,
@@ -9,20 +9,17 @@ elements are matched by code, and the names next to the codes must be the ones b
 - Agrifood systems (item 6518), Emissions (CO2eq) (AR5) (element 723113): farm gate, land-use change, and pre- and
   post-production emissions in kilotonnes of CO₂-equivalent using the IPCC AR5 100-year global warming potentials.
   Published in billion tonnes (kt / 1,000,000, exact decimal arithmetic).
-- Share: item 6518 divided by All sectors with LULUCF (item 6825), same element and year, times 100. FAO's own brief
-  states 38 percent for 2001 and 32 percent for 2023; with the without-LULUCF total (item 6829) 2001 would be 38.57
-  percent, which FAO would print as 39, so the brief's denominator is the with-LULUCF total. Both items must cover
-  exactly the same years.
 - Emissions from livestock (item 5085), Emissions (CH4) (element 7225): methane from enteric fermentation and manure
   management (for World 2023 the two items sum to 115,211.2589 kt against this item's 115,211.2600 kt). Published in
   million tonnes of methane (kt / 1,000).
 
-Scope of the share. FAO's denominator "All sectors with LULUCF" (item 6825) equals the sum of items Energy, IPPU,
-Waste, Other, IPCC Agriculture and LULUCF, without "International bunkers" (item 6820), and the agrifood item
-"Land-use change" (6516) equals Net Forest conversion + Fires in humid tropical forests + Fires in organic soils,
-without "Forestland" (6751, the forest sink). Both identities hold in every year of the World FAO TIER 1 rows of the
-release of 28 October 2025 (tests/test_faostat_emissions.py, snapshot test), which is what the scope's
-bunkers="excluded" and the basis text rely on.
+Agrifood's share of all emissions is not computed here. Its denominator, "All sectors with LULUCF" (item 6825),
+contains FAOSTAT's energy, industry, waste and other items, which are PRIMAP-hist v2.7 data (CC BY-NC-SA 4.0), so the
+share is FAO's own published value under the noncommercial source faostat-all-sectors
+(envdash/transforms/emissions/faostat_all_sectors.py). The agrifood item "Land-use change" (6516) equals Net Forest
+conversion + Fires in humid tropical forests + Fires in organic soils, without "Forestland" (6751, the forest sink), in
+every year of the World FAO TIER 1 rows of the release of 28 October 2025 (tests/test_faostat_emissions.py, snapshot
+test), which is what the basis text relies on.
 
 Projections. The file carries 2030 and 2050 rows for some items, flagged F ("Forecast value" in the codebook). Rows
 flagged F are not published, and they must come after the last year of measured-based estimates. Every other flag must
@@ -35,10 +32,9 @@ identify the bytes: the transform requires the catalogue entry's FileLocation to
 equal the number of data rows in the CSV, and stops otherwise. The vintage is that DateUpdate (ISO date); its year
 fills {year} in FAO's citation.
 
-Publisher checks: the FAO highlight of 29 October 2025 for the release of 28 October 2025 (16.5 Gt, 38 and 32
-percent). No FAO statement of world livestock methane in mass units for this release was found (searched 2026-10-04:
-the highlight and FAOSTAT Analytical Brief 115 give livestock only as 4.3 Gt CO₂eq, all gases), so that series has
-no publisher check.
+Publisher checks: the FAO highlight of 29 October 2025 for the release of 28 October 2025 (16.5 Gt). No FAO
+statement of world livestock methane in mass units for this release was found (searched 2026-10-04: the highlight and
+FAOSTAT Analytical Brief 115 give livestock only as 4.3 Gt CO₂eq, all gases), so that series has no publisher check.
 """
 
 from __future__ import annotations
@@ -89,7 +85,6 @@ UNIT_KT = "kt"
 FORECAST = "F"
 
 AGRIFOOD = ("6518", "Agrifood systems")
-ALL_WITH_LULUCF = ("6825", "All sectors with LULUCF")
 LIVESTOCK = ("5085", "Emissions from livestock")
 CO2EQ_AR5 = ("723113", "Emissions (CO2eq) (AR5)")
 CH4 = ("7225", "Emissions (CH4)")
@@ -241,31 +236,6 @@ def agrifood_total(s: Scan, flags: dict[str, str]) -> tuple[list[Observation], l
     return obs, steps
 
 
-def agrifood_share(s: Scan, flags: dict[str, str]) -> tuple[list[Observation], list[str]]:
-    num, f1 = series(s, AGRIFOOD, CO2EQ_AR5)
-    den, f2 = series(s, ALL_WITH_LULUCF, CO2EQ_AR5)
-    if [p.year for p in num] != [p.year for p in den]:
-        raise FaostatFormatError(
-            f"{AGRIFOOD[1]} covers {[p.year for p in num]} but {ALL_WITH_LULUCF[1]} covers {[p.year for p in den]}"
-        )
-    hundred = Decimal(100)
-    obs, flag_step = _observations(
-        [(a.year, a.value / b.value * hundred, [a, b]) for a, b in zip(num, den, strict=True)], flags
-    )
-    steps = [
-        f'Kept the World (area code 5000), "FAO TIER 1" rows of element "{CO2EQ_AR5[1]}" (code {CO2EQ_AR5[0]}) for '
-        f'items "{AGRIFOOD[1]}" (code {AGRIFOOD[0]}) and "{ALL_WITH_LULUCF[1]}" (code {ALL_WITH_LULUCF[0]}), '
-        f"{num[0].year}–{num[-1].year}, in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global warming "
-        "potentials). Both items cover the same years.",
-        f'Share = "{AGRIFOOD[1]}" divided by "{ALL_WITH_LULUCF[1]}" for the same year, times 100 (exact decimal '
-        "arithmetic on the printed values). The denominator is FAO's total of all IPCC sectors including land use, "
-        "land-use change and forestry.",
-        flag_step,
-        *_forecast_step(sorted(set(f1) | set(f2))),
-    ]
-    return obs, steps
-
-
 def livestock_ch4(s: Scan, flags: dict[str, str]) -> tuple[list[Observation], list[str]]:
     pts, forecast = series(s, LIVESTOCK, CH4)
     thousand = Decimal(1000)
@@ -348,8 +318,6 @@ def _runner(compute):
 
 _CHANGES = {
     agrifood_total: "converted from kilotonnes to billion tonnes of CO₂-equivalent.",
-    agrifood_share: "share calculated as agrifood systems emissions divided by all-sector emissions including land "
-    "use, land-use change and forestry.",
     livestock_ch4: "converted from kilotonnes to million tonnes of methane.",
 }
 
@@ -400,49 +368,6 @@ def transforms(paths: Paths) -> list[Transform]:
                     "billion tonnes of carbon dioxide equivalent (Gt CO2eq) in 2023, up 21 percent since 2001.",
                     url=HIGHLIGHT_URL,
                 ),
-            ),
-        ),
-        Transform(
-            spec=Spec(
-                id="food.faostat.agrifood-emissions-world.share",
-                title="Agrifood systems' share of global greenhouse gas emissions",
-                description="The part of the world's greenhouse gas emissions, including land use, land-use change "
-                "and forestry, that comes from food and farming systems, each year since 1990, as estimated by FAO.",
-                kind="derived",
-                unit=Unit(
-                    code="percent",
-                    label="percent of global greenhouse gas emissions",
-                    short="%",
-                ),
-                display=Display(decimals=1),
-                scope=Scope(
-                    geography="World",
-                    gwp="AR5-GWP100",
-                    lulucf="included",
-                    bunkers="excluded",
-                    basis=_AGRIFOOD_BASIS + ' Denominator: FAOSTAT item "All sectors with LULUCF", the total of all '
-                    "IPCC sectors including land use, land-use change and forestry (energy, industrial processes, "
-                    "waste, other, agriculture and LULUCF, with the forest sink netted in); international aviation "
-                    'and shipping bunkers are a separate FAOSTAT item ("International bunkers") and are not in it.',
-                ),
-                geo_coverage="global-only",
-                headline_entity="WLD",
-            ),
-            inputs=(TOTALS, CATALOGUE),
-            run=_runner(agrifood_share),
-            module_file=here,
-            validation=Validation(min_rows=30, value_range=(10.0, 60.0)),
-            checks=tuple(
-                PublisherCheck(
-                    source_id=SOURCE,
-                    vintage=VINTAGE_2023,
-                    entity="WLD",
-                    period=period,
-                    stated=stated,
-                    quote="Their share in total emissions fell from 38 to 32 percent in 2023.",
-                    url=HIGHLIGHT_URL,
-                )
-                for period, stated in (("2001", "38"), ("2023", "32"))
             ),
         ),
         Transform(
