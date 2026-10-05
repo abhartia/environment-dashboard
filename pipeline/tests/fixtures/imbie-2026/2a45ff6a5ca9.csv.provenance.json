@@ -1,0 +1,15 @@
+{
+  "artifact_id": "antarctica-mm",
+  "command": "uv run python tests/fixtures/make_fixture.py --source imbie-2026 --artifact antarctica-mm --first 24 --last 24",
+  "data_rows_total": 540,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 12335,
+  "fixture_sha256": "951c34c144d9b4fb16a71573a95a3fbe6de39c305d887346893c343421eb81e9",
+  "full_bytes": 89834,
+  "full_sha256": "2a45ff6a5ca9492762421fb4dc895dc9c5a9744b91f9e7ad764c48b699cdede9",
+  "header_lines": 27,
+  "licence": "Open Government Licence v3.0",
+  "rows_kept": "data rows 1-24 and 517-540 of 540",
+  "source_id": "imbie-2026",
+  "url": "https://ramadda.data.bas.ac.uk/repository/entry/get/imbie3_antarctica_mm_partitioned.csv?entryid=synth%3A128c5e33-5224-4197-82f0-19dcc95b80a0%3AL2ltYmllM19hbnRhcmN0aWNhX21tX3BhcnRpdGlvbmVkLmNzdg%3D%3D"
+}

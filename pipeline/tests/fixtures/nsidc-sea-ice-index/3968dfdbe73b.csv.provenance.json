@@ -1,0 +1,13 @@
+{
+  "artifact_id": "north-monthly-september",
+  "command": "uv run python tests/fixtures/make_fixture.py --source nsidc-sea-ice-index --artifact north-monthly-september --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 2352,
+  "fixture_sha256": "3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f",
+  "full_bytes": 2352,
+  "full_sha256": "3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f",
+  "licence": "No licence stated; free use with citation as a condition of use (NSIDC)",
+  "rows_kept": "the whole file (2,352 bytes)",
+  "source_id": "nsidc-sea-ice-index",
+  "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv"
+}

@@ -16,9 +16,10 @@
 #   north and south 1981-2010 daily climatology CSVs: 34,520 bytes each, Last-Modified 2 Oct 2026.
 #   monthly CSVs N_03, N_09, S_02, S_09: 2,352 bytes each, Last-Modified 2 Oct 2026; N_09 runs 1979 (7.05) to 2026
 #     (4.81, NSIDC-0803); S_09 2026 = 17.32.
-# The v4 user guide (g02135-v004-userguide.pdf) says AMSR2 data are the input from 1 January 2025, monthly extent is
-# computed from a monthly mean concentration field (not the mean of daily extents), and NSIDC's own daily analysis
-# uses a 5-day trailing mean.
+# The v4 user guide (g02135-v004-userguide.pdf) says AMSR2 data are the input from 1 January 2025, and NSIDC's own
+# daily analysis uses a 5-day trailing mean. Corrected 2026-10-05 after re-reading the guide's section 3.1.6: the
+# monthly extent in the N_mm/S_mm files is "obtained by simply averaging the daily extents over the month" (the mean
+# concentration field is what the monthly images use), not computed from a monthly mean concentration field.
 # citation.text: the landing page's citation with "[ describe subset used if applicable ]" filled and "Date Accessed"
 # given as {date_accessed}.
 id: nsidc-sea-ice-index

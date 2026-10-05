@@ -1,0 +1,15 @@
+{
+  "artifact_id": "north-daily-extent",
+  "command": "uv run python tests/fixtures/make_fixture.py --source nsidc-sea-ice-index --artifact north-daily-extent --first 1724 --last 641",
+  "data_rows_total": 15860,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 386979,
+  "fixture_sha256": "7588131c37b89f6292cb8fc88fe343920790ff0dcc228f474bbc9912dcfdbb6c",
+  "full_bytes": 1902460,
+  "full_sha256": "a66ab22787c75b01a9cb71292979a247b724a4977b2e8d13532a86d025bd8a69",
+  "header_lines": 1,
+  "licence": "No licence stated; free use with citation as a condition of use (NSIDC)",
+  "rows_kept": "data rows 1-1724 and 15220-15860 of 15860",
+  "source_id": "nsidc-sea-ice-index",
+  "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv"
+}
