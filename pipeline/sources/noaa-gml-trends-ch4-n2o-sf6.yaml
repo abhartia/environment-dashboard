@@ -1,0 +1,79 @@
+# NOAA Global Monitoring Laboratory trend files for methane, nitrous oxide (and sulphur hexafluoride).
+# Evidence: docs/research/sources-atmosphere-and-temperature.json ("NOAA GML Trends in globally-averaged CH4, N2O and
+# SF6"); verifier verdict "confirmed".
+# Split from noaa-gml-trends on 2026-10-04: NOAA publishes these files as a separate product with its own citation and
+# DOI (Lan, Thoning & Dlugokencky, doi:10.15138/P8XG-AA10), while noaa-gml-trends carries the CO2 product's citation
+# (Lan, Tans & Thoning, doi:10.15138/9N0H-ZH07). A source has one citation, so the CH4 and N2O files could not stay
+# under the CO2 entry without crediting the wrong DOI. The snapshot manifests of the two files first fetched on
+# 2026-10-04 (sha256 fac1f4e1..., 4ef7de07...) record source_id noaa-gml-trends, the entry they were fetched under;
+# the bytes and URLs are the same.
+# citation.text: verbatim from "How to reference content from this page" on gml.noaa.gov/ccgg/trends_ch4/ and
+# gml.noaa.gov/ccgg/trends_n2o/ (read 2026-10-04, both "Last updated: Sep 05, 2026"), with the version replaced by
+# {version}. gml.noaa.gov/ccgg/trends_doi.html, where the DOI resolves, gives the same text with the year "(2022)".
+# Licence evidence checked 2026-10-04 in ch4_annmean_gl.csv (File Creation: Sat Sep  5 04:05:12 2026): the same
+# "USE OF NOAA GML DATA" header as the CO2 files. n2o_annmean_gl.csv carries the identical paragraph. US federal work.
+id: noaa-gml-trends-ch4-n2o-sf6
+title: Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride
+publisher: NOAA Global Monitoring Laboratory
+landing_url: https://gml.noaa.gov/ccgg/trends_doi.html
+description: >-
+  Monthly and annual means of methane (from 1983), nitrous oxide (from 2001) and sulphur hexafluoride averaged over
+  NOAA's global network of marine surface air-sampling sites, with uncertainties from a network bootstrap and a
+  measurement Monte Carlo taken in quadrature, and annual increases from 1 January to 1 January.
+citation:
+  type: dataset
+  title: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements
+  author:
+    - {family: Lan, given: X.}
+    - {family: Thoning, given: K. W.}
+    - {family: Dlugokencky, given: E. J.}
+  issued: "2022"
+  publisher: NOAA Global Monitoring Laboratory
+  version: "{version}"
+  DOI: 10.15138/P8XG-AA10
+  URL: https://gml.noaa.gov/ccgg/trends_doi.html
+  text: >-
+    Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA
+    Global Monitoring Laboratory measurements. Version {version}, https://doi.org/10.15138/P8XG-AA10
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv
+  licence_quote: >-
+    These data are made freely available to the public and the scientific community in the belief that their wide
+    dissemination will lead to greater understanding and new scientific insights. To ensure that GML receives fair
+    credit for their work please include relevant citation text in publications.
+  checked_on: 2026-10-04
+  terms_check: page
+obligations:
+  attribution: >-
+    NOAA Global Monitoring Laboratory (Lan, Thoning & Dlugokencky), version {version}, doi:10.15138/P8XG-AA10.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from NOAA Global Monitoring Laboratory data (Lan, Thoning & Dlugokencky),
+    version {version}, doi:10.15138/P8XG-AA10.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: ch4-annmean-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv
+    format: csv
+    description: Annual mean methane averaged over global marine surface sites, from 1984 (ppb).
+  - id: n2o-annmean-gl
+    url: https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv
+    format: csv
+    description: Annual mean nitrous oxide averaged over global marine surface sites, from 2001 (ppb).
+status:
+  state: at-risk
+  note: >-
+    Still publishing monthly (version 2026-09, files created 5 September 2026). The FY2026 and FY2027 US budget
+    requests proposed closing NOAA's research labs, including GML; Congress rejected the FY2026 closure.
+  us_federal: true
+update_cadence: Monthly, around the 5th of the month
+next_release:
+  expected: 2026-10-05
+  note: Version 2026-10 of the monthly and annual files.
+twins: []
+research_ref: docs/research/sources-atmosphere-and-temperature.json#NOAA GML Trends in globally-averaged CH4, N2O and SF6

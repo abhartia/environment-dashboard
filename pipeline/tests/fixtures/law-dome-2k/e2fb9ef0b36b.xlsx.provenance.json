@@ -1,0 +1,15 @@
+{
+  "artifact_id": "law-dome-ghg-2000years",
+  "command": "uv run python tests/fixtures/make_fixture.py --source law-dome-2k --artifact law-dome-ghg-2000years --first 100000 --last 0",
+  "data_rows_total": 2007,
+  "date_accessed": "2026-10-04",
+  "fixture_bytes": 261755,
+  "fixture_sha256": "e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4",
+  "full_bytes": 261755,
+  "full_sha256": "e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 2007 data rows",
+  "source_id": "law-dome-2k",
+  "url": "https://data.csiro.au/dap/ws/v2/collections/63432/data/53592973"
+}
