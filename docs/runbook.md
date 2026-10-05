@@ -64,6 +64,16 @@ Also (owner):
   1 year, because keys are content-addressed) and one rate-limiting rule on that host. CORS on that bucket is GET/HEAD
   from any origin.
 
+Then seed the private bucket once, from a machine that has run the pipeline (CI pulls these before every build):
+
+```bash
+cd pipeline
+export R2_ACCESS_KEY_ID=$(security find-generic-password -s r2-envdash-access-key-id -w)
+export R2_SECRET_ACCESS_KEY=$(security find-generic-password -s r2-envdash-secret-access-key -w)
+export CLOUDFLARE_ACCOUNT_ID=<account id>
+uv run envdash private push && uv run envdash archive
+```
+
 ### 4. Data-source credentials (owner creates the accounts; Claude stores the keys)
 
 | Keychain service | For | GitHub secret |

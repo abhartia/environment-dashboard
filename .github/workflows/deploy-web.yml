@@ -23,6 +23,8 @@ permissions:
 
 jobs:
   deploy:
+    # Skipped (visibly) until Cloudflare is set up; see docs/runbook.md.
+    if: ${{ vars.CLOUDFLARE_ACCOUNT_ID != '' }}
     runs-on: ubuntu-latest
     environment: production
     defaults:

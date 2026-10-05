@@ -44,6 +44,29 @@ jobs:
 
   web:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - name: Generated data client matches the schema
+        run: npm run gen:api && git diff --exit-code -- src/gen
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+
+  # The static export needs the values we may show but not redistribute, which live only in the private R2 bucket.
+  # Until R2 is configured (docs/runbook.md), this job is skipped and says why, rather than building without them.
+  web-build:
+    needs: web
+    if: ${{ vars.CLOUDFLARE_ACCOUNT_ID != '' }}
+    runs-on: ubuntu-latest
     environment: production
     defaults:
       run:
@@ -57,8 +80,6 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - uses: astral-sh/setup-uv@v6
       - run: npm ci
-      - name: Generated data client matches the schema
-        run: npm run gen:api && git diff --exit-code -- src/gen
       - name: Values that may be shown but not redistributed (from the private archive)
         working-directory: pipeline
         env:
@@ -66,9 +87,6 @@ jobs:
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: uv sync --frozen && uv run envdash private pull
-      - run: npm run typecheck
-      - run: npm run lint
-      - run: npm test
       - name: Build (static export + check-build)
         env:
           NEXT_PUBLIC_SITE_URL: https://environmentdashboard.org

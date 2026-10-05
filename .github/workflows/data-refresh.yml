@@ -18,6 +18,8 @@ permissions:
 
 jobs:
   refresh:
+    # Skipped (visibly) until R2 is set up; see docs/runbook.md.
+    if: ${{ vars.CLOUDFLARE_ACCOUNT_ID != '' }}
     runs-on: ubuntu-latest
     environment: production
     outputs:
@@ -48,7 +50,7 @@ jobs:
         id: refresh
         continue-on-error: true
         working-directory: pipeline
-        run: uv run envdash private pull && uv run envdash refresh && uv run envdash archive
+        run: uv run envdash private pull && uv run envdash refresh && uv run envdash private push && uv run envdash archive
       - name: Open or update one issue per failed source, and per release due
         if: always()
         working-directory: pipeline

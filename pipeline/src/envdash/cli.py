@@ -9,8 +9,10 @@ from typing import Annotated
 import typer
 
 from envdash import archive as archive_mod
+from envdash import canonical, snapshots
+from envdash import issues as issues_mod
 from envdash import openapi as openapi_mod
-from envdash import snapshots
+from envdash import private as private_mod
 from envdash.export import BuildReport, build_and_export
 from envdash.fetch import SourceFetch, fetch_all, now_iso
 from envdash.paths import Paths
@@ -22,6 +24,8 @@ from envdash.validate import validate_all
 app = typer.Typer(no_args_is_help=True, add_completion=False, help=__doc__)
 snapshot_app = typer.Typer(no_args_is_help=True, help="Record raw files.")
 app.add_typer(snapshot_app, name="snapshot")
+private_app = typer.Typer(no_args_is_help=True, help="Exports we may show but not redistribute (private R2 bucket).")
+app.add_typer(private_app, name="private")
 
 SourceOpt = Annotated[list[str] | None, typer.Option("--source", "-s", help="Only these source ids (repeatable).")]
 
@@ -103,10 +107,17 @@ def build(
 
 
 @app.command()
-def validate() -> None:
+def validate(
+    registry_only: Annotated[
+        bool, typer.Option(help="Only check that every source and literature entry loads.")
+    ] = False,
+) -> None:
     """Check the registry, snapshot manifests and every published file."""
     paths = _paths()
-    problems = validate_all(paths, load_registry(paths))
+    reg = load_registry(paths)
+    problems = (
+        [*reg.source_errors.values(), *reg.literature_errors.values()] if registry_only else validate_all(paths, reg)
+    )
     for p in problems:
         typer.echo(f"  problem: {p}")
     typer.echo(f"validate: {len(problems)} problem(s)")
@@ -236,11 +247,60 @@ def status() -> None:
 
 
 @app.command()
-def openapi() -> None:
+def openapi(
+    stdout: Annotated[bool, typer.Option(help="Print the document instead of writing it (for drift checks).")] = False,
+) -> None:
     """Write pipeline/schema/openapi.json from the models."""
     paths = _paths()
+    if stdout:
+        typer.echo(canonical.dump_bytes(openapi_mod.document()).decode(), nl=False)
+        return
     changed = openapi_mod.write(paths)
     typer.echo(f"{paths.rel(paths.schema / 'openapi.json')} {'written' if changed else 'unchanged'}")
+
+
+def _r2_or_exit():
+    try:
+        return archive_mod.r2_client()
+    except archive_mod.ArchiveConfigError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+
+
+@private_app.command("push")
+def private_push() -> None:
+    """Upload every private export the catalogue lists to the private bucket (after a build)."""
+    paths = _paths()
+    try:
+        done = private_mod.push(paths, _r2_or_exit())
+    except private_mod.PrivateExportError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(f"private push: {len(done)} export(s)")
+
+
+@private_app.command("pull")
+def private_pull() -> None:
+    """Download every private export the catalogue lists, checking each against the catalogue hash."""
+    paths = _paths()
+    try:
+        entries = private_mod.private_entries(paths)
+        if not entries:
+            typer.echo("private pull: the catalogue lists no private exports")
+            return
+        done = private_mod.pull(paths, _r2_or_exit())
+    except private_mod.PrivateExportError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(f"private pull: {len(done)} export(s) present and verified")
+
+
+@app.command("report-issues")
+def report_issues() -> None:
+    """Open, update or close one GitHub issue per failed source, and file release-due issues."""
+    paths = _paths()
+    for p in issues_mod.apply(paths, load_registry(paths), date.today()):
+        typer.echo(f"  {p.action:<7} {p.title}" + (f" (#{p.number})" if p.number else ""))
 
 
 if __name__ == "__main__":  # pragma: no cover
