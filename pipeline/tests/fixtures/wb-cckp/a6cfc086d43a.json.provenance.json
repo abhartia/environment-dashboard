@@ -1,0 +1,13 @@
+{
+  "artifact_id": "cmip6-hd35-2040-2059-ssp245-p10",
+  "command": "uv run python tests/fixtures/make_fixture.py --source wb-cckp --artifact cmip6-hd35-2040-2059-ssp245-p10 --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 5511,
+  "fixture_sha256": "a6cfc086d43a3712f0d9183a71b004a5fa17fa06b64a39c9db2a4b36ccb6af20",
+  "full_bytes": 5511,
+  "full_sha256": "a6cfc086d43a3712f0d9183a71b004a5fa17fa06b64a39c9db2a4b36ccb6af20",
+  "licence": "CC BY 4.0 with the World Bank Dataset Terms",
+  "rows_kept": "the whole file (5,511 bytes)",
+  "source_id": "wb-cckp",
+  "url": "https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_p10_ssp245_ensemble_all_mean/all_countries?_format=json"
+}

@@ -1,0 +1,13 @@
+{
+  "artifact_id": "era5-tas-climatology-1991-2020-global",
+  "command": "uv run python tests/fixtures/make_fixture.py --source wb-cckp --artifact era5-tas-climatology-1991-2020-global --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 101,
+  "fixture_sha256": "ac58ff0206fa4b1fad2e3ac66916c1209e793d4923393499f2defabdd3364792",
+  "full_bytes": 101,
+  "full_sha256": "ac58ff0206fa4b1fad2e3ac66916c1209e793d4923393499f2defabdd3364792",
+  "licence": "CC BY 4.0 with the World Bank Dataset Terms",
+  "rows_kept": "the whole file (101 bytes)",
+  "source_id": "wb-cckp",
+  "url": "https://cckpapi.worldbank.org/cckp/v1/era5-x0.25_climatology_tas_climatology_annual_1991-2020_mean_historical_era5_x0.25_mean/global?_format=json"
+}
