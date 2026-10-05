@@ -18,7 +18,7 @@ export function Mark({ className }: { className?: string }) {
 
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={cn("font-serif text-lg font-medium tracking-tight", className)}>
+    <span className={cn("text-lg font-bold tracking-tight whitespace-nowrap", className)}>
       Environment <span className="text-muted-foreground">Dashboard</span>
     </span>
   );

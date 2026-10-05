@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
 
-import { SectionIndex } from "@/components/site/section-index";
-import { SECTIONS } from "@/lib/sections";
-import { ogImages } from "@/lib/seo/og";
-import { canonical } from "@/lib/site-url";
-
-const section = SECTIONS[2];
+import { ChapterPage } from "@/components/dash/chapter-page";
+import { chapterMeta } from "@/lib/dash/meta";
 
 export const metadata: Metadata = {
-  title: section.label,
-  description: `${section.question} ${section.intro}`,
-  alternates: canonical(section.href),
-  openGraph: { images: ogImages(section.href) },
+  title: chapterMeta("action").title,
+  description: "Household choices ranked by the emissions they cut, who emits the most, and how much carbon is left for 1.5 °C. Every number links to its source.",
+  alternates: { canonical: "/action" },
 };
 
-export default function Page() {
-  return <SectionIndex section={section} />;
+export default function ActionPage() {
+  return <ChapterPage slug="action" />;
 }

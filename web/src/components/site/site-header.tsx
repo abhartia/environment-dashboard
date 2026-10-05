@@ -15,7 +15,7 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <Container className="flex h-14 items-center gap-8">
+      <Container className="flex h-14 items-center gap-6">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Environment Dashboard home">
           <Mark />
           <Wordmark />

@@ -17,7 +17,7 @@ export function SectionIndex({ section }: { section: Section }) {
                 <p className="eyebrow">
                   {String(i + 1).padStart(2, "0")} · {story.title}
                 </p>
-                <p className="mt-2 font-serif text-xl leading-snug">{story.question}</p>
+                <p className="mt-2 font-semibold tracking-tight text-xl leading-snug">{story.question}</p>
                 {story.ready ? null : <p className="mt-3 text-sm text-muted-foreground">Being built</p>}
               </>
             );

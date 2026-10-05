@@ -52,4 +52,7 @@ for (const entry of catalog.indicators) {
   cpSync(src, join(GEN, "v1/indicators", `${entry.id}.json`));
   privateCount++;
 }
+// The entity crosswalk (names, kinds) the dashboard labels places with. Built by the pipeline from Natural Earth
+// (public domain); read at build time only.
+cpSync(join(ROOT, "pipeline/geo/entities.csv"), join(GEN, "v1/entities.csv"));
 console.log(`sync-data: ${catalog.indicators.length} indicators (${privateCount} shown but not redistributed)`);

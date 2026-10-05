@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 export function NavLinks() {
   const pathname = usePathname();
   return (
-    <nav aria-label="Main" className="hidden h-full items-stretch gap-6 text-sm md:flex">
+    <nav aria-label="Main" className="hidden h-full items-stretch gap-5 text-sm font-medium xl:flex">
       {NAV.map((item) => {
         const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
         return (

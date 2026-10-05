@@ -19,7 +19,7 @@ export function MobileNav() {
         ref={button}
         variant="ghost"
         size="icon"
-        className="md:hidden"
+        className="xl:hidden"
         aria-label="Open menu"
         aria-expanded={open}
         aria-haspopup="dialog"

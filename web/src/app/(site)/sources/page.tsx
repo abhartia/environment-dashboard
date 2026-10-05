@@ -38,7 +38,7 @@ export default function Page() {
               <li key={s.id} className="bg-card">
                 <Link href={sourcePath(s.id)} className="grid h-full gap-2 p-5 hover:bg-accent">
                   <span className="eyebrow">{s.publisher}</span>
-                  <span className="font-serif text-lg leading-snug">{s.title}</span>
+                  <span className="font-semibold tracking-tight text-lg leading-snug">{s.title}</span>
                   <span className="flex flex-wrap gap-1.5">
                     <Badge variant="secondary">{CLASS_LABEL[s.licence_class]}</Badge>
                     {s.status.state !== "active" ? <Badge variant="outline">{s.status.state === "at-risk" ? "At risk" : s.status.state}</Badge> : null}

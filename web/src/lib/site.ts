@@ -9,10 +9,15 @@ export const BRAND = {
   repo: "https://github.com/abhartia/environment-dashboard",
 } as const;
 
-/** Primary navigation: the three questions. Countries joins when its pages exist (milestone 6). */
+/** Primary navigation: the dashboard's chapters. */
 export const NAV = [
-  { href: "/causes", label: "Causes" },
-  { href: "/consequences", label: "Consequences" },
+  { href: "/emissions", label: "Emissions" },
+  { href: "/energy", label: "Energy" },
+  { href: "/air", label: "Greenhouse gases" },
+  { href: "/heat", label: "Heat" },
+  { href: "/oceans", label: "Seas and ice" },
+  { href: "/people", label: "People" },
+  { href: "/food", label: "Food and land" },
   { href: "/action", label: "What can be done" },
 ] as const;
 

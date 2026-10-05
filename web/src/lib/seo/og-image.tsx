@@ -3,9 +3,9 @@ import { ImageResponse } from "next/og";
 import { indicator } from "@/lib/data";
 
 /** Hex values (satori cannot read CSS variables), matching globals.css. */
-const PAPER = "#faf9f6";
-const INK = "#16181d";
-const MUTED = "#4f5560";
+const PAPER = "#ffffff";
+const INK = "#0d0d0d";
+const MUTED = "#4a4a4a";
 const RDBU = ["#053061", "#2166ac", "#4393c3", "#92c5de", "#d1e5f0", "#f7f7f7", "#fddbc7", "#f4a582", "#d6604d", "#b2182b", "#67001f"];
 const STRIPES_ID = "temp.hadcrut5.annual-1850-1900";
 

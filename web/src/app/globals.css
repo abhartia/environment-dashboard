@@ -4,16 +4,16 @@
 @plugin "@tailwindcss/typography";
 
 /*
- * Foundation tokens (stock shadcn structure, calm editorial palette). The design-direction milestone replaces the
- * palette and type scale in docs/design-spec.md; components only ever use these variables, never raw colours.
+ * Foundation tokens (stock shadcn structure) in the Atlas direction the owner picked: a white ground, heavy Inter and
+ * colour only where it carries data. Components only ever use these variables, never raw colours (data series take
+ * their colours from the dashboard tree, where each is checked for contrast).
  */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-heading: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -54,33 +54,34 @@
   --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-/* Contrast on --background #faf9f6 (WCAG): foreground 16.9, muted-foreground 7.1, faint 5.2, link 8.2, input 3.1 (non-text),
-   warm 6.5, cool 5.6; chart series all >= 3:1 (non-text graphics, WCAG 1.4.11). */
+/* Atlas: white ground, heavy Inter, colour reserved for data. Contrast on --background #ffffff (WCAG): foreground 19.4,
+   muted-foreground 8.9, faint 6.4, link 6.6, input 3.3 (non-text), warm 6.6, cool 6.2; chart series all >= 3:1 (non-text
+   graphics, WCAG 1.4.11). */
 :root {
   color-scheme: light;
-  --background: #faf9f6;
-  --foreground: #16181d;
-  --card: #ffffff;
-  --card-foreground: #16181d;
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --card: #f6f6f4;
+  --card-foreground: #0d0d0d;
   --popover: #ffffff;
-  --popover-foreground: #16181d;
-  --primary: #16181d;
-  --primary-foreground: #faf9f6;
-  --secondary: #efede7;
-  --secondary-foreground: #16181d;
-  --muted: #efede7;
-  --muted-foreground: #4f5560;
-  --accent: #efede7;
-  --accent-foreground: #16181d;
+  --popover-foreground: #0d0d0d;
+  --primary: #0d0d0d;
+  --primary-foreground: #ffffff;
+  --secondary: #efefec;
+  --secondary-foreground: #0d0d0d;
+  --muted: #efefec;
+  --muted-foreground: #4a4a4a;
+  --accent: #efefec;
+  --accent-foreground: #0d0d0d;
   --destructive: #b42318;
-  --border: #dedad1;
-  --input: #8b8f97;
+  --border: #d9d9d4;
+  --input: #8b8b86;
   --ring: #1f4e79;
-  --radius: 0.5rem;
-  --link: #1f4e79;
-  --faint: #636975;
-  --grid: #e9e6de;
-  --paper: #f3f1ea;
+  --radius: 0.75rem;
+  --link: #b2182b;
+  --faint: #5f5f5f;
+  --grid: #ecece8;
+  --paper: #f3f3ef;
   /* Warming-stripes ends (ColorBrewer RdBu 11, colour-blind safe diverging). */
   --warm: #b2182b;
   --cool: #2166ac;
@@ -113,14 +114,15 @@
   h2,
   h3 {
     font-family: var(--font-heading);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.1;
+    font-weight: 750;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
     text-wrap: balance;
   }
   h1 {
-    letter-spacing: -0.025em;
-    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
   }
   p {
     text-wrap: pretty;
@@ -190,75 +192,4 @@
     transition-duration: 0ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/*
- * Design-direction prototypes (milestone 4). The same pages under three directions, switched by
- * <html data-direction="…"> (dev only, ?direction=night|atlas). The owner picks one; the others are removed.
- * "paper" is the default above.
- */
-[data-direction="night"] {
-  color-scheme: dark;
-  --background: #0b1220;
-  --foreground: #e8edf5;
-  --card: #111a2c;
-  --card-foreground: #e8edf5;
-  --popover: #131d31;
-  --popover-foreground: #e8edf5;
-  --primary: #e8edf5;
-  --primary-foreground: #0b1220;
-  --secondary: #182338;
-  --secondary-foreground: #e8edf5;
-  --muted: #182338;
-  --muted-foreground: #9fb0c8;
-  --accent: #1b2840;
-  --accent-foreground: #e8edf5;
-  --border: #22304a;
-  --input: #5b6f8f;
-  --ring: #7cc4ff;
-  --link: #8fd0ff;
-  --faint: #8396b3;
-  --grid: #1a2539;
-  --paper: #0e1626;
-  --chart-1: #6cc3ff;
-  --chart-2: #ffb054;
-  --chart-3: #4fd1a5;
-  --chart-4: #f28bc4;
-  --chart-5: #ffd666;
-  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-}
-[data-direction="night"] h1,
-[data-direction="night"] h2,
-[data-direction="night"] h3 {
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-
-[data-direction="atlas"] {
-  --background: #ffffff;
-  --foreground: #0d0d0d;
-  --card: #f6f6f4;
-  --muted: #efefec;
-  --muted-foreground: #4a4a4a;
-  --border: #d9d9d4;
-  --paper: #f3f3ef;
-  --link: #b2182b;
-  --faint: #5f5f5f;
-  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-}
-[data-direction="atlas"] h1 {
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
-  text-transform: none;
-}
-[data-direction="atlas"] h2,
-[data-direction="atlas"] h3 {
-  font-weight: 750;
-  letter-spacing: -0.03em;
-}
-[data-direction="atlas"] .font-serif {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }

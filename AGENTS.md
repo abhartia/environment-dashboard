@@ -1,7 +1,9 @@
 # Working in this repo
 
 Environment Dashboard lets the public drill down from the causes of climate change, through its consequences, to what
-can be done. **Every number on the site must be traceable to its primary source**: the publisher, dataset version,
+can be done. It is a **dashboard, not a set of articles**: each chapter (`/emissions`, `/energy`, `/air`, `/heat`,
+`/oceans`, `/people`, `/food`, `/action`) shows one idea at a time as one big traced number and one animated chart, and
+each choice splits it one more way (`docs/dashboard.md`). **Every number on the site must be traceable to its primary source**: the publisher, dataset version,
 exact file, fetch date, sha256, the transformation applied, and the licence. That promise is what the code protects.
 
 | | |
@@ -9,7 +11,7 @@ exact file, fetch date, sha256, the transformation applied, and the licence. Tha
 | `pipeline/` | Python (uv). Fetches sources, snapshots raw bytes, transforms, validates, and exports to `data/`. The only door data comes through. |
 | `data/` | Pipeline output, committed. Never edit by hand. |
 | `web/` | Next.js 16 static export on Cloudflare Pages. Renders `data/`; never computes a published number itself. |
-| `docs/` | `runbook.md` (setup and operations), `sources.md` (source registry rules and decisions), `licensing.md`, `style.md` (voice), `design-spec.md`, `research/` (dated evidence). |
+| `docs/` | `runbook.md` (setup and operations), `sources.md` (source registry rules and decisions), `licensing.md`, `style.md` (voice), `dashboard.md` (how chapters and drill-downs work), `research/` (dated evidence). |
 
 ## Rules
 
@@ -40,7 +42,12 @@ exact file, fetch date, sha256, the transformation applied, and the licence. Tha
    fixtures are forbidden. Never add mock or invented data anywhere.
 10. **Secrets live in the macOS Keychain** and reach CI only as GitHub secrets piped from it. Service names and the
     mapping to secret names are in `docs/runbook.md`.
-11. **Voice** follows `docs/style.md`: plain words, units spelled out, options described by their measured effect
+11. **Dashboard nodes only select and label.** A chapter tree (`web/src/lib/dash/<chapter>-tree.ts`) picks published
+    observations through `lib/dash/kit.ts`; it never computes a value. Its sentence carries no typed data number, and
+    a kicker that asserts something ("X is the largest source") is derived from the data or checked by the tree so
+    a refresh that falsifies it fails the build. Node files are public downloads, so the kit refuses `no-derivatives`
+    and `display-only` indicators.
+12. **Voice** follows `docs/style.md`: plain words, units spelled out, options described by their measured effect
     and range, never in the imperative. No "live" or "real-time" claims. **No financial advice**: no savings,
     payback, tariff or investment guidance.
 

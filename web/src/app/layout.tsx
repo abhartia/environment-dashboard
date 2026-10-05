@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 
 import { JsonLd } from "@/components/site/json-ld";
 import { siteGraph } from "@/lib/seo/structured-data";
@@ -7,14 +7,12 @@ import { BRAND } from "@/lib/site";
 import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
-// Headings: Newsreader (variable serif with optical sizes), for an editorial voice.
-const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], axes: ["opsz"], display: "swap" });
-// Body and UI: Inter (variable), with tabular figures for numbers.
+// Everything: Inter (variable), heavy for headings and numbers, with tabular figures.
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 // Hashes and ids on provenance pages only; never the LCP element, so not preloaded.
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], display: "swap", preload: false });
 
-export const viewport: Viewport = { themeColor: "#faf9f6" };
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,16 +29,8 @@ const CF_BEACON = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${jetbrains.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        {process.env.NODE_ENV === "development" ? (
-          // Design-direction prototypes only (dev): ?direction=night|atlas sets <html data-direction>.
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(()=>{const d=new URLSearchParams(location.search).get("direction");if(d)document.documentElement.dataset.direction=d})()`,
-            }}
-          />
-        ) : null}
         <JsonLd data={siteGraph()} />
         {children}
         {CF_BEACON ? (
