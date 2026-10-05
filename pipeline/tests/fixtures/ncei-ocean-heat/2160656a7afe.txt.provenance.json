@@ -1,0 +1,13 @@
+{
+  "artifact_id": "world-0-2000m-pentadal",
+  "command": "uv run python tests/fixtures/make_fixture.py --source ncei-ocean-heat --artifact world-0-2000m-pentadal --whole",
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 3876,
+  "fixture_sha256": "2160656a7afed5d87e95b079374efb83e3ade2f9d1a58e0649290ce0eddf73b4",
+  "full_bytes": 3876,
+  "full_sha256": "2160656a7afed5d87e95b079374efb83e3ade2f9d1a58e0649290ce0eddf73b4",
+  "licence": "No restrictions on use (NOAA CDR Program Open Data Policy; US federal government work)",
+  "rows_kept": "the whole file (3,876 bytes)",
+  "source_id": "ncei-ocean-heat",
+  "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat"
+}
