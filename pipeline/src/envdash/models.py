@@ -780,6 +780,18 @@ class IndicatorFile(IndicatorBase):
 # --- catalogue, status --------------------------------------------------------------------------------------------
 
 
+class PublishedValueCitation(Strict):
+    """Where a quoted value comes from, as the public catalogue carries it. The verbatim quote contains the value, so
+    it is here only for redistributable classes; for no-derivatives and display-only it stays in the private export
+    and is shown on the server-rendered data page."""
+
+    document: str = Field(description="Source id of the paper/report.")
+    locator: str = Field(description='e.g. "Table 3, p. 568" or "SPM statement C.10".')
+    quote: str | None = Field(
+        default=None, description="Verbatim text the value is taken from; null for no-derivatives and display-only."
+    )
+
+
 class Provenance(Strict):
     """Everything about where an indicator came from, without its values. Public for every class: the files,
     fingerprints, steps and credits are metadata, so even a number we may not redistribute can be traced."""
@@ -792,7 +804,7 @@ class Provenance(Strict):
     notice: str | None = None
     origins: list[Origin] = Field(min_length=1)
     processing: list[ProcessingStep] = Field(min_length=1)
-    published_value: PublishedValueRef | None = None
+    published_value: PublishedValueCitation | None = None
 
 
 class CatalogEntry(Strict):
@@ -826,6 +838,9 @@ class CatalogEntry(Strict):
             raise ValueError(f"{self.id}: downloadable must be {redistributable} for class {self.licence_class}")
         if (self.latest is not None) != redistributable:
             raise ValueError(f"{self.id}: latest is published in the catalogue only for redistributable classes")
+        pv = self.provenance.published_value
+        if pv is not None and (pv.quote is not None) != redistributable:
+            raise ValueError(f"{self.id}: the verbatim quote is in the catalogue only for redistributable classes")
         return self
 
 

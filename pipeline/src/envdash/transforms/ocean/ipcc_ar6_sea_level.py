@@ -121,7 +121,6 @@ def _run(files: dict[str, InputFile]) -> Result:
     f = files[SPM.key]
     verify_quote(f.path.read_bytes(), PDF_PAGE, QUOTE)
     check_table(QUOTE)
-    shown = "; ".join(f"{ssp} {LIKELY_2100[d][0]}–{LIKELY_2100[d][1]} m" for d, _, ssp in SCENARIOS)
     return Result(
         observations=observations(),
         vintage="AR6 WGI (2021)",
@@ -129,10 +128,11 @@ def _run(files: dict[str, InputFile]) -> Result:
         steps=[
             f"Quoted from {LOCATOR} of the IPCC AR6 Working Group I Summary for Policymakers. The quote was found in "
             f"the text of page {PDF_PAGE} of the PDF snapshot (sha256 {f.snapshot.sha256[:12]}…) before publishing.",
-            f"Value: the likely ranges by 2100 relative to 1995–2014 ({shown}) are published as printed, in metres, "
-            "each end of a range as its own value (bound likely-low or likely-high). The build reads the ranges from "
-            "the quote's words and stops unless they equal the published table. The SPM gives no central estimate, "
-            "and none is computed.",
+            # No values in the step: display-only numbers stay out of the public catalogue.
+            "Value: the likely ranges by 2100 relative to 1995–2014, one per scenario, are published as printed, in "
+            "metres, each end of a range as its own value (bound likely-low or likely-high). The build reads the "
+            "ranges from the quote's words and stops unless they equal the published table. The SPM gives no central "
+            "estimate, and none is computed.",
         ],
         published_value=PublishedValueRef(document=SOURCE, locator=LOCATOR, quote=QUOTE),
     )

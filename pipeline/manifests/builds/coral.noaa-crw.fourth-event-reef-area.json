@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/coral.noaa-crw.fourth-event-reef-area.json",
+  "export_sha256": "ea59154d2608eced7e9a6bee6fc26d04f5bfe1d2e2f6f73584e7d8fd0b016939",
+  "indicator_id": "coral.noaa-crw.fourth-event-reef-area",
+  "key": "671b473ecae152b2a247ffbea37bfd2e411c08577d9d413d4b27140a4d624710",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "noaa-crw/global-bleaching-status": {
+        "manifest_sha256": "a6993c1e6ff3943a723ef6527115d94db89d217a2a8d1574e65c34fb245f1b5d",
+        "sha256": "d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/noaa-crw-fourth-event-reef-area.yaml": "eea20b60440f64cbd2912d81b6cc6d9164337dadc81127af661081abc5a83af9"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "noaa-crw": "32940e6e508e3afeed319166db794de59fa42ff35b66b64a836216eef5f4106f"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

@@ -16,13 +16,14 @@ Returns a list of problems; empty means valid. Checks:
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from pydantic import ValidationError
 
 from envdash import canonical, snapshots
 from envdash.export import SUMS_EXCLUDE, export_bytes
-from envdash.models import REDISTRIBUTABLE, Catalog, Indicator, IndicatorFile, Snapshot, SourceList
+from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, IndicatorFile, Snapshot, SourceList
 from envdash.paths import Paths
 from envdash.registry import Registry
 
@@ -68,6 +69,33 @@ def _paleo_order(ind: Indicator) -> list[str]:
     if head and ind.latest.age_bp != min(a for a in head if a is not None):
         out.append(f"{ind.id}: latest age {ind.latest.age_bp!r} yr BP is not the youngest headline observation")
     return out
+
+
+def _private_values_in_catalogue(ind: Indicator, entry: CatalogEntry) -> list[str]:
+    """A no-derivatives or display-only value is shown only on server-rendered pages; the public catalogue entry
+    (title, description, scope, processing steps, quote) must not state it."""
+    p = entry.provenance
+    texts = {
+        "title": entry.title,
+        "description": p.description,
+        "scope": " ".join(t for t in (p.scope.geography, p.scope.baseline, p.scope.basis) if t),
+        "processing": " ".join(s.description for s in p.processing),
+        "quote": p.published_value.quote if p.published_value and p.published_value.quote else "",
+    }
+    needles: set[str] = set()
+    for o in ind.observations:
+        if o.value is None:
+            continue
+        if float(o.value).is_integer():
+            needles |= {str(int(o.value)), f"{int(o.value):,}"}
+        else:
+            needles.add(repr(float(o.value)).rstrip("0").rstrip("."))
+    found = []
+    for name, text in texts.items():
+        hits = sorted(n for n in needles if re.search(rf"(?<![\d.,]){re.escape(n)}(?![\d])", text))
+        if hits:
+            found.append(f"{ind.id} ({ind.licence_class}): the public catalogue's {name} states {hits[:3]}")
+    return found
 
 
 def validate_all(paths: Paths, registry: Registry) -> list[str]:
@@ -121,6 +149,8 @@ def validate_all(paths: Paths, registry: Registry) -> list[str]:
                 problems += _paleo_order(ind)
             if public and not (base / f"{ind.id}.csv").exists():
                 problems.append(f"{ind.id}: CSV missing")
+            if not public and e is not None:
+                problems += _private_values_in_catalogue(ind, e)
     for e in entries.values():
         if e.id not in seen:
             problems.append(f"catalogue lists {e.id} but no export exists")

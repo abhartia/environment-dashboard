@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/cars.icct-2025.lifecycle-bev-eu.json",
+  "export_sha256": "6a20316f0a7e69548417337269217cea8ef94390e39f7fdda8a7bac879679ad1",
+  "indicator_id": "cars.icct-2025.lifecycle-bev-eu",
+  "key": "042c1047f526172ccf69b6dfec2c16d3e6d2b793258642f082649cf7ee9ceece",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "icct-lca-2025/report-pdf": {
+        "manifest_sha256": "61dadf9b537f870299ad2fba57a9d52e277051b939faa902161172ee3af7e07a",
+        "sha256": "5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/icct-lca-2025-bev.yaml": "e11a5f9d6a0d68bbb6f8a45e2726850a84154306ff11adf2d7af97f5ddd05b4b"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "icct-lca-2025": "f9d4e96d1927f615a2c4f4a121646eb364a60333ddd2c93e3ab911cddc324c42"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

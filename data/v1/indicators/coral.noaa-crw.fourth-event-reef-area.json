@@ -1,0 +1,77 @@
+{
+  "attribution": "NOAA Coral Reef Watch, Version 3.1 Daily Global 5km Satellite Coral Bleaching Heat Stress products (Skirving et al. 2020, Remote Sensing 12, 3856, doi:10.3390/rs12233856), accessed 2026-10-04.",
+  "description": "The share of the world's coral reef area that experienced heat stress high enough to cause bleaching between 1 January 2023 and 30 September 2025, the fourth global coral bleaching event, as published by NOAA Coral Reef Watch. Heat stress measures the risk of bleaching, not observed bleaching or coral death.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "coral.noaa-crw.fourth-event-reef-area",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2023-01-01/2025-09-30",
+    "status": "final",
+    "value": 84.4
+  },
+  "licence": {
+    "name": "Public domain (NOAA Coral Reef Watch; US federal government work)",
+    "spdx": null,
+    "url": "https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "global-bleaching-status", "bytes": 25234, "citation_full": "NOAA Coral Reef Watch. 2018, updated daily. NOAA Coral Reef Watch Version 3.1 Daily Global 5km Satellite Coral Bleaching Degree Heating Week Product, Jan. 1, 2023-Dec. 31, 2025. College Park, Maryland, USA: NOAA Coral Reef Watch. Data set accessed 2026-10-04 at https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/annual/. Skirving, W; Marsh, B; De La Cour, J; Liu, G; Harris, A; Maturi, E; Geiger, E; Eakin, CM. CoralTemp and the Coral Reef Watch Coral Bleaching Heat Stress Product Suite Version 3.1. Remote Sens. 2020, 12, 3856; https://doi.org/10.3390/rs12233856.", "date_accessed": "2026-10-04", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Public domain (NOAA Coral Reef Watch; US federal government work)", "spdx": null, "url": "https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php"}, "producer": "NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch", "r2_url": null, "sha256": "d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13", "source_id": "noaa-crw", "title": "NOAA Coral Reef Watch coral bleaching heat stress and global bleaching status", "url_download": "https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php", "url_main": "https://coralreefwatch.noaa.gov/", "version_producer": "Status update of 2 June 2026", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Quoted from Current Global Bleaching: Status Update (Updated: June 2, 2026), first paragraph under the headline. The quote was found in the visible text of the snapshot (sha256 d48ccb9c370e…) before publishing.",
+      "inputs": ["d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/literature.py",
+      "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+    },
+    {
+      "description": "Value: \"~84.4%\" is published as 84.4 percent of the world's coral reef area for 1 January 2023 to 30 September 2025; the page gives no range.",
+      "inputs": ["d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/literature.py",
+      "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+    }
+  ],
+  "published_value": {
+    "document": "noaa-crw",
+    "locator": "Current Global Bleaching: Status Update (Updated: June 2, 2026), first paragraph under the headline",
+    "quote": "From 1 January 2023 to 30 September 2025, bleaching-level heat stress has impacted ~84.4% of the world's coral reef area and mass coral bleaching has been documented in at least 83 countries and territories."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Reef area that had bleaching-level heat stress at least once between 1 January 2023 and 30 September 2025, from satellite sea surface temperature (CRW's 5 km Bleaching Alert Area products). The same page gives 68.2% for the third global event (2014–2017). NOAA said on 2 June 2026 that the fourth event likely ended in 2025.",
+    "bunkers": null,
+    "geography": "World (coral reef areas in Coral Reef Watch's global 5 km satellite products)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD"],
+    "period": ["2023-01-01/2025-09-30"],
+    "status": ["final"],
+    "value": [84.4]
+  },
+  "time_basis": "calendar",
+  "title": "Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event",
+  "unit": {
+    "code": "percent",
+    "label": "percent of the world's coral reef area",
+    "short": "%"
+  },
+  "vintage": "Status update of 2 June 2026"
+}

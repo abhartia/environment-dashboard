@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/policy.stechemesser-2024.successful-interventions.json",
+  "export_sha256": "a3aaecfb6efc4723127b6a5597ce53ebf64c534b301244d7cc765f284fb184cd",
+  "indicator_id": "policy.stechemesser-2024.successful-interventions",
+  "key": "7f46355f9f658a1d7a31e3af6d4df2a9642628fe8e70780a297de81598f5b2a0",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "stechemesser-2024/eu-policies-label": {
+        "manifest_sha256": "c937e95986fa132bf33010b6865ea29e9ed3a09eec808f5c5534a8db05457bbd",
+        "sha256": "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"
+      },
+      "stechemesser-2024/policy-out": {
+        "manifest_sha256": "d51c8953bdf9549b1914d77c28642fb337b0e997d8b23eda9c31a218e0bbdbec",
+        "sha256": "a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6"
+      }
+    },
+    "key_files": {
+      "pipeline/src/envdash/transforms/action/rds.py": "678ffbb1795a60f2c998f1525ff545e75a25404bc12c85d31e327b14492f2174"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "stechemesser-2024": "2e24c1545185ca82b7b9a1c0a4179c2cd5db8db5d9a59a0174c630b9cb21f535"
+    },
+    "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
+  },
+  "publisher_checks": []
+}

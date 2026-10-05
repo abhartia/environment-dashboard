@@ -1,0 +1,98 @@
+{
+  "attribution": "Calculated by Environment Dashboard from Systems Change Lab data. Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund. https://www.systemschangelab.org, accessed 2026-10-05. CC BY 4.0. Changes: indicators counted by progress status and expressed as percent of the outcome indicators not built from IEA data.",
+  "description": "Of the outcome indicators Systems Change Lab tracks across power, buildings, industry, transport, cities, land, food, freshwater, the circular economy, carbon removal and finance, the share it assesses as on track for 2030, off track, well off track, heading in the right direction but too slowly, heading in the wrong direction, or with too little data to say. Indicators built from International Energy Agency data are left out.",
+  "dimensions": [
+    {
+      "id": "status",
+      "label": "Progress status",
+      "values": [
+        {"id": "on-track", "label": "On track"},
+        {"id": "off-track", "label": "Off track"},
+        {"id": "well-off-track", "label": "Well off track"},
+        {"id": "right-direction", "label": "Heading in the right direction"},
+        {"id": "wrong-direction", "label": "Heading in the wrong direction"},
+        {"id": "insufficient-data", "label": "Insufficient data to assess"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "progress.scl.outcome-status",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "status": "on-track"
+    },
+    "entity": "WLD",
+    "period": "2026-10-05",
+    "status": "final",
+    "value": 0.5586592178770949
+  },
+  "licence": {
+    "name": "CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["1 of 179 outcome indicators: FIN-1.", "28 of 179 outcome indicators: CE-26, CE-51, CE-9, CTY-10, CTY-11, CTY-49, FA-32, FIN-67, FW-175, FW-79, FW-80, GOV-10, GOV-12, GOV-14, GOV-26, GOV-33, GOV-5, GOV-53, GOV-54, GOV-56, P-GOV-35, PWR-19, PWR-20, PWR-21, X-LND-43, X-NE-12, XP-FA-11, XP-FA-13.", "37 of 179 outcome indicators: CE-2, CE-39, CR-1, CTY-16, CTY-22, CTY-3, CTY-55, FA-101, FA-53, FA-54, FA-76, FA-84, FA-95, FA-99, FIN-40, FIN-41, FW-188, FW-47, FW-48, NE-14, NE-15, P-FA-85, PWR-11, PWR-12, PWR-18, PWR-49, PWR-7, PWR-8, TRNS-13, TRNS-39, TRNS-40, X-CTY-14, X-FA-28, X-FIN-9, X-LND-42, X-TRNS-20, X-TRNS-21.", "52 of 179 outcome indicators: BLDG-1, CE-27, CE-33, CE-38, CE-41, CE-42, CE-52, CE-61, CE-62, CE-63, CE-64, CE-65, CE-69, CE-8, CTY-27, CTY-31, FA-14, FA-18, FA-36, FA-67, FA-7, FA-94, FIN-2, FW-1, FW-102, FW-154, FW-187, FW-3, FW-5, FW-72, FW-81, GOV-24, GOV-25, GOV-30, GOV-38, IN-8, NE-10, NE-11, NE-13, PWR-43, PWR-44, PWR-45, X-BLDG-41, X-CE-67, X-CTY-47, X-FIN-11, X-FIN-12, X-FIN-25, X-LND-109, X-NE-36, XP-FW-2, XP-LND-41.", "54 of 179 outcome indicators: CE-1, CE-18, CE-19, CE-20, CE-3, CE-50, CTY-4, CTY-5, FA-104, FA-105, FA-2, FA-66, FA-96, FIN-77, FW-49, FW-54, FW-74, GOV-1, GOV-13, GOV-15, GOV-17, GOV-18, GOV-2, GOV-21, GOV-23, GOV-3, GOV-34, GOV-42, GOV-43, GOV-44, GOV-46, GOV-47, GOV-48, GOV-57, GOV-7, IN-1, IN-21, IN-35, IN-36, NE-16, P-FA-12, TRNS-15, X-CE-50, X-FIN-66, X-FW-150, X-FW-174, X-FW-180, X-GOV-16, X-IN-34, X-LND-7, X-PWR-13, XP-FA-10, XP-FA-51, XP-LND-6.", "7 of 179 outcome indicators: FA-100, FA-4, FA-98, FIN-22, FIN-87, P-FA-8, X-FIN-23."],
+  "notice": "Each indicator also credits the original data source named in its Systems Change Lab metadata, under that source's own licence.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "scl-data-all", "bytes": 2924272, "citation_full": "Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund. Available online at: https://www.systemschangelab.org.", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": "Mon, 05 Oct 2026 10:33:48 GMT", "licence": {"name": "CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Systems Change Lab (World Resources Institute and Bezos Earth Fund)", "r2_url": null, "sha256": "1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568", "source_id": "systems-change-lab", "title": "Systems Change Lab: indicators of progress on the shifts needed for 1.5 °C", "url_download": "https://systemschangelab.org/scl-download/all", "url_main": "https://systemschangelab.org/download", "version_producer": "export retrieved 2026-10-05", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the 438 indicator metadata files in the Systems Change Lab export (sha256 1c4ed351ea59…, retrieved 2026-10-05); 196 are outcome indicators with a progress status, the rest enablers and barriers, which have none.",
+      "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
+      "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+    },
+    {
+      "description": "Left out the 17 outcome indicators whose data sources name the International Energy Agency (BLDG-11, BLDG-15, BLDG-24, BLDG-25, BLDG-37, CTY-21, FIN-86, IN-2, PWR-41, PWR-42, PWR-50, PWR-58, TRNS-27, TRNS-28, TRNS-29, TRNS-31, X-FIN-85).",
+      "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
+      "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+    },
+    {
+      "description": "Counted the remaining 179 outcome indicators by Systems Change Lab's status and divided each count by their total, times 100.",
+      "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
+      "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Systems Change Lab's own progress status for each outcome indicator, as listed in its data export on the day it was downloaded; enabler and barrier indicators carry no status and are not counted.",
+    "bunkers": null,
+    "geography": "World (Systems Change Lab's global indicators)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "status": ["on-track", "off-track", "well-off-track", "right-direction", "wrong-direction", "insufficient-data"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "note": [0, 5, 2, 1, 4, 3],
+    "period": ["2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05"],
+    "status": ["final", "final", "final", "final", "final", "final"],
+    "value": [0.5586592178770949, 3.910614525139665, 20.670391061452513, 15.64245810055866, 30.16759776536313, 29.050279329608937]
+  },
+  "time_basis": "calendar",
+  "title": "Progress of the shifts needed for 1.5 °C (Systems Change Lab)",
+  "unit": {
+    "code": "percent",
+    "label": "percent of Systems Change Lab outcome indicators",
+    "short": "%"
+  },
+  "vintage": "export retrieved 2026-10-05"
+}

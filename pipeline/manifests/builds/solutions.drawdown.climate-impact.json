@@ -1,0 +1,130 @@
+{
+  "export": "data/v1/indicators/solutions.drawdown.climate-impact.json",
+  "export_sha256": "5451e8ba681beccaa9cabebc6abab7286d3704212ed3ab5b64892594903d3ea6",
+  "indicator_id": "solutions.drawdown.climate-impact",
+  "key": "6b957013d81b96581c9a1282ca37485631d786c39a82a84adec77157cafc2244",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "drawdown-explorer/deploy-alternative-insulation-materials": {
+        "manifest_sha256": "091a73bde30750ec585da29201b012f0e3f6d31b7fc53450eb142e4b608ba6de",
+        "sha256": "f3fe540011971f447f0abcff281fec3d8146a3bfd8803a00fb348fa44284e937"
+      },
+      "drawdown-explorer/deploy-alternative-refrigerants": {
+        "manifest_sha256": "b2b49aa5586749d023f512cd53d6fc976c21e7b7400ab0883ea01a3d592dc24f",
+        "sha256": "6d015bc8180755919d4bd6f0228efc85a162813346ad3f2ebf199501133e38ba"
+      },
+      "drawdown-explorer/deploy-building-automation-systems": {
+        "manifest_sha256": "7e8a71bb620a3ac4ea5dda89a6602bd76d8897d366ea8692dcaafb432b01a9e2",
+        "sha256": "5f7a8a7b5f9db15a0bf0b324a7605233f5d288248d495433e1bdd6346953ed00"
+      },
+      "drawdown-explorer/deploy-clean-cooking": {
+        "manifest_sha256": "dfb96621ebd5d7bfe30686aabe25b12daae679a229911637afc59c748dc8f831",
+        "sha256": "482d66b0549364c0b0e45a61f86200a8f8b27c97e0a48a4e7a957c6a468096c1"
+      },
+      "drawdown-explorer/deploy-distributed-solar-pv": {
+        "manifest_sha256": "3a53f234f8170cecd1e7ff5d85f3d79f260edf08a11838bbc65660d72496f7b4",
+        "sha256": "e9b211dae147ee0ce96a0bb652dc25e21a506e2c85608354cceda7cc1cbe9e52"
+      },
+      "drawdown-explorer/deploy-industrial-green-hydrogen": {
+        "manifest_sha256": "078505462bfe60ea4d02efa6b96238862f799e0743c4b8d143e034bc67d65b7b",
+        "sha256": "026db9d6a2c4c8070fe0289e84e93d3fba4fdb7004e0d53ba3644142f65a1dc4"
+      },
+      "drawdown-explorer/deploy-led-lighting": {
+        "manifest_sha256": "6993955ba5fb40d4665358bd21057d48ca590f4a04a81d5641371e0d4b315fce",
+        "sha256": "7bc9427a7d0c53c9c007efccdc8828d48c8c91c667376beaca7590569ee183ba"
+      },
+      "drawdown-explorer/deploy-offshore-wind-turbines": {
+        "manifest_sha256": "57a5973ba93e587cf47e0270002a3d6c6c008bb2a61524bdb090b874889ab438",
+        "sha256": "65cf95226dec507e124b537d04d77d8a51726e2dfecae1e867292aac6d9464d5"
+      },
+      "drawdown-explorer/deploy-onshore-wind-turbines": {
+        "manifest_sha256": "546bd998caf0c442a12d7a13fc518aa664c4f1a69f10f414c414ea687c199fd1",
+        "sha256": "f1bb5db37b0dc6834bf24c318d17afd6ec7f9b8003ff1ba113592e1c26024df9"
+      },
+      "drawdown-explorer/deploy-utility-scale-solar-pv": {
+        "manifest_sha256": "df01d10487d221cf996bb30f4c647f61fd72acc980ecc7cf4a286baa2537fd48",
+        "sha256": "65511c069d25f1e0760d1c38c7b24da8252d94aff73cd77d2bfc9d512aaec1c3"
+      },
+      "drawdown-explorer/enhance-public-transit": {
+        "manifest_sha256": "642701d9d940005fe272ba8dfda234f545563f99e0f220f9859fb7ab00cd0d6b",
+        "sha256": "ababf3bf5294d8b3b9e0dd84e82309f4c6f7e8b93b4cb29e61ac8fec22e7cbc4"
+      },
+      "drawdown-explorer/improve-diets": {
+        "manifest_sha256": "0dad2800757e8cc1a017972afcc2fd73ce8b117996de3d69c4ad7df930ed05a8",
+        "sha256": "08623adce6468d438bd6eed7063538acb0ba8551b312503a6d9fe81cb4506433"
+      },
+      "drawdown-explorer/improve-nonmotorized-transportation": {
+        "manifest_sha256": "7c17cabe578c8a1874c5be1bc83de8be048f6fd562bd657371a1b135d8bf4641",
+        "sha256": "18bd819ecf5a7f274846d36a35f2b02467365605d212dd6a31754dc96a644c91"
+      },
+      "drawdown-explorer/improve-nutrient-management": {
+        "manifest_sha256": "18d1833c7a59b9aa14a8bde94ffb1f127bd6e518bf9e4c2b04e4fd5bacf6e206",
+        "sha256": "c3271a6e61310eecf4a74ec86baef03dec5842f76d4a93df82884e02b3452104"
+      },
+      "drawdown-explorer/improve-windows-and-glass": {
+        "manifest_sha256": "9a3a9692ce669eca0fc171e0a0e7790bc28c2aab5605827749e5474325d00064",
+        "sha256": "425e173b19f0859256e0f0fd85397da4e1e535fbe32524c4d2372d7d10b97dee"
+      },
+      "drawdown-explorer/increase-carpooling": {
+        "manifest_sha256": "62bb12c4b99c3e9ec80acf1c537bdc368c3a4aea4f86c18228d6e29110d4a461",
+        "sha256": "310bd4df62af00355411817ca052a536bd6e57255da3487594e80affff0ef505"
+      },
+      "drawdown-explorer/increase-centralized-composting": {
+        "manifest_sha256": "dc103b7036a0b08618891bd4a80418cdd12f363fd6063dd722873fe4492fa2a7",
+        "sha256": "7c273dc286a4278153ab23dfb899b01caaaa9d859b5e5bd370d4a20557a27c4a"
+      },
+      "drawdown-explorer/manage-coal-mine-methane": {
+        "manifest_sha256": "2b8ca919b614fa82d8dfcab3dd491c79d7eafb20cf6bc88c7d70f0b685639b40",
+        "sha256": "84f722e13cd4924fd614d9e41e396304cdff62420aec31c1a62f32bbd592e073"
+      },
+      "drawdown-explorer/manage-oil-and-gas-methane": {
+        "manifest_sha256": "04c24532afa0f061ea87c33026efcf0e5be023042548dc4fb0db75b69ec513a3",
+        "sha256": "6177a89fd2bdbb8811a40c7c6c68ef37b86f4b1d4ea37d3c2aa00f2a6f4d2cf0"
+      },
+      "drawdown-explorer/mobilize-electric-cars": {
+        "manifest_sha256": "c1fce2a03622b59aaf643fd1e398195b73cb138c893185c1c08bbeb089618414",
+        "sha256": "d7e8a6328ec3e9dffcb2b14964855c34974cefa813414087e0b39fbb49767d56"
+      },
+      "drawdown-explorer/mobilize-electric-scooters-and-motorcycles": {
+        "manifest_sha256": "a572f57f0b7e48df4d866045d47e694e638c7ecde592b5f8005022578eb9a257",
+        "sha256": "c043139becd9bc7cd89dee6fd5684675336809d5a3a0d100aaecb3cb4207c266"
+      },
+      "drawdown-explorer/mobilize-hybrid-cars": {
+        "manifest_sha256": "375eed26710016e0808a33c80420ed76a4a79eb18875d84d7db6d16210a64e13",
+        "sha256": "78eb1ed0974b4b5ddc59636b52da7a688a3b6ee0ffd4db183ff5660c0d4d938e"
+      },
+      "drawdown-explorer/protect-forests": {
+        "manifest_sha256": "a209445b547b9ddbf53fc3144dea48fe8ebdb4e0d31d1247fe34062f70624b09",
+        "sha256": "33249b3b89309c840a636ae24de800dc040a4b0d135a5e43536caf6ff444f6c7"
+      },
+      "drawdown-explorer/protect-grasslands-and-savannas": {
+        "manifest_sha256": "5cccad69bf089ef02e37902dfa3df271228b2c643bc4fe6f5437818077d0f669",
+        "sha256": "6aabf765b32c8d7074c7c901a76a5e3e7f0b6c3f16f6a97aacc53c6112f2daa7"
+      },
+      "drawdown-explorer/protect-peatlands": {
+        "manifest_sha256": "44cba125e20f1b721b304f4f83533d3af0ca707ef38f32b555c073f1b99ff1c1",
+        "sha256": "f949fe1e007d2a914d4ec9de6048cb53d4a1922c5c2c7d098b56d72239138eb4"
+      },
+      "drawdown-explorer/protect-seaweed-ecosystems": {
+        "manifest_sha256": "d3a7c3ba543aba6847a27b023ed70262584af88de7ca0893d2d881d8fd25ef63",
+        "sha256": "1e894c20025f5fe0144e2e733a0676c6f7e947e03376d7d3d427c60940fe52cd"
+      },
+      "drawdown-explorer/reduce-food-loss-and-waste": {
+        "manifest_sha256": "91de9dfae3f75ba3913709bf374d51a2a6b502e22c1d698b818b53cc3110e6bc",
+        "sha256": "e641ea12508087dc70e9e7bdbf77390b3e0f7e6d3267825db9aca702210c3e06"
+      },
+      "drawdown-explorer/use-heat-pumps": {
+        "manifest_sha256": "73c1de9d66b095162de7112b4c93a12d2ccbb39eeae3ae32ad51d104ca84ec37",
+        "sha256": "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "drawdown-explorer": "d2d7f462d3b6bb7eb8827dbca707bf990418d9fa7686d120727a9cb23759c4c7"
+    },
+    "transform_sha256": "d2d6ba22ffd549dc79072e61ac30455fd701b1a8bac29865aedcdde07de2ef54"
+  },
+  "publisher_checks": []
+}

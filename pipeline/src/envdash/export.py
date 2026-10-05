@@ -25,7 +25,16 @@ from pathlib import Path
 
 from envdash import canonical
 from envdash.build import IndicatorOutcome, build_key, build_one, export_path, lock_sha, write_build_record
-from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, IndicatorFile, Provenance, SourceList
+from envdash.models import (
+    REDISTRIBUTABLE,
+    Catalog,
+    CatalogEntry,
+    Indicator,
+    IndicatorFile,
+    Provenance,
+    PublishedValueCitation,
+    SourceList,
+)
 from envdash.paths import Paths
 from envdash.registry import Registry
 from envdash.snapshots import read_current
@@ -166,7 +175,13 @@ def catalog_entry(paths: Paths, ind: Indicator) -> CatalogEntry:
             notice=ind.notice,
             origins=ind.origins,
             processing=ind.processing,
-            published_value=ind.published_value,
+            published_value=None
+            if ind.published_value is None
+            else PublishedValueCitation(
+                document=ind.published_value.document,
+                locator=ind.published_value.locator,
+                quote=ind.published_value.quote if redistributable else None,
+            ),
         ),
     )
 

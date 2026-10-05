@@ -1,0 +1,42 @@
+{
+  "export": "data/v1/indicators/burned-area.gwis.annual-by-land-cover.json",
+  "export_sha256": "11f852bf76610c9a7a8c443cce5ee37c1d461ec97618077c6f184b88c2b548be",
+  "indicator_id": "burned-area.gwis.annual-by-land-cover",
+  "key": "555df92321b76a3b9823f2afea89d6e507eba110289ef0d0c68a347a88fb252d",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "gwis-burned-area/banf-africa": {
+        "manifest_sha256": "1bef0c740ebba296573cef730bebbbc2db27205a202e61e6f1c676fcc8e66cf8",
+        "sha256": "17e38254598a948a0904d47dd10ce17f86b80c30387ee4f7f13146d507915ecb"
+      },
+      "gwis-burned-area/banf-americas": {
+        "manifest_sha256": "03ee6836cb3d4d4a72c576f36f846b61675fe9bbe32c0cb2896effc680db90f7",
+        "sha256": "97dced6a94c2ed5710cf4acbdb561ba216c46f4ed284b2ee9d0d2d7425055d5a"
+      },
+      "gwis-burned-area/banf-asia": {
+        "manifest_sha256": "09a2f40dbe5dc119568dad2d226329dc46cad0a7736dc87c41933975f25c953e",
+        "sha256": "a9a05fdf9e981d9b834090af1c9258b88fc9fba1f6bc472225202dad6948b98e"
+      },
+      "gwis-burned-area/banf-europe": {
+        "manifest_sha256": "bf2abec07a02836edf786a52e36f367f129d77852d7717b0613af0a7932c6e5d",
+        "sha256": "e2a738677b01fadedb922f72b1d150f12488ac5b6efad2581dc169d456da99c4"
+      },
+      "gwis-burned-area/banf-oceania": {
+        "manifest_sha256": "daaab15433e7db877244cbe8cca2d5b088ee300fda45a8030d76b43ed3682a5b",
+        "sha256": "a8889201d20929bd957b67f84984b91def66c1af407e194b73e9e30b2f8b2664"
+      },
+      "gwis-burned-area/banf-world": {
+        "manifest_sha256": "d4eaa974f3e12d2ec2dbdf8c5e18f9f981ea968196d52ee648be9185370d9fe4",
+        "sha256": "2c29af78465ad69fbdc031fd557cc04eae5231cb8adb81dee26e3055b525e7ce"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "gwis-burned-area": "70dc78f30bb7f94e83a6a1d8ad716bedcf8649d9cca15478666a638380052e5d"
+    },
+    "transform_sha256": "417670cf2e3f5b072c26808d9312b1c664f128d709ca320fa531a4ce8902d6b4"
+  },
+  "publisher_checks": []
+}

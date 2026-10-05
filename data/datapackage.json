@@ -84,6 +84,45 @@
       "title": "Emission cuts from household consumption options (Ivanova et al. 2020)"
     },
     {
+      "bytes": 59324,
+      "description": "From a survey of nearly 130,000 people in 125 countries (Gallup World Poll 2021–2022): the share willing to give 1% of their household income every month to fight global warming, the share who approve of pro-climate norms, the share who want their government to do more, and what people believe about their compatriots: the average believed share willing to contribute and the share who think a majority is willing. In almost every country, people underestimate how many of their compatriots are willing.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c3e3f348948e6276cb36bde902e41b8453fa7451fcae48e0d586e568a5ca65a1",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "attitudes.andre-2024.climate-support",
+      "path": "v1/indicators/attitudes.andre-2024.climate-support.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of people (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "measure", "title": "Question", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41558-024-01925-3", "title": "Peter Andre, Teodora Boneva, Felix Chopra and Armin Falk (SAFE and Goethe University Frankfurt, University of Bonn, University of Copenhagen); published in Nature Climate Change: Actual and perceived support for climate action (Andre et al. 2024)"}
+      ],
+      "title": "Actual and perceived support for climate action (Andre et al. 2024)"
+    },
+    {
       "bytes": 879,
       "description": "How much more carbon dioxide could be emitted from the start of 2026 while keeping a 50% chance of limiting global warming to 1.5 °C, as estimated by Indicators of Global Climate Change 2025. The likelihood reflects only uncertainty in how much warming each tonne of carbon dioxide causes. The estimate assumes deep cuts in other greenhouse gases and aerosols; IGCC states it could be around 200 billion tonnes higher or lower depending on how far those cuts go.",
       "dialect": {
@@ -120,6 +159,83 @@
         {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
       ],
       "title": "Remaining carbon budget for 1.5 °C from the start of 2026 (50% likelihood)"
+    },
+    {
+      "bytes": 3861,
+      "description": "Hectares burnt each year since 2006 by fires of about 30 hectares or larger, mapped from satellite imagery by the European Forest Fire Information System (EFFIS), for the 27 EU member states and for the wider group EFFIS lists under the EU's Union Civil Protection Mechanism (UCPM). The current year is a running total to date.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e95095e3d6d029aa16f67de8b8a0da8b3123abeb5d4e1de1491450384d3d8da4",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (European Commission reuse policy)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "burned-area.effis.europe-annual",
+      "path": "v1/indicators/burned-area.effis.europe-annual.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares (ha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "title": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service: European Forest Fire Information System (EFFIS) burnt-area estimates"}
+      ],
+      "title": "Area burnt each year in the EU and in UCPM countries"
+    },
+    {
+      "bytes": 78346,
+      "description": "Hectares burned each year since 2002 worldwide and in Africa, the Americas, Asia, Europe and Oceania, split into forest, savannas, shrublands and grasslands, croplands and other land, as mapped by NASA's MODIS satellites and compiled by the EU's Global Wildfire Information System (GWIS). The 500 metre resolution misses many small fires and much cropland burning, so the totals are lower than finer-resolution estimates.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:eb6778c3682cc910257453f3d3f424f16c656c780dc478043757465dc7e2febe",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (European Commission reuse policy)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "burned-area.gwis.annual-by-land-cover",
+      "path": "v1/indicators/burned-area.gwis.annual-by-land-cover.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares (ha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "land_cover", "title": "Land cover", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "title": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS): GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)"}
+      ],
+      "title": "Area burned each year, world and continents, by land cover"
     },
     {
       "bytes": 1432,
@@ -235,6 +351,158 @@
         {"path": "https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026", "title": "International Renewable Energy Agency (IRENA): Renewable capacity statistics 2026"}
       ],
       "title": "World renewable power capacity"
+    },
+    {
+      "bytes": 901,
+      "description": "The share of the world's greenhouse gas emissions covered by a direct carbon price, a carbon tax or an emissions trading system, through the 87 such policies in force on 1 April 2026. Coverage says how much of the world's emissions face a price, not how high that price is.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:7eddfc624f7ac459b45bc6d5c117a0de5b8721fc76e54e3719c96c109057b05e",
+      "licenses": [
+        {"name": "CC-BY-3.0-IGO", "path": "https://creativecommons.org/licenses/by/3.0/igo/", "title": "CC BY 3.0 IGO"}
+      ],
+      "mediatype": "text/csv",
+      "name": "carbon-pricing.wb-2026.emissions-covered",
+      "path": "v1/indicators/carbon-pricing.wb-2026.emissions-covered.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of global greenhouse gas emissions (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing", "title": "World Bank: State and Trends of Carbon Pricing 2026"}
+      ],
+      "title": "Share of global greenhouse gas emissions covered by a carbon price (World Bank)"
+    },
+    {
+      "bytes": 844,
+      "description": "The money governments raised in 2025 from carbon taxes and emissions trading systems worldwide: 107 billion US dollars, about 2 percent more than in 2024 in real terms. The report says almost all of it is raised in high-income countries.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:bd32571f763e16fed667b3f0fb24c67d320648d6427ab231970355c653e10952",
+      "licenses": [
+        {"name": "CC-BY-3.0-IGO", "path": "https://creativecommons.org/licenses/by/3.0/igo/", "title": "CC BY 3.0 IGO"}
+      ],
+      "mediatype": "text/csv",
+      "name": "carbon-pricing.wb-2026.revenue",
+      "path": "v1/indicators/carbon-pricing.wb-2026.revenue.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion US dollars (USD-billion)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing", "title": "World Bank: State and Trends of Carbon Pricing 2026"}
+      ],
+      "title": "Government revenue from carbon taxes and emissions trading (World Bank)"
+    },
+    {
+      "bytes": 1100,
+      "description": "Greenhouse gas emissions over the whole life of a medium-size battery electric car sold in the European Union in 2025, per kilometre driven: making the car and its battery, producing the electricity it uses on the EU's projected average grid mix for 2025-2044, maintenance and recycling. The ICCT estimates it at 63 grams of CO2-equivalent per kilometre, 73 percent less than a comparable petrol car.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e5abc53f0abf3e0805ba720b709fda9b7d1d5f77524d4ac62bb8e0b9343116a7",
+      "licenses": [
+        {"name": "CC-BY-SA-4.0", "path": "https://creativecommons.org/licenses/by-sa/4.0/", "title": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")"}
+      ],
+      "mediatype": "text/csv",
+      "name": "cars.icct-2025.lifecycle-bev-eu",
+      "path": "v1/indicators/cars.icct-2025.lifecycle-bev-eu.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "grams of CO2-equivalent per kilometre (gCO2e/km)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "title": "International Council on Clean Transportation (ICCT): Life-cycle greenhouse gas emissions from passenger cars in the European Union (ICCT 2025)"}
+      ],
+      "title": "Life-cycle emissions of a battery electric car in the EU (ICCT)"
+    },
+    {
+      "bytes": 1106,
+      "description": "Greenhouse gas emissions over the whole life of a medium-size petrol car sold in the European Union in 2025, per kilometre driven: making the car, producing and burning its fuel (the average EU blend of fossil petrol and ethanol), and maintenance. The ICCT estimates it at 235 grams of CO2-equivalent per kilometre.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:ec52a1648faa39001205edbd5a292ca7c288cf0e9db429cabd4ee3a3182dfdb9",
+      "licenses": [
+        {"name": "CC-BY-SA-4.0", "path": "https://creativecommons.org/licenses/by-sa/4.0/", "title": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")"}
+      ],
+      "mediatype": "text/csv",
+      "name": "cars.icct-2025.lifecycle-gasoline-eu",
+      "path": "v1/indicators/cars.icct-2025.lifecycle-gasoline-eu.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "grams of CO2-equivalent per kilometre (gCO2e/km)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "title": "International Council on Clean Transportation (ICCT): Life-cycle greenhouse gas emissions from passenger cars in the European Union (ICCT 2025)"}
+      ],
+      "title": "Life-cycle emissions of a petrol car in the EU (ICCT)"
     },
     {
       "bytes": 3998,
@@ -502,6 +770,44 @@
         {"path": "https://gml.noaa.gov/ccgg/trends/", "title": "NOAA Global Monitoring Laboratory: Trends in atmospheric carbon dioxide"}
       ],
       "title": "Carbon dioxide at Mauna Loa, monthly mean"
+    },
+    {
+      "bytes": 994,
+      "description": "The share of the world's coral reef area that experienced heat stress high enough to cause bleaching between 1 January 2023 and 30 September 2025, the fourth global coral bleaching event, as published by NOAA Coral Reef Watch. Heat stress measures the risk of bleaching, not observed bleaching or coral death.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:07fe3a9164e5453252189a619f43583aa8caf43d94dc17ac85b5e0e12e6ba41f",
+      "licenses": [
+        {"path": "https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php", "title": "Public domain (NOAA Coral Reef Watch; US federal government work)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "coral.noaa-crw.fourth-event-reef-area",
+      "path": "v1/indicators/coral.noaa-crw.fourth-event-reef-area.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of the world's coral reef area (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://coralreefwatch.noaa.gov/", "title": "NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch: NOAA Coral Reef Watch coral bleaching heat stress and global bleaching status"}
+      ],
+      "title": "Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event"
     },
     {
       "bytes": 382048,
@@ -2307,6 +2613,45 @@
       "title": "Nitrous oxide, global annual mean"
     },
     {
+      "bytes": 163681,
+      "description": "Whether each country has submitted its 2025 nationally determined contribution (NDC 3.0, the national climate plan due under the Paris Agreement), when, and what Climate Watch finds in it: a 2035 greenhouse gas target, an economy-wide target, a target for gases other than carbon dioxide, a stronger 2030 target, stronger adaptation, and added information for clarity. 1 means yes and 0 means no, as coded by the World Resources Institute's Climate Watch from the NDC texts. Countries Climate Watch has no information for are not shown.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0e75a70db1cf2118ed0239226918aa278fca8ba2a11cf69ec180253c725508fa",
+      "licenses": [
+        {"name": "CC-BY-NC-4.0", "path": "https://creativecommons.org/licenses/by-nc/4.0/", "title": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ndc.climate-watch.2025-ndc",
+      "path": "v1/indicators/ndc.climate-watch.2025-ndc.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "1 = yes, 0 = no, as coded by Climate Watch (yes-no)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "question", "title": "Question", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.climatewatchdata.org/", "title": "World Resources Institute (Climate Watch): Climate Watch NDC Tracker (2025 NDCs)"}
+      ],
+      "title": "2025 climate pledges (NDCs): who has submitted, and what they contain"
+    },
+    {
       "bytes": 6000,
       "description": "Heat stored in the top 2,000 metres of the world ocean as running five-year means since 1955–59 (NCEI's basin time series have no yearly or three-month 0–2,000 m values before 2005), as the difference from NCEI's long-term average, in units of 10²² joules, with one standard error.",
       "dialect": {
@@ -2495,6 +2840,85 @@
         {"path": "https://hahana.soest.hawaii.edu/hot/hotco2/hotco2.html", "title": "Hawaii Ocean Time-series, School of Ocean and Earth Science and Technology, University of Hawai'i at Mānoa: Hawaii Ocean Time-series surface CO2 system data, Station ALOHA"}
       ],
       "title": "Seawater pH at Station ALOHA, Hawaii, each cruise"
+    },
+    {
+      "bytes": 21927,
+      "description": "The 63 policy interventions that Stechemesser and colleagues found behind large, sudden drops in a sector's emissions in 41 countries over two decades: for each, the country, the sector (buildings, electricity, industry or transport), the year of the drop and its size, as the percent change in the sector's emissions compared with what the model expects without it. Each value names the policies adopted or tightened within two years before or after the drop. Most successful interventions combine several policies; the drop cannot be credited to one policy alone.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:cfe2221c5b0ff13eaa43df5db3faaf44dd7d0a724f53ec67f424b68ca7a6f783",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "policy.stechemesser-2024.successful-interventions",
+      "path": "v1/indicators/policy.stechemesser-2024.successful-interventions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent change in the sector's emissions at the break (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "Sector", "type": "string"},
+          {"name": "economy_group", "title": "Country group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5281/zenodo.12773811", "title": "Stechemesser, Koch, Mark, Dilger, Klösel, Menicacci, Nachtigall, Pretis, Ritter, Schwarz, Vossen and Wenzel (PIK, MCC Berlin, OECD and others); article in Science, data and code on Zenodo: Climate policies that achieved major emission reductions (Stechemesser et al. 2024), replication data"}
+      ],
+      "title": "Climate policy interventions that cut emissions (Stechemesser et al. 2024)"
+    },
+    {
+      "bytes": 3282,
+      "description": "Of the outcome indicators Systems Change Lab tracks across power, buildings, industry, transport, cities, land, food, freshwater, the circular economy, carbon removal and finance, the share it assesses as on track for 2030, off track, well off track, heading in the right direction but too slowly, heading in the wrong direction, or with too little data to say. Indicators built from International Energy Agency data are left out.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:29ce6d6f48f1c8adc108179793602708bd6bca6421a9780d713769fd8c3b2b83",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "progress.scl.outcome-status",
+      "path": "v1/indicators/progress.scl.outcome-status.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of Systems Change Lab outcome indicators (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "status", "title": "Progress status", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://systemschangelab.org/download", "title": "Systems Change Lab (World Resources Institute and Bezos Earth Fund): Systems Change Lab: indicators of progress on the shifts needed for 1.5 °C"}
+      ],
+      "title": "Progress of the shifts needed for 1.5 °C (Systems Change Lab)"
     },
     {
       "bytes": 4506,
@@ -2761,6 +3185,47 @@
         {"path": "https://www.ncei.noaa.gov/products/climate-data-records/snow-cover-extent", "title": "NOAA National Centers for Environmental Information (data by the Rutgers University Global Snow Lab): Northern Hemisphere snow cover extent climate data record"}
       ],
       "title": "Northern Hemisphere snow cover extent by month"
+    },
+    {
+      "bytes": 16838,
+      "description": "How much each climate solution assessed by Project Drawdown reduces or removes greenhouse gas emissions each year worldwide: at today's adoption, across the range of adoption Drawdown considers achievable in the next 5 to 25 years, and at the adoption ceiling, a theoretical maximum that probably cannot be reached. Impacts of different solutions overlap and cannot be added up. For renewable electricity the ceiling reflects technical potential only, not power demand.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:83827f4c47be060f304f0babf5f333db9360a7f0b373efa98d0bc087eaa54546",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (Zenodo deposits by Project Drawdown)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "solutions.drawdown.climate-impact",
+      "path": "v1/indicators/solutions.drawdown.climate-impact.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion tonnes of CO2-equivalent per year (GtCO2e/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "solution", "title": "Solution", "type": "string"},
+          {"name": "level", "title": "Adoption level", "type": "string"},
+          {"name": "basis", "title": "Warming potential", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://drawdown.org/explorer", "title": "Project Drawdown: Drawdown Explorer solution assessments"}
+      ],
+      "title": "Climate impact of solutions at different levels of adoption (Project Drawdown)"
     },
     {
       "bytes": 1674,
@@ -3181,6 +3646,47 @@
         {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
       ],
       "title": "Annual mean temperature by country (ERA5, World Bank CCKP)"
+    },
+    {
+      "bytes": 6121,
+      "description": "Greenhouse gas emissions per passenger per kilometre flown, from the UK Government's 2026 conversion factors: for domestic, short-haul and long-haul flights to or from the UK and for international flights elsewhere, by seat class, with and without the extra warming from aircraft emissions at altitude (radiative forcing). Premium seats take more cabin space, so each passenger in them is assigned more of the flight's emissions. Factors are averages for UK reporting, not measurements of a particular flight.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:570697e9037a26929b8cbb0f2c6982264fa288f2c1261ccd064652eff2068768",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "travel.desnz-2026.flight-factors",
+      "path": "v1/indicators/travel.desnz-2026.flight-factors.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilograms of CO2-equivalent per passenger-kilometre (kgCO2e/pkm)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "haul", "title": "Flight type", "type": "string"},
+          {"name": "seat_class", "title": "Seat class", "type": "string"},
+          {"name": "radiative_forcing", "title": "Radiative forcing", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026", "title": "Department for Energy Security and Net Zero (UK Government): Greenhouse gas reporting: conversion factors 2026"}
+      ],
+      "title": "Flight emission factors by distance and seat class (UK Government 2026)"
     },
     {
       "bytes": 13431,

@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/progress.scl.outcome-status.json",
+  "export_sha256": "e9ab5aa094c08302e84402f2c05002c80d8a837dd7a54d6cd8692fb16c905fa9",
+  "indicator_id": "progress.scl.outcome-status",
+  "key": "5edb6eafd0cef594b993408d8bb42bcf1bbbef97149327fde6eee7508490686c",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "systems-change-lab/scl-data-all": {
+        "manifest_sha256": "e0e3e9d555afd1302fc5bf9175822c345487cd5cfa4718ee799760392e27f78f",
+        "sha256": "1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "systems-change-lab": "6b59e81da7ad8a1a650a5e8d0841090917771a7a8d495223e217f54bb63a4baa"
+    },
+    "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+  },
+  "publisher_checks": []
+}

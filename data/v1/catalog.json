@@ -159,6 +159,210 @@
     },
     {
       "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
+      "entities": ["AFG", "ALB", "ARE", "ARG", "ARM", "AUS", "AUT", "BEL", "BEN", "BFA", "BGD", "BGR", "BIH", "BOL", "BRA", "BWA", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COG", "COL", "CRI", "CYP", "CZE", "DEU", "DNK", "DOM", "DZA", "ECU", "EGY", "ESP", "EST", "FIN", "FRA", "GAB", "GBR", "GEO", "GHA", "GIN", "GRC", "GTM", "HKG", "HND", "HRV", "HUN", "IDN", "IND", "IRL", "IRN", "IRQ", "ISL", "ISR", "ITA", "JAM", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KOR", "KOS", "LAO", "LBN", "LKA", "LTU", "LVA", "MAR", "MDA", "MDG", "MEX", "MKD", "MLI", "MLT", "MMR", "MNG", "MOZ", "MUS", "MWI", "MYS", "NAM", "NGA", "NIC", "NLD", "NOR", "NPL", "NZL", "PAK", "PAN", "PER", "PHL", "POL", "PRT", "PRY", "ROU", "RUS", "SAU", "SEN", "SGP", "SLE", "SLV", "SRB", "SVK", "SVN", "SWE", "TGO", "THA", "TJK", "TUN", "TUR", "TWN", "TZA", "UGA", "UKR", "URY", "USA", "UZB", "VEN", "VNM", "WLD", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "132f03d4eed5f81cd663c2829ca4e8782104b1b230f64e1b547cd9b1dd3c54e3",
+      "geo_coverage": "mixed",
+      "id": "attitudes.andre-2024.climate-support",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "measure": "willing-to-contribute"
+        },
+        "entity": "WLD",
+        "period": "2021/2022",
+        "status": "final",
+        "value": 68.5
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Andre, P., Boneva, T., Chopra, F. & Falk, A. (2024). Globally representative evidence on the actual and perceived support for climate action. Nature Climate Change 14, 253–259. doi:10.1038/s41558-024-01925-3. CC BY 4.0.",
+        "description": "From a survey of nearly 130,000 people in 125 countries (Gallup World Poll 2021–2022): the share willing to give 1% of their household income every month to fight global warming, the share who approve of pro-climate norms, the share who want their government to do more, and what people believe about their compatriots: the average believed share willing to contribute and the share who think a majority is willing. In almost every country, people underestimate how many of their compatriots are willing.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "supplementary-information", "bytes": 822967, "citation_full": "Andre, P., Boneva, T., Chopra, F. et al. Globally representative evidence on the actual and perceived support for climate action. Nat. Clim. Chang. 14, 253–259 (2024). https://doi.org/10.1038/s41558-024-01925-3", "date_accessed": "2026-10-05", "date_published": "2024-02-09", "doi": "10.1038/s41558-024-01925-3", "etag": "\"19642d405799b88c511d6f3625b651f8\"", "last_modified": "Thu, 14 Mar 2024 11:19:27 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Peter Andre, Teodora Boneva, Felix Chopra and Armin Falk (SAFE and Goethe University Frankfurt, University of Bonn, University of Copenhagen); published in Nature Climate Change", "r2_url": null, "sha256": "622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87", "source_id": "andre-2024", "title": "Actual and perceived support for climate action (Andre et al. 2024)", "url_download": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41558-024-01925-3/MediaObjects/41558_2024_1925_MOESM1_ESM.pdf", "url_main": "https://doi.org/10.1038/s41558-024-01925-3", "version_producer": "Nature Climate Change 14, 253–259 (2024), Supplementary Information", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Extracted the text of PDF pages 6–8 of the Supplementary Information (sha256 622196c98156…), Table S4 'National averages', and read every row between the column header and the notes: 125 countries and World, five values each, as printed (percent, one decimal).",
+            "inputs": ["622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/andre_2024.py",
+            "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
+          },
+          {
+            "description": "Mapped each country name, exactly as printed, to its ISO 3166-1 code through a fixed table; World is the authors' population-weighted average of the national shares.",
+            "inputs": ["622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/andre_2024.py",
+            "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
+          },
+          {
+            "description": "Published the 3 dashes the table prints as missing values.",
+            "inputs": ["622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/andre_2024.py",
+            "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Nationally representative samples weighted with Gallup's sampling weights; missing answers to each question excluded. Surveyed between 2021 and 2022, dates varying by country.",
+          "bunkers": null,
+          "geography": "125 countries; World is the authors' population-weighted average of national shares",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["andre-2024"],
+      "time_basis": "calendar",
+      "title": "Actual and perceived support for climate action (Andre et al. 2024)",
+      "unit": {
+        "code": "percent",
+        "label": "percent of people",
+        "short": "%"
+      },
+      "vintage": "Nature Climate Change 14, 253–259 (2024), Supplementary Information"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": false,
+      "entities": ["WLD"],
+      "export_sha256": "56140869600718799780bf3208c1a257d60c60fa39e92aabab69a4a0faf17551",
+      "geo_coverage": "global-only",
+      "id": "attribution.carbon-brief.extremes-studied",
+      "latest": null,
+      "licence_class": "no-derivatives",
+      "provenance": {
+        "attribution": "Carbon Brief, \"Mapped: How climate change affects extreme weather around the world\" (McSweeney and Tandon, last updated 19 March 2026), https://interactive.carbonbrief.org/attribution-studies/index.html. CC BY-NC-ND 4.0.",
+        "description": "The number of extreme weather events and trends in Carbon Brief's map of attribution studies, which test whether human-caused climate change affected a specific extreme, as of the update of 19 March 2026. Studies cluster in Europe, East Asia and North America, so the map is not a sample of all extremes.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY-NC-ND 4.0",
+          "spdx": "CC-BY-NC-ND-4.0",
+          "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+        },
+        "notice": "Reproduced unadapted from Carbon Brief for non-commercial use under CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/). The full table is at https://interactive.carbonbrief.org/attribution-studies/data/papers-download.csv.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "article-page", "bytes": 1518493, "citation_full": "McSweeney, R. and Tandon, A. Mapped: How climate change affects extreme weather around the world. Carbon Brief, 18 November 2024, last updated 19 March 2026. https://interactive.carbonbrief.org/attribution-studies/index.html", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": "Tue, 05 May 2026 11:39:48 GMT", "licence": {"name": "CC BY-NC-ND 4.0", "spdx": "CC-BY-NC-ND-4.0", "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"}, "producer": "Carbon Brief", "r2_url": null, "sha256": "bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816", "source_id": "carbon-brief-attribution", "title": "Mapped: How climate change affects extreme weather around the world", "url_download": "https://interactive.carbonbrief.org/attribution-studies/index.html", "url_main": "https://interactive.carbonbrief.org/attribution-studies/index.html", "version_producer": "Seventh update, 19 March 2026", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from \"Extremes across the world\", first sentence (page last updated 19 March 2026). The quote was found in the visible text of the snapshot (sha256 bb784eb01e72…) before publishing.",
+            "inputs": ["bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: The count of extremes in the quote is published as the number of extreme events and trends in the map, as Carbon Brief states it for the update of 19 March 2026.",
+            "inputs": ["bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "carbon-brief-attribution",
+          "locator": "\"Extremes across the world\", first sentence (page last updated 19 March 2026)",
+          "quote": null
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Peer-reviewed attribution studies and rapid studies collected by Carbon Brief since the first such study in 2004. An extreme is an individual event (a heatwave, a flood) or a trend in extremes; one study can cover several.",
+          "bunkers": null,
+          "geography": "World (studies of extremes anywhere, as collected by Carbon Brief)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["carbon-brief-attribution"],
+      "time_basis": "calendar",
+      "title": "Extreme weather events and trends studied for a human fingerprint (Carbon Brief map)",
+      "unit": {
+        "code": "extremes",
+        "label": "extreme events and trends studied",
+        "short": "extremes"
+      },
+      "vintage": "Seventh update, 19 March 2026"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": false,
+      "entities": ["WLD"],
+      "export_sha256": "1deb33c92cc111aad36814680eef93410aa7beeaa4ab973d834479a2015e0aa1",
+      "geo_coverage": "global-only",
+      "id": "attribution.carbon-brief.share-more-likely-or-severe",
+      "latest": null,
+      "licence_class": "no-derivatives",
+      "provenance": {
+        "attribution": "Carbon Brief, \"Mapped: How climate change affects extreme weather around the world\" (McSweeney and Tandon, last updated 19 March 2026), https://interactive.carbonbrief.org/attribution-studies/index.html. CC BY-NC-ND 4.0.",
+        "description": "Of the extreme weather events and trends in Carbon Brief's map of attribution studies, the share that studies found were made more likely or more severe by human-caused climate change, as of the update of 19 March 2026. The share describes the studies collected, which cluster in Europe, East Asia and North America; it is not the share of all extreme weather.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY-NC-ND 4.0",
+          "spdx": "CC-BY-NC-ND-4.0",
+          "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+        },
+        "notice": "Reproduced unadapted from Carbon Brief for non-commercial use under CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/). The full table is at https://interactive.carbonbrief.org/attribution-studies/data/papers-download.csv.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "article-page", "bytes": 1518493, "citation_full": "McSweeney, R. and Tandon, A. Mapped: How climate change affects extreme weather around the world. Carbon Brief, 18 November 2024, last updated 19 March 2026. https://interactive.carbonbrief.org/attribution-studies/index.html", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": "Tue, 05 May 2026 11:39:48 GMT", "licence": {"name": "CC BY-NC-ND 4.0", "spdx": "CC-BY-NC-ND-4.0", "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"}, "producer": "Carbon Brief", "r2_url": null, "sha256": "bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816", "source_id": "carbon-brief-attribution", "title": "Mapped: How climate change affects extreme weather around the world", "url_download": "https://interactive.carbonbrief.org/attribution-studies/index.html", "url_main": "https://interactive.carbonbrief.org/attribution-studies/index.html", "version_producer": "Seventh update, 19 March 2026", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from \"Extremes across the world\" section, the paragraph after \"To explore the data for a specific region, click the relevant circles on the map\" (page last updated 19 March 2026). The quote was found in the visible text of the snapshot (sha256 bb784eb01e72…) before publishing.",
+            "inputs": ["bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: The percentage in the quote is published as the share of the extremes in the map that Carbon Brief states; it is not recomputed from the data table.",
+            "inputs": ["bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "carbon-brief-attribution",
+          "locator": "\"Extremes across the world\" section, the paragraph after \"To explore the data for a specific region, click the relevant circles on the map\" (page last updated 19 March 2026)",
+          "quote": null
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Carbon Brief's classification of each study's finding: more severe or more likely, less severe or less likely, no discernible human influence, or inconclusive. Shares are of all the extremes in the map.",
+          "bunkers": null,
+          "geography": "World (studies of extremes anywhere, as collected by Carbon Brief)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["carbon-brief-attribution"],
+      "time_basis": "calendar",
+      "title": "Share of studied extremes made more likely or severe by climate change (Carbon Brief map)",
+      "unit": {
+        "code": "percent",
+        "label": "percent of the extremes studied",
+        "short": "%"
+      },
+      "vintage": "Seventh update, 19 March 2026"
+    },
+    {
+      "display": {
         "decimals": 0
       },
       "downloadable": true,
@@ -243,6 +447,163 @@
         "short": "Gt CO₂"
       },
       "vintage": "IGCC-2025a"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["EU27", "UCPM"],
+      "export_sha256": "ea39c2d8d0b150f1bd56e512691c7e0f18990fdfdb50ef819e7e576c55f13aa3",
+      "geo_coverage": "global-only",
+      "id": "burned-area.effis.europe-annual",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "EU27",
+        "period": "2026",
+        "status": "preliminary",
+        "value": 689324.0
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "© European Union, European Forest Fire Information System (EFFIS), https://forest-fire.emergency.copernicus.eu, accessed 2026-10-05, CC BY 4.0. Sedano et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, 2026, doi:10.2760/3859043.",
+        "description": "Hectares burnt each year since 2006 by fires of about 30 hectares or larger, mapped from satellite imagery by the European Forest Fire Information System (EFFIS), for the 27 EU member states and for the wider group EFFIS lists under the EU's Union Civil Protection Mechanism (UCPM). The current year is a running total to date.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0 (European Commission reuse policy)",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "estimates-eu", "bytes": 872, "citation_full": "Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026, https://data.europa.eu/doi/10.2760/3859043, JRC146199.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.2760/3859043", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service", "r2_url": null, "sha256": "f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "source_id": "effis", "title": "European Forest Fire Information System (EFFIS) burnt-area estimates", "url_download": "https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=EU", "url_main": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "version_producer": "EFFIS estimates 2006–2026", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "estimates-ucpm", "bytes": 879, "citation_full": "Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026, https://data.europa.eu/doi/10.2760/3859043, JRC146199.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.2760/3859043", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service", "r2_url": null, "sha256": "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "source_id": "effis", "title": "European Forest Fire Information System (EFFIS) burnt-area estimates", "url_download": "https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=UCPM", "url_main": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "version_producer": "EFFIS estimates 2006–2026", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "areas-of-interest", "bytes": 7071, "citation_full": "Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026, https://data.europa.eu/doi/10.2760/3859043, JRC146199.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.2760/3859043", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service", "r2_url": null, "sha256": "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632", "source_id": "effis", "title": "European Forest Fire Information System (EFFIS) burnt-area estimates", "url_download": "https://api2.effis.emergency.copernicus.eu/statistics/utils/countriesbyaoi?aoi=effis", "url_main": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "version_producer": "EFFIS estimates 2006–2026", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read EFFIS's estimatesbycountry responses for the areas EU and UCPM: hectares burnt (ba) each year 2006–2026, published as served. Number of fires (nf) is not published.",
+            "inputs": ["f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
+            "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
+          },
+          {
+            "description": "Checked EFFIS's own membership list (countriesbyaoi): EU has the 27 member states; UCPM has the 27, the ten other states in the Union Civil Protection Mechanism (ALB, BIH, ISL, MDA, MKD, MNE, NOR, SRB, TUR, UKR) and six separately listed areas (GLP, GUY, MAF, MTQ, MYT, REU). Checked that UCPM is never below EU27.",
+            "inputs": ["f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
+            "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
+          },
+          {
+            "description": "Year to date, status preliminary: EU27 2026 (as served on 2026-10-05); UCPM 2026 (as served on 2026-10-05).",
+            "inputs": ["f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
+            "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Fires of about 30 hectares or larger mapped by EFFIS's Rapid Damage Assessment from satellite imagery (MODIS at 250 metres; Sentinel-2 at 20 metres since 2018), by calendar year. Fires burning natural land are counted, including prescribed burns. Figures differ from national statistics, from single-year report totals (which count all mapped fires, also those under 30 hectares) and from GWIS's MODIS-based Europe.",
+          "bunkers": null,
+          "geography": "Europe as EFFIS defines two areas. EU27: the 27 EU member states. UCPM: the 27, plus Albania, Bosnia and Herzegovina, Iceland, Moldova, Montenegro, North Macedonia, Norway, Serbia, Türkiye and Ukraine, plus Guadeloupe, Martinique, Mayotte, Réunion, Saint-Martin and an area EFFIS lists as Guyana. Not included: Switzerland, the United Kingdom, Andorra, Kosovo, Belarus and Russia.",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["effis"],
+      "time_basis": "calendar",
+      "title": "Area burnt each year in the EU and in UCPM countries",
+      "unit": {
+        "code": "ha",
+        "label": "hectares",
+        "short": "ha"
+      },
+      "vintage": "EFFIS estimates 2006–2026"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["UN_AFR", "UN_AME", "UN_ASI", "UN_EUR", "UN_OCE", "WLD"],
+      "export_sha256": "11f852bf76610c9a7a8c443cce5ee37c1d461ec97618077c6f184b88c2b548be",
+      "geo_coverage": "global-only",
+      "id": "burned-area.gwis.annual-by-land-cover",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "land_cover": "total"
+        },
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 332928197.51000077
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "© European Union, Global Wildfire Information System (GWIS), Country Profile, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05, CC BY 4.0. Burned area from NASA MODIS MCD64A1 v061 (Giglio et al. 2021, doi:10.5067/MODIS/MCD64A1.061).",
+        "description": "Hectares burned each year since 2002 worldwide and in Africa, the Americas, Asia, Europe and Oceania, split into forest, savannas, shrublands and grasslands, croplands and other land, as mapped by NASA's MODIS satellites and compiled by the EU's Global Wildfire Information System (GWIS). The 500 metre resolution misses many small fires and much cropland burning, so the totals are lower than finer-resolution estimates.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0 (European Commission reuse policy)",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "banf-world", "bytes": 134079, "citation_full": "Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05. Burned area from Giglio, L., Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061 [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)", "r2_url": null, "sha256": "2c29af78465ad69fbdc031fd557cc04eae5231cb8adb81dee26e3055b525e7ce", "source_id": "gwis-burned-area", "title": "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)", "url_download": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=WORLD&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "url_main": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "version_producer": "MCD64A1 C6.1 via GWIS, 2002–2025", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "banf-africa", "bytes": 133353, "citation_full": "Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05. Burned area from Giglio, L., Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061 [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)", "r2_url": null, "sha256": "17e38254598a948a0904d47dd10ce17f86b80c30387ee4f7f13146d507915ecb", "source_id": "gwis-burned-area", "title": "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)", "url_download": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_AFR&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "url_main": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "version_producer": "MCD64A1 C6.1 via GWIS, 2002–2025", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "banf-americas", "bytes": 131833, "citation_full": "Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05. Burned area from Giglio, L., Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061 [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)", "r2_url": null, "sha256": "97dced6a94c2ed5710cf4acbdb561ba216c46f4ed284b2ee9d0d2d7425055d5a", "source_id": "gwis-burned-area", "title": "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)", "url_download": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_AME&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "url_main": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "version_producer": "MCD64A1 C6.1 via GWIS, 2002–2025", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "banf-asia", "bytes": 131124, "citation_full": "Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05. Burned area from Giglio, L., Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061 [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)", "r2_url": null, "sha256": "a9a05fdf9e981d9b834090af1c9258b88fc9fba1f6bc472225202dad6948b98e", "source_id": "gwis-burned-area", "title": "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)", "url_download": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_ASI&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "url_main": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "version_producer": "MCD64A1 C6.1 via GWIS, 2002–2025", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "banf-europe", "bytes": 128036, "citation_full": "Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05. Burned area from Giglio, L., Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061 [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)", "r2_url": null, "sha256": "e2a738677b01fadedb922f72b1d150f12488ac5b6efad2581dc169d456da99c4", "source_id": "gwis-burned-area", "title": "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)", "url_download": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_EUR&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "url_main": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "version_producer": "MCD64A1 C6.1 via GWIS, 2002–2025", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "banf-oceania", "bytes": 125299, "citation_full": "Global Wildfire Information System (GWIS), Country Profile, European Commission Joint Research Centre, https://gwis.jrc.ec.europa.eu/apps/country.profile, accessed 2026-10-05. Burned area from Giglio, L., Justice, C., Boschetti, L., & Roy, D. (2021). MODIS/Terra+Aqua Burned Area Monthly L3 Global 500m SIN Grid V061 [Dataset]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MODIS/MCD64A1.061", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Global Wildfire Information System (GWIS)", "r2_url": null, "sha256": "a8889201d20929bd957b67f84984b91def66c1af407e194b73e9e30b2f8b2664", "source_id": "gwis-burned-area", "title": "GWIS Country Profile: yearly burned area by land cover (MODIS MCD64A1)", "url_download": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_OCE&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "url_main": "https://gwis.jrc.ec.europa.eu/apps/country.profile", "version_producer": "MCD64A1 C6.1 via GWIS, 2002–2025", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the banfyear list of each GWIS Country Profile response (level=AOI): World (WORLD) 2002–2025; Africa (UN_AFR) 2002–2025; Americas (UN_AME) 2002–2025; Asia (UN_ASI) 2002–2025; Europe (UN_EUR) 2002–2025; Oceania (UN_OCE) 2002–2025. Published per year: lc_tot (all land cover) and lc1–lc5, labelled Forest, Savannas, Shrublands and grasslands, Croplands and Other as in the GWIS app's legend. Values are hectares as stored, not converted.",
+            "inputs": ["2c29af78465ad69fbdc031fd557cc04eae5231cb8adb81dee26e3055b525e7ce", "17e38254598a948a0904d47dd10ce17f86b80c30387ee4f7f13146d507915ecb", "97dced6a94c2ed5710cf4acbdb561ba216c46f4ed284b2ee9d0d2d7425055d5a", "a9a05fdf9e981d9b834090af1c9258b88fc9fba1f6bc472225202dad6948b98e", "e2a738677b01fadedb922f72b1d150f12488ac5b6efad2581dc169d456da99c4", "a8889201d20929bd957b67f84984b91def66c1af407e194b73e9e30b2f8b2664"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/gwis_burned_area.py",
+            "transform_sha256": "417670cf2e3f5b072c26808d9312b1c664f128d709ca320fa531a4ce8902d6b4"
+          },
+          {
+            "description": "Checked in every year that the five land-cover classes add up to lc_tot, and that the twelve months of banfmonth add up to the year, each to within 0.01 hectare. The GlobFire fields (ba_area_ha, ba_count, firesize) are not read: they are 0.0 for years GlobFire has not yet processed.",
+            "inputs": ["2c29af78465ad69fbdc031fd557cc04eae5231cb8adb81dee26e3055b525e7ce", "17e38254598a948a0904d47dd10ce17f86b80c30387ee4f7f13146d507915ecb", "97dced6a94c2ed5710cf4acbdb561ba216c46f4ed284b2ee9d0d2d7425055d5a", "a9a05fdf9e981d9b834090af1c9258b88fc9fba1f6bc472225202dad6948b98e", "e2a738677b01fadedb922f72b1d150f12488ac5b6efad2581dc169d456da99c4", "a8889201d20929bd957b67f84984b91def66c1af407e194b73e9e30b2f8b2664"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/gwis_burned_area.py",
+            "transform_sha256": "417670cf2e3f5b072c26808d9312b1c664f128d709ca320fa531a4ce8902d6b4"
+          },
+          {
+            "description": "Every year to 2025 has twelve months in the file and ended before the fetch: all final.",
+            "inputs": ["2c29af78465ad69fbdc031fd557cc04eae5231cb8adb81dee26e3055b525e7ce", "17e38254598a948a0904d47dd10ce17f86b80c30387ee4f7f13146d507915ecb", "97dced6a94c2ed5710cf4acbdb561ba216c46f4ed284b2ee9d0d2d7425055d5a", "a9a05fdf9e981d9b834090af1c9258b88fc9fba1f6bc472225202dad6948b98e", "e2a738677b01fadedb922f72b1d150f12488ac5b6efad2581dc169d456da99c4", "a8889201d20929bd957b67f84984b91def66c1af407e194b73e9e30b2f8b2664"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/gwis_burned_area.py",
+            "transform_sha256": "417670cf2e3f5b072c26808d9312b1c664f128d709ca320fa531a4ce8902d6b4"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Burned area mapped by NASA MODIS MCD64A1 Collection 6.1 (500 m, monthly), by calendar year, January to December, unlike the March–February fire seasons of State of Wildfires. GWIS Europe is MODIS-based and differs from EFFIS's estimates for Europe.",
+          "bunkers": null,
+          "geography": "World, and the five continents of GWIS's Country Profile (Africa, Americas, Asia, Europe, Oceania; codes UN_AFR, UN_AME, UN_ASI, UN_EUR, UN_OCE), each read from its own GWIS response.",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["gwis-burned-area"],
+      "time_basis": "calendar",
+      "title": "Area burned each year, world and continents, by land cover",
+      "unit": {
+        "code": "ha",
+        "label": "hectares",
+        "short": "ha"
+      },
+      "vintage": "MCD64A1 C6.1 via GWIS, 2002–2025"
     },
     {
       "display": {
@@ -491,6 +852,290 @@
         "short": "GW"
       },
       "vintage": "2026-03-31"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "ccc38e14daef52fecaf2be5144ea3a3e6971d2cd4f2830ea8629906e73b8fd48",
+      "geo_coverage": "global-only",
+      "id": "carbon-pricing.wb-2026.emissions-covered",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2026",
+        "status": "final",
+        "value": 29.0
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.",
+        "description": "The share of the world's greenhouse gas emissions covered by a direct carbon price, a carbon tax or an emissions trading system, through the 87 such policies in force on 1 April 2026. Coverage says how much of the world's emissions face a price, not how high that price is.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY 3.0 IGO",
+          "spdx": "CC-BY-3.0-IGO",
+          "url": "https://creativecommons.org/licenses/by/3.0/igo/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 15253357, "citation_full": "World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1596/978-1-4648-2348-0", "etag": "\"fe570ff97a33de96465278b5dbba4afe\"", "last_modified": "Fri, 17 Jul 2026 20:17:13 GMT", "licence": {"name": "CC BY 3.0 IGO", "spdx": "CC-BY-3.0-IGO", "url": "https://creativecommons.org/licenses/by/3.0/igo/"}, "producer": "World Bank", "r2_url": null, "sha256": "87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496", "source_id": "wb-carbon-pricing-2026", "title": "State and Trends of Carbon Pricing 2026", "url_download": "https://openknowledge.worldbank.org/server/api/core/bitstreams/9ae836ed-db57-4766-92a5-4616cb1e81f9/content", "url_main": "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing", "version_producer": "State and Trends of Carbon Pricing 2026 (World Bank, May 2026)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from Key messages, item 1, p. 5. The quote was found in the text of page 9 of the snapshot (sha256 87eac710c5f1…) before publishing.",
+            "inputs": ["87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: \"29 percent of global greenhouse gas (GHG) emissions\" is published as 29 percent, dated 2026 (the policies in force on 1 April 2026).",
+            "inputs": ["87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "wb-carbon-pricing-2026",
+          "locator": "Key messages, item 1, p. 5",
+          "quote": "Direct carbon pricing covers 29 percent of global greenhouse gas (GHG) emissions through 87 implemented policies."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Carbon taxes and emissions trading systems implemented as of 1 April 2026 (the report's data cut-off), as a share of global greenhouse gas emissions. Indirect carbon pricing (fuel taxes) and carbon crediting are not included.",
+          "bunkers": null,
+          "geography": "World",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["wb-carbon-pricing-2026"],
+      "time_basis": "calendar",
+      "title": "Share of global greenhouse gas emissions covered by a carbon price (World Bank)",
+      "unit": {
+        "code": "percent",
+        "label": "percent of global greenhouse gas emissions",
+        "short": "%"
+      },
+      "vintage": "State and Trends of Carbon Pricing 2026 (World Bank, May 2026)"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "a6974963bc9901b198033c6cfaa05b9ede52a13543aaadc029218deedf52017a",
+      "geo_coverage": "global-only",
+      "id": "carbon-pricing.wb-2026.revenue",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 107.0
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.",
+        "description": "The money governments raised in 2025 from carbon taxes and emissions trading systems worldwide: 107 billion US dollars, about 2 percent more than in 2024 in real terms. The report says almost all of it is raised in high-income countries.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY 3.0 IGO",
+          "spdx": "CC-BY-3.0-IGO",
+          "url": "https://creativecommons.org/licenses/by/3.0/igo/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 15253357, "citation_full": "World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1596/978-1-4648-2348-0", "etag": "\"fe570ff97a33de96465278b5dbba4afe\"", "last_modified": "Fri, 17 Jul 2026 20:17:13 GMT", "licence": {"name": "CC BY 3.0 IGO", "spdx": "CC-BY-3.0-IGO", "url": "https://creativecommons.org/licenses/by/3.0/igo/"}, "producer": "World Bank", "r2_url": null, "sha256": "87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496", "source_id": "wb-carbon-pricing-2026", "title": "State and Trends of Carbon Pricing 2026", "url_download": "https://openknowledge.worldbank.org/server/api/core/bitstreams/9ae836ed-db57-4766-92a5-4616cb1e81f9/content", "url_main": "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing", "version_producer": "State and Trends of Carbon Pricing 2026 (World Bank, May 2026)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from Section 2.3, p. 25. The quote was found in the text of page 29 of the snapshot (sha256 87eac710c5f1…) before publishing.",
+            "inputs": ["87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: \"US$ 107 billion\" is published as 107 billion US dollars for 2025.",
+            "inputs": ["87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "wb-carbon-pricing-2026",
+          "locator": "Section 2.3, p. 25",
+          "quote": "In 2025 carbon pricing revenues reached US$ 107 billion, an increase of around two percent from 2024 levels in real terms (Figure 8)."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Revenues of governments from carbon taxes and from emissions trading systems (mostly allowance auctions) in calendar year 2025, as the World Bank estimates them. The report compares years in real terms; it does not state the price base of this figure on that page.",
+          "bunkers": null,
+          "geography": "World",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["wb-carbon-pricing-2026"],
+      "time_basis": "calendar",
+      "title": "Government revenue from carbon taxes and emissions trading (World Bank)",
+      "unit": {
+        "code": "USD-billion",
+        "label": "billion US dollars",
+        "short": "US$ bn"
+      },
+      "vintage": "State and Trends of Carbon Pricing 2026 (World Bank, May 2026)"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["EU27"],
+      "export_sha256": "6a20316f0a7e69548417337269217cea8ef94390e39f7fdda8a7bac879679ad1",
+      "geo_coverage": "country",
+      "id": "cars.icct-2025.lifecycle-bev-eu",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "EU27",
+        "period": "2025",
+        "status": "projection",
+        "value": 63.0
+      },
+      "licence_class": "share-alike",
+      "provenance": {
+        "attribution": "Negri, M. & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. CC BY-SA 4.0.",
+        "description": "Greenhouse gas emissions over the whole life of a medium-size battery electric car sold in the European Union in 2025, per kilometre driven: making the car and its battery, producing the electricity it uses on the EU's projected average grid mix for 2025-2044, maintenance and recycling. The ICCT estimates it at 63 grams of CO2-equivalent per kilometre, 73 percent less than a comparable petrol car.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")",
+          "spdx": "CC-BY-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "notice": "Values and charts derived from this ICCT report are shared under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 1235655, "citation_full": "Negri, M., & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": "\"686bfbbd-12dac7\"", "last_modified": "Mon, 07 Jul 2025 16:54:21 GMT", "licence": {"name": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")", "spdx": "CC-BY-SA-4.0", "url": "https://creativecommons.org/licenses/by-sa/4.0/"}, "producer": "International Council on Clean Transportation (ICCT)", "r2_url": null, "sha256": "5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c", "source_id": "icct-lca-2025", "title": "Life-cycle greenhouse gas emissions from passenger cars in the European Union (ICCT 2025)", "url_download": "https://theicct.org/wp-content/uploads/2025/07/ID-392-%E2%80%93-Life-cycle-GHG_report_final.pdf", "url_main": "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "version_producer": "ICCT report ID 392 (July 2025)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from Executive summary, p. i. The quote was found in the text of page 3 of the snapshot (sha256 5f28121f4899…) before publishing.",
+            "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: \"63 g CO2e/km\" is published as 63 grams of CO2-equivalent per kilometre for cars sold in 2025.",
+            "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "icct-lca-2025",
+          "locator": "Executive summary, p. i",
+          "quote": "As presented in Figure ES1, BEVs operating on the projected 2025–2044 average EU electricity mix had estimated life-cycle GHG emissions of 63 g CO2e/km."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Sales-weighted average medium-segment car (SUVs excluded) registered in the EU in 2023, sold in 2025 and driven for 20 years on the projected 2025–2044 average EU electricity mix; vehicle and battery production and recycling, electricity production and maintenance. Depends on that grid projection.",
+          "bunkers": null,
+          "geography": "European Union",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["icct-lca-2025"],
+      "time_basis": "calendar",
+      "title": "Life-cycle emissions of a battery electric car in the EU (ICCT)",
+      "unit": {
+        "code": "gCO2e/km",
+        "label": "grams of CO2-equivalent per kilometre",
+        "short": "g CO₂e/km"
+      },
+      "vintage": "ICCT report ID 392 (July 2025)"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["EU27"],
+      "export_sha256": "393313178ca95874f8dd61e7380979b54d2311f2514da919a8b9ea1147ea1d4e",
+      "geo_coverage": "country",
+      "id": "cars.icct-2025.lifecycle-gasoline-eu",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "EU27",
+        "period": "2025",
+        "status": "projection",
+        "value": 235.0
+      },
+      "licence_class": "share-alike",
+      "provenance": {
+        "attribution": "Negri, M. & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. CC BY-SA 4.0.",
+        "description": "Greenhouse gas emissions over the whole life of a medium-size petrol car sold in the European Union in 2025, per kilometre driven: making the car, producing and burning its fuel (the average EU blend of fossil petrol and ethanol), and maintenance. The ICCT estimates it at 235 grams of CO2-equivalent per kilometre.",
+        "kind": "published-value",
+        "licence": {
+          "name": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")",
+          "spdx": "CC-BY-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "notice": "Values and charts derived from this ICCT report are shared under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 1235655, "citation_full": "Negri, M., & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": "\"686bfbbd-12dac7\"", "last_modified": "Mon, 07 Jul 2025 16:54:21 GMT", "licence": {"name": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")", "spdx": "CC-BY-SA-4.0", "url": "https://creativecommons.org/licenses/by-sa/4.0/"}, "producer": "International Council on Clean Transportation (ICCT)", "r2_url": null, "sha256": "5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c", "source_id": "icct-lca-2025", "title": "Life-cycle greenhouse gas emissions from passenger cars in the European Union (ICCT 2025)", "url_download": "https://theicct.org/wp-content/uploads/2025/07/ID-392-%E2%80%93-Life-cycle-GHG_report_final.pdf", "url_main": "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "version_producer": "ICCT report ID 392 (July 2025)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from Executive summary, p. i. The quote was found in the text of page 3 of the snapshot (sha256 5f28121f4899…) before publishing.",
+            "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: \"estimated at 235 g CO2e/km\" is published as 235 grams of CO2-equivalent per kilometre for cars sold in 2025.",
+            "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "icct-lca-2025",
+          "locator": "Executive summary, p. i",
+          "quote": "This is 73% lower than the emissions of gasoline ICEVs running on the average blend of fossil gasoline and ethanol, estimated at 235 g CO2e/km."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Sales-weighted average medium-segment car (SUVs excluded) registered in the EU in 2023, sold in 2025 and driven for 20 years on the average blend of fossil gasoline and ethanol; vehicle production and recycling, fuel production, tailpipe emissions and maintenance.",
+          "bunkers": null,
+          "geography": "European Union",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["icct-lca-2025"],
+      "time_basis": "calendar",
+      "title": "Life-cycle emissions of a petrol car in the EU (ICCT)",
+      "unit": {
+        "code": "gCO2e/km",
+        "label": "grams of CO2-equivalent per kilometre",
+        "short": "g CO₂e/km"
+      },
+      "vintage": "ICCT report ID 392 (July 2025)"
     },
     {
       "display": {
@@ -990,6 +1635,77 @@
         "short": "ppm"
       },
       "vintage": "2026-09"
+    },
+    {
+      "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "ea59154d2608eced7e9a6bee6fc26d04f5bfe1d2e2f6f73584e7d8fd0b016939",
+      "geo_coverage": "global-only",
+      "id": "coral.noaa-crw.fourth-event-reef-area",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2023-01-01/2025-09-30",
+        "status": "final",
+        "value": 84.4
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "NOAA Coral Reef Watch, Version 3.1 Daily Global 5km Satellite Coral Bleaching Heat Stress products (Skirving et al. 2020, Remote Sensing 12, 3856, doi:10.3390/rs12233856), accessed 2026-10-04.",
+        "description": "The share of the world's coral reef area that experienced heat stress high enough to cause bleaching between 1 January 2023 and 30 September 2025, the fourth global coral bleaching event, as published by NOAA Coral Reef Watch. Heat stress measures the risk of bleaching, not observed bleaching or coral death.",
+        "kind": "published-value",
+        "licence": {
+          "name": "Public domain (NOAA Coral Reef Watch; US federal government work)",
+          "spdx": null,
+          "url": "https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "global-bleaching-status", "bytes": 25234, "citation_full": "NOAA Coral Reef Watch. 2018, updated daily. NOAA Coral Reef Watch Version 3.1 Daily Global 5km Satellite Coral Bleaching Degree Heating Week Product, Jan. 1, 2023-Dec. 31, 2025. College Park, Maryland, USA: NOAA Coral Reef Watch. Data set accessed 2026-10-04 at https://www.star.nesdis.noaa.gov/pub/socd/mecb/crw/data/5km/v3.1_op/nc/v1.0/annual/. Skirving, W; Marsh, B; De La Cour, J; Liu, G; Harris, A; Maturi, E; Geiger, E; Eakin, CM. CoralTemp and the Coral Reef Watch Coral Bleaching Heat Stress Product Suite Version 3.1. Remote Sens. 2020, 12, 3856; https://doi.org/10.3390/rs12233856.", "date_accessed": "2026-10-04", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Public domain (NOAA Coral Reef Watch; US federal government work)", "spdx": null, "url": "https://coralreefwatch.noaa.gov/satellite/docs/recommendations_crw_citation.php"}, "producer": "NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch", "r2_url": null, "sha256": "d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13", "source_id": "noaa-crw", "title": "NOAA Coral Reef Watch coral bleaching heat stress and global bleaching status", "url_download": "https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php", "url_main": "https://coralreefwatch.noaa.gov/", "version_producer": "Status update of 2 June 2026", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Quoted from Current Global Bleaching: Status Update (Updated: June 2, 2026), first paragraph under the headline. The quote was found in the visible text of the snapshot (sha256 d48ccb9c370e…) before publishing.",
+            "inputs": ["d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          },
+          {
+            "description": "Value: \"~84.4%\" is published as 84.4 percent of the world's coral reef area for 1 January 2023 to 30 September 2025; the page gives no range.",
+            "inputs": ["d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/literature.py",
+            "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+          }
+        ],
+        "published_value": {
+          "document": "noaa-crw",
+          "locator": "Current Global Bleaching: Status Update (Updated: June 2, 2026), first paragraph under the headline",
+          "quote": "From 1 January 2023 to 30 September 2025, bleaching-level heat stress has impacted ~84.4% of the world's coral reef area and mass coral bleaching has been documented in at least 83 countries and territories."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "Reef area that had bleaching-level heat stress at least once between 1 January 2023 and 30 September 2025, from satellite sea surface temperature (CRW's 5 km Bleaching Alert Area products). The same page gives 68.2% for the third global event (2014–2017). NOAA said on 2 June 2026 that the fourth event likely ended in 2025.",
+          "bunkers": null,
+          "geography": "World (coral reef areas in Coral Reef Watch's global 5 km satellite products)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["noaa-crw"],
+      "time_basis": "calendar",
+      "title": "Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event",
+      "unit": {
+        "code": "percent",
+        "label": "percent of the world's coral reef area",
+        "short": "%"
+      },
+      "vintage": "Status update of 2 June 2026"
     },
     {
       "display": {
@@ -3936,7 +4652,7 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "8be87db2386cd39d0880c4a6d2ea98826218a4a307c845cf7d7f13d5e0940ebb",
+      "export_sha256": "77a99976858885ed2673c1397e9cc6ea1ba21b77d180a72a9aedb93bc2e73cb1",
       "geo_coverage": "global-only",
       "id": "ghg-gas-share.edgar-2026.global",
       "latest": null,
@@ -3960,34 +4676,34 @@
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
-            "description": "Value: each percentage as printed, one per gas (Fossil carbon dioxide (CO₂) 73.8, Methane (CH₄) 17.6, Nitrous oxide (N₂O) 5.3, Fluorinated gases (F-gases) 3.3). They are shares of the world total excluding land use, land-use change and forestry (page 11).",
+            "description": "Value: each percentage as printed, one per gas (Fossil carbon dioxide (CO₂), Methane (CH₄), Nitrous oxide (N₂O), Fluorinated gases (F-gases)). They are shares of the world total excluding land use, land-use change and forestry (page 11).",
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "The World profile in Annex 5 (page 75) prints the same four shares beside its chart; the build stops unless they are identical.",
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Marked preliminary: 2025 is a Fast-Track year (page 50).",
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           }
         ],
         "published_value": {
           "document": "edgar-2026-ghg",
           "locator": "Executive summary, Main findings, printed page 9 (PDF page 11)",
-          "quote": "In 2025, fossil CO₂ remained the dominant component of global GHG emissions, accounting for 73.8% of the total. CH₄ contributed 17.6%, N₂O 5.3% and F-gases 3.3%."
+          "quote": null
         },
         "scope": {
           "baseline": null,
@@ -4014,7 +4730,7 @@
       },
       "downloadable": false,
       "entities": ["ABW", "AFG", "AGO", "AIA", "ALB", "ARE", "ARG", "ARM", "ATG", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BFA", "BGD", "BGR", "BHR", "BHS", "BIH", "BLR", "BLZ", "BMU", "BOL", "BRA", "BRB", "BRN", "BTN", "BWA", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COD", "COG", "COK", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "CYP", "CZE", "DEU", "DJI", "DMA", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESH", "ESP", "EST", "ETH", "EU27", "FIN", "FJI", "FLK", "FRA", "FRO", "GAB", "GBR", "GEO", "GHA", "GIB", "GIN", "GLP", "GMB", "GNB", "GNQ", "GRC", "GRD", "GRL", "GTM", "GUF", "GUY", "HKG", "HND", "HRV", "HTI", "HUN", "IDN", "IND", "IRL", "IRN", "IRQ", "ISL", "ISR", "ITA", "JAM", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KIR", "KNA", "KOR", "KWT", "LAO", "LBN", "LBR", "LBY", "LCA", "LKA", "LSO", "LTU", "LUX", "LVA", "MAC", "MAR", "MDA", "MDG", "MDV", "MEX", "MKD", "MLI", "MLT", "MMR", "MNG", "MOZ", "MRT", "MTQ", "MUS", "MWI", "MYS", "NAM", "NCL", "NER", "NGA", "NIC", "NLD", "NOR", "NPL", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "PNG", "POL", "PRI", "PRK", "PRT", "PRY", "PYF", "QAT", "REU", "ROU", "RUS", "RWA", "SAU", "SDN", "SEN", "SGP", "SHN", "SLB", "SLE", "SLV", "SOM", "SPM", "SRB_MNE", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SYC", "SYR", "TCA", "TCD", "TGO", "THA", "TJK", "TKM", "TLS", "TON", "TTO", "TUN", "TUR", "TWN", "TZA", "UGA", "UKR", "URY", "USA", "UZB", "VCT", "VEN", "VGB", "VNM", "VUT", "WLD", "WSM", "YEM", "ZAF", "ZMB", "ZWE"],
-      "export_sha256": "925752a16e34f105bafa5957b9034201bd5bfa92b39db8a8855ca6f707615627",
+      "export_sha256": "ba0efa87e1f068a7bb7b3819f758258df101de80a9ed22333f5731e14d3017d1",
       "geo_coverage": "mixed",
       "id": "ghg-per-capita.edgar-2026.by-country",
       "latest": null,
@@ -4039,28 +4755,28 @@
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Matched EDGAR's codes to ours: ISO 3166-1 alpha-3 codes directly, except GLOBAL TOTAL \"GLOBAL TOTAL\" is WLD, EU27 \"EU27\" is EU27, ANT \"Curaçao\" is CUW, SCG \"Serbia and Montenegro\" is SRB_MNE (ANT is the old code of the Netherlands Antilles; EDGAR names the row Curaçao, here and on its report profile; SCG is one row for Serbia and Montenegro together). Rows that cover a country together with a neighbour (CHE \"Switzerland and Liechtenstein\", ESP \"Spain and Andorra\", FRA \"France and Monaco\", ISR \"Israel and Palestine, State of\", ITA \"Italy, San Marino and the Holy See\", SDN \"Sudan and South Sudan\") are published under the code EDGAR gives them, with EDGAR's row name as a note on every value.",
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Checked against the report PDF (sha256 4e5712706aed…): the totals exclude land use, land-use change and forestry (page 11: 'The latest EDGAR estimates indicate that global GHG emissions (excluding LULUCF) reached a new record high of 54.1 Gt CO₂eq in 2025'), and the world total includes international shipping and aviation (page 74: 'Global totals for all countries, including international shipping and aviation').",
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Values for 2024 and 2025 are marked preliminary, because the report says (page 50) 'the emissions for the Fast-Track years (2024-2025) reported in this booklet will be updated in subsequent editions of this booklet'.",
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           }
         ],
         "published_value": null,
@@ -4089,7 +4805,7 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "3e9efed31211fe827ec830eda6ab9fdf498a63cb93024799880015d8b0dce32c",
+      "export_sha256": "1736464010af6751feeb333c92c6ab4e2ad249185cd0cb495bcbc099286c830e",
       "geo_coverage": "global-only",
       "id": "ghg-sector-change.edgar-2026.global",
       "latest": null,
@@ -4109,31 +4825,31 @@
         ],
         "processing": [
           {
-            "description": "Read from Annex 5, World profile, table of changes by sector, printed page 73 (PDF page 75) of the report, in the text of page 75 of the PDF snapshot (sha256 4e5712706aed…): the columns '2025 vs 1990', '2025 vs 2005' and '2025 vs 2024' for seven sectors and all sectors, exactly as labelled in SECTORS. Each value is the whole percentage printed; '0%' is printed where the change rounds to zero.",
+            "description": "Read from Annex 5, World profile, table of changes by sector, printed page 73 (PDF page 75) of the report, in the text of page 75 of the PDF snapshot (sha256 4e5712706aed…): the columns '2025 vs 1990', '2025 vs 2005' and '2025 vs 2024' for seven sectors and all sectors, exactly as labelled in SECTORS. Each value is the whole percentage printed, including where the report prints a change that rounds to zero.",
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Sectors are the report's: 'Industrial Combustion and Processes' is one row in this table. The changes are in world emissions excluding land use, land-use change and forestry (page 11), including international shipping and aviation (page 74).",
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Marked preliminary: 2025 is a Fast-Track year (page 50).",
             "inputs": ["4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           }
         ],
         "published_value": {
           "document": "edgar-2026-ghg",
           "locator": "Annex 5, World profile, table of changes by sector, printed page 73 (PDF page 75)",
-          "quote": "2025 vs 1990 2025 vs 2005 2025 vs 2024 Power Industry +106% +43% 0% Industrial Combustion and Processes +96% +48% +1% Buildings -4% -2% +1% Transport +86% +32% +1% Fuel Production +55% +28% +1% Agriculture +26% +19% 0% Waste +69% +36% +1% All sectors +68% +33% +1%"
+          "quote": null
         },
         "scope": {
           "baseline": "The same sector's emissions in 1990, 2005 or 2024",
@@ -4160,7 +4876,7 @@
       },
       "downloadable": false,
       "entities": ["ABW", "AFG", "AGO", "AIA", "ALB", "ARE", "ARG", "ARM", "ATG", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BFA", "BGD", "BGR", "BHR", "BHS", "BIH", "BLR", "BLZ", "BMU", "BOL", "BRA", "BRB", "BRN", "BTN", "BWA", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COD", "COG", "COK", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "CYP", "CZE", "DEU", "DJI", "DMA", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESH", "ESP", "EST", "ETH", "EU27", "FIN", "FJI", "FLK", "FRA", "FRO", "GAB", "GBR", "GEO", "GHA", "GIB", "GIN", "GLP", "GMB", "GNB", "GNQ", "GRC", "GRD", "GRL", "GTM", "GUF", "GUY", "HKG", "HND", "HRV", "HTI", "HUN", "IDN", "IND", "INTL_AIR", "INTL_SEA", "IRL", "IRN", "IRQ", "ISL", "ISR", "ITA", "JAM", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KIR", "KNA", "KOR", "KWT", "LAO", "LBN", "LBR", "LBY", "LCA", "LKA", "LSO", "LTU", "LUX", "LVA", "MAC", "MAR", "MDA", "MDG", "MDV", "MEX", "MKD", "MLI", "MLT", "MMR", "MNG", "MOZ", "MRT", "MTQ", "MUS", "MWI", "MYS", "NAM", "NCL", "NER", "NGA", "NIC", "NLD", "NOR", "NPL", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "PNG", "POL", "PRI", "PRK", "PRT", "PRY", "PYF", "QAT", "REU", "ROU", "RUS", "RWA", "SAU", "SDN", "SEN", "SGP", "SHN", "SLB", "SLE", "SLV", "SOM", "SPM", "SRB_MNE", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SYC", "SYR", "TCA", "TCD", "TGO", "THA", "TJK", "TKM", "TLS", "TON", "TTO", "TUN", "TUR", "TWN", "TZA", "UGA", "UKR", "URY", "USA", "UZB", "VCT", "VEN", "VGB", "VNM", "VUT", "WLD", "WSM", "YEM", "ZAF", "ZMB", "ZWE"],
-      "export_sha256": "631a102dd7aeb3d4bcb8bb61e66d7ee4a512f04269499f876213533f07b0a3e8",
+      "export_sha256": "48ad7b777d995834e97489b1fd2927a7c29ec5d3ac16c1249a79c87e15a2f1a1",
       "geo_coverage": "mixed",
       "id": "ghg.edgar-2026.total-by-country",
       "latest": null,
@@ -4185,28 +4901,28 @@
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Matched EDGAR's codes to ours: ISO 3166-1 alpha-3 codes directly, except GLOBAL TOTAL \"GLOBAL TOTAL\" is WLD, EU27 \"EU27\" is EU27, AIR \"International Aviation\" is INTL_AIR, SEA \"International Shipping\" is INTL_SEA, ANT \"Curaçao\" is CUW, SCG \"Serbia and Montenegro\" is SRB_MNE (ANT is the old code of the Netherlands Antilles; EDGAR names the row Curaçao, here and on its report profile; SCG is one row for Serbia and Montenegro together). Rows that cover a country together with a neighbour (CHE \"Switzerland and Liechtenstein\", ESP \"Spain and Andorra\", FRA \"France and Monaco\", ISR \"Israel and Palestine, State of\", ITA \"Italy, San Marino and the Holy See\", SDN \"Sudan and South Sudan\") are published under the code EDGAR gives them, with EDGAR's row name as a note on every value.",
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Checked against the report PDF (sha256 4e5712706aed…): the totals exclude land use, land-use change and forestry (page 11: 'The latest EDGAR estimates indicate that global GHG emissions (excluding LULUCF) reached a new record high of 54.1 Gt CO₂eq in 2025'), and the world total includes international shipping and aviation (page 74: 'Global totals for all countries, including international shipping and aviation').",
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           },
           {
             "description": "Values for 2024 and 2025 are marked preliminary, because the report says (page 50) 'the emissions for the Fast-Track years (2024-2025) reported in this booklet will be updated in subsequent editions of this booklet'.",
             "inputs": ["bb77a0da5735925b3a6a64be63dade9e71b57174d5ec6c7eff872274df00f88c", "4e5712706aed4b9384cd7ffb71c17299b2777644a1b5240539fc6e931418c667"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/emissions/edgar_2026.py",
-            "transform_sha256": "3966a07cd6d96e7675b0a1646d95ef38bc5f12f3171c7dc3f587e4a40320bfde"
+            "transform_sha256": "e917da7000ab67e89cace025c312093abbec3a5085dc787840c21b7008c936c1"
           }
         ],
         "published_value": null,
@@ -4543,7 +5259,7 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "327ede1145d43d6fbb7801c08d9e9a59f57161146a9d60542293968c73af5cbd",
+      "export_sha256": "800fd882d1131f5078d3c123aa32bf1208abcf4c42a91fd5cb23a1a7ec3f7347",
       "geo_coverage": "global-only",
       "id": "gmsl.ipcc-ar6.rise-2100-likely",
       "latest": null,
@@ -4567,20 +5283,20 @@
             "inputs": ["37c9fa760757524c8d69630a89cecab9ebcacb66786970a3439da0619875e446"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/ocean/ipcc_ar6_sea_level.py",
-            "transform_sha256": "7d5000bf8e12b037d0f1ee54d6dae5240017c56743c136cfc5d23e7d860b4cba"
+            "transform_sha256": "f0a4a83b9cd18ab025f74e413d8db795857f51016c2fe82a255df7677771eb84"
           },
           {
-            "description": "Value: the likely ranges by 2100 relative to 1995–2014 (SSP1-1.9 0.28–0.55 m; SSP1-2.6 0.32–0.62 m; SSP2-4.5 0.44–0.76 m; SSP5-8.5 0.63–1.01 m) are published as printed, in metres, each end of a range as its own value (bound likely-low or likely-high). The build reads the ranges from the quote's words and stops unless they equal the published table. The SPM gives no central estimate, and none is computed.",
+            "description": "Value: the likely ranges by 2100 relative to 1995–2014, one per scenario, are published as printed, in metres, each end of a range as its own value (bound likely-low or likely-high). The build reads the ranges from the quote's words and stops unless they equal the published table. The SPM gives no central estimate, and none is computed.",
             "inputs": ["37c9fa760757524c8d69630a89cecab9ebcacb66786970a3439da0619875e446"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/ocean/ipcc_ar6_sea_level.py",
-            "transform_sha256": "7d5000bf8e12b037d0f1ee54d6dae5240017c56743c136cfc5d23e7d860b4cba"
+            "transform_sha256": "f0a4a83b9cd18ab025f74e413d8db795857f51016c2fe82a255df7677771eb84"
           }
         ],
         "published_value": {
           "document": "ipcc-ar6-wg1-spm",
           "locator": "SPM statement B.5.3, p. 21",
-          "quote": "Relative to 1995–2014, the likely global mean sea level rise by 2100 is 0.28–0.55 m under the very low GHG emissions scenario (SSP1-1.9); 0.32–0.62 m under the low GHG emissions scenario (SSP1-2.6); 0.44–0.76 m under the intermediate GHG emissions scenario (SSP2-4.5); and 0.63–1.01 m under the very high GHG emissions scenario (SSP5-8.5); and by 2150 is 0.37–0.86 m under the very low scenario (SSP1-1.9); 0.46–0.99 m under the low scenario (SSP1-2.6); 0.66–1.33 m under the intermediate scenario (SSP2-4.5); and 0.98–1.88 m under the very high scenario (SSP5-8.5) (medium confidence)."
+          "quote": null
         },
         "scope": {
           "baseline": "1995–2014",
@@ -5299,14 +6015,14 @@
       },
       "downloadable": false,
       "entities": ["WLD"],
-      "export_sha256": "76634df6a75072208984483f7caa1612b570b584b724483826e3072af3d4bcc9",
+      "export_sha256": "044ed436109e13a6d838070b702a76881d79c4c9b6e9245be5f404811e134ce1",
       "geo_coverage": "global-only",
       "id": "mitigation.ipcc-ar6.cost-under-100-2030",
       "latest": null,
       "licence_class": "display-only",
       "provenance": {
         "attribution": "IPCC, 2022: Summary for Policymakers. In: Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press. doi:10.1017/9781009157926.001",
-        "description": "The IPCC's assessment that mitigation options costing 100 US dollars per tonne of CO₂-equivalent or less could reduce global greenhouse gas emissions in 2030 by at least half of the 2019 level.",
+        "description": "The IPCC's assessment of how far mitigation options costing 100 US dollars per tonne of CO₂-equivalent or less could reduce global greenhouse gas emissions in 2030, compared with the 2019 level.",
         "kind": "published-value",
         "licence": {
           "name": "© IPCC, all rights reserved (personal, non-commercial use; no redistribution or derivative works)",
@@ -5326,7 +6042,7 @@
             "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
           },
           {
-            "description": "Value: \"at least half the 2019 level\" is published as 50 percent of 2019 global greenhouse gas emissions, the lower bound the statement gives; the IPCC states no upper bound.",
+            "description": "Value: The statement's lower bound is published as a percentage of 2019 global greenhouse gas emissions; the IPCC states no upper bound.",
             "inputs": ["fdec68c55cbf64ddf2d65c468f9125c1111413fcc35aa01c94810e4548e6c778"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/literature.py",
@@ -5336,7 +6052,7 @@
         "published_value": {
           "document": "ipcc-ar6-wg3-spm",
           "locator": "SPM statement C.12, p. 37",
-          "quote": "Mitigation options costing USD100 tCO₂-eq⁻¹ or less could reduce global GHG emissions by at least half the 2019 level by 2030 (high confidence)."
+          "quote": null
         },
         "scope": {
           "baseline": null,
@@ -5430,6 +6146,82 @@
         "short": "ppb"
       },
       "vintage": "2026-09"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["AGO", "AND", "ARE", "ARM", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BFA", "BGD", "BGR", "BHR", "BHS", "BLR", "BLZ", "BOL", "BRA", "BRB", "BRN", "BTN", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COG", "COL", "COM", "CPV", "CRI", "CUB", "CYP", "CZE", "DEU", "DNK", "DOM", "DZA", "ECU", "ERI", "ESP", "EST", "ETH", "EU27", "FIN", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GIN", "GMB", "GRC", "GUY", "HND", "HRV", "HUN", "IDN", "IND", "IRL", "IRQ", "ISL", "ITA", "JAM", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KOR", "LBN", "LBR", "LCA", "LIE", "LKA", "LTU", "LUX", "LVA", "MAR", "MCO", "MDA", "MDG", "MDV", "MEX", "MHL", "MLT", "MNE", "MNG", "MOZ", "MRT", "MUS", "MWI", "MYS", "NGA", "NIC", "NIU", "NLD", "NOR", "NPL", "NRU", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "POL", "PRT", "PRY", "PSE", "QAT", "ROU", "RUS", "RWA", "SAU", "SGP", "SLB", "SLE", "SLV", "SOM", "SRB", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SYC", "TGO", "THA", "TLS", "TON", "TTO", "TUN", "TUR", "TUV", "UKR", "URY", "USA", "UZB", "VAT", "VEN", "VUT", "WSM", "YEM", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "e82fb54c352f7f327955e583b90b4783899d9571fcce15f9cdbf8c0f978ea07c",
+      "geo_coverage": "mixed",
+      "id": "ndc.climate-watch.2025-ndc",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "question": "submitted"
+        },
+        "entity": "EU27",
+        "period": "2025-11-05",
+        "status": "final",
+        "value": 1.0
+      },
+      "licence_class": "noncommercial",
+      "provenance": {
+        "attribution": "Adapted by Environment Dashboard from Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker. CC BY-NC 4.0. Changes: Climate Watch's yes/no labels coded as 1 and 0, with the labels kept as notes.",
+        "description": "Whether each country has submitted its 2025 nationally determined contribution (NDC 3.0, the national climate plan due under the Paris Agreement), when, and what Climate Watch finds in it: a 2035 greenhouse gas target, an economy-wide target, a target for gases other than carbon dioxide, a stronger 2030 target, stronger adaptation, and added information for clarity. 1 means yes and 0 means no, as coded by the World Resources Institute's Climate Watch from the NDC texts. Countries Climate Watch has no information for are not shown.",
+        "kind": "derived",
+        "licence": {
+          "name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)",
+          "spdx": "CC-BY-NC-4.0",
+          "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+        },
+        "notice": "NDC documents: UNFCCC. 2026. NDC Registry. Available at: https://unfccc.int/NDCREG. Climate Watch data shared under CC BY-NC 4.0, for non-commercial use only.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "ndc-tracker-2025", "bytes": 303801, "citation_full": "Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": "W/\"2d0d6af161093f72b8497c3eb07a7918\"", "last_modified": null, "licence": {"name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)", "spdx": "CC-BY-NC-4.0", "url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "producer": "World Resources Institute (Climate Watch)", "r2_url": null, "sha256": "2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2", "source_id": "climate-watch-ndc", "title": "Climate Watch NDC Tracker (2025 NDCs)", "url_download": "https://www.climatewatchdata.org/api/v1/ndcs?indicators=2025_status,2025_statement,2025_emissions_compare,2025_source,2025_date,2025_compare_1,2025_compare_2,2025_compare_3,2025_compare_4,2025_compare_5,2025_compare_6,submission,submission_date,pa_status", "url_main": "https://www.climatewatchdata.org/", "version_producer": "NDC Tracker retrieved 2026-10-05 (latest 2025 NDC dated 2026-09-08)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the Climate Watch API response (sha256 2d0d6af16109…, retrieved 2026-10-05) and checked that every indicator in it has source 'Climate Watch'.",
+            "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+            "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+          },
+          {
+            "description": "For the 153 locations with a 2025 NDC status, coded the submission status and the six content questions as 1 (Climate Watch's 'Yes' or 'Submitted' label) or 0 ('No' or 'Withdrawn'); labels that answer neither way are published as missing, with the label. Each value keeps Climate Watch's label as its note.",
+            "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+            "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+          },
+          {
+            "description": "Dated each observation by the Party's 2025 NDC date (M/D/YYYY in the file, written as an ISO date). EUU (the European Union) is published as EU27.",
+            "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+            "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Qualitative coding by Climate Watch (World Resources Institute) from the NDC documents on the UNFCCC registry. Each observation is dated by the NDC's submission date.",
+          "bunkers": null,
+          "geography": "Parties to the UNFCCC with a 2025 NDC status in Climate Watch; the EU's NDC is coded for the EU and for each member state",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["climate-watch-ndc"],
+      "time_basis": "calendar",
+      "title": "2025 climate pledges (NDCs): who has submitted, and what they contain",
+      "unit": {
+        "code": "yes-no",
+        "label": "1 = yes, 0 = no, as coded by Climate Watch",
+        "short": ""
+      },
+      "vintage": "NDC Tracker retrieved 2026-10-05 (latest 2025 NDC dated 2026-09-08)"
     },
     {
       "display": {
@@ -5781,6 +6573,167 @@
         "short": "pH"
       },
       "vintage": "2026-01-01"
+    },
+    {
+      "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
+      "entities": ["ARG", "AUS", "AUT", "BEL", "BGR", "BRA", "CAN", "CHN", "COL", "CZE", "DEU", "DNK", "ESP", "FRA", "GBR", "GRC", "HUN", "IDN", "IRL", "ITA", "KOR", "MEX", "NOR", "NZL", "POL", "PRT", "ROU", "SAU", "SVK", "SWE", "TUR", "USA", "ZAF"],
+      "export_sha256": "a3aaecfb6efc4723127b6a5597ce53ebf64c534b301244d7cc765f284fb184cd",
+      "geo_coverage": "country",
+      "id": "policy.stechemesser-2024.successful-interventions",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "economy_group": "developed",
+          "sector": "electricity"
+        },
+        "entity": "GBR",
+        "period": "2016",
+        "status": "final",
+        "value": -24.572779052668636
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Adapted by Environment Dashboard from Stechemesser, A. et al. (2024), replication data for \"Climate policies that achieved major emission reductions: Global evidence from two decades\", Science 385, 884–892 (doi:10.1126/science.adl6547), version v4, doi:10.5281/zenodo.12773811, CC BY 4.0. Changes: break coefficients converted from the log scale to percent change, as the authors do; breaks without a matched policy left out.",
+        "description": "The 63 policy interventions that Stechemesser and colleagues found behind large, sudden drops in a sector's emissions in 41 countries over two decades: for each, the country, the sector (buildings, electricity, industry or transport), the year of the drop and its size, as the percent change in the sector's emissions compared with what the model expects without it. Each value names the policies adopted or tightened within two years before or after the drop. Most successful interventions combine several policies; the drop cannot be credited to one policy alone.",
+        "kind": "derived",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": "Policy data: OECD (2023), Climate Actions and Policies Measurement Framework (CAPMF), pre-release obtained by the authors in July 2023 (current version: https://oe.cd/dx/capmf); US policies from the OECD IPAC Dashboard, March 2023.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "policy-out", "bytes": 1285199, "citation_full": "Stechemesser, A. (2024). Climate policies that achieved major emission reductions: Global evidence from two decades. In Science (Version v4, Vol. 385, Issue 6711, pp. 884–892). Zenodo. https://doi.org/10.5281/zenodo.12773811. Article: Stechemesser, A., Koch, N., Mark, E., Dilger, E., Klösel, P., Menicacci, L., Nachtigall, D., Pretis, F., Ritter, N., Schwarz, M., Vossen, H., & Wenzel, A. (2024). Science, 385(6711), 884–892. https://doi.org/10.1126/science.adl6547", "date_accessed": "2026-10-05", "date_published": "2024-07-18", "doi": "10.5281/zenodo.12773811", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Stechemesser, Koch, Mark, Dilger, Klösel, Menicacci, Nachtigall, Pretis, Ritter, Schwarz, Vossen and Wenzel (PIK, MCC Berlin, OECD and others); article in Science, data and code on Zenodo", "r2_url": null, "sha256": "a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "source_id": "stechemesser-2024", "title": "Climate policies that achieved major emission reductions (Stechemesser et al. 2024), replication data", "url_download": "https://zenodo.org/api/records/12773811/files/Policy_out.RDS/content", "url_main": "https://doi.org/10.5281/zenodo.12773811", "version_producer": "Zenodo v4 (2024-07-18)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "eu-policies-label", "bytes": 14542, "citation_full": "Stechemesser, A. (2024). Climate policies that achieved major emission reductions: Global evidence from two decades. In Science (Version v4, Vol. 385, Issue 6711, pp. 884–892). Zenodo. https://doi.org/10.5281/zenodo.12773811. Article: Stechemesser, A., Koch, N., Mark, E., Dilger, E., Klösel, P., Menicacci, L., Nachtigall, D., Pretis, F., Ritter, N., Schwarz, M., Vossen, H., & Wenzel, A. (2024). Science, 385(6711), 884–892. https://doi.org/10.1126/science.adl6547", "date_accessed": "2026-10-05", "date_published": "2024-07-18", "doi": "10.5281/zenodo.12773811", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Stechemesser, Koch, Mark, Dilger, Klösel, Menicacci, Nachtigall, Pretis, Ritter, Schwarz, Vossen and Wenzel (PIK, MCC Berlin, OECD and others); article in Science, data and code on Zenodo", "r2_url": null, "sha256": "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c", "source_id": "stechemesser-2024", "title": "Climate policies that achieved major emission reductions (Stechemesser et al. 2024), replication data", "url_download": "https://zenodo.org/api/records/12773811/files/EU_policies_label_df.csv/content", "url_main": "https://doi.org/10.5281/zenodo.12773811", "version_producer": "Zenodo v4 (2024-07-18)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read Policy_out.RDS (sha256 a0c67b252c4b…) with a reader of R's serialization format: 69 negative structural breaks in sectoral emissions across the developed (AC1) and developing (AC6) country samples and four sectors, each with the CAPMF policies the authors matched to it within two years (policy_match_2y, the window used in the paper's main text).",
+            "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
+            "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
+          },
+          {
+            "description": "Read EU_policies_label_df.csv (sha256 1bc4d07bf186…), the EU policies the model controls for, and matched each break to those in force in its country and sector within two years, as the notes of 06_Fig_4.R do by hand: 4 breaks are matched only by an EU policy.",
+            "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
+            "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
+          },
+          {
+            "description": "Kept the 63 breaks with at least one matched policy (the paper's successful policy interventions); the other 6 have none and are not published.",
+            "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
+            "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
+          },
+          {
+            "description": "Effect size = (e^coefficient − 1) × 100, the authors' conversion of the break coefficient (log scale) to the percent change in the sector's emissions. Each value's note lists the matched policies.",
+            "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
+            "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Detected with machine-learning break detection on sectoral CO2 emissions, 2000–2022; policy data from a July 2023 pre-release of the OECD Climate Actions and Policies Measurement Framework (CAPMF), plus the EU policies the model controls for. Effect size relative to the model's counterfactual, on the log scale converted to percent.",
+          "bunkers": null,
+          "geography": "41 countries (OECD members and large emerging economies), one value per intervention",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["stechemesser-2024"],
+      "time_basis": "calendar",
+      "title": "Climate policy interventions that cut emissions (Stechemesser et al. 2024)",
+      "unit": {
+        "code": "percent",
+        "label": "percent change in the sector's emissions at the break",
+        "short": "%"
+      },
+      "vintage": "Zenodo v4 (2024-07-18)"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "e9ab5aa094c08302e84402f2c05002c80d8a837dd7a54d6cd8692fb16c905fa9",
+      "geo_coverage": "global-only",
+      "id": "progress.scl.outcome-status",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "status": "on-track"
+        },
+        "entity": "WLD",
+        "period": "2026-10-05",
+        "status": "final",
+        "value": 0.5586592178770949
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from Systems Change Lab data. Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund. https://www.systemschangelab.org, accessed 2026-10-05. CC BY 4.0. Changes: indicators counted by progress status and expressed as percent of the outcome indicators not built from IEA data.",
+        "description": "Of the outcome indicators Systems Change Lab tracks across power, buildings, industry, transport, cities, land, food, freshwater, the circular economy, carbon removal and finance, the share it assesses as on track for 2030, off track, well off track, heading in the right direction but too slowly, heading in the wrong direction, or with too little data to say. Indicators built from International Energy Agency data are left out.",
+        "kind": "derived",
+        "licence": {
+          "name": "CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": "Each indicator also credits the original data source named in its Systems Change Lab metadata, under that source's own licence.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "scl-data-all", "bytes": 2924272, "citation_full": "Systems Change Lab. 2025. Washington, DC: World Resources Institute, Bezos Earth Fund. Available online at: https://www.systemschangelab.org.", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": null, "last_modified": "Mon, 05 Oct 2026 10:33:48 GMT", "licence": {"name": "CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Systems Change Lab (World Resources Institute and Bezos Earth Fund)", "r2_url": null, "sha256": "1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568", "source_id": "systems-change-lab", "title": "Systems Change Lab: indicators of progress on the shifts needed for 1.5 °C", "url_download": "https://systemschangelab.org/scl-download/all", "url_main": "https://systemschangelab.org/download", "version_producer": "export retrieved 2026-10-05", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the 438 indicator metadata files in the Systems Change Lab export (sha256 1c4ed351ea59…, retrieved 2026-10-05); 196 are outcome indicators with a progress status, the rest enablers and barriers, which have none.",
+            "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
+            "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+          },
+          {
+            "description": "Left out the 17 outcome indicators whose data sources name the International Energy Agency (BLDG-11, BLDG-15, BLDG-24, BLDG-25, BLDG-37, CTY-21, FIN-86, IN-2, PWR-41, PWR-42, PWR-50, PWR-58, TRNS-27, TRNS-28, TRNS-29, TRNS-31, X-FIN-85).",
+            "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
+            "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+          },
+          {
+            "description": "Counted the remaining 179 outcome indicators by Systems Change Lab's status and divided each count by their total, times 100.",
+            "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
+            "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Systems Change Lab's own progress status for each outcome indicator, as listed in its data export on the day it was downloaded; enabler and barrier indicators carry no status and are not counted.",
+          "bunkers": null,
+          "geography": "World (Systems Change Lab's global indicators)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["systems-change-lab"],
+      "time_basis": "calendar",
+      "title": "Progress of the shifts needed for 1.5 °C (Systems Change Lab)",
+      "unit": {
+        "code": "percent",
+        "label": "percent of Systems Change Lab outcome indicators",
+        "short": "%"
+      },
+      "vintage": "export retrieved 2026-10-05"
     },
     {
       "display": {
@@ -6301,6 +7254,111 @@
         "short": "million km²"
       },
       "vintage": "v01r01 to 2026-08-31"
+    },
+    {
+      "display": {
+        "decimals": 2
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "5451e8ba681beccaa9cabebc6abab7286d3704212ed3ab5b64892594903d3ea6",
+      "geo_coverage": "global-only",
+      "id": "solutions.drawdown.climate-impact",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "basis": "gwp100",
+          "level": "current",
+          "solution": "deploy-onshore-wind-turbines"
+        },
+        "entity": "WLD",
+        "period": "2026",
+        "status": "final",
+        "value": 1.6
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Project Drawdown, The Drawdown Explorer (http://drawdown.org/explorer): solution assessment spreadsheets on Zenodo, CC BY 4.0; methodology doi:10.5281/zenodo.20865531.",
+        "description": "How much each climate solution assessed by Project Drawdown reduces or removes greenhouse gas emissions each year worldwide: at today's adoption, across the range of adoption Drawdown considers achievable in the next 5 to 25 years, and at the adoption ceiling, a theoretical maximum that probably cannot be reached. Impacts of different solutions overlap and cannot be added up. For renewable electricity the ceiling reflects technical potential only, not power demand.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "deploy-alternative-insulation-materials", "bytes": 2636585, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "f3fe540011971f447f0abcff281fec3d8146a3bfd8803a00fb348fa44284e937", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21231150/files/Deploy%20Alternative%20Insulation%20Materials-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-alternative-refrigerants", "bytes": 1255390, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "6d015bc8180755919d4bd6f0228efc85a162813346ad3f2ebf199501133e38ba", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246134/files/Deploy%20Alternative%20Refrigerants-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-building-automation-systems", "bytes": 1064844, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "5f7a8a7b5f9db15a0bf0b324a7605233f5d288248d495433e1bdd6346953ed00", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21876968/files/Deploy%20Building%20Automation%20Systems-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-clean-cooking", "bytes": 360926, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "482d66b0549364c0b0e45a61f86200a8f8b27c97e0a48a4e7a957c6a468096c1", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21231101/files/Deploy%20Clean%20Cooking-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-distributed-solar-pv", "bytes": 610138, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "e9b211dae147ee0ce96a0bb652dc25e21a506e2c85608354cceda7cc1cbe9e52", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246308/files/Deploy%20Distributed%20Solar%20PV-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-industrial-green-hydrogen", "bytes": 553744, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "026db9d6a2c4c8070fe0289e84e93d3fba4fdb7004e0d53ba3644142f65a1dc4", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246254/files/Deploy%20Industrial%20Green%20Hydrogen-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-led-lighting", "bytes": 568731, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "7bc9427a7d0c53c9c007efccdc8828d48c8c91c667376beaca7590569ee183ba", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246185/files/Deploy%20LED%20Lighting-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-offshore-wind-turbines", "bytes": 634583, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "65cf95226dec507e124b537d04d77d8a51726e2dfecae1e867292aac6d9464d5", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246039/files/Deploy%20Offshore%20Wind%20Turbines-%20Solutions%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-onshore-wind-turbines", "bytes": 998542, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "f1bb5db37b0dc6834bf24c318d17afd6ec7f9b8003ff1ba113592e1c26024df9", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246129/files/Deploy%20Onshore%20Wind%20Turbines-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "deploy-utility-scale-solar-pv", "bytes": 533269, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "65511c069d25f1e0760d1c38c7b24da8252d94aff73cd77d2bfc9d512aaec1c3", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246284/files/Deploy%20Utility-Scale%20Solar%20PV-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "enhance-public-transit", "bytes": 1281261, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "ababf3bf5294d8b3b9e0dd84e82309f4c6f7e8b93b4cb29e61ac8fec22e7cbc4", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21230992/files/Enhance%20Public%20Transit-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "improve-diets", "bytes": 491777, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "08623adce6468d438bd6eed7063538acb0ba8551b312503a6d9fe81cb4506433", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246101/files/Improve%20Diets-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "improve-nonmotorized-transportation", "bytes": 1761230, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "18bd819ecf5a7f274846d36a35f2b02467365605d212dd6a31754dc96a644c91", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21231018/files/Improve%20Nonmotorized%20Transportation-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "improve-nutrient-management", "bytes": 540037, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "c3271a6e61310eecf4a74ec86baef03dec5842f76d4a93df82884e02b3452104", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21230979/files/Improve%20Nutrient%20Management-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "improve-windows-and-glass", "bytes": 1179670, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "425e173b19f0859256e0f0fd85397da4e1e535fbe32524c4d2372d7d10b97dee", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246202/files/Improve%20Windows%20%26%20Glass-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "increase-carpooling", "bytes": 2841921, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "310bd4df62af00355411817ca052a536bd6e57255da3487594e80affff0ef505", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246159/files/Increase%20Carpooling-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "increase-centralized-composting", "bytes": 777792, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "7c273dc286a4278153ab23dfb899b01caaaa9d859b5e5bd370d4a20557a27c4a", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246147/files/Increase%20Centralized%20Composting-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "manage-coal-mine-methane", "bytes": 1753781, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "84f722e13cd4924fd614d9e41e396304cdff62420aec31c1a62f32bbd592e073", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21231038/files/Manage%20Coal%20Mine%20Methane-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "manage-oil-and-gas-methane", "bytes": 2001458, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "6177a89fd2bdbb8811a40c7c6c68ef37b86f4b1d4ea37d3c2aa00f2a6f4d2cf0", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21230947/files/Manage%20Oil%20%26%20Gas%20Methane-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "mobilize-electric-cars", "bytes": 1080912, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "d7e8a6328ec3e9dffcb2b14964855c34974cefa813414087e0b39fbb49767d56", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21231076/files/Mobilize%20Electric%20Cars-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "mobilize-electric-scooters-and-motorcycles", "bytes": 208486, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "c043139becd9bc7cd89dee6fd5684675336809d5a3a0d100aaecb3cb4207c266", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21458487/files/Mobilize%20Electric%20Scooters%20%26%20Motorcycles-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "mobilize-hybrid-cars", "bytes": 2957142, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "78eb1ed0974b4b5ddc59636b52da7a688a3b6ee0ffd4db183ff5660c0d4d938e", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/20865760/files/Mobilize%20Hybrid%20Cars%20assessment%20spreadsheet_June2026.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "protect-forests", "bytes": 296475, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "33249b3b89309c840a636ae24de800dc040a4b0d135a5e43536caf6ff444f6c7", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21230935/files/Protect%20Forests-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "protect-grasslands-and-savannas", "bytes": 780280, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "6aabf765b32c8d7074c7c901a76a5e3e7f0b6c3f16f6a97aacc53c6112f2daa7", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246118/files/Protect%20Grasslands%20and%20Savannas-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "protect-peatlands", "bytes": 304148, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "f949fe1e007d2a914d4ec9de6048cb53d4a1922c5c2c7d098b56d72239138eb4", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21245970/files/Protect%20Peatlands-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "protect-seaweed-ecosystems", "bytes": 771358, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "1e894c20025f5fe0144e2e733a0676c6f7e947e03376d7d3d427c60940fe52cd", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21245985/files/Protect%20Seaweed%20Ecosystems-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "reduce-food-loss-and-waste", "bytes": 3266177, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "e641ea12508087dc70e9e7bdbf77390b3e0f7e6d3267825db9aca702210c3e06", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21231175/files/Reduce%20Food%20Loss%20%26%20Waste-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "use-heat-pumps", "bytes": 686799, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246268/files/Use%20Heat%20Pumps-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the table of climate impact by adoption level from the results sheet of 28 solution spreadsheets, checking the title, the four level headers and any row labels of each table cell by cell against the layout declared for that spreadsheet.",
+            "inputs": ["f3fe540011971f447f0abcff281fec3d8146a3bfd8803a00fb348fa44284e937", "6d015bc8180755919d4bd6f0228efc85a162813346ad3f2ebf199501133e38ba", "5f7a8a7b5f9db15a0bf0b324a7605233f5d288248d495433e1bdd6346953ed00", "482d66b0549364c0b0e45a61f86200a8f8b27c97e0a48a4e7a957c6a468096c1", "e9b211dae147ee0ce96a0bb652dc25e21a506e2c85608354cceda7cc1cbe9e52", "026db9d6a2c4c8070fe0289e84e93d3fba4fdb7004e0d53ba3644142f65a1dc4", "7bc9427a7d0c53c9c007efccdc8828d48c8c91c667376beaca7590569ee183ba", "65cf95226dec507e124b537d04d77d8a51726e2dfecae1e867292aac6d9464d5", "f1bb5db37b0dc6834bf24c318d17afd6ec7f9b8003ff1ba113592e1c26024df9", "65511c069d25f1e0760d1c38c7b24da8252d94aff73cd77d2bfc9d512aaec1c3", "ababf3bf5294d8b3b9e0dd84e82309f4c6f7e8b93b4cb29e61ac8fec22e7cbc4", "08623adce6468d438bd6eed7063538acb0ba8551b312503a6d9fe81cb4506433", "18bd819ecf5a7f274846d36a35f2b02467365605d212dd6a31754dc96a644c91", "c3271a6e61310eecf4a74ec86baef03dec5842f76d4a93df82884e02b3452104", "425e173b19f0859256e0f0fd85397da4e1e535fbe32524c4d2372d7d10b97dee", "310bd4df62af00355411817ca052a536bd6e57255da3487594e80affff0ef505", "7c273dc286a4278153ab23dfb899b01caaaa9d859b5e5bd370d4a20557a27c4a", "84f722e13cd4924fd614d9e41e396304cdff62420aec31c1a62f32bbd592e073", "6177a89fd2bdbb8811a40c7c6c68ef37b86f4b1d4ea37d3c2aa00f2a6f4d2cf0", "d7e8a6328ec3e9dffcb2b14964855c34974cefa813414087e0b39fbb49767d56", "c043139becd9bc7cd89dee6fd5684675336809d5a3a0d100aaecb3cb4207c266", "78eb1ed0974b4b5ddc59636b52da7a688a3b6ee0ffd4db183ff5660c0d4d938e", "33249b3b89309c840a636ae24de800dc040a4b0d135a5e43536caf6ff444f6c7", "6aabf765b32c8d7074c7c901a76a5e3e7f0b6c3f16f6a97aacc53c6112f2daa7", "f949fe1e007d2a914d4ec9de6048cb53d4a1922c5c2c7d098b56d72239138eb4", "1e894c20025f5fe0144e2e733a0676c6f7e947e03376d7d3d427c60940fe52cd", "e641ea12508087dc70e9e7bdbf77390b3e0f7e6d3267825db9aca702210c3e06", "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/drawdown_explorer.py",
+            "transform_sha256": "d2d6ba22ffd549dc79072e61ac30455fd701b1a8bac29865aedcdde07de2ef54"
+          },
+          {
+            "description": "Published 136 values for 28 solutions as the spreadsheets give them (cached cell values, billion tonnes of CO2-equivalent per year), on the warming-potential basis each table states. 2 cells that hold text instead of a number are published as missing values, with the text.",
+            "inputs": ["f3fe540011971f447f0abcff281fec3d8146a3bfd8803a00fb348fa44284e937", "6d015bc8180755919d4bd6f0228efc85a162813346ad3f2ebf199501133e38ba", "5f7a8a7b5f9db15a0bf0b324a7605233f5d288248d495433e1bdd6346953ed00", "482d66b0549364c0b0e45a61f86200a8f8b27c97e0a48a4e7a957c6a468096c1", "e9b211dae147ee0ce96a0bb652dc25e21a506e2c85608354cceda7cc1cbe9e52", "026db9d6a2c4c8070fe0289e84e93d3fba4fdb7004e0d53ba3644142f65a1dc4", "7bc9427a7d0c53c9c007efccdc8828d48c8c91c667376beaca7590569ee183ba", "65cf95226dec507e124b537d04d77d8a51726e2dfecae1e867292aac6d9464d5", "f1bb5db37b0dc6834bf24c318d17afd6ec7f9b8003ff1ba113592e1c26024df9", "65511c069d25f1e0760d1c38c7b24da8252d94aff73cd77d2bfc9d512aaec1c3", "ababf3bf5294d8b3b9e0dd84e82309f4c6f7e8b93b4cb29e61ac8fec22e7cbc4", "08623adce6468d438bd6eed7063538acb0ba8551b312503a6d9fe81cb4506433", "18bd819ecf5a7f274846d36a35f2b02467365605d212dd6a31754dc96a644c91", "c3271a6e61310eecf4a74ec86baef03dec5842f76d4a93df82884e02b3452104", "425e173b19f0859256e0f0fd85397da4e1e535fbe32524c4d2372d7d10b97dee", "310bd4df62af00355411817ca052a536bd6e57255da3487594e80affff0ef505", "7c273dc286a4278153ab23dfb899b01caaaa9d859b5e5bd370d4a20557a27c4a", "84f722e13cd4924fd614d9e41e396304cdff62420aec31c1a62f32bbd592e073", "6177a89fd2bdbb8811a40c7c6c68ef37b86f4b1d4ea37d3c2aa00f2a6f4d2cf0", "d7e8a6328ec3e9dffcb2b14964855c34974cefa813414087e0b39fbb49767d56", "c043139becd9bc7cd89dee6fd5684675336809d5a3a0d100aaecb3cb4207c266", "78eb1ed0974b4b5ddc59636b52da7a688a3b6ee0ffd4db183ff5660c0d4d938e", "33249b3b89309c840a636ae24de800dc040a4b0d135a5e43536caf6ff444f6c7", "6aabf765b32c8d7074c7c901a76a5e3e7f0b6c3f16f6a97aacc53c6112f2daa7", "f949fe1e007d2a914d4ec9de6048cb53d4a1922c5c2c7d098b56d72239138eb4", "1e894c20025f5fe0144e2e733a0676c6f7e947e03376d7d3d427c60940fe52cd", "e641ea12508087dc70e9e7bdbf77390b3e0f7e6d3267825db9aca702210c3e06", "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/drawdown_explorer.py",
+            "transform_sha256": "d2d6ba22ffd549dc79072e61ac30455fd701b1a8bac29865aedcdde07de2ef54"
+          },
+          {
+            "description": "Solutions whose spreadsheets give impacts only per sub-solution, by year, or without a stated basis are not published (see the transform's notes).",
+            "inputs": ["f3fe540011971f447f0abcff281fec3d8146a3bfd8803a00fb348fa44284e937", "6d015bc8180755919d4bd6f0228efc85a162813346ad3f2ebf199501133e38ba", "5f7a8a7b5f9db15a0bf0b324a7605233f5d288248d495433e1bdd6346953ed00", "482d66b0549364c0b0e45a61f86200a8f8b27c97e0a48a4e7a957c6a468096c1", "e9b211dae147ee0ce96a0bb652dc25e21a506e2c85608354cceda7cc1cbe9e52", "026db9d6a2c4c8070fe0289e84e93d3fba4fdb7004e0d53ba3644142f65a1dc4", "7bc9427a7d0c53c9c007efccdc8828d48c8c91c667376beaca7590569ee183ba", "65cf95226dec507e124b537d04d77d8a51726e2dfecae1e867292aac6d9464d5", "f1bb5db37b0dc6834bf24c318d17afd6ec7f9b8003ff1ba113592e1c26024df9", "65511c069d25f1e0760d1c38c7b24da8252d94aff73cd77d2bfc9d512aaec1c3", "ababf3bf5294d8b3b9e0dd84e82309f4c6f7e8b93b4cb29e61ac8fec22e7cbc4", "08623adce6468d438bd6eed7063538acb0ba8551b312503a6d9fe81cb4506433", "18bd819ecf5a7f274846d36a35f2b02467365605d212dd6a31754dc96a644c91", "c3271a6e61310eecf4a74ec86baef03dec5842f76d4a93df82884e02b3452104", "425e173b19f0859256e0f0fd85397da4e1e535fbe32524c4d2372d7d10b97dee", "310bd4df62af00355411817ca052a536bd6e57255da3487594e80affff0ef505", "7c273dc286a4278153ab23dfb899b01caaaa9d859b5e5bd370d4a20557a27c4a", "84f722e13cd4924fd614d9e41e396304cdff62420aec31c1a62f32bbd592e073", "6177a89fd2bdbb8811a40c7c6c68ef37b86f4b1d4ea37d3c2aa00f2a6f4d2cf0", "d7e8a6328ec3e9dffcb2b14964855c34974cefa813414087e0b39fbb49767d56", "c043139becd9bc7cd89dee6fd5684675336809d5a3a0d100aaecb3cb4207c266", "78eb1ed0974b4b5ddc59636b52da7a688a3b6ee0ffd4db183ff5660c0d4d938e", "33249b3b89309c840a636ae24de800dc040a4b0d135a5e43536caf6ff444f6c7", "6aabf765b32c8d7074c7c901a76a5e3e7f0b6c3f16f6a97aacc53c6112f2daa7", "f949fe1e007d2a914d4ec9de6048cb53d4a1922c5c2c7d098b56d72239138eb4", "1e894c20025f5fe0144e2e733a0676c6f7e947e03376d7d3d427c60940fe52cd", "e641ea12508087dc70e9e7bdbf77390b3e0f7e6d3267825db9aca702210c3e06", "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/drawdown_explorer.py",
+            "transform_sha256": "d2d6ba22ffd549dc79072e61ac30455fd701b1a8bac29865aedcdde07de2ef54"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Project Drawdown's 2026 assessments against a 2023 baseline; impacts assume each solution's effectiveness stays as it is today. Gases are combined with 100-year or 20-year warming potentials as each spreadsheet states (dimension 'basis'); the two are not comparable.",
+          "bunkers": null,
+          "geography": "World, each solution as a whole (system level)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["drawdown-explorer"],
+      "time_basis": "calendar",
+      "title": "Climate impact of solutions at different levels of adoption (Project Drawdown)",
+      "unit": {
+        "code": "GtCO2e/yr",
+        "label": "billion tonnes of CO2-equivalent per year",
+        "short": "Gt CO₂e/yr"
+      },
+      "vintage": "Drawdown Explorer spreadsheets on Zenodo, June–August 2026 (methodology June 2026)"
     },
     {
       "display": {
@@ -7151,6 +8209,77 @@
         "short": "°C"
       },
       "vintage": "era5-x0.25 1950-2025, fetched 2026-10-05"
+    },
+    {
+      "display": {
+        "decimals": 3
+      },
+      "downloadable": true,
+      "entities": ["GBR"],
+      "export_sha256": "8b7251c4566e0000593e65251a30f7abb08aa0307e0626d89836ed6434ef042a",
+      "geo_coverage": "country",
+      "id": "travel.desnz-2026.flight-factors",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "haul": "long-haul",
+          "radiative_forcing": "with-rf",
+          "seat_class": "economy"
+        },
+        "entity": "GBR",
+        "period": "2026",
+        "status": "final",
+        "value": 0.11704
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Department for Energy Security and Net Zero, Greenhouse gas reporting: conversion factors 2026 (flat file version 2026, flat file version 1.2). Contains public sector information licensed under the Open Government Licence v3.0.",
+        "description": "Greenhouse gas emissions per passenger per kilometre flown, from the UK Government's 2026 conversion factors: for domestic, short-haul and long-haul flights to or from the UK and for international flights elsewhere, by seat class, with and without the extra warming from aircraft emissions at altitude (radiative forcing). Premium seats take more cabin space, so each passenger in them is assigned more of the flight's emissions. Factors are averages for UK reporting, not measurements of a particular flight.",
+        "kind": "series",
+        "licence": {
+          "name": "Open Government Licence v3.0 (Crown copyright)",
+          "spdx": "OGL-UK-3.0",
+          "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "flat-file", "bytes": 515426, "citation_full": "Department for Energy Security and Net Zero (2026). Greenhouse gas reporting: conversion factors 2026, flat file version 2026, flat file version 1.2. GOV.UK. https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026", "date_accessed": "2026-10-05", "date_published": "2026-06-11", "doi": null, "etag": "\"6a6c9748-7dd62\"", "last_modified": "Fri, 31 Jul 2026 12:38:32 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Energy Security and Net Zero (UK Government)", "r2_url": null, "sha256": "a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e", "source_id": "desnz-ghg-factors-2026", "title": "Greenhouse gas reporting: conversion factors 2026", "url_download": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx", "url_main": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026", "version_producer": "2026, flat file version 1.2", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read sheet 'Factors by Category' of the flat file (sha256 a9a455ab396d…) and kept the rows with Level 1 'Business travel- air', Level 2 'Flights', unit 'passenger.km' and GHG/Unit 'kg CO2e' (the all-gas total): 28 factors, one for each haul, seat class and with or without radiative forcing that DESNZ publishes. Checked that each appears exactly once.",
+            "inputs": ["a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/desnz_flights.py",
+            "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
+          },
+          {
+            "description": "Published each factor as printed, with its DESNZ factor ID in the value's note. Well-to-tank rows and the separate CO2, CH4 and N2O rows are not used.",
+            "inputs": ["a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/desnz_flights.py",
+            "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Direct emissions of the flight (CO2, CH4 and N2O as CO2-equivalent, with the warming potentials DESNZ lists in its methodology paper, Table 1), excluding the well-to-tank emissions of producing jet fuel. The factors include DESNZ's 8% uplift on the great-circle distance (methodology paper, paragraph 8.17). 'With radiative forcing' applies DESNZ's 1.7 multiplier to the CO2 for the effects of emissions at altitude (paragraph 2.10); 'without' gives the emissions alone.",
+          "bunkers": null,
+          "geography": "UK Government factors for reporting by UK organisations (flights to or from the UK, and international flights between non-UK airports)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["desnz-ghg-factors-2026"],
+      "time_basis": "calendar",
+      "title": "Flight emission factors by distance and seat class (UK Government 2026)",
+      "unit": {
+        "code": "kgCO2e/pkm",
+        "label": "kilograms of CO2-equivalent per passenger-kilometre",
+        "short": "kg CO₂e/pkm"
+      },
+      "vintage": "2026, flat file version 1.2"
     },
     {
       "display": {

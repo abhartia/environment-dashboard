@@ -97,8 +97,18 @@ AGGREGATES: dict[str, str] = {
     "RYUKYU": "Ryukyu Islands, as reported while under US administration",
     "NH": "Northern Hemisphere",
     "SH": "Southern Hemisphere",
-    # EDGAR's row "Serbia and Montenegro" (code SCG), reported as one entity in its historical years.
+    # Serbia and Montenegro reported as one entity in their historical years: EDGAR's and EIA's row SCG and FAOSTAT
+    # area 186.
     "SRB_MNE": "Serbia and Montenegro (as reported together)",
+    # GWIS's own continental totals of burned area. They are GWIS's published aggregates (its grouping of countries
+    # into continents), not M49 membership lists, which stay unregistered.
+    "UN_AFR": "Africa (as grouped by GWIS)",
+    "UN_AME": "Americas (as grouped by GWIS)",
+    "UN_ASI": "Asia (as grouped by GWIS)",
+    "UN_EUR": "Europe (as grouped by GWIS)",
+    "UN_OCE": "Oceania (as grouped by GWIS)",
+    # EFFIS's total for the countries in the EU Civil Protection Mechanism, as EFFIS lists them.
+    "UCPM": "Countries in the EU Civil Protection Mechanism (as listed by EFFIS)",
 }
 
 STATIONS: dict[str, str] = {

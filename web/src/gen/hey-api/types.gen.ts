@@ -988,8 +988,36 @@ export type Provenance = {
      * Processing
      */
     processing: Array<ProcessingStep>;
-    published_value: PublishedValueRef | null;
+    published_value: PublishedValueCitation | null;
     scope: Scope;
+};
+
+/**
+ * PublishedValueCitation
+ *
+ * Where a quoted value comes from, as the public catalogue carries it. The verbatim quote contains the value, so
+ * it is here only for redistributable classes; for no-derivatives and display-only it stays in the private export
+ * and is shown on the server-rendered data page.
+ */
+export type PublishedValueCitation = {
+    /**
+     * Document
+     *
+     * Source id of the paper/report.
+     */
+    document: string;
+    /**
+     * Locator
+     *
+     * e.g. "Table 3, p. 568" or "SPM statement C.10".
+     */
+    locator: string;
+    /**
+     * Quote
+     *
+     * Verbatim text the value is taken from; null for no-derivatives and display-only.
+     */
+    quote: string | null;
 };
 
 /**

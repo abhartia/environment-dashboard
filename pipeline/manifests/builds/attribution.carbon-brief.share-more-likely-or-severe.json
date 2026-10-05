@@ -1,0 +1,24 @@
+{
+  "export": "data-private/v1/indicators/attribution.carbon-brief.share-more-likely-or-severe.json",
+  "export_sha256": "1deb33c92cc111aad36814680eef93410aa7beeaa4ab973d834479a2015e0aa1",
+  "indicator_id": "attribution.carbon-brief.share-more-likely-or-severe",
+  "key": "e6ec12fe783f407d1a9924100c8d3104e749fc6ae533ff460b5dfe1e1da5516f",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "carbon-brief-attribution/article-page": {
+        "manifest_sha256": "56dbc20fc89f39402374f3291bde037d544607fe3016044a8886b33b894842aa",
+        "sha256": "bb784eb01e72877062c31e49d034391f46e6b1900ba7db9ddb9be4583a0b0816"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/carbon-brief-attribution-share-more-likely-or-severe.yaml": "94f059caa1174ae5bfd3f6d8d6e4c651c6b9fbcd875e9b76b429e2daaa0b9557"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "carbon-brief-attribution": "5622393aeb4905114d52fec2f3862eb99d8d57f047182996bf99f10c0c386180"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

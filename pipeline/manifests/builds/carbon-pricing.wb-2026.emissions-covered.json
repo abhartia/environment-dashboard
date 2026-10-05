@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/carbon-pricing.wb-2026.emissions-covered.json",
+  "export_sha256": "ccc38e14daef52fecaf2be5144ea3a3e6971d2cd4f2830ea8629906e73b8fd48",
+  "indicator_id": "carbon-pricing.wb-2026.emissions-covered",
+  "key": "fb03ec55626c131210e1353ad210d6dc6f5a0fed73f841d278dc24bee03bdfcd",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "wb-carbon-pricing-2026/report-pdf": {
+        "manifest_sha256": "09858fe90974c751b2a2e385224b73bed5d1ff7b2fc15568789b32779188609c",
+        "sha256": "87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/wb-carbon-pricing-2026-coverage.yaml": "e81ca16d4351c70caebf4cb8dc939e313b6fb082c1777e33c6815ee6746bd16c"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "wb-carbon-pricing-2026": "ad8f331d559bf40cf8c4bcbbc251e6c4799ba093eca6bb34e55806a5a971d480"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

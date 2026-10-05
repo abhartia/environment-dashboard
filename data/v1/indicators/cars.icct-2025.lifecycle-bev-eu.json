@@ -1,0 +1,77 @@
+{
+  "attribution": "Negri, M. & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. CC BY-SA 4.0.",
+  "description": "Greenhouse gas emissions over the whole life of a medium-size battery electric car sold in the European Union in 2025, per kilometre driven: making the car and its battery, producing the electricity it uses on the EU's projected average grid mix for 2025-2044, maintenance and recycling. The ICCT estimates it at 63 grams of CO2-equivalent per kilometre, 73 percent less than a comparable petrol car.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "country",
+  "headline_entity": "EU27",
+  "id": "cars.icct-2025.lifecycle-bev-eu",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "EU27",
+    "period": "2025",
+    "status": "projection",
+    "value": 63.0
+  },
+  "licence": {
+    "name": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")",
+    "spdx": "CC-BY-SA-4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "licence_class": "share-alike",
+  "notes": [],
+  "notice": "Values and charts derived from this ICCT report are shared under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 1235655, "citation_full": "Negri, M., & Bieker, G. (2025). Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider. International Council on Clean Transportation. https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": "\"686bfbbd-12dac7\"", "last_modified": "Mon, 07 Jul 2025 16:54:21 GMT", "licence": {"name": "CC BY-SA 4.0 (ICCT terms of use, \"except as otherwise noted\")", "spdx": "CC-BY-SA-4.0", "url": "https://creativecommons.org/licenses/by-sa/4.0/"}, "producer": "International Council on Clean Transportation (ICCT)", "r2_url": null, "sha256": "5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c", "source_id": "icct-lca-2025", "title": "Life-cycle greenhouse gas emissions from passenger cars in the European Union (ICCT 2025)", "url_download": "https://theicct.org/wp-content/uploads/2025/07/ID-392-%E2%80%93-Life-cycle-GHG_report_final.pdf", "url_main": "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/", "version_producer": "ICCT report ID 392 (July 2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Quoted from Executive summary, p. i. The quote was found in the text of page 3 of the snapshot (sha256 5f28121f4899…) before publishing.",
+      "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/literature.py",
+      "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+    },
+    {
+      "description": "Value: \"63 g CO2e/km\" is published as 63 grams of CO2-equivalent per kilometre for cars sold in 2025.",
+      "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/literature.py",
+      "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+    }
+  ],
+  "published_value": {
+    "document": "icct-lca-2025",
+    "locator": "Executive summary, p. i",
+    "quote": "As presented in Figure ES1, BEVs operating on the projected 2025–2044 average EU electricity mix had estimated life-cycle GHG emissions of 63 g CO2e/km."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Sales-weighted average medium-segment car (SUVs excluded) registered in the EU in 2023, sold in 2025 and driven for 20 years on the projected 2025–2044 average EU electricity mix; vehicle and battery production and recycling, electricity production and maintenance. Depends on that grid projection.",
+    "bunkers": null,
+    "geography": "European Union",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["EU27"],
+    "period": ["2025"],
+    "status": ["projection"],
+    "value": [63.0]
+  },
+  "time_basis": "calendar",
+  "title": "Life-cycle emissions of a battery electric car in the EU (ICCT)",
+  "unit": {
+    "code": "gCO2e/km",
+    "label": "grams of CO2-equivalent per kilometre",
+    "short": "g CO₂e/km"
+  },
+  "vintage": "ICCT report ID 392 (July 2025)"
+}

@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/travel.desnz-2026.flight-factors.json",
+  "export_sha256": "8b7251c4566e0000593e65251a30f7abb08aa0307e0626d89836ed6434ef042a",
+  "indicator_id": "travel.desnz-2026.flight-factors",
+  "key": "d587d23724048b1182ca8bc85c42fdcc511efd64220213abfca31ea4037f9629",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "desnz-ghg-factors-2026/flat-file": {
+        "manifest_sha256": "c3b774020edaef574d67dd48320d0cda15500f508f38813f0cc5abfcafb4ad83",
+        "sha256": "a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "desnz-ghg-factors-2026": "41e8cecf05cd04f51e967ee95892405c152e283ab59387800559b0e4083b55dc"
+    },
+    "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
+  },
+  "publisher_checks": []
+}

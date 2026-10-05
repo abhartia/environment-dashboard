@@ -1,0 +1,83 @@
+{
+  "attribution": "© European Union, European Forest Fire Information System (EFFIS), https://forest-fire.emergency.copernicus.eu, accessed 2026-10-05, CC BY 4.0. Sedano et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, 2026, doi:10.2760/3859043.",
+  "description": "Hectares burnt each year since 2006 by fires of about 30 hectares or larger, mapped from satellite imagery by the European Forest Fire Information System (EFFIS), for the 27 EU member states and for the wider group EFFIS lists under the EU's Union Civil Protection Mechanism (UCPM). The current year is a running total to date.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "EU27",
+  "id": "burned-area.effis.europe-annual",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "EU27",
+    "period": "2026",
+    "status": "preliminary",
+    "value": 689324.0
+  },
+  "licence": {
+    "name": "CC BY 4.0 (European Commission reuse policy)",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Year to date: EFFIS's running total for 2026 as served on 2026-10-05, the day these bytes were first fetched; not a full year."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "estimates-eu", "bytes": 872, "citation_full": "Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026, https://data.europa.eu/doi/10.2760/3859043, JRC146199.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.2760/3859043", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service", "r2_url": null, "sha256": "f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "source_id": "effis", "title": "European Forest Fire Information System (EFFIS) burnt-area estimates", "url_download": "https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=EU", "url_main": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "version_producer": "EFFIS estimates 2006–2026", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "estimates-ucpm", "bytes": 879, "citation_full": "Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026, https://data.europa.eu/doi/10.2760/3859043, JRC146199.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.2760/3859043", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service", "r2_url": null, "sha256": "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "source_id": "effis", "title": "European Forest Fire Information System (EFFIS) burnt-area estimates", "url_download": "https://api2.effis.emergency.copernicus.eu/statistics/v2/effis/estimatesbycountry?country=UCPM", "url_main": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "version_producer": "EFFIS estimates 2006–2026", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "areas-of-interest", "bytes": 7071, "citation_full": "Sedano, F., Maianti, P., Boca, R., Suarez-Moreno, M., Broglia, M. et al., Advance report on Forest Fires in Europe, Middle East and North Africa 2025, Publications Office of the European Union, Luxembourg, 2026, https://data.europa.eu/doi/10.2760/3859043, JRC146199.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.2760/3859043", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (European Commission reuse policy)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "European Commission, Joint Research Centre (JRC), Copernicus Emergency Management Service", "r2_url": null, "sha256": "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632", "source_id": "effis", "title": "European Forest Fire Information System (EFFIS) burnt-area estimates", "url_download": "https://api2.effis.emergency.copernicus.eu/statistics/utils/countriesbyaoi?aoi=effis", "url_main": "https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/estimates", "version_producer": "EFFIS estimates 2006–2026", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read EFFIS's estimatesbycountry responses for the areas EU and UCPM: hectares burnt (ba) each year 2006–2026, published as served. Number of fires (nf) is not published.",
+      "inputs": ["f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
+      "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
+    },
+    {
+      "description": "Checked EFFIS's own membership list (countriesbyaoi): EU has the 27 member states; UCPM has the 27, the ten other states in the Union Civil Protection Mechanism (ALB, BIH, ISL, MDA, MKD, MNE, NOR, SRB, TUR, UKR) and six separately listed areas (GLP, GUY, MAF, MTQ, MYT, REU). Checked that UCPM is never below EU27.",
+      "inputs": ["f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
+      "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
+    },
+    {
+      "description": "Year to date, status preliminary: EU27 2026 (as served on 2026-10-05); UCPM 2026 (as served on 2026-10-05).",
+      "inputs": ["f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87", "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
+      "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Fires of about 30 hectares or larger mapped by EFFIS's Rapid Damage Assessment from satellite imagery (MODIS at 250 metres; Sentinel-2 at 20 metres since 2018), by calendar year. Fires burning natural land are counted, including prescribed burns. Figures differ from national statistics, from single-year report totals (which count all mapped fires, also those under 30 hectares) and from GWIS's MODIS-based Europe.",
+    "bunkers": null,
+    "geography": "Europe as EFFIS defines two areas. EU27: the 27 EU member states. UCPM: the 27, plus Albania, Bosnia and Herzegovina, Iceland, Moldova, Montenegro, North Macedonia, Norway, Serbia, Türkiye and Ukraine, plus Guadeloupe, Martinique, Mayotte, Réunion, Saint-Martin and an area EFFIS lists as Guyana. Not included: Switzerland, the United Kingdom, Andorra, Kosovo, Belarus and Russia.",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "EU27", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM", "UCPM"],
+    "note": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0],
+    "period": ["2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary"],
+    "value": [207205.0, 588128.0, 79041.0, 273739.0, 194169.0, 249847.0, 485648.0, 245356.0, 83576.0, 160320.0, 325857.0, 988524.0, 117356.0, 295835.0, 339767.0, 471045.0, 785549.0, 467729.0, 383317.0, 1034552.0, 689324.0, 215680.0, 857293.0, 155828.0, 288277.0, 210670.0, 375145.0, 711082.0, 281201.0, 97718.0, 251230.0, 503047.0, 1244524.0, 176558.0, 477705.0, 866124.0, 861559.0, 1194521.0, 739624.0, 1670000.0, 1976699.0, 1391935.0]
+  },
+  "time_basis": "calendar",
+  "title": "Area burnt each year in the EU and in UCPM countries",
+  "unit": {
+    "code": "ha",
+    "label": "hectares",
+    "short": "ha"
+  },
+  "vintage": "EFFIS estimates 2006–2026"
+}

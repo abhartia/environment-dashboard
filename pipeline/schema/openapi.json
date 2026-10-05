@@ -1357,7 +1357,7 @@
           },
           "published_value": {
             "anyOf": [
-              {"$ref": "#/components/schemas/PublishedValueRef"},
+              {"$ref": "#/components/schemas/PublishedValueCitation"},
               {"type": "null"}
             ],
             "default": null
@@ -1368,6 +1368,34 @@
         },
         "required": ["description", "kind", "scope", "licence", "attribution", "notice", "origins", "processing", "published_value"],
         "title": "Provenance",
+        "type": "object"
+      },
+      "PublishedValueCitation": {
+        "additionalProperties": false,
+        "description": "Where a quoted value comes from, as the public catalogue carries it. The verbatim quote contains the value, so\nit is here only for redistributable classes; for no-derivatives and display-only it stays in the private export\nand is shown on the server-rendered data page.",
+        "properties": {
+          "document": {
+            "description": "Source id of the paper/report.",
+            "title": "Document",
+            "type": "string"
+          },
+          "locator": {
+            "description": "e.g. \"Table 3, p. 568\" or \"SPM statement C.10\".",
+            "title": "Locator",
+            "type": "string"
+          },
+          "quote": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "description": "Verbatim text the value is taken from; null for no-derivatives and display-only.",
+            "title": "Quote"
+          }
+        },
+        "required": ["document", "locator", "quote"],
+        "title": "PublishedValueCitation",
         "type": "object"
       },
       "PublishedValueRef": {

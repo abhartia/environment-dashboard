@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/ndc.climate-watch.2025-ndc.json",
+  "export_sha256": "e82fb54c352f7f327955e583b90b4783899d9571fcce15f9cdbf8c0f978ea07c",
+  "indicator_id": "ndc.climate-watch.2025-ndc",
+  "key": "1682de39bcb498cef5b27a6c30fa1c832c83354d12fb61ecd38d8b04acb8154a",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "climate-watch-ndc/ndc-tracker-2025": {
+        "manifest_sha256": "239a9f24d6e8943f8e46056a0c179df9fae61623b4ea9441bcbe97b3a87085c2",
+        "sha256": "2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "climate-watch-ndc": "dc7fca7492fa26b4f97f703f45a896fc27f0cea2bd670f20c4800afc2f3210b7"
+    },
+    "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+  },
+  "publisher_checks": []
+}

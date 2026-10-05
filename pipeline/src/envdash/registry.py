@@ -13,7 +13,7 @@ from pathlib import Path
 import yaml
 from pydantic import ValidationError
 
-from envdash.models import LiteratureValue, Source
+from envdash.models import REDISTRIBUTABLE, LiteratureValue, Source
 from envdash.paths import Paths
 
 PLACEHOLDER = re.compile(r"\{([a-z_]+)\}")
@@ -113,6 +113,10 @@ def load_registry(paths: Paths) -> Registry:
         if locator:
             reg.literature_errors[lid] = f"literature/{path.name}: {locator}"
             continue
+        leak = _literature_leak_problem(reg, lit)
+        if leak:
+            reg.literature_errors[lid] = f"literature/{path.name}: {leak}"
+            continue
         reg.literature[lid] = lit
         reg.literature_files[lid] = path
     return reg
@@ -135,6 +139,42 @@ def _literature_locator_problem(reg: Registry, lit: LiteratureValue) -> str | No
         return f"{lit.source_id}/{lit.artifact_id} is {art.format}, not a PDF: pdf_page must be null"
     if art.format != "pdf" and art.format not in QUOTABLE_TEXT_FORMATS:
         return f"{lit.source_id}/{lit.artifact_id} is {art.format}: quotes are checked in pdf, html, json, xml or txt"
+    return None
+
+
+def _value_strings(value: float) -> list[str]:
+    """How a value could be written in prose: 77, 967, 1,670,000, 3.6."""
+    if float(value).is_integer():
+        n = int(value)
+        return sorted({str(n), f"{n:,}"})
+    return [repr(float(value)).rstrip("0").rstrip(".")]
+
+
+def _literature_leak_problem(reg: Registry, lit: LiteratureValue) -> str | None:
+    """A no-derivatives or display-only value may be shown only on server-rendered pages, so the text that reaches
+    the public catalogue (title, description, scope and the reading of the value) must not state it. The quote, which
+    does, stays in the private export."""
+    src = reg.sources.get(lit.source_id)
+    if src is None or src.licence_class in REDISTRIBUTABLE:
+        return None
+    texts = {
+        "title": lit.title,
+        "description": lit.description,
+        "scope.geography": lit.scope.geography,
+        "scope.baseline": lit.scope.baseline,
+        "scope.basis": lit.scope.basis,
+        "value_reading": lit.value_reading,
+    }
+    needles = [lit.value_text] + [v for o in lit.observations for v in _value_strings(o.value)]
+    for name, text in texts.items():
+        if not text:
+            continue
+        for needle in needles:
+            if re.search(rf"(?<![\d.,]){re.escape(needle)}(?![\d])", text, flags=re.IGNORECASE):
+                return (
+                    f"{name} states the value ({needle!r}), but class {src.licence_class} values stay out of the "
+                    "public catalogue; describe it without the number"
+                )
     return None
 
 

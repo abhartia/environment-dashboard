@@ -1,0 +1,35 @@
+# Flight emission factors by distance and seat class (UK Government 2026)
+# Indicator: travel.desnz-2026.flight-factors (vintage 2026, flat file version 1.2); unit: kilograms of CO2-equivalent per passenger-kilometre (kgCO2e/pkm)
+# Source: Department for Energy Security and Net Zero (UK Government) <https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026>
+# Credit: Department for Energy Security and Net Zero, Greenhouse gas reporting: conversion factors 2026 (flat file version 2026, flat file version 1.2). Contains public sector information licensed under the Open Government Licence v3.0.
+# Licence: Open Government Licence v3.0 (Crown copyright) <https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>
+# Provenance and processing: https://environmentdashboard.org/data/travel/desnz-2026/flight-factors
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,haul,seat_class,radiative_forcing
+travel.desnz-2026.flight-factors,GBR,2026,0.22928,,,,final,"DESNZ factor ID 21_316_3160_11_1: Domestic, to/from UK, Average passenger, With RF.",,,domestic,average,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.13552,,,,final,"DESNZ factor ID 21_316_3161_11_1: Domestic, to/from UK, Average passenger, Without RF.",,,domestic,average,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.12786,,,,final,"DESNZ factor ID 21_316_3162_11_1: Short-haul, to/from UK, Average passenger, With RF.",,,short-haul,average,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.07559,,,,final,"DESNZ factor ID 21_316_3163_11_1: Short-haul, to/from UK, Average passenger, Without RF.",,,short-haul,average,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.12576,,,,final,"DESNZ factor ID 21_316_3164_11_1: Short-haul, to/from UK, Economy class, With RF.",,,short-haul,economy,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.07435,,,,final,"DESNZ factor ID 21_316_3165_11_1: Short-haul, to/from UK, Economy class, Without RF.",,,short-haul,economy,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.18863,,,,final,"DESNZ factor ID 21_316_3166_11_1: Short-haul, to/from UK, Business class, With RF.",,,short-haul,business,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.11152,,,,final,"DESNZ factor ID 21_316_3167_11_1: Short-haul, to/from UK, Business class, Without RF.",,,short-haul,business,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.15282,,,,final,"DESNZ factor ID 21_316_3168_11_1: Long-haul, to/from UK, Average passenger, With RF.",,,long-haul,average,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.09043,,,,final,"DESNZ factor ID 21_316_3169_11_1: Long-haul, to/from UK, Average passenger, Without RF.",,,long-haul,average,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.11704,,,,final,"DESNZ factor ID 21_316_3170_11_1: Long-haul, to/from UK, Economy class, With RF.",,,long-haul,economy,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.06926,,,,final,"DESNZ factor ID 21_316_3171_11_1: Long-haul, to/from UK, Economy class, Without RF.",,,long-haul,economy,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.18726,,,,final,"DESNZ factor ID 21_316_3172_11_1: Long-haul, to/from UK, Premium economy class, With RF.",,,long-haul,premium-economy,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.11081,,,,final,"DESNZ factor ID 21_316_3173_11_1: Long-haul, to/from UK, Premium economy class, Without RF.",,,long-haul,premium-economy,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.3394,,,,final,"DESNZ factor ID 21_316_3174_11_1: Long-haul, to/from UK, Business class, With RF.",,,long-haul,business,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.20083,,,,final,"DESNZ factor ID 21_316_3175_11_1: Long-haul, to/from UK, Business class, Without RF.",,,long-haul,business,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.46814,,,,final,"DESNZ factor ID 21_316_3176_11_1: Long-haul, to/from UK, First class, With RF.",,,long-haul,first,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.27701,,,,final,"DESNZ factor ID 21_316_3177_11_1: Long-haul, to/from UK, First class, Without RF.",,,long-haul,first,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.14253,,,,final,"DESNZ factor ID 21_316_3178_11_1: International, to/from non-UK, Average passenger, With RF.",,,international-non-uk,average,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.0842,,,,final,"DESNZ factor ID 21_316_3179_11_1: International, to/from non-UK, Average passenger, Without RF.",,,international-non-uk,average,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.10916,,,,final,"DESNZ factor ID 21_316_3180_11_1: International, to/from non-UK, Economy class, With RF.",,,international-non-uk,economy,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.06449,,,,final,"DESNZ factor ID 21_316_3181_11_1: International, to/from non-UK, Economy class, Without RF.",,,international-non-uk,economy,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.17465,,,,final,"DESNZ factor ID 21_316_3182_11_1: International, to/from non-UK, Premium economy class, With RF.",,,international-non-uk,premium-economy,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.10318,,,,final,"DESNZ factor ID 21_316_3183_11_1: International, to/from non-UK, Premium economy class, Without RF.",,,international-non-uk,premium-economy,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.31656,,,,final,"DESNZ factor ID 21_316_3184_11_1: International, to/from non-UK, Business class, With RF.",,,international-non-uk,business,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.18701,,,,final,"DESNZ factor ID 21_316_3185_11_1: International, to/from non-UK, Business class, Without RF.",,,international-non-uk,business,without-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.43663,,,,final,"DESNZ factor ID 21_316_3186_11_1: International, to/from non-UK, First class, With RF.",,,international-non-uk,first,with-rf
+travel.desnz-2026.flight-factors,GBR,2026,0.25794,,,,final,"DESNZ factor ID 21_316_3187_11_1: International, to/from non-UK, First class, Without RF.",,,international-non-uk,first,without-rf

@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/cars.icct-2025.lifecycle-gasoline-eu.json",
+  "export_sha256": "393313178ca95874f8dd61e7380979b54d2311f2514da919a8b9ea1147ea1d4e",
+  "indicator_id": "cars.icct-2025.lifecycle-gasoline-eu",
+  "key": "791098a3f98c6c3ce4d91c0680483f1199e752f6468e093e5d2990378d6fbac4",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "icct-lca-2025/report-pdf": {
+        "manifest_sha256": "61dadf9b537f870299ad2fba57a9d52e277051b939faa902161172ee3af7e07a",
+        "sha256": "5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/icct-lca-2025-gasoline.yaml": "cbc402ca5a3a0f67eb9825b10591147448e9a61dd87872e017cf10308c30f51d"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "icct-lca-2025": "f9d4e96d1927f615a2c4f4a121646eb364a60333ddd2c93e3ab911cddc324c42"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

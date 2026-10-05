@@ -112,14 +112,16 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
             </p>
           </section>
 
-          {p.published_value ? (
+          {/* The quote is read from the indicator itself (server-side; for no-derivatives and display-only values the
+              public catalogue carries only where it is). */}
+          {ind.published_value ? (
             <section aria-labelledby="quoted" className="grid gap-3">
               <h2 id="quoted" className="text-2xl">
                 As published
               </h2>
-              <blockquote className="border-l-2 border-foreground pl-4 font-semibold tracking-tight text-lg">“{p.published_value.quote}”</blockquote>
+              <blockquote className="border-l-2 border-foreground pl-4 font-semibold tracking-tight text-lg">“{ind.published_value.quote}”</blockquote>
               <p className="text-sm text-muted-foreground">
-                {source(p.published_value.document).title}, {p.published_value.locator}. Checked word for word against
+                {source(ind.published_value.document).title}, {ind.published_value.locator}. Checked word for word against
                 the stored copy of the document every time the data is rebuilt.
               </p>
             </section>

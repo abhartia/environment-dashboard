@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/attitudes.andre-2024.climate-support.json",
+  "export_sha256": "132f03d4eed5f81cd663c2829ca4e8782104b1b230f64e1b547cd9b1dd3c54e3",
+  "indicator_id": "attitudes.andre-2024.climate-support",
+  "key": "a53398184cc939d75b09609b66bc6194905132bf2ccc911564183580b97b0dbb",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "andre-2024/supplementary-information": {
+        "manifest_sha256": "bc036d48e9a1ed6e4f24ed506ead9de5c6011b876d371aa0c9fa149a35d03fc5",
+        "sha256": "622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "andre-2024": "e6cd1eb3e9a81fc79851731f5affea46cb58c20b851d0cc724c3ab5d36b11f05"
+    },
+    "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
+  },
+  "publisher_checks": [
+    {"detail": "ours 68.5 vs stated 69 (tolerance ±0.5, difference 0.5)", "entity": "WLD", "period": "2021/2022", "quote": "Notably, 69% of the global population expresses a willingness to contribute 1% of their personal income, 86% endorse pro-climate social norms and 89% demand intensified political action.", "source_id": "andre-2024", "stated": "69", "status": "pass", "url": "https://doi.org/10.1038/s41558-024-01925-3", "vintage": "Nature Climate Change 14, 253–259 (2024), Supplementary Information"},
+    {"detail": "ours 86.2 vs stated 86 (tolerance ±0.5, difference 0.2)", "entity": "WLD", "period": "2021/2022", "quote": "Notably, 69% of the global population expresses a willingness to contribute 1% of their personal income, 86% endorse pro-climate social norms and 89% demand intensified political action.", "source_id": "andre-2024", "stated": "86", "status": "pass", "url": "https://doi.org/10.1038/s41558-024-01925-3", "vintage": "Nature Climate Change 14, 253–259 (2024), Supplementary Information"},
+    {"detail": "ours 88.6 vs stated 89 (tolerance ±0.5, difference 0.4)", "entity": "WLD", "period": "2021/2022", "quote": "Notably, 69% of the global population expresses a willingness to contribute 1% of their personal income, 86% endorse pro-climate social norms and 89% demand intensified political action.", "source_id": "andre-2024", "stated": "89", "status": "pass", "url": "https://doi.org/10.1038/s41558-024-01925-3", "vintage": "Nature Climate Change 14, 253–259 (2024), Supplementary Information"}
+  ]
+}

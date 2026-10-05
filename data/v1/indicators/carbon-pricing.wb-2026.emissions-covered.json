@@ -1,0 +1,77 @@
+{
+  "attribution": "World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.",
+  "description": "The share of the world's greenhouse gas emissions covered by a direct carbon price, a carbon tax or an emissions trading system, through the 87 such policies in force on 1 April 2026. Coverage says how much of the world's emissions face a price, not how high that price is.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "carbon-pricing.wb-2026.emissions-covered",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2026",
+    "status": "final",
+    "value": 29.0
+  },
+  "licence": {
+    "name": "CC BY 3.0 IGO",
+    "spdx": "CC-BY-3.0-IGO",
+    "url": "https://creativecommons.org/licenses/by/3.0/igo/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 15253357, "citation_full": "World Bank. 2026. State and Trends of Carbon Pricing 2026. Washington. World Bank, Washington, DC. doi: 10.1596/978-1-4648-2348-0. License: Creative Commons Attribution CC BY 3.0 IGO.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1596/978-1-4648-2348-0", "etag": "\"fe570ff97a33de96465278b5dbba4afe\"", "last_modified": "Fri, 17 Jul 2026 20:17:13 GMT", "licence": {"name": "CC BY 3.0 IGO", "spdx": "CC-BY-3.0-IGO", "url": "https://creativecommons.org/licenses/by/3.0/igo/"}, "producer": "World Bank", "r2_url": null, "sha256": "87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496", "source_id": "wb-carbon-pricing-2026", "title": "State and Trends of Carbon Pricing 2026", "url_download": "https://openknowledge.worldbank.org/server/api/core/bitstreams/9ae836ed-db57-4766-92a5-4616cb1e81f9/content", "url_main": "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing", "version_producer": "State and Trends of Carbon Pricing 2026 (World Bank, May 2026)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Quoted from Key messages, item 1, p. 5. The quote was found in the text of page 9 of the snapshot (sha256 87eac710c5f1…) before publishing.",
+      "inputs": ["87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/literature.py",
+      "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+    },
+    {
+      "description": "Value: \"29 percent of global greenhouse gas (GHG) emissions\" is published as 29 percent, dated 2026 (the policies in force on 1 April 2026).",
+      "inputs": ["87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/literature.py",
+      "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+    }
+  ],
+  "published_value": {
+    "document": "wb-carbon-pricing-2026",
+    "locator": "Key messages, item 1, p. 5",
+    "quote": "Direct carbon pricing covers 29 percent of global greenhouse gas (GHG) emissions through 87 implemented policies."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Carbon taxes and emissions trading systems implemented as of 1 April 2026 (the report's data cut-off), as a share of global greenhouse gas emissions. Indirect carbon pricing (fuel taxes) and carbon crediting are not included.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD"],
+    "period": ["2026"],
+    "status": ["final"],
+    "value": [29.0]
+  },
+  "time_basis": "calendar",
+  "title": "Share of global greenhouse gas emissions covered by a carbon price (World Bank)",
+  "unit": {
+    "code": "percent",
+    "label": "percent of global greenhouse gas emissions",
+    "short": "%"
+  },
+  "vintage": "State and Trends of Carbon Pricing 2026 (World Bank, May 2026)"
+}

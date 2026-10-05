@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/carbon-pricing.wb-2026.revenue.json",
+  "export_sha256": "a6974963bc9901b198033c6cfaa05b9ede52a13543aaadc029218deedf52017a",
+  "indicator_id": "carbon-pricing.wb-2026.revenue",
+  "key": "674a64a47c6471b173520a7fbb330d75d8707e9c6c18bb0f92bb5df280947e0e",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "wb-carbon-pricing-2026/report-pdf": {
+        "manifest_sha256": "09858fe90974c751b2a2e385224b73bed5d1ff7b2fc15568789b32779188609c",
+        "sha256": "87eac710c5f118a7559aa492d59faa7c4794c4e08e22e71e1d2075712f160496"
+      }
+    },
+    "key_files": {
+      "pipeline/literature/wb-carbon-pricing-2026-revenue.yaml": "d62588420b36c8519291eb3c09f64e2148dbdb6be3f22689f11dcbadee0f3afd"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "wb-carbon-pricing-2026": "ad8f331d559bf40cf8c4bcbbc251e6c4799ba093eca6bb34e55806a5a971d480"
+    },
+    "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
+  },
+  "publisher_checks": []
+}

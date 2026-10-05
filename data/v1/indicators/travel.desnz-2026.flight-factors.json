@@ -1,0 +1,112 @@
+{
+  "attribution": "Department for Energy Security and Net Zero, Greenhouse gas reporting: conversion factors 2026 (flat file version 2026, flat file version 1.2). Contains public sector information licensed under the Open Government Licence v3.0.",
+  "description": "Greenhouse gas emissions per passenger per kilometre flown, from the UK Government's 2026 conversion factors: for domestic, short-haul and long-haul flights to or from the UK and for international flights elsewhere, by seat class, with and without the extra warming from aircraft emissions at altitude (radiative forcing). Premium seats take more cabin space, so each passenger in them is assigned more of the flight's emissions. Factors are averages for UK reporting, not measurements of a particular flight.",
+  "dimensions": [
+    {
+      "id": "haul",
+      "label": "Flight type",
+      "values": [
+        {"id": "domestic", "label": "Domestic, to or from the UK"},
+        {"id": "short-haul", "label": "Short-haul, to or from the UK"},
+        {"id": "long-haul", "label": "Long-haul, to or from the UK"},
+        {"id": "international-non-uk", "label": "International, between non-UK airports"}
+      ]
+    },
+    {
+      "id": "seat_class",
+      "label": "Seat class",
+      "values": [
+        {"id": "average", "label": "Average passenger"},
+        {"id": "economy", "label": "Economy class"},
+        {"id": "premium-economy", "label": "Premium economy class"},
+        {"id": "business", "label": "Business class"},
+        {"id": "first", "label": "First class"}
+      ]
+    },
+    {
+      "id": "radiative_forcing",
+      "label": "Radiative forcing",
+      "values": [
+        {"id": "with-rf", "label": "With radiative forcing"},
+        {"id": "without-rf", "label": "Without radiative forcing"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 3
+  },
+  "geo_coverage": "country",
+  "headline_entity": "GBR",
+  "id": "travel.desnz-2026.flight-factors",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "haul": "long-haul",
+      "radiative_forcing": "with-rf",
+      "seat_class": "economy"
+    },
+    "entity": "GBR",
+    "period": "2026",
+    "status": "final",
+    "value": 0.11704
+  },
+  "licence": {
+    "name": "Open Government Licence v3.0 (Crown copyright)",
+    "spdx": "OGL-UK-3.0",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "licence_class": "open",
+  "notes": ["DESNZ factor ID 21_316_3160_11_1: Domestic, to/from UK, Average passenger, With RF.", "DESNZ factor ID 21_316_3161_11_1: Domestic, to/from UK, Average passenger, Without RF.", "DESNZ factor ID 21_316_3162_11_1: Short-haul, to/from UK, Average passenger, With RF.", "DESNZ factor ID 21_316_3163_11_1: Short-haul, to/from UK, Average passenger, Without RF.", "DESNZ factor ID 21_316_3164_11_1: Short-haul, to/from UK, Economy class, With RF.", "DESNZ factor ID 21_316_3165_11_1: Short-haul, to/from UK, Economy class, Without RF.", "DESNZ factor ID 21_316_3166_11_1: Short-haul, to/from UK, Business class, With RF.", "DESNZ factor ID 21_316_3167_11_1: Short-haul, to/from UK, Business class, Without RF.", "DESNZ factor ID 21_316_3168_11_1: Long-haul, to/from UK, Average passenger, With RF.", "DESNZ factor ID 21_316_3169_11_1: Long-haul, to/from UK, Average passenger, Without RF.", "DESNZ factor ID 21_316_3170_11_1: Long-haul, to/from UK, Economy class, With RF.", "DESNZ factor ID 21_316_3171_11_1: Long-haul, to/from UK, Economy class, Without RF.", "DESNZ factor ID 21_316_3172_11_1: Long-haul, to/from UK, Premium economy class, With RF.", "DESNZ factor ID 21_316_3173_11_1: Long-haul, to/from UK, Premium economy class, Without RF.", "DESNZ factor ID 21_316_3174_11_1: Long-haul, to/from UK, Business class, With RF.", "DESNZ factor ID 21_316_3175_11_1: Long-haul, to/from UK, Business class, Without RF.", "DESNZ factor ID 21_316_3176_11_1: Long-haul, to/from UK, First class, With RF.", "DESNZ factor ID 21_316_3177_11_1: Long-haul, to/from UK, First class, Without RF.", "DESNZ factor ID 21_316_3178_11_1: International, to/from non-UK, Average passenger, With RF.", "DESNZ factor ID 21_316_3179_11_1: International, to/from non-UK, Average passenger, Without RF.", "DESNZ factor ID 21_316_3180_11_1: International, to/from non-UK, Economy class, With RF.", "DESNZ factor ID 21_316_3181_11_1: International, to/from non-UK, Economy class, Without RF.", "DESNZ factor ID 21_316_3182_11_1: International, to/from non-UK, Premium economy class, With RF.", "DESNZ factor ID 21_316_3183_11_1: International, to/from non-UK, Premium economy class, Without RF.", "DESNZ factor ID 21_316_3184_11_1: International, to/from non-UK, Business class, With RF.", "DESNZ factor ID 21_316_3185_11_1: International, to/from non-UK, Business class, Without RF.", "DESNZ factor ID 21_316_3186_11_1: International, to/from non-UK, First class, With RF.", "DESNZ factor ID 21_316_3187_11_1: International, to/from non-UK, First class, Without RF."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "flat-file", "bytes": 515426, "citation_full": "Department for Energy Security and Net Zero (2026). Greenhouse gas reporting: conversion factors 2026, flat file version 2026, flat file version 1.2. GOV.UK. https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026", "date_accessed": "2026-10-05", "date_published": "2026-06-11", "doi": null, "etag": "\"6a6c9748-7dd62\"", "last_modified": "Fri, 31 Jul 2026 12:38:32 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Energy Security and Net Zero (UK Government)", "r2_url": null, "sha256": "a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e", "source_id": "desnz-ghg-factors-2026", "title": "Greenhouse gas reporting: conversion factors 2026", "url_download": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx", "url_main": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026", "version_producer": "2026, flat file version 1.2", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read sheet 'Factors by Category' of the flat file (sha256 a9a455ab396d…) and kept the rows with Level 1 'Business travel- air', Level 2 'Flights', unit 'passenger.km' and GHG/Unit 'kg CO2e' (the all-gas total): 28 factors, one for each haul, seat class and with or without radiative forcing that DESNZ publishes. Checked that each appears exactly once.",
+      "inputs": ["a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/desnz_flights.py",
+      "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
+    },
+    {
+      "description": "Published each factor as printed, with its DESNZ factor ID in the value's note. Well-to-tank rows and the separate CO2, CH4 and N2O rows are not used.",
+      "inputs": ["a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/desnz_flights.py",
+      "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Direct emissions of the flight (CO2, CH4 and N2O as CO2-equivalent, with the warming potentials DESNZ lists in its methodology paper, Table 1), excluding the well-to-tank emissions of producing jet fuel. The factors include DESNZ's 8% uplift on the great-circle distance (methodology paper, paragraph 8.17). 'With radiative forcing' applies DESNZ's 1.7 multiplier to the CO2 for the effects of emissions at altitude (paragraph 2.10); 'without' gives the emissions alone.",
+    "bunkers": null,
+    "geography": "UK Government factors for reporting by UK organisations (flights to or from the UK, and international flights between non-UK airports)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "haul": ["domestic", "domestic", "short-haul", "short-haul", "short-haul", "short-haul", "short-haul", "short-haul", "long-haul", "long-haul", "long-haul", "long-haul", "long-haul", "long-haul", "long-haul", "long-haul", "long-haul", "long-haul", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk", "international-non-uk"],
+      "radiative_forcing": ["with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf", "with-rf", "without-rf"],
+      "seat_class": ["average", "average", "average", "average", "economy", "economy", "business", "business", "average", "average", "economy", "economy", "premium-economy", "premium-economy", "business", "business", "first", "first", "average", "average", "economy", "economy", "premium-economy", "premium-economy", "business", "business", "first", "first"]
+    },
+    "entity": ["GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR"],
+    "note": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    "period": ["2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026", "2026"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [0.22928, 0.13552, 0.12786, 0.07559, 0.12576, 0.07435, 0.18863, 0.11152, 0.15282, 0.09043, 0.11704, 0.06926, 0.18726, 0.11081, 0.3394, 0.20083, 0.46814, 0.27701, 0.14253, 0.0842, 0.10916, 0.06449, 0.17465, 0.10318, 0.31656, 0.18701, 0.43663, 0.25794]
+  },
+  "time_basis": "calendar",
+  "title": "Flight emission factors by distance and seat class (UK Government 2026)",
+  "unit": {
+    "code": "kgCO2e/pkm",
+    "label": "kilograms of CO2-equivalent per passenger-kilometre",
+    "short": "kg CO₂e/pkm"
+  },
+  "vintage": "2026, flat file version 1.2"
+}

@@ -433,8 +433,9 @@ def _run_gas_shares(files: dict[str, InputFile]) -> Result:
         steps=[
             f"Quoted from {GAS_LOCATOR} of the report. The quote was found in the text of page {GAS_QUOTE.page} of "
             f"the PDF snapshot (sha256 {sha[:12]}…) before publishing.",
+            # No values in the step: this class's numbers stay out of the public catalogue.
             "Value: each percentage as printed, one per gas ("
-            + ", ".join(f"{label} {shares[gid]:g}" for gid, label, _ in GASES)
+            + ", ".join(label for _, label, _ in GASES)
             + "). They are shares of the world total excluding land use, land-use change and forestry (page "
             f"{LULUCF_QUOTE.page}).",
             f"The World profile in Annex 5 (page {WORLD_PROFILE_PAGE}) prints the same four shares beside its chart; "
@@ -467,8 +468,8 @@ def _run_sector_changes(files: dict[str, InputFile]) -> Result:
         steps=[
             f"Read from {SECTOR_LOCATOR} of the report, in the text of page {WORLD_PROFILE_PAGE} of the PDF snapshot "
             f"(sha256 {sha[:12]}…): the columns '2025 vs 1990', '2025 vs 2005' and '2025 vs 2024' for seven sectors "
-            "and all sectors, exactly as labelled in SECTORS. Each value is the whole percentage printed; '0%' is "
-            "printed where the change rounds to zero.",
+            "and all sectors, exactly as labelled in SECTORS. Each value is the whole percentage printed, including "
+            "where the report prints a change that rounds to zero.",
             "Sectors are the report's: 'Industrial Combustion and Processes' is one row in this table. The changes are "
             f"in world emissions excluding land use, land-use change and forestry (page {LULUCF_QUOTE.page}), "
             f"including international shipping and aviation (page {BUNKERS_QUOTE.page}).",
