@@ -145,6 +145,13 @@ SOURCE_SCHEMES: dict[str, SourceScheme] = {
         },
         note="mtco2-flat column 'ISO 3166-1 alpha-3' (Country for rows without a code), sha256 20650c19b394…",
     ),
+    "gfw-tree-cover-loss": SourceScheme(
+        base="iso3",
+        # GADM's own codes for areas without an ISO 3166-1 code. XAD, Z01, Z06 and Z07 have no entity here: the
+        # transform leaves them out by name (gfw_tree_cover_loss.LEFT_OUT), so they raise if met anywhere else.
+        aliases={"XKO": "KOS", "ZNC": "CYN"},
+        note="gadm__tcl__iso_change v20260424 column iso, loss-country-annual sha256 d2356e4f4d7a…",
+    ),
     "jones-2025-national-contributions": SourceScheme(
         base="iso3",
         aliases={

@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/forest.gfw.primary-forest-loss.json",
+  "export_sha256": "2871c260b88c1f4e969d89cc7750a69ce7cc5c6865b1f29ecb060362dec83e60",
+  "indicator_id": "forest.gfw.primary-forest-loss",
+  "key": "8f1337ea3deaa6ca92e5e57e4c1a58cf27ae08cba128bb777b396d2250c6259e",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "gfw-tree-cover-loss/loss-global-annual": {
+        "manifest_sha256": "b8445d3f42dbb77b175d3e5b0cd1b508742f73df7e3f6c550a8fa24afb412b91",
+        "sha256": "79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e"
+      },
+      "gfw-tree-cover-loss/loss-primary-forest-country-annual": {
+        "manifest_sha256": "658315fd6a8a29d910314487eb817227d324b11b76a3bbb4bbb93a44c74364ed",
+        "sha256": "ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "gfw-tree-cover-loss": "d2c6c75d894dca6657071935374eba078f011cc8513b7931a4279c0b917a93df"
+    },
+    "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+  },
+  "publisher_checks": []
+}

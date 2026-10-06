@@ -1,0 +1,15 @@
+{
+  "artifact_id": "loss-country-annual",
+  "command": "uv run python tests/fixtures/make_fixture.py --source gfw-tree-cover-loss --artifact loss-country-annual --first 40 --last 20",
+  "data_rows_total": 4975,
+  "date_accessed": "2026-10-05",
+  "fixture_bytes": 3404,
+  "fixture_sha256": "4f63665a7027325008ef436dfd4fd8997326d4c529d5b79149f336ad1072e752",
+  "full_bytes": 273719,
+  "full_sha256": "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-40 and 4956-4975 of 4975",
+  "source_id": "gfw-tree-cover-loss",
+  "url": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year"
+}

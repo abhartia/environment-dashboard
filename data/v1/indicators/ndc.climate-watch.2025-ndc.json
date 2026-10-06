@@ -50,21 +50,21 @@
       "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
-      "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+      "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     },
     {
       "description": "For the 153 locations with a 2025 NDC status, coded the submission status and the six content questions as 1 (Climate Watch's 'Yes' or 'Submitted' label) or 0 ('No' or 'Withdrawn'); labels that answer neither way are published as missing, with the label. Each value keeps Climate Watch's label as its note.",
       "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
-      "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+      "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     },
     {
       "description": "Dated each observation by the Party's 2025 NDC date (M/D/YYYY in the file, written as an ISO date). EUU (the European Union) is published as EU27.",
       "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
-      "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+      "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     }
   ],
   "published_value": null,

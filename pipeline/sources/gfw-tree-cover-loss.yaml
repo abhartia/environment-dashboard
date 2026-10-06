@@ -20,9 +20,10 @@
 #   dataset carries its own license and restrictions" and "each request to an API must include one of Your Account's
 #   unique API keys". So every request sends the key (header x-api-key, per the API's openapi.json: security scheme
 #   APIKeyOriginHeader, apiKey in header "x-api-key", re-read 2026-10-04; access.key_header below). The keyless
-#   requests that worked in research and in this check are not a documented entitlement. The Keychain item
-#   gfw-api-key (GitHub secret GFW_API_KEY, docs/runbook.md) did not exist on 2026-10-04: owner action before the
-#   first fetch. The terms also point to Resource Watch "Attribution Requirements" (resourcewatch.org, a site WRI says
+#   requests that worked in research and in this check are not a documented entitlement. The owner created the key
+#   on 2026-10-06 through the Data API (POST /auth/sign-up, /auth/token, /auth/apikey with no domain restriction,
+#   alias envdash); it lives in the Keychain item gfw-api-key (docs/runbook.md) and the first keyed fetch succeeded
+#   that day. The terms also point to Resource Watch "Attribution Requirements" (resourcewatch.org, a site WRI says
 #   is being archived), which ask websites built on the Resource Watch API for a "powered by Resource Watch" logo; the
 #   GFW Data API is a separate service, so we credit Global Nature Watch in the attribution instead. Owner to confirm
 #   with WRI if in doubt.

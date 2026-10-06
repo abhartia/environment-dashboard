@@ -7,8 +7,8 @@ checks of test_fixtures_provenance.py are repeated here with the zip-aware cutte
 
 from __future__ import annotations
 
+import importlib.util
 import json
-import sys
 from pathlib import Path
 
 import pytest
@@ -56,8 +56,13 @@ def test_fixture_matches_its_sidecar(side):
 @pytest.mark.snapshot
 @pytest.mark.parametrize("side", SIDECARS, ids=lambda p: p.name)
 def test_fixture_is_an_exact_slice_of_the_snapshot(side):
-    sys.path.insert(0, str(FIXTURES))
-    from make_zip_fixture import cut, parse_command
+    # Loaded by path: tests/fixtures/faostat has a module of the same name, and whichever is imported first would
+    # otherwise shadow the other for the rest of the session.
+    spec = importlib.util.spec_from_file_location("wgms_make_zip_fixture", FIXTURES / "make_zip_fixture.py")
+    assert spec and spec.loader
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    cut, parse_command = mod.cut, mod.parse_command
 
     meta = json.loads(side.read_text())
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()

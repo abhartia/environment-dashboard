@@ -46,7 +46,7 @@ def _ind(doc: dict, slug: str) -> dict:
 
 @pytest.mark.snapshot
 def test_status_and_content_of_the_real_response():
-    (t,) = cw.transforms(Paths.default())
+    t, _ = cw.transforms(Paths.default())
     result = t.run({cw.TRACKER.key: _current()})
     validate(t, result.observations)
     by = {(o.entity, o.dims["question"]): o for o in result.observations}
@@ -58,6 +58,20 @@ def test_status_and_content_of_the_real_response():
     eu = by[("EU27", "submitted")]
     assert eu.value == 1 and eu.period == "2025-11-05"
     assert sum(o.value == 1 for o in result.observations if o.dims["question"] == "ghg-target-2035") == 139
+
+
+@pytest.mark.snapshot
+def test_countries_counted_once_each():
+    _, t = cw.transforms(Paths.default())
+    assert t.spec.id == cw.COUNTS
+    result = t.run({cw.TRACKER.key: _current()})
+    validate(t, result.observations)
+    by = {(o.dims["question"], o.dims["answer"]): o.value for o in result.observations}
+    # 152 submitted entries less the EU's own (EU27), whose NDC is also coded for each member state; the USA withdrew.
+    assert by[("submitted", "yes")] == 151 and by[("submitted", "no")] == 1
+    # 139 entries code a 2035 GHG target yes, the EU's among them.
+    assert by[("ghg-target-2035", "yes")] == 138
+    assert all(o.entity == "WLD" and o.period == "2026-10-05" for o in result.observations)
 
 
 @pytest.mark.snapshot

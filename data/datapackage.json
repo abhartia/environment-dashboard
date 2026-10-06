@@ -2464,6 +2464,122 @@
       "title": "Annual net change in forest area"
     },
     {
+      "bytes": 164265,
+      "description": "Hectares of tree cover lost each year since 2001 inside the humid tropical primary forest that stood in 2001: mature natural forest that had not been cleared and regrown in recent history, mapped by the University of Maryland.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:be212234e4e70cb6a43cfcb3c962b40a3e2aaafb7d63743a454742ce2b486f59",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "forest.gfw.primary-forest-loss",
+      "path": "v1/indicators/forest.gfw.primary-forest-loss.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares (ha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://globalnaturewatch.org/dashboards/global/", "title": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute: Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)"}
+      ],
+      "title": "Humid tropical primary forest lost each year"
+    },
+    {
+      "bytes": 689235,
+      "description": "Hectares of tree cover lost each year since 2001, worldwide and in each country, and how much of it was lost to fire, mapped from Landsat satellites by the University of Maryland and tabulated by World Resources Institute for Global Forest Watch.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:930478a6e1cde96108a2473b651b63e5d83e70565af70ba89979ce9266967de0",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "forest.gfw.tree-cover-loss",
+      "path": "v1/indicators/forest.gfw.tree-cover-loss.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares (ha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "part", "title": "Part", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://globalnaturewatch.org/dashboards/global/", "title": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute: Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)"}
+      ],
+      "title": "Tree cover lost each year, and the part due to fire"
+    },
+    {
+      "bytes": 2987526,
+      "description": "Hectares of tree cover lost each year since 2001, worldwide and in each country, split by the dominant driver of loss in each square kilometre: permanent agriculture, mining and energy, shifting cultivation, logging, wildfire, settlements and infrastructure, other natural disturbances, or unknown (WRI and Google DeepMind).",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2e1b82625a1e1322228e69f89274b1be36c12bef7ef821c47ccd1b814cad6376",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "forest.gfw.tree-cover-loss-by-driver",
+      "path": "v1/indicators/forest.gfw.tree-cover-loss-by-driver.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares (ha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "driver", "title": "Driver", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://globalnaturewatch.org/dashboards/global/", "title": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute: Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)"}
+      ],
+      "title": "Tree cover lost each year, by what drove it"
+    },
+    {
       "bytes": 1632196,
       "description": "Each year's emissions from all sectors, including net land use and excluding international aviation and shipping, split by gas: carbon dioxide, methane, nitrous oxide and fluorinated gases, each in carbon dioxide equivalent (carbon dioxide counts as itself), as published by FAO for the world and each country since 1990. The four gases add up to the all-gas total. Carbon dioxide includes the net carbon dioxide of land use, land-use change and forestry, so it can be below zero for a country whose forests take up more carbon than it emits. Where FAO publishes no fluorinated-gas row (67 countries and territories in the October 2025 release) the gas is left missing, never set to zero.",
       "dialect": {
@@ -3232,6 +3348,46 @@
         {"path": "https://www.climatewatchdata.org/", "title": "World Resources Institute (Climate Watch): Climate Watch NDC Tracker (2025 NDCs)"}
       ],
       "title": "2025 climate pledges (NDCs): who has submitted, and what they contain"
+    },
+    {
+      "bytes": 2406,
+      "description": "The number of countries whose 2025 nationally determined contribution (NDC 3.0) Climate Watch has coded, by answer: submitted or withdrawn, and whether the plan includes a 2035 greenhouse gas target, an economy-wide target, a target for gases other than carbon dioxide, a stronger 2030 target, stronger adaptation, and added information for clarity. Each EU member state counts once.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:553f0f8c0a86ddcdab493d44fee2adc07bcb0807abbba4dda25782529754e51a",
+      "licenses": [
+        {"name": "CC-BY-NC-4.0", "path": "https://creativecommons.org/licenses/by-nc/4.0/", "title": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ndc.climate-watch.2025-ndc-countries",
+      "path": "v1/indicators/ndc.climate-watch.2025-ndc-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "countries (countries)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "question", "title": "Question", "type": "string"},
+          {"name": "answer", "title": "Answer", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.climatewatchdata.org/", "title": "World Resources Institute (Climate Watch): Climate Watch NDC Tracker (2025 NDCs)"}
+      ],
+      "title": "How many countries have sent a 2025 climate pledge (NDC), and what the pledges contain"
     },
     {
       "bytes": 6000,

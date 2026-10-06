@@ -5654,6 +5654,263 @@
     },
     {
       "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["ABW", "AGO", "ARG", "ATG", "AUS", "BDI", "BEN", "BES", "BGD", "BHS", "BLZ", "BOL", "BRA", "BRN", "BTN", "CAF", "CHN", "CIV", "CMR", "COD", "COG", "COL", "CRI", "CUB", "CYM", "DMA", "DOM", "ECU", "ETH", "FJI", "GAB", "GHA", "GIN", "GLP", "GMB", "GNB", "GNQ", "GTM", "GUF", "GUY", "HND", "HTI", "IDN", "IND", "JAM", "KEN", "KHM", "KNA", "LAO", "LBR", "LCA", "LKA", "MAF", "MDG", "MDV", "MEX", "MMR", "MOZ", "MSR", "MTQ", "MWI", "MYS", "NGA", "NIC", "NPL", "PAN", "PER", "PHL", "PLW", "PNG", "PRI", "PRY", "RWA", "SEN", "SGP", "SLB", "SLE", "SLV", "SSD", "SUR", "SXM", "TCA", "TGO", "THA", "TTO", "TWN", "TZA", "UGA", "UMI", "USA", "VCT", "VEN", "VGB", "VIR", "VNM", "VUT", "WLD", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "2871c260b88c1f4e969d89cc7750a69ce7cc5c6865b1f29ecb060362dec83e60",
+      "geo_coverage": "mixed",
+      "id": "forest.gfw.primary-forest-loss",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 4286331.282172469
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from Hansen/UMD/Google/USGS/NASA (Global Forest Change v1.13), accessed through Global Nature Watch (WRI table gadm__tcl__iso_change v20260424) on 2026-10-05. Tree cover loss due to fire: UMD/GLAD (Tyukavina et al. 2022). Tree cover loss by dominant driver: WRI/Google DeepMind (Sims et al. 2025). Primary humid tropical forest: Turubanova et al. (2018). CC BY 4.0. Changes: Summed WRI's country table by country and year at a tree canopy cover in 2000 of at least 30 percent; world totals of primary forest loss and of loss by driver summed by Environment Dashboard.",
+        "description": "Hectares of tree cover lost each year since 2001 inside the humid tropical primary forest that stood in 2001: mature natural forest that had not been cleared and regrown in recent history, mapped by the University of Maryland.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "loss-global-annual", "bytes": 1620, "citation_full": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. \"Global Drivers of Forest Loss at 1 Km Resolution.\" Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1126/science.1244693", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute", "r2_url": "https://files.environmentdashboard.org/raw/79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e.zst", "sha256": "79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "source_id": "gfw-tree-cover-loss", "title": "Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)", "url_download": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20umd_tree_cover_loss__year%20ORDER%20BY%20umd_tree_cover_loss__year", "url_main": "https://globalnaturewatch.org/dashboards/global/", "version_producer": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "loss-primary-forest-country-annual", "bytes": 79567, "citation_full": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. \"Global Drivers of Forest Loss at 1 Km Resolution.\" Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1126/science.1244693", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute", "r2_url": "https://files.environmentdashboard.org/raw/ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a.zst", "sha256": "ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a", "source_id": "gfw-tree-cover-loss", "title": "Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)", "url_download": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20AND%20is__umd_regional_primary_forest_2001%20%3D%20true%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year", "url_main": "https://globalnaturewatch.org/dashboards/global/", "version_producer": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read loss-primary-forest-country-annual: WRI's table gadm__tcl__iso_change v20260424 queried through the Global Forest Watch Data API with the SQL in the file's URL (https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20AND%20is__umd_regional_primary_forest_2001%20%3D%20true%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year), at a tree canopy cover in 2000 of at least 30 percent. Hectares as in the file, not rounded.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "A country and year with no row in the file has no loss recorded for it; nothing is filled in.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "World: the sum of every row of the file by year, including the codes left out below.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "Not published as countries: GADM codes with no entity in our table (Z07 97,129 ha, all years together). Their loss is included in the world totals.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "ddb6c3ad59a6e7b84bd718059effd180490b745b58c70ae5d4a6cb1d1a23d37a"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Tree cover loss: stand-replacing disturbance, or the complete removal of tree cover canopy, of vegetation taller than 5 m, mapped each year from Landsat at 30 m (Hansen/UMD, Global Forest Change v1.13), where tree canopy cover was at least 30 percent in 2000. Loss is not deforestation: it includes plantation harvest, fire and natural disturbance, and regrowth is not subtracted. Method changes from 2011 and 2015 make early and late years less comparable. Primary forest: the 2001 extent of humid tropical primary forest (Turubanova et al. 2018); loss outside the humid tropics is not counted.",
+          "bunkers": null,
+          "geography": "Countries and territories (GADM's country codes, mapped to ISO 3166-1) and the world, which also includes areas GADM codes separately (XAD, Z01, Z06, Z07). Only countries with humid tropical primary forest have rows.",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["gfw-tree-cover-loss"],
+      "time_basis": "calendar",
+      "title": "Humid tropical primary forest lost each year",
+      "unit": {
+        "code": "ha",
+        "label": "hectares",
+        "short": "ha"
+      },
+      "vintage": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["ABW", "AFG", "AGO", "AIA", "ALA", "ALB", "AND", "ARE", "ARG", "ARM", "ATF", "ATG", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BES", "BFA", "BGD", "BGR", "BHS", "BIH", "BLM", "BLR", "BLZ", "BMU", "BOL", "BRA", "BRB", "BRN", "BTN", "BWA", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COD", "COG", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "CYN", "CYP", "CZE", "DEU", "DMA", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESP", "EST", "ETH", "FIN", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GGY", "GHA", "GIB", "GIN", "GLP", "GMB", "GNB", "GNQ", "GRC", "GRD", "GTM", "GUF", "GUY", "HND", "HRV", "HTI", "HUN", "IDN", "IMN", "IND", "IRL", "IRN", "IRQ", "ISR", "ITA", "JAM", "JEY", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KNA", "KOR", "KOS", "LAO", "LBN", "LBR", "LBY", "LCA", "LIE", "LKA", "LSO", "LTU", "LUX", "LVA", "MAF", "MAR", "MDA", "MDG", "MDV", "MEX", "MKD", "MLI", "MLT", "MMR", "MNE", "MNG", "MOZ", "MRT", "MSR", "MTQ", "MUS", "MWI", "MYS", "MYT", "NAM", "NCL", "NER", "NGA", "NIC", "NLD", "NOR", "NPL", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "PNG", "POL", "PRI", "PRK", "PRT", "PRY", "PSE", "REU", "ROU", "RUS", "RWA", "SAU", "SDN", "SEN", "SGP", "SLB", "SLE", "SLV", "SMR", "SOM", "SPM", "SRB", "SSD", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SXM", "SYC", "SYR", "TCA", "TCD", "TGO", "THA", "TJK", "TKM", "TLS", "TTO", "TUN", "TUR", "TWN", "TZA", "UGA", "UKR", "UMI", "URY", "USA", "UZB", "VCT", "VEN", "VGB", "VIR", "VNM", "VUT", "WLD", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "354def24e25bd44ead8400f48712639c3ba21bc1b72aee15f42b0c63cb8af003",
+      "geo_coverage": "mixed",
+      "id": "forest.gfw.tree-cover-loss",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "part": "all"
+        },
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 25528555.50870127
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from Hansen/UMD/Google/USGS/NASA (Global Forest Change v1.13), accessed through Global Nature Watch (WRI table gadm__tcl__iso_change v20260424) on 2026-10-05. Tree cover loss due to fire: UMD/GLAD (Tyukavina et al. 2022). Tree cover loss by dominant driver: WRI/Google DeepMind (Sims et al. 2025). Primary humid tropical forest: Turubanova et al. (2018). CC BY 4.0. Changes: Summed WRI's country table by country and year at a tree canopy cover in 2000 of at least 30 percent; world totals of primary forest loss and of loss by driver summed by Environment Dashboard.",
+        "description": "Hectares of tree cover lost each year since 2001, worldwide and in each country, and how much of it was lost to fire, mapped from Landsat satellites by the University of Maryland and tabulated by World Resources Institute for Global Forest Watch.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "loss-global-annual", "bytes": 1620, "citation_full": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. \"Global Drivers of Forest Loss at 1 Km Resolution.\" Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1126/science.1244693", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute", "r2_url": "https://files.environmentdashboard.org/raw/79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e.zst", "sha256": "79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "source_id": "gfw-tree-cover-loss", "title": "Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)", "url_download": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20umd_tree_cover_loss__year%20ORDER%20BY%20umd_tree_cover_loss__year", "url_main": "https://globalnaturewatch.org/dashboards/global/", "version_producer": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "loss-country-annual", "bytes": 273719, "citation_full": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. \"Global Drivers of Forest Loss at 1 Km Resolution.\" Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1126/science.1244693", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute", "r2_url": "https://files.environmentdashboard.org/raw/d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1.zst", "sha256": "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1", "source_id": "gfw-tree-cover-loss", "title": "Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)", "url_download": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year", "url_main": "https://globalnaturewatch.org/dashboards/global/", "version_producer": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read loss-country-annual: WRI's table gadm__tcl__iso_change v20260424 queried through the Global Forest Watch Data API with the SQL in the file's URL (https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year), at a tree canopy cover in 2000 of at least 30 percent. Hectares as in the file, not rounded.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "A country and year with no row in the file has no loss recorded for it; nothing is filled in.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "World: read loss-global-annual (the same query without the country grouping), 2001–2025. Checked that the countries, with the codes left out below, add up to it exactly in every year, for all loss and for loss due to fire.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "Not published as countries: GADM codes with no entity in our table (XAD 80 ha; Z01 4,365 ha; Z06 555 ha; Z07 164,532 ha, all years together). Their loss is included in the world totals.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Tree cover loss: stand-replacing disturbance, or the complete removal of tree cover canopy, of vegetation taller than 5 m, mapped each year from Landsat at 30 m (Hansen/UMD, Global Forest Change v1.13), where tree canopy cover was at least 30 percent in 2000. Loss is not deforestation: it includes plantation harvest, fire and natural disturbance, and regrowth is not subtracted. Method changes from 2011 and 2015 make early and late years less comparable. Loss due to fire: UMD/GLAD (Tyukavina et al. 2022), a part of all loss.",
+          "bunkers": null,
+          "geography": "Countries and territories (GADM's country codes, mapped to ISO 3166-1) and the world, which also includes areas GADM codes separately (XAD, Z01, Z06, Z07).",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["gfw-tree-cover-loss"],
+      "time_basis": "calendar",
+      "title": "Tree cover lost each year, and the part due to fire",
+      "unit": {
+        "code": "ha",
+        "label": "hectares",
+        "short": "ha"
+      },
+      "vintage": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["ABW", "AFG", "AGO", "AIA", "ALA", "ALB", "AND", "ARE", "ARG", "ARM", "ATF", "ATG", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BES", "BFA", "BGD", "BGR", "BHS", "BIH", "BLM", "BLR", "BLZ", "BMU", "BOL", "BRA", "BRB", "BRN", "BTN", "BWA", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COD", "COG", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "CYN", "CYP", "CZE", "DEU", "DMA", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESP", "EST", "ETH", "FIN", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GGY", "GHA", "GIB", "GIN", "GLP", "GMB", "GNB", "GNQ", "GRC", "GRD", "GTM", "GUF", "GUY", "HND", "HRV", "HTI", "HUN", "IDN", "IMN", "IND", "IRL", "IRN", "IRQ", "ISR", "ITA", "JAM", "JEY", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KNA", "KOR", "KOS", "LAO", "LBN", "LBR", "LBY", "LCA", "LIE", "LKA", "LSO", "LTU", "LUX", "LVA", "MAF", "MAR", "MDA", "MDG", "MDV", "MEX", "MKD", "MLI", "MLT", "MMR", "MNE", "MNG", "MOZ", "MRT", "MSR", "MTQ", "MUS", "MWI", "MYS", "MYT", "NAM", "NCL", "NER", "NGA", "NIC", "NLD", "NOR", "NPL", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "PNG", "POL", "PRI", "PRK", "PRT", "PRY", "PSE", "REU", "ROU", "RUS", "RWA", "SAU", "SDN", "SEN", "SGP", "SLB", "SLE", "SLV", "SMR", "SOM", "SPM", "SRB", "SSD", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SXM", "SYC", "SYR", "TCA", "TCD", "TGO", "THA", "TJK", "TKM", "TLS", "TTO", "TUN", "TUR", "TWN", "TZA", "UGA", "UKR", "UMI", "URY", "USA", "UZB", "VCT", "VEN", "VGB", "VIR", "VNM", "VUT", "WLD", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "2c3f598d51fd42b153319e26e9a10daa13d0671ba7b82cddfe1621c1c35cf022",
+      "geo_coverage": "mixed",
+      "id": "forest.gfw.tree-cover-loss-by-driver",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "driver": "permanent-agriculture"
+        },
+        "entity": "WLD",
+        "period": "2025",
+        "status": "final",
+        "value": 5728093.192951432
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from Hansen/UMD/Google/USGS/NASA (Global Forest Change v1.13), accessed through Global Nature Watch (WRI table gadm__tcl__iso_change v20260424) on 2026-10-05. Tree cover loss due to fire: UMD/GLAD (Tyukavina et al. 2022). Tree cover loss by dominant driver: WRI/Google DeepMind (Sims et al. 2025). Primary humid tropical forest: Turubanova et al. (2018). CC BY 4.0. Changes: Summed WRI's country table by country and year at a tree canopy cover in 2000 of at least 30 percent; world totals of primary forest loss and of loss by driver summed by Environment Dashboard.",
+        "description": "Hectares of tree cover lost each year since 2001, worldwide and in each country, split by the dominant driver of loss in each square kilometre: permanent agriculture, mining and energy, shifting cultivation, logging, wildfire, settlements and infrastructure, other natural disturbances, or unknown (WRI and Google DeepMind).",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "loss-global-annual", "bytes": 1620, "citation_full": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. \"Global Drivers of Forest Loss at 1 Km Resolution.\" Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1126/science.1244693", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute", "r2_url": "https://files.environmentdashboard.org/raw/79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e.zst", "sha256": "79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "source_id": "gfw-tree-cover-loss", "title": "Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)", "url_download": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20umd_tree_cover_loss__year%20ORDER%20BY%20umd_tree_cover_loss__year", "url_main": "https://globalnaturewatch.org/dashboards/global/", "version_producer": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "loss-drivers-country-annual", "bytes": 1703978, "citation_full": "Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342 (15 November): 850-53. Data available on-line from: https://glad.earthengine.app/view/global-forest-change. Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, D. Morris, C. M. Slay, D. Purves, and N. Harris. 2025. \"Global Drivers of Forest Loss at 1 Km Resolution.\" Environmental Research Letters 20 (7): 074027. doi:10.1088/1748-9326/add606.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.1126/science.1244693", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "University of Maryland GLAD lab with Google, USGS and NASA; tabulated and served by World Resources Institute", "r2_url": "https://files.environmentdashboard.org/raw/2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63.zst", "sha256": "2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63", "source_id": "gfw-tree-cover-loss", "title": "Tree cover loss, Global Forest Change v1.13 (via Global Nature Watch)", "url_download": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year", "url_main": "https://globalnaturewatch.org/dashboards/global/", "version_producer": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read loss-drivers-country-annual: WRI's table gadm__tcl__iso_change v20260424 queried through the Global Forest Watch Data API with the SQL in the file's URL (https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20wri_google_tree_cover_loss_drivers__driver%2C%20umd_tree_cover_loss__year), at a tree canopy cover in 2000 of at least 30 percent. Hectares as in the file, not rounded.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "A country and year with no row in the file has no loss recorded for it; nothing is filled in.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "Driver classes as WRI names them; \"Hard commodities\" is labelled \"Mining and energy (hard commodities)\" and \"Settlements & Infrastructure\" \"Settlements and infrastructure\". Each 1 km cell's loss is assigned to its one dominant driver (WRI/Google DeepMind, Sims et al. 2025).",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "World: the sum of every row of the file by year and driver, including the codes left out below. Checked that the drivers add up to loss-global-annual in every year, to within 0.01 ha.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          },
+          {
+            "description": "Not published as countries: GADM codes with no entity in our table (XAD 80 ha; Z01 4,365 ha; Z06 555 ha; Z07 164,532 ha, all years together). Their loss is included in the world totals.",
+            "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "2e9dfe9bb94ea744f5f4178fe292ffacc0173caf50609cd1f9981106374a6c63"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
+            "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Tree cover loss: stand-replacing disturbance, or the complete removal of tree cover canopy, of vegetation taller than 5 m, mapped each year from Landsat at 30 m (Hansen/UMD, Global Forest Change v1.13), where tree canopy cover was at least 30 percent in 2000. Loss is not deforestation: it includes plantation harvest, fire and natural disturbance, and regrowth is not subtracted. Method changes from 2011 and 2015 make early and late years less comparable. Drivers: the dominant driver of loss in each 1 km cell, 2001–2025, from a model trained on labelled samples (WRI/Google DeepMind, Sims et al. 2025). WRI counts permanent agriculture, hard commodities and settlements and infrastructure as permanent conversion to another land use; the other drivers are usually followed by regrowth.",
+          "bunkers": null,
+          "geography": "Countries and territories (GADM's country codes, mapped to ISO 3166-1) and the world, which also includes areas GADM codes separately (XAD, Z01, Z06, Z07).",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["gfw-tree-cover-loss"],
+      "time_basis": "calendar",
+      "title": "Tree cover lost each year, by what drove it",
+      "unit": {
+        "code": "ha",
+        "label": "hectares",
+        "short": "ha"
+      },
+      "vintage": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424"
+    },
+    {
+      "display": {
         "decimals": 1
       },
       "downloadable": false,
@@ -7687,7 +7944,7 @@
       },
       "downloadable": true,
       "entities": ["AGO", "AND", "ARE", "ARM", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BFA", "BGD", "BGR", "BHR", "BHS", "BLR", "BLZ", "BOL", "BRA", "BRB", "BRN", "BTN", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COG", "COL", "COM", "CPV", "CRI", "CUB", "CYP", "CZE", "DEU", "DNK", "DOM", "DZA", "ECU", "ERI", "ESP", "EST", "ETH", "EU27", "FIN", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GIN", "GMB", "GRC", "GUY", "HND", "HRV", "HUN", "IDN", "IND", "IRL", "IRQ", "ISL", "ITA", "JAM", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KOR", "LBN", "LBR", "LCA", "LIE", "LKA", "LTU", "LUX", "LVA", "MAR", "MCO", "MDA", "MDG", "MDV", "MEX", "MHL", "MLT", "MNE", "MNG", "MOZ", "MRT", "MUS", "MWI", "MYS", "NGA", "NIC", "NIU", "NLD", "NOR", "NPL", "NRU", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "POL", "PRT", "PRY", "PSE", "QAT", "ROU", "RUS", "RWA", "SAU", "SGP", "SLB", "SLE", "SLV", "SOM", "SRB", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SYC", "TGO", "THA", "TLS", "TON", "TTO", "TUN", "TUR", "TUV", "UKR", "URY", "USA", "UZB", "VAT", "VEN", "VUT", "WSM", "YEM", "ZAF", "ZMB", "ZWE"],
-      "export_sha256": "f452e906aacb70713748f99593a2f630e8d465c6514f26d08c635c4762b1c832",
+      "export_sha256": "eaa820ffa3fb593984b677399cb6a4c4d86b38986041016943a975dbd596ca53",
       "geo_coverage": "mixed",
       "id": "ndc.climate-watch.2025-ndc",
       "latest": {
@@ -7720,21 +7977,21 @@
             "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
-            "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+            "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
           },
           {
             "description": "For the 153 locations with a 2025 NDC status, coded the submission status and the six content questions as 1 (Climate Watch's 'Yes' or 'Submitted' label) or 0 ('No' or 'Withdrawn'); labels that answer neither way are published as missing, with the label. Each value keeps Climate Watch's label as its note.",
             "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
-            "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+            "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
           },
           {
             "description": "Dated each observation by the Party's 2025 NDC date (M/D/YYYY in the file, written as an ISO date). EUU (the European Union) is published as EU27.",
             "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
-            "transform_sha256": "e761c4d8a6b86744571308feea1a8fc44e9c0c8c906d3a9150e5c1c37cf1c4c7"
+            "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
           }
         ],
         "published_value": null,
@@ -7756,6 +8013,76 @@
         "short": ""
       },
       "vintage": "NDC Tracker retrieved 2026-10-05 (latest 2025 NDC dated 2026-09-08)"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "66ab6f955cd1805fa540804fe3edbdead8ed87afac4e615edc7391fdf24be24c",
+      "geo_coverage": "global-only",
+      "id": "ndc.climate-watch.2025-ndc-countries",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "answer": "yes",
+          "question": "submitted"
+        },
+        "entity": "WLD",
+        "period": "2026-10-05",
+        "status": "final",
+        "value": 151.0
+      },
+      "licence_class": "noncommercial",
+      "provenance": {
+        "attribution": "Adapted by Environment Dashboard from Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker. CC BY-NC 4.0. Changes: Counted the countries Climate Watch codes yes and no for each question.",
+        "description": "The number of countries whose 2025 nationally determined contribution (NDC 3.0) Climate Watch has coded, by answer: submitted or withdrawn, and whether the plan includes a 2035 greenhouse gas target, an economy-wide target, a target for gases other than carbon dioxide, a stronger 2030 target, stronger adaptation, and added information for clarity. Each EU member state counts once.",
+        "kind": "derived",
+        "licence": {
+          "name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)",
+          "spdx": "CC-BY-NC-4.0",
+          "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+        },
+        "notice": "NDC documents: UNFCCC. 2026. NDC Registry. Available at: https://unfccc.int/NDCREG. Climate Watch data shared under CC BY-NC 4.0, for non-commercial use only.",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "ndc-tracker-2025", "bytes": 303801, "citation_full": "Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": "W/\"2d0d6af161093f72b8497c3eb07a7918\"", "last_modified": null, "licence": {"name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)", "spdx": "CC-BY-NC-4.0", "url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "producer": "World Resources Institute (Climate Watch)", "r2_url": "https://files.environmentdashboard.org/raw/2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2.zst", "sha256": "2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2", "source_id": "climate-watch-ndc", "title": "Climate Watch NDC Tracker (2025 NDCs)", "url_download": "https://www.climatewatchdata.org/api/v1/ndcs?indicators=2025_status,2025_statement,2025_emissions_compare,2025_source,2025_date,2025_compare_1,2025_compare_2,2025_compare_3,2025_compare_4,2025_compare_5,2025_compare_6,submission,submission_date,pa_status", "url_main": "https://www.climatewatchdata.org/", "version_producer": "NDC Tracker retrieved 2026-10-05", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the Climate Watch API response (sha256 2d0d6af16109…, retrieved 2026-10-05) and coded its labels as in ndc.climate-watch.2025-ndc.",
+            "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+            "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
+          },
+          {
+            "description": "Counted, for each question, the 152 countries with a 2025 NDC status that Climate Watch codes yes and those it codes no. The European Union's own entry (EUU) is not counted, because Climate Watch codes its NDC for each member state too; labels that answer neither way are in neither count.",
+            "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+            "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Counts of Climate Watch's qualitative coding of the NDC documents on the UNFCCC registry, on the day the tracker was retrieved.",
+          "bunkers": null,
+          "geography": "Countries with a 2025 NDC status in Climate Watch, each EU member state counted once and the EU's own entry not counted again; countries Climate Watch has no information for are in neither count",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["climate-watch-ndc"],
+      "time_basis": "calendar",
+      "title": "How many countries have sent a 2025 climate pledge (NDC), and what the pledges contain",
+      "unit": {
+        "code": "countries",
+        "label": "countries",
+        "short": "countries"
+      },
+      "vintage": "NDC Tracker retrieved 2026-10-05"
     },
     {
       "display": {
@@ -8195,11 +8522,11 @@
     },
     {
       "display": {
-        "decimals": 0
+        "decimals": 1
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "e9ab5aa094c08302e84402f2c05002c80d8a837dd7a54d6cd8692fb16c905fa9",
+      "export_sha256": "72bea868c3dbe8eba4ff10f6121abe4240878f6a37a2b5f3321a4e37993d3ee7",
       "geo_coverage": "global-only",
       "id": "progress.scl.outcome-status",
       "latest": {
@@ -8232,21 +8559,21 @@
             "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
-            "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+            "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
           },
           {
             "description": "Left out the 17 outcome indicators whose data sources name the International Energy Agency (BLDG-11, BLDG-15, BLDG-24, BLDG-25, BLDG-37, CTY-21, FIN-86, IN-2, PWR-41, PWR-42, PWR-50, PWR-58, TRNS-27, TRNS-28, TRNS-29, TRNS-31, X-FIN-85).",
             "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
-            "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+            "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
           },
           {
             "description": "Counted the remaining 179 outcome indicators by Systems Change Lab's status and divided each count by their total, times 100.",
             "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
-            "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+            "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
           }
         ],
         "published_value": null,

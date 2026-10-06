@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T00:57:56Z",
+  "generated_at": "2026-10-06T02:18:05Z",
   "run_url": null,
   "schema_version": 1,
   "sources": {
@@ -73,7 +73,7 @@
       "reason": null,
       "state": "unchanged",
       "terms": "unchanged",
-      "vintage": "NDC Tracker retrieved 2026-10-05 (latest 2025 NDC dated 2026-09-08)"
+      "vintage": "NDC Tracker retrieved 2026-10-05"
     },
     "defra-uk-carbon-footprint": {
       "checked_at": "2026-10-05T14:50:51Z",
@@ -229,13 +229,13 @@
       "vintage": null
     },
     "gfw-tree-cover-loss": {
-      "checked_at": "2026-10-05T11:03:16Z",
-      "last_success": null,
+      "checked_at": "2026-10-06T01:21:39Z",
+      "last_success": "2026-10-06T01:21:39Z",
       "manual_last_verified": null,
-      "reason": "loss-global-annual: artifact loss-global-annual needs the credential in $GFW_API_KEY, which is not set; loss-country-annual: artifact loss-country-annual needs the credential in $GFW_API_KEY, which is not set; loss-primary-forest-country-annual: artifact loss-primary-forest-country-annual needs the credential in $GFW_API_KEY, which is not set; loss-drivers-country-annual: artifact loss-drivers-country-annual needs the credential in $GFW_API_KEY, which is not set",
-      "state": "failed",
+      "reason": null,
+      "state": "ok",
       "terms": "unchanged",
-      "vintage": null
+      "vintage": "GFC-2025-v1.13, WRI table gadm__tcl__iso_change v20260424"
     },
     "gistemp-v4": {
       "checked_at": "2026-10-05T11:03:17Z",
@@ -643,7 +643,7 @@
       "vintage": null
     },
     "unep-food-waste-index-2024": {
-      "checked_at": "2026-10-06T00:57:56Z",
+      "checked_at": "2026-10-06T02:18:05Z",
       "last_success": "2026-10-05T06:03:58Z",
       "manual_last_verified": null,
       "reason": "food-waste.unep-fwi-2024.per-capita: no snapshot yet for ['unep-food-waste-index-2024/report-pdf']; run envdash fetch (or envdash snapshot add); food-waste.unep-fwi-2024.total: no snapshot yet for ['unep-food-waste-index-2024/report-pdf']; run envdash fetch (or envdash snapshot add)",

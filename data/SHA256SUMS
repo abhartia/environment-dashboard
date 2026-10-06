@@ -1,5 +1,5 @@
-8c431167d23992c4c0dc9a15496d5b87185bdc7bbcf85c61a6b37ae22a2314c9  datapackage.json
-3475b54fe78602fe74d4b16827b3f484b1c7c77bafebe0f1581ecf41610c117c  v1/catalog.json
+0db597676862c3b5b625c25111b0c1009e1201eba4a5a21a9e318c380ceaaa80  datapackage.json
+179b895480eeda1d35428cc78be89d84e42f9afa0caebc8238308fa8b0759281  v1/catalog.json
 8fb635549f27aaf167b30389e16455cbc57d3dde1dbc4aee80d14989bce58b74  v1/indicators/access.wb-wdi.electricity.csv
 5f3096480b37bd1407b2a053272406a5021526fe4286619a4f2dd2a682ef88ef  v1/indicators/access.wb-wdi.electricity.json
 0d3b08a47f0b780fa77438ac8559cb529e51d29d4c718c317c8ff219fcd9500d  v1/indicators/action.ivanova-2020.options.csv
@@ -128,6 +128,12 @@ cd925655b3937f65d71c984463585fe20e75c8b5853bd9362ca8ebddd65dc438  v1/indicators/
 2f8717d284332bddfb0196793c3519781fb881f1890b416331edd9439ccb19e8  v1/indicators/forest.fao-fra-2025.area.json
 e3afb253688102806513b08972ceae28e666127fc8674dbd1e2e045fc9be409b  v1/indicators/forest.fao-fra-2025.net-change.csv
 8dd0171499d681739ad85f3813d180a68a831144843ba804c2e5ca172ad054d5  v1/indicators/forest.fao-fra-2025.net-change.json
+be212234e4e70cb6a43cfcb3c962b40a3e2aaafb7d63743a454742ce2b486f59  v1/indicators/forest.gfw.primary-forest-loss.csv
+2871c260b88c1f4e969d89cc7750a69ce7cc5c6865b1f29ecb060362dec83e60  v1/indicators/forest.gfw.primary-forest-loss.json
+2e1b82625a1e1322228e69f89274b1be36c12bef7ef821c47ccd1b814cad6376  v1/indicators/forest.gfw.tree-cover-loss-by-driver.csv
+2c3f598d51fd42b153319e26e9a10daa13d0671ba7b82cddfe1621c1c35cf022  v1/indicators/forest.gfw.tree-cover-loss-by-driver.json
+930478a6e1cde96108a2473b651b63e5d83e70565af70ba89979ce9266967de0  v1/indicators/forest.gfw.tree-cover-loss.csv
+354def24e25bd44ead8400f48712639c3ba21bc1b72aee15f42b0c63cb8af003  v1/indicators/forest.gfw.tree-cover-loss.json
 d1a0ae510777614cec5d838ec386b666a2984e2399b3de8fc2654cdb92dff5b3  v1/indicators/ghg.faostat.by-gas.csv
 69a6dcec2ce1082abd29bd6dd7d19a15c9473d98afb4f8ae367ae368e0291c78  v1/indicators/ghg.faostat.by-gas.json
 ec2431f3c2d0986dcc2401e1d4ab046d5ef84508e1725290fb15b4411e402622  v1/indicators/ghg.faostat.by-sector.csv
@@ -166,8 +172,10 @@ af9cde62c352989a38b55cbefc4a8af1cbafa8ed8f21fc69277ec8b451abb4c2  v1/indicators/
 c071e8f004b237386aa3a1ceca0d33df1c46dafebd69415a9a7f46ea0d11a6bb  v1/indicators/lcoe.irena.by-technology-world.json
 cffe98a181ddd365a74f92da6946e45dbfb52122fb680685cec37b043e1453d2  v1/indicators/n2o.noaa-gml.annual-global.csv
 cf3dce806dbbee29296fa53dcb2827cbd33a9f66fed98398bc3966091ce75df7  v1/indicators/n2o.noaa-gml.annual-global.json
+553f0f8c0a86ddcdab493d44fee2adc07bcb0807abbba4dda25782529754e51a  v1/indicators/ndc.climate-watch.2025-ndc-countries.csv
+66ab6f955cd1805fa540804fe3edbdead8ed87afac4e615edc7391fdf24be24c  v1/indicators/ndc.climate-watch.2025-ndc-countries.json
 0e75a70db1cf2118ed0239226918aa278fca8ba2a11cf69ec180253c725508fa  v1/indicators/ndc.climate-watch.2025-ndc.csv
-f452e906aacb70713748f99593a2f630e8d465c6514f26d08c635c4762b1c832  v1/indicators/ndc.climate-watch.2025-ndc.json
+eaa820ffa3fb593984b677399cb6a4c4d86b38986041016943a975dbd596ca53  v1/indicators/ndc.climate-watch.2025-ndc.json
 3ae5aa37d695042c285c39f856d84139c1cd6143135b1c38dee5ae7f0104c8dd  v1/indicators/ohc.ncei.pentadal-0-2000m.csv
 160bfd19940a49ed4dfe9fab39bb938fea2ce6653d229e7fb6f5cbf3e0516e1b  v1/indicators/ohc.ncei.pentadal-0-2000m.json
 85d38a9d9a790663fce941aadb15a586bf293e595786f42ef3fc9c3589c9dbed  v1/indicators/ohc.ncei.yearly-0-2000m.csv
@@ -181,7 +189,7 @@ e290436a1378261df95e95f023598d2a175af2ac26ef94d6bc50af7bc62feddc  v1/indicators/
 cfe2221c5b0ff13eaa43df5db3faaf44dd7d0a724f53ec67f424b68ca7a6f783  v1/indicators/policy.stechemesser-2024.successful-interventions.csv
 1815877b0ad07e1565ebb1a1967511b6dadd3d7d065c795bcd5cba035e392cf2  v1/indicators/policy.stechemesser-2024.successful-interventions.json
 29ce6d6f48f1c8adc108179793602708bd6bca6421a9780d713769fd8c3b2b83  v1/indicators/progress.scl.outcome-status.csv
-e9ab5aa094c08302e84402f2c05002c80d8a837dd7a54d6cd8692fb16c905fa9  v1/indicators/progress.scl.outcome-status.json
+72bea868c3dbe8eba4ff10f6121abe4240878f6a37a2b5f3321a4e37993d3ee7  v1/indicators/progress.scl.outcome-status.json
 bf4ad26b4b26d94b998f690dff0170358247696f1af8e7bfc4fd204f5c90fad1  v1/indicators/sea-ice-extent.nsidc.arctic-minimum-5day.csv
 7445208c6ff15dc399b67cacacc9081e43d13a86de5d6b3ec424639933158c29  v1/indicators/sea-ice-extent.nsidc.arctic-minimum-5day.json
 216dba15abb364272fde70c58b37000078702fd748db46269ec72fa1a42b959c  v1/indicators/sea-ice-extent.nsidc.arctic-september.csv

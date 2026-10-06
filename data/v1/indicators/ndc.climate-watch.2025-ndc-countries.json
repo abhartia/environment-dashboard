@@ -1,0 +1,101 @@
+{
+  "attribution": "Adapted by Environment Dashboard from Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker. CC BY-NC 4.0. Changes: Counted the countries Climate Watch codes yes and no for each question.",
+  "description": "The number of countries whose 2025 nationally determined contribution (NDC 3.0) Climate Watch has coded, by answer: submitted or withdrawn, and whether the plan includes a 2035 greenhouse gas target, an economy-wide target, a target for gases other than carbon dioxide, a stronger 2030 target, stronger adaptation, and added information for clarity. Each EU member state counts once.",
+  "dimensions": [
+    {
+      "id": "question",
+      "label": "Question",
+      "values": [
+        {"id": "submitted", "label": "Has submitted a 2025 NDC"},
+        {"id": "ghg-target-2035", "label": "Includes a 2035 greenhouse gas target"},
+        {"id": "economy-wide-target-2035", "label": "Includes an economy-wide greenhouse gas target for 2035"},
+        {"id": "non-co2-target", "label": "Includes a quantified target for gases other than CO2"},
+        {"id": "strengthened-2030-target", "label": "Strengthens the 2030 target"},
+        {"id": "strengthened-adaptation", "label": "Strengthens adaptation"},
+        {"id": "added-clarity-transparency", "label": "Adds information for clarity, transparency and understanding"}
+      ]
+    },
+    {
+      "id": "answer",
+      "label": "Answer",
+      "values": [
+        {"id": "yes", "label": "Yes"},
+        {"id": "no", "label": "No"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "ndc.climate-watch.2025-ndc-countries",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "answer": "yes",
+      "question": "submitted"
+    },
+    "entity": "WLD",
+    "period": "2026-10-05",
+    "status": "final",
+    "value": 151.0
+  },
+  "licence": {
+    "name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)",
+    "spdx": "CC-BY-NC-4.0",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "NDC documents: UNFCCC. 2026. NDC Registry. Available at: https://unfccc.int/NDCREG. Climate Watch data shared under CC BY-NC 4.0, for non-commercial use only.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "ndc-tracker-2025", "bytes": 303801, "citation_full": "Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker", "date_accessed": "2026-10-05", "date_published": null, "doi": null, "etag": "W/\"2d0d6af161093f72b8497c3eb07a7918\"", "last_modified": null, "licence": {"name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)", "spdx": "CC-BY-NC-4.0", "url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "producer": "World Resources Institute (Climate Watch)", "r2_url": "https://files.environmentdashboard.org/raw/2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2.zst", "sha256": "2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2", "source_id": "climate-watch-ndc", "title": "Climate Watch NDC Tracker (2025 NDCs)", "url_download": "https://www.climatewatchdata.org/api/v1/ndcs?indicators=2025_status,2025_statement,2025_emissions_compare,2025_source,2025_date,2025_compare_1,2025_compare_2,2025_compare_3,2025_compare_4,2025_compare_5,2025_compare_6,submission,submission_date,pa_status", "url_main": "https://www.climatewatchdata.org/", "version_producer": "NDC Tracker retrieved 2026-10-05", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the Climate Watch API response (sha256 2d0d6af16109…, retrieved 2026-10-05) and coded its labels as in ndc.climate-watch.2025-ndc.",
+      "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+      "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
+    },
+    {
+      "description": "Counted, for each question, the 152 countries with a 2025 NDC status that Climate Watch codes yes and those it codes no. The European Union's own entry (EUU) is not counted, because Climate Watch codes its NDC for each member state too; labels that answer neither way are in neither count.",
+      "inputs": ["2d0d6af161093f72b8497c3eb07a791841e2df813e09c5f06b7245238153d8a2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
+      "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Counts of Climate Watch's qualitative coding of the NDC documents on the UNFCCC registry, on the day the tracker was retrieved.",
+    "bunkers": null,
+    "geography": "Countries with a 2025 NDC status in Climate Watch, each EU member state counted once and the EU's own entry not counted again; countries Climate Watch has no information for are in neither count",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "answer": ["yes", "no", "yes", "no", "yes", "no", "yes", "no", "yes", "no", "yes", "no", "yes", "no"],
+      "question": ["submitted", "submitted", "ghg-target-2035", "ghg-target-2035", "economy-wide-target-2035", "economy-wide-target-2035", "non-co2-target", "non-co2-target", "strengthened-2030-target", "strengthened-2030-target", "strengthened-adaptation", "strengthened-adaptation", "added-clarity-transparency", "added-clarity-transparency"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05", "2026-10-05"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [151.0, 1.0, 138.0, 14.0, 98.0, 54.0, 71.0, 73.0, 27.0, 125.0, 97.0, 55.0, 139.0, 13.0]
+  },
+  "time_basis": "calendar",
+  "title": "How many countries have sent a 2025 climate pledge (NDC), and what the pledges contain",
+  "unit": {
+    "code": "countries",
+    "label": "countries",
+    "short": "countries"
+  },
+  "vintage": "NDC Tracker retrieved 2026-10-05"
+}

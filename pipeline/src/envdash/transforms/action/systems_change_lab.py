@@ -160,7 +160,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 "from International Energy Agency data are left out.",
                 kind="derived",
                 unit=UNIT,
-                display=Display(decimals=0),
+                display=Display(decimals=1),
                 scope=Scope(
                     geography="World (Systems Change Lab's global indicators)",
                     basis="Systems Change Lab's own progress status for each outcome indicator, as listed in its "

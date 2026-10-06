@@ -16,7 +16,7 @@
     }
   ],
   "display": {
-    "decimals": 0
+    "decimals": 1
   },
   "geo_coverage": "global-only",
   "headline_entity": "WLD",
@@ -49,21 +49,21 @@
       "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
-      "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+      "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
     },
     {
       "description": "Left out the 17 outcome indicators whose data sources name the International Energy Agency (BLDG-11, BLDG-15, BLDG-24, BLDG-25, BLDG-37, CTY-21, FIN-86, IN-2, PWR-41, PWR-42, PWR-50, PWR-58, TRNS-27, TRNS-28, TRNS-29, TRNS-31, X-FIN-85).",
       "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
-      "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+      "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
     },
     {
       "description": "Counted the remaining 179 outcome indicators by Systems Change Lab's status and divided each count by their total, times 100.",
       "inputs": ["1c4ed351ea59b67a3b2878c6b7ac9952d83c4993f7eed89c408437232835e568"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
-      "transform_sha256": "b1f77d1c07cd534c87f01007d83032759ad9103248de3621db96e20806e737b3"
+      "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
     }
   ],
   "published_value": null,

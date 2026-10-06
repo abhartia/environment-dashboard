@@ -20,6 +20,10 @@ from 2025_source), so nothing is lost in the 1/0 coding. Any label not listed be
 Parties without a 2025_status entry are not published: Climate Watch has no information for them, which is not the
 same as "not submitted". The EU's single NDC is coded for EUU (published as EU27) and repeated for each member state,
 as in the file. The submission statement (2025_statement), a quotation from each NDC, is not used.
+
+A second indicator counts, for each question, the countries Climate Watch codes yes and those it codes no: every
+location except EUU, so each EU member state counts once (the EU's own entry would count its members twice) and labels
+that answer neither way are in neither count. Dated by the day the response was retrieved.
 """
 
 from __future__ import annotations
@@ -38,6 +42,7 @@ from envdash.transform import Input, InputFile, Result, Spec, Transform, Validat
 SOURCE = "climate-watch-ndc"
 TRACKER = Input(SOURCE, "ndc-tracker-2025")
 INDICATOR = "ndc.climate-watch.2025-ndc"
+COUNTS = "ndc.climate-watch.2025-ndc-countries"
 PRODUCER = "Climate Watch"
 ALIASES = {"EUU": "EU27"}
 
@@ -204,6 +209,36 @@ def _run(files: dict[str, InputFile]) -> Result:
     )
 
 
+ANSWERS = (("yes", "Yes", 1.0), ("no", "No", 0.0))
+
+
+def _run_counts(files: dict[str, InputFile]) -> Result:
+    f = files[TRACKER.key]
+    obs = observations(read_indicators(f.path.read_bytes()))
+    accessed = f.snapshot.date_accessed.isoformat()
+    counted = [o for o in obs if o.entity != ALIASES["EUU"]]
+    out: list[Observation] = []
+    for q in QUESTIONS:
+        for answer, _, code in ANSWERS:
+            n = sum(1 for o in counted if o.dims["question"] == q.id and o.value == code)
+            out.append(
+                Observation(entity="WLD", period=accessed, value=float(n), dims={"question": q.id, "answer": answer})
+            )
+    n_countries = len({o.entity for o in counted})
+    return Result(
+        observations=out,
+        vintage=f"NDC Tracker retrieved {accessed}",
+        steps=[
+            f"Read the Climate Watch API response (sha256 {f.snapshot.sha256[:12]}…, retrieved {accessed}) and coded "
+            f"its labels as in {INDICATOR}.",
+            f"Counted, for each question, the {n_countries} countries with a 2025 NDC status that Climate Watch codes "
+            "yes and those it codes no. The European Union's own entry (EUU) is not counted, because Climate Watch "
+            "codes its NDC for each member state too; labels that answer neither way are in neither count.",
+        ],
+        changes="Counted the countries Climate Watch codes yes and no for each question.",
+    )
+
+
 def transforms(paths: Paths) -> list[Transform]:
     return [
         Transform(
@@ -240,5 +275,45 @@ def transforms(paths: Paths) -> list[Transform]:
             run=_run,
             module_file=Path(__file__),
             validation=Validation(min_rows=100, value_range=(0.0, 1.0)),
-        )
+        ),
+        Transform(
+            spec=Spec(
+                id=COUNTS,
+                title="How many countries have sent a 2025 climate pledge (NDC), and what the pledges contain",
+                description="The number of countries whose 2025 nationally determined contribution (NDC 3.0) "
+                "Climate Watch has coded, by answer: submitted or withdrawn, and whether the plan includes a 2035 "
+                "greenhouse gas target, an economy-wide target, a target for gases other than carbon dioxide, a "
+                "stronger 2030 target, stronger adaptation, and added information for clarity. Each EU member state "
+                "counts once.",
+                kind="derived",
+                unit=Unit(code="countries", label="countries", short="countries"),
+                display=Display(decimals=0),
+                scope=Scope(
+                    geography="Countries with a 2025 NDC status in Climate Watch, each EU member state counted once "
+                    "and the EU's own entry not counted again; countries Climate Watch has no information for are "
+                    "in neither count",
+                    basis="Counts of Climate Watch's qualitative coding of the NDC documents on the UNFCCC registry, "
+                    "on the day the tracker was retrieved.",
+                ),
+                geo_coverage="global-only",
+                headline_entity="WLD",
+                dimensions=(
+                    Dimension(
+                        id="question",
+                        label="Question",
+                        values=[DimensionValue(id=q.id, label=q.label) for q in QUESTIONS],
+                    ),
+                    Dimension(
+                        id="answer",
+                        label="Answer",
+                        values=[DimensionValue(id=a, label=lbl) for a, lbl, _ in ANSWERS],
+                    ),
+                ),
+                headline_dims=(("question", "submitted"), ("answer", "yes")),
+            ),
+            inputs=(TRACKER,),
+            run=_run_counts,
+            module_file=Path(__file__),
+            validation=Validation(min_rows=len(QUESTIONS) * len(ANSWERS), value_range=(0.0, 250.0)),
+        ),
     ]

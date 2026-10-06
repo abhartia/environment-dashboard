@@ -1,0 +1,20 @@
+{
+  "acquisition": "automatic",
+  "artifact_id": "loss-global-annual",
+  "bytes": 1620,
+  "compression": "zstd",
+  "content_key": null,
+  "content_sha256": null,
+  "content_type": "text/csv; charset=utf-8",
+  "date_accessed": "2026-10-05",
+  "discovery": null,
+  "etag": null,
+  "last_modified": null,
+  "note": null,
+  "r2_bucket": "envdash-public",
+  "r2_key": "raw/79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e.zst",
+  "sha256": "79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e",
+  "source_id": "gfw-tree-cover-loss",
+  "url": "https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20umd_tree_cover_loss__year%20ORDER%20BY%20umd_tree_cover_loss__year",
+  "wayback": null
+}
