@@ -43,7 +43,7 @@ def test_the_public_catalogue_has_no_quote_for_non_redistributable_values() -> N
             assert pv.quote is None, entry.id
 
 
-@pytest.mark.snapshot  # reads data-private/, which data-refresh pulls from R2 and CI does not have
+@pytest.mark.snapshot  # reads data-private/, which a local run has (or pulls from R2) and CI does not
 def test_the_catalogue_does_not_state_a_display_only_value() -> None:
     paths = Paths.default()
     raw = (paths.private_indicators / "gmsl.ipcc-ar6.rise-2100-likely.json").read_bytes()

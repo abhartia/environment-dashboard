@@ -221,7 +221,7 @@ def test_hadsst_refuses_annual_year_without_twelve_months():
         hadsst4.parse(a, dropped)
 
 
-# --- full snapshots (data-refresh only) ---------------------------------------------------------------------------
+# --- full snapshots (local runs only) --------------------------------------------------------------------------------
 
 
 def _current_input(paths: Paths, source_id: str, artifact_id: str) -> InputFile:

@@ -48,7 +48,7 @@ known-local-folder = ["support", "make_fixture"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 markers = [
-    "snapshot: needs full raw snapshots (local cache or R2); run in data-refresh, not in CI",
+    "snapshot: needs full raw snapshots (local cache or R2); run by the weekly routine and locally, not in CI",
     "network: fetches from the internet",
 ]
 addopts = "-m 'not snapshot and not network'"

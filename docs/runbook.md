@@ -4,7 +4,10 @@ Free-tier stack:
 - **Cloudflare Pages**: the static Next.js export.
 - **Cloudflare R2**: raw snapshots and the exports we may show but not redistribute.
 - **Cloudflare** DNS, Single Redirect rules and Web Analytics.
-- **GitHub Actions**: CI, the weekly data refresh and deploys.
+- **GitHub Actions**: CI and deploys.
+- **The weekly Claude routine** ("Environment Dashboard: weekly refresh and depth", a scheduled task in the Claude
+  desktop app on the owner's Mac, Sundays): fetches every source, rebuilds, runs every gate, archives, commits and
+  pushes; the push deploys. It runs only while the app is open; a missed run happens at the next launch.
 - **Zenodo**: quarterly data releases with DOIs.
 - **Internet Archive**: Wayback captures of source pages.
 
@@ -76,7 +79,10 @@ uv run envdash private push && uv run envdash archive
 
 ### 4. Data-source credentials (owner creates the accounts; Claude stores the keys)
 
-| Keychain service | For | GitHub secret |
+Fetches run on the owner's Mac (the weekly routine, or by hand), so these keys stay in the Keychain and are exported
+into the environment for a run only; none is a GitHub secret.
+
+| Keychain service | For | Environment variable |
 |---|---|---|
 | `archive-org-s3-access`, `archive-org-s3-secret` | Internet Archive Save Page Now (archive.org/account/s3.php) | `IA_ACCESS`, `IA_SECRET` |
 | `earthdata-envdash` | NASA Earthdata token (NASA-SSH sea level, GRACE) | `EARTHDATA_TOKEN` |
@@ -96,7 +102,8 @@ Also (owner), by email:
 
 ### 5. GitHub
 
-- Create the Environment `production`, limited to `main`. Put every secret above in it.
+- Create the Environment `production`, limited to `main`. It holds only what deploys need: `CLOUDFLARE_API_TOKEN`,
+  `R2_ACCESS_KEY_ID` and `R2_SECRET_ACCESS_KEY` (the build pulls the private exports).
 - Pipe secrets from the Keychain, never paste them:
   `security find-generic-password -s cloudflare-api-token-envdash-deploy -w | gh secret set CLOUDFLARE_API_TOKEN --env production`
 - Variables: `CLOUDFLARE_ACCOUNT_ID`, `NEXT_PUBLIC_CF_BEACON_TOKEN`.
@@ -119,12 +126,13 @@ Also (owner), by email:
   then the transform and its fixture.
 - **A file a host won't serve to scripts:** download it by hand, then run
   `uv run envdash snapshot add --source <id> --artifact <artifact> --file <path> --note "downloaded by <who> from <url>"`.
-- **A refresh failed:** each failed source has one issue labelled `source:<id>`. The site keeps that source's last
-  validated vintage, and `/status` says so. Fix the transform or the registry entry, then run
-  `gh workflow run data-refresh.yml`.
+- **A refresh failed:** the weekly routine fixes what it can at the root and files one issue labelled `source:<id>` for
+  each source still failing (`uv run envdash report-issues`). The site keeps that source's last validated vintage,
+  and `/status` says so. Fix the transform or the registry entry, then run the refresh again (locally, or "Run now"
+  on the routine).
 - **Rollback a deploy:** in the dashboard, Pages › environmentdashboard › Deployments › Rollback (or redeploy an older
   commit with `gh workflow run deploy-web.yml --ref <sha>`). For a bad data vintage, also `git revert` the data
-  commit so the next refresh does not redeploy it.
+  commit so the next refresh does not republish it.
 - **Correct a mistake:** add an entry to `data/errata.yaml` (kind `our-error` or `method-change`) in the same commit
   as the fix.
 - **Rotate a key:** create the new key, `security add-generic-password -U …` to replace it, pipe it into
@@ -143,15 +151,14 @@ Every command is listed in `pipeline/README.md`; these are the ones that come up
   whose member fingerprint is unchanged keeps the current snapshot, so no false new vintage is recorded.
 - **An API that needs a key:** `access.auth: api-key`, `access.auth_env: <ENV_VAR>` and either `key_header` or
   `key_query`. The key lives in the Keychain (table in step 4), is exported into the environment for a local run
-  (`export GFW_API_KEY=$(security find-generic-password -s gfw-api-key -w)`) and reaches CI as a GitHub secret. A
-  missing variable fails that source with its name, never silently.
+  (`export GFW_API_KEY=$(security find-generic-password -s gfw-api-key -w)`); it never goes to GitHub. A missing
+  variable fails that source with its name, never silently.
 - **A new country, station or aggregate code:** declare it in `pipeline/src/envdash/geo.py` (`STATIONS`,
   `AGGREGATES`, `EXTRA_TERRITORIES`, or a source's alias table) and run `uv run envdash geo build`; unknown codes
   raise.
 - **A fresh checkout or runner:** `uv run envdash snapshots pull` restores from R2 every snapshot the build and the
   snapshot tests need, each checked against its sha256 (R2 variables as in step 3). It fails, naming them, for
   snapshots never archived: run `uv run envdash archive` where those bytes are and commit
-  `pipeline/manifests/snapshots/`. Do this once by hand before the first scheduled data refresh, which pulls before it
-  fetches.
+  `pipeline/manifests/snapshots/`. The weekly routine archives before it pushes, so every snapshot a commit relies on is in R2.
 - **After a registry change:** `uv run envdash docs licensing` regenerates `docs/licensing.md`; a test fails until it
   matches the registry.

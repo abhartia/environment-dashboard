@@ -1,18 +1,12 @@
 name: Deploy web (Cloudflare Pages)
 
-# Runs on pushes that change what the site shows, by hand, and as the last job of data-refresh.yml (a push made with
-# GITHUB_TOKEN triggers no workflow, so the data refresh calls this one directly with the SHA it pushed).
+# Runs on pushes that change what the site shows (including the weekly data refresh, which the Claude routine runs
+# on the owner's Mac and pushes like any other commit), and by hand.
 on:
   push:
     branches: [main]
     paths: ["web/**", "data/**", "pipeline/schema/**"]
   workflow_dispatch:
-  workflow_call:
-    inputs:
-      ref:
-        description: Commit to deploy
-        required: true
-        type: string
 
 concurrency:
   group: deploy-production
@@ -36,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.ref || github.sha }}
+          ref: ${{ github.sha }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
