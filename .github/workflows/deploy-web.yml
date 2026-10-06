@@ -58,7 +58,9 @@ jobs:
       - name: Save the sitemap being replaced
         run: |
           code=$(curl -sS -o previous-sitemap.xml -w '%{http_code}' https://environmentdashboard.org/sitemap.xml || echo 000)
-          if [ "$code" = 404 ] || [ "$code" = 000 ]; then echo '<urlset></urlset>' > previous-sitemap.xml
+          # 404: no sitemap yet; 522: Cloudflare has no deployment behind the domain yet (first deploy). Either way
+          # there is nothing to diff against, so every URL counts as new for IndexNow.
+          if [ "$code" = 404 ] || [ "$code" = 522 ] || [ "$code" = 000 ]; then echo '<urlset></urlset>' > previous-sitemap.xml
           elif [ "$code" != 200 ]; then echo "sitemap fetch returned $code"; exit 1; fi
       - name: Upload to Cloudflare Pages
         env:
