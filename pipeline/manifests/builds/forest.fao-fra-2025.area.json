@@ -1,17 +1,17 @@
 {
   "export": "data/v1/indicators/forest.fao-fra-2025.area.json",
-  "export_sha256": "36155aece5e4db0623cc9a799062afcc0997021273a2b9a97ac3b25a0aa08f16",
+  "export_sha256": "2f8717d284332bddfb0196793c3519781fb881f1890b416331edd9439ccb19e8",
   "indicator_id": "forest.fao-fra-2025.area",
-  "key": "7b311b46007efe1b0ec1a7b83e35add1b9333155b81ba3f192f5370ef40f0014",
+  "key": "04e12c5be07df2782626b9b4feb4157e39b84f22d11cbd6c21703dea266ade20",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
       "fao-fra-2025/bulk-download-world": {
-        "manifest_sha256": "210e12cf26ed1c04f889f5407604f0ad0ab6ea464f0522054f348fab1dd198fc",
+        "manifest_sha256": "d53558eb438ba73bd53fe19ac3274828be3715651d48cc6ca5923fd690c649ef",
         "sha256": "cd12ea6ef902e1fc9f9dc07f834eb2e29b95791aa38f060fec9f1e67d11c010c"
       },
       "fao-fra-2025/report-2025": {
-        "manifest_sha256": "f1b5f7b9d190580ddb329545c3229ea51b266d4c01ad3f42e1eb854971827c4e",
+        "manifest_sha256": "b48d6eef287cfc20f64d498595e6000beeb3d99c2d1f85ec15202e8f887f43db",
         "sha256": "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"
       }
     },

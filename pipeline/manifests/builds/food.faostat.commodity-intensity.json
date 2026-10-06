@@ -1,17 +1,17 @@
 {
   "export": "data/v1/indicators/food.faostat.commodity-intensity.json",
-  "export_sha256": "ae14d2564e8d8284f3b5f182fcd198c114028e7b2b99370786d5158d57ca7a3b",
+  "export_sha256": "89bcfb2060d71908381b7e2fec76cd51c21994fd087e8a0d1625daa2c71760f7",
   "indicator_id": "food.faostat.commodity-intensity",
-  "key": "c518cd357a92d653e8a44f7f7f3b775955e598655b52d7d795a9c34ac0942614",
+  "key": "3f863ccb1a5d76bfbeeb1a82958370da9b5593a283799351e8fc2ebb185a0468",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
       "faostat/datasets-catalogue": {
-        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "manifest_sha256": "eba47f01bcc0a5491911464569a82f33bbed01098863755ed333c00f6eea8dce",
         "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
       },
       "faostat/emissions-intensities": {
-        "manifest_sha256": "210bf6955871ee5a972ddc4c9dc102669f0a6b502252a72204dd9e9d998bca42",
+        "manifest_sha256": "2357a6b66eb6d18315b4a313450cf6eb5b731edf4751a92bf3bf38b4dc548996",
         "sha256": "1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7"
       }
     },
@@ -20,7 +20,7 @@
     "sources": {
       "faostat": "687ee254e2acc507e2df2b0107ef798cf69aed41a25c9bd0b21a363a84c0b86e"
     },
-    "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+    "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
   },
   "publisher_checks": []
 }

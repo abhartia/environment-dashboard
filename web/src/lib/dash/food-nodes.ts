@@ -61,7 +61,7 @@ export function stages(): Built {
     crumb: "By stage",
     kicker: "Where food's emissions come from",
     headline: rows[0].h,
-    sentence: `in the stage FAO calls "${rows[0].v.label}" in ${year}, the largest of three: on the farm, clearing land for farming, and before and after the farm. Select a stage to see what is inside it.`,
+    sentence: `${rows[0].v.label.toLowerCase()} in ${year}, the largest of FAO's three stages: ${dimValues(STAGES, "stage").map((v) => v.label.toLowerCase()).join(", ").replace(/, ([^,]*)$/, " and $1")}. Select a stage to see what is inside it.`,
     chart: area(stageSeries("WLD", true), short, decimals, true),
     drills: dimValues(STAGES, "stage")
       .filter((v) => STAGE_NODE[v.id])

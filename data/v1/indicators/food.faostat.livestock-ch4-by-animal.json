@@ -6,19 +6,19 @@
       "id": "animal",
       "label": "Animal",
       "values": [
-        {"id": "cattle-dairy", "label": "Cattle, dairy"},
-        {"id": "cattle-non-dairy", "label": "Cattle, non-dairy"},
+        {"id": "cattle-dairy", "label": "Dairy cattle"},
+        {"id": "cattle-non-dairy", "label": "Beef and other cattle"},
         {"id": "buffalo", "label": "Buffalo"},
         {"id": "sheep", "label": "Sheep"},
         {"id": "goats", "label": "Goats"},
-        {"id": "swine-market", "label": "Swine, market"},
-        {"id": "swine-breeding", "label": "Swine, breeding"},
-        {"id": "chickens-broilers", "label": "Chickens, broilers"},
-        {"id": "chickens-layers", "label": "Chickens, layers"},
+        {"id": "swine-market", "label": "Pigs raised for meat"},
+        {"id": "swine-breeding", "label": "Breeding pigs"},
+        {"id": "chickens-broilers", "label": "Chickens raised for meat"},
+        {"id": "chickens-layers", "label": "Egg-laying hens"},
         {"id": "ducks", "label": "Ducks"},
         {"id": "turkeys", "label": "Turkeys"},
         {"id": "horses", "label": "Horses"},
-        {"id": "asses", "label": "Asses"},
+        {"id": "asses", "label": "Donkeys"},
         {"id": "mules-and-hinnies", "label": "Mules and hinnies"},
         {"id": "camels", "label": "Camels"},
         {"id": "llamas", "label": "Llamas"}
@@ -51,8 +51,8 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "emissions-livestock", "bytes": 55881712, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"0c5d567c53b9bece3a6ff7053ad5feb4-7\"", "last_modified": "Wed, 29 Oct 2025 12:20:38 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
-    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": "W/\"157c9ec8e5eea09a02497cc10f67bcdb\"", "last_modified": "Mon, 05 Oct 2026 12:49:35 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "emissions-livestock", "bytes": 55881712, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-04", "date_published": "2025-10-28", "doi": null, "etag": "\"0c5d567c53b9bece3a6ff7053ad5feb4-7\"", "last_modified": "Wed, 29 Oct 2025 12:20:38 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": "https://files.environmentdashboard.org/raw/1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f.zst", "sha256": "1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Emissions_livestock_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2025. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": "W/\"157c9ec8e5eea09a02497cc10f67bcdb\"", "last_modified": "Mon, 05 Oct 2026 12:49:35 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": "https://files.environmentdashboard.org/raw/008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda.zst", "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2025-10-28", "wayback_url": null}
   ],
   "processing": [
     {
@@ -60,49 +60,56 @@
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Kept the \"FAO TIER 1\" rows of element \"Livestock total (Emissions CH4)\" (code 72441): methane from enteric fermentation and manure management, in kilotonnes of methane, for the 16 animal items FAO estimates separately, 1961–2023. FAO's aggregate items are not used. Rows from FAO's \"UNFCCC\" source are not used.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Checked, in all 14,264 areas and years where FAO prints them (FAO's regions included), that item \"All Animals\" (1755) equals the sum of the 16 animals present, to within 0.01 kilotonnes. Nothing is computed from this check; it shows that the animals published are FAO's whole total, with no remainder.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Annex I countries, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Non-Annex I countries, Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Sub-Saharan Africa, Western Africa, Western Asia, Western Europe); the European Union (27), a region (only the world and countries and territories are published). Their values are never re-assigned to other entities.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed values). The values stay in tonnes of methane; they are not converted to CO₂-equivalent.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
+    },
+    {
+      "description": "Labelled FAO's items in plain words: \"Cattle, dairy\" as \"Dairy cattle\"; \"Cattle, non-dairy\" as \"Beef and other cattle\"; \"Swine, market\" as \"Pigs raised for meat\"; \"Swine, breeding\" as \"Breeding pigs\"; \"Chickens, broilers\" as \"Chickens raised for meat\"; \"Chickens, layers\" as \"Egg-laying hens\"; \"Asses\" as \"Donkeys\". Only the names shown differ; every value is FAO's item of that name.",
+      "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Left out FAO's projections for 2030 and 2050, which the file flags F (\"Forecast value\").",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
-      "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+      "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     }
   ],
   "published_value": null,

@@ -114,6 +114,23 @@ def entity_of(code: str, g: Gathered, left_out: set[str]) -> str | None:
     return e
 
 
+def plain_labels(names: Mapping[str, str], labels: Mapping[str, str]) -> list[tuple[str, str, str]]:
+    """(our id, FAO's item name, the label shown) for each id in `names` (id -> FAO's name), in that order. FAO's item
+    names are terms of art ("Enteric Fermentation"), so each value is shown under a label in plain words instead."""
+    if set(names) != set(labels):
+        raise FaostatBulkError(f"plain labels do not match the items: {sorted(set(names) ^ set(labels))}")
+    return [(i, names[i], labels[i]) for i in names]
+
+
+def labels_step(labelled: Iterable[tuple[str, str, str]]) -> str:
+    """Words for the plain labels given to FAO's item names, so each shown name traces back to FAO's."""
+    pairs = [f'"{fao}" as "{ours}"' for _, fao, ours in labelled if fao != ours]
+    return (
+        "Labelled FAO's items in plain words: " + "; ".join(pairs) + ". Only the names shown differ; every value is "
+        "FAO's item of that name."
+    )
+
+
 def areas_step(left_out: Iterable[str]) -> str:
     """Words for the areas of the file that were left out, by reason."""
     left_out = set(left_out)

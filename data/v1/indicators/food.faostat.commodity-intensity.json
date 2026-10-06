@@ -6,20 +6,20 @@
       "id": "commodity",
       "label": "Farm product",
       "values": [
-        {"id": "cattle-meat", "label": "Meat of cattle with the bone, fresh or chilled"},
+        {"id": "cattle-meat", "label": "Beef"},
         {"id": "rice", "label": "Rice"},
-        {"id": "cattle-milk", "label": "Raw milk of cattle"},
-        {"id": "cereals-excluding-rice", "label": "Cereals excluding rice"},
-        {"id": "buffalo-meat", "label": "Meat of buffalo, fresh or chilled"},
-        {"id": "sheep-meat", "label": "Meat of sheep, fresh or chilled"},
-        {"id": "goat-meat", "label": "Meat of goat, fresh or chilled"},
-        {"id": "pig-meat", "label": "Meat of pig with the bone, fresh or chilled"},
-        {"id": "buffalo-milk", "label": "Raw milk of buffalo"},
-        {"id": "chicken-meat", "label": "Meat of chickens, fresh or chilled"},
-        {"id": "sheep-milk", "label": "Raw milk of sheep"},
-        {"id": "goat-milk", "label": "Raw milk of goats"},
-        {"id": "hen-eggs", "label": "Hen eggs in shell, fresh"},
-        {"id": "camel-milk", "label": "Raw milk of camel"}
+        {"id": "cattle-milk", "label": "Cow's milk"},
+        {"id": "cereals-excluding-rice", "label": "Cereals other than rice"},
+        {"id": "buffalo-meat", "label": "Buffalo meat"},
+        {"id": "sheep-meat", "label": "Lamb and mutton"},
+        {"id": "goat-meat", "label": "Goat meat"},
+        {"id": "pig-meat", "label": "Pork"},
+        {"id": "buffalo-milk", "label": "Buffalo milk"},
+        {"id": "chicken-meat", "label": "Chicken"},
+        {"id": "sheep-milk", "label": "Sheep's milk"},
+        {"id": "goat-milk", "label": "Goat's milk"},
+        {"id": "hen-eggs", "label": "Eggs"},
+        {"id": "camel-milk", "label": "Camel's milk"}
       ]
     }
   ],
@@ -49,8 +49,8 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "emissions-intensities", "bytes": 3640396, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2026-02-20", "doi": null, "etag": "\"35b5bf70d1fa8cf6d73beff11a963236\"", "last_modified": "Fri, 20 Feb 2026 15:00:03 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-02-20", "wayback_url": null},
-    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2026-02-20", "doi": null, "etag": "W/\"157c9ec8e5eea09a02497cc10f67bcdb\"", "last_modified": "Mon, 05 Oct 2026 12:49:35 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": null, "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-02-20", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "emissions-intensities", "bytes": 3640396, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2026-02-20", "doi": null, "etag": "\"35b5bf70d1fa8cf6d73beff11a963236\"", "last_modified": "Fri, 20 Feb 2026 15:00:03 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": "https://files.environmentdashboard.org/raw/1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7.zst", "sha256": "1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-02-20", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "datasets-catalogue", "bytes": 109120, "citation_full": "FAO. 2026. FAOSTAT. Accessed on 5 October 2026. https://www.fao.org/faostat/en/#data Licence: CC-BY-4.0.", "date_accessed": "2026-10-05", "date_published": "2026-02-20", "doi": null, "etag": "W/\"157c9ec8e5eea09a02497cc10f67bcdb\"", "last_modified": "Mon, 05 Oct 2026 12:49:35 GMT", "licence": {"name": "CC BY 4.0 (FAO Statistical Database Terms of Use)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division", "r2_url": "https://files.environmentdashboard.org/raw/008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda.zst", "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda", "source_id": "faostat", "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss", "url_download": "https://bulks-faostat.fao.org/production/datasets_E.json", "url_main": "https://www.fao.org/faostat/en/", "version_producer": "2026-02-20", "wayback_url": null}
   ],
   "processing": [
     {
@@ -58,42 +58,49 @@
       "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
-      "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
     },
     {
       "description": "Kept the rows of element \"Emissions intensity\" (code 71761, unit \"kg CO2eq/kg\") for the 14 items of the file, matched by Item Code, 1961–2023.",
       "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
-      "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Western Africa, Western Asia, Western Europe); the European Union (27), a region (only the world and countries and territories are published). Their values are never re-assigned to other entities.",
       "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
-      "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
     },
     {
       "description": "72 published values are below zero (buffalo-meat, goat-meat, sheep-meat; AUT, BTN, ISR, LTU, MLI, PSE), from FAO's split of sheep, goat, buffalo and camel emissions between meat and milk by the share of animals milked; the lowest is MLI goat-meat 2010 (-854.2702 kg CO2eq/kg). Published as printed.",
       "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
-      "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
     },
     {
       "description": "Published the intensities as printed, in kilograms of CO₂-equivalent per kilogram produced (FAOSTAT production: carcass weight for meat, raw whole milk, eggs in shell, harvested cereals). 5,239 product-years of the published areas have an emissions row but no intensity row in the file (no production figure); they are absent here, not filled.",
       "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
-      "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
-      "transform_sha256": "f626bb0ec4d38431a80932ab3aceafd9f8c18995086c55c5a2554f537d65ae38"
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
+    },
+    {
+      "description": "Labelled FAO's items in plain words: \"Meat of cattle with the bone, fresh or chilled\" as \"Beef\"; \"Raw milk of cattle\" as \"Cow's milk\"; \"Cereals excluding rice\" as \"Cereals other than rice\"; \"Meat of buffalo, fresh or chilled\" as \"Buffalo meat\"; \"Meat of sheep, fresh or chilled\" as \"Lamb and mutton\"; \"Meat of goat, fresh or chilled\" as \"Goat meat\"; \"Meat of pig with the bone, fresh or chilled\" as \"Pork\"; \"Raw milk of buffalo\" as \"Buffalo milk\"; \"Meat of chickens, fresh or chilled\" as \"Chicken\"; \"Raw milk of sheep\" as \"Sheep's milk\"; \"Raw milk of goats\" as \"Goat's milk\"; \"Hen eggs in shell, fresh\" as \"Eggs\"; \"Raw milk of camel\" as \"Camel's milk\". Only the names shown differ; every value is FAO's item of that name.",
+      "inputs": ["1c2991089fec6bd5e762a290e5f78eb018739b700cb253620faa161f3a21e7e7", "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/food/faostat_commodity_emissions.py",
+      "transform_sha256": "9a5d1496e68aed6012f5ed33ca66264199827d6cc306d23925a63b02420945dd"
     }
   ],
   "published_value": null,

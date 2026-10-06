@@ -62,7 +62,7 @@ from envdash.transforms.food.faostat_bulk import (
     read_member,
     vintage_of,
 )
-from envdash.transforms.food.faostat_parts import areas_step, entity_of, gather
+from envdash.transforms.food.faostat_parts import areas_step, entity_of, gather, labels_step, plain_labels
 
 INTENSITIES = Input(SOURCE, "emissions-intensities")
 DATASET_CODE = "EI"
@@ -106,6 +106,25 @@ COMMODITIES: dict[str, tuple[str, str]] = {
     "1062": ("hen-eggs", "Hen eggs in shell, fresh"),
     "1130": ("camel-milk", "Raw milk of camel"),
 }
+# Our id -> the label shown, in plain words. The kilogram each value is per is still FAO's (carcass weight for meat,
+# raw milk, eggs in shell), as the indicator's unit says.
+COMMODITY_LABELS = {
+    "cattle-meat": "Beef",
+    "rice": "Rice",
+    "cattle-milk": "Cow's milk",
+    "cereals-excluding-rice": "Cereals other than rice",
+    "buffalo-meat": "Buffalo meat",
+    "sheep-meat": "Lamb and mutton",
+    "goat-meat": "Goat meat",
+    "pig-meat": "Pork",
+    "buffalo-milk": "Buffalo milk",
+    "chicken-meat": "Chicken",
+    "sheep-milk": "Sheep's milk",
+    "goat-milk": "Goat's milk",
+    "hen-eggs": "Eggs",
+    "camel-milk": "Camel's milk",
+}
+COMMODITY_LABELLED = plain_labels({i: n for i, n in COMMODITIES.values()}, COMMODITY_LABELS)
 ITEMS = {code: name for code, (_, name) in COMMODITIES.items()}
 
 
@@ -178,7 +197,7 @@ def observations(table: Table, flags: dict[str, str], element: str) -> tuple[lis
             f"{absent:,} product-years of the published areas have an emissions row but no intensity row in the file "
             "(no production figure); they are absent here, not filled."
         )
-    steps.append(flag_step(words, counts))
+    steps += [flag_step(words, counts), labels_step(COMMODITY_LABELLED)]
     return obs, steps
 
 
@@ -234,7 +253,7 @@ def _runner(element: str):
 COMMODITY_DIM = Dimension(
     id="commodity",
     label="Farm product",
-    values=[DimensionValue(id=i, label=name) for i, name in COMMODITIES.values()],
+    values=[DimensionValue(id=i, label=label) for i, _, label in COMMODITY_LABELLED],
 )
 
 COUNTED = (

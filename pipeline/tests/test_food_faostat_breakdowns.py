@@ -26,7 +26,7 @@ from envdash.transforms.food import faostat_agrifood_stages as gt
 from envdash.transforms.food import faostat_commodity_emissions as ei
 from envdash.transforms.food import faostat_livestock_by_animal as gle
 from envdash.transforms.food.faostat_bulk import FaostatBulkError, catalogue_entry, fields, read_flags
-from envdash.transforms.food.faostat_parts import entity_of, gather
+from envdash.transforms.food.faostat_parts import entity_of, gather, labels_step, plain_labels
 
 FIXTURES = Path(__file__).parent / "fixtures" / "faostat"
 CATALOGUE = FIXTURES / "datasets-catalogue" / "54b055217bee.json"
@@ -406,3 +406,26 @@ def test_full_snapshots_build_every_breakdown():
     # FAO's "China" (351) is never published beside China, mainland (41 -> CHN).
     for rows in built.values():
         assert "CHN" in {e for e, _, _ in rows}
+
+
+def test_dimensions_shown_in_plain_words_traced_to_faos_names():
+    # FAO's names are terms of art; the label shown is plain, and a step names FAO's item for every relabelled value.
+    assert gt.PROCESS_DIM.values[0].model_dump() == {
+        "id": "enteric-fermentation",
+        "label": "Farm animals' digestion (burps)",
+    }
+    step = labels_step(gt.PROCESS_LABELLED)
+    assert '"Enteric Fermentation" as "Farm animals\' digestion (burps)"' in step
+    assert '"Cattle, non-dairy" as "Beef and other cattle"' in labels_step(gle.ANIMAL_LABELLED)
+    assert '"Meat of cattle with the bone, fresh or chilled" as "Beef"' in labels_step(ei.COMMODITY_LABELLED)
+    for dim, labelled in (
+        (gt.STAGE_DIM, gt.STAGE_LABELLED),
+        (gle.ANIMAL_DIM, gle.ANIMAL_LABELLED),
+        (ei.COMMODITY_DIM, ei.COMMODITY_LABELLED),
+    ):
+        assert [(v.id, v.label) for v in dim.values] == [(i, label) for i, _, label in labelled]
+
+
+def test_labels_that_miss_an_item_stop_the_transform():
+    with pytest.raises(FaostatBulkError, match="plain labels do not match"):
+        plain_labels({"a": "A", "b": "B"}, {"a": "Plain A"})

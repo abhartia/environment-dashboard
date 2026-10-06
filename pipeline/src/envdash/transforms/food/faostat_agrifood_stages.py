@@ -52,7 +52,15 @@ from envdash.transforms.food.faostat_bulk import (
     read_member,
     vintage_of,
 )
-from envdash.transforms.food.faostat_parts import Gathered, areas_step, check_parts, entity_of, gather
+from envdash.transforms.food.faostat_parts import (
+    Gathered,
+    areas_step,
+    check_parts,
+    entity_of,
+    gather,
+    labels_step,
+    plain_labels,
+)
 
 TOTALS = Input(SOURCE, "emissions-totals")
 DATASET_CODE = "GT"
@@ -113,6 +121,38 @@ PROCESSES: dict[str, tuple[str, str, str]] = {
     "6505": ("6517", "food-household-consumption", "Food Household Consumption"),
     "6991": ("6517", "agrifood-systems-waste-disposal", "Agrifood Systems Waste Disposal"),
 }
+# Our id -> the label shown. FAO's item names are terms of art; these say the same thing in plain words.
+STAGE_LABELS = {
+    "farm-gate": "On the farm",
+    "land-use-change": "Clearing land for farming",
+    "pre-post-production": "Before and after the farm",
+}
+PROCESS_LABELS = {
+    "enteric-fermentation": "Farm animals' digestion (burps)",
+    "manure-management": "Storing and handling manure",
+    "manure-left-on-pasture": "Manure left on grazing land",
+    "manure-applied-to-soils": "Manure spread on fields",
+    "synthetic-fertilizers": "Synthetic fertiliser on fields",
+    "rice-cultivation": "Flooded rice fields",
+    "crop-residues": "Crop leftovers rotting on fields",
+    "burning-crop-residues": "Burning crop leftovers",
+    "drained-organic-soils": "Drained peat soils",
+    "on-farm-energy-use": "Fuel and electricity used on farms",
+    "savanna-fires": "Grassland (savanna) fires",
+    "net-forest-conversion": "Cutting down forests",
+    "fires-in-humid-tropical-forests": "Tropical forest fires",
+    "fires-in-organic-soils": "Peat fires",
+    "fertilizers-manufacturing": "Making fertiliser",
+    "pesticides-manufacturing": "Making pesticides",
+    "food-processing": "Processing food",
+    "food-packaging": "Packaging",
+    "food-transport": "Transport",
+    "food-retail": "Shops",
+    "food-household-consumption": "Cooking and storing food at home",
+    "agrifood-systems-waste-disposal": "Disposing of food waste",
+}
+STAGE_LABELLED = plain_labels({i: n for i, n in STAGES.values()}, STAGE_LABELS)
+PROCESS_LABELLED = plain_labels({pid: n for _, pid, n in PROCESSES.values()}, PROCESS_LABELS)
 ITEMS = (
     {AGRIFOOD[0]: AGRIFOOD[1]} | {c: n for c, (_, n) in STAGES.items()} | {c: n for c, (_, _, n) in PROCESSES.items()}
 )
@@ -206,6 +246,7 @@ def observations(table: Table, flags: dict[str, str], level: str) -> tuple[list[
         areas_step(left_out),
         "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed values).",
         flag_step(words, counts),
+        labels_step(STAGE_LABELLED if level == "stage" else STAGE_LABELLED + PROCESS_LABELLED),
     ]
     return obs, steps
 
@@ -239,10 +280,10 @@ def _runner(level: str):
 
 
 STAGE_DIM = Dimension(
-    id="stage", label="Stage", values=[DimensionValue(id=i, label=name) for i, name in STAGES.values()]
+    id="stage", label="Stage", values=[DimensionValue(id=i, label=label) for i, _, label in STAGE_LABELLED]
 )
 PROCESS_DIM = Dimension(
-    id="process", label="Process", values=[DimensionValue(id=pid, label=name) for _, pid, name in PROCESSES.values()]
+    id="process", label="Process", values=[DimensionValue(id=i, label=label) for i, _, label in PROCESS_LABELLED]
 )
 
 _COMMON_BASIS = (

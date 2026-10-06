@@ -1,25 +1,25 @@
 {
   "export": "data/v1/indicators/temp.wb-cckp.era5-annual-absolute.json",
-  "export_sha256": "3a18fceed60d5810d46211375d29221c522197742353b5cbff7b78af714381e3",
+  "export_sha256": "c997de4536b4734d36ae7c69990bd482ec949742e924a458084cad30491625e8",
   "indicator_id": "temp.wb-cckp.era5-annual-absolute",
-  "key": "d73bcc8819dc298f07e532e01de6d1a82818ab43af06005b0c5c77fecba40db7",
+  "key": "065042984002d03a48e0164f681695cac3cef05dae505b878ac2f516acce23cf",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
       "wb-cckp/era5-tas-annual-countries": {
-        "manifest_sha256": "77ec793cc05ade293b55dfade80a3d628825d485373747e57d5de69fc3c49c23",
+        "manifest_sha256": "a09eb7318e1345f59e63e2c9801ad5cdef3a07146c8e1f0856e907b0a8bdaeb3",
         "sha256": "62effa974e359adb02b6e4346d385997af9987a9437e31d58cf0f433cf364824"
       },
       "wb-cckp/era5-tas-annual-global": {
-        "manifest_sha256": "b792c266e3c15260dc6f61e90cc1a88db9023180d6b6d20a88acdbf051e06269",
+        "manifest_sha256": "19203382c218d9b336741c5f34087eec3d721d6bc926bfcb8288df2804a38bab",
         "sha256": "589d54de415a9c6f6f7a8fdc67b913b9afcf5e147cdfd58cbce54e0c404efe7f"
       },
       "wb-cckp/era5-tas-climatology-1991-2020-countries": {
-        "manifest_sha256": "d833b2cc5b3731baaeb0b2eb5ca70a968a3df25fd470576e21155b8248c0e77c",
+        "manifest_sha256": "c1b8bf0c2645a9304f483349a7304dbd9fbcef393cbc3655e26359d3a49452eb",
         "sha256": "8b34b2306902cb994e25c3a0cd76f20a185dd09206f36c209db9043006c6b1cc"
       },
       "wb-cckp/era5-tas-climatology-1991-2020-global": {
-        "manifest_sha256": "db1df663c6a6b31ae87251a672df811ef4601ada4ed9522c3c2abccd5f12fb19",
+        "manifest_sha256": "ebdf9218d253a289c9bec5d50ddf0c3aae162e0f6413a335a7bcff4b068f1b3a",
         "sha256": "ac58ff0206fa4b1fad2e3ac66916c1209e793d4923393499f2defabdd3364792"
       }
     },

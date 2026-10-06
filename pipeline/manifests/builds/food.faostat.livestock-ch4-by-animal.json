@@ -1,17 +1,17 @@
 {
   "export": "data/v1/indicators/food.faostat.livestock-ch4-by-animal.json",
-  "export_sha256": "469a50de20c686aaa53a3b088f04d82fa9f1c7cb8fdfe603f1a5ed7898cf7d5d",
+  "export_sha256": "1bf33c0517167cd1af35cf1b6c213f50056217835ff95b11fd081bdbfa9f7c33",
   "indicator_id": "food.faostat.livestock-ch4-by-animal",
-  "key": "0c702269483901c538952c8c8ccbe14a5e5603e0535fff0c5aa63e2075e2824d",
+  "key": "cf1497bec84b1907bf01203ac34402add6e9743ce6a8bf7e6377cc1147e4fda8",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
       "faostat/datasets-catalogue": {
-        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "manifest_sha256": "eba47f01bcc0a5491911464569a82f33bbed01098863755ed333c00f6eea8dce",
         "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
       },
       "faostat/emissions-livestock": {
-        "manifest_sha256": "a180348b3d2e2f78c5126c12afde4b3a48b31756a3b65c7c6c0aacb957865002",
+        "manifest_sha256": "6404a2153d800875f53cfba3e179d1d3e4983c991af51869ed4153dc4622e0b9",
         "sha256": "1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f"
       }
     },
@@ -20,7 +20,7 @@
     "sources": {
       "faostat": "687ee254e2acc507e2df2b0107ef798cf69aed41a25c9bd0b21a363a84c0b86e"
     },
-    "transform_sha256": "7396841775122025b91dcb49782ded52d90b448a7768cfee6b278a400c2e340f"
+    "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
   },
   "publisher_checks": []
 }

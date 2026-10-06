@@ -46,7 +46,14 @@ from envdash.transforms.food.faostat_bulk import (
     read_flags,
     read_member,
 )
-from envdash.transforms.food.faostat_parts import areas_step, check_parts, entity_of, gather
+from envdash.transforms.food.faostat_parts import (
+    areas_step,
+    check_parts,
+    entity_of,
+    gather,
+    labels_step,
+    plain_labels,
+)
 
 LIVESTOCK = Input(SOURCE, "emissions-livestock")
 DATASET_CODE = "GLE"
@@ -94,6 +101,26 @@ ANIMALS: dict[str, tuple[str, str]] = {
     "1126": ("camels", "Camels"),
     "1177": ("llamas", "Llamas"),
 }
+# Our id -> the label shown, in plain words.
+ANIMAL_LABELS = {
+    "cattle-dairy": "Dairy cattle",
+    "cattle-non-dairy": "Beef and other cattle",
+    "buffalo": "Buffalo",
+    "sheep": "Sheep",
+    "goats": "Goats",
+    "swine-market": "Pigs raised for meat",
+    "swine-breeding": "Breeding pigs",
+    "chickens-broilers": "Chickens raised for meat",
+    "chickens-layers": "Egg-laying hens",
+    "ducks": "Ducks",
+    "turkeys": "Turkeys",
+    "horses": "Horses",
+    "asses": "Donkeys",
+    "mules-and-hinnies": "Mules and hinnies",
+    "camels": "Camels",
+    "llamas": "Llamas",
+}
+ANIMAL_LABELLED = plain_labels({i: n for i, n in ANIMALS.values()}, ANIMAL_LABELS)
 ITEMS = {ALL_ANIMALS[0]: ALL_ANIMALS[1]} | {code: name for code, (_, name) in ANIMALS.items()}
 MARKER = f'"{CH4_TOTAL}"'.encode()
 
@@ -154,6 +181,7 @@ def observations(table: Table, flags: dict[str, str]) -> tuple[list[Observation]
         "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed "
         "values). The values stay in tonnes of methane; they are not converted to CO₂-equivalent.",
         flag_step(words, counts),
+        labels_step(ANIMAL_LABELLED),
     ]
     if forecast:
         shown = " and ".join(str(y) for y in forecast)
@@ -221,7 +249,7 @@ def _run(files: dict[str, InputFile]) -> Result:
 
 
 ANIMAL_DIM = Dimension(
-    id="animal", label="Animal", values=[DimensionValue(id=i, label=name) for i, name in ANIMALS.values()]
+    id="animal", label="Animal", values=[DimensionValue(id=i, label=label) for i, _, label in ANIMAL_LABELLED]
 )
 
 

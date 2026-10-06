@@ -1,17 +1,17 @@
 {
   "export": "data/v1/indicators/ghg.faostat.by-sector.json",
-  "export_sha256": "9b42e74ff3341d0beacc61e0a8b4f472149dceb75ed8b90e3b55d5e83c2009ff",
+  "export_sha256": "a138cc2ebc868397d6ef60af22e03e11a13210d30b51ffca29ec7b41d7bdea8c",
   "indicator_id": "ghg.faostat.by-sector",
-  "key": "4e6b7d4cfcff2a18cf6ca2f63083458f8b2661af88b255846ff636e473f499f8",
+  "key": "d3ecbcca4146f76fdf0e694e8474dd196c543f401ec9562dd004659de59aa0e0",
   "key_parts": {
     "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
     "inputs": {
       "faostat-all-sectors/datasets-catalogue": {
-        "manifest_sha256": "b91aacdeddfbd4e316551adec2ddecfb205ff3c7546fcbc6887d9c8208b13d73",
+        "manifest_sha256": "eba47f01bcc0a5491911464569a82f33bbed01098863755ed333c00f6eea8dce",
         "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
       },
       "faostat-all-sectors/emissions-totals": {
-        "manifest_sha256": "2f92e3d602ab91252a331544ab10a3301dab569559ba69710dfa6942f9d42da7",
+        "manifest_sha256": "5a1a16cd614770a28270a2e199a878166501cd5c90fb489e5bbbb77f6dc8641e",
         "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9"
       }
     },
