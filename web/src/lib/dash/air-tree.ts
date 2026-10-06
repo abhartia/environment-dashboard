@@ -2,17 +2,26 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { area, type Built, chapter, credit, headline, line, points } from "@/lib/dash/kit";
-import type { Series } from "@/lib/dash/types";
+import type { Series, SeriesPoint } from "@/lib/dash/types";
+import { formatWhen } from "@/lib/format";
 
 /**
  * The air chapter: the greenhouse gases building up in the atmosphere. Carbon dioxide today → over 2,000 years →
- * over 800,000 years; the other long-lived gases; and the extra heat each one traps (radiative forcing).
+ * over 800,000 years → the highest level in the ice before industry; the other long-lived gases; and the extra heat
+ * each one traps (radiative forcing).
  */
 
 const MLO = "co2.noaa-gml.monthly-mlo";
 const CO2_GLOBAL = "co2.noaa-gml.annual-global";
 const LAW_DOME = "co2.law-dome.2k";
 const ICE_800K = "co2.bereiter-2015.800k";
+const ICE_MAX = "co2.bereiter-2015.800k.max-before-1000bp";
+/**
+ * The cut-off that defines ICE_MAX (its scope): the highest sample with a gas age above this many years before 1950.
+ * A selection rule, not a value: the chart under ICE_MAX shows the same samples, and the node checks that their
+ * highest is the published one.
+ */
+const ICE_MAX_OLDER_THAN_BP = 1000;
 const CH4 = "ch4.noaa-gml.annual-global";
 const LIVESTOCK_CH4 = "food.faostat.livestock-ch4-world";
 const N2O = "n2o.noaa-gml.annual-global";
@@ -85,7 +94,7 @@ function co2Ice(): Built {
   const iceMax = Math.max(...points(ICE_800K, "ANT_ICECORES").flatMap((p) => (p[1] === null ? [] : [p[1]])));
   if (headline(CO2_GLOBAL, "WLD").value <= iceMax) throw new Error("air/co2-800k: the kicker's claim no longer holds");
   const s: Series[] = [
-    { key: "ice", label: "Antarctic ice cores", colour: ICE_COLOUR, points: points(ICE_800K, "ANT_ICECORES") },
+    { key: "ice", label: "Antarctic ice cores", colour: ICE_COLOUR, points: points(ICE_800K, "ANT_ICECORES"), drill: "co2-800k-max" },
     { key: "global", label: "Measured in the air, global mean", colour: CO2_COLOUR, points: points(CO2_GLOBAL, "WLD") },
   ];
   return {
@@ -96,9 +105,43 @@ function co2Ice(): Built {
     headline: headline(CO2_GLOBAL, "WLD"),
     sentence: `worldwide in ${headline(CO2_GLOBAL, "WLD").period} (the red line), above every level in 800,000 years of air trapped in Antarctic ice (blue).`,
     chart: line(s, u.short, u.decimals),
-    drills: [{ label: "The last 2,000 years", to: "co2-2k" }],
+    drills: [
+      { label: "The last 2,000 years", to: "co2-2k" },
+      { label: "The highest before industry", to: "co2-800k-max" },
+    ],
     credit: credit(ICE_800K, CO2_GLOBAL),
     indicators: [ICE_800K, CO2_GLOBAL],
+  };
+}
+
+/** The ice-core samples older than ICE_MAX's cut-off (an age before 1950 sits at 1950 minus that age on the axis). */
+function iceBeforeCutoff(): SeriesPoint[] {
+  return points(ICE_800K, "ANT_ICECORES").filter((p) => p[0] < 1950 - ICE_MAX_OLDER_THAN_BP);
+}
+
+function co2IceMax(): Built {
+  const u = unit(ICE_MAX);
+  const h = headline(ICE_MAX, "ANT_ICECORES");
+  // One value, dated by the age of its air (no calendar period): its age is said in words.
+  const rows = indicator(ICE_MAX).observations.filter((x) => x.entity === "ANT_ICECORES" && x.value !== null);
+  if (rows.length !== 1) throw new Error(`${ICE_MAX}: expected one value, found ${rows.length}`);
+  const o = rows[0];
+  const ice = iceBeforeCutoff();
+  // The kicker says this is the highest level in the ice before industry: the chart's samples must top out at it.
+  const shownMax = Math.max(...ice.flatMap((p) => (p[1] === null ? [] : [p[1]])));
+  if (shownMax !== h.value) throw new Error(`air/co2-800k-max: the highest sample shown is not ${ICE_MAX}'s value`);
+  const before = `${1950 - ICE_MAX_OLDER_THAN_BP} CE`;
+  return {
+    id: "co2-800k-max",
+    parent: "co2-800k",
+    crumb: "Before industry",
+    kicker: "The highest level before industry",
+    headline: h,
+    sentence: `in air trapped in Antarctic ice ${formatWhen(o)}: the most in any ice-core sample from before ${before} (Bereiter and others).`,
+    chart: line([{ key: "ice", label: `Antarctic ice cores, before ${before}`, colour: ICE_COLOUR, points: ice }], u.short, u.decimals),
+    drills: [],
+    credit: credit(ICE_MAX, ICE_800K),
+    indicators: [ICE_MAX, ICE_800K],
   };
 }
 
@@ -174,7 +217,7 @@ function forcing(): Built {
 }
 
 function ids(): string[] {
-  return ["root", "co2-2k", "co2-800k", "methane", "methane-livestock", "nitrous-oxide", "forcing"];
+  return ["root", "co2-2k", "co2-800k", "co2-800k-max", "methane", "methane-livestock", "nitrous-oxide", "forcing"];
 }
 
 function build(id: string): Built {
@@ -185,6 +228,8 @@ function build(id: string): Built {
       return co2Twok();
     case "co2-800k":
       return co2Ice();
+    case "co2-800k-max":
+      return co2IceMax();
     case "methane":
       return methane();
     case "methane-livestock":

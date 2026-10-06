@@ -3,7 +3,7 @@ import "server-only";
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
 import { food } from "@/lib/dash/food-tree";
-import { area, bars, type Built, credit, crossDrill, headline, latestPeriod, points, ranking } from "@/lib/dash/kit";
+import { area, bars, type Built, credit, crossDrill, dimLabel, headline, latestPeriod, line, points, ranking } from "@/lib/dash/kit";
 import type { Drill } from "@/lib/dash/types";
 
 /**
@@ -11,7 +11,8 @@ import type { Drill } from "@/lib/dash/types";
  * not overlap and add up to its all-sector total including land use, the same total behind its share of emissions
  * that come from food. Food is not a seventh band: its emissions run through the energy, industry, farming, land and
  * waste bands, so it has its own view. Carbon dioxide alone (Global Carbon Project) is one level down, on its own
- * basis; the two are never added or subtracted.
+ * basis; the two are never added or subtracted. One person's footprint (Sweden) leads to the UK's by use, then to UK
+ * households' own spending by product group.
  */
 
 export const GHG_TOTAL = "ghg.faostat.total";
@@ -25,8 +26,11 @@ const SE_BY_AREA = "footprint.naturvardsverket.per-person-by-area";
 const SE_TOTAL = "footprint.naturvardsverket.per-person-total";
 const UK_PER_CAPITA = "footprint.defra.per-capita";
 const UK_BY_USE = "footprint.defra.by-end-use";
+const UK_HOUSEHOLDS = "footprint.defra.households-by-product";
 
 const TOP = 15;
+/** UK households' product groups drawn as lines: the largest few in the latest year, so the chart stays readable. */
+const UK_LINES = 5;
 
 /** Sector colours: energy dark, industry grey, farming brown, land green (it can be a net sink), waste purple. */
 const SECTOR_COLOURS: Record<string, string> = {
@@ -291,14 +295,50 @@ export function footprintUk(): Built {
       year,
       "The UK's whole consumption footprint, by end use. Flights are inside transport.",
     ),
-    drills: [],
+    drills: [{ label: "Households' own spending, by product", to: "footprint-uk-households" }],
     credit: credit(UK_PER_CAPITA, UK_BY_USE),
     indicators: [UK_PER_CAPITA, UK_BY_USE],
   };
 }
 
+/**
+ * UK households' footprint by product group: the largest few as separate lines, never stacked, since Defra publishes
+ * no total of a chosen few and the rest are not lumped into a band of our own.
+ */
+export function footprintUkHouseholds(): Built {
+  const { short, decimals } = u(UK_HOUSEHOLDS);
+  const year = latestPeriod(UK_HOUSEHOLDS);
+  const ranked = indicator(UK_HOUSEHOLDS)
+    .observations.filter((o) => o.entity === "GBR" && o.period === year && o.value !== null)
+    .map((o) => ({ product: o.dims.product, value: o.value as number }))
+    .sort((a, b) => b.value - a.value || a.product.localeCompare(b.product));
+  const top = ranked.slice(0, UK_LINES);
+  const largest = dimLabel(UK_HOUSEHOLDS, "product", top[0].product);
+  return {
+    id: "footprint-uk-households",
+    parent: "footprint-uk",
+    crumb: "Households, by product",
+    kicker: "What UK households' own spending emits",
+    headline: headline(UK_HOUSEHOLDS, "GBR", { product: top[0].product }, year),
+    sentence: `from UK households' ${largest.toLowerCase()} in ${year}, the largest of the ${ranked.length} product groups Defra publishes (Defra and the University of Leeds). The lines are the ${top.length} largest in ${year}. Government, investment and charities are not included, and Defra says its earliest years are less certain.`,
+    chart: line(
+      top.map((r, i) => ({
+        key: r.product,
+        label: dimLabel(UK_HOUSEHOLDS, "product", r.product),
+        colour: AREA_COLOURS[i % AREA_COLOURS.length],
+        points: points(UK_HOUSEHOLDS, "GBR", { product: r.product }),
+      })),
+      short,
+      decimals,
+    ),
+    drills: [],
+    credit: credit(UK_HOUSEHOLDS),
+    indicators: [UK_HOUSEHOLDS],
+  };
+}
+
 export function ghgIds(): string[] {
-  return ["root", "food-system", "gases", "methane", "ghg-countries", ...ghgCountryCodes().map((c) => `g-${c}`), "ghg-per-person", "footprint", "footprint-uk"];
+  return ["root", "food-system", "gases", "methane", "ghg-countries", ...ghgCountryCodes().map((c) => `g-${c}`), "ghg-per-person", "footprint", "footprint-uk", "footprint-uk-households"];
 }
 
 export function buildGhg(id: string, co2View: (iso: string) => boolean): Built | null {
@@ -310,6 +350,7 @@ export function buildGhg(id: string, co2View: (iso: string) => boolean): Built |
   if (id === "ghg-per-person") return ghgPerPerson();
   if (id === "footprint") return footprint();
   if (id === "footprint-uk") return footprintUk();
+  if (id === "footprint-uk-households") return footprintUkHouseholds();
   const g = id.match(/^g-([A-Z0-9_]+)$/);
   if (g) return ghgCountry(g[1], co2View(g[1]));
   return null;

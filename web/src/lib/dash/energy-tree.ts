@@ -4,11 +4,14 @@ import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
 import { area, bars, type Built, chapter, credit, headline, latestPeriod, line, points, ranking } from "@/lib/dash/kit";
 import type { Series } from "@/lib/dash/types";
+import { formatPeriod } from "@/lib/format";
 
 /**
  * The energy chapter: how fast the switch away from fossil fuels is going. Clean electricity → what makes it → by
- * country (its mix, its grid's carbon) → month by month; then all energy (not just electricity), new renewable
- * capacity, and electric cars.
+ * country (its mix, its grid's carbon) → month by month (each source, then fossil power against a year earlier); then
+ * all energy, not just electricity (by fuel; in total, then by country), renewable power built (its share of all
+ * plants; what electricity from new plants costs), electric cars, and who has electricity at all (then where the
+ * fewest do).
  */
 
 const CLEAN = "electricity.ember.clean-share-world";
@@ -17,17 +20,28 @@ const CLEAN_BY_COUNTRY = "electricity.ember.clean-share-by-country";
 const MIX_BY_COUNTRY = "electricity.ember.mix-by-country";
 const INTENSITY = "electricity.ember.lifecycle-intensity-by-country";
 const MONTHLY_CLEAN = "electricity.ember.monthly-clean-share-world";
+const MONTHLY_MIX = "electricity.ember.monthly-mix-world";
+const MONTHLY_FOSSIL_CHANGE = "electricity.ember.monthly-fossil-change-world";
 const FOSSIL_SHARE = "energy.eia.fossil-share";
 const PRIMARY_BY_FUEL = "energy.eia.primary-by-fuel";
+const PRIMARY_TOTAL = "energy.eia.primary-total";
 const CAPACITY = "capacity.irena.renewables-world";
 const CAPACITY_BY_TECH = "capacity.irena.renewables-by-technology-world";
+const CAPACITY_SHARE = "capacity.irena.renewable-share-world";
+const COST = "lcoe.irena.by-technology-world";
 const EV = "ev.iea.sales-share";
+const ACCESS = "access.wb-wdi.electricity";
 const EMITTERS = "emissions.gcp-2025.fossil-co2-by-country";
 
 const TOP = 15;
 const CLEAN_COLOUR = "#1b7837";
 const FOSSIL_COLOUR = "#2b2b2b";
 const GREY = "#9aa0a6";
+/** Quantities that are not one source (all energy used, people with electricity). */
+const NEUTRAL_COLOUR = "#3f4a5a";
+
+/** Ember's fossil sources: selecting one of their monthly bands opens fossil power against a year earlier. */
+const FOSSIL_SOURCES = new Set(["coal", "gas", "other-fossil"]);
 
 /** Ember's sources, fossil first then clean. Each colour is at least 3:1 on white. */
 const SOURCES: { id: string; label: string; colour: string }[] = [
@@ -92,6 +106,7 @@ function root(): Built {
       { label: "All energy, not just electricity", to: "all-energy" },
       { label: "Renewable power built", to: "capacity" },
       { label: "Electric cars", to: "ev" },
+      { label: "Who has electricity", to: "access" },
     ],
     credit: credit(CLEAN),
     indicators: [CLEAN],
@@ -232,10 +247,50 @@ function monthly(): Built {
     kicker: "Clean electricity, month by month",
     headline: headline(MONTHLY_CLEAN, "WLD"),
     sentence: "of the world's electricity was clean in the latest month Ember reports.",
-    chart: line([{ key: "clean", label: "Clean share, monthly", colour: CLEAN_COLOUR, points: points(MONTHLY_CLEAN, "WLD") }], short, decimals),
-    drills: [],
+    chart: line([{ key: "clean", label: "Clean share, monthly", colour: CLEAN_COLOUR, points: points(MONTHLY_CLEAN, "WLD"), drill: "monthly-mix" }], short, decimals),
+    drills: [{ label: "Each source, month by month", to: "monthly-mix" }],
     credit: credit(MONTHLY_CLEAN),
     indicators: [MONTHLY_CLEAN],
+  };
+}
+
+function monthlyMix(): Built {
+  const { short, decimals } = u(MONTHLY_MIX);
+  const month = latestPeriod(MONTHLY_MIX);
+  const top = largestSource(MONTHLY_MIX, "WLD", month);
+  return {
+    id: "monthly-mix",
+    parent: "monthly",
+    crumb: "Each source",
+    kicker: "Each source, month by month",
+    headline: headline(MONTHLY_MIX, "WLD", { source: top.id }, month),
+    sentence: `of the world's electricity came from ${top.label.toLowerCase()} in ${formatPeriod(month)}, the largest source that month (Ember's estimate). The bands add up to all electricity generated.`,
+    chart: area(
+      mixSeries("WLD", MONTHLY_MIX).map((s) => (FOSSIL_SOURCES.has(s.key) ? { ...s, drill: "monthly-fossil" } : s)),
+      short,
+      decimals,
+      true,
+    ),
+    drills: [{ label: "Fossil power against a year earlier", to: "monthly-fossil" }],
+    credit: credit(MONTHLY_MIX),
+    indicators: [MONTHLY_MIX],
+  };
+}
+
+function monthlyFossil(): Built {
+  const { short, decimals } = u(MONTHLY_FOSSIL_CHANGE);
+  const h = headline(MONTHLY_FOSSIL_CHANGE, "WLD");
+  return {
+    id: "monthly-fossil",
+    parent: "monthly-mix",
+    crumb: "Fossil power",
+    kicker: "Fossil electricity against a year earlier",
+    headline: h,
+    sentence: `in the world's electricity from coal, gas and other fossil fuels in ${formatPeriod(h.period)} (Ember's estimate). Below zero, the world made less fossil power than in the same month a year before.`,
+    chart: line([{ key: "fossil-change", label: "Fossil generation, change from a year earlier", colour: FOSSIL_COLOUR, points: points(MONTHLY_FOSSIL_CHANGE, "WLD") }], short, decimals),
+    drills: [],
+    credit: credit(MONTHLY_FOSSIL_CHANGE),
+    indicators: [MONTHLY_FOSSIL_CHANGE],
   };
 }
 
@@ -249,9 +304,53 @@ function allEnergy(): Built {
     headline: headline(FOSSIL_SHARE, "WLD"),
     sentence: `of all the energy the world used in ${latestPeriod(FOSSIL_SHARE)} came from coal, oil and gas, including for transport, heating and industry (US EIA).`,
     chart: area([{ key: "fossil", label: "Fossil share of primary energy", colour: FOSSIL_COLOUR, points: points(FOSSIL_SHARE, "WLD"), drill: "all-energy-fuels" }], short, decimals, false),
-    drills: [{ label: "Split by fuel", to: "all-energy-fuels" }],
+    drills: [
+      { label: "Split by fuel", to: "all-energy-fuels" },
+      { label: "How much in total", to: "all-energy-total" },
+    ],
     credit: credit(FOSSIL_SHARE),
     indicators: [FOSSIL_SHARE],
+  };
+}
+
+function allEnergyTotal(): Built {
+  const { short, decimals } = u(PRIMARY_TOTAL);
+  return {
+    id: "all-energy-total",
+    parent: "all-energy",
+    crumb: "In total",
+    kicker: "How much energy the world uses",
+    headline: headline(PRIMARY_TOTAL, "WLD"),
+    sentence: `used worldwide in ${latestPeriod(PRIMARY_TOTAL)}, every fuel counted, by the US EIA's accounting. Other agencies count wind, solar and hydro power differently, so their totals are not comparable.`,
+    chart: area([{ key: "total", label: "Total primary energy", colour: NEUTRAL_COLOUR, points: points(PRIMARY_TOTAL, "WLD"), drill: "all-energy-countries" }], short, decimals, false),
+    drills: [{ label: "By country", to: "all-energy-countries" }],
+    credit: credit(PRIMARY_TOTAL),
+    indicators: [PRIMARY_TOTAL],
+  };
+}
+
+function allEnergyCountries(): Built {
+  const { short, decimals } = u(PRIMARY_TOTAL);
+  const year = latestPeriod(PRIMARY_TOTAL);
+  const ranked = ranking(PRIMARY_TOTAL, year);
+  const top = ranked.slice(0, TOP);
+  return {
+    id: "all-energy-countries",
+    parent: "all-energy-total",
+    crumb: "By country",
+    kicker: "Which countries use the most energy",
+    headline: headline(PRIMARY_TOTAL, top[0].entity, {}, year),
+    sentence: `used in ${entityName(top[0].entity)} in ${year}, the most of any country or territory. These are national totals, not amounts per person.`,
+    chart: bars(
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: NEUTRAL_COLOUR })),
+      short,
+      decimals,
+      year,
+      `The ${top.length} largest of ${ranked.length} countries and territories, as the US EIA accounts for energy.`,
+    ),
+    drills: [],
+    credit: credit(PRIMARY_TOTAL),
+    indicators: [PRIMARY_TOTAL],
   };
 }
 
@@ -293,9 +392,68 @@ function capacity(): Built {
       decimals,
       true,
     ),
-    drills: [],
+    drills: [
+      { label: "Share of all power plants", to: "capacity-share" },
+      { label: "What new plants' electricity costs", to: "capacity-cost" },
+    ],
     credit: credit(CAPACITY, CAPACITY_BY_TECH),
     indicators: [CAPACITY, CAPACITY_BY_TECH],
+  };
+}
+
+function capacityShare(): Built {
+  const { short, decimals } = u(CAPACITY_SHARE);
+  return {
+    id: "capacity-share",
+    parent: "capacity",
+    crumb: "Share of all plants",
+    kicker: "Renewables' share of the world's power plants",
+    headline: headline(CAPACITY_SHARE, "WLD"),
+    sentence: `of the world's electricity generating capacity was renewable at the end of ${latestPeriod(CAPACITY_SHARE)}, by IRENA. This counts the power plants, not the electricity they made.`,
+    chart: area([{ key: "renewable-share", label: "Renewable share of generating capacity", colour: CLEAN_COLOUR, points: points(CAPACITY_SHARE, "WLD") }], short, decimals, false),
+    drills: [],
+    credit: credit(CAPACITY_SHARE),
+    indicators: [CAPACITY_SHARE],
+  };
+}
+
+/** Every technology IRENA publishes a cost for, with this chapter's label and colour (an unknown one fails the build). */
+function costTechnologies(): (typeof TECHNOLOGIES)[number][] {
+  const dim = indicator(COST).dimensions.find((d) => d.id === "technology");
+  if (!dim) throw new Error(`${COST}: no technology dimension`);
+  return dim.values.map((v) => {
+    const t = TECHNOLOGIES.find((x) => x.id === v.id);
+    if (!t) throw new Error(`${COST}: no label or colour for technology ${v.id}`);
+    return t;
+  });
+}
+
+function capacityCost(): Built {
+  const { short, decimals } = u(COST);
+  const year = latestPeriod(COST);
+  const techs = costTechnologies();
+  // The technology with the lowest published cost in the latest year, so the sentence's "lowest" follows the data.
+  const ranked = techs
+    .map((t) => ({ t, v: indicator(COST).observations.find((o) => o.entity === "WLD" && o.period === year && o.dims.technology === t.id)?.value ?? null }))
+    .filter((x): x is { t: (typeof TECHNOLOGIES)[number]; v: number } => x.v !== null)
+    .sort((a, b) => a.v - b.v || a.t.id.localeCompare(b.t.id));
+  if (ranked.length === 0) throw new Error(`${COST}: no technology has a ${year} value`);
+  const lowest = ranked[0].t;
+  return {
+    id: "capacity-cost",
+    parent: "capacity",
+    crumb: "Cost of new power",
+    kicker: "What electricity from new renewable plants costs",
+    headline: headline(COST, "WLD", { technology: lowest.id }, year),
+    sentence: `for electricity from ${lowest.label.toLowerCase()} plants that started in ${year}, the lowest of the technologies IRENA tracks. A worldwide average over each plant's life, before the cost of fitting variable power into grids; costs vary widely between countries and projects.`,
+    chart: line(
+      techs.map((t) => ({ key: t.id, label: t.label, colour: t.colour, points: points(COST, "WLD", { technology: t.id }) })),
+      short,
+      decimals,
+    ),
+    drills: [],
+    credit: credit(COST),
+    indicators: [COST],
   };
 }
 
@@ -315,8 +473,68 @@ function ev(): Built {
   };
 }
 
+function access(): Built {
+  const { short, decimals } = u(ACCESS);
+  return {
+    id: "access",
+    parent: "root",
+    crumb: "Who has electricity",
+    kicker: "People with access to electricity",
+    headline: headline(ACCESS, "WLD"),
+    sentence: `of the world's people had access to electricity in ${latestPeriod(ACCESS)}, by the World Bank.`,
+    chart: area([{ key: "access", label: "Share of people with electricity", colour: NEUTRAL_COLOUR, points: points(ACCESS, "WLD"), drill: "access-countries" }], short, decimals, false),
+    drills: [{ label: "Where the fewest have it", to: "access-countries" }],
+    credit: credit(ACCESS),
+    indicators: [ACCESS],
+  };
+}
+
+function accessCountries(): Built {
+  const { short, decimals } = u(ACCESS);
+  const year = latestPeriod(ACCESS);
+  // Lowest share first (ties by code), so the sentence's "lowest" follows the data.
+  const ranked = [...ranking(ACCESS, year)].sort((a, b) => a.value - b.value || a.entity.localeCompare(b.entity));
+  const fewest = ranked.slice(0, TOP);
+  const name = entityName(fewest[0].entity);
+  return {
+    id: "access-countries",
+    parent: "access",
+    crumb: "Where the fewest have it",
+    kicker: "Where the fewest people have electricity",
+    headline: headline(ACCESS, fewest[0].entity, {}, year),
+    sentence: `of people in ${name} had access to electricity in ${year}, the lowest share of any country or territory the World Bank reports for that year.`,
+    chart: bars(
+      fewest.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: NEUTRAL_COLOUR })),
+      short,
+      decimals,
+      year,
+      `The ${fewest.length} lowest of ${ranked.length} countries and territories with a value for ${year}.`,
+    ),
+    drills: [],
+    credit: credit(ACCESS),
+    indicators: [ACCESS],
+  };
+}
+
 function ids(): string[] {
-  const out = ["root", "mix", "countries", "monthly", "all-energy", "all-energy-fuels", "capacity", "ev"];
+  const out = [
+    "root",
+    "mix",
+    "countries",
+    "monthly",
+    "monthly-mix",
+    "monthly-fossil",
+    "all-energy",
+    "all-energy-fuels",
+    "all-energy-total",
+    "all-energy-countries",
+    "capacity",
+    "capacity-share",
+    "capacity-cost",
+    "ev",
+    "access",
+    "access-countries",
+  ];
   for (const iso of countryCodes()) out.push(`c-${iso}`, `c-${iso}-mix`, `c-${iso}-intensity`);
   return out;
 }
@@ -326,10 +544,18 @@ function build(id: string): Built {
   if (id === "mix") return mix();
   if (id === "countries") return countries();
   if (id === "monthly") return monthly();
+  if (id === "monthly-mix") return monthlyMix();
+  if (id === "monthly-fossil") return monthlyFossil();
   if (id === "all-energy") return allEnergy();
   if (id === "all-energy-fuels") return allEnergyFuels();
+  if (id === "all-energy-total") return allEnergyTotal();
+  if (id === "all-energy-countries") return allEnergyCountries();
   if (id === "capacity") return capacity();
+  if (id === "capacity-share") return capacityShare();
+  if (id === "capacity-cost") return capacityCost();
   if (id === "ev") return ev();
+  if (id === "access") return access();
+  if (id === "access-countries") return accessCountries();
   const c = id.match(/^c-([A-Z0-9_]+)(-mix|-intensity)?$/);
   if (c) return c[2] === "-mix" ? countryMix(c[1]) : c[2] === "-intensity" ? countryIntensity(c[1]) : country(c[1]);
   throw new Error(`unknown energy node ${id}`);

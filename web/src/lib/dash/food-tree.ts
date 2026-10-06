@@ -2,13 +2,15 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
-import { buildFood, countryStages, foodNodeIds } from "@/lib/dash/food-nodes";
-import { area, bars, type Built, chapter, credit, dimLabel, headline, latestPeriod, line, points, ranking } from "@/lib/dash/kit";
+import { buildFood, countryStages, dimValues, foodNodeIds } from "@/lib/dash/food-nodes";
+import { area, bars, type Built, chapter, credit, dimLabel, headline, latestPeriod, line, matches, periodToX, points, ranking } from "@/lib/dash/kit";
+import type { Series } from "@/lib/dash/types";
 
 /**
  * The food and land chapter: what feeding ourselves does to the climate and the land. Agrifood emissions → where they
  * come from (stage, process, food, animal; food-nodes.ts) → their share of all emissions → by country → food lost before
- * it reaches shops → diets compared → land we farm → species at risk.
+ * it reaches shops → diets compared → land we farm → farmland in hectares, the world's forests (net change, tree cover
+ * lost each year, what drives it, where, tropical primary forest) → species at risk.
  */
 
 const AGRIFOOD = "food.faostat.agrifood-emissions-world";
@@ -17,11 +19,22 @@ const BY_COUNTRY = "food.faostat.agrifood-emissions-by-country";
 const LOSS = "food-loss.faostat.sdg-12-3-1a";
 const DIETS = "food.scarborough-2023.diet-ghg-per-day";
 const LAND_SHARE = "land-use.faostat.share-of-land-area";
+const LAND_AREA = "land-use.faostat.area";
 const THREATENED = "species.iucn-red-list.threatened-share";
+const THREATENED_COUNT = "species.iucn-red-list.threatened-count";
+const FOREST = "forest.fao-fra-2025.area";
+const FOREST_CHANGE = "forest.fao-fra-2025.net-change";
+const TREE_LOSS = "forest.gfw.tree-cover-loss";
+const DRIVERS = "forest.gfw.tree-cover-loss-by-driver";
+const PRIMARY = "forest.gfw.primary-forest-loss";
 
 const TOP = 15;
 const FARM = "#8c510a";
 const GREY = "#9aa0a6";
+const RED = "#b2182b";
+const TREE = "#1b7837";
+const FIRE = "#c75400";
+const RAINFOREST = "#00441b";
 
 const COMMODITIES: { id: string; colour: string }[] = [
   { id: "total", colour: "#0d0d0d" },
@@ -31,11 +44,41 @@ const COMMODITIES: { id: string; colour: string }[] = [
   { id: "meat-and-animal-products", colour: "#b2182b" },
 ];
 
-const LAND: { id: string; colour: string }[] = [
-  { id: "forest-land", colour: "#1b7837" },
-  { id: "permanent-meadows-and-pastures", colour: "#b8860b" },
-  { id: "cropland", colour: "#8c510a" },
+/** Land uses, each line opening the view in hectares that splits it further. */
+const LAND: { id: string; colour: string; drill: string }[] = [
+  { id: "forest-land", colour: TREE, drill: "forest" },
+  { id: "permanent-meadows-and-pastures", colour: "#b8860b", drill: "farmland" },
+  { id: "cropland", colour: FARM, drill: "farmland" },
 ];
+
+/**
+ * Farmland's two parts as FAO reports them, cropland against zero. FAO's agricultural land is cropland plus permanent
+ * meadows and pastures, so it is the headline and never a band stacked with its own parts.
+ */
+const FARMLAND: { id: string; colour: string }[] = [
+  { id: "cropland", colour: FARM },
+  { id: "permanent-meadows-and-pastures", colour: "#b8860b" },
+];
+
+/**
+ * A colour for each of WRI's drivers of tree cover loss: the ones that turn forest into other land for good (permanent
+ * agriculture, mining and energy, settlements) in browns and greys, the ones after which trees usually grow back in
+ * other hues. A driver without a colour fails the build rather than borrowing another's.
+ */
+const DRIVER_COLOURS: Record<string, string> = {
+  "permanent-agriculture": FARM,
+  "hard-commodities": "#5f5f5f",
+  "settlements-and-infrastructure": "#7f3b08",
+  "shifting-cultivation": "#b8860b",
+  logging: "#2166ac",
+  wildfire: FIRE,
+  "other-natural-disturbances": TREE,
+  unknown: GREY,
+};
+/** Drivers whose band opens no view of its own: "unknown" names no cause to follow. */
+const NO_DRIVER_VIEW = new Set(["unknown"]);
+/** Floating-point slack, in hectares, when checking that the driver bands add up to all loss (as the pipeline does). */
+const ADDS_UP_HA = 0.01;
 
 function u(id: string) {
   const ind = indicator(id);
@@ -165,13 +208,301 @@ function land(): Built {
     headline: headline(LAND_SHARE, "WLD", { category: "agricultural-land" }),
     sentence: `of the world's land area was farmland (crops and pasture) in ${headline(LAND_SHARE, "WLD", { category: "agricultural-land" }).period}, by FAO.`,
     chart: line(
-      LAND.map((l) => ({ key: l.id, label: dimLabel(LAND_SHARE, "category", l.id), colour: l.colour, points: points(LAND_SHARE, "WLD", { category: l.id }) })),
+      LAND.map((l) => ({ key: l.id, label: dimLabel(LAND_SHARE, "category", l.id), colour: l.colour, points: points(LAND_SHARE, "WLD", { category: l.id }), drill: l.drill })),
       short,
       decimals,
     ),
-    drills: [{ label: "Species at risk", to: "species" }],
+    drills: [
+      { label: "Farmland", to: "farmland" },
+      { label: "Forests", to: "forest" },
+      { label: "Species at risk", to: "species" },
+    ],
     credit: credit(LAND_SHARE),
     indicators: [LAND_SHARE],
+  };
+}
+
+function farmland(): Built {
+  const { short, decimals } = u(LAND_AREA);
+  const h = headline(LAND_AREA, "WLD", { category: "agricultural-land" });
+  return {
+    id: "farmland",
+    parent: "land",
+    crumb: "Farmland",
+    kicker: "Land used for crops and grazing",
+    headline: h,
+    sentence: `of farmland worldwide in ${h.period}, as FAO counts it: cropland, and permanent meadows and pastures for grazing animals.`,
+    chart: area(
+      FARMLAND.map((l) => ({ key: l.id, label: dimLabel(LAND_AREA, "category", l.id), colour: l.colour, points: points(LAND_AREA, "WLD", { category: l.id }) })),
+      short,
+      decimals,
+      true,
+    ),
+    drills: [{ label: "Forests", to: "forest" }],
+    credit: credit(LAND_AREA),
+    indicators: [LAND_AREA],
+  };
+}
+
+function forest(): Built {
+  const { short, decimals } = u(FOREST);
+  const h = headline(FOREST, "WLD");
+  return {
+    id: "forest",
+    parent: "land",
+    crumb: "Forests",
+    kicker: "The world's forests",
+    headline: h,
+    sentence: `of forest worldwide in ${h.period}, as countries report it to FAO's forest assessment: land with trees that is not mainly farmed or built on.`,
+    chart: area([{ key: "forest", label: indicator(FOREST).title, colour: TREE, points: points(FOREST, "WLD"), drill: "forest-change" }], short, decimals, false),
+    drills: [
+      { label: "Net change each year", to: "forest-change" },
+      { label: "Tree cover lost each year", to: "tree-loss" },
+    ],
+    credit: credit(FOREST),
+    indicators: [FOREST],
+  };
+}
+
+/** FAO's average net change a year over each interval between its reporting years, oldest first, as bars from zero. */
+function forestChange(): Built {
+  const ind = indicator(FOREST_CHANGE);
+  const h = headline(FOREST_CHANGE, "WLD");
+  const ends = h.period.split("/");
+  if (ends.length !== 2) throw new Error(`food/forest-change: ${h.period} is not an interval`);
+  const rows = ind.observations
+    .filter((o) => matches(o, "WLD") && o.value !== null && o.period !== null)
+    .sort((a, b) => periodToX(a) - periodToX(b))
+    .map((o) => ({ period: o.period as string, value: o.value as number }));
+  return {
+    id: "forest-change",
+    parent: "forest",
+    crumb: "Net change",
+    kicker: "How much forest area changes each year",
+    headline: h,
+    sentence: `on average worldwide from ${ends[0]} to ${ends[1]} (FAO): forest gained by planting and natural spread, minus forest lost. Below zero is a net loss, and gains in some places hide losses in others.`,
+    chart: bars(
+      rows.map((r) => ({ key: r.period, label: r.period.replace("/", "–"), value: r.value, colour: r.value < 0 ? RED : TREE })),
+      ind.unit.short,
+      ind.display.decimals,
+      h.period,
+      "Average change a year over each interval between FAO's reporting years; bars in red are net losses.",
+    ),
+    drills: [{ label: "Tree cover lost each year", to: "tree-loss" }],
+    credit: credit(FOREST_CHANGE),
+    indicators: [FOREST_CHANGE],
+  };
+}
+
+function treeLoss(): Built {
+  const { short, decimals } = u(TREE_LOSS);
+  const h = headline(TREE_LOSS, "WLD", { part: "all" });
+  return {
+    id: "tree-loss",
+    parent: "forest",
+    crumb: "Tree cover loss",
+    kicker: "Tree cover lost each year",
+    headline: h,
+    sentence: `of tree cover lost worldwide in ${h.period}, mapped by satellite (University of Maryland, Global Forest Watch). It is not deforestation: it includes fire, plantation harvest and natural disturbance, trees that grow back are not subtracted, and methods changed over the years.`,
+    chart: line(
+      [
+        { key: "all", label: dimLabel(TREE_LOSS, "part", "all"), colour: TREE, points: points(TREE_LOSS, "WLD", { part: "all" }), drill: "tree-loss-drivers" },
+        { key: "fire", label: dimLabel(TREE_LOSS, "part", "fire"), colour: FIRE, points: points(TREE_LOSS, "WLD", { part: "fire" }) },
+      ],
+      short,
+      decimals,
+    ),
+    drills: [
+      { label: "What drives it", to: "tree-loss-drivers" },
+      { label: "Which countries", to: "tree-loss-countries" },
+      { label: "Tropical primary forest", to: "primary-loss" },
+    ],
+    credit: credit(TREE_LOSS),
+    indicators: [TREE_LOSS],
+  };
+}
+
+function driverColour(driver: string): string {
+  const c = DRIVER_COLOURS[driver];
+  if (!c) throw new Error(`food: no colour for the tree cover loss driver ${driver}`);
+  return c;
+}
+
+/** The drivers that open a view of the countries where each took the most tree cover. */
+function driverViews(): string[] {
+  const year = latestPeriod(DRIVERS);
+  return dimValues(DRIVERS, "driver")
+    .filter((v) => !NO_DRIVER_VIEW.has(v.id) && ranking(DRIVERS, year, { driver: v.id }).length > 0)
+    .map((v) => v.id);
+}
+
+/** One place's tree cover loss as a band per driver, in WRI's order; a driver with no loss recorded there is left out. */
+function driverSeries(entity: string, withDrills: boolean): Series[] {
+  const views = withDrills ? new Set(driverViews()) : new Set<string>();
+  return dimValues(DRIVERS, "driver")
+    .map((v) => ({
+      key: v.id,
+      label: v.label,
+      colour: driverColour(v.id),
+      points: points(DRIVERS, entity, { driver: v.id }),
+      ...(views.has(v.id) ? { drill: `driver-${v.id}` } : {}),
+    }))
+    .filter((s) => s.points.some((p) => p[1] !== null));
+}
+
+/**
+ * Throws unless one place's driver bands add up to its published all-loss value in every year (and have no year the
+ * total lacks), so "the bands add up to all loss" fails the build the moment a refresh makes it untrue.
+ */
+function checkDriversAddUp(entity: string): void {
+  const sums = new Map<number, number>();
+  for (const v of dimValues(DRIVERS, "driver"))
+    for (const [x, y] of points(DRIVERS, entity, { driver: v.id })) if (y !== null) sums.set(x, (sums.get(x) ?? 0) + y);
+  const all = points(TREE_LOSS, entity, { part: "all" });
+  for (const [x, total] of all) {
+    const sum = sums.get(x);
+    const ok = total === null ? sum === undefined : sum !== undefined && Math.abs(sum - total) <= ADDS_UP_HA;
+    if (!ok) throw new Error(`food: ${entity}'s tree cover loss by driver does not add up to all loss in ${x}`);
+  }
+  const years = new Set(all.map((p) => p[0]));
+  for (const x of sums.keys()) if (!years.has(x)) throw new Error(`food: ${entity} has tree cover loss by driver in ${x} but no total`);
+}
+
+function treeLossDrivers(): Built {
+  const { short, decimals } = u(DRIVERS);
+  const year = latestPeriod(DRIVERS);
+  const ranked = dimValues(DRIVERS, "driver")
+    .map((v) => ({ v, value: indicator(DRIVERS).observations.find((o) => matches(o, "WLD", { driver: v.id }) && o.period === year)?.value ?? null }))
+    .filter((r): r is { v: { id: string; label: string }; value: number } => r.value !== null)
+    .sort((a, b) => b.value - a.value);
+  const top = ranked[0];
+  if (!top) throw new Error(`food/tree-loss-drivers: no world value in ${year}`);
+  checkDriversAddUp("WLD");
+  return {
+    id: "tree-loss-drivers",
+    parent: "tree-loss",
+    crumb: "By driver",
+    kicker: `Why trees are lost: ${top.v.label.toLowerCase()} is the largest driver`,
+    headline: headline(DRIVERS, "WLD", { driver: top.v.id }, year),
+    sentence: `of tree cover lost worldwide in ${year} was where ${top.v.label.toLowerCase()} was the main driver (WRI and Google DeepMind). Permanent farms, mines, energy sites and settlements replace trees for good; after fire, logging and shifting cultivation, trees usually grow back. The bands add up to all loss.`,
+    chart: area(driverSeries("WLD", true), short, decimals, true),
+    drills: [{ label: "Emissions from clearing land for farming", to: "land-clearing" }],
+    credit: credit(DRIVERS),
+    indicators: [DRIVERS],
+  };
+}
+
+function driverCountries(driver: string): Built {
+  const { short, decimals } = u(DRIVERS);
+  const year = latestPeriod(DRIVERS);
+  const label = dimLabel(DRIVERS, "driver", driver);
+  const ranked = ranking(DRIVERS, year, { driver });
+  const top = ranked.slice(0, TOP);
+  if (!top.length) throw new Error(`food/driver-${driver}: no country has a ${year} value`);
+  return {
+    id: `driver-${driver}`,
+    parent: "tree-loss-drivers",
+    crumb: label,
+    kicker: `Where ${label.toLowerCase()} took the most tree cover`,
+    headline: headline(DRIVERS, top[0].entity, { driver }, year),
+    sentence: `of tree cover lost in ${entityName(top[0].entity)} in ${year} was where ${label.toLowerCase()} was the main driver, the most of any country (WRI and Google DeepMind).`,
+    chart: bars(
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: driverColour(driver) })),
+      short,
+      decimals,
+      year,
+      `The ${top.length} largest of ${ranked.length} countries and territories, by the main driver in each square kilometre.`,
+    ),
+    drills: [],
+    credit: credit(DRIVERS),
+    indicators: [DRIVERS],
+  };
+}
+
+function treeLossCountries(): Built {
+  const { short, decimals } = u(TREE_LOSS);
+  const year = latestPeriod(TREE_LOSS);
+  const ranked = ranking(TREE_LOSS, year, { part: "all" });
+  const top = ranked.slice(0, TOP);
+  return {
+    id: "tree-loss-countries",
+    parent: "tree-loss",
+    crumb: "By country",
+    kicker: "Where the most tree cover was lost",
+    headline: headline(TREE_LOSS, top[0].entity, { part: "all" }, year),
+    sentence: `of tree cover lost in ${entityName(top[0].entity)} in ${year}, the most of any country, fire included. Select a country to see what drove it.`,
+    chart: bars(
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: TREE, drill: `tl-${r.entity}` })),
+      short,
+      decimals,
+      year,
+      `The ${top.length} largest of ${ranked.length} countries and territories; loss includes fire, logging and plantation harvest.`,
+    ),
+    drills: [],
+    credit: credit(TREE_LOSS),
+    indicators: [TREE_LOSS],
+  };
+}
+
+/** A country's tree cover loss by driver (replaces its single bar). */
+function countryTreeLoss(iso: string): Built {
+  const { short, decimals } = u(DRIVERS);
+  const name = entityName(iso);
+  const h = headline(TREE_LOSS, iso, { part: "all" });
+  checkDriversAddUp(iso);
+  return {
+    id: `tl-${iso}`,
+    parent: "tree-loss-countries",
+    crumb: name,
+    kicker: `${name}: tree cover lost, by driver`,
+    headline: h,
+    sentence: `of tree cover lost in ${name} in ${h.period} (University of Maryland), split by the main driver in each square kilometre (WRI and Google DeepMind). The bands add up to all loss.`,
+    chart: area(driverSeries(iso, false), short, decimals, true),
+    drills: [],
+    credit: credit(TREE_LOSS, DRIVERS),
+    indicators: [TREE_LOSS, DRIVERS],
+  };
+}
+
+function primaryLoss(): Built {
+  const { short, decimals } = u(PRIMARY);
+  const h = headline(PRIMARY, "WLD");
+  return {
+    id: "primary-loss",
+    parent: "tree-loss",
+    crumb: "Primary forest",
+    kicker: "Tropical primary forest lost each year",
+    headline: h,
+    sentence: `of humid tropical primary forest lost in ${h.period}: mature rainforest that had not been cleared and regrown in recent history (University of Maryland). Loss to fire is included.`,
+    chart: area([{ key: "primary", label: indicator(PRIMARY).title, colour: RAINFOREST, points: points(PRIMARY, "WLD"), drill: "primary-loss-countries" }], short, decimals, false),
+    drills: [{ label: "Which countries", to: "primary-loss-countries" }],
+    credit: credit(PRIMARY),
+    indicators: [PRIMARY],
+  };
+}
+
+function primaryLossCountries(): Built {
+  const { short, decimals } = u(PRIMARY);
+  const year = latestPeriod(PRIMARY);
+  const ranked = ranking(PRIMARY, year);
+  const top = ranked.slice(0, TOP);
+  return {
+    id: "primary-loss-countries",
+    parent: "primary-loss",
+    crumb: "By country",
+    kicker: "Where the most tropical primary forest was lost",
+    headline: headline(PRIMARY, top[0].entity, {}, year),
+    sentence: `of humid tropical primary forest lost in ${entityName(top[0].entity)} in ${year}, the most of any country (University of Maryland).`,
+    chart: bars(
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: RAINFOREST })),
+      short,
+      decimals,
+      year,
+      `The ${top.length} largest of ${ranked.length} countries and territories with humid tropical primary forest.`,
+    ),
+    drills: [],
+    credit: credit(PRIMARY),
+    indicators: [PRIMARY],
   };
 }
 
@@ -196,9 +527,36 @@ function species(): Built {
       all.period,
       "Share of assessed species in each group; groups in red are above the share for all species.",
     ),
-    drills: [],
+    drills: [{ label: "How many species", to: "species-count" }],
     credit: credit(THREATENED),
     indicators: [THREATENED],
+  };
+}
+
+function speciesCount(): Built {
+  const ind = indicator(THREATENED_COUNT);
+  const all = headline(THREATENED_COUNT, "WLD", { group: "all" });
+  const rows = ind.observations
+    .filter((o) => o.entity === "WLD" && o.period === all.period && o.value !== null && o.dims.group !== "all")
+    .map((o) => ({ group: o.dims.group, value: o.value as number }))
+    .sort((a, b) => b.value - a.value || a.group.localeCompare(b.group));
+  return {
+    id: "species-count",
+    parent: "species",
+    crumb: "How many",
+    kicker: "How many species are threatened",
+    headline: all,
+    sentence: `on the IUCN Red List were threatened with extinction in ${all.period}: critically endangered, endangered or vulnerable. Only assessed species are counted, and only a small part of insects, plants and fungi has been assessed.`,
+    chart: bars(
+      rows.map((r) => ({ key: r.group, label: dimLabel(THREATENED_COUNT, "group", r.group), value: r.value, colour: RED })),
+      ind.unit.short,
+      ind.display.decimals,
+      all.period,
+      "Threatened species among those assessed in each group; the groups shown do not cover every assessed species.",
+    ),
+    drills: [],
+    credit: credit(THREATENED_COUNT),
+    indicators: [THREATENED_COUNT],
   };
 }
 
@@ -208,20 +566,53 @@ function countryCodes(): string[] {
     .map((r) => r.entity);
 }
 
+/** The countries on the tree cover loss ranking, each opening its loss by driver. */
+function treeLossCodes(): string[] {
+  return ranking(TREE_LOSS, latestPeriod(TREE_LOSS), { part: "all" })
+    .slice(0, TOP)
+    .map((r) => r.entity);
+}
+
+/** Nodes with a fixed id, outside food-nodes.ts. */
+const FIXED: Record<string, () => Built> = {
+  root,
+  share,
+  countries,
+  loss,
+  diets,
+  land,
+  farmland,
+  forest,
+  "forest-change": forestChange,
+  "tree-loss": treeLoss,
+  "tree-loss-drivers": treeLossDrivers,
+  "tree-loss-countries": treeLossCountries,
+  "primary-loss": primaryLoss,
+  "primary-loss-countries": primaryLossCountries,
+  species,
+  "species-count": speciesCount,
+};
+
 function ids(): string[] {
-  return ["root", ...foodNodeIds(), "share", "countries", "loss", "diets", "land", "species", ...countryCodes().map((c) => `c-${c}`)];
+  return [
+    "root",
+    ...foodNodeIds(),
+    ...Object.keys(FIXED).filter((id) => id !== "root"),
+    ...driverViews().map((d) => `driver-${d}`),
+    ...treeLossCodes().map((c) => `tl-${c}`),
+    ...countryCodes().map((c) => `c-${c}`),
+  ];
 }
 
 function build(id: string): Built {
-  if (id === "root") return root();
-  if (id === "share") return share();
-  if (id === "countries") return countries();
-  if (id === "loss") return loss();
-  if (id === "diets") return diets();
-  if (id === "land") return land();
-  if (id === "species") return species();
+  const fixed = Object.hasOwn(FIXED, id) ? FIXED[id] : undefined;
+  if (fixed) return fixed();
   const c = id.match(/^c-([A-Z0-9_]+)$/);
   if (c) return countryStages(c[1], BY_COUNTRY);
+  const tl = id.match(/^tl-([A-Z0-9_]+)$/);
+  if (tl) return countryTreeLoss(tl[1]);
+  const driver = id.match(/^driver-(.+)$/);
+  if (driver) return driverCountries(driver[1]);
   const node = buildFood(id);
   if (node) return node;
   throw new Error(`unknown food node ${id}`);

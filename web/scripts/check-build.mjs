@@ -7,6 +7,7 @@
 //  - a [data-indicator] that doesn't resolve in the catalogue, or whose indicator has no /data page
 //  - any file from a no-derivatives or display-only indicator under out/ (those values are shown, never served)
 //  - a data file in out/ that doesn't match data/SHA256SUMS (proves sync-data copied exactly)
+//  - a published (redistributable) indicator that no dashboard view shows
 //  - any file over 20 MiB, or more than 15,000 files (Cloudflare Pages: 20,000 files, 25 MiB each)
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
@@ -67,6 +68,19 @@ for (const f of files) {
   for (const id of privateIds) {
     if (r.includes(`${id}.json`) || r.includes(`${id}.csv`)) fail(`${r}: a file of ${id}, whose licence forbids redistribution, is served`);
   }
+}
+
+// --- Every published dataset is on the dashboard -------------------------------------------
+// A dataset we may redistribute is published to be seen: each one must be shown by at least one dashboard view
+// (out/dash-data/<chapter>/<node>.json lists the indicators it draws). No-derivatives and display-only values never go
+// into those files, so they are exempt and stay on their server-rendered data pages.
+
+const shown = new Set();
+for (const f of files.filter((f) => rel(f).startsWith("dash-data/") && f.endsWith(".json"))) {
+  for (const id of JSON.parse(readFileSync(f, "utf8")).indicators ?? []) shown.add(id);
+}
+for (const e of indicators.values()) {
+  if (e.downloadable && !shown.has(e.id)) fail(`${e.id} is published but no dashboard view shows it (add it to a node in web/src/lib/dash/)`);
 }
 
 // --- Sitemap and canonicals -----------------------------------------------------------------

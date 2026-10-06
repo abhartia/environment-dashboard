@@ -3,7 +3,7 @@ import "server-only";
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
 import { area, bars, type Built, credit, headline, latestPeriod, points, ranking } from "@/lib/dash/kit";
-import type { Series } from "@/lib/dash/types";
+import type { Drill, Series } from "@/lib/dash/types";
 
 /**
  * Where food's emissions come from, from FAOSTAT: by stage (on the farm, clearing land for farming, before and after
@@ -25,13 +25,15 @@ const PALETTE = [
 ];
 /** The node id of each stage's process view. */
 const STAGE_NODE: Record<string, string> = { "farm-gate": "farm", "land-use-change": "land-clearing", "pre-post-production": "after-farm" };
+/** Choices a stage's view offers besides the other stages: clearing land for farming leads on to the trees lost. */
+const STAGE_LINKS: Record<string, Drill[]> = { "land-use-change": [{ label: "Tree cover lost each year", to: "tree-loss" }] };
 
 function u(id: string) {
   const ind = indicator(id);
   return { short: ind.unit.short, decimals: ind.display.decimals };
 }
 
-function dimValues(id: string, dim: string): { id: string; label: string }[] {
+export function dimValues(id: string, dim: string): { id: string; label: string }[] {
   const d = indicator(id).dimensions.find((x) => x.id === dim);
   if (!d) throw new Error(`${id}: no dimension ${dim}`);
   return d.values;
@@ -99,9 +101,12 @@ export function stageProcesses(stage: string): Built {
       decimals,
       true,
     ),
-    drills: Object.entries(STAGE_NODE)
-      .filter(([s]) => s !== stage)
-      .map(([s, node]) => ({ label: dimValues(STAGES, "stage").find((v) => v.id === s)?.label ?? s, to: node })),
+    drills: [
+      ...Object.entries(STAGE_NODE)
+        .filter(([s]) => s !== stage)
+        .map(([s, node]) => ({ label: dimValues(STAGES, "stage").find((v) => v.id === s)?.label ?? s, to: node })),
+      ...(STAGE_LINKS[stage] ?? []),
+    ],
     credit: credit(PROCESSES),
     indicators: [PROCESSES],
   };

@@ -38,7 +38,9 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
   subtracted from FAO's totals.
 - **Food and land** opens on food's emissions and splits them by stage (on the farm, clearing land for farming,
   before and after the farm), by process within each stage, by food (farm-gate emissions of FAO's 14 commodities, and
-  per kilogram) and methane by animal; each stack adds up to FAO's published total.
+  per kilogram) and methane by animal; each stack adds up to FAO's published total. Land leads to forests: FAO's forest
+  area and its net change, then tree cover lost each year (Global Forest Watch: all loss and the part due to fire), what
+  drove it, where, and humid tropical primary forest; clearing land for farming links to the same view.
 
 A drill target written `chapter:node` opens another chapter's view (`crossDrill` in `kit.ts` carries its title and
 chart shape).
@@ -55,6 +57,8 @@ orders and labels published observations:
 - Big numbers are shown with fewer decimals than published when they are in the thousands, never more.
 - Node files are public (`/dash-data/<chapter>/<node>.json`), so the kit throws on any `no-derivatives` or
   `display-only` indicator.
+- Every indicator we may redistribute is shown by at least one node: check-build fails on a published dataset that
+  no node draws. A new dataset goes one level below the node it explains, never onto an existing screen.
 
 `chapter()` also gives each choice the next node's crumb, kicker and a thumbnail of its chart (every k-th point, or
 the first few bars), so the cards can show where they lead before anything is fetched.

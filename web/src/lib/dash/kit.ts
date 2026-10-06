@@ -32,14 +32,17 @@ export function matches(o: Observation, entity: string, dims: Dims = {}): boolea
 
 /**
  * A period as a position on a time axis: "2024" -> 2024, "2026-08" -> 2026.625 (mid-month), "2024-12-20" -> the
- * middle of that day, and a years-before-1950 age as its calendar year (1950 - age). Ranges are not drawn on these
- * charts and throw.
+ * middle of that day, and a years-before-1950 age as its calendar year (1950 - age). A range ("1955/1959", a five-year
+ * mean) sits halfway between its two ends, where its producer centres it; only the position is placed, the value is
+ * the published one.
  */
 export function periodToX(o: { period: string | null; age_bp?: number | null }): number {
   if (o.period === null) {
     if (o.age_bp === null || o.age_bp === undefined) throw new Error("observation has neither a period nor an age");
     return 1950 - o.age_bp;
   }
+  const range = o.period.split("/");
+  if (range.length === 2) return (periodToX({ period: range[0] }) + periodToX({ period: range[1] })) / 2;
   const m = o.period.match(/^(-?\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/);
   if (!m) throw new Error(`periodToX: ${o.period} is not a year, month or day`);
   const year = Number(m[1]);
