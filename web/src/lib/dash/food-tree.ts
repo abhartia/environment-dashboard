@@ -4,19 +4,22 @@ import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
 import { buildFood, countryStages, dimValues, foodNodeIds } from "@/lib/dash/food-nodes";
 import { area, bars, type Built, chapter, credit, dimLabel, headline, latestPeriod, line, matches, periodToX, points, ranking } from "@/lib/dash/kit";
-import type { Series } from "@/lib/dash/types";
+import type { Headline, Series } from "@/lib/dash/types";
 
 /**
  * The food and land chapter: what feeding ourselves does to the climate and the land. Agrifood emissions → where they
  * come from (stage, process, food, animal; food-nodes.ts) → their share of all emissions → by country → food lost before
- * it reaches shops → diets compared → land we farm → farmland in hectares, the world's forests (net change, tree cover
- * lost each year, what drives it, where, tropical primary forest) → species at risk.
+ * it reaches shops → food wasted in shops, restaurants and homes (tonnes by sector, then per person) → diets compared →
+ * land we farm → farmland in hectares, the world's forests (net change, tree cover lost each year, what drives it,
+ * where, tropical primary forest) → species at risk.
  */
 
 const AGRIFOOD = "food.faostat.agrifood-emissions-world";
 const SHARE = "food.faostat.agrifood-emissions-world.share";
 const BY_COUNTRY = "food.faostat.agrifood-emissions-by-country";
 const LOSS = "food-loss.faostat.sdg-12-3-1a";
+const WASTE = "food-waste.unep-fwi-2024.total";
+const WASTE_PER_PERSON = "food-waste.unep-fwi-2024.per-capita";
 const DIETS = "food.scarborough-2023.diet-ghg-per-day";
 const LAND_SHARE = "land-use.faostat.share-of-land-area";
 const LAND_AREA = "land-use.faostat.area";
@@ -75,6 +78,13 @@ const DRIVER_COLOURS: Record<string, string> = {
   "other-natural-disturbances": TREE,
   unknown: GREY,
 };
+/**
+ * UNEP's sectors of food waste, each with a colour. Its value for the sectors together is the headline and never a bar
+ * beside its own parts; a sector without a colour fails the build rather than going undrawn.
+ */
+const WASTE_ALL = "all-three-sectors";
+const WASTE_COLOURS: Record<string, string> = { household: FARM, "food-service": "#2166ac", retail: "#7b5ea7" };
+
 /** Drivers whose band opens no view of its own: "unknown" names no cause to follow. */
 const NO_DRIVER_VIEW = new Set(["unknown"]);
 /** Floating-point slack, in hectares, when checking that the driver bands add up to all loss (as the pipeline does). */
@@ -159,15 +169,82 @@ function loss(): Built {
     crumb: "Food lost",
     kicker: "Food lost before it reaches the shops",
     headline: headline(LOSS, "WLD", { commodity: "total" }),
-    sentence: `of the world's food, by value, was lost after harvest and before the shops in ${headline(LOSS, "WLD", { commodity: "total" }).period}, by FAO. Food wasted in shops and homes comes on top.`,
+    sentence: `of the world's food, by value, was lost after harvest and before the shops in ${headline(LOSS, "WLD", { commodity: "total" }).period}, by FAO. Waste after that is counted separately.`,
     chart: line(
       COMMODITIES.map((c) => ({ key: c.id, label: dimLabel(LOSS, "commodity", c.id), colour: c.colour, points: points(LOSS, "WLD", { commodity: c.id }) })),
       short,
       decimals,
     ),
-    drills: [],
+    drills: [{ label: "Food wasted in shops, restaurants and homes", to: "waste" }],
     credit: credit(LOSS),
     indicators: [LOSS],
+  };
+}
+
+/**
+ * One UNEP food waste indicator for the world: its value for the sectors together (the headline) and each sector's value
+ * in the same period, largest first.
+ */
+function wasteSectors(id: string): { all: Headline; allLabel: string; rows: { id: string; label: string; value: number }[] } {
+  const all = headline(id, "WLD", { sector: WASTE_ALL });
+  const rows = dimValues(id, "sector")
+    .filter((v) => v.id !== WASTE_ALL)
+    .map((v) => {
+      if (!Object.hasOwn(WASTE_COLOURS, v.id)) throw new Error(`food: no colour for the food waste sector ${v.id}`);
+      return { id: v.id, label: v.label, value: headline(id, "WLD", { sector: v.id }, all.period).value };
+    })
+    .sort((a, b) => b.value - a.value || a.id.localeCompare(b.id));
+  if (!rows.length) throw new Error(`food: ${id} has no sector of its own in ${all.period}`);
+  return { all, allLabel: dimLabel(id, "sector", WASTE_ALL).toLowerCase(), rows };
+}
+
+function wasteBars(id: string, rows: { id: string; label: string; value: number }[], period: string, note: string) {
+  const { short, decimals } = u(id);
+  return bars(
+    rows.map((r) => ({ key: r.id, label: r.label, value: r.value, colour: WASTE_COLOURS[r.id] })),
+    short,
+    decimals,
+    period,
+    note,
+  );
+}
+
+function waste(): Built {
+  const { all, allLabel, rows } = wasteSectors(WASTE);
+  // The sentence names the largest sector, so a tie for the largest fails the build rather than reading false.
+  if (rows[1] && rows[1].value === rows[0].value) throw new Error(`food: ${WASTE} has no single largest sector in ${all.period}`);
+  return {
+    id: "waste",
+    parent: "loss",
+    crumb: "Food wasted",
+    kicker: "Food wasted in homes, restaurants and shops",
+    headline: all,
+    sentence: `of food was wasted worldwide in ${all.period} by ${allLabel}, by weight (UNEP). ${rows[0].label} wasted the most.`,
+    chart: wasteBars(
+      WASTE,
+      rows,
+      all.period,
+      "Estimated by UNEP for each sector worldwide, inedible parts such as bones and peels included. FAO's food lost before the shops is a share of food's value, not a weight, so the two are not added.",
+    ),
+    drills: [{ label: "Per person", to: "waste-per-person" }],
+    credit: credit(WASTE),
+    indicators: [WASTE],
+  };
+}
+
+function wastePerPerson(): Built {
+  const { all, allLabel, rows } = wasteSectors(WASTE_PER_PERSON);
+  return {
+    id: "waste-per-person",
+    parent: "waste",
+    crumb: "Per person",
+    kicker: "Food wasted per person each year",
+    headline: all,
+    sentence: `of food wasted in ${all.period} by ${allLabel}, as a world average (UNEP): not what any one person throws away.`,
+    chart: wasteBars(WASTE_PER_PERSON, rows, all.period, "Estimated by UNEP for each sector as a world average per person, inedible parts included."),
+    drills: [],
+    credit: credit(WASTE_PER_PERSON),
+    indicators: [WASTE_PER_PERSON],
   };
 }
 
@@ -579,6 +656,8 @@ const FIXED: Record<string, () => Built> = {
   share,
   countries,
   loss,
+  waste,
+  "waste-per-person": wastePerPerson,
   diets,
   land,
   farmland,
