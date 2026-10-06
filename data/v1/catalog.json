@@ -3859,6 +3859,152 @@
     },
     {
       "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "4d55fd2d5deaffd8680685e916443ed2eebefd6cc9766858d25a42f3aafb936b",
+      "geo_coverage": "global-only",
+      "id": "food-waste.unep-fwi-2024.per-capita",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "sector": "all-three-sectors"
+        },
+        "entity": "WLD",
+        "period": "2022",
+        "status": "final",
+        "value": 132.0
+      },
+      "licence_class": "noncommercial",
+      "provenance": {
+        "attribution": "United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi. https://wedocs.unep.org/20.500.11822/45230",
+        "description": "How much food, including inedible parts such as bones and peels, was thrown away per person in 2022 by households, by restaurants, canteens and other food service, and by shops, in kilograms a year, as the global average estimated by UNEP's Food Waste Index Report 2024.",
+        "kind": "published-value",
+        "licence": {
+          "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
+          "spdx": null,
+          "url": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download"
+        },
+        "notice": "© 2024 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.",
+        "origins": [
+          {"acquisition": "manual", "artifact_id": "report-pdf", "bytes": 21703685, "citation_full": "United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi.", "date_accessed": "2026-10-06", "date_published": "2024-03-27", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)", "spdx": null, "url": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download"}, "producer": "United Nations Environment Programme (UNEP), with WRAP", "r2_url": null, "sha256": "8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548", "source_id": "unep-food-waste-index-2024", "title": "Food Waste Index Report 2024", "url_download": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download", "url_main": "https://wedocs.unep.org/handle/20.500.11822/45230", "version_producer": "Food Waste Index Report 2024", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the text of UNEP's report PDF (sha256 8f601d69958e…, downloaded by hand from UNEP's repository; see the snapshot note). Found Table 23's title, column header and all four rows, and the sentence introducing the table, word for word on PDF page 66 (printed p. 46) before publishing.",
+            "inputs": ["8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/food/unep_food_waste.py",
+            "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
+          },
+          {
+            "description": "Published the column \"global average (kg per capita per year)\" for Household, Food service, Retail and Total, exactly as printed (\"1 052\" is read as 1,052).",
+            "inputs": ["8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/food/unep_food_waste.py",
+            "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
+          }
+        ],
+        "published_value": {
+          "document": "unep-food-waste-index-2024",
+          "locator": "Table 23, p. 46",
+          "quote": "The results indicate that 1.05 billion tonnes of food were wasted across the three sectors considered in this report in 2022 (Table 23), equal to 132 kilograms per capita per year."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "SDG 12.3.1b food waste in 2022: food and its associated inedible parts (bones, peels, shells) removed from the human food supply at household, food service and retail level. Food lost before retail (SDG 12.3.1a) and in manufacturing is not included. Not comparable with the 2021 report's 2019 estimates (different data and methods).",
+          "bunkers": null,
+          "geography": "World (sum of UNEP's estimates for every country, many extrapolated)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["unep-food-waste-index-2024"],
+      "time_basis": "calendar",
+      "title": "Food wasted per person by households, food service and retail, world",
+      "unit": {
+        "code": "kg-per-capita-per-year",
+        "label": "kilograms per person per year",
+        "short": "kg/person/yr"
+      },
+      "vintage": "Food Waste Index Report 2024"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "421d4cfcdb0d2977924d62194f2d47ca06cd74d3f752c1e8db5d68270a2464d8",
+      "geo_coverage": "global-only",
+      "id": "food-waste.unep-fwi-2024.total",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "sector": "all-three-sectors"
+        },
+        "entity": "WLD",
+        "period": "2022",
+        "status": "final",
+        "value": 1052.0
+      },
+      "licence_class": "noncommercial",
+      "provenance": {
+        "attribution": "United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi. https://wedocs.unep.org/20.500.11822/45230",
+        "description": "How much food, including inedible parts such as bones and peels, was thrown away in 2022 by households, by restaurants, canteens and other food service, and by shops, in million tonnes, as estimated by UNEP's Food Waste Index Report 2024.",
+        "kind": "published-value",
+        "licence": {
+          "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
+          "spdx": null,
+          "url": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download"
+        },
+        "notice": "© 2024 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.",
+        "origins": [
+          {"acquisition": "manual", "artifact_id": "report-pdf", "bytes": 21703685, "citation_full": "United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi.", "date_accessed": "2026-10-06", "date_published": "2024-03-27", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)", "spdx": null, "url": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download"}, "producer": "United Nations Environment Programme (UNEP), with WRAP", "r2_url": null, "sha256": "8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548", "source_id": "unep-food-waste-index-2024", "title": "Food Waste Index Report 2024", "url_download": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download", "url_main": "https://wedocs.unep.org/handle/20.500.11822/45230", "version_producer": "Food Waste Index Report 2024", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the text of UNEP's report PDF (sha256 8f601d69958e…, downloaded by hand from UNEP's repository; see the snapshot note). Found Table 23's title, column header and all four rows, and the sentence introducing the table, word for word on PDF page 66 (printed p. 46) before publishing.",
+            "inputs": ["8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/food/unep_food_waste.py",
+            "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
+          },
+          {
+            "description": "Published the column \"2022 total (million tonnes)\" for Household, Food service, Retail and Total, exactly as printed (\"1 052\" is read as 1,052).",
+            "inputs": ["8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/food/unep_food_waste.py",
+            "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
+          }
+        ],
+        "published_value": {
+          "document": "unep-food-waste-index-2024",
+          "locator": "Table 23, p. 46",
+          "quote": "The results indicate that 1.05 billion tonnes of food were wasted across the three sectors considered in this report in 2022 (Table 23), equal to 132 kilograms per capita per year."
+        },
+        "scope": {
+          "baseline": null,
+          "basis": "SDG 12.3.1b food waste in 2022: food and its associated inedible parts (bones, peels, shells) removed from the human food supply at household, food service and retail level. Food lost before retail (SDG 12.3.1a) and in manufacturing is not included. Not comparable with the 2021 report's 2019 estimates (different data and methods).",
+          "bunkers": null,
+          "geography": "World (sum of UNEP's estimates for every country, many extrapolated)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["unep-food-waste-index-2024"],
+      "time_basis": "calendar",
+      "title": "Food wasted by households, food service and retail, world",
+      "unit": {
+        "code": "Mt",
+        "label": "million tonnes",
+        "short": "Mt"
+      },
+      "vintage": "Food Waste Index Report 2024"
+    },
+    {
+      "display": {
         "decimals": 1
       },
       "downloadable": true,

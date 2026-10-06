@@ -216,14 +216,20 @@ def resolve_url(client: httpx.Client, art: Artifact) -> tuple[str, SnapshotDisco
     return r.url, r.record
 
 
+def manual_fetch(src: Source, checked_at: str) -> SourceFetch:
+    """The fetch result of a manual source. Nothing is requested: a person downloads its files and records them with
+    envdash snapshot add, so the result is known from the registry entry alone, whenever it is asked for."""
+    if src.acquisition != "manual":
+        raise ValueError(f"{src.id} is fetched automatically, not by hand")
+    return SourceFetch(src.id, "manual", checked_at, terms="manual" if src.evidence.terms_check == "manual" else None)
+
+
 def fetch_source(
     client: httpx.Client, paths: Paths, src: Source, *, today: date, current: dict[str, str]
 ) -> SourceFetch:
     checked_at = now_iso()
     if src.acquisition == "manual":
-        return SourceFetch(
-            src.id, "manual", checked_at, terms="manual" if src.evidence.terms_check == "manual" else None
-        )
+        return manual_fetch(src, checked_at)
 
     terms, terms_reason = check_terms(client, src)
     if terms == "changed":

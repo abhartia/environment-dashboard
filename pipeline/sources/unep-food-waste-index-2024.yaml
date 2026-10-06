@@ -7,11 +7,15 @@
 # without UNEP's written permission. That is a custom non-commercial licence that permits derived values and
 # downloads on this non-commercial site, carrying those terms, so display-only is not needed. The same page adds: "The
 # use of information from this document for publicity or advertising is not permitted." (in notice).
-# How the terms were read: unep.org and wedocs.unep.org answered HTTP 403 to every scripted request on 2026-10-04
-# (handle page, REST API, bitstream). The quote was copied verbatim from the report PDF itself, as captured by the
-# Internet Archive from the wedocs bitstream URL (captures 20240328101605, 26,521,890 bytes, ModDate 2024-03-27; and
-# 20240519214314, 5,443,651 bytes, ModDate 2024-03-29, a re-saved copy; both carry the same notice). Because the
-# producer's file cannot be fetched by a script, terms_check is manual (quarterly check by a person).
+# How the terms were read: unep.org and wedocs.unep.org answer scripted requests with HTTP 403 (a Cloudflare
+# challenge), so the report is downloaded by hand and terms_check is manual (quarterly check by a person). The quote
+# was first copied on 2026-10-04 from Internet Archive captures of the old wedocs bitstream URL (the March 2024 copy).
+# On 2026-10-06 it was checked word for word against PDF page 2 of the August 2024 re-save, downloaded by hand from the
+# item page (Download > English; 21,703,685 bytes, MD5 c673a628d92861c8c09f4d2bc3d492e5, 193 pages), which carries the
+# same notice. The notice is only in the file: the item page states no terms (its one rights field is
+# dc.rights.accessLevel "Public" in Wayback capture 20261006110225 of it), so terms_url and licence.url
+# point at the English file the repository serves now (bitstream 5c6e505d-e1d3-4731-b5b8-4ecb9693a056), the URL the
+# snapshot was downloaded from. landing_url stays the item page.
 # Route rejected: the UN SDG Global Database API (unstats.un.org/sdgapi, series AG_FOOD_WST and AG_FOOD_WST_PC) carries
 # the same 2022 values (World ALL 1,051,962,676 t; 131.91 kg per person), but that site is governed by the UN Terms of
 # Use (footer link www.un.org/en/aboutun/terms/: personal, non-commercial use, no redistribution or derivative works),
@@ -37,7 +41,8 @@ citation:
   issued: "2024-03-27"
   publisher: United Nations Environment Programme
   URL: https://wedocs.unep.org/20.500.11822/45230
-  # "Suggested citation" on the report's copyright page.
+  # The copyright page (PDF p. 2) suggests "United Nations Environment Programme (2024). Food Waste Index Report 2024.
+  # Nairobi."; the text below adds the subtitle from the cover.
   text: >-
     United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to
     Halve Global Food Waste. Nairobi.
@@ -45,13 +50,16 @@ licence_class: noncommercial
 licence:
   name: UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)
   spdx: null
-  url: https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf
+  # The notice is on PDF page 2 of this file.
+  url: https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download
 evidence:
-  terms_url: https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf
+  # The English report PDF; the quote is on its page 2 (the copyright page).
+  terms_url: https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download
   licence_quote: >-
     This publication may be reproduced in whole or in part and in any form for educational or non-profit services
     without special permission from the copyright holder, provided acknowledgement of the source is made.
-  checked_on: 2026-10-04
+  # Checked on 2026-10-06 against PDF page 2 of the August 2024 re-save (MD5 c673a628d92861c8c09f4d2bc3d492e5).
+  checked_on: 2026-10-06
   terms_check: manual
 obligations:
   attribution: >-
@@ -72,17 +80,18 @@ artifacts:
     url: null
     format: pdf
     description: >-
-      The English report (191 pages): Table 1 and Table 23 give global food waste in 2022 by sector (tonnes and kg per
-      person per year); Annex 3 lists household estimates by country (M49 code, kg per person per year, tonnes per
-      year, confidence). Country food service and retail tables are in the report's separate Appendix, which is not
-      registered here. A person opens
-      https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, downloads
-      food_waste_index_report_2024.pdf (the English file, not the _PT or _SP translations), and records it with
-      `uv run envdash snapshot add --source unep-food-waste-index-2024 --file food_waste_index_report_2024.pdf`.
-      The snapshot recorded on 2026-10-05 (sha256 14d3955a9d58…, 26,521,890 bytes) is the Internet Archive capture of
-      that producer URL made on 2024-03-28
-      (https://web.archive.org/web/20240328101605/https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf),
-      the same capture the licence quote was read from; its manifest note says so.
+      The English report (193 pages in UNEP's August 2024 re-save): Table 1 and Table 23 give global food waste in 2022
+      by sector (tonnes and kg per person per year); Annex 3 lists household estimates by country (M49 code, kg per
+      person per year, tonnes per year, confidence). Country food service and retail tables are in the report's
+      separate Appendix, which is not registered here. A person opens
+      https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, chooses Download > English
+      (food_waste_index_report_2024.pdf, not the _PT or _SP translations), and records it with
+      `uv run envdash snapshot add --source unep-food-waste-index-2024 --artifact report-pdf
+      --file food_waste_index_report_2024.pdf
+      --note "downloaded by <who> from https://wedocs.unep.org/handle/20.500.11822/45230"`.
+      The copy recorded on 2026-10-06 is 21,703,685 bytes with MD5 c673a628d92861c8c09f4d2bc3d492e5 (the repository's
+      own checksum for the English file) and sha256 8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548;
+      a different hash means UNEP has replaced the file, and the transform's page number must be checked again.
 status:
   state: active
   note: >-

@@ -2,7 +2,12 @@
 
 A source's entry is replaced when this run checked it and kept as it was otherwise. `last_success` is the last time
 it ended ok, unchanged or manual. A build failure (a transform or validation failing on the source's files) turns an
-ok or unchanged fetch into failed, with the reason.
+ok, unchanged or manual fetch into failed, with the reason.
+
+A build lifts a failure only where it knows the source's fetch result. A manual source makes no request
+(fetch.manual_fetch), so a build in which all of its indicators built (or were skipped as unchanged) records it as
+manual again. An automatic source keeps its failed entry until its next fetch: a build cannot tell whether that fetch
+would still fail.
 """
 
 from __future__ import annotations
@@ -14,7 +19,7 @@ from pydantic import ValidationError
 
 from envdash import canonical, snapshots
 from envdash.export import BuildReport
-from envdash.fetch import SourceFetch, now_iso
+from envdash.fetch import SourceFetch, manual_fetch, now_iso
 from envdash.models import SourceRunStatus, Status
 from envdash.paths import Paths
 from envdash.registry import Registry
@@ -83,7 +88,13 @@ def update_status(
             sid = _literature_source(paths, lid)
             if sid is not None:
                 build_fail.setdefault(sid, []).append(err)
-    for sid, f in (fetched or {}).items():
+    fetched = dict(fetched or {})
+    if built:
+        for sid in sorted({sid for o in built.outcomes for sid in o.source_ids} - fetched.keys() - build_fail.keys()):
+            src, prev_e = registry.sources.get(sid), entries.get(sid)
+            if src is not None and src.acquisition == "manual" and prev_e is not None and prev_e.state == "failed":
+                fetched[sid] = manual_fetch(src, now)
+    for sid, f in fetched.items():
         prev_e = entries.get(sid)
         state = f.state
         reason = f.reason

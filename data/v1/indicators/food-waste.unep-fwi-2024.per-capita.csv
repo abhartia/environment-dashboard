@@ -1,0 +1,12 @@
+# Food wasted per person by households, food service and retail, world
+# Indicator: food-waste.unep-fwi-2024.per-capita (vintage Food Waste Index Report 2024); unit: kilograms per person per year (kg-per-capita-per-year)
+# Source: United Nations Environment Programme (UNEP), with WRAP <https://wedocs.unep.org/handle/20.500.11822/45230>
+# Credit: United Nations Environment Programme (2024). Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve Global Food Waste. Nairobi. https://wedocs.unep.org/20.500.11822/45230
+# Notice: © 2024 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.
+# Licence: UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use) <https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download>
+# Provenance and processing: https://environmentdashboard.org/data/food-waste/unep-fwi-2024/per-capita
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,sector
+food-waste.unep-fwi-2024.per-capita,WLD,2022,79.0,,,,final,,,,household
+food-waste.unep-fwi-2024.per-capita,WLD,2022,36.0,,,,final,,,,food-service
+food-waste.unep-fwi-2024.per-capita,WLD,2022,17.0,,,,final,,,,retail
+food-waste.unep-fwi-2024.per-capita,WLD,2022,132.0,,,,final,,,,all-three-sectors

@@ -15,7 +15,7 @@ from envdash import issues as issues_mod
 from envdash import openapi as openapi_mod
 from envdash import private as private_mod
 from envdash.export import BuildReport, build_and_export
-from envdash.fetch import FetchError, SourceFetch, fetch_all, make_client, now_iso, resolve_url
+from envdash.fetch import FetchError, SourceFetch, fetch_all, make_client, manual_fetch, now_iso, resolve_url
 from envdash.paths import Paths
 from envdash.registry import Registry, load_registry
 from envdash.status import read_status, update_status
@@ -208,7 +208,7 @@ def snapshot_add(
         f"{'recorded' if new else 'already recorded'} {snap.sha256} ({snap.bytes:,} bytes) for {source}/{artifact}"
     )
     if src.acquisition == "manual":
-        update_status(paths, reg, fetched={source: SourceFetch(source, "manual", now_iso())})
+        update_status(paths, reg, fetched={source: manual_fetch(src, now_iso())})
 
 
 @app.command("archive")

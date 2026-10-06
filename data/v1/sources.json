@@ -2256,8 +2256,8 @@
     {
       "acquisition": "manual",
       "artifacts": [
-        {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "GIDD annual export, one row per country and year, 2008-2025: Disaster Internal Displacements and Disaster Stock Displacement (rounded and raw), the same for conflict and violence, plus a README sheet and IDMC's notes on each figure. HTTP 403 without client_id on 2026-10-04. Until the API key arrives, a person opens the GIDD page (https://www.internal-displacement.org/database/displacement-data/), presses \"Excel\" under \"Annual displacement data\" (the same export, all years), and records the file with `uv run envdash snapshot add --source idmc-gidd --file <path>`.", "discover": null, "format": "xlsx", "id": "gidd-displacements", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/displacements/displacement-export/?release_environment=RELEASE&start_year=2008&end_year=2025"},
-        {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "GIDD disaster export, one row per disaster event, 2008-2025: ISO3, country, year, event name, start date, Disaster Internal Displacements (rounded and raw), hazard category, type and sub-type, event codes (e.g. GLIDE), event ID and whether displacement occurred or only pre-emptive evacuations were reported. HTTP 403 without client_id on 2026-10-04. The GIDD web page has no button for this export, so it is acquired only once IDMC issues our key.", "discover": null, "format": "xlsx", "id": "gidd-disaster-events", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/disasters/disaster-export/?release_environment=RELEASE&start_year=2008&end_year=2025"}
+        {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": "client_id", "method": "GET"}, "content_key": null, "description": "GIDD annual export, one row per country and year, 2008-2025: Disaster Internal Displacements and Disaster Stock Displacement (rounded and raw), the same for conflict and violence, plus a README sheet and IDMC's notes on each figure. HTTP 403 without client_id on 2026-10-04. Until the API key arrives, a person opens the GIDD page (https://www.internal-displacement.org/database/displacement-data/), presses \"Excel\" under \"Annual displacement data\" (the same export, all years), and records the file with `uv run envdash snapshot add --source idmc-gidd --artifact gidd-displacements --file <path> --note \"<who> downloaded it from the GIDD page\"`.", "discover": null, "format": "xlsx", "id": "gidd-displacements", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/displacements/displacement-export/?release_environment=RELEASE&start_year=2008&end_year=2025"},
+        {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": "client_id", "method": "GET"}, "content_key": null, "description": "GIDD disaster export, one row per disaster event, 2008-2025: ISO3, country, year, event name, start date, Disaster Internal Displacements (rounded and raw), hazard category, type and sub-type, event codes (e.g. GLIDE), event ID and whether displacement occurred or only pre-emptive evacuations were reported. HTTP 403 without client_id on 2026-10-04. The GIDD web page has no button for this export, so it is acquired only once IDMC issues our key.", "discover": null, "format": "xlsx", "id": "gidd-disaster-events", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/disasters/disaster-export/?release_environment=RELEASE&start_year=2008&end_year=2025"}
       ],
       "citation": {
         "DOI": null,
@@ -3408,7 +3408,7 @@
         "terms_url": "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance"
       },
       "id": "nasa-ssh-gmsl",
-      "landing_url": "https://podaac.jpl.nasa.gov/dataset/NASA_SSH_GMSL_INDICATOR",
+      "landing_url": "https://www.earthdata.nasa.gov/data/catalog/pocloud-nasa-ssh-gmsl-indicator-1",
       "licence": {
         "name": "CC0 1.0 (NASA Earth science data default)",
         "spdx": "CC0-1.0",
@@ -4863,7 +4863,7 @@
     {
       "acquisition": "manual",
       "artifacts": [
-        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The English report (191 pages): Table 1 and Table 23 give global food waste in 2022 by sector (tonnes and kg per person per year); Annex 3 lists household estimates by country (M49 code, kg per person per year, tonnes per year, confidence). Country food service and retail tables are in the report's separate Appendix, which is not registered here. A person opens https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, downloads food_waste_index_report_2024.pdf (the English file, not the _PT or _SP translations), and records it with `uv run envdash snapshot add --source unep-food-waste-index-2024 --file food_waste_index_report_2024.pdf`. The snapshot recorded on 2026-10-05 (sha256 14d3955a9d58…, 26,521,890 bytes) is the Internet Archive capture of that producer URL made on 2024-03-28 (https://web.archive.org/web/20240328101605/https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf), the same capture the licence quote was read from; its manifest note says so.", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The English report (193 pages in UNEP's August 2024 re-save): Table 1 and Table 23 give global food waste in 2022 by sector (tonnes and kg per person per year); Annex 3 lists household estimates by country (M49 code, kg per person per year, tonnes per year, confidence). Country food service and retail tables are in the report's separate Appendix, which is not registered here. A person opens https://wedocs.unep.org/handle/20.500.11822/45230 in a web browser, chooses Download > English (food_waste_index_report_2024.pdf, not the _PT or _SP translations), and records it with `uv run envdash snapshot add --source unep-food-waste-index-2024 --artifact report-pdf --file food_waste_index_report_2024.pdf --note \"downloaded by <who> from https://wedocs.unep.org/handle/20.500.11822/45230\"`. The copy recorded on 2026-10-06 is 21,703,685 bytes with MD5 c673a628d92861c8c09f4d2bc3d492e5 (the repository's own checksum for the English file) and sha256 8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548; a different hash means UNEP has replaced the file, and the transform's page number must be checked again.", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
       ],
       "citation": {
         "DOI": null,
@@ -4883,17 +4883,17 @@
       },
       "description": "Estimates of food waste (food and associated inedible parts such as bones and peels) in 2022 at household, food service (out-of-home consumption) and retail level: global tonnes and kilograms per person per year, averages by income group and region, and household estimates by country with a confidence rating (many country values are extrapolated). SDG indicator 12.3.1b, with UNEP as custodian. The 2019 estimates of the 2021 report used different data and methods, so the two editions are not a trend.",
       "evidence": {
-        "checked_on": "2026-10-04",
+        "checked_on": "2026-10-06",
         "licence_quote": "This publication may be reproduced in whole or in part and in any form for educational or non-profit services without special permission from the copyright holder, provided acknowledgement of the source is made.",
         "terms_check": "manual",
-        "terms_url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf"
+        "terms_url": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download"
       },
       "id": "unep-food-waste-index-2024",
       "landing_url": "https://wedocs.unep.org/handle/20.500.11822/45230",
       "licence": {
         "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
         "spdx": null,
-        "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/45230/food_waste_index_report_2024.pdf"
+        "url": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download"
       },
       "licence_class": "noncommercial",
       "next_release": null,

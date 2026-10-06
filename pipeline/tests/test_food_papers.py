@@ -79,12 +79,27 @@ def test_unep_rows_and_numbers():
 
 
 @pytest.mark.snapshot
-def test_unep_table_is_on_page_64():
+def test_unep_table_is_on_page_66():
+    from envdash import textmatch
+
+    # UNEP's August 2024 re-save (193 pages) has Table 23 on PDF page 66; the March 2024 copy had it on page 64.
+    assert fw.PAGE == 66 and fw.LOCATOR == "Table 23, p. 46"
     files = _files([fw.REPORT])
     page = fw.page_text(files[fw.REPORT.key].path)
+    assert textmatch.contains(page, "46 | UNEP | Food Waste Index Report 2024")
+    assert "Total 132 1\xa0052" in page.splitlines()  # a no-break space groups the thousands
     fw.verify(page)
     with pytest.raises(fw.UnepTextError):
         fw.verify(page.replace("Retail 17 131", "Retail 17 113"))
+    # The same digits split between the columns another way: textmatch alone, which ignores spaces, would accept these.
+    for printed, moved in (
+        ("Household 79 631", "Household 796 31"),
+        ("Food service 36 290", "Food service 3 6290"),
+        ("Total 132 1\xa0052", "Total 13 21\xa0052"),
+    ):
+        assert textmatch.contains(page.replace(printed, moved), printed)
+        with pytest.raises(fw.UnepTextError, match="not found on PDF page 66"):
+            fw.verify(page.replace(printed, moved))
     for t in fw.transforms(Paths.default()):
         r = t.run(files)
         validate(t, r.observations)

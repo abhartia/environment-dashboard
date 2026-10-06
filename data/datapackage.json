@@ -1769,6 +1769,84 @@
       "title": "Food lost between harvest and retail (SDG 12.3.1a)"
     },
     {
+      "bytes": 1503,
+      "description": "How much food, including inedible parts such as bones and peels, was thrown away per person in 2022 by households, by restaurants, canteens and other food service, and by shops, in kilograms a year, as the global average estimated by UNEP's Food Waste Index Report 2024.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9c675896db9097e73d554128ce3eb3dd6ef6aa6e18c4fb8efdb49338738221ae",
+      "licenses": [
+        {"path": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download", "title": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food-waste.unep-fwi-2024.per-capita",
+      "path": "v1/indicators/food-waste.unep-fwi-2024.per-capita.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilograms per person per year (kg-per-capita-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "Sector", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://wedocs.unep.org/handle/20.500.11822/45230", "title": "United Nations Environment Programme (UNEP), with WRAP: Food Waste Index Report 2024"}
+      ],
+      "title": "Food wasted per person by households, food service and retail, world"
+    },
+    {
+      "bytes": 1431,
+      "description": "How much food, including inedible parts such as bones and peels, was thrown away in 2022 by households, by restaurants, canteens and other food service, and by shops, in million tonnes, as estimated by UNEP's Food Waste Index Report 2024.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c3c86fe3802f688116fe16b0fea9fd68d2d687468449230843763a3b3281d0f0",
+      "licenses": [
+        {"path": "https://wedocs.unep.org/bitstreams/5c6e505d-e1d3-4731-b5b8-4ecb9693a056/download", "title": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "food-waste.unep-fwi-2024.total",
+      "path": "v1/indicators/food-waste.unep-fwi-2024.total.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes (Mt)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "Sector", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://wedocs.unep.org/handle/20.500.11822/45230", "title": "United Nations Environment Programme (UNEP), with WRAP: Food Waste Index Report 2024"}
+      ],
+      "title": "Food wasted by households, food service and retail, world"
+    },
+    {
       "bytes": 586080,
       "description": "Greenhouse gas emissions from each country's food and farming system each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO with the same method for every country.",
       "dialect": {

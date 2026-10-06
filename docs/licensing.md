@@ -70,7 +70,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `idmc-gidd` | Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council | CC BY-NC-SA 3.0 IGO (IDMC API documentation; the export's own README states CC BY-NC) | noncommercial | yes | manual | 2026-10-04 (page) |
 | `jones-2025-national-contributions` | Jones et al. (University of East Anglia, CICERO and others) | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (page) |
 | `lancet-countdown-2025` | Lancet Countdown on Health and Climate Change (led by University College London) | CC BY-NC-SA 4.0 | noncommercial | yes | automatic | 2026-10-04 (page) |
-| `unep-food-waste-index-2024` | United Nations Environment Programme (UNEP), with WRAP | UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use) | noncommercial | no | manual | 2026-10-04 (manual) |
+| `unep-food-waste-index-2024` | United Nations Environment Programme (UNEP), with WRAP | UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use) | noncommercial | no | manual | 2026-10-06 (manual) |
 | `unsd-energy` | United Nations Statistics Division | UNSD terms of use (free redistribution with citation of UNSD, not for profit) | noncommercial | yes | automatic | 2026-10-04 (page) |
 | `climate-watch-ndc` | World Resources Institute (Climate Watch) | CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (api) |
 | `carbon-brief-attribution` | Carbon Brief | CC BY-NC-ND 4.0 | no-derivatives | no | automatic | 2026-10-04 (page) |

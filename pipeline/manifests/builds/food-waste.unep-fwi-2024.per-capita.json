@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/food-waste.unep-fwi-2024.per-capita.json",
+  "export_sha256": "4d55fd2d5deaffd8680685e916443ed2eebefd6cc9766858d25a42f3aafb936b",
+  "indicator_id": "food-waste.unep-fwi-2024.per-capita",
+  "key": "1d143fc6c974b86e5347a84d2a3e88c6e2351627a12c4e1ec663d8ac5c7b473e",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "unep-food-waste-index-2024/report-pdf": {
+        "manifest_sha256": "52cf5a050a9588ac2768beef10c1b19a1e17433d4199f58dec0884ca02f81c8b",
+        "sha256": "8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "unep-food-waste-index-2024": "ef54bb1675fb0c64c7c94d4154b0f89e570a50574cc11c45f7d28dab3ac93354"
+    },
+    "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
+  },
+  "publisher_checks": []
+}
