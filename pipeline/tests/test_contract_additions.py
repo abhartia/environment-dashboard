@@ -96,3 +96,9 @@ def test_csv_links_the_nested_page_path():
     from envdash.export import page_url
 
     assert page_url("co2.noaa-gml.monthly-mlo") == "https://environmentdashboard.org/data/co2/noaa-gml/monthly-mlo"
+
+
+def test_idmc_sends_its_key_as_the_client_id_query_parameter():
+    reg = load_registry(Paths.default())
+    arts = reg.sources["idmc-gidd"].artifacts
+    assert arts and all(a.access.auth_env == "IDMC_CLIENT_ID" and a.access.key_query == "client_id" for a in arts)

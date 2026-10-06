@@ -33,14 +33,13 @@ Both domains are registered at Moniker, use Moniker nameservers, and renew in Ap
 | Keychain service | What it is | Where it goes |
 |---|---|---|
 | `cloudflare-api-token-envdash-deploy` | API token: Account › Cloudflare Pages › Edit | GitHub secret `CLOUDFLARE_API_TOKEN` |
-| `cloudflare-api-token-envdash-admin` | API token: Zone › DNS Edit, Zone › Single Redirect Edit, Zone › Zone Settings Edit (both zones); Account › R2 Edit; Account › Cloudflare Pages Edit | Local only (one-time setup below) |
+| `cloudflare-api-token` | The owner's zone-scoped API token (DNS Edit and Zone Settings on both envdash zones, among the owner's other zones). It did the DNS, redirect and R2 setup; no separate envdash admin token was made | Local only |
 | `r2-envdash-access-key-id`, `r2-envdash-secret-access-key` | R2 S3 API token (Object Read & Write on both envdash buckets) | GitHub secrets `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` |
 
 The account ID is not secret. Store it as the repo variable `CLOUDFLARE_ACCOUNT_ID`.
 
 ```bash
 security add-generic-password -U -a "$USER" -s cloudflare-api-token-envdash-deploy -w '<token>' -j "Cloudflare Pages edit, environmentdashboard"
-security add-generic-password -U -a "$USER" -s cloudflare-api-token-envdash-admin -w '<token>' -j "Cloudflare DNS/redirects/R2 admin, environmentdashboard (local only)"
 security add-generic-password -U -a "$USER" -s r2-envdash-access-key-id -w '<id>' -j "R2 S3 key id, envdash buckets"
 security add-generic-password -U -a "$USER" -s r2-envdash-secret-access-key -w '<secret>' -j "R2 S3 secret, envdash buckets"
 ```
@@ -85,14 +84,18 @@ into the environment for a run only; none is a GitHub secret.
 | Keychain service | For | Environment variable |
 |---|---|---|
 | `archive-org-s3-access`, `archive-org-s3-secret` | Internet Archive Save Page Now (archive.org/account/s3.php) | `IA_ACCESS`, `IA_SECRET` |
-| `earthdata-envdash` | NASA Earthdata token (NASA-SSH sea level, GRACE) | `EARTHDATA_TOKEN` |
-| `eia-api-key` | US EIA API v2 | `EIA_API_KEY` |
+| `earthdata-envdash` | NASA Earthdata user token (NASA-SSH sea level). It lasts 60 days: the current one expires on 2026-12-05. Renew at urs.earthdata.nasa.gov › Generate Token, then store it again | `EARTHDATA_TOKEN` |
+| `eia-api-key` | US EIA API v2 (valid; no source needs it yet: eia-international uses the keyless bulk file) | `EIA_API_KEY` |
 | `gfw-api-key` | Global Forest Watch Data API | `GFW_API_KEY` |
-| `cmems-envdash` | Copernicus Marine (ocean pH) | `CMEMS_CREDENTIALS` |
+| `idmc-client-id` | IDMC GIDD API client_id, once IDMC issues it (sent as the client_id query parameter) | `IDMC_CLIENT_ID` |
 | `zenodo-envdash` | Zenodo token with `deposit:write`, `deposit:actions` | `ZENODO_TOKEN` |
+| `bing-webmaster-api-key` | Bing Webmaster Tools API key for the owner's whole Bing account (made for gigabiome; also used to add and verify environmentdashboard.org) | Local only |
+
+No source needs a Copernicus Marine login: ocean pH comes from HOT ALOHA.
 
 Also (owner), by email:
-- ch.datainfo@idmc.ch: request an IDMC API key. Until it arrives, IDMC is a manual source.
+- ch.datainfo@idmc.ch: request an IDMC API key. Until it arrives, IDMC is a manual source. When it does, store it as
+  `idmc-client-id`.
 - faostat@fao.org (not yet sent): ask which PRIMAP-hist version and terms apply to the non-farm items of Emissions
   totals (GT: Energy, IPPU, Waste, Other), which FAO's note says are PRIMAP-hist v2.4 (CC BY) while the October 2025
   values match v2.7 (CC BY-NC-SA); and whether the IEA and other third-party inputs behind pre- and post-production
@@ -113,8 +116,10 @@ Also (owner), by email:
 
 1. Make the repo public, after running gitleaks over the whole history.
 2. In Zenodo › GitHub, switch on `abhartia/environment-dashboard`, then cut release `v2026.10`.
-3. Add Search Console and Bing Webmaster properties for `https://environmentdashboard.org` (DNS TXT records) and
-   submit the sitemap.
+3. Add Search Console and Bing Webmaster properties for `https://environmentdashboard.org` and submit the sitemap.
+   Google verifies a Domain property with a TXT record at the apex (`google-site-verification=…`); Bing has no TXT
+   method and verifies with a CNAME (`<code>.environmentdashboard.org` → `verify.bing.com`, DNS only), or by import
+   from Search Console. Never remove either record: the property stops being verified.
 
 ## Day to day
 

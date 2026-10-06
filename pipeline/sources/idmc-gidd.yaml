@@ -16,9 +16,9 @@
 #   HDX lists the IDMC datasets as CC BY-IGO; that aggregator label is not used.
 # Access, checked 2026-10-04: every helix-tools-api export needs client_id as a query parameter. Without it the
 # endpoints return 403 {"detail":"Client is not registered."}. The key is requested by email (ch.datainfo@idmc.ch,
-# stating the use case, e.g. "Data sharing on external platforms"); see docs/runbook.md. fetch.py does not implement
-# auth "api-key" yet, so the source stays manual until the key exists and the fetcher appends client_id from
-# $IDMC_CLIENT_ID. The client_id embedded in IDMC's own website and in HDX links belongs to IDMC and is not used.
+# stating the use case, e.g. "Data sharing on external platforms"); see docs/runbook.md. The source stays manual until
+# the key exists; then the fetcher appends client_id from $IDMC_CLIENT_ID (Keychain item idmc-client-id), as
+# access.key_query says. The client_id embedded in IDMC's own website and in HDX links belongs to IDMC and is not used.
 # citation.text: the API documentation's citation, with "[date of access]" written as {date_accessed}.
 id: idmc-gidd
 title: Global Internal Displacement Database (GIDD)
@@ -79,10 +79,12 @@ artifacts:
       each figure. HTTP 403 without client_id on 2026-10-04. Until the API key arrives, a person opens the GIDD page
       (https://www.internal-displacement.org/database/displacement-data/), presses "Excel" under "Annual displacement
       data" (the same export, all years), and records the file with
-      `uv run envdash snapshot add --source idmc-gidd --file <path>`.
+      `uv run envdash snapshot add --source idmc-gidd --artifact gidd-displacements --file <path> --note "<who>
+      downloaded it from the GIDD page"`.
     access:
       auth: api-key
       auth_env: IDMC_CLIENT_ID
+      key_query: client_id
       conditional: false
   - id: gidd-disaster-events
     url: https://helix-tools-api.idmcdb.org/external-api/gidd/disasters/disaster-export/?release_environment=RELEASE&start_year=2008&end_year=2025
@@ -95,6 +97,7 @@ artifacts:
     access:
       auth: api-key
       auth_env: IDMC_CLIENT_ID
+      key_query: client_id
       conditional: false
 status:
   state: active

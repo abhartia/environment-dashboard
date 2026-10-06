@@ -12,17 +12,21 @@
 # Artifact checked 2026-10-04: CMR lists 78 granules; the undated NASA_SSH_GMSL_INDICATOR granule was revised
 # 2026-09-28T15:29Z and covers 1993-01-05 to 2026-09-22; the collection abstract says this file "is always the most
 # up-to-date time series". An unauthenticated GET returns HTTP 302 to urs.earthdata.nasa.gov (Earthdata Login), so the
-# fetch sends an Earthdata bearer token (Keychain item earthdata-envdash -> GitHub secret EARTHDATA_TOKEN, see
-# docs/runbook.md). An unauthenticated HEAD resolves through a 303 to the object store: HTTP 200, 70,286 bytes, ETag
-# "82a222d5bc9cf3ac67b1168d0348e3c5-1", Last-Modified 28 Sep 2026. The file's contents were not inspected because the
-# Keychain item does not exist yet; conditional GET through the login redirect is untested, so conditional: false.
+# fetch sends an Earthdata bearer token (Keychain item earthdata-envdash, exported as EARTHDATA_TOKEN for a local run;
+# see docs/runbook.md). An unauthenticated HEAD resolves through a 303 to the object store: HTTP 200, 70,286 bytes, ETag
+# "82a222d5bc9cf3ac67b1168d0348e3c5-1", Last-Modified 28 Sep 2026. The owner stored the token on 2026-10-06 (it expires
+# 2026-12-05) and the first keyed fetch succeeded that day; no transform reads the file yet. Conditional GET through the
+# login redirect is untested, so conditional: false.
 # The abstract also says the series is NOT adjusted for GIA, that a 60-day smoothed version is included, and that
 # "occasional improvements to data quality can result in mm level change in the historical portions".
 # citation.text: the PO.DAAC landing page's citation, verbatim, with [YYYY-MM-DD] filled by {date_accessed}.
 id: nasa-ssh-gmsl
 title: NASA-SSH global mean sea level from simple gridded sea surface height
 publisher: NASA Jet Propulsion Laboratory, Physical Oceanography Distributed Active Archive Center (PO.DAAC)
-landing_url: https://podaac.jpl.nasa.gov/dataset/NASA_SSH_GMSL_INDICATOR
+# landing_url, 2026-10-06: the dataset DOI (10.5067/NSIND-GMSV1) resolves to NASA's Earthdata catalogue page below
+# (HTTP 200). The former PO.DAAC page podaac.jpl.nasa.gov/dataset/NASA_SSH_GMSL_INDICATOR timed out for scripts and
+# the Internet Archive reported it as 404.
+landing_url: https://www.earthdata.nasa.gov/data/catalog/pocloud-nasa-ssh-gmsl-indicator-1
 description: >-
   Global mean sea level change (centimetres) as the area-weighted mean of NASA-SSH simple gridded sea surface height
   from the reference altimetry missions (TOPEX/Poseidon, the Jason series and Sentinel-6), every 7 days from January
