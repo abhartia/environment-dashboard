@@ -1,0 +1,13 @@
+{
+  "artifact_id": "candidate-countries",
+  "command": "uv run python tests/fixtures/make_fixture.py --source eurostat --artifact candidate-countries --whole",
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 69905,
+  "fixture_sha256": "3acc81b0b300b6faa64724b0a101a61e382265c2e1f85fad457de85c9b2f8071",
+  "full_bytes": 69905,
+  "full_sha256": "3acc81b0b300b6faa64724b0a101a61e382265c2e1f85fad457de85c9b2f8071",
+  "licence": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required",
+  "rows_kept": "the whole file (69,905 bytes)",
+  "source_id": "eurostat",
+  "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Candidate_countries"
+}

@@ -1,0 +1,13 @@
+{
+  "artifact_id": "nrg-ind-fecf-electricity",
+  "command": "uv run python tests/fixtures/make_fixture.py --source eurostat --artifact nrg-ind-fecf-electricity --whole",
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 19916,
+  "fixture_sha256": "40dddd7fe048083516ef6691b6b266fac034eb7ce4590693e14412eb2f484760",
+  "full_bytes": 19916,
+  "full_sha256": "40dddd7fe048083516ef6691b6b266fac034eb7ce4590693e14412eb2f484760",
+  "licence": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required",
+  "rows_kept": "the whole file (19,916 bytes)",
+  "source_id": "eurostat",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_fecf?format=JSON&lang=en&nrg_bal=FC_E&siec=E7000&unit=PC&geo=EU27_2020&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=LI&geo=NO&geo=CH&geo=AL&geo=BA&geo=GE&geo=MD&geo=ME&geo=MK&geo=RS&geo=TR&geo=UA"
+}

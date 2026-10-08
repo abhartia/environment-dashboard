@@ -1,0 +1,122 @@
+# Eurostat (European Commission): energy and R&D budget statistics from the dissemination API (JSON-stat 2.0).
+# Evidence: docs/research/sources-zero-levers-and-adaptation-2026-10-08.json, candidates "2. Electrify everything"
+# (item "Eurostat share of fuels in final energy consumption (nrg_ind_fecf), electricity") and "4. Innovation" (item
+# "Eurostat GBARD by socioeconomic objectives (gba_nabsfin07), NABS05 Energy").
+# Licence, read 2026-10-08 from the copyright notice (terms_url, GET 200 to the pipeline's client):
+#   - "Reuse of statistical data, metadata, publications, and other dissemination tools published on this website
+#     for commercial or non-commercial purposes is authorised provided the source is acknowledged. The reuse policy of
+#     the European Commission is implemented by the Decision of 12 December 2011." (Commission Decision 2011/833/EU).
+#   - Its exceptions: "The following Eurostat data and documents may not be reused for commercial purposes, but
+#     non-commercial reuse is possible without restriction: Data identified as belonging to sources other than
+#     Eurostat. ... Data for countries other than: Member States of the European Union (EU) Member States of the
+#     European Free Trade Association (EFTA) official EU acceding and candidate countries. Examples are data for the
+#     United States of America, Japan or China."
+#   - "When reuse involves translations of publications or modifications to the data or text, this must be stated
+#     clearly to the end user of the information. A disclaimer regarding the non-responsibility of Eurostat shall be
+#     included." (notice below).
+#   - How to cite a customised dataset: "Source: [Eurostat dataset datacode link], [access date]".
+# So that the class can be open, each query asks only for the EU27_2020 aggregate, the 27 member states, the four EFTA
+# states and the nine official candidate countries listed on Eurostat's glossary page (artifact candidate-countries,
+# read 2026-10-08: "At present there are nine official candidate countries": BA, ME, MD, MK, GE, AL, RS, TR, UA). The
+# full datasets also hold the United Kingdom, Kosovo, Russia, the United States, Japan and South Korea, which are
+# noncommercial under the exception and are not requested. The transforms stop on any other geo code, and re-read the
+# glossary page at every build. gba_nabsfin07 names "Eurostat; Organisation for Economic Cooperation and Development
+# (OECD)" as source institutions: the OECD collects the non-EU countries' GBARD, which are among those not requested.
+# The API answers without ETag or Last-Modified; the JSON carries "updated" (date of the data) and the dataset's DOI.
+id: eurostat
+title: Eurostat energy and R&D budget statistics
+publisher: Eurostat (European Commission)
+landing_url: https://ec.europa.eu/eurostat/web/main/data/database
+description: >-
+  Two Eurostat datasets, as published, for the EU and the European countries whose data Eurostat licenses for any
+  reuse. nrg_ind_fecf: the share of each fuel in final energy consumption (energy use only, excluding non-energy use
+  of fuels); here electricity (SIEC E7000), 1990 onwards, a ratio Eurostat computes from its energy balances.
+  gba_nabsfin07: government budget allocations for R&D (GBARD) by socio-economic objective (NABS 2007); here the
+  objective Energy (NABS05), in million euro at current prices, 2004 onwards. Energy is a socio-economic objective
+  covering every form of energy, so it includes research on fossil fuels and nuclear power as well as renewables and
+  efficiency: it is all energy R&D in government budgets, not clean-energy research alone. Eurostat's flags
+  (estimated, provisional, break in series, definition differs, confidential) are kept.
+citation:
+  type: dataset
+  title: Eurostat database (nrg_ind_fecf; gba_nabsfin07)
+  author:
+    - {literal: Eurostat}
+  issued: "2026"
+  publisher: European Commission
+  URL: https://ec.europa.eu/eurostat/web/main/data/database
+  # Eurostat's form for customised datasets ("Source: [Eurostat dataset datacode link], [access date]").
+  text: >-
+    Source: Eurostat, nrg_ind_fecf (https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_fecf/default/table) and
+    gba_nabsfin07 (https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table), accessed
+    {date_accessed}
+licence_class: open
+licence:
+  name: Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required
+  spdx: null
+  url: https://ec.europa.eu/eurostat/web/main/help/copyright-notice
+evidence:
+  terms_url: https://ec.europa.eu/eurostat/web/main/help/copyright-notice
+  licence_quote: >-
+    Reuse of statistical data, metadata, publications, and other dissemination tools published on this website for
+    commercial or non-commercial purposes is authorised provided the source is acknowledged.
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: >-
+    Source: Eurostat, nrg_ind_fecf (https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_fecf/default/table) and
+    gba_nabsfin07 (https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table), accessed
+    {date_accessed}.
+  attribution_modified: >-
+    Selected by Environment Dashboard from Eurostat, nrg_ind_fecf
+    (https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_fecf/default/table) and gba_nabsfin07
+    (https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table), accessed {date_accessed}.
+  notice: >-
+    Eurostat is not responsible for the use made of these data here. Values are Eurostat's as published; only the
+    countries Eurostat licenses for any reuse (EU, EFTA and candidate countries) are shown.
+  mirror_raw: true
+  # Copyright notice: "Logos and trademarks are excluded from the above mentioned general permission".
+  no_logo: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: 19,916 bytes, "updated" 2026-07-16; 39 geos (LI and CH are requested but have no data in
+  # this dataset), 1990-2024, no status flags.
+  - id: nrg-ind-fecf-electricity
+    url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_fecf?format=JSON&lang=en&nrg_bal=FC_E&siec=E7000&unit=PC&geo=EU27_2020&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=LI&geo=NO&geo=CH&geo=AL&geo=BA&geo=GE&geo=MD&geo=ME&geo=MK&geo=RS&geo=TR&geo=UA
+    format: json
+    description: >-
+      nrg_ind_fecf, JSON-stat 2.0: electricity (E7000) as a percentage of final energy consumption, energy use
+      (FC_E), annual, for the EU, its member states, EFTA and candidate countries.
+    access:
+      conditional: false
+  # GET 200 on 2026-10-08: 15,335 bytes, "updated" 2026-09-25; 38 geos (LI, GE and UA have no data), 2004-2026,
+  # status flags b, d, e, p and |C.
+  - id: gba-nabsfin07-energy
+    url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gba_nabsfin07?format=JSON&lang=en&nabs07=NABS05&unit=MIO_EUR&geo=EU27_2020&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=LI&geo=NO&geo=CH&geo=AL&geo=BA&geo=GE&geo=MD&geo=ME&geo=MK&geo=RS&geo=TR&geo=UA
+    format: json
+    description: >-
+      gba_nabsfin07, JSON-stat 2.0: government budget allocations for R&D for the socio-economic objective Energy
+      (NABS05), million euro, annual, for the EU, its member states, EFTA and candidate countries, with Eurostat's
+      status flags.
+    access:
+      conditional: false
+  # GET 200 on 2026-10-08: 69,905 bytes, Last-Modified Thu, 24 Sep 2026. Read at every build to confirm that the
+  # candidate countries requested above are still official candidates, so that their data stay under the general
+  # reuse permission.
+  - id: candidate-countries
+    url: https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Candidate_countries
+    format: html
+    description: >-
+      Statistics Explained glossary entry "Candidate countries", which lists the official EU candidate countries with
+      their Eurostat codes.
+status:
+  state: active
+  note: >-
+    nrg_ind_fecf is updated once a year with the energy balances (data to 2024, updated 16 July 2026); gba_nabsfin07
+    several times a year (updated 25 September 2026, provisional 2025 and 2026 budgets for some countries). Not a US
+    federal product.
+  us_federal: false
+update_cadence: Energy indicators yearly (early in the year and July); GBARD several times a year
+twins: [oecd-gbard]
+research_ref: >-
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#2. Electrify everything: electricity share of final
+  energy; #4. Innovation: public energy RD&D and venture funding

@@ -1,0 +1,13 @@
+{
+  "artifact_id": "gba-nabsfin07-energy",
+  "command": "uv run python tests/fixtures/make_fixture.py --source eurostat --artifact gba-nabsfin07-energy --whole",
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 15335,
+  "fixture_sha256": "74121b2c23401248782aaf25ab02fadbe36196e54565f906293b3e6a1f2fe37e",
+  "full_bytes": 15335,
+  "full_sha256": "74121b2c23401248782aaf25ab02fadbe36196e54565f906293b3e6a1f2fe37e",
+  "licence": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required",
+  "rows_kept": "the whole file (15,335 bytes)",
+  "source_id": "eurostat",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gba_nabsfin07?format=JSON&lang=en&nabs07=NABS05&unit=MIO_EUR&geo=EU27_2020&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=LI&geo=NO&geo=CH&geo=AL&geo=BA&geo=GE&geo=MD&geo=ME&geo=MK&geo=RS&geo=TR&geo=UA"
+}
