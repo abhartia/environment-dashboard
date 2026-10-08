@@ -1,0 +1,93 @@
+# Sacchi, Becattini, Gabrielli, Cox, Dirnaichner, Bauer & Mazzotti (2023), Nature Communications 14, 3989: the
+# levelised cost of synthetic (electricity-based) jet fuel for European aviation in 2030 and 2050 under a 2 °C and a
+# 3.5 °C climate scenario.
+# Evidence: docs/research/sources-zero-green-premium-papers-2026-10-08.json ("Sacchi et al. 2023 ..."); verdict
+# "use; trace the fossil comparator's origin". Green Premium work of 2026-10-08.
+# Checked 2026-10-08:
+#   - The article is read from its JATS XML on Europe PMC (PMC10326079, HTTP 200 application/xml, 204,287 bytes);
+#     the <license> element carries the licence quoted below. nature.com serves the same article.
+#   - The fossil comparator is NOT published. Methods, "Fuel supply": "The cost of conventional jet fuel is assumed to
+#     be 0.50 €/kg, corresponding to the average production cost in 2019", citing Becattini et al. (2021), Ind. Eng.
+#     Chem. Res. 60, 6848-6862 (doi:10.1021/acs.iecr.0c05392; ACS AuthorChoice CC BY-NC-ND). Becattini et al.'s
+#     version of record on the ETH Research Collection (handle 20.500.11850/489161) gives the value as "jet fuel
+#     production €/tJF 502" in its Table 1, citing its ref. 12: International Energy Agency, "Production cost and
+#     break-even crude oil price for SAFs compared with fossil jet kerosene, 2019" (an iea.org chart, accessed
+#     2020-06-09). The value is therefore a third party's 2019 production cost taken as an input, not a cost this
+#     study computes on the basis of its synthetic fuel costs (2030 and 2050, by scenario). The indicator publishes the
+#     synthetic fuel costs and states "no fossil comparator" for the conventional side.
+#   - Table 4's other row (levelised cost of hydrogen) is an intermediate and is not published.
+id: sacchi-2023
+title: Levelised cost of synthetic jet fuel for European aviation (Sacchi et al. 2023)
+publisher: >-
+  Romain Sacchi, Viola Becattini, Paolo Gabrielli, Brian Cox, Alois Dirnaichner, Christian Bauer and Marco Mazzotti
+  (Paul Scherrer Institut, ETH Zurich, INFRAS and the Potsdam Institute for Climate Impact Research); published in Nature Communications
+landing_url: https://doi.org/10.1038/s41467-023-39749-y
+description: >-
+  A life-cycle and cost assessment of how European aviation (flights departing from the EU-27 and EFTA countries)
+  could reach climate neutrality. Table 4 gives the levelised cost of synthetic jet fuel made from hydrogen and CO2
+  (Fischer-Tropsch), in euros per kilogram of jet fuel, for 2030 and 2050 under a 2 °C and a 3.5 °C climate scenario,
+  with electricity costs from the REMIND model and learning rates for direct air capture and electrolysis. Projections;
+  the currency year is not stated.
+citation:
+  type: article-journal
+  title: How to make climate-neutral aviation fly
+  author:
+    - {family: Sacchi, given: Romain}
+    - {family: Becattini, given: Viola}
+    - {family: Gabrielli, given: Paolo}
+    - {family: Cox, given: Brian}
+    - {family: Dirnaichner, given: Alois}
+    - {family: Bauer, given: Christian}
+    - {family: Mazzotti, given: Marco}
+  issued: "2023-07-06"
+  publisher: Springer Nature
+  container-title: Nature Communications
+  volume: "14"
+  page: "3989"
+  DOI: 10.1038/s41467-023-39749-y
+  URL: https://doi.org/10.1038/s41467-023-39749-y
+  # "Cite this article" on nature.com.
+  text: >-
+    Sacchi, R., Becattini, V., Gabrielli, P. et al. How to make climate-neutral aviation fly. Nat Commun 14, 3989
+    (2023). https://doi.org/10.1038/s41467-023-39749-y
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10326079/fullTextXML
+  licence_quote: >-
+    This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use,
+    sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit
+    to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes
+    were made.
+  checked_on: 2026-10-08
+  terms_check: api
+obligations:
+  attribution: >-
+    Sacchi, R., Becattini, V., Gabrielli, P., Cox, B., Dirnaichner, A., Bauer, C. & Mazzotti, M. (2023). How to make
+    climate-neutral aviation fly. Nature Communications 14, 3989. doi:10.1038/s41467-023-39749-y. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Sacchi, R., Becattini, V., Gabrielli, P., Cox, B., Dirnaichner, A., Bauer, C.
+    & Mazzotti, M. (2023). How to make climate-neutral aviation fly. Nature Communications 14, 3989.
+    doi:10.1038/s41467-023-39749-y. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-xml
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10326079/fullTextXML
+    format: xml
+    description: >-
+      The article's full text and tables as JATS XML from Europe PMC (PMC10326079). Table 4: levelised costs of
+      hydrogen and of synthetic jet fuel for 2030 and 2050 in the 2 °C and 3.5 °C scenarios.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published once on 6 July 2023 (volume 14); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2023)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-papers-2026-10-08.json#Sacchi et al. 2023, Nature Communications 14:3989,
+  doi 10.1038/s41467-023-39749-y

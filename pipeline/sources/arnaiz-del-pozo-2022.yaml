@@ -1,0 +1,90 @@
+# Arnaiz del Pozo & Cloete (2022), Energy Conversion and Management 255, 115312: the levelised cost of ammonia from
+# conventional plants with and without CO2 capture, an advanced blue plant (gas switching reforming) and green
+# ammonia from wind and solar power, all with the same ammonia synthesis loop and the same cost method.
+# Evidence: docs/research/sources-zero-green-premium-papers-2026-10-08.json ("Arnaiz del Pozo & Cloete 2022 ...");
+# verdict "use; best same-basis pair". Green Premium work of 2026-10-08.
+# Checked 2026-10-08:
+#   - Crossref (api.crossref.org/works/10.1016/j.enconman.2022.115312) lists http://creativecommons.org/licenses/by/4.0/
+#     for the version of record.
+#   - ScienceDirect does not serve scripts, so the article is read from the copy on the Universidad Politécnica de
+#     Madrid's repository (oa.upm.es record 86025). That file is Elsevier's typeset version of record: pdfinfo gives
+#     Creator "Elsevier", Subject "Energy Conversion and Management, 255 (2022) 115312.
+#     doi:10.1016/j.enconman.2022.115312", 17 pages, and page 1 carries the journal header and the licence line quoted
+#     below. HTTP 200 application/pdf, 5,296,008 bytes, sha256
+#     9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387, ETag 37874cf7be3901dfcdab26f5ec2f1476,
+#     Last-Modified 14 Jan 2025; two downloads gave the same bytes.
+#   - What is used: the levelised costs the article states in its abstract and its summary (section 4), each checked
+#     word for word against the PDF's text. The cost inputs (Tables 3 to 5) are the authors' own assumptions; no
+#     value is attributed to a price vendor.
+id: arnaiz-del-pozo-2022
+title: Levelised cost of blue and green ammonia (Arnaiz del Pozo & Cloete 2022)
+publisher: >-
+  Carlos Arnaiz del Pozo (Universidad Politécnica de Madrid) and Schalk Cloete (SINTEF Industry); published in Energy
+  Conversion and Management (Elsevier)
+landing_url: https://doi.org/10.1016/j.enconman.2022.115312
+description: >-
+  A techno-economic assessment of ammonia production. Two conventional natural-gas plants with CO2 capture (the KBR
+  Purifier process and the Linde Ammonia Concept), the KBR plant without capture, an advanced blue plant (gas
+  switching reforming, GSR) and an optimised green plant (wind and solar power, electrolysers, storage) share one
+  ammonia synthesis loop and one cash-flow method, which gives the levelised cost of ammonia in euros per tonne
+  (2020 euros, Western Europe cost basis). The natural-gas plants are costed at European energy prices with a CO2 tax
+  of 100 euros per tonne; the green plants use technology costs for 2050 in northern Germany, southern Spain and Saudi
+  Arabia. A modelled comparison, not market prices.
+citation:
+  type: article-journal
+  title: Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future
+  author:
+    - {family: Arnaiz del Pozo, given: Carlos}
+    - {family: Cloete, given: Schalk}
+  issued: "2022-02-05"
+  publisher: Elsevier
+  container-title: Energy Conversion and Management
+  volume: "255"
+  page: "115312"
+  DOI: 10.1016/j.enconman.2022.115312
+  URL: https://doi.org/10.1016/j.enconman.2022.115312
+  # The journal line on the article's first page, with the DOI.
+  text: >-
+    Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in
+    a low-carbon future. Energy Conversion and Management 255, 115312. https://doi.org/10.1016/j.enconman.2022.115312
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://oa.upm.es/86025/3/86025.pdf
+  licence_quote: >-
+    © 2022 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license (
+    http://creativecommons.org/licenses/by/4.0/).
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  attribution: >-
+    Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in
+    a low-carbon future. Energy Conversion and Management 255, 115312. doi:10.1016/j.enconman.2022.115312. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue
+    and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312.
+    doi:10.1016/j.enconman.2022.115312. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-pdf
+    url: https://oa.upm.es/86025/3/86025.pdf
+    format: pdf
+    description: >-
+      Version of record (17 pages) as deposited on the Universidad Politécnica de Madrid repository (oa.upm.es record
+      86025). The abstract and section 4 (pages 14-15) state the levelised cost of ammonia of every plant; Tables 3 to
+      5 (pages 8-9) give the cost basis (Western Europe, 2020 euros), the economic assumptions (natural gas 6.5 €/GJ,
+      electricity 60 €/MWh, CO2 tax 100 €/ton, discount rate 8%, 25-year life) and the regional assumptions.
+      5,296,008 bytes.
+status:
+  state: archived
+  note: Published once (available online 5 February 2022; volume 255, March 2022); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2022)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-papers-2026-10-08.json#Arnaiz del Pozo & Cloete 2022, Energy Conversion and
+  Management 255:115312, doi 10.1016/j.enconman.2022.115312

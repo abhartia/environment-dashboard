@@ -1,0 +1,15 @@
+{
+  "artifact_id": "article-pdf",
+  "command": "uv run python tests/fixtures/make_fixture.py --source siegrist-2024 --artifact article-pdf --first 1000000 --last 0",
+  "data_rows_total": 50758,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6294590,
+  "fixture_sha256": "255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e",
+  "full_bytes": 6294590,
+  "full_sha256": "255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 50758 data rows",
+  "source_id": "siegrist-2024",
+  "url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/f05ee96a-2609-4502-8e74-a2e94de5e534/content"
+}

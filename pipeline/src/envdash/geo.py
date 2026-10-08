@@ -113,6 +113,11 @@ AGGREGATES: dict[str, str] = {
     # and the recipients of the international public adaptation finance it tracks (non-Annex I Parties to the
     # UNFCCC, per its online annex 4.B). UNEP publishes no member list, so no memberships are declared.
     "UNEP_AGR_DEV": "Developing countries (as grouped by UNEP's Adaptation Gap Report)",
+    # Studies that cost something "in Europe" without a list of countries: Arnaiz del Pozo & Cloete (2022) price their
+    # ammonia plants at "European energy prices" on a Western Europe cost basis, and Sacchi et al. (2023) cost
+    # synthetic jet fuel with European electricity for flights from the EU-27 and EFTA. Each indicator's scope says
+    # which Europe it is; this is not a membership list.
+    "EUR_STUDY": "Europe (as the study cited defines it)",
 }
 
 STATIONS: dict[str, str] = {

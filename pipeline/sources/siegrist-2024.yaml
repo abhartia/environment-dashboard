@@ -1,0 +1,96 @@
+# Siegrist, Green, Michel & Mathys (2024), Food Research International 197, 115213: nutrition and prices of almost
+# 2,600 meat and milk substitutes and about 7,500 conventional products in the web shops of 13 supermarket chains in
+# France, Germany, Italy, the Netherlands, Spain and the UK (August and September 2023).
+# Evidence: docs/research/sources-zero-green-premium-papers-2026-10-08.json ("Siegrist et al. 2024 ..."); verdict
+# "quoted range". Green Premium work of 2026-10-08.
+# Checked 2026-10-08:
+#   - ScienceDirect does not serve scripts. The article is read from the version of record on the ETH Zurich Research
+#     Collection (doi:10.3929/ethz-b-000701817; DSpace metadata ethz.version.deposit "publishedVersion",
+#     dc.rights.license "Creative Commons Attribution 4.0 International"; bitstream 1-s2.0-S0963996924012833-main.pdf,
+#     6,252,266 bytes as stored, MD5 4a3013f7e5870761f64503e78de731d3). Its second page is Elsevier's first page with
+#     the licence line quoted below.
+#   - The repository adds a cover page "generated automatically upon download", with the download time in the PDF's
+#     CreationDate, so every download has different bytes (6,294,590 bytes on 2026-10-08; two downloads gave two
+#     sha256 values). Fetching it on a schedule would record a new snapshot each time, so the source is manual: one
+#     download is recorded with envdash snapshot add and kept.
+#   - The prices are the authors' own collection from the retailers' web shops ("collected manually and
+#     semiautomatically from web shops of 13 major retailers"); no price vendor is involved.
+#   - What is used: the two per-country price ratios the text states (p. 6: Germany 0.95, Spain 2.15). The abstract's
+#     range "24 to 115 % more expensive" and the text's "between 1.24 and 1.46" for the four other countries are
+#     joint statements for several countries and are quoted, not published as values. The per-country ratios for
+#     France, Italy, the Netherlands and the UK are in the supplementary material, which is on ScienceDirect only.
+id: siegrist-2024
+title: Prices of meat substitutes relative to meat in six European countries (Siegrist et al. 2024)
+publisher: >-
+  Armin Siegrist, Ashley Green, Fabienne Michel and Alexander Mathys (ETH Zurich); published in Food Research
+  International (Elsevier)
+landing_url: https://doi.org/10.1016/j.foodres.2024.115213
+description: >-
+  Prices per kilogram, main ingredients and nutrition of almost 2,600 meat and milk substitutes, and prices of about
+  7,500 conventional meat and milk products, collected from the web shops of 13 major supermarket chains in France,
+  Germany, Italy, the Netherlands, Spain and the United Kingdom in August and September 2023. For meat, the price
+  ratio of substitutes to conventional products is averaged within each product category and weighted by the number
+  of substitutes in each category, by country.
+citation:
+  type: article-journal
+  title: >-
+    Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across
+    six European countries
+  author:
+    - {family: Siegrist, given: Armin}
+    - {family: Green, given: Ashley}
+    - {family: Michel, given: Fabienne}
+    - {family: Mathys, given: Alexander}
+  issued: "2024-10-23"
+  publisher: Elsevier
+  container-title: Food Research International
+  volume: "197"
+  page: "115213"
+  DOI: 10.1016/j.foodres.2024.115213
+  URL: https://doi.org/10.1016/j.foodres.2024.115213
+  text: >-
+    Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and
+    milk substitutes with their animal-based benchmarks across six European countries. Food Research International
+    197, 115213. https://doi.org/10.1016/j.foodres.2024.115213
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.research-collection.ethz.ch/server/api/core/bitstreams/f05ee96a-2609-4502-8e74-a2e94de5e534/content
+  licence_quote: >-
+    © 2024 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license
+    (http://creativecommons.org/licenses/by/4.0/).
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  attribution: >-
+    Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and milk
+    substitutes with their animal-based benchmarks across six European countries. Food Research International 197,
+    115213. doi:10.1016/j.foodres.2024.115213. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the
+    nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European
+    countries. Food Research International 197, 115213. doi:10.1016/j.foodres.2024.115213. CC BY 4.0.
+  mirror_raw: true
+acquisition: manual
+artifacts:
+  - id: article-pdf
+    url: https://www.research-collection.ethz.ch/server/api/core/bitstreams/f05ee96a-2609-4502-8e74-a2e94de5e534/content
+    format: pdf
+    description: >-
+      Version of record from the ETH Zurich Research Collection (doi:10.3929/ethz-b-000701817), 12 pages: the
+      repository's cover page, then the article's 11 pages. The URL answers scripted requests, but each download
+      carries a new cover page, so a person records one copy with
+      uv run envdash snapshot add --source siegrist-2024 --artifact article-pdf --file <path>.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published once (available online 23 October 2024; volume 197, December 2024); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2024)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-papers-2026-10-08.json#Siegrist et al. 2024, Food Research International
+  197:115213 (CC BY 4.0, ETH repository 10.3929/ethz-b-000701817)
