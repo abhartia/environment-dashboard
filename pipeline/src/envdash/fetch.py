@@ -32,7 +32,8 @@ USER_AGENT = (
     "EnvironmentDashboard-pipeline/0.1 (+https://environmentdashboard.org; "
     "https://github.com/abhartia/environment-dashboard)"
 )
-TERMS_MAX_BYTES = 20_000_000
+# Large enough for a report whose own colophon is the terms (iea-etp-2026's PDF is 33.2 MB).
+TERMS_MAX_BYTES = 40_000_000
 ATTEMPTS = 3
 BACKOFF_SECONDS = (2.0, 6.0)
 

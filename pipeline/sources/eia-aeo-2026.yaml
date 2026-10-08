@@ -1,0 +1,97 @@
+# US Energy Information Administration, "Levelized Costs of New Generation Resources in the Annual Energy Outlook
+# 2026" (April 2026): the report and its figure-data workbook.
+# Evidence: docs/research/sources-zero-green-premium-2026-10-08.json (candidate rank 1), re-checked 2026-10-08.
+# Licence: EIA "Copyrights and Reuse" page (the same terms as eia-international; a HEAD request gets an Akamai 503, so
+# the weekly check uses GET). Every table of the workbook carries the line "Data source: U.S. Energy Information
+# Administration, Annual Energy Outlook 2026" (NEMS model output); no third-party data is credited.
+# citation.text is EIA's requested acknowledgement form, verbatim apart from the date: the page's example is
+# "Source: U.S. Energy Information Administration (Oct 2008)." The report's cover is dated April 2026.
+# Why this source: it is the only open, downloadable table found that puts new clean and new fossil power plants on
+# one basis (same model, online year 2031, 25 supply regions, 2025 dollars, 30-year cost recovery, after-tax WACC of
+# 7.27%), before and after US tax credits. EIA itself warns (report p. 5) that "Direct comparisons of LCOE or LCOS
+# across technologies are misleading as a method to assess the economic competitiveness", so the site shows the rows
+# side by side with that caveat and computes no difference between them.
+id: eia-aeo-2026
+title: Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026
+publisher: U.S. Energy Information Administration
+landing_url: https://www.eia.gov/outlooks/aeo/electricity_generation/index.php
+description: >-
+  EIA's estimates of the levelised cost of electricity (LCOE) and of storage (LCOS) for new power plants entering
+  service in 2031 in the AEO2026 Counterfactual Baseline case, in 2025 dollars per megawatt-hour: advanced nuclear,
+  biomass, natural gas combined-cycle with and without carbon capture, geothermal, offshore and onshore wind,
+  hydroelectric, solar photovoltaic (standalone and with a battery), combustion turbines and battery storage. Each is
+  given as a simple average of the 25 US electricity supply regions and, where new capacity is built in 2031, a
+  capacity-weighted average; with the regional minimum and maximum; before tax credits ("Total system LCOE") and
+  including the levelised tax credit and the 45Q captured-carbon credit as modified by the One Big Beautiful Bill Act
+  of 2025. Laws and regulations effective as of December 2025 only. These are model projections of the cost to build
+  and run a plant, not of the value of its output to the grid (EIA pairs them with the levelised avoided cost, LACE),
+  and plants run at different capacity factors (combined-cycle 40%, with carbon capture 87%).
+citation:
+  type: report
+  title: Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026
+  author:
+    - {literal: U.S. Energy Information Administration}
+  issued: "2026-04"
+  publisher: U.S. Energy Information Administration
+  URL: https://www.eia.gov/outlooks/aeo/electricity_generation/index.php
+  text: "Source: U.S. Energy Information Administration (Apr 2026)."
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://www.eia.gov/about/copyrights_reuse.php
+  licence_quote: >-
+    U.S. government publications are in the public domain and are not subject to copyright protection. You may use
+    and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that
+    are on our website or that you receive through our email distribution service.
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: "Source: U.S. Energy Information Administration (Apr 2026)."
+  attribution_modified: >-
+    Selected by Environment Dashboard from U.S. Energy Information Administration, Levelized Costs of New Generation
+    Resources in the Annual Energy Outlook 2026 (Apr 2026).
+  mirror_raw: true
+  # Same page: "The EIA logo is a registered trademark ... and may not be used without the expressed consent of the
+  # U.S. Energy Information Administration."
+  no_logo: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: 675,530 bytes, Last-Modified Tue, 31 Mar 2026 14:51:32 GMT, ETag "032fcdc1dc1dc1:0",
+  # sha256 e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10. The file name carries no edition: EIA
+  # overwrites it with each AEO, so the transform checks the AEO2026 titles on every build.
+  - id: lcoe-figures
+    url: https://www.eia.gov/outlooks/aeo/electricity_generation/xls/LCOE-LCOS-LACE_figures.xlsx
+    format: xlsx
+    description: >-
+      LCOE-LCOS-LACE_figures.xlsx, the data behind the report's figures, nine sheets. Read: "lcoe-components"
+      (average LCOE and LCOS by component, before and including tax credits, with capacity factors) and
+      "lcoe-regional" (regional minimum, simple average, capacity-weighted average and maximum, without and with tax
+      credits).
+  # GET 200 on 2026-10-08: 485,982 bytes, 15 pages, cover "April 2026"; sha256
+  # 8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad. Unversioned name, as above.
+  - id: lcoe-report
+    url: https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf
+    format: pdf
+    description: >-
+      The report (15 slides). Page 8 labels each technology's average LCOE including tax credits, which the build
+      checks against the workbook; page 3 states the cost recovery period and WACC; page 6 the warning against direct
+      comparisons across technologies.
+status:
+  state: at-risk
+  note: >-
+    AEO2026 was published in April 2026. EIA lost more than 100 of its about 350 staff in 2025 and cancelled the 2025
+    International Energy Outlook (see eia-international); every pull is archived.
+  us_federal: true
+update_cadence: Annual, with each Annual Energy Outlook (spring)
+next_release:
+  expected: 2027-05-31
+  note: >-
+    No date announced for AEO2027. AEO2026 appeared in April 2026; 31 May 2027 is the date by which to check, not an
+    announced date. A new edition overwrites the same file names.
+twins: [desnz-generation-costs-2025]
+research_ref: >-
+  docs/research/sources-zero-green-premium-2026-10-08.json#US EIA, Levelized Costs of New Generation Resources in the
+  Annual Energy Outlook 2026 (April 2026), figure data workbook

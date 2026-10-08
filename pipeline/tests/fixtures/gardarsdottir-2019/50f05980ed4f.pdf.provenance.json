@@ -1,0 +1,15 @@
+{
+  "artifact_id": "article-pdf",
+  "command": "uv run python tests/fixtures/make_fixture.py --source gardarsdottir-2019 --artifact article-pdf --first 1000000 --last 0",
+  "data_rows_total": 16258,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 2108286,
+  "fixture_sha256": "50f05980ed4f097af1655f3a9160d32c188e11558188f55dfca2a1295b24b94d",
+  "full_bytes": 2108286,
+  "full_sha256": "50f05980ed4f097af1655f3a9160d32c188e11558188f55dfca2a1295b24b94d",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 16258 data rows",
+  "source_id": "gardarsdottir-2019",
+  "url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/b427f6c2-8368-4a12-b35c-80c1661bbc95/content"
+}
