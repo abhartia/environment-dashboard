@@ -1,0 +1,13 @@
+{
+  "artifact_id": "projects-json",
+  "command": "uv run python tests/fixtures/make_fixture.py --source iea-ccus-projects --artifact projects-json --whole",
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 81098,
+  "fixture_sha256": "d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035",
+  "full_bytes": 81098,
+  "full_sha256": "d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035",
+  "licence": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+  "rows_kept": "the whole file (81,098 bytes)",
+  "source_id": "iea-ccus-projects",
+  "url": "https://iea.blob.core.windows.net/scripts/ccus-projects-database/data/projects.json"
+}

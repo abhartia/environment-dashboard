@@ -1,0 +1,109 @@
+# Net Zero Tracker: the dataset behind the Net Zero Stocktake 2025, deposited on Zenodo by the Tracker's own team.
+# Evidence: docs/research/sources-zero-levers-and-adaptation-2026-10-08.json, candidates "1. From 51 billion to zero:
+# net-zero targets", item "Net Zero Tracker – Net Zero Stocktake 2025 underlying dataset (Zenodo)".
+# Licence, read 2026-10-08. The producer's two statements disagree:
+#   - The Tracker's data terms (https://zerotracker.net/data-terms-of-use, page dated 26 FEB 2025, GET 200 to the
+#     pipeline's client) say "Net Zero Tracker datasets are licensed under the Attribution-NonCommercial 4.0
+#     International (CC BY-NC 4.0) license." and "The Current Snapshot dataset was available for download under a CC
+#     BY 4.0 license up until 2 December 2024." (quoted below).
+#   - The Zenodo record (https://zenodo.org/api/records/17143240, deposited 17 September 2025 by Helen Tatlow, Diego
+#     Manya and Denise Siu, who lead the Tracker's data update) gives "license": {"id": "cc-by-4.0"}.
+#   Owner decision (2026-10-08): where a producer's website and its own Zenodo deposit disagree, use the stricter
+#   class. So this entry is noncommercial, CC BY-NC 4.0, until the Tracker confirms which applies.
+# What is used, and what is not:
+#   - Only the target fields of rows with Entity_type "Country" (198 rows, the European Union among them as EUU):
+#     End_target, End_target_year, Status_of_end_target, Date_of_last_status_update, and the Tracker's own flags
+#     data_is_nzt and "No target at all".
+#   - Not used: the context columns GDP, Population, GHG_emissions, "GDP PPP 2021", GHG_Country_2019 and "Pop (2021
+#     for countries)". The Tracker's methodology page says national emissions come from "the ClimateWatch CAIT
+#     dataset (2021)", whose fuel-combustion values are the IEA's; GDP comes from the World Bank. No share of world
+#     emissions, GDP or population covered by targets is computed (the Stocktake's 74%, 77% and 79% are the report's
+#     own, from a method the file cannot reproduce).
+#   - mirror_raw false: the raw CSV carries those third-party columns.
+# The file is cp1252-encoded, 8,534,432 bytes, md5 68515520c574f51bf5d69af4d493ca57 (as the Zenodo record lists it),
+# sha256 fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b. Zenodo's record JSON is not registered: it
+# carries view and download counts that change daily, so its bytes would be a new snapshot each week.
+# The live Current Snapshot on zerotracker.net is behind a form with Google reCAPTCHA; it is not fetched.
+id: net-zero-tracker-2025
+title: Net Zero Stocktake 2025 dataset
+publisher: Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero)
+landing_url: https://zenodo.org/records/17143240
+description: >-
+  The Net Zero Tracker's record of net zero and other end targets for 4,083 entities (198 national governments
+  including the European Union, 712 regions, 1,186 cities and 1,987 companies), as collected for the Net Zero
+  Stocktake 2025: each target's type, year, legal status (in law, in a policy document, a declaration or pledge,
+  proposed or in discussion, or achieved by the entity's own account), interim targets, coverage and plans. Coded by
+  the Tracker's volunteer coders from public documents and checked by a second coder. Only the national target fields
+  are used here.
+citation:
+  type: dataset
+  title: Net Zero Stocktake 2025
+  author:
+    - {family: Tatlow, given: Helen}
+    - {family: Manya, given: Diego}
+    - {family: Siu, given: Denise}
+  issued: "2025-09-17"
+  publisher: Zenodo
+  DOI: 10.5281/zenodo.17143240
+  URL: https://zenodo.org/records/17143240
+  # The Tracker's methodology page ("If you choose to use Net Zero Tracker data ... please cite as follows: For
+  # media:"), verbatim, followed by the deposit.
+  text: >-
+    Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net
+    Zero. 2026. Dataset: Tatlow, H., Manya, D. and Siu, D. (2025), Net Zero Stocktake 2025, Zenodo,
+    https://doi.org/10.5281/zenodo.17143240
+licence_class: noncommercial
+licence:
+  name: CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0)
+  spdx: CC-BY-NC-4.0
+  url: https://creativecommons.org/licenses/by-nc/4.0/
+evidence:
+  terms_url: https://zerotracker.net/data-terms-of-use
+  licence_quote: >-
+    Net Zero Tracker datasets are licensed under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+    license. This Creative Commons license allows users to share, adapt and build upon the data, provided they meet
+    the following conditions: Attribution (BY): The Net Zero Tracker must be credited in any copies or adaptations.
+    NonCommercial (NC): The work cannot be used for commercial purposes.
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: >-
+    Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net
+    Zero. Net Zero Stocktake 2025 dataset (Zenodo, doi:10.5281/zenodo.17143240). CC BY-NC 4.0.
+  attribution_modified: >-
+    Counted by Environment Dashboard from Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven
+    EnviroLab, NewClimate Institute, Oxford Net Zero. Net Zero Stocktake 2025 dataset (Zenodo,
+    doi:10.5281/zenodo.17143240). CC BY-NC 4.0.
+  notice: >-
+    Net Zero Tracker data are shared under CC BY-NC 4.0, for non-commercial use only; the Tracker's Zenodo deposit
+    labels the same file CC BY 4.0, and the stricter terms are followed until the Tracker confirms which applies.
+  mirror_raw: false
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08 (Zenodo answers the /content URL with the file itself). No ETag reuse is assumed.
+  - id: stocktake-2025-csv
+    url: https://zenodo.org/api/records/17143240/files/Data_finalised_for_Zenodo_16_09(Sheet1).csv/content
+    format: csv
+    description: >-
+      Data_finalised_for_Zenodo_16_09(Sheet1).csv: one row per entity (4,083), cp1252-encoded, with the target
+      fields, the Tracker's analysis flags (data_is_nzt, "No target at all", end-target year bands, "4P" criteria) and
+      GDP, population and emissions context columns. About 8.5 MB.
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    A fixed deposit for the Net Zero Stocktake 2025 (data collection to September 2025). The Tracker publishes a new
+    stocktake about once a year, with its dataset on Zenodo; a new deposit needs a new registry entry. Not a US federal
+    product.
+  us_federal: false
+update_cadence: Annual stocktake (the live tracker updates every four hours, but only behind a reCAPTCHA form)
+next_release:
+  expected: 2026-10-31
+  note: >-
+    The 2023, 2024 and 2025 stocktakes were published in September or October, each with a Zenodo deposit (records
+    8021261, 13768013, 17143240). None for 2026 was found on 2026-10-08, so the end of October is a guess to look
+    again, not an announced date.
+twins: []
+research_ref: >-
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#1. From 51 billion to zero: net-zero targets

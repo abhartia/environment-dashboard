@@ -1,0 +1,15 @@
+{
+  "artifact_id": "gbard-energy-usd-ppp-2020",
+  "command": "uv run python tests/fixtures/make_fixture.py --source oecd-gbard --artifact gbard-energy-usd-ppp-2020 --first 40 --last 90",
+  "data_rows_total": 1388,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 46290,
+  "fixture_sha256": "4bab32be2618803d63b7587b66ff5cb6e2d6ac6ed55ec803e0f006f546535d7b",
+  "full_bytes": 463563,
+  "full_sha256": "287c3682513fee8db943825a37276cffc9bd82fcd75e10ef91346cf0bdc4781e",
+  "header_lines": 1,
+  "licence": "OECD Terms and Conditions, section 3 Data (any use, with credit)",
+  "rows_kept": "data rows 1-40 and 1299-1388 of 1388",
+  "source_id": "oecd-gbard",
+  "url": "https://sdmx.oecd.org/public/rest/data/OECD.STI.STP,DSD_RDS_GOV@DF_GBARD_NABS07,1.0/.A.C.NABS05._T._Z.USD_PPP.Q?format=csvfilewithlabels"
+}

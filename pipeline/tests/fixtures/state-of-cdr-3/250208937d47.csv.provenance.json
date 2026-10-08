@@ -1,0 +1,15 @@
+{
+  "artifact_id": "chapter-7-csv",
+  "command": "uv run python tests/fixtures/make_fixture.py --source state-of-cdr-3 --artifact chapter-7-csv --first 20 --last 585",
+  "data_rows_total": 17329,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 160617,
+  "fixture_sha256": "d4da9097ecce167185046ca815490add5d154c31e0ffe60f329d8bd6a1285d16",
+  "full_bytes": 5129380,
+  "full_sha256": "250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-20 and 16745-17329 of 17329",
+  "source_id": "state-of-cdr-3",
+  "url": "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv"
+}

@@ -1,0 +1,102 @@
+# The State of Carbon Dioxide Removal, 3rd Edition (2026): the data of chapter 7, "Current levels of CDR".
+# Evidence: docs/research/sources-zero-levers-and-adaptation-2026-10-08.json, candidates "3. Capture what's left: CCS
+# and direct air capture", item "The State of Carbon Dioxide Removal, 3rd Edition (2026): chapter 7 and chapter 3
+# data".
+# Licence, read 2026-10-08 (GET 200 to the pipeline's client):
+#   - Data portal footer (terms_url): "©2026 SoCDR Reports licensed under CC BY 4.0", and above the chapter files
+#     "Credit for figure use: 'The State of Carbon Dioxide Removal, 3rd Edition'".
+#   - Full report PDF (https://www.stateofcdr.org/asset/State-of-Carbon-Dioxide-Removal-Edition-3_June-2026.pdf, p. 5):
+#     "© 2026. The State of Carbon Dioxide Removal report is licensed under a CC BY 4.0 license."
+#   Neither statement names the data files themselves; they are the report's chapter data, published beside it on
+#   the same portal, so they are taken as covered. To be confirmed with the editors (docs/sources.md).
+# Open question, recorded and not resolved: the chapter 7 technical annex says that "For active projects not listed on
+# registries, we use the annual delivered CDR reported in CDR.fyi". CDR.fyi's own terms
+# (https://www.cdr.fyi/terms-of-service) give no "right to extract, reuse, re-host, or republish data outside the
+# Site". A CDR.fyi author (Alexander Rink) co-wrote chapter 7, but whether the report's CC BY grant covers those
+# values is unconfirmed. The novel CDR rows are published here under the report's CC BY 4.0 with that caveat.
+# Not used: the chapter 3 file (investment rows from the commercial Net Zero Insights database); the chapter 7
+# country rows (their maps use GADM boundaries, rejected in this registry; only numbers would be used, and only world
+# rows are needed now); the chapter 7 pipeline estimates.
+# Errata (https://www.stateofcdr.org/asset/Errata-in-SoCDR-ED3_July_26-1.pdf, Last-Modified 27 Jul 2026, read
+# 2026-10-08) list no change to chapter 7.
+id: state-of-cdr-3
+title: The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)
+publisher: The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)
+landing_url: https://www.stateofcdr.org/data-portal/3rd-edition
+description: >-
+  Chapter 7 of The State of Carbon Dioxide Removal, 3rd Edition (2026), "Current levels of CDR": carbon dioxide
+  removal actually delivered each year. Novel CDR is removal into durable storage by newer methods (biochar, BECCS,
+  direct air capture with storage, enhanced weathering, mineral products, biomass burial and others), compiled
+  project by project from registries, government data and CDR.fyi, 2017 to 2025; direct air capture counts only where
+  the CO2 is shown to reach durable storage. Conventional CDR is removal by managed forests (afforestation,
+  reforestation and forest management), from three bookkeeping models (BLUE, LUCE, OSCAR) and their mean, 2005 to
+  2024. Values are in million tonnes of CO2 a year.
+citation:
+  type: report
+  title: The State of Carbon Dioxide Removal, 3rd Edition
+  author:
+    - {literal: The State of Carbon Dioxide Removal}
+  issued: "2026"
+  DOI: 10.17605/OSF.IO/ZRD65
+  URL: https://www.stateofcdr.org/data-portal/3rd-edition
+  # The data portal's credit line, then the chapter's "Cite as" (technical annex p. 1).
+  text: >-
+    The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C.,
+    Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal
+    3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.stateofcdr.org/data-portal/3rd-edition
+  licence_quote: ©2026 SoCDR Reports licensed under CC BY 4.0
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: >-
+    The State of Carbon Dioxide Removal, 3rd Edition (2026), chapter 7 data
+    (https://www.stateofcdr.org/data-portal/3rd-edition). CC BY 4.0.
+  attribution_modified: >-
+    Selected by Environment Dashboard from The State of Carbon Dioxide Removal, 3rd Edition (2026), chapter 7 data
+    (https://www.stateofcdr.org/data-portal/3rd-edition). CC BY 4.0.
+  notice: >-
+    Novel CDR includes values the report takes from CDR.fyi for projects not listed on registries; CDR.fyi's own terms
+    do not allow republishing its data, and whether the report's CC BY 4.0 licence covers them is not yet confirmed.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08 (behind Cloudflare, but served to scripts): text/csv, 5,129,380 bytes, CRLF line ends,
+  # UTF-8 with a byte-order mark, Last-Modified Wed, 27 May 2026, ETag "6a174f2a-4e44a4"; 17,329 rows.
+  - id: chapter-7-csv
+    url: https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv
+    format: csv
+    description: >-
+      All chapter 7 data, one value per row: columns Chapter, Country, Region, Model, Variable (Conventional or
+      Novel), Type, Indicator, Method, Unit, Value, Year, Edition, Notes, Quality, Year Range, Data portal reference.
+      World novel CDR by method and year and in total (Fig. 7.2), world and country conventional CDR by model (Fig.
+      7.1), transfers into durable wood products (Fig. 7.3), the pipeline of novel CDR capacity (Fig. 7.4) and
+      estimates from national inventories.
+  # GET 200 on 2026-10-08: 1,937,668 bytes, Last-Modified Mon, 01 Jun 2026. Page 2: "Activity from novel CDR methods
+  # is estimated to total 2.04 MtCO2 globally in 2025, up from 1.4 MtCO2 in 2023."
+  - id: chapter-7-pdf
+    url: https://www.stateofcdr.org/asset/SoCDR-Ed3_Chapter-7_Final.pdf
+    format: pdf
+    description: Chapter 7, "Current levels of CDR", as published (26 pages), for the statements the build checks.
+  # GET 200 on 2026-10-08: 857,632 bytes, Last-Modified Mon, 01 Jun 2026. Pages 13-14 describe how novel CDR was
+  # compiled; the transform checks those sentences at every build.
+  - id: technical-annex-ch7
+    url: https://www.stateofcdr.org/asset/SoCDR-Ed3-Technical-annex-Ch7_Final.pdf
+    format: pdf
+    description: Chapter 7 technical annex (methods, sources and the novel CDR inclusion rules).
+status:
+  state: active
+  note: >-
+    Third edition published June 2026 (data file of 27 May 2026). Editions have appeared in 2023, 2024 and 2026; a
+    new edition is a new registry entry. Academic consortium, not a US federal product.
+  us_federal: false
+update_cadence: Roughly every one to two years (a new edition)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#3. Capture what's left: CCS and direct air capture
