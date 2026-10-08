@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/rd-budget.oecd.energy.json",
+  "export_sha256": "b94f7377bcc0218c0614355879a6b22a4cb15aaa5b2d7013bcff2422ce61262a",
+  "indicator_id": "rd-budget.oecd.energy",
+  "key": "4a80b1ca155ea1bfacdcca5fd8127cf163a72fc35ca2528891206022f9ca492a",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "oecd-gbard/gbard-energy-usd-ppp-2020": {
+        "manifest_sha256": "c435054c9541a41f24891a485556e61e76ed1524910995283ec0ef53415a9353",
+        "sha256": "287c3682513fee8db943825a37276cffc9bd82fcd75e10ef91346cf0bdc4781e"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "oecd-gbard": "b1bbec729178ffa582b59acec5f49742b1be7169c46ca1ee729144d6832adc68"
+    },
+    "transform_sha256": "4cc4207ced81c9de2b645ee0e9760bc8bd3f370f3cf4870077b81b033aa6ad5e"
+  },
+  "publisher_checks": []
+}

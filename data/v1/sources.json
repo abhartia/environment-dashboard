@@ -67,6 +67,66 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Version of record (17 pages) as deposited on the Universidad Politécnica de Madrid repository (oa.upm.es record 86025). The abstract and section 4 (pages 14-15) state the levelised cost of ammonia of every plant; Tables 3 to 5 (pages 8-9) give the cost basis (Western Europe, 2020 euros), the economic assumptions (natural gas 6.5 €/GJ, electricity 60 €/MWh, CO2 tax 100 €/ton, discount rate 8%, 25-year life) and the regional assumptions. 5,296,008 bytes.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://oa.upm.es/86025/3/86025.pdf"}
+      ],
+      "citation": {
+        "DOI": "10.1016/j.enconman.2022.115312",
+        "URL": "https://doi.org/10.1016/j.enconman.2022.115312",
+        "author": [
+          {"family": "Arnaiz del Pozo", "given": "Carlos", "literal": null},
+          {"family": "Cloete", "given": "Schalk", "literal": null}
+        ],
+        "container-title": "Energy Conversion and Management",
+        "issued": "2022-02-05",
+        "page": "115312",
+        "publisher": "Elsevier",
+        "text": "Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312. https://doi.org/10.1016/j.enconman.2022.115312",
+        "title": "Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future",
+        "type": "article-journal",
+        "version": null,
+        "volume": "255"
+      },
+      "description": "A techno-economic assessment of ammonia production. Two conventional natural-gas plants with CO2 capture (the KBR Purifier process and the Linde Ammonia Concept), the KBR plant without capture, an advanced blue plant (gas switching reforming, GSR) and an optimised green plant (wind and solar power, electrolysers, storage) share one ammonia synthesis loop and one cash-flow method, which gives the levelised cost of ammonia in euros per tonne (2020 euros, Western Europe cost basis). The natural-gas plants are costed at European energy prices with a CO2 tax of 100 euros per tonne; the green plants use technology costs for 2050 in northern Germany, southern Spain and Saudi Arabia. A modelled comparison, not market prices.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "© 2022 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license ( http://creativecommons.org/licenses/by/4.0/).",
+        "terms_check": "pdf",
+        "terms_url": "https://oa.upm.es/86025/3/86025.pdf"
+      },
+      "id": "arnaiz-del-pozo-2022",
+      "landing_url": "https://doi.org/10.1016/j.enconman.2022.115312",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312. doi:10.1016/j.enconman.2022.115312. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312. doi:10.1016/j.enconman.2022.115312. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Carlos Arnaiz del Pozo (Universidad Politécnica de Madrid) and Schalk Cloete (SINTEF Industry); published in Energy Conversion and Management (Elsevier)",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Arnaiz del Pozo & Cloete 2022, Energy Conversion and Management 255:115312, doi 10.1016/j.enconman.2022.115312",
+      "status": {
+        "note": "Published once (available online 5 February 2022; volume 255, March 2022); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Levelised cost of blue and green ammonia (Arnaiz del Pozo & Cloete 2022)",
+      "twins": [],
+      "update_cadence": "One-off (published 2022)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Space-separated, no header: decimal year, GMSL anomaly (m), uncertainty envelope (m). GIA-adjusted, annual and semi-annual signals removed, 2-month filter. 1,236 rows from 1993.011795 on 2026-10-04.", "discover": null, "format": "txt", "id": "msl-global-filter2m-txt", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.txt"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The same series as NetCDF (variables time, cycle, msl, uncertainty_envelop, amr_correction, TPA_correction), with the DOI, creation date (history), end_date and mission list in its global attributes; the vintage comes from here.", "discover": null, "format": "nc", "id": "msl-global-filter2m-nc", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://data.aviso.altimetry.fr/aviso-gateway/data/indicators/msl/MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.nc"},
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "AVISO's Mean Sea Level product page, kept for its stated rate and acceleration (the published-value headline) and its notes on processing changes.", "discover": null, "format": "html", "id": "msl-product-page", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level.html"}
@@ -587,6 +647,66 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Annex A: Additional estimates and key assumptions 2025. Sheets \"Additional Estimates 2030\" to \"Additional Estimates 2050\" (levelised cost by component and total, one column per technology and load factor) and \"Technical and Cost Assumptions\". The Home sheet's general notes say all costs are in real 2024 GBP.", "discover": null, "format": "xlsx", "id": "annex-a", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/69d8efec96c86b7513170229/annex-a-additional-estimates-and-key-assumptions-2025.xlsx"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The report: methods, assumptions and the main LCOE charts. Used for the licence statement and the scope wording (carbon costs include UK ETS prices and the Carbon Price Support; baseload is 93% for unabated gas and hydrogen and 88% for gas CCUS because of the assumed availability of the CO2 transport and storage network).", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/69ba657326909a14239612e3/electricity-generation-costs-report-2025.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.gov.uk/government/publications/electricity-generation-costs-2025",
+        "author": [
+          {"family": null, "given": null, "literal": "Department for Energy Security and Net Zero"}
+        ],
+        "container-title": null,
+        "issued": "2026-01-14",
+        "page": null,
+        "publisher": "Department for Energy Security and Net Zero",
+        "text": "Department for Energy Security and Net Zero (2026), Electricity Generation Costs 2025, Annex A: Additional estimates and key assumptions 2025. © Crown copyright 2026, Open Government Licence v3.0.",
+        "title": "Electricity Generation Costs 2025",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "DESNZ's estimates of the levelised cost of electricity for new plants in the United Kingdom commissioning in 2030, 2035, 2040, 2045 and 2050, in real 2024 pounds per megawatt-hour, split into pre-development, construction, fixed and variable operation and maintenance, fuel, carbon, CO2 transport and storage, decommissioning, steam revenue and additional costs, with the total. Technologies: large-scale solar, onshore wind, fixed and floating offshore wind, gas CCGT, gas OCGT (300 and 760 MW) and gas reciprocating engines at 5%, 30% and 93% load factors, gas with post-combustion carbon capture (CCUS) at 5%, 30% and 88%, hydrogen turbines (CCHT, OCHT) and engines, tidal stream and deep geothermal. All are 'Nth of a kind' unless marked first of a kind (FOAK). Component cells are rounded to whole pounds and may not sum to the total; some are printed as '<1'. Fuel and carbon costs follow DESNZ's central fossil fuel price and carbon price assumptions.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated.",
+        "terms_check": "pdf",
+        "terms_url": "https://assets.publishing.service.gov.uk/media/69ba657326909a14239612e3/electricity-generation-costs-report-2025.pdf"
+      },
+      "id": "desnz-generation-costs-2025",
+      "landing_url": "https://www.gov.uk/government/publications/electricity-generation-costs-2025",
+      "licence": {
+        "name": "Open Government Licence v3.0",
+        "spdx": "OGL-UK-3.0",
+        "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. Source: Department for Energy Security and Net Zero, Electricity Generation Costs 2025, Annex A.",
+        "attribution_modified": "Selected by Environment Dashboard from Department for Energy Security and Net Zero, Electricity Generation Costs 2025, Annex A. Contains public sector information licensed under the Open Government Licence v3.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": true,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Department for Energy Security and Net Zero (UK)",
+      "research_ref": "docs/research/sources-zero-green-premium-2026-10-08.json#UK DESNZ, Electricity Generation Costs 2025 (report and Annex A: additional estimates and key assumptions)",
+      "status": {
+        "note": "DESNZ publishes a Generation Costs report every two to three years (2016, 2020, 2023, 2025). Not a US federal programme.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Electricity Generation Costs 2025",
+      "twins": ["eia-aeo-2026"],
+      "update_cadence": "Every two to three years"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"Conversion factors 2026: flat file (for automatic processing only)\", version 1.2. Sheet \"Factors by Category\": ID, Scope, Level 1 to Level 4, Column Text, UOM, GHG/Unit and \"GHG Conversion Factor 2026\" (for example 21_316_3170_11_1, long-haul flight to or from the UK, economy class, with RF: 0.11704 kg CO2e per passenger-km). 515,426 bytes.", "discover": null, "format": "xlsx", "id": "flat-file", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"2026 Government greenhouse gas conversion factors for company reporting: Methodology paper\" (152 pages), which states how each factor is derived, including the distance and radiative-forcing uplifts for flights. 1,761,487 bytes.", "discover": null, "format": "pdf", "id": "methodology-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/6a2940543b15d05a7ce3202e/2026-GHG-conversion-factors-methodology-report.pdf"}
       ],
@@ -647,6 +767,69 @@
       "title": "Greenhouse gas reporting: conversion factors 2026",
       "twins": [],
       "update_cadence": "Annual, each June"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "'Cover sheet' (electricity years, methodology, units, publication dates) and one sheet per year, 2005 to 2024. On sheet '2024', row 'K03000001 Great Britain (inc unallocated), All local authorities' gives 'Mean domestic consumption (kWh per household)', and row 'E12000007 London, All local authorities' gives 'Total consumption (GWh): All meters'. 2,103,254 bytes.", "discover": null, "format": "xlsx", "id": "workbook", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://assets.publishing.service.gov.uk/media/69426e905431f4f94d7f0b5e/Subnational_electricity_consumption_statistics_2005-2024.xlsx"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics",
+        "author": [
+          {"family": null, "given": null, "literal": "Department for Energy Security and Net Zero"}
+        ],
+        "container-title": null,
+        "issued": "2025-12-18",
+        "page": null,
+        "publisher": "GOV.UK",
+        "text": "Department for Energy Security and Net Zero (2025). Subnational electricity consumption statistics, Great Britain, 2005 to 2024. GOV.UK. https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics",
+        "title": "Subnational electricity consumption statistics, Great Britain, 2005 to 2024",
+        "type": "dataset",
+        "version": null,
+        "volume": null
+      },
+      "description": "Metered electricity consumption in Great Britain (England, Scotland and Wales) by country, region and local authority, one sheet per year from 2005 to 2024: numbers of meters, total consumption in gigawatt-hours, mean and median consumption per meter in kilowatt-hours for domestic and non-domestic meters, and, from 2012, mean domestic consumption per household. Built from meter-level consumption data supplied by electricity data aggregators. Domestic and most non-domestic meters are counted over February to January, half-hourly meters over the calendar year.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "All content is available under the Open Government Licence v3.0, except where otherwise stated",
+        "terms_check": "page",
+        "terms_url": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics"
+      },
+      "id": "desnz-subnational-electricity",
+      "landing_url": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics",
+      "licence": {
+        "name": "Open Government Licence v3.0 (Crown copyright)",
+        "spdx": "OGL-UK-3.0",
+        "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      },
+      "licence_class": "open",
+      "next_release": {
+        "expected": "2026-12-31",
+        "note": "The cover sheet says \"Next update: December 2026\" without a day; 31 December 2026 is the check-by date, not an announced date. The new workbook will have a new GOV.UK asset URL.",
+        "url": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics"
+      },
+      "obligations": {
+        "attribution": "Department for Energy Security and Net Zero, Subnational electricity consumption statistics, Great Britain, 2005 to 2024 (published 18 December 2025). Contains public sector information licensed under the Open Government Licence v3.0.",
+        "attribution_modified": "Calculated by Environment Dashboard from Department for Energy Security and Net Zero, Subnational electricity consumption statistics, Great Britain, 2005 to 2024 (published 18 December 2025). Contains public sector information licensed under the Open Government Licence v3.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Department for Energy Security and Net Zero (UK Government)",
+      "research_ref": "docs/research/sources-zero-space-and-power-2026-10-08.json#DESNZ Subnational electricity consumption statistics, Great Britain, 2005-2024 (London and city totals; mean domestic consumption per household)",
+      "status": {
+        "note": "Annual, each December; the 2024 tables were published on 18 December 2025.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Subnational electricity consumption, Great Britain",
+      "twins": [],
+      "update_cadence": "Annual (December), covering the year before last"
     },
     {
       "acquisition": "automatic",
@@ -920,6 +1103,129 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "LCOE-LCOS-LACE_figures.xlsx, the data behind the report's figures, nine sheets. Read: \"lcoe-components\" (average LCOE and LCOS by component, before and including tax credits, with capacity factors) and \"lcoe-regional\" (regional minimum, simple average, capacity-weighted average and maximum, without and with tax credits).", "discover": null, "format": "xlsx", "id": "lcoe-figures", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/xls/LCOE-LCOS-LACE_figures.xlsx"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The report (15 slides). Page 8 labels each technology's average LCOE including tax credits, which the build checks against the workbook; page 3 states the cost recovery period and WACC; page 6 the warning against direct comparisons across technologies.", "discover": null, "format": "pdf", "id": "lcoe-report", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.eia.gov/outlooks/aeo/electricity_generation/index.php",
+        "author": [
+          {"family": null, "given": null, "literal": "U.S. Energy Information Administration"}
+        ],
+        "container-title": null,
+        "issued": "2026-04",
+        "page": null,
+        "publisher": "U.S. Energy Information Administration",
+        "text": "Source: U.S. Energy Information Administration (Apr 2026).",
+        "title": "Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "EIA's estimates of the levelised cost of electricity (LCOE) and of storage (LCOS) for new power plants entering service in 2031 in the AEO2026 Counterfactual Baseline case, in 2025 dollars per megawatt-hour: advanced nuclear, biomass, natural gas combined-cycle with and without carbon capture, geothermal, offshore and onshore wind, hydroelectric, solar photovoltaic (standalone and with a battery), combustion turbines and battery storage. Each is given as a simple average of the 25 US electricity supply regions and, where new capacity is built in 2031, a capacity-weighted average; with the regional minimum and maximum; before tax credits (\"Total system LCOE\") and including the levelised tax credit and the 45Q captured-carbon credit as modified by the One Big Beautiful Bill Act of 2025. Laws and regulations effective as of December 2025 only. These are model projections of the cost to build and run a plant, not of the value of its output to the grid (EIA pairs them with the levelised avoided cost, LACE), and plants run at different capacity factors (combined-cycle 40%, with carbon capture 87%).",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service.",
+        "terms_check": "page",
+        "terms_url": "https://www.eia.gov/about/copyrights_reuse.php"
+      },
+      "id": "eia-aeo-2026",
+      "landing_url": "https://www.eia.gov/outlooks/aeo/electricity_generation/index.php",
+      "licence": {
+        "name": "Public domain (work of the US federal government)",
+        "spdx": null,
+        "url": "https://www.copyright.gov/title17/92chap1.html#105"
+      },
+      "licence_class": "open",
+      "next_release": {
+        "expected": "2027-05-31",
+        "note": "No date announced for AEO2027. AEO2026 appeared in April 2026; 31 May 2027 is the date by which to check, not an announced date. A new edition overwrites the same file names.",
+        "url": null
+      },
+      "obligations": {
+        "attribution": "Source: U.S. Energy Information Administration (Apr 2026).",
+        "attribution_modified": "Selected by Environment Dashboard from U.S. Energy Information Administration, Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026 (Apr 2026).",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "U.S. Energy Information Administration",
+      "research_ref": "docs/research/sources-zero-green-premium-2026-10-08.json#US EIA, Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026 (April 2026), figure data workbook",
+      "status": {
+        "note": "AEO2026 was published in April 2026. EIA lost more than 100 of its about 350 staff in 2025 and cancelled the 2025 International Energy Outlook (see eia-international); every pull is archived.",
+        "state": "at-risk",
+        "us_federal": true
+      },
+      "title": "Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026",
+      "twins": ["desnz-generation-costs-2025"],
+      "update_cadence": "Annual, with each Annual Energy Outlook (spring)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The FAQ page. Its answer opens \"As of March 2026, the United States had 94 operating commercial nuclear power reactors at 54 power plants\" and lists the Alvin W. Vogtle Electric Generating Plant in Georgia as the largest, with four reactors, a total nameplate capacity of about 4,658 MW and a total net summer capacity of 4,530 MW.", "discover": null, "format": "html", "id": "faq-207", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3",
+        "author": [
+          {"family": null, "given": null, "literal": "U.S. Energy Information Administration"}
+        ],
+        "container-title": null,
+        "issued": "2026",
+        "page": null,
+        "publisher": "U.S. Energy Information Administration",
+        "text": "Source: U.S. Energy Information Administration (Mar 2026).",
+        "title": "How many nuclear power plants are in the United States, and where are they located?",
+        "type": "webpage",
+        "version": null,
+        "volume": null
+      },
+      "description": "EIA's answer to how many nuclear power plants and reactors operate in the United States and where, with the largest and smallest plants and their nameplate and net summer generating capacity in megawatts, as of the month the answer names. Net summer capacity is the most a plant can supply to the grid in summer conditions, after its own use; nameplate capacity is the generators' rated output.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service.",
+        "terms_check": "page",
+        "terms_url": "https://www.eia.gov/about/copyrights_reuse.php"
+      },
+      "id": "eia-faq-nuclear-plants",
+      "landing_url": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3",
+      "licence": {
+        "name": "Public domain (work of the US federal government)",
+        "spdx": null,
+        "url": "https://www.copyright.gov/title17/92chap1.html#105"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Source: U.S. Energy Information Administration (Mar 2026), FAQ \"How many nuclear power plants are in the United States, and where are they located?\"",
+        "attribution_modified": "Calculated by Environment Dashboard from U.S. Energy Information Administration (Mar 2026), FAQ \"How many nuclear power plants are in the United States, and where are they located?\"",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "U.S. Energy Information Administration",
+      "research_ref": "docs/research/sources-zero-space-and-power-2026-10-08.json#EIA FAQ 'How many nuclear power plants are in the United States, and where are they located?' (largest US plant)",
+      "status": {
+        "note": "EIA revises the answer when its plant inventory changes; the version read on 2026-10-08 is dated March 2026. EIA lost more than 100 of its about 350 staff in 2025.",
+        "state": "active",
+        "us_federal": true
+      },
+      "title": "EIA FAQ: How many nuclear power plants are in the United States?",
+      "twins": [],
+      "update_cadence": "Irregular (revised when EIA's generator inventory changes)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "INTL.txt (128.8 MB unzipped), one JSON object per line: 104,434 series plus category and geography records. Missing values are the string \"NA\".", "discover": null, "format": "zip", "id": "intl-bulk", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.eia.gov/opendata/bulk/INTL.zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Manifest of all EIA bulk files; the INTL entry's last_updated is the release date of the bulk file.", "discover": null, "format": "json", "id": "bulk-manifest", "max_bytes": 5000000, "member_name_ignore": null, "url": "https://www.eia.gov/opendata/bulk/manifest.txt"}
       ],
@@ -976,6 +1282,70 @@
       "title": "International energy data",
       "twins": ["unsd-energy", "energy-institute-review-2026"],
       "update_cadence": "Annual series, each revised on its own schedule (in the file of 3 October 2026, 88,097 of 104,434 series were last updated between January and September 2026)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Table CE2.1 as a workbook with three sheets: 'Btu', 'physical units' and 'rse' (relative standard errors). Row 'All homes' of 'physical units' gives the number of housing units (million), total electricity consumption (billion kWh) and average electricity consumption per household (kWh). Data release March 2023, revised March 2024. 37,081 bytes.", "discover": null, "format": "xlsx", "id": "table-ce2-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.eia.gov/consumption/residential/data/2020/c&e/xls/ce2.1.xlsx"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"2020 Residential Energy Consumption Survey: Consumption and Expenditures Technical Documentation Summary\" (May 2025, 48 pages), linked from the RECS methodology page. Its 'Consumption and Expenditures Annualization and Imputation' section (page 13) defines the reference period as 1 January to 31 December 2020.", "discover": null, "format": "pdf", "id": "ce-technical-documentation", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.eia.gov/consumption/residential/data/2020/pdf/2020%20RECS%20CE%20Methodology%20-%20Monthly%20Appendix%20-%20Final.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption",
+        "author": [
+          {"family": null, "given": null, "literal": "U.S. Energy Information Administration"}
+        ],
+        "container-title": null,
+        "issued": "2024-03",
+        "page": null,
+        "publisher": "U.S. Energy Information Administration",
+        "text": "Source: U.S. Energy Information Administration (Mar 2024).",
+        "title": "2020 Residential Energy Consumption Survey, Table CE2.1 Annual household site fuel consumption in the U.S.",
+        "type": "dataset",
+        "version": "Final release March 2024",
+        "volume": null
+      },
+      "description": "Annual site energy consumption of US homes in 2020 by fuel, in physical units and in Btu, for all homes and by region, housing type, income and other characteristics: the number of housing units, total consumption, and average consumption per household using each fuel. For electricity, every home uses it, so the average is per home: about 10,600 kilowatt-hours in 2020 for all 123.5 million primary occupied homes in the 50 states and the District of Columbia. Electricity from a home's own solar panels is included. The estimates come from a sample survey of households and their energy suppliers' bills for calendar year 2020; EIA publishes a relative standard error for each value.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service.",
+        "terms_check": "page",
+        "terms_url": "https://www.eia.gov/about/copyrights_reuse.php"
+      },
+      "id": "eia-recs-2020",
+      "landing_url": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption",
+      "licence": {
+        "name": "Public domain (work of the US federal government)",
+        "spdx": null,
+        "url": "https://www.copyright.gov/title17/92chap1.html#105"
+      },
+      "licence_class": "open",
+      "next_release": {
+        "expected": "2027-06-30",
+        "note": "EIA's RECS page (read 2026-10-08): \"EIA will be releasing the entire set of data from the 2024 RECS in spring 2027.\" No day is given; 30 June 2027 is the check-by date, not an announced date.",
+        "url": "https://www.eia.gov/consumption/residential/"
+      },
+      "obligations": {
+        "attribution": "Source: U.S. Energy Information Administration (Mar 2024), 2020 Residential Energy Consumption Survey, Table CE2.1.",
+        "attribution_modified": "Calculated by Environment Dashboard from U.S. Energy Information Administration, 2020 Residential Energy Consumption Survey, Table CE2.1 (Mar 2024).",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "U.S. Energy Information Administration",
+      "research_ref": "docs/research/sources-zero-space-and-power-2026-10-08.json#EIA Residential Energy Consumption Survey 2020, Table CE2.1 (average household electricity use)",
+      "status": {
+        "note": "The 2020 survey's consumption tables are final (revised March 2024). EIA lost more than 100 of its about 350 staff in 2025; the 2024 survey's data are announced for spring 2027.",
+        "state": "archived",
+        "us_federal": true
+      },
+      "title": "Residential Energy Consumption Survey 2020, household consumption (Table CE2.1)",
+      "twins": [],
+      "update_cadence": "Every four to five years (2015, 2020, 2024 survey cycles)"
     },
     {
       "acquisition": "automatic",
@@ -1162,6 +1532,129 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "nrg_ind_fecf, JSON-stat 2.0: electricity (E7000) as a percentage of final energy consumption, energy use (FC_E), annual, for the EU, its member states, EFTA and candidate countries.", "discover": null, "format": "json", "id": "nrg-ind-fecf-electricity", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_fecf?format=JSON&lang=en&nrg_bal=FC_E&siec=E7000&unit=PC&geo=EU27_2020&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=LI&geo=NO&geo=CH&geo=AL&geo=BA&geo=GE&geo=MD&geo=ME&geo=MK&geo=RS&geo=TR&geo=UA"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "gba_nabsfin07, JSON-stat 2.0: government budget allocations for R&D for the socio-economic objective Energy (NABS05), million euro, annual, for the EU, its member states, EFTA and candidate countries, with Eurostat's status flags.", "discover": null, "format": "json", "id": "gba-nabsfin07-energy", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gba_nabsfin07?format=JSON&lang=en&nabs07=NABS05&unit=MIO_EUR&geo=EU27_2020&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=LI&geo=NO&geo=CH&geo=AL&geo=BA&geo=GE&geo=MD&geo=ME&geo=MK&geo=RS&geo=TR&geo=UA"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Statistics Explained glossary entry \"Candidate countries\", which lists the official EU candidate countries with their Eurostat codes.", "discover": null, "format": "html", "id": "candidate-countries", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Candidate_countries"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://ec.europa.eu/eurostat/web/main/data/database",
+        "author": [
+          {"family": null, "given": null, "literal": "Eurostat"}
+        ],
+        "container-title": null,
+        "issued": "2026",
+        "page": null,
+        "publisher": "European Commission",
+        "text": "Source: Eurostat, nrg_ind_fecf (https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_fecf/default/table) and gba_nabsfin07 (https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table), accessed {date_accessed}",
+        "title": "Eurostat database (nrg_ind_fecf; gba_nabsfin07)",
+        "type": "dataset",
+        "version": null,
+        "volume": null
+      },
+      "description": "Two Eurostat datasets, as published, for the EU and the European countries whose data Eurostat licenses for any reuse. nrg_ind_fecf: the share of each fuel in final energy consumption (energy use only, excluding non-energy use of fuels); here electricity (SIEC E7000), 1990 onwards, a ratio Eurostat computes from its energy balances. gba_nabsfin07: government budget allocations for R&D (GBARD) by socio-economic objective (NABS 2007); here the objective Energy (NABS05), in million euro at current prices, 2004 onwards. Energy is a socio-economic objective covering every form of energy, so it includes research on fossil fuels and nuclear power as well as renewables and efficiency: it is all energy R&D in government budgets, not clean-energy research alone. Eurostat's flags (estimated, provisional, break in series, definition differs, confidential) are kept.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Reuse of statistical data, metadata, publications, and other dissemination tools published on this website for commercial or non-commercial purposes is authorised provided the source is acknowledged.",
+        "terms_check": "page",
+        "terms_url": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice"
+      },
+      "id": "eurostat",
+      "landing_url": "https://ec.europa.eu/eurostat/web/main/data/database",
+      "licence": {
+        "name": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required",
+        "spdx": null,
+        "url": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Source: Eurostat, nrg_ind_fecf (https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_fecf/default/table) and gba_nabsfin07 (https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table), accessed {date_accessed}.",
+        "attribution_modified": "Selected by Environment Dashboard from Eurostat, nrg_ind_fecf (https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_fecf/default/table) and gba_nabsfin07 (https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table), accessed {date_accessed}.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": true,
+        "notice": "Eurostat is not responsible for the use made of these data here. Values are Eurostat's as published; only the countries Eurostat licenses for any reuse (EU, EFTA and candidate countries) are shown.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Eurostat (European Commission)",
+      "research_ref": "docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#2. Electrify everything: electricity share of final energy; #4. Innovation: public energy RD&D and venture funding",
+      "status": {
+        "note": "nrg_ind_fecf is updated once a year with the energy balances (data to 2024, updated 16 July 2026); gba_nabsfin07 several times a year (updated 25 September 2026, provisional 2025 and 2026 budgets for some countries). Not a US federal product.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Eurostat energy and R&D budget statistics",
+      "twins": ["oecd-gbard"],
+      "update_cadence": "Energy indicators yearly (early in the year and July); GBARD several times a year"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The article's full text and tables as JATS XML from Europe PMC (PMC10253197). Table 3: descriptive indicators of the price per kilogram (euros) of plant-based and conventional minced meat and sausages.", "discover": null, "format": "xml", "id": "article-xml", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253197/fullTextXML"}
+      ],
+      "citation": {
+        "DOI": "10.3390/foods12112211",
+        "URL": "https://doi.org/10.3390/foods12112211",
+        "author": [
+          {"family": "Falkenberg", "given": "Christof", "literal": null},
+          {"family": "Trexler", "given": "Alena", "literal": null},
+          {"family": "Garaus", "given": "Christian", "literal": null},
+          {"family": "Pöchtrager", "given": "Siegfried", "literal": null}
+        ],
+        "container-title": "Foods",
+        "issued": "2023-05-31",
+        "page": "2211",
+        "publisher": "MDPI",
+        "text": "Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12(11), 2211. https://doi.org/10.3390/foods12112211",
+        "title": "Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria",
+        "type": "article-journal",
+        "version": null,
+        "volume": "12"
+      },
+      "description": "Prices, ingredients and nutrition of the 38 plant-based mince and 36 plant-based sausage products sold by the nationwide supermarket chains in Vienna in May 2022, compared with conventional minced meat and sausages in the same shops. Table 3 gives the mean, standard deviation, median, minimum and maximum price per kilogram in euros for each product group. Retail prices in one city and month; conventional meat is not split by species.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).",
+        "terms_check": "api",
+        "terms_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253197/fullTextXML"
+      },
+      "id": "falkenberg-2023",
+      "landing_url": "https://doi.org/10.3390/foods12112211",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12, 2211. doi:10.3390/foods12112211. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12, 2211. doi:10.3390/foods12112211. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Christof Falkenberg, Alena Trexler, Christian Garaus and Siegfried Pöchtrager (University of Natural Resources and Life Sciences, Vienna); published in Foods (MDPI)",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Falkenberg et al. 2023, Foods 12:2211 (PMC10253197, CC BY 4.0)",
+      "status": {
+        "note": "Published once on 31 May 2023 (volume 12, issue 11); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Prices of plant-based and conventional mince and sausages in Austria (Falkenberg et al. 2023)",
+      "twins": [],
+      "update_cadence": "One-off (published 2023)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": "zip-members", "description": "FRA 2025 platform bulk download for all countries: FRA_Years, Intervals and Annual CSVs (one file per variable plus combined files with flags), Tiers, NDPYear, README.txt. File names carry the download date.", "discover": null, "format": "zip", "id": "bulk-download-world", "max_bytes": 50000000, "member_name_ignore": "_\\d{4}-\\d{2}-\\d{2}(?=\\.csv$)", "url": "https://fra-data.fao.org/api/file/bulk-download?assessmentName=fra&cycleName=2025&countryIso=WO"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Global Forest Resources Assessment 2025 main report (cd6709en.pdf, 8.6 MB), source of FAO's published global estimates: forest area 4.14 billion ha (32% of land) and deforestation of 17.6, 13.6 and 10.9 million ha a year in 1990-2000, 2000-2015 and 2015-2025.", "discover": null, "format": "pdf", "id": "report-2025", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://openknowledge.fao.org/server/api/core/bitstreams/12322cae-5b20-4be2-927a-72a86fd319e9/content"}
       ],
@@ -1227,6 +1720,7 @@
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Climate Change: Agrifood systems emissions: Emissions intensities (EI). Zipped normalized CSV: Area, Item Code, Item Code (CPC), Item, Element, Year, Unit, Value, Flag (no Source column). Elements 723113 \"Emissions (CO2eq) (AR5)\" in kt, 71761 \"Emissions intensity\" in kg CO2eq/kg of product and 5510 \"Production\" in t, for 14 commodities, 1961-2023. Farm-gate emissions only: enteric CH4, manure management CH4 and N2O, N2O from manure left on pasture and applied to soils, and N2O from crop residues, their burning and synthetic fertiliser allocated to crops, plus rice paddy CH4; no on-farm energy, drained organic soils, savanna fires, land-use change or pre- and post-production. Methodological note: https://files-faostat.fao.org/production/EI/EI_e.pdf (release October 2025), which says the values should not be compared with life-cycle assessments.", "discover": null, "format": "zip", "id": "emissions-intensities", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Environment_Emissions_intensities_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Land, Inputs and Sustainability: Land Use (RL). Zipped normalized CSV (latin-1) of land-use areas in 1000 ha and shares, 1961-2024; forest land to 2025 is taken by FAO from FRA 2025.", "discover": null, "format": "zip", "id": "land-use", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "SDG Indicators (SDGB). Zipped normalized CSV (latin-1) of all SDG series under FAO custodianship; we use item codes 24044 (12.3.1a food loss percentage, %) and 24045 (12.3.1a Global Food Loss Index), total and by commodity group, 2015-2024.", "discover": null, "format": "zip", "id": "sdg-indicators", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/SDG_BulkDownloads_E_All_Data_(Normalized).zip"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "World Census of Agriculture: Structural data from agricultural censuses (WCAD). Zipped normalized CSV (UTF-8): Area Code, Area Code (M49), Area, Item Code, Item, Element Code, Element, WCA Round code, WCA Round, Census Year Code, Census Year, Unit, Value, Flag, Note. One row per country, census and item: number (element 60850, unit \"No\") and area (element 50260, ha) of holdings in total (item 27002) and by land-size class (items 27003x), plus holders, tenure, legal status, parcels and household size. The Note column carries the country's definition of a holding where FAO recorded one.", "discover": null, "format": "zip", "id": "world-census-agriculture", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/World_Census_Agriculture_E_All_Data_(Normalized).zip"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "FAOSTAT bulk-download catalogue: DatasetCode, DatasetName, DateUpdate, FileSize and FileLocation for every domain. Supplies {year} (DateUpdate) for the citation.", "discover": null, "format": "json", "id": "datasets-catalogue", "max_bytes": 5000000, "member_name_ignore": null, "url": "https://bulks-faostat.fao.org/production/datasets_E.json"}
       ],
       "citation": {
@@ -1245,7 +1739,7 @@
         "version": null,
         "volume": null
       },
-      "description": "Five FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and region, 1961-2023, with two sources per value (\"FAO TIER 1\" estimates and \"UNFCCC\" country submissions) and projection rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by species, Tier 1. Emissions intensities (EI): farm-gate emissions (kt CO2eq, AR5) and emissions per kg of product for 14 commodities (meat and milk of cattle, buffalo, sheep and goats, pig and chicken meat, camel milk, hen eggs, rice and cereals excluding rice), 1961-2023. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA) and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global Food Loss Index (2015 = 100), total and by commodity group, 2015-2024.",
+      "description": "Six FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and region, 1961-2023, with two sources per value (\"FAO TIER 1\" estimates and \"UNFCCC\" country submissions) and projection rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by species, Tier 1. Emissions intensities (EI): farm-gate emissions (kt CO2eq, AR5) and emissions per kg of product for 14 commodities (meat and milk of cattle, buffalo, sheep and goats, pig and chicken meat, camel milk, hen eggs, rice and cereals excluding rice), 1961-2023. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA) and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global Food Loss Index (2015 = 100), total and by commodity group, 2015-2024. World Census of Agriculture (WCAD): number and area of agricultural holdings in total and by FAO's land-size classes, from each country's agricultural census in the WCA rounds 1930-2020 (census years up to 2023), with no world or regional totals.",
       "evidence": {
         "checked_on": "2026-10-04",
         "licence_quote": "Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical databases (see examples in Annex 1) are licensed under the Creative Commons Attribution-4.0 International licence (CC BY 4.0)",
@@ -1277,13 +1771,13 @@
         "rounding": null
       },
       "publisher": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division",
-      "research_ref": "docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP, EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage; docs/research/sources-ghg-food-personal-2026-10-05.json#NEED B (GT by stage and process, EI, GLE by animal)",
+      "research_ref": "docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP, EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage; docs/research/sources-ghg-food-personal-2026-10-05.json#NEED B (GT by stage and process, EI, GLE by animal); docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#FAOSTAT World Census of Agriculture: Structural data from agricultural censuses (WCAD)",
       "status": {
-        "note": "Updated on FAO's annual cycle: Land Use on 2 October 2026 and SDG indicators on 29 September 2026; the emissions domains (GT, GLE) were last updated 28 October 2025 with data to 2023. FAO is not on the January 2026 US withdrawal memorandum (FR Doc 2026-00976); UNFCCC is, which concerns the \"UNFCCC\" source rows in GT.",
+        "note": "Updated on FAO's annual cycle: Land Use on 2 October 2026 and SDG indicators on 29 September 2026; the emissions domains (GT, GLE) were last updated 28 October 2025 with data to 2023. The World Census of Agriculture domain was last updated 27 April 2026; it changes as countries' censuses are added. FAO is not on the January 2026 US withdrawal memorandum (FR Doc 2026-00976); UNFCCC is, which concerns the \"UNFCCC\" source rows in GT.",
         "state": "active",
         "us_federal": false
       },
-      "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss",
+      "title": "FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses",
       "twins": [],
       "update_cadence": "Annual per domain; emissions domains each October-November, Land Use and SDG indicators around late September. DateUpdate in datasets_E.json changes with each release, but zips are sometimes re-uploaded later."
     },
@@ -1351,6 +1845,138 @@
       "title": "FAOSTAT greenhouse gas emissions from all sectors (with PRIMAP-hist v2.7)",
       "twins": [],
       "update_cadence": "Annual, each October-November. DateUpdate in datasets_E.json changes with each release, but zips are sometimes re-uploaded later."
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The article's full text and tables as JATS XML from Europe PMC (PMC9226055). Table 1: basic input and calculated values for six passenger car drive types, including the life cycle cumulative costs (LCC) and life cycle specific costs (LCCS).", "discover": null, "format": "xml", "id": "article-xml", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9226055/fullTextXML"}
+      ],
+      "citation": {
+        "DOI": "10.1038/s41598-022-14715-8",
+        "URL": "https://doi.org/10.1038/s41598-022-14715-8",
+        "author": [
+          {"family": "Furch", "given": "Jan", "literal": null},
+          {"family": "Konečný", "given": "Vlastimil", "literal": null},
+          {"family": "Krobot", "given": "Zdeněk", "literal": null}
+        ],
+        "container-title": "Scientific Reports",
+        "issued": "2022-06-23",
+        "page": "10661",
+        "publisher": "Springer Nature",
+        "text": "Furch, J., Konečný, V. & Krobot, Z. Modelling of life cycle cost of conventional and alternative vehicles. Sci Rep 12, 10661 (2022). https://doi.org/10.1038/s41598-022-14715-8",
+        "title": "Modelling of life cycle cost of conventional and alternative vehicles",
+        "type": "article-journal",
+        "version": null,
+        "volume": "12"
+      },
+      "description": "A life cycle cost model for passenger cars applied to six cars offered on the Czech market in 2022 (petrol, diesel, petrol and CNG, plug-in hybrid, mild hybrid and battery electric): purchase price, fuel or electricity, fluids, tyres, batteries, mandatory costs and corrective and preventive maintenance over 400,000 km and 15 years, in euros, and per kilometre. One car model per drive; not a market average.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made.",
+        "terms_check": "api",
+        "terms_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9226055/fullTextXML"
+      },
+      "id": "furch-2022",
+      "landing_url": "https://doi.org/10.1038/s41598-022-14715-8",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Furch, J., Konečný, V. & Krobot, Z. (2022). Modelling of life cycle cost of conventional and alternative vehicles. Scientific Reports 12, 10661. doi:10.1038/s41598-022-14715-8. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Furch, J., Konečný, V. & Krobot, Z. (2022). Modelling of life cycle cost of conventional and alternative vehicles. Scientific Reports 12, 10661. doi:10.1038/s41598-022-14715-8. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Jan Furch, Vlastimil Konečný and Zdeněk Krobot (University of Defence, Brno); published in Scientific Reports",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Furch et al. 2022, Scientific Reports 12:10661, doi 10.1038/s41598-022-14715-8",
+      "status": {
+        "note": "Published once on 23 June 2022 (volume 12); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Life cycle cost of passenger cars by drive type, Czech market (Furch et al. 2022)",
+      "twins": [],
+      "update_cadence": "One-off (published 2022)"
+    },
+    {
+      "acquisition": "manual",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The version of record (energies-12-00542.pdf, 20 pages) behind ETH Zurich's one-page download cover, 21 pages in all. Read: PDF page 7 (cost figures in 2014 euros), page 9 (no carbon tax in variable OPEX; Table 4 prices), page 10 (section 4.1: \"increases with 49–92%\") and page 11 (Table 6, cost of clinker). The URL answers scripted requests (HTTP 200 on 2026-10-08, application/pdf, about 2.1 MB), but ETH regenerates the cover page on every download, so a person records one copy with uv run envdash snapshot add --source gardarsdottir-2019 --artifact article-pdf --file <path>. MDPI's own copy (https://www.mdpi.com/1996-1073/12/3/542/pdf) may be recorded the same way instead after a browser download; the page numbers above then shift down by one.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/b427f6c2-8368-4a12-b35c-80c1661bbc95/content"}
+      ],
+      "citation": {
+        "DOI": "10.3390/en12030542",
+        "URL": "https://doi.org/10.3390/en12030542",
+        "author": [
+          {"family": "Gardarsdottir", "given": "Stefania O.", "literal": null},
+          {"family": "De Lena", "given": "Edoardo", "literal": null},
+          {"family": "Romano", "given": "Matteo C.", "literal": null},
+          {"family": "Roussanaly", "given": "Simon", "literal": null},
+          {"family": "Voldsund", "given": "Mari", "literal": null},
+          {"family": "Pérez-Calvo", "given": "José-Francisco", "literal": null},
+          {"family": "Berstad", "given": "David O.", "literal": null},
+          {"family": "Fu", "given": "Chao", "literal": null},
+          {"family": "Anantharaman", "given": "Rahul", "literal": null},
+          {"family": "Sutter", "given": "Daniel", "literal": null},
+          {"family": "Gazzani", "given": "Matteo", "literal": null},
+          {"family": "Mazzotti", "given": "Marco", "literal": null},
+          {"family": "Cinti", "given": "Giovanni", "literal": null}
+        ],
+        "container-title": "Energies",
+        "issued": "2019-02-01",
+        "page": "542",
+        "publisher": "MDPI",
+        "text": "Gardarsdottir, S.O.; De Lena, E.; Romano, M.; Roussanaly, S.; Voldsund, M.; Pérez-Calvo, J.-F.; Berstad, D.; Fu, C.; Anantharaman, R.; Sutter, D.; Gazzani, M.; Mazzotti, M.; Cinti, G. Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis. Energies 2019, 12, 542. https://doi.org/10.3390/en12030542",
+        "title": "Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis",
+        "type": "article-journal",
+        "version": null,
+        "volume": "12"
+      },
+      "description": "A techno-economic comparison of CO2 capture for a modelled best-available-technology European cement plant (3,000 tonnes of clinker a day): the reference plant without capture and the same plant with MEA absorption, oxyfuel, chilled ammonia (CAP), membrane-assisted CO2 liquefaction (MAL), and calcium looping in a tail-end and an integrated configuration. Table 6 gives the cost of clinker for each, in 2014 euros per tonne of clinker, on one set of prices (coal 3 euros per gigajoule, electricity 58.1 euros per megawatt-hour, 8% discount rate, 91.3% capacity factor) and with no carbon tax. The text states that capture raises the cost of clinker by 49-92%. Capture covers most but not all of the plant's emissions.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).",
+        "terms_check": "pdf",
+        "terms_url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/b427f6c2-8368-4a12-b35c-80c1661bbc95/content"
+      },
+      "id": "gardarsdottir-2019",
+      "landing_url": "https://doi.org/10.3390/en12030542",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Gardarsdottir, S.O. et al. (2019). Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis. Energies 12, 542. doi:10.3390/en12030542. CC BY 4.0.",
+        "attribution_modified": "Selected by Environment Dashboard from Gardarsdottir, S.O. et al. (2019). Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis. Energies 12, 542. doi:10.3390/en12030542. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Gardarsdottir, De Lena, Romano, Roussanaly, Voldsund, Pérez-Calvo, Berstad, Fu, Anantharaman, Sutter, Gazzani, Mazzotti and Cinti (SINTEF, Politecnico di Milano, ETH Zurich, Italcementi; the CEMCAP project); published in Energies (MDPI)",
+      "research_ref": "docs/research/sources-zero-green-premium-2026-10-08.json#Gardarsdottir et al. 2019, 'Comparison of Technologies for CO2 Capture from Cement Production - Part 2: Cost Analysis', Energies 12(3):542 (CEMCAP), with the CEMCAP economic model on Zenodo",
+      "status": {
+        "note": "Published 1 February 2019 as a one-off journal article; the CEMCAP project ended in 2018.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Comparison of technologies for CO2 capture from cement production, part 2, cost analysis (CEMCAP)",
+      "twins": [],
+      "update_cadence": "One-off (published 2019)"
     },
     {
       "acquisition": "automatic",
@@ -2316,6 +2942,183 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The CCUS Projects Explorer's data file: one object per project with country, projectType (Capture, Full chain, CCU, T&S, Storage), year (start of operation), status (Operational, Under construction, Planned), sector, region and capacity (Mt CO2 per year).", "discover": null, "format": "json", "id": "projects-json", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://iea.blob.core.windows.net/scripts/ccus-projects-database/data/projects.json"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database",
+        "author": [
+          {"family": null, "given": null, "literal": "International Energy Agency"}
+        ],
+        "container-title": null,
+        "issued": "2026-03-26",
+        "page": null,
+        "publisher": "IEA",
+        "text": "IEA, CCUS Projects Database, IEA, Paris https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, Licence: CC BY 4.0",
+        "title": "CCUS Projects Database",
+        "type": "dataset",
+        "version": null,
+        "volume": null
+      },
+      "description": "The IEA's database of carbon capture, utilisation and storage projects worldwide that have an announced capacity of more than 100,000 tonnes of CO2 a year (1,000 tonnes for direct air capture) and an announced timeline: operating, under construction and planned, with the year each starts, its sector (power, cement, hydrogen, natural gas processing, direct air capture and others), its part in the chain (capture, full chain, utilisation, transport and storage) and its capacity in million tonnes of CO2 a year. Capacities are what the projects are designed or announced to handle, not CO2 actually captured or stored.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This work is available under the Creative Commons Attribution 4.0 license (CC BY 4.0).",
+        "terms_check": "manual",
+        "terms_url": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database"
+      },
+      "id": "iea-ccus-projects",
+      "landing_url": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database",
+      "licence": {
+        "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0",
+        "attribution_modified": "Calculated by Environment Dashboard from IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0",
+        "derived_disclaimer": "This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.",
+        "mirror_raw": true,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "International Energy Agency",
+      "research_ref": "docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#3. Capture what's left: CCS and direct air capture",
+      "status": {
+        "note": "Updated about once a year (last on 26 March 2026; the explorer says \"Last updated 26 Mar 2026\"). iea.org blocks scripts; the blob-hosted explorer files do not. Not exposed to US federal cuts.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "CCUS Projects Database (via the CCUS Projects Explorer)",
+      "twins": [],
+      "update_cadence": "About once a year"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The full report. Read: page 8 (executive summary) and page 56 (the same 75% in chapter 5, per tonne-kilometre, with Figures 5.6 and 5.7).", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://iea.blob.core.windows.net/assets/a24ed363-523f-421b-b34f-0df6a58b2e12/TheRoleofE-fuelsinDecarbonisingTransport.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport",
+        "author": [
+          {"family": null, "given": null, "literal": "International Energy Agency"}
+        ],
+        "container-title": null,
+        "issued": "2023-12",
+        "page": null,
+        "publisher": "IEA",
+        "text": "IEA 2023; The Role of E-fuels in Decarbonising Transport, https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport, License: CC BY 4.0",
+        "title": "The Role of E-fuels in Decarbonising Transport",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "The IEA's assessment of electricity-based fuels (e-kerosene, e-methanol, e-ammonia) for aviation and shipping: their production costs, resource needs and the investment required for a 10% share by 2030. Its executive summary states that the total cost of ownership of a containership running entirely on e-ammonia or e-methanol would be 75% higher than a conventional containership on fossil fuels (2030, IEA analysis). Quoted with its page.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence.",
+        "terms_check": "pdf",
+        "terms_url": "https://iea.blob.core.windows.net/assets/a24ed363-523f-421b-b34f-0df6a58b2e12/TheRoleofE-fuelsinDecarbonisingTransport.pdf"
+      },
+      "id": "iea-efuels-2023",
+      "landing_url": "https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport",
+      "licence": {
+        "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "IEA 2023; The Role of E-fuels in Decarbonising Transport, https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport, License: CC BY 4.0",
+        "attribution_modified": "Quoted by Environment Dashboard from IEA 2023; The Role of E-fuels in Decarbonising Transport, https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport, License: CC BY 4.0",
+        "derived_disclaimer": "This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.",
+        "mirror_raw": false,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "International Energy Agency",
+      "research_ref": "docs/research/sources-zero-green-premium-2026-10-08.json#IEA, The Role of E-fuels in Decarbonising Transport (2023)",
+      "status": {
+        "note": "A one-off report (December 2023, revised January 2024); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "The Role of E-fuels in Decarbonising Transport",
+      "twins": [],
+      "update_cadence": "One-off (published 2023)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The full report. Read: page 32 (US dollars are real 2024 dollars unless stated otherwise), page 73 (urea, Figure 1.17), page 139 (near-zero emissions steel dashboard), page 141 (near-zero emissions cement dashboard) and the dashboard method notes on pages 162-163.", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://iea.blob.core.windows.net/assets/8483779b-e472-435b-b173-2156f92b8a33/EnergyTechnologyPerspectives2026.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.iea.org/reports/energy-technology-perspectives-2026",
+        "author": [
+          {"family": null, "given": null, "literal": "International Energy Agency"}
+        ],
+        "container-title": null,
+        "issued": "2026-03",
+        "page": null,
+        "publisher": "IEA",
+        "text": "IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0",
+        "title": "Energy Technology Perspectives 2026",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "The IEA's report on clean energy technologies, their supply chains and the cost of making low-emissions materials. It states, in its own words, how much more near-zero emissions steel and cement are expected to cost to produce than conventional steel and cement in 2035 in the Stated Policies Scenario (STEPS) without policy support (steel about 20-145% higher, USD 125-600 per tonne of crude steel; cement 75-150%, USD 50-175 per tonne), and the cost premium of low-emissions urea in Japan in 2035 (about 80%, about 55% with imported low-emissions ammonia). Values are projections, quoted with their page; unless stated otherwise the report's US dollars are real 2024 dollars at market exchange rates.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence.",
+        "terms_check": "pdf",
+        "terms_url": "https://iea.blob.core.windows.net/assets/8483779b-e472-435b-b173-2156f92b8a33/EnergyTechnologyPerspectives2026.pdf"
+      },
+      "id": "iea-etp-2026",
+      "landing_url": "https://www.iea.org/reports/energy-technology-perspectives-2026",
+      "licence": {
+        "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0",
+        "attribution_modified": "Quoted by Environment Dashboard from IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0",
+        "derived_disclaimer": "This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.",
+        "mirror_raw": false,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "International Energy Agency",
+      "research_ref": "docs/research/sources-zero-green-premium-2026-10-08.json#IEA, Energy Technology Perspectives 2026 (March 2026; revised April and July 2026)",
+      "status": {
+        "note": "Published in March 2026 and revised in April and July 2026 (the corrections are listed at www.iea.org/corrections, which blocks scripts). A revision replaces the PDF at the same address; the build re-finds every quote on its page.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Energy Technology Perspectives 2026",
+      "twins": [],
+      "update_cadence": "Irregular (a new edition every one to three years)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "All historical rows: columns region, category, parameter, mode, powertrain, year, unit, value.", "discover": null, "format": "csv", "id": "evs-historical", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://api.iea.org/evs?category=Historical&year=2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025&csv=true"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The report, for published statements (executive summary p. 10: electric car sales grew 20% to more than 20 million in 2025, one in four new cars).", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://iea.blob.core.windows.net/assets/857aa690-2a43-453f-9f12-147cc8f0a1dd/GlobalEVOutlook2026.pdf"}
       ],
@@ -2372,6 +3175,65 @@
       "title": "Global EV Outlook 2026 and Global EV Data Explorer",
       "twins": [],
       "update_cadence": "Annual, in May"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The full report. Read: PDF pages 53 and 54 (printed pages 51 and 52, \"The competitiveness of hydrogen technologies\") and page 55 (Figure 2.9 and its notes).", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://www.iea.org/reports/global-hydrogen-review-2025",
+        "author": [
+          {"family": null, "given": null, "literal": "International Energy Agency"}
+        ],
+        "container-title": null,
+        "issued": "2025-09",
+        "page": null,
+        "publisher": "IEA",
+        "text": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0",
+        "title": "Global Hydrogen Review 2025",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "The IEA's yearly review of hydrogen production, demand, trade, investment and policy. Chapter 2 states the cost gap in 2024 between low-emissions and conventional production of ammonia (European Union: around 25% with carbon capture and 120-220% from electrolysis; as little as 5% and 75-160% if a CO2 cost of USD 100 per tonne applied), methanol (China: around 70% with carbon capture and 160% from electrolysis, compared with unabated coal; India: 100% for electrolytic methanol compared with unabated natural gas) and steel (hydrogen direct reduced iron 50-140% above blast furnaces and 20-80% above unabated natural gas DRI, depending on the region). Values are quoted with their page.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence.",
+        "terms_check": "pdf",
+        "terms_url": "https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf"
+      },
+      "id": "iea-ghr-2025",
+      "landing_url": "https://www.iea.org/reports/global-hydrogen-review-2025",
+      "licence": {
+        "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0",
+        "attribution_modified": "Quoted by Environment Dashboard from IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0",
+        "derived_disclaimer": "This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.",
+        "mirror_raw": false,
+        "no_endorsement": true,
+        "no_logo": true,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "International Energy Agency",
+      "research_ref": "docs/research/sources-zero-green-premium-2026-10-08.json#IEA, Global Hydrogen Review 2025 and 2026 (cost-acceptability chapter in 2026)",
+      "status": {
+        "note": "Annual (each September or October). The 2026 edition has been published; its cost-acceptability figures are images without data, so the 2025 edition's text statements are the ones used.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Global Hydrogen Review 2025",
+      "twins": [],
+      "update_cadence": "Annual (September or October)"
     },
     {
       "acquisition": "automatic",
@@ -3379,6 +4241,69 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The article as JATS XML: Table 1 (table-wrap pone.0270155.t001) as a table of cells, the methods text that assigns rooftop solar zero, and the licence element. 159,635 bytes.", "discover": null, "format": "xml", "id": "article-xml", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The printed article (17 pages). Table 1 is text on page 8; the transform checks every row it reads from the XML against this printed table.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=printable"}
+      ],
+      "citation": {
+        "DOI": "10.1371/journal.pone.0270155",
+        "URL": "https://doi.org/10.1371/journal.pone.0270155",
+        "author": [
+          {"family": "Lovering", "given": "Jessica", "literal": null},
+          {"family": "Swain", "given": "Marian", "literal": null},
+          {"family": "Blomqvist", "given": "Linus", "literal": null},
+          {"family": "Hernandez", "given": "Rebecca R.", "literal": null}
+        ],
+        "container-title": "PLOS ONE",
+        "issued": "2022-07-06",
+        "page": "e0270155",
+        "publisher": "Public Library of Science",
+        "text": "Lovering J, Swain M, Blomqvist L, Hernandez RR (2022) Land-use intensity of electricity production and tomorrow's energy landscape. PLoS ONE 17(7): e0270155. https://doi.org/10.1371/journal.pone.0270155",
+        "title": "Land-use intensity of electricity production and tomorrow's energy landscape",
+        "type": "article-journal",
+        "version": null,
+        "volume": "17"
+      },
+      "description": "A synthesis of land use per unit of electricity for nuclear, geothermal, wind, residue and dedicated biomass, natural gas, hydroelectric dams, coal, concentrating solar and ground-mounted solar panels, in hectares occupied per terawatt-hour generated in a year (ha/TWh/y). Table 1 gives the median, mean, interquartile range (the width from the 25th to the 75th percentile, not the two quartiles), standard error and number of sites for each. Coal, natural gas, nuclear and dedicated biomass include the land used to mine, grow, process or transport their fuel; land to make panels, turbines and plants, transmission lines and offshore areas are not counted. Wind and natural gas have two values: the land physically occupied (footprint) and the whole area inside the site's boundary (spacing). Rooftop solar is assigned zero by assumption. Nuclear, wind and ground-mounted solar sites are in the United States, coal sites in the United States and Canada, dams in 80 countries.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "terms_check": "api",
+        "terms_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript"
+      },
+      "id": "lovering-2022",
+      "landing_url": "https://doi.org/10.1371/journal.pone.0270155",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Lovering, J., Swain, M., Blomqvist, L. & Hernandez, R. R. (2022). Land-use intensity of electricity production and tomorrow's energy landscape. PLOS ONE 17(7): e0270155. doi:10.1371/journal.pone.0270155. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Lovering, J., Swain, M., Blomqvist, L. & Hernandez, R. R. (2022). Land-use intensity of electricity production and tomorrow's energy landscape. PLOS ONE 17(7): e0270155. doi:10.1371/journal.pone.0270155. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California Davis); published in PLOS ONE (Public Library of Science)",
+      "research_ref": "docs/research/sources-zero-space-and-power-2026-10-08.json#Lovering, Swain, Blomqvist & Hernandez (2022), Land-use intensity of electricity production and tomorrow's energy landscape, PLOS ONE 17(7): e0270155",
+      "status": {
+        "note": "Published 6 July 2022 (volume 17, issue 7) as a one-off study; no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Land-use intensity of electricity (Lovering et al. 2022)",
+      "twins": ["noland-2022"],
+      "update_cadence": "One-off (published 2022)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "earthdata", "auth_env": "EARTHDATA_TOKEN", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "ASCII time series of global mean sea level (cm), 7-day steps from 1993-01-05, with a 60-day smoothed column; the undated cumulative granule that PO.DAAC replaces each week (70,286 bytes on 2026-09-28).", "discover": null, "format": "txt", "id": "gmsl-indicator", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/NASA_SSH_GMSL_INDICATOR/NASA_SSH_GMSL_INDICATOR.txt"}
       ],
       "citation": {
@@ -3635,6 +4560,71 @@
       "title": "Global ocean heat content basin time series",
       "twins": [],
       "update_cadence": "Quarterly (yearly values once a year; 2025 was added in July 2026)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Data_finalised_for_Zenodo_16_09(Sheet1).csv: one row per entity (4,083), cp1252-encoded, with the target fields, the Tracker's analysis flags (data_is_nzt, \"No target at all\", end-target year bands, \"4P\" criteria) and GDP, population and emissions context columns. About 8.5 MB.", "discover": null, "format": "csv", "id": "stocktake-2025-csv", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://zenodo.org/api/records/17143240/files/Data_finalised_for_Zenodo_16_09(Sheet1).csv/content"}
+      ],
+      "citation": {
+        "DOI": "10.5281/zenodo.17143240",
+        "URL": "https://zenodo.org/records/17143240",
+        "author": [
+          {"family": "Tatlow", "given": "Helen", "literal": null},
+          {"family": "Manya", "given": "Diego", "literal": null},
+          {"family": "Siu", "given": "Denise", "literal": null}
+        ],
+        "container-title": null,
+        "issued": "2025-09-17",
+        "page": null,
+        "publisher": "Zenodo",
+        "text": "Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2026. Dataset: Tatlow, H., Manya, D. and Siu, D. (2025), Net Zero Stocktake 2025, Zenodo, https://doi.org/10.5281/zenodo.17143240",
+        "title": "Net Zero Stocktake 2025",
+        "type": "dataset",
+        "version": null,
+        "volume": null
+      },
+      "description": "The Net Zero Tracker's record of net zero and other end targets for 4,083 entities (198 national governments including the European Union, 712 regions, 1,186 cities and 1,987 companies), as collected for the Net Zero Stocktake 2025: each target's type, year, legal status (in law, in a policy document, a declaration or pledge, proposed or in discussion, or achieved by the entity's own account), interim targets, coverage and plans. Coded by the Tracker's volunteer coders from public documents and checked by a second coder. Only the national target fields are used here.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Net Zero Tracker datasets are licensed under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. This Creative Commons license allows users to share, adapt and build upon the data, provided they meet the following conditions: Attribution (BY): The Net Zero Tracker must be credited in any copies or adaptations. NonCommercial (NC): The work cannot be used for commercial purposes.",
+        "terms_check": "page",
+        "terms_url": "https://zerotracker.net/data-terms-of-use"
+      },
+      "id": "net-zero-tracker-2025",
+      "landing_url": "https://zenodo.org/records/17143240",
+      "licence": {
+        "name": "CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0)",
+        "spdx": "CC-BY-NC-4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+      },
+      "licence_class": "noncommercial",
+      "next_release": {
+        "expected": "2026-10-31",
+        "note": "The 2023, 2024 and 2025 stocktakes were published in September or October, each with a Zenodo deposit (records 8021261, 13768013, 17143240). None for 2026 was found on 2026-10-08, so the end of October is a guess to look again, not an announced date.",
+        "url": null
+      },
+      "obligations": {
+        "attribution": "Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. Net Zero Stocktake 2025 dataset (Zenodo, doi:10.5281/zenodo.17143240). CC BY-NC 4.0.",
+        "attribution_modified": "Counted by Environment Dashboard from Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. Net Zero Stocktake 2025 dataset (Zenodo, doi:10.5281/zenodo.17143240). CC BY-NC 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": false,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": "Net Zero Tracker data are shared under CC BY-NC 4.0, for non-commercial use only; the Tracker's Zenodo deposit labels the same file CC BY 4.0, and the stricter terms are followed until the Tracker confirms which applies.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero)",
+      "research_ref": "docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#1. From 51 billion to zero: net-zero targets",
+      "status": {
+        "note": "A fixed deposit for the Net Zero Stocktake 2025 (data collection to September 2025). The Tracker publishes a new stocktake about once a year, with its dataset on Zenodo; a new deposit needs a new registry entry. Not a US federal product.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Net Zero Stocktake 2025 dataset",
+      "twins": [],
+      "update_cadence": "Annual stocktake (the live tracker updates every four hours, but only behind a reCAPTCHA form)"
     },
     {
       "acquisition": "automatic",
@@ -3965,6 +4955,69 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The published article (26 pages). Table 16 (page 20) gives the median, mean and standard deviation of mean specific power in W/m2 and of annual energy density in TWh/km2, the capacity factor and the number of sites per source; Table 7 (page 8) splits nuclear with and without the safety area, Table 9 (page 12) rooftop solar by region and Table 11 (page 14) wind by continent. 2,802,223 bytes.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.nature.com/articles/s41598-022-25341-9.pdf"}
+      ],
+      "citation": {
+        "DOI": "10.1038/s41598-022-25341-9",
+        "URL": "https://doi.org/10.1038/s41598-022-25341-9",
+        "author": [
+          {"family": "Nøland", "given": "Jonas Kristiansen", "literal": null},
+          {"family": "Auxepaules", "given": "Juliette", "literal": null},
+          {"family": "Rousset", "given": "Antoine", "literal": null},
+          {"family": "Perney", "given": "Benjamin", "literal": null},
+          {"family": "Falletti", "given": "Guillaume", "literal": null}
+        ],
+        "container-title": "Scientific Reports",
+        "issued": "2022-12-08",
+        "page": "21280",
+        "publisher": "Springer Nature",
+        "text": "Nøland, J.K., Auxepaules, J., Rousset, A. et al. Spatial energy density of large-scale electricity generation from power sources worldwide. Sci Rep 12, 21280 (2022). https://doi.org/10.1038/s41598-022-25341-9",
+        "title": "Spatial energy density of large-scale electricity generation from power sources worldwide",
+        "type": "article-journal",
+        "version": null,
+        "volume": "12"
+      },
+      "description": "Mean power generated per square metre (watts per square metre) by nuclear plants including their safety area, hydroelectric reservoirs, concentrating solar, ground-mounted and floating solar farms, wave and tidal farms, geothermal fields including the area between wells, offshore and onshore wind farms (the whole area inside the farm's perimeter), and rooftop solar per square metre of roof, from the authors' measurements of 8 to 451 sites per source worldwide (Table 16). Each source gives the median, the mean and the standard deviation across sites. The land boundaries differ from Lovering et al. (2022): nuclear includes the security zone but not uranium mining, and wind counts the whole farm area.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made.",
+        "terms_check": "pdf",
+        "terms_url": "https://www.nature.com/articles/s41598-022-25341-9.pdf"
+      },
+      "id": "noland-2022",
+      "landing_url": "https://doi.org/10.1038/s41598-022-25341-9",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Nøland, J. K., Auxepaules, J., Rousset, A., Perney, B. & Falletti, G. (2022). Spatial energy density of large-scale electricity generation from power sources worldwide. Scientific Reports 12, 21280. doi:10.1038/s41598-022-25341-9. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+        "attribution_modified": "Adapted by Environment Dashboard from Nøland, J. K., Auxepaules, J., Rousset, A., Perney, B. & Falletti, G. (2022). Spatial energy density of large-scale electricity generation from power sources worldwide. Scientific Reports 12, 21280. doi:10.1038/s41598-022-25341-9. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Nøland, Auxepaules, Rousset, Perney and Falletti (Norwegian University of Science and Technology, Grenoble INP); published in Scientific Reports (Springer Nature)",
+      "research_ref": "docs/research/sources-zero-space-and-power-2026-10-08.json#Nøland, Auxepaules, Rousset, Perney & Falletti (2022), Spatial energy density of large-scale electricity generation from power sources worldwide, Scientific Reports 12: 21280",
+      "status": {
+        "note": "Published 8 December 2022 (volume 12) as a one-off study; no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Power density of electricity generation (Nøland et al. 2022)",
+      "twins": ["lovering-2022"],
+      "update_cadence": "One-off (published 2022)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Arctic daily extent and missing area (million km2) from 26 October 1978, with the input files of each day's 3-day window in the last column. Two header rows.", "discover": null, "format": "csv", "id": "north-daily-extent", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Arctic 1981-2010 daily climatology by day of year: average extent, standard deviation and 10th, 25th, 50th, 75th and 90th percentiles (million km2).", "discover": null, "format": "csv", "id": "north-daily-climatology", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_climatology_1981-2010_v4.0.csv"},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Antarctic daily extent and missing area (million km2) from 26 October 1978, same layout.", "discover": null, "format": "csv", "id": "south-daily-extent", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/south/daily/data/S_seaice_extent_daily_v4.0.csv"},
@@ -4032,6 +5085,65 @@
       "title": "Sea Ice Index, Version 4 (G02135)",
       "twins": ["osisaf-sea-ice-index"],
       "update_cadence": "Daily (monthly files after each month ends)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "SDMX-CSV with labels: GBARD (measure C), objective Energy (NABS05), all funding modes (_T), US dollars at PPP, constant prices (base year 2020), every economy and year, with observation status flags (OBS_STATUS, OBS_STATUS_2, OBS_STATUS_3, AUX_OBS_STATUS).", "discover": null, "format": "csv", "id": "gbard-energy-usd-ppp-2020", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://sdmx.oecd.org/public/rest/data/OECD.STI.STP,DSD_RDS_GOV@DF_GBARD_NABS07,1.0/.A.C.NABS05._T._Z.USD_PPP.Q?format=csvfilewithlabels"}
+      ],
+      "citation": {
+        "DOI": null,
+        "URL": "https://sdmx.oecd.org/public/rest/dataflow/OECD.STI.STP/DSD_RDS_GOV@DF_GBARD_NABS07/1.0",
+        "author": [
+          {"family": null, "given": null, "literal": "OECD"}
+        ],
+        "container-title": null,
+        "issued": "2026",
+        "page": null,
+        "publisher": "OECD",
+        "text": "OECD (2026), Government budget allocations for R&D, OECD Data Explorer (dataflow OECD.STI.STP:DSD_RDS_GOV@DF_GBARD_NABS07), https://data-explorer.oecd.org/ (accessed on {date_accessed})",
+        "title": "Government budget allocations for R&D",
+        "type": "dataset",
+        "version": null,
+        "volume": null
+      },
+      "description": "Government budget allocations for research and development, by the socio-economic objective of the spending (NABS 2007), for OECD members and partner economies, from 1981. Here the objective Energy (NABS05) is used, in millions of US dollars at purchasing power parities and constant 2020 prices, as converted by the OECD. Energy is an objective covering every form of energy, so it includes research on fossil fuels and nuclear power as well as renewables and efficiency: it is all energy R&D in government budgets, not clean-energy research alone. The OECD's flags (estimated, provisional, break in series, definition differs) are kept. Budgets are plans for spending, not money spent.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "Except where additional restrictions apply as stated above, you can extract from, download, copy, adapt, print, distribute, share and embed Data for any purpose, even for commercial use. You must give appropriate credit to the OECD by using the citation associated with the relevant Data, or, if no specific citation is available, you must cite the source information using the following format: OECD (year), (dataset name),(data source) DOI or URL (accessed on (date)).",
+        "terms_check": "manual",
+        "terms_url": "https://www.oecd.org/en/about/terms-conditions.html"
+      },
+      "id": "oecd-gbard",
+      "landing_url": "https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_RDS_GOV%40DF_GBARD_NABS07&df[ag]=OECD.STI.STP",
+      "licence": {
+        "name": "OECD Terms and Conditions, section 3 Data (any use, with credit)",
+        "spdx": null,
+        "url": "https://www.oecd.org/en/about/terms-conditions.html"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "OECD (2026), Government budget allocations for R&D, OECD Data Explorer (dataflow OECD.STI.STP:DSD_RDS_GOV@DF_GBARD_NABS07), https://data-explorer.oecd.org/ (accessed on {date_accessed}).",
+        "attribution_modified": "Selected by Environment Dashboard from OECD (2026), Government budget allocations for R&D, OECD Data Explorer (dataflow OECD.STI.STP:DSD_RDS_GOV@DF_GBARD_NABS07), https://data-explorer.oecd.org/ (accessed on {date_accessed}).",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": "Anyone reusing these OECD data must credit the OECD in the same way, and pass this requirement on.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "OECD Directorate for Science, Technology and Innovation",
+      "research_ref": "docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#4. Innovation: public energy RD&D and venture funding",
+      "status": {
+        "note": "Updated when the OECD releases new R&D statistics (latest years provisional; the 2025 values in this pull are flagged provisional or estimated). Not a US federal product.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Government budget allocations for R&D (GBARD), by socio-economic objective",
+      "twins": ["eurostat"],
+      "update_cadence": "Several times a year, as countries report"
     },
     {
       "acquisition": "automatic",
@@ -4292,6 +5404,129 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Version of record (14 pages) as deposited on the University of Vaasa repository Osuva (handle 11111/3261). Table 3 (page 8): mean, median, minimum and maximum of the simulated monthly total cost of ownership of the diesel, LBG and electric trucks; Tables 1 and 2 (pages 4-5): the trucks and the simulation inputs. 2,953,471 bytes.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://osuva.uwasa.fi/server/api/core/bitstreams/a7579096-fe2c-4c0e-8e3c-0b0626d919df/content"}
+      ],
+      "citation": {
+        "DOI": "10.1016/j.jclepro.2025.145524",
+        "URL": "https://doi.org/10.1016/j.jclepro.2025.145524",
+        "author": [
+          {"family": "Rajalehto", "given": "Clara", "literal": null},
+          {"family": "Helo", "given": "Petri", "literal": null}
+        ],
+        "container-title": "Journal of Cleaner Production",
+        "issued": "2025-04-19",
+        "page": "145524",
+        "publisher": "Elsevier",
+        "text": "Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon heavy-duty road freight vehicles. Journal of Cleaner Production 509, 145524. https://doi.org/10.1016/j.jclepro.2025.145524",
+        "title": "Comparing feasibility of low-carbon heavy-duty road freight vehicles",
+        "type": "article-journal",
+        "version": null,
+        "volume": "509"
+      },
+      "description": "A case study of heavy trucks (64-tonne combinations, 40 pallets) run by one Finnish food logistics company on comparable routes from January to October 2023: a Volvo FH6x4 on diesel, a Volvo FH6x4 on liquid biomethane (LBG) and a Volvo FH Electric, all leased for five years. The monthly total cost of ownership (leasing, insurance, labour, energy and an emissions cost at the EU ETS price) is simulated 1,000 times per truck from the measured consumption, daily distances and energy prices. Subsidies are not modelled separately. One company's trucks; not a market average.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "© 2025 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY license ( http://creativecommons.org/licenses/by/4.0/ ).",
+        "terms_check": "pdf",
+        "terms_url": "https://osuva.uwasa.fi/server/api/core/bitstreams/a7579096-fe2c-4c0e-8e3c-0b0626d919df/content"
+      },
+      "id": "rajalehto-helo-2025",
+      "landing_url": "https://doi.org/10.1016/j.jclepro.2025.145524",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon heavy-duty road freight vehicles. Journal of Cleaner Production 509, 145524. doi:10.1016/j.jclepro.2025.145524. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon heavy-duty road freight vehicles. Journal of Cleaner Production 509, 145524. doi:10.1016/j.jclepro.2025.145524. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Clara Rajalehto and Petri Helo (University of Vaasa); published in the Journal of Cleaner Production (Elsevier)",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Rajalehto & Helo 2025, Journal of Cleaner Production 509:145524, doi 10.1016/j.jclepro.2025.145524",
+      "status": {
+        "note": "Published once (available online 19 April 2025; volume 509); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Monthly cost of ownership of diesel, biomethane and electric trucks in Finland (Rajalehto & Helo 2025)",
+      "twins": [],
+      "update_cadence": "One-off (published 2025)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The article's full text and tables as JATS XML from Europe PMC (PMC11803245). Table 2: total cost of ownership of the gas boiler and the heat pump under business as usual and four policy scenarios, for the central case and four sensitivity cases.", "discover": null, "format": "xml", "id": "article-xml", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11803245/fullTextXML"}
+      ],
+      "citation": {
+        "DOI": "10.1016/j.isci.2025.111784",
+        "URL": "https://doi.org/10.1016/j.isci.2025.111784",
+        "author": [
+          {"family": "Rosenow", "given": "Jan", "literal": null},
+          {"family": "Barnes", "given": "Jacob", "literal": null},
+          {"family": "Galvin", "given": "Ray", "literal": null},
+          {"family": "O'Mara", "given": "Samuel", "literal": null},
+          {"family": "Lowes", "given": "Richard", "literal": null}
+        ],
+        "container-title": "iScience",
+        "issued": "2025-01-10",
+        "page": "111784",
+        "publisher": "Elsevier (Cell Press)",
+        "text": "Rosenow, J., Barnes, J., Galvin, R., O'Mara, S. & Lowes, R. (2025). Total cost of ownership of heat pumps and policy choice: The case of Great Britain. iScience 28(2), 111784. https://doi.org/10.1016/j.isci.2025.111784",
+        "title": "Total cost of ownership of heat pumps and policy choice: The case of Great Britain",
+        "type": "article-journal",
+        "version": null,
+        "volume": "28"
+      },
+      "description": "The total cost of ownership over 15 years of an air-source heat pump (seasonal efficiency 2.9, the median of the Electrification of Heat trial) and of a gas boiler (85% efficiency) for a typical home in Great Britain: installation cost, minus the Boiler Upgrade Scheme grant for the heat pump, plus running costs discounted at 3.5% a year. The central case and four sensitivity cases are given under business as usual, alongside scenarios that move levies between electricity, gas and general taxation or add a carbon tax on gas.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+        "terms_check": "api",
+        "terms_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11803245/fullTextXML"
+      },
+      "id": "rosenow-2025",
+      "landing_url": "https://doi.org/10.1016/j.isci.2025.111784",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Rosenow, J., Barnes, J., Galvin, R., O'Mara, S. & Lowes, R. (2025). Total cost of ownership of heat pumps and policy choice: The case of Great Britain. iScience 28, 111784. doi:10.1016/j.isci.2025.111784. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Rosenow, J., Barnes, J., Galvin, R., O'Mara, S. & Lowes, R. (2025). Total cost of ownership of heat pumps and policy choice: The case of Great Britain. iScience 28, 111784. doi:10.1016/j.isci.2025.111784. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Jan Rosenow, Jacob Barnes, Ray Galvin, Samuel O'Mara and Richard Lowes (University of Oxford, University of Cambridge, Gemserv, University of Exeter); published in iScience (Cell Press)",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Rosenow et al. 2025, iScience 28:111784, doi 10.1016/j.isci.2025.111784",
+      "status": {
+        "note": "Published once (online 10 January 2025; volume 28, issue 2, 21 February 2025); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Lifetime cost of a heat pump and a gas boiler in Great Britain (Rosenow et al. 2025)",
+      "twins": [],
+      "update_cadence": "One-off (published 2025)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "NetCDF (CF-1.7): snow_cover_extent(time, y, x) flags 0 = no snow, 1 = snow covered; land (land mask) and area (km2) per cell; time in days since 1966-10-03, one map per week. NCEI replaces the file under a new name at each update; found through discover (the release covering weeks to 31 August 2026 on 2026-10-04).", "discover": {"choose": "max", "link_pattern": "https://www\\.ncei\\.noaa\\.gov/data/snow-cover-extent/access/nhsce_v01r01_19661004_(?P<key>\\d{8})\\.nc", "listing_url": "https://www.ncei.noaa.gov/data/snow-cover-extent/access/", "max_sublistings": 2, "sublisting_pattern": null}, "format": "nc", "id": "nhsce-weekly-grid", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
       ],
       "citation": {
@@ -4349,6 +5584,71 @@
       "title": "Northern Hemisphere snow cover extent climate data record",
       "twins": [],
       "update_cadence": "About monthly (weekly maps; each release replaces the file under a new name)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The article's full text and tables as JATS XML from Europe PMC (PMC10326079). Table 4: levelised costs of hydrogen and of synthetic jet fuel for 2030 and 2050 in the 2 °C and 3.5 °C scenarios.", "discover": null, "format": "xml", "id": "article-xml", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10326079/fullTextXML"}
+      ],
+      "citation": {
+        "DOI": "10.1038/s41467-023-39749-y",
+        "URL": "https://doi.org/10.1038/s41467-023-39749-y",
+        "author": [
+          {"family": "Sacchi", "given": "Romain", "literal": null},
+          {"family": "Becattini", "given": "Viola", "literal": null},
+          {"family": "Gabrielli", "given": "Paolo", "literal": null},
+          {"family": "Cox", "given": "Brian", "literal": null},
+          {"family": "Dirnaichner", "given": "Alois", "literal": null},
+          {"family": "Bauer", "given": "Christian", "literal": null},
+          {"family": "Mazzotti", "given": "Marco", "literal": null}
+        ],
+        "container-title": "Nature Communications",
+        "issued": "2023-07-06",
+        "page": "3989",
+        "publisher": "Springer Nature",
+        "text": "Sacchi, R., Becattini, V., Gabrielli, P. et al. How to make climate-neutral aviation fly. Nat Commun 14, 3989 (2023). https://doi.org/10.1038/s41467-023-39749-y",
+        "title": "How to make climate-neutral aviation fly",
+        "type": "article-journal",
+        "version": null,
+        "volume": "14"
+      },
+      "description": "A life-cycle and cost assessment of how European aviation (flights departing from the EU-27 and EFTA countries) could reach climate neutrality. Table 4 gives the levelised cost of synthetic jet fuel made from hydrogen and CO2 (Fischer-Tropsch), in euros per kilogram of jet fuel, for 2030 and 2050 under a 2 °C and a 3.5 °C climate scenario, with electricity costs from the REMIND model and learning rates for direct air capture and electrolysis. Projections; the currency year is not stated.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.",
+        "terms_check": "api",
+        "terms_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10326079/fullTextXML"
+      },
+      "id": "sacchi-2023",
+      "landing_url": "https://doi.org/10.1038/s41467-023-39749-y",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Sacchi, R., Becattini, V., Gabrielli, P., Cox, B., Dirnaichner, A., Bauer, C. & Mazzotti, M. (2023). How to make climate-neutral aviation fly. Nature Communications 14, 3989. doi:10.1038/s41467-023-39749-y. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Sacchi, R., Becattini, V., Gabrielli, P., Cox, B., Dirnaichner, A., Bauer, C. & Mazzotti, M. (2023). How to make climate-neutral aviation fly. Nature Communications 14, 3989. doi:10.1038/s41467-023-39749-y. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Romain Sacchi, Viola Becattini, Paolo Gabrielli, Brian Cox, Alois Dirnaichner, Christian Bauer and Marco Mazzotti (Paul Scherrer Institut, ETH Zurich, INFRAS and the Potsdam Institute for Climate Impact Research); published in Nature Communications",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Sacchi et al. 2023, Nature Communications 14:3989, doi 10.1038/s41467-023-39749-y",
+      "status": {
+        "note": "Published once on 6 July 2023 (volume 14); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Levelised cost of synthetic jet fuel for European aviation (Sacchi et al. 2023)",
+      "twins": [],
+      "update_cadence": "One-off (published 2023)"
     },
     {
       "acquisition": "automatic",
@@ -4552,6 +5852,129 @@
       "title": "Emissions Inequality Dashboard",
       "twins": [],
       "update_cadence": "Irregular, roughly yearly alongside SEI and Oxfam publications"
+    },
+    {
+      "acquisition": "manual",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Version of record from the ETH Zurich Research Collection (doi:10.3929/ethz-b-000701817), 12 pages: the repository's cover page, then the article's 11 pages. The URL answers scripted requests, but each download carries a new cover page, so a person records one copy with uv run envdash snapshot add --source siegrist-2024 --artifact article-pdf --file <path>.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/f05ee96a-2609-4502-8e74-a2e94de5e534/content"}
+      ],
+      "citation": {
+        "DOI": "10.1016/j.foodres.2024.115213",
+        "URL": "https://doi.org/10.1016/j.foodres.2024.115213",
+        "author": [
+          {"family": "Siegrist", "given": "Armin", "literal": null},
+          {"family": "Green", "given": "Ashley", "literal": null},
+          {"family": "Michel", "given": "Fabienne", "literal": null},
+          {"family": "Mathys", "given": "Alexander", "literal": null}
+        ],
+        "container-title": "Food Research International",
+        "issued": "2024-10-23",
+        "page": "115213",
+        "publisher": "Elsevier",
+        "text": "Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European countries. Food Research International 197, 115213. https://doi.org/10.1016/j.foodres.2024.115213",
+        "title": "Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European countries",
+        "type": "article-journal",
+        "version": null,
+        "volume": "197"
+      },
+      "description": "Prices per kilogram, main ingredients and nutrition of almost 2,600 meat and milk substitutes, and prices of about 7,500 conventional meat and milk products, collected from the web shops of 13 major supermarket chains in France, Germany, Italy, the Netherlands, Spain and the United Kingdom in August and September 2023. For meat, the price ratio of substitutes to conventional products is averaged within each product category and weighted by the number of substitutes in each category, by country.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "© 2024 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+        "terms_check": "pdf",
+        "terms_url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/f05ee96a-2609-4502-8e74-a2e94de5e534/content"
+      },
+      "id": "siegrist-2024",
+      "landing_url": "https://doi.org/10.1016/j.foodres.2024.115213",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European countries. Food Research International 197, 115213. doi:10.1016/j.foodres.2024.115213. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European countries. Food Research International 197, 115213. doi:10.1016/j.foodres.2024.115213. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Armin Siegrist, Ashley Green, Fabienne Michel and Alexander Mathys (ETH Zurich); published in Food Research International (Elsevier)",
+      "research_ref": "docs/research/sources-zero-green-premium-papers-2026-10-08.json#Siegrist et al. 2024, Food Research International 197:115213 (CC BY 4.0, ETH repository 10.3929/ethz-b-000701817)",
+      "status": {
+        "note": "Published once (available online 23 October 2024; volume 197, December 2024); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Prices of meat substitutes relative to meat in six European countries (Siegrist et al. 2024)",
+      "twins": [],
+      "update_cadence": "One-off (published 2024)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "All chapter 7 data, one value per row: columns Chapter, Country, Region, Model, Variable (Conventional or Novel), Type, Indicator, Method, Unit, Value, Year, Edition, Notes, Quality, Year Range, Data portal reference. World novel CDR by method and year and in total (Fig. 7.2), world and country conventional CDR by model (Fig. 7.1), transfers into durable wood products (Fig. 7.3), the pipeline of novel CDR capacity (Fig. 7.4) and estimates from national inventories.", "discover": null, "format": "csv", "id": "chapter-7-csv", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Chapter 7, \"Current levels of CDR\", as published (26 pages), for the statements the build checks.", "discover": null, "format": "pdf", "id": "chapter-7-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.stateofcdr.org/asset/SoCDR-Ed3_Chapter-7_Final.pdf"},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Chapter 7 technical annex (methods, sources and the novel CDR inclusion rules).", "discover": null, "format": "pdf", "id": "technical-annex-ch7", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.stateofcdr.org/asset/SoCDR-Ed3-Technical-annex-Ch7_Final.pdf"}
+      ],
+      "citation": {
+        "DOI": "10.17605/OSF.IO/ZRD65",
+        "URL": "https://www.stateofcdr.org/data-portal/3rd-edition",
+        "author": [
+          {"family": null, "given": null, "literal": "The State of Carbon Dioxide Removal"}
+        ],
+        "container-title": null,
+        "issued": "2026",
+        "page": null,
+        "publisher": null,
+        "text": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)",
+        "title": "The State of Carbon Dioxide Removal, 3rd Edition",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "Chapter 7 of The State of Carbon Dioxide Removal, 3rd Edition (2026), \"Current levels of CDR\": carbon dioxide removal actually delivered each year. Novel CDR is removal into durable storage by newer methods (biochar, BECCS, direct air capture with storage, enhanced weathering, mineral products, biomass burial and others), compiled project by project from registries, government data and CDR.fyi, 2017 to 2025; direct air capture counts only where the CO2 is shown to reach durable storage. Conventional CDR is removal by managed forests (afforestation, reforestation and forest management), from three bookkeeping models (BLUE, LUCE, OSCAR) and their mean, 2005 to 2024. Values are in million tonnes of CO2 a year.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "©2026 SoCDR Reports licensed under CC BY 4.0",
+        "terms_check": "page",
+        "terms_url": "https://www.stateofcdr.org/data-portal/3rd-edition"
+      },
+      "id": "state-of-cdr-3",
+      "landing_url": "https://www.stateofcdr.org/data-portal/3rd-edition",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "The State of Carbon Dioxide Removal, 3rd Edition (2026), chapter 7 data (https://www.stateofcdr.org/data-portal/3rd-edition). CC BY 4.0.",
+        "attribution_modified": "Selected by Environment Dashboard from The State of Carbon Dioxide Removal, 3rd Edition (2026), chapter 7 data (https://www.stateofcdr.org/data-portal/3rd-edition). CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": "Novel CDR includes values the report takes from CDR.fyi for projects not listed on registries; CDR.fyi's own terms do not allow republishing its data, and whether the report's CC BY 4.0 licence covers them is not yet confirmed.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)",
+      "research_ref": "docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#3. Capture what's left: CCS and direct air capture",
+      "status": {
+        "note": "Third edition published June 2026 (data file of 27 May 2026). Editions have appeared in 2023, 2024 and 2026; a new edition is a new registry entry. Academic consortium, not a US federal product.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)",
+      "twins": [],
+      "update_cadence": "Roughly every one to two years (a new edition)"
     },
     {
       "acquisition": "automatic",
@@ -4804,6 +6227,66 @@
     {
       "acquisition": "manual",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The main report, AGR2025.pdf (98 pages in the 4 November 2025 revision). Executive summary (PDF p. 13, printed xiii), chapter 4 key messages (PDF p. 58, printed 40) and Figure 4.4 with section 4.3.2 (PDF p. 65, printed 47) hold the values used; the Foreword (PDF p. 9, printed ix) restates the flows rounded. A person opens https://wedocs.unep.org/handle/20.500.11822/48798 in a web browser (UNEP's repository challenges scripts), downloads AGR2025.pdf, checks that page 2 carries the notice quoted in this entry, and records it with `uv run envdash snapshot add --source unep-agr-2025 --artifact report-pdf --file AGR2025.pdf --url \"<the link it was downloaded from>\" --note \"downloaded by <who> from https://wedocs.unep.org/handle/20.500.11822/48798\"`. The copy read by the research pass on 2026-10-08 was 15,336,689 bytes with sha256 7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf. UNEP's first upload (13,931,764 bytes, sha256 12677df58ea90d02e821a45f534e1fdf7145616797e8c308b52ed563d869a871) has the same 98 pages and values. Any other hash means UNEP has replaced the file, and the transform's page numbers must be checked again (the build stops if a sentence is not on its page).", "discover": null, "format": "pdf", "id": "report-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The report's online annexes, AGR2025_Online_Annexes.pdf (60 pages). Annex 4.B (PDF p. 48, printed 45) states that the international public adaptation finance flows come from the OECD DAC Climate-Related Development Finance (CRDF) data set (recipients' perspective), as commitments at 2023 constant prices. A person opens https://wedocs.unep.org/handle/20.500.11822/48839 in a web browser, downloads AGR2025_Online_Annexes.pdf, checks page 2 for the same notice, and records it with `uv run envdash snapshot add --source unep-agr-2025 --artifact online-annexes-pdf --file AGR2025_Online_Annexes.pdf --url \"<the link it was downloaded from>\" --note \"downloaded by <who> from https://wedocs.unep.org/handle/20.500.11822/48839\"`. The copy read by the research pass was 1,162,685 bytes with sha256 d62c387c331d97ddb80c523bfe0dac0d62de0a57f789bd0e8b328acc69580a8f.", "discover": null, "format": "pdf", "id": "online-annexes-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
+      ],
+      "citation": {
+        "DOI": "10.59117/20.500.11822/48798",
+        "URL": "https://doi.org/10.59117/20.500.11822/48798",
+        "author": [
+          {"family": null, "given": null, "literal": "United Nations Environment Programme"}
+        ],
+        "container-title": null,
+        "issued": "2025",
+        "page": null,
+        "publisher": "United Nations Environment Programme",
+        "text": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. The world is gearing up for climate resilience — without the money to get there [Neufeldt, H., Hammill, A., Leiter, T., Magnan, A., Watkiss, P., Bakhtiari, F., Bueno Rubial, P., Butera, B., Canales, N., Chapagain, D., Christiansen, L., Dale, T., Milford, F., Niles, K., Njuguna, L., Pauw, P., Singh, C. and Yang, G.]. Nairobi. https://wedocs.unep.org/20.500.11822/48798.",
+        "title": "Adaptation Gap Report 2025: Running on empty. The world is gearing up for climate resilience — without the money to get there",
+        "type": "report",
+        "version": null,
+        "volume": null
+      },
+      "description": "UNEP's annual assessment of progress in adapting to climate change. The 2025 edition estimates what adapting will cost developing countries each year by 2035, from two lines of evidence (modelled costs, and the finance needs countries state in their national adaptation plans and nationally determined contributions), and compares it with the international public finance for adaptation that developed countries commit to developing countries, tracked for 2019-2023 from the OECD's Climate-Related Development Finance data set. Values are taken from the report's printed text, each with its page.",
+      "evidence": {
+        "checked_on": "2026-10-08",
+        "licence_quote": "This publication may be reproduced in whole or in part and in any form for educational or non-profit services without special permission from the copyright holder, provided acknowledgement of the source is made.",
+        "terms_check": "manual",
+        "terms_url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"
+      },
+      "id": "unep-agr-2025",
+      "landing_url": "https://doi.org/10.59117/20.500.11822/48798",
+      "licence": {
+        "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
+        "spdx": null,
+        "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"
+      },
+      "licence_class": "noncommercial",
+      "next_release": null,
+      "obligations": {
+        "attribution": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. Nairobi. https://doi.org/10.59117/20.500.11822/48798",
+        "attribution_modified": null,
+        "derived_disclaimer": null,
+        "mirror_raw": false,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": "© 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.",
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "United Nations Environment Programme (UNEP)",
+      "research_ref": "docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#Adaptation Gap Report 2025: Running on empty (main report); #Adaptation Gap Report 2025: Online Annexes",
+      "status": {
+        "note": "The 2025 edition was published before COP30 (late October 2025) and revised on 4 November 2025 (only the reviewer list changed, per the research pass). The 2026 edition is expected before COP31 in November 2026, with no date announced. UNEP is not on the January 2026 US withdrawal memorandum. The flows are OECD DAC data, which UNEP reprocesses.",
+        "state": "active",
+        "us_federal": false
+      },
+      "title": "Adaptation Gap Report 2025: Running on empty",
+      "twins": [],
+      "update_cadence": "Annual, shortly before the November UN climate conference"
+    },
+    {
+      "acquisition": "manual",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The full report, EGR2025.pdf (76 pages). A person opens https://wedocs.unep.org/bitstream/handle/20.500.11822/48854/EGR2025.pdf?sequence=3&isAllowed=y in a web browser (the server shows scripts a Cloudflare check), saves the PDF, checks that page 2 carries the imprint quoted in this entry, and records it with `uv run envdash snapshot add --source unep-egr-2025 --file EGR2025.pdf`. The copy read on 2026-10-04 was 4,115,807 bytes with sha256 d5364c4761df1a88a39b942a982e24c6bfe205ad49ff3ed8b2af7a728992ff30; a different hash means UNEP has replaced the file.", "discover": null, "format": "pdf", "id": "egr-2025-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": null}
       ],
       "citation": {
@@ -4822,7 +6305,7 @@
         "version": null,
         "volume": null
       },
-      "description": "UNEP's sixteenth annual assessment of the gap between where global greenhouse gas emissions are heading and where they need to be to limit warming to 1.5 °C or 2 °C. It projects warming this century under current policies and under full implementation of national pledges, and states the cuts needed by 2030 and 2035 compared with 2019. Only short quoted statements and the numbers in them are shown, each with its page; the report's figures are never reproduced. Its emissions totals include land use, land-use change and forestry, unlike fossil-only totals.",
+      "description": "UNEP's sixteenth annual assessment of the gap between where global greenhouse gas emissions are heading and where they need to be to limit warming to 1.5 °C or 2 °C. It projects warming this century under current policies and under full implementation of national pledges, and states the cuts needed by 2030 and 2035 compared with 2019. Values are taken from the report's printed text, each with its page; the report's figures are not reproduced as images. Its emissions totals include land use, land-use change and forestry, unlike fossil-only totals.",
       "evidence": {
         "checked_on": "2026-10-04",
         "licence_quote": "This publication may be reproduced in whole or in part and in any form for educational or non-profit services without special permission from the copyright holder, provided acknowledgement of the source is made.",
@@ -4832,11 +6315,11 @@
       "id": "unep-egr-2025",
       "landing_url": "https://doi.org/10.59117/20.500.11822/48854",
       "licence": {
-        "name": "© 2025 United Nations Environment Programme; reproduction allowed for educational or non-profit services with acknowledgement, no commercial use",
+        "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
         "spdx": null,
         "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48854/EGR2025.pdf"
       },
-      "licence_class": "display-only",
+      "licence_class": "noncommercial",
       "next_release": null,
       "obligations": {
         "attribution": "United Nations Environment Programme (2025). Emissions Gap Report 2025: Off target – Continued collective inaction puts global temperature goal at risk. Nairobi. doi:10.59117/20.500.11822/48854.",
@@ -4845,7 +6328,7 @@
         "mirror_raw": false,
         "no_endorsement": false,
         "no_logo": false,
-        "notice": "© 2025 United Nations Environment Programme. Quoted with acknowledgement for educational, non-profit use; the full report is at https://doi.org/10.59117/20.500.11822/48854.",
+        "notice": "© 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted. The full report is at https://doi.org/10.59117/20.500.11822/48854.",
         "on_motif": null,
         "rounding": null
       },

@@ -1,0 +1,8 @@
+# Average electric power of the average US home
+# Indicator: power-scale.eia-recs-2020.us-household (vintage RECS 2020, Table CE2.1 (revised March 2024)); unit: kilowatts (average over the year) (kW)
+# Source: U.S. Energy Information Administration <https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption>
+# Credit: Calculated by Environment Dashboard from U.S. Energy Information Administration, 2020 Residential Energy Consumption Survey, Table CE2.1 (Mar 2024). Changes: annual electricity use divided by the 8,784 hours of 2020 to give average power in kilowatts.
+# Licence: Public domain (work of the US federal government) <https://www.copyright.gov/title17/92chap1.html#105>
+# Provenance and processing: https://environmentdashboard.org/data/power-scale/eia-recs-2020/us-household
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+power-scale.eia-recs-2020.us-household,USA,2020,1.2028688524590163,,,,final,"EIA's relative standard error for this estimate: 0.38% (Table CE2.1, sheet 'rse').",,

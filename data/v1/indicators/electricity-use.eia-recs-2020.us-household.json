@@ -1,0 +1,74 @@
+{
+  "attribution": "Source: U.S. Energy Information Administration (Mar 2024), 2020 Residential Energy Consumption Survey, Table CE2.1.",
+  "description": "Electricity used at home in 2020 by the average US household, in kilowatt-hours, from the US Energy Information Administration's Residential Energy Consumption Survey.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "country",
+  "headline_entity": "USA",
+  "id": "electricity-use.eia-recs-2020.us-household",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "USA",
+    "period": "2020",
+    "status": "final",
+    "value": 10566.0
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notes": ["EIA's relative standard error for this estimate: 0.38% (Table CE2.1, sheet 'rse')."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "table-ce2-1", "bytes": 37081, "citation_full": "Source: U.S. Energy Information Administration (Mar 2024).", "date_accessed": "2026-10-08", "date_published": "2024-03", "doi": null, "etag": "\"80265728ed7eda1:0\"", "last_modified": "Mon, 25 Mar 2024 19:46:41 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff", "source_id": "eia-recs-2020", "title": "Residential Energy Consumption Survey 2020, household consumption (Table CE2.1)", "url_download": "https://www.eia.gov/consumption/residential/data/2020/c&e/xls/ce2.1.xlsx", "url_main": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption", "version_producer": "RECS 2020, Table CE2.1 (revised March 2024)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read Table CE2.1 (sha256 14c8a8c29b41…), sheet 'physical units', row 'All homes': average site electricity consumption 10566 kWh per household, after checking the title, the headings, the release dates and the footnotes. Every home uses electricity, so this is the average per home: total consumption (1305 billion kWh) over the number of homes (123.53 million) agrees with it to within rounding.",
+      "inputs": ["14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_recs.py",
+      "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
+    },
+    {
+      "description": "Published the average as printed.",
+      "inputs": ["14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_recs.py",
+      "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Survey estimate (sample of households and their energy suppliers' bills) of site electricity use per home in calendar year 2020, including electricity from the home's own solar panels. Vacant and seasonal homes, second homes, military housing and group quarters are excluded.",
+    "bunkers": null,
+    "geography": "United States: all primary occupied homes in the 50 states and the District of Columbia",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["USA"],
+    "note": [0],
+    "period": ["2020"],
+    "status": ["final"],
+    "value": [10566.0]
+  },
+  "time_basis": "calendar",
+  "title": "Electricity used by the average US home in a year",
+  "unit": {
+    "code": "kWh-per-household-per-year",
+    "label": "kilowatt-hours per household per year",
+    "short": "kWh/household/yr"
+  },
+  "vintage": "RECS 2020, Table CE2.1 (revised March 2024)"
+}

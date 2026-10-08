@@ -1,0 +1,78 @@
+{
+  "attribution": "Calculated by Environment Dashboard from U.S. Energy Information Administration (Mar 2026), FAQ \"How many nuclear power plants are in the United States, and where are they located?\" Changes: net summer capacity converted from megawatts to gigawatts.",
+  "description": "The net summer generating capacity of the Alvin W. Vogtle Electric Generating Plant in Georgia, the largest nuclear power plant in the United States, with four reactors, in gigawatts, as stated by the US Energy Information Administration. A capacity is the most a plant can deliver, not what it delivers on average.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "country",
+  "headline_entity": "USA",
+  "id": "capacity.eia.vogtle",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "USA",
+    "period": "2026-03",
+    "status": "final",
+    "value": 4.53
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notes": ["EIA's answer is dated 'As of March 2026'. Four reactors; EIA gives the total nameplate capacity as about 4,658 MW."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "faq-207", "bytes": 54224, "citation_full": "Source: U.S. Energy Information Administration (Mar 2026).", "date_accessed": "2026-10-08", "date_published": null, "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "2bd28bd32bfe46d043a01ad082994a5a64a2d774bb8912a13e6d390890fd2640", "source_id": "eia-faq-nuclear-plants", "title": "EIA FAQ: How many nuclear power plants are in the United States?", "url_download": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3", "url_main": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3", "version_producer": "FAQ 207, as of March 2026", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the visible text of EIA's FAQ 207 (sha256 2bd28bd32bfe…) and found, in full, the passage dating the answer ('As of March 2026') and the passage naming the Alvin W. Vogtle Electric Generating Plant in Georgia as the largest US nuclear power plant, with a total net summer electricity generating capacity of 4,530 MW.",
+      "inputs": ["2bd28bd32bfe46d043a01ad082994a5a64a2d774bb8912a13e6d390890fd2640"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_faq_nuclear.py",
+      "transform_sha256": "f5d72e1b5a6eeff1c4f438c8d187977d58e493879cbd202bc11baedc0753ba83"
+    },
+    {
+      "description": "Unit conversion: 4,530 megawatts divided by 1,000 gives gigawatts, exactly. This is a capacity, the most the plant can deliver in summer conditions after its own use, not its average output.",
+      "inputs": ["2bd28bd32bfe46d043a01ad082994a5a64a2d774bb8912a13e6d390890fd2640"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_faq_nuclear.py",
+      "transform_sha256": "f5d72e1b5a6eeff1c4f438c8d187977d58e493879cbd202bc11baedc0753ba83"
+    }
+  ],
+  "published_value": {
+    "document": "eia-faq-nuclear-plants",
+    "locator": "FAQ 207, answer",
+    "quote": "The Alvin W. Vogtle Electric Generating Plant in Georgia is the largest U.S. nuclear power plant. It has: Four reactors Total nameplate electricity generating capacity of about 4,658 MW Total net summer electricity generating capacity of 4,530 MW"
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Net summer capacity: the most the plant's four reactors can supply to the grid in summer conditions, after the plant's own use. The period is the month EIA's answer is dated.",
+    "bunkers": null,
+    "geography": "Alvin W. Vogtle Electric Generating Plant, Georgia, United States",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["USA"],
+    "note": [0],
+    "period": ["2026-03"],
+    "status": ["final"],
+    "value": [4.53]
+  },
+  "time_basis": "calendar",
+  "title": "Generating capacity of the largest US nuclear power plant (Vogtle)",
+  "unit": {
+    "code": "GW",
+    "label": "gigawatts of net summer generating capacity",
+    "short": "GW"
+  },
+  "vintage": "FAQ 207, as of March 2026"
+}

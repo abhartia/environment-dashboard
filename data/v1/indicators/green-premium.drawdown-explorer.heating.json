@@ -1,0 +1,119 @@
+{
+  "attribution": "Project Drawdown, The Drawdown Explorer (http://drawdown.org/explorer): solution assessment spreadsheets on Zenodo, CC BY 4.0; methodology doi:10.5281/zenodo.20865531.",
+  "description": "What heating with a heat pump system costs per year, and what the equipment it replaces costs, in Project Drawdown's 2026 assessment of heat pumps: the running cost alone, and the running cost plus the purchase cost spread over the equipment's life without discounting. The baseline is a weighted average of the heating equipment heat pumps replace, not one type of boiler.",
+  "dimensions": [
+    {
+      "id": "option",
+      "label": "Heating",
+      "values": [
+        {"id": "baseline", "label": "Baseline heating equipment (Drawdown's 'BAU', a weighted average, 2023)"},
+        {"id": "heat-pump", "label": "Installed heat pump system"}
+      ]
+    },
+    {
+      "id": "side",
+      "label": "Side",
+      "values": [
+        {"id": "conventional", "label": "Baseline heating equipment"},
+        {"id": "low-carbon", "label": "Heat pump"}
+      ]
+    },
+    {
+      "id": "cost",
+      "label": "Cost",
+      "values": [
+        {"id": "net", "label": "Net cost per unit (initial cost spread over the equipment's life, plus operating cost)"},
+        {"id": "operating", "label": "Operating cost per unit"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "green-premium.drawdown-explorer.heating",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "cost": "net",
+      "option": "heat-pump",
+      "side": "low-carbon"
+    },
+    "entity": "WLD",
+    "period": "2023",
+    "status": "final",
+    "value": 990.0
+  },
+  "licence": {
+    "name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Use Heat Pumps spreadsheet, sheet 'results', row 24: 'operating cost per unit BAU' (2023 US$/unit/yr).", "Use Heat Pumps spreadsheet, sheet 'results', row 26: 'net cost per unit BAU' (2023 US$/unit/yr).", "Use Heat Pumps spreadsheet, sheet 'results', row 30: 'operating cost per unit solution' (2023 US$/unit/yr).", "Use Heat Pumps spreadsheet, sheet 'results', row 32: 'net cost per unit solution' (2023 US$/unit/yr)."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "use-heat-pumps", "bytes": 686799, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/21246268/files/Use%20Heat%20Pumps-%20Solution%20Assessment%20Spreadsheet.xlsx/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer, Use Heat Pumps spreadsheet on Zenodo (methodology June 2026)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "methodology-pdf", "bytes": 3230671, "citation_full": "Project Drawdown, Dioha, M., Gleeson, S., Hoff, M., Lam, J., Matthews, M., Smith, A. D., Swanson, C., Farac, N. F., Sweeney, A., Gerber, J., & Toensmeier, E. (2026). Methodology for Project Drawdown Solutions Assessments. Zenodo. https://doi.org/10.5281/zenodo.20865531. Project Drawdown. (2026). The Drawdown Explorer. http://drawdown.org/explorer.", "date_accessed": "2026-10-05", "date_published": null, "doi": "10.5281/zenodo.20865531", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0 (Zenodo deposits by Project Drawdown)", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Project Drawdown", "r2_url": null, "sha256": "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d", "source_id": "drawdown-explorer", "title": "Drawdown Explorer solution assessments", "url_download": "https://zenodo.org/api/records/20865531/files/Web%20Version%20of%20Methodology%20-%20June%202026.pdf/content", "url_main": "https://drawdown.org/explorer", "version_producer": "Drawdown Explorer, Use Heat Pumps spreadsheet on Zenodo (methodology June 2026)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the results sheet of Project Drawdown's Use Heat Pumps spreadsheet, checking the adoption unit, the headings and unit of the baseline and solution cost blocks and the label of every value cell.",
+      "inputs": ["9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/heating_drawdown_explorer.py",
+      "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
+    },
+    {
+      "description": "Published 4 cached cell values as Drawdown gives them: the operating cost and the net cost per unit per year of the baseline heating equipment and of a heat pump system, in 2023 US dollars.",
+      "inputs": ["9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/heating_drawdown_explorer.py",
+      "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
+    },
+    {
+      "description": "Checked in the methodology that the net cost amortises the initial cost without discounting. Left out the initial cost, the revenues and Drawdown's difference between the two; nothing was subtracted.",
+      "inputs": ["9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/heating_drawdown_explorer.py",
+      "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
+    }
+  ],
+  "published_value": {
+    "document": "drawdown-explorer",
+    "locator": "Methodology for Project Drawdown Solutions Assessments (June 2026), p. 17",
+    "quote": "When we include the initial cost in the Net Cost, we amortize it without discounting over 30 years. If 30 years is not an appropriate time period for implementing the solution, we may choose a different period and state it in the narrative."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Project Drawdown's meta-analysis of equipment and energy costs against a 2023 baseline, per installed heat pump system and per baseline unit it replaces, in 2023 US dollars. The net cost amortises the initial cost without discounting over the equipment's life.",
+    "bunkers": null,
+    "geography": "World (Project Drawdown's global estimate)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "cost": ["net", "operating", "net", "operating"],
+      "option": ["baseline", "baseline", "heat-pump", "heat-pump"],
+      "side": ["conventional", "conventional", "low-carbon", "low-carbon"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD"],
+    "note": [1, 0, 3, 2],
+    "period": ["2023", "2023", "2023", "2023"],
+    "status": ["final", "final", "final", "final"],
+    "value": [1180.0, 830.0, 990.0, 540.0]
+  },
+  "time_basis": "calendar",
+  "title": "Yearly cost of a heat pump and of today's heating equipment (Project Drawdown)",
+  "unit": {
+    "code": "USD2023-per-unit-per-year",
+    "label": "US dollars (2023) per heating system per year",
+    "short": "US$/system/yr"
+  },
+  "vintage": "Drawdown Explorer, Use Heat Pumps spreadsheet on Zenodo (methodology June 2026)"
+}

@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/electricity.eurostat.share-of-final-energy.json",
+  "export_sha256": "8e33f1d7aa386d58ef4abb5407f10fc444a1b2efa404486e51f658f1a3d9ccd0",
+  "indicator_id": "electricity.eurostat.share-of-final-energy",
+  "key": "566d44f8d20c786acb307160db0b4426e27b2ee6f3d956e676fb473f42332910",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "eurostat/candidate-countries": {
+        "manifest_sha256": "f720f5da3b02c1ea1ca948955ff39833966e42abf3551163c315dc891648fbd3",
+        "sha256": "3acc81b0b300b6faa64724b0a101a61e382265c2e1f85fad457de85c9b2f8071"
+      },
+      "eurostat/nrg-ind-fecf-electricity": {
+        "manifest_sha256": "8d4041d99287e64de4134c4d267e970dc0c19fd64aeb58a8bef141a65399ab85",
+        "sha256": "40dddd7fe048083516ef6691b6b266fac034eb7ce4590693e14412eb2f484760"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "eurostat": "900ec84c85dc838b938cf1dcb09c6c6f3a7b30c123569d2eb4b894a0bb5d88c3"
+    },
+    "transform_sha256": "076295b414f8a4e4db9f370a54dfa4714931d60a12cc4360576be767d95267de"
+  },
+  "publisher_checks": []
+}

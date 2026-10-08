@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/green-premium.drawdown-explorer.heating.json",
+  "export_sha256": "2dcb684b5cf648408612856a3d20248fc33bed077c7f205a931ee0e8d426e01e",
+  "indicator_id": "green-premium.drawdown-explorer.heating",
+  "key": "5d6c2ef612e1d72d317fc84e8d914743e6b009a54cde53116ab850c04e83f246",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "drawdown-explorer/methodology-pdf": {
+        "manifest_sha256": "d53893227a16eef1df991f68ffb5dd249031d16321360537672c18b7328a7dc5",
+        "sha256": "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"
+      },
+      "drawdown-explorer/use-heat-pumps": {
+        "manifest_sha256": "e88a43b53a1b3619f52df588dabe46a3f0d3966050e2799b877e34eecf681a1a",
+        "sha256": "9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "drawdown-explorer": "d2d7f462d3b6bb7eb8827dbca707bf990418d9fa7686d120727a9cb23759c4c7"
+    },
+    "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
+  },
+  "publisher_checks": []
+}

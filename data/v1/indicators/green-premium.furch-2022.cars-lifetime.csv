@@ -1,0 +1,10 @@
+# Life cycle cost of petrol, diesel and electric cars in Czechia (Furch et al. 2022)
+# Indicator: green-premium.furch-2022.cars-lifetime (vintage Scientific Reports 12, 10661 (2022)); unit: euros over the car's life (EUR)
+# Source: Jan Furch, Vlastimil Konečný and Zdeněk Krobot (University of Defence, Brno); published in Scientific Reports <https://doi.org/10.1038/s41598-022-14715-8>
+# Credit: Furch, J., Konečný, V. & Krobot, Z. (2022). Modelling of life cycle cost of conventional and alternative vehicles. Scientific Reports 12, 10661. doi:10.1038/s41598-022-14715-8. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/furch-2022/cars-lifetime
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,option,side
+green-premium.furch-2022.cars-lifetime,CZE,2022,74147.0,,,,final,"Table 1, row ""Life cycle cumulative costs LCC"", column ""Petrol 1.5 dm3 TSI 110 kW"": 74,147",,,petrol,conventional
+green-premium.furch-2022.cars-lifetime,CZE,2022,70985.0,,,,final,"Table 1, row ""Life cycle cumulative costs LCC"", column ""Diesel 2.0 dm3 TSI 110 kW"": 70,985",,,diesel,conventional
+green-premium.furch-2022.cars-lifetime,CZE,2022,82423.0,,,,final,"Table 1, row ""Life cycle cumulative costs LCC"", column ""Electric 80 kW"": 82,423. The article's text (Discussion, Figure 11): ""the specific cost of an electric vehicle without battery replacement is €0.21, for an electric vehicle with battery replacement is €0.25"".",,,electric,low-carbon

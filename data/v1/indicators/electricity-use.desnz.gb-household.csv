@@ -1,0 +1,8 @@
+# Electricity used by the average household in Great Britain in a year
+# Indicator: electricity-use.desnz.gb-household (vintage 2005 to 2024 (published 18 December 2025)); unit: kilowatt-hours per household per year (kWh-per-household-per-year)
+# Source: Department for Energy Security and Net Zero (UK Government) <https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics>
+# Credit: Department for Energy Security and Net Zero, Subnational electricity consumption statistics, Great Britain, 2005 to 2024 (published 18 December 2025). Contains public sector information licensed under the Open Government Licence v3.0.
+# Licence: Open Government Licence v3.0 (Crown copyright) <https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>
+# Provenance and processing: https://environmentdashboard.org/data/electricity-use/desnz/gb-household
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+electricity-use.desnz.gb-household,GBR_GB,2024,3463.408415200937,,,,final,"DESNZ's 2024 electricity year: February 2024 to January 2025 for non-half-hourly meters (almost all homes), January to December for half-hourly meters.",,

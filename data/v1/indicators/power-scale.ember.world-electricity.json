@@ -1,0 +1,89 @@
+{
+  "attribution": "Calculated by Environment Dashboard from Ember, Yearly Electricity Data (file of 2026-09-22), CC BY 4.0. Changes: world electricity demand divided by the hours in each year to give average power in terawatts.",
+  "description": "The electricity the world used each year since 2000, expressed as average power in terawatts: the year's terawatt-hours spread evenly over its hours. From Ember's yearly electricity data.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "power-scale.ember.world-electricity",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "preliminary",
+    "value": 3.632435502283105
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Partly Ember's estimate: the file has no 2023 demand for 1 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.", "Partly Ember's estimate: the file has no 2024 demand for 15 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.", "Partly Ember's estimate: the file has no 2025 demand for 116 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "generation-yearly-global", "bytes": 16084305, "citation_full": "Yearly electricity generation data, Ember", "date_accessed": "2026-10-04", "date_published": "2026-09-22", "doi": null, "etag": "\"67122835394a3edc9da6e56901f3d640\"", "last_modified": "Tue, 22 Sep 2026 16:24:55 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": "https://files.environmentdashboard.org/raw/ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7.zst", "sha256": "ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "source_id": "ember-yearly", "title": "Yearly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv", "url_main": "https://ember-energy.org/data/yearly-electricity-data/", "version_producer": "2026-09-22", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "methodology-pdf", "bytes": 1487777, "citation_full": "Yearly electricity generation data, Ember", "date_accessed": "2026-10-04", "date_published": "2026-09-22", "doi": null, "etag": "\"9e4a04176b5b87901bdf0da81b05935b\"", "last_modified": "Tue, 22 Sep 2026 11:58:42 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": "https://files.environmentdashboard.org/raw/67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908.zst", "sha256": "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908", "source_id": "ember-yearly", "title": "Yearly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/ember_electricity_data_methodology.pdf", "url_main": "https://ember-energy.org/data/yearly-electricity-data/", "version_producer": "2026-09-22", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-09-22 (Ember gives no version label, so that date is the vintage), and kept Area 'World', Electricity source 'Demand', column 'Generation (TWh)'.",
+      "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
+      "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
+    },
+    {
+      "description": "Checked that World demand equals World total generation (the world has no net imports) in every year, to within the rounding of the printed values.",
+      "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
+      "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
+    },
+    {
+      "description": "Marked a year preliminary, with a note giving the count, when the file has no Demand for that year for a country or economy that has it for an earlier year; Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…; both sentences found on pages 10, 12) says it estimates the latest annual values from monthly data and a country's missing years from historical trends. Preliminary years in this vintage: 2023, 2024, 2025.",
+      "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
+      "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
+    },
+    {
+      "description": "Unit conversion to average power: divided each year's World demand in terawatt-hours by the hours in that calendar year (8,760, or 8,784 in a leap year), giving terawatts (TWh / h = TW), in exact decimal arithmetic. The result is the constant power that would deliver the same electricity over the year, not the world's peak demand.",
+      "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
+      "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Electricity demand as Ember publishes it for the world, which equals the world's total electricity generation in every year of the file (checked at each build). Ember reports generation as gross generation where it can. The latest years are partly Ember's estimates (marked preliminary). Average power is the annual energy divided by the hours in the year, not the peak demand.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "note": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 2],
+    "period": ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary", "preliminary", "preliminary"],
+    "value": [1.7446828324225865, 1.7748369863013698, 1.8376745433789954, 1.9036845890410958, 1.988162795992714, 2.0757472602739724, 2.15635901826484, 2.2564971461187215, 2.2947405510018215, 2.2828594748858446, 2.432728196347032, 2.5145116438356165, 2.5702957650273226, 2.6509481735159817, 2.7159398401826484, 2.744786872146119, 2.8147513661202184, 2.908165639269406, 3.0259700913242007, 3.0692947488584474, 3.047141393442623, 3.2310965753424656, 3.3059437214611873, 3.3930180365296803, 3.528026183970856, 3.632435502283105]
+  },
+  "time_basis": "calendar",
+  "title": "Average electric power of the world",
+  "unit": {
+    "code": "TW",
+    "label": "terawatts (average over the year)",
+    "short": "TW"
+  },
+  "vintage": "2026-09-22"
+}

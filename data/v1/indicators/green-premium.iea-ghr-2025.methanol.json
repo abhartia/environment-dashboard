@@ -1,0 +1,108 @@
+{
+  "attribution": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0",
+  "description": "How much more it cost to produce low-emissions methanol than conventional methanol in 2024, as the IEA states it: in China, around 70 percent more with carbon capture and 160 percent more by electrolysis than unabated coal-based production; in India, 100 percent more by electrolysis than unabated natural gas-based production, the lowest gap the IEA found.",
+  "dimensions": [
+    {
+      "id": "route",
+      "label": "Low-emissions route",
+      "values": [
+        {"id": "ccus", "label": "With carbon capture (CCUS)"},
+        {"id": "electrolysis", "label": "Electrolysis (electrolytic hydrogen and captured CO2)"}
+      ]
+    },
+    {
+      "id": "comparator",
+      "label": "Conventional route compared with",
+      "values": [
+        {"id": "unabated-coal", "label": "Unabated coal-based production"},
+        {"id": "unabated-gas", "label": "Unabated natural gas-based production"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "country",
+  "headline_entity": "CHN",
+  "id": "green-premium.iea-ghr-2025.methanol",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "comparator": "unabated-coal",
+      "route": "electrolysis"
+    },
+    "entity": "CHN",
+    "period": "2024",
+    "status": "final",
+    "value": 160.0
+  },
+  "licence": {
+    "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Chapter 2, the competitiveness of hydrogen technologies (methanol), p. 52: \"In the case of China, the world’s largest producer of methanol, the price gap is around 70% for CCUS and 160% for electrolysis compared with unabated coal-based production, which is today’s main production route in the country.\"", "Chapter 2, the competitiveness of hydrogen technologies (methanol), p. 52: \"India currently has the lowest cost gap (100%) between unabated natural gas-based production and electrolytic methanol, due to the high cost of imported natural gas.\""],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 10610820, "citation_full": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0", "date_accessed": "2026-10-08", "date_published": "2025-09", "doi": null, "etag": "0x8DE0B26C4883D5C", "last_modified": "Tue, 14 Oct 2025 13:37:06 GMT", "licence": {"name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "International Energy Agency", "r2_url": null, "sha256": "94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2", "source_id": "iea-ghr-2025", "title": "Global Hydrogen Review 2025", "url_download": "https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf", "url_main": "https://www.iea.org/reports/global-hydrogen-review-2025", "version_producer": "Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the PDF (sha256 94f2912332e1…). Found each of the 2 quoted statement(s) word for word on PDF page(s) 54, and the 2 context sentence(s) the scope relies on, before publishing.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    },
+    {
+      "description": "Published each number exactly as printed, with its statement in the value's note. A range 'A-B%' is published as its low end A and high end B (dimension 'bound'); nothing was computed, rounded or combined with any other source.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    },
+    {
+      "description": "The IEA calls China's figure a 'price gap' in the same paragraph where it calls the others 'cost gaps'; both describe the levelised cost of production in Figure 2.9.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    }
+  ],
+  "published_value": {
+    "document": "iea-ghr-2025",
+    "locator": "Chapter 2, the competitiveness of hydrogen technologies (methanol), p. 52",
+    "quote": "India currently has the lowest cost gap (100%) between unabated natural gas-based production and electrolytic methanol, due to the high cost of imported natural gas."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Methanol made with carbon capture or from electrolytic hydrogen (with captured CO2), compared with the country's conventional route: unabated coal in China, unabated natural gas in India. Levelised cost of production in 2024 (the text's present tense, matching Figure 2.9, 'Levelised cost of production of selected materials by technology, 2024'), IEA analysis. Energy costs are regional end-user prices for industry including taxes and charges; no explicit financial support, though support embedded in cost components (such as fossil fuel subsidies) may be included (figure note).",
+    "bunkers": null,
+    "geography": "China and India",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "comparator": ["unabated-gas", "unabated-coal", "unabated-coal"],
+      "route": ["electrolysis", "ccus", "electrolysis"]
+    },
+    "entity": ["IND", "CHN", "CHN"],
+    "note": [1, 0, 0],
+    "period": ["2024", "2024", "2024"],
+    "status": ["final", "final", "final"],
+    "value": [100.0, 70.0, 160.0]
+  },
+  "time_basis": "calendar",
+  "title": "Extra cost of low-emissions methanol in China and India (IEA)",
+  "unit": {
+    "code": "percent",
+    "label": "percent more than the conventional route",
+    "short": "%"
+  },
+  "vintage": "Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)"
+}

@@ -1,0 +1,43 @@
+# Cost of electricity from new US power plants coming online in 2031 (EIA)
+# Indicator: lcoe.eia-aeo-2026.new-plants-us (vintage AEO2026 (April 2026)); unit: US dollars (2025) per megawatt-hour (USD2025/MWh)
+# Source: U.S. Energy Information Administration <https://www.eia.gov/outlooks/aeo/electricity_generation/index.php>
+# Credit: Source: U.S. Energy Information Administration (Apr 2026).
+# Licence: Public domain (work of the US federal government) <https://www.copyright.gov/title17/92chap1.html#105>
+# Provenance and processing: https://environmentdashboard.org/data/lcoe/eia-aeo-2026/new-plants-us
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,technology,cost_basis,average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,110.86933718181818,104.34439400000001,122.648002,range,projection,EIA models this plant type at a capacity factor of 90%.,,,advanced-nuclear,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,87.81134718181818,81.286404,99.590012,range,projection,EIA models this plant type at a capacity factor of 90%.,,,advanced-nuclear,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,,,,,projection,EIA models this plant type at a capacity factor of 90%.,"EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.",,advanced-nuclear,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,107.60273551999998,90.095814,179.086677,range,projection,EIA models this plant type at a capacity factor of 83%.,,,biomass,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,84.54474551999998,67.037824,156.02868700000002,range,projection,EIA models this plant type at a capacity factor of 83%.,,,biomass,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,,,,,projection,EIA models this plant type at a capacity factor of 83%.,"EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.",,biomass,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,77.45683012,66.035737,95.998205,range,projection,EIA models this plant type at a capacity factor of 40%.,,,gas-combined-cycle,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,77.45683012,66.035737,95.998205,range,projection,EIA models this plant type at a capacity factor of 40%.,,,gas-combined-cycle,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,77.86546501838984,,,,projection,EIA models this plant type at a capacity factor of 40%.,,,gas-combined-cycle,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,77.19220432,66.653306,95.62460800000001,range,projection,EIA models this plant type at a capacity factor of 87%.,,,gas-combined-cycle-ccs,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,58.468462880000004,48.054756,77.11894500000001,range,projection,EIA models this plant type at a capacity factor of 87%.,,,gas-combined-cycle-ccs,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,48.054756,,,,projection,EIA models this plant type at a capacity factor of 87%.,,,gas-combined-cycle-ccs,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,48.6949348,44.171697,52.61267,range,projection,EIA models this plant type at a capacity factor of 90%.,,,geothermal,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,40.38252,37.126715000000004,44.087666,range,projection,EIA models this plant type at a capacity factor of 90%.,,,geothermal,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,40.44084546570314,,,,projection,EIA models this plant type at a capacity factor of 90%.,,,geothermal,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,118.78947646666667,107.349009,131.41255399999997,range,projection,EIA models this plant type at a capacity factor of 43%.,,,offshore-wind,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,118.78947646666667,107.349009,131.41255399999997,range,projection,EIA models this plant type at a capacity factor of 43%.,,,offshore-wind,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,,,,,projection,EIA models this plant type at a capacity factor of 43%.,"EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.",,offshore-wind,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,82.07628669565217,70.23019,96.43134600000002,range,projection,EIA models this plant type at a capacity factor of 56%.,,,hydroelectric,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,64.76520608695652,55.33248099999999,74.71083499999999,range,projection,EIA models this plant type at a capacity factor of 56%.,,,hydroelectric,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,58.642386246958225,,,,projection,EIA models this plant type at a capacity factor of 56%.,,,hydroelectric,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,96.33237928,68.20543799999999,135.422665,range,projection,EIA models this plant type at a capacity factor of 27%.,,,solar-pv-battery,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,94.1977788,66.73525299999999,132.47196399999999,range,projection,EIA models this plant type at a capacity factor of 27%.,,,solar-pv-battery,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,,,,,projection,EIA models this plant type at a capacity factor of 27%.,"EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.",,solar-pv-battery,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,58.33216903999999,40.95102,82.25123399999998,range,projection,EIA models this plant type at a capacity factor of 27%.,,,solar-pv,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,58.33216903999999,40.95102,82.25123399999998,range,projection,EIA models this plant type at a capacity factor of 27%.,,,solar-pv,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,48.759137,,,,projection,EIA models this plant type at a capacity factor of 27%.,,,solar-pv,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,56.74783100000001,39.623555999999994,110.973984,range,projection,EIA models this plant type at a capacity factor of 38%.,,,onshore-wind,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,56.74783100000001,39.623555999999994,110.973984,range,projection,EIA models this plant type at a capacity factor of 38%.,,,onshore-wind,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,46.711355538023135,,,,projection,EIA models this plant type at a capacity factor of 38%.,,,onshore-wind,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,172.57105051999997,152.293191,209.00660800000003,range,projection,EIA models this plant type at a capacity factor of 10%.,,,combustion-turbine,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,172.57105051999997,152.293191,209.00660800000003,range,projection,EIA models this plant type at a capacity factor of 10%.,,,combustion-turbine,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,168.10331145926884,,,,projection,EIA models this plant type at a capacity factor of 10%.,,,combustion-turbine,with-tax-credits,capacity-weighted
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,190.44790248,180.87787600000001,211.224483,range,projection,EIA models this plant type at a capacity factor of 10%.,,,battery-storage,before-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,152.61163192,144.064826,174.558423,range,projection,EIA models this plant type at a capacity factor of 10%.,,,battery-storage,with-tax-credits,simple-average
+lcoe.eia-aeo-2026.new-plants-us,USA,2031,,,,,projection,EIA models this plant type at a capacity factor of 10%.,"EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.",,battery-storage,with-tax-credits,capacity-weighted

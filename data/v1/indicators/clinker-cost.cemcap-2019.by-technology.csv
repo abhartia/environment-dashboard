@@ -1,0 +1,14 @@
+# Cost of cement clinker with and without CO2 capture (CEMCAP)
+# Indicator: clinker-cost.cemcap-2019.by-technology (vintage Energies 12(3), 542 (2019)); unit: euros (2014) per tonne of clinker (EUR2014/t-clinker)
+# Source: Gardarsdottir, De Lena, Romano, Roussanaly, Voldsund, Pérez-Calvo, Berstad, Fu, Anantharaman, Sutter, Gazzani, Mazzotti and Cinti (SINTEF, Politecnico di Milano, ETH Zurich, Italcementi; the CEMCAP project); published in Energies (MDPI) <https://doi.org/10.3390/en12030542>
+# Credit: Gardarsdottir, S.O. et al. (2019). Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis. Energies 12, 542. doi:10.3390/en12030542. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/clinker-cost/cemcap-2019/by-technology
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,technology
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,62.6,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,reference
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,107.4,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,mea
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,93.0,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,oxyfuel
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,104.9,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,cap
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,120.0,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,mal
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,105.8,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,cal-tail-end
+clinker-cost.cemcap-2019.by-technology,CEMCAP_REF,2014,110.3,,,,final,"Table 6, p. 10: ""Cost of clinker (€/tclk) 62.6 107.4 93.0 104.9 120.0 105.8 110.3""",,,cal-integrated

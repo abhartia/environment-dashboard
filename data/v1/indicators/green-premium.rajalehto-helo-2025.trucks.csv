@@ -1,0 +1,13 @@
+# Monthly cost of running diesel, biomethane and electric trucks in Finland (Rajalehto & Helo 2025)
+# Indicator: green-premium.rajalehto-helo-2025.trucks (vintage Journal of Cleaner Production 509, 145524 (2025)); unit: euros per truck per month (EUR-per-month)
+# Source: Clara Rajalehto and Petri Helo (University of Vaasa); published in the Journal of Cleaner Production (Elsevier) <https://doi.org/10.1016/j.jclepro.2025.145524>
+# Credit: Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon heavy-duty road freight vehicles. Journal of Cleaner Production 509, 145524. doi:10.1016/j.jclepro.2025.145524. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/rajalehto-helo-2025/trucks
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,option,side,statistic
+green-premium.rajalehto-helo-2025.trucks,FIN,2023-01/2023-10,21300.0,15300.0,28800.0,range,final,"Table 3, column Diesel: Mean 2.13E4, Min 1.53E4, Max 2.88E4 (monthly cost of ownership, 1,000 simulations).",,,diesel,conventional,mean
+green-premium.rajalehto-helo-2025.trucks,FIN,2023-01/2023-10,21300.0,15300.0,28800.0,range,final,"Table 3, column Diesel: Median 2.13E4, Min 1.53E4, Max 2.88E4 (monthly cost of ownership, 1,000 simulations).",,,diesel,conventional,median
+green-premium.rajalehto-helo-2025.trucks,FIN,2023-01/2023-10,19700.0,15000.0,39500.0,range,final,"Table 3, column LBG: Mean 1.97E4, Min 1.50E4, Max 3.95E4 (monthly cost of ownership, 1,000 simulations).",,,lbg,low-carbon,mean
+green-premium.rajalehto-helo-2025.trucks,FIN,2023-01/2023-10,19200.0,15000.0,39500.0,range,final,"Table 3, column LBG: Median 1.92E4, Min 1.50E4, Max 3.95E4 (monthly cost of ownership, 1,000 simulations).",,,lbg,low-carbon,median
+green-premium.rajalehto-helo-2025.trucks,FIN,2023-01/2023-10,17600.0,16300.0,19400.0,range,final,"Table 3, column EV: Mean 1.76E4, Min 1.63E4, Max 1.94E4 (monthly cost of ownership, 1,000 simulations).",,,ev,low-carbon,mean
+green-premium.rajalehto-helo-2025.trucks,FIN,2023-01/2023-10,17600.0,16300.0,19400.0,range,final,"Table 3, column EV: Median 1.76E4, Min 1.63E4, Max 1.94E4 (monthly cost of ownership, 1,000 simulations).",,,ev,low-carbon,median

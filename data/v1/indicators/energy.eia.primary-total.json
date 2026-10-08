@@ -35,42 +35,42 @@
       "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
-      "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
     },
     {
       "description": "Kept the annual consumption series in quadrillion Btu: total energy consumption and its five fuels (coal, natural gas, petroleum and other liquids, nuclear, renewables and other), checking each series' name and units. Kept the World and the 220 countries and territories in pipeline/geo/entities.csv, matched by EIA's ISO 3 code (EIA's XKS is Kosovo, KOS, and its SCG, Former Serbia and Montenegro, is Serbia and Montenegro as reported together, SRB_MNE); EIA's regional aggregates are left out, and so are these geographies, which have no entity in the crosswalk: Former Czechoslovakia; Former U.S.S.R.; Former Yugoslavia; Germany, East; Germany, West; Hawaiian Trade Zone; Netherlands Antilles; U.S. Pacific Islands; U.S. Territories; Wake Island.",
       "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
-      "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
     },
     {
       "description": "Checked EIA's accounting method against its own generation series: for every country other than the United States, the energy content of hydro, wind, solar, geothermal and tide and wave electricity is 3,412 Btu per kilowatt-hour, the captured-energy approach (11,140 country-years checked). Not on that basis in this file: USA: 72 values, e.g. solar 2023 3676, solar 2024 3622 Btu per kWh. World nuclear consumption is 10,379 Btu per kilowatt-hour of nuclear generation in 2024, the heat input of the plants.",
       "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
-      "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
     },
     {
       "description": "Where EIA's total differs from the sum of its five fuel series, both are published as given. Entities where they differ in this vintage: USA, WLD (World 2024: total minus the sum is -1.442 quad Btu).",
       "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
-      "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
     },
     {
       "description": "EIA's codes '--', 'NA' and 'ie' (which the file does not define) are null values whose reason quotes the code.",
       "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
-      "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
     },
     {
       "description": "Published EIA's total energy consumption as given.",
       "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
-      "transform_sha256": "6e68eab86d8f8c9690e0911d97f56bc09271d0b727778bee8df871e19614723c"
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
     }
   ],
   "published_value": null,

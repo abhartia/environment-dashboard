@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.sacchi-2023.jet-fuel.json",
+  "export_sha256": "cf4cecc556f00ddd3e60785317d12e52ae6c62f0ea4e4ae1ea3c9964d54fbf9a",
+  "indicator_id": "green-premium.sacchi-2023.jet-fuel",
+  "key": "b37f8787d6ba031b11c8848273c4def7b78ceecd43e4b294ae208ecdc4668f43",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "sacchi-2023/article-xml": {
+        "manifest_sha256": "a9607731e85d943a918cc9bfe48438ce3df4818bd1f0c531b350a2da19345c04",
+        "sha256": "d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "sacchi-2023": "7b8a32db065fdf86659e43d8dcc25e07796381124de26b53b8e9673b97623b73"
+    },
+    "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
+  },
+  "publisher_checks": []
+}

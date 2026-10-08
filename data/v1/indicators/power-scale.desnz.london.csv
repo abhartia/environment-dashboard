@@ -1,0 +1,8 @@
+# Average electric power of London
+# Indicator: power-scale.desnz.london (vintage 2005 to 2024 (published 18 December 2025)); unit: gigawatts (average over the year) (GW)
+# Source: Department for Energy Security and Net Zero (UK Government) <https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics>
+# Credit: Calculated by Environment Dashboard from Department for Energy Security and Net Zero, Subnational electricity consumption statistics, Great Britain, 2005 to 2024 (published 18 December 2025). Contains public sector information licensed under the Open Government Licence v3.0. Changes: annual electricity divided by the 8,784 hours of DESNZ's 2024 electricity year to give average power in gigawatts.
+# Licence: Open Government Licence v3.0 (Crown copyright) <https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>
+# Provenance and processing: https://environmentdashboard.org/data/power-scale/desnz/london
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+power-scale.desnz.london,GBR_LONDON,2024,3.9618300995413818,,,,final,"DESNZ's 2024 electricity year: February 2024 to January 2025 for non-half-hourly meters (almost all homes), January to December for half-hourly meters.",,

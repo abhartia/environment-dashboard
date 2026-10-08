@@ -1,0 +1,111 @@
+{
+  "attribution": "The State of Carbon Dioxide Removal, 3rd Edition (2026), chapter 7 data (https://www.stateofcdr.org/data-portal/3rd-edition). CC BY 4.0.",
+  "description": "How much CO2 newer removal methods actually took out of the atmosphere and put into durable storage each year, world total and by method (biochar, bioenergy with carbon capture and storage, direct air capture with storage, enhanced rock weathering and others), as compiled project by project for The State of Carbon Dioxide Removal. These are removals delivered, not capacity.",
+  "dimensions": [
+    {
+      "id": "method",
+      "label": "Method",
+      "values": [
+        {"id": "all", "label": "All novel methods"},
+        {"id": "biochar", "label": "Biochar added to soils"},
+        {"id": "beccs", "label": "Bioenergy with carbon capture and storage (BECCS)"},
+        {"id": "biomass-burial", "label": "Biomass burial"},
+        {"id": "mineral-products", "label": "Mineral products"},
+        {"id": "enhanced-weathering", "label": "Enhanced rock weathering"},
+        {"id": "bio-oil-storage", "label": "Bio-oil storage"},
+        {"id": "alkalinity-enhancement", "label": "Alkalinity enhancement of water bodies"},
+        {"id": "daccs", "label": "Direct air capture with storage (DACCS)"},
+        {"id": "biomass-sinking", "label": "Biomass sinking"},
+        {"id": "other", "label": "Other novel methods"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "cdr.socdr-3.novel-by-method",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "method": "all"
+    },
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 2.04
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": "Novel CDR includes values the report takes from CDR.fyi for projects not listed on registries; CDR.fyi's own terms do not allow republishing its data, and whether the report's CC BY 4.0 licence covers them is not yet confirmed.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "chapter-7-csv", "bytes": 5129380, "citation_full": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)", "date_accessed": "2026-10-08", "date_published": "2026-06", "doi": "10.17605/OSF.IO/ZRD65", "etag": "\"6a174f2a-4e44a4\"", "last_modified": "Wed, 27 May 2026 20:08:10 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)", "r2_url": null, "sha256": "250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "source_id": "state-of-cdr-3", "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)", "url_download": "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv", "url_main": "https://www.stateofcdr.org/data-portal/3rd-edition", "version_producer": "The State of Carbon Dioxide Removal, 3rd Edition (2026)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "chapter-7-pdf", "bytes": 1937668, "citation_full": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)", "date_accessed": "2026-10-08", "date_published": "2026-06", "doi": "10.17605/OSF.IO/ZRD65", "etag": "\"6a1dcf54-1d9104\"", "last_modified": "Mon, 01 Jun 2026 18:28:36 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)", "r2_url": null, "sha256": "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "source_id": "state-of-cdr-3", "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)", "url_download": "https://www.stateofcdr.org/asset/SoCDR-Ed3_Chapter-7_Final.pdf", "url_main": "https://www.stateofcdr.org/data-portal/3rd-edition", "version_producer": "The State of Carbon Dioxide Removal, 3rd Edition (2026)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "technical-annex-ch7", "bytes": 857632, "citation_full": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)", "date_accessed": "2026-10-08", "date_published": "2026-06", "doi": "10.17605/OSF.IO/ZRD65", "etag": "\"6a1d5120-d1620\"", "last_modified": "Mon, 01 Jun 2026 09:30:08 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)", "r2_url": null, "sha256": "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65", "source_id": "state-of-cdr-3", "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)", "url_download": "https://www.stateofcdr.org/asset/SoCDR-Ed3-Technical-annex-Ch7_Final.pdf", "url_main": "https://www.stateofcdr.org/data-portal/3rd-edition", "version_producer": "The State of Carbon Dioxide Removal, 3rd Edition (2026)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read SoCDR-Edition-3-Chapter-7.csv (fetched 2026-10-08, Last-Modified Wed, 27 May 2026 20:08:10 GMT, sha256 250208937d47…), UTF-8 with a byte-order mark.",
+      "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
+      "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
+    },
+    {
+      "description": "Kept the world rows 'Global Novel CDR by year' (the report's total) and 'Global Novel CDR by method and year', in million tonnes of CO2 a year, as printed. A method appears from the first year the report records it; no year is filled.",
+      "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
+      "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
+    },
+    {
+      "description": "Found in the technical annex (p. 14) that novel CDR counts only removals with published data, direct air capture only where the CO2 reaches durable storage, and CDR.fyi's delivered values for projects not on registries; and on p. 2 of chapter 7 the 2025 world total.",
+      "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
+      "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
+    },
+    {
+      "description": "Compared the report's total with its method rows for each year (to the total's printed precision): they differ in 2017, 2018, 2019, 2020, 2025; both are published as printed.",
+      "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
+      "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Removals delivered to durable storage, compiled from registries, government data and CDR.fyi; direct air capture only where storage is confirmed. Net of reported losses where the source gives them.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "method": ["all", "all", "all", "all", "all", "all", "all", "all", "all", "biochar", "biochar", "biochar", "biochar", "biochar", "beccs", "beccs", "beccs", "beccs", "beccs", "beccs", "beccs", "beccs", "beccs", "biomass-burial", "biomass-burial", "biomass-burial", "mineral-products", "mineral-products", "mineral-products", "mineral-products", "mineral-products", "mineral-products", "enhanced-weathering", "enhanced-weathering", "enhanced-weathering", "enhanced-weathering", "enhanced-weathering", "enhanced-weathering", "bio-oil-storage", "bio-oil-storage", "bio-oil-storage", "bio-oil-storage", "bio-oil-storage", "bio-oil-storage", "alkalinity-enhancement", "alkalinity-enhancement", "alkalinity-enhancement", "daccs", "daccs", "daccs", "daccs", "biomass-sinking", "biomass-sinking", "biomass-sinking", "biomass-sinking", "biomass-sinking", "biomass-sinking", "other", "other", "other", "other", "other", "other"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2021", "2022", "2023", "2024", "2025", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2023", "2024", "2025", "2020", "2021", "2022", "2023", "2024", "2025", "2020", "2021", "2022", "2023", "2024", "2025", "2020", "2021", "2022", "2023", "2024", "2025", "2023", "2024", "2025", "2022", "2023", "2024", "2025", "2020", "2021", "2022", "2023", "2024", "2025", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [0.43, 0.43, 0.43, 0.43, 0.64, 1.02, 1.4, 1.83, 2.04, 0.205026752, 0.4961, 0.788980784, 1.1305, 1.4629, 0.50665, 0.525002, 0.51978, 0.428, 0.428, 0.519, 0.6061, 0.6635, 0.5105, 0.0019, 0.0174, 0.0465, 0.0, 0.0004, 0.0015, 0.0037, 0.0117, 0.0022, 0.0, 0.0025, 0.0029, 0.0028, 0.0063, 0.0038, 0.0035, 0.0025, 0.0003, 0.0008, 0.0008, 0.0057, 0.00013725, 0.001192819, 0.00354, 0.0, 0.0001, 0.0014, 0.0015, 0.0021, 0.0005, 0.0037, 0.004726, 0.0, 0.0, 0.0035, 0.0025, 0.0003, 0.001, 0.002, 0.0093]
+  },
+  "time_basis": "calendar",
+  "title": "Carbon dioxide removed by novel methods, by method",
+  "unit": {
+    "code": "MtCO2/yr",
+    "label": "million tonnes of carbon dioxide per year",
+    "short": "Mt CO₂/yr"
+  },
+  "vintage": "The State of Carbon Dioxide Removal, 3rd Edition (2026)"
+}

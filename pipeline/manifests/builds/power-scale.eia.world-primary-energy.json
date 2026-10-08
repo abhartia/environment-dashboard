@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/power-scale.eia.world-primary-energy.json",
+  "export_sha256": "023bd4c1ac220f3605fa0bff3f126d500567344c1722f36ebd058efec8a7d889",
+  "indicator_id": "power-scale.eia.world-primary-energy",
+  "key": "6a865c0700834df1b5548f2c3a06e5f5607866721b2a1e1b6e1511b2142bee50",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "eia-international/bulk-manifest": {
+        "manifest_sha256": "7e2bda31b1cc0460a704a1027fa34b79fbaba8ef7d0ac1197c28ae371000b1b0",
+        "sha256": "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"
+      },
+      "eia-international/intl-bulk": {
+        "manifest_sha256": "f5a6290e06894dfe6c754bbc673cbf58d9d45f290a65c5faf69a11eb10593b82",
+        "sha256": "9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9"
+      }
+    },
+    "key_files": {
+      "pipeline/src/envdash/power.py": "ad3b232991da8c65ef54816fa79d6100f879a4a7af8ff77dfaa13b6216318b56"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "eia-international": "ef4a063458abf28cdf29788cbfcdea110202c34d24bfa617fece2361c3f23c52"
+    },
+    "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+  },
+  "publisher_checks": []
+}

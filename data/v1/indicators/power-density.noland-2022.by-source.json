@@ -1,0 +1,124 @@
+{
+  "attribution": "Nøland, J. K., Auxepaules, J., Rousset, A., Perney, B. & Falletti, G. (2022). Spatial energy density of large-scale electricity generation from power sources worldwide. Scientific Reports 12, 21280. doi:10.1038/s41598-022-25341-9. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+  "description": "Average electric power generated per square metre of land or sea, in watts, for ten ways of making electricity, from Table 16 of Nøland et al. (2022), who measured 8 to 451 sites per source on satellite images: the median, the mean and the standard deviation across sites. Nuclear includes the plant's safety area but not uranium mining; wind counts the whole area inside the farm's perimeter; rooftop solar is per square metre of roof, not land.",
+  "dimensions": [
+    {
+      "id": "source",
+      "label": "Way of making electricity",
+      "values": [
+        {"id": "nuclear", "label": "Nuclear (plant and its safety area)"},
+        {"id": "hydro", "label": "Hydroelectric (reservoir surface)"},
+        {"id": "solar-csp", "label": "Concentrating solar power"},
+        {"id": "solar-pv", "label": "Solar farms (on land and floating)"},
+        {"id": "wave", "label": "Wave"},
+        {"id": "geothermal", "label": "Geothermal (including the area between wells)"},
+        {"id": "rooftop-pv", "label": "Rooftop solar (per square metre of roof)"},
+        {"id": "wind-offshore", "label": "Offshore wind (whole farm area)"},
+        {"id": "tidal", "label": "Tidal"},
+        {"id": "wind-onshore", "label": "Onshore wind (whole farm area)"}
+      ]
+    },
+    {
+      "id": "statistic",
+      "label": "Statistic",
+      "values": [
+        {"id": "median", "label": "Median across sites"},
+        {"id": "mean", "label": "Mean across sites"},
+        {"id": "standard-deviation", "label": "Standard deviation across sites"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "power-density.noland-2022.by-source",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "source": "wind-offshore",
+      "statistic": "median"
+    },
+    "entity": "WLD",
+    "period": "2022",
+    "status": "final",
+    "value": 3.84
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Table 16, p. 20, row \"Geothermal\": n = 8 sites.", "Table 16, p. 20, row \"Hydro\": n = 451 sites.", "Table 16, p. 20, row \"Nuclear\": n = 159 sites.", "Table 16, p. 20, row \"Solar (CSP)\": n = 27 sites.", "Table 16, p. 20, row \"Solar (PV)\": n = 17 sites.", "Table 16, p. 20, row \"Solar (rooftop)\": n = 39 countries (Table 9, p. 12, gives the same values with n = 40). Power per square metre of roof, from cumulative installations per country (the paper's reference 5, Capellán-Pérez et al. 2017), not land.", "Table 16, p. 20, row \"Tidal\": n = 12 sites.", "Table 16, p. 20, row \"Wave\": n = 11 sites.", "Table 16, p. 20, row \"Wind (offshore)\": n = 11 sites.", "Table 16, p. 20, row \"Wind (onshore)\": n = 148 sites."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 2802223, "citation_full": "Nøland, J.K., Auxepaules, J., Rousset, A. et al. Spatial energy density of large-scale electricity generation from power sources worldwide. Sci Rep 12, 21280 (2022). https://doi.org/10.1038/s41598-022-25341-9", "date_accessed": "2026-10-08", "date_published": "2022-12-08", "doi": "10.1038/s41598-022-25341-9", "etag": "\"ac30e4d311cdc2d3ea16a376d6c6d768\"", "last_modified": "Mon, 04 Dec 2023 14:01:58 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Nøland, Auxepaules, Rousset, Perney and Falletti (Norwegian University of Science and Technology, Grenoble INP); published in Scientific Reports (Springer Nature)", "r2_url": null, "sha256": "c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de", "source_id": "noland-2022", "title": "Power density of electricity generation (Nøland et al. 2022)", "url_download": "https://www.nature.com/articles/s41598-022-25341-9.pdf", "url_main": "https://doi.org/10.1038/s41598-022-25341-9", "version_producer": "Scientific Reports 12: 21280 (2022)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read Table 16 from page 20 of the article PDF (sha256 c411c5ee0ce3…): its caption and headings had to be as expected, and its twelve source lines exactly Nuclear, Natural gas, Hydro, Solar (CSP), Solar (PV), Wave, Geothermal, Solar (rooftop), Wind (offshore), Tidal, Wind (onshore) and Biomass, in that order.",
+      "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
+      "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
+    },
+    {
+      "description": "Published the median, the mean and the standard deviation of mean specific power in watts per square metre for ten sources, exactly as printed. The annual energy density columns (the same quantity in terawatt-hours per square kilometre) and the capacity factors are not published.",
+      "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
+      "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
+    },
+    {
+      "description": "Checked that the article agrees with itself: nuclear equals Table 7's line including the safety area, offshore and onshore wind equal Table 11, rooftop solar equals Table 9's world line.",
+      "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
+      "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
+    },
+    {
+      "description": "Left out natural gas, whose Table 16 value is the upper estimate of Table 6, built on the IEA's World Energy Outlook 2022 (reference 35; both checked in the PDF), and biomass, which is van Zalk and Behrens (2018)'s value, whose own licence has not been confirmed.",
+      "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
+      "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
+    }
+  ],
+  "published_value": {
+    "document": "noland-2022",
+    "locator": "Table 16, p. 20",
+    "quote": "Wind (offshore) 3.84 3.89 ± 1.61 0.034 0.034 ± 0.014 44.3 11"
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Mean electric power generated (annual energy over the hours of a year) per square metre of the area each site occupies: the plant and its safety area for nuclear, the reservoir surface for hydroelectric dams, the area inside the perimeter for wind, wave and tidal farms, the area between wells for geothermal, and the roof surface for rooftop solar. Fuel supply land is not counted. The period is the year of publication.",
+    "bunkers": null,
+    "geography": "Sites studied worldwide (8 to 451 per source; rooftop solar: 39 countries)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "source": ["nuclear", "nuclear", "nuclear", "hydro", "hydro", "hydro", "solar-csp", "solar-csp", "solar-csp", "solar-pv", "solar-pv", "solar-pv", "wave", "wave", "wave", "geothermal", "geothermal", "geothermal", "rooftop-pv", "rooftop-pv", "rooftop-pv", "wind-offshore", "wind-offshore", "wind-offshore", "tidal", "tidal", "tidal", "wind-onshore", "wind-onshore", "wind-onshore"],
+      "statistic": ["median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation", "median", "mean", "standard-deviation"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "note": [2, 2, 2, 1, 1, 1, 3, 3, 3, 4, 4, 4, 7, 7, 7, 0, 0, 0, 5, 5, 5, 8, 8, 8, 6, 6, 6, 9, 9, 9],
+    "period": ["2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [587.17, 764.69, 549.69, 4.26, 33.73, 157.28, 14.45, 20.33, 12.74, 9.13, 9.91, 3.28, 9.73, 7.94, 2.77, 5.56, 4.88, 3.39, 4.17, 4.58, 2.25, 3.84, 3.89, 1.61, 2.29, 2.84, 2.49, 1.49, 2.12, 2.06]
+  },
+  "time_basis": "calendar",
+  "title": "Power generated per square metre, by way of making electricity (Nøland et al. 2022)",
+  "unit": {
+    "code": "W/m2",
+    "label": "watts per square metre",
+    "short": "W/m²"
+  },
+  "vintage": "Scientific Reports 12: 21280 (2022)"
+}

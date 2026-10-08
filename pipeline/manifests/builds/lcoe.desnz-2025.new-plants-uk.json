@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/lcoe.desnz-2025.new-plants-uk.json",
+  "export_sha256": "5ba8926a34cdee7a6a121e081ce1af0730238a633fdcbf884a4e53b9d4aa65a9",
+  "indicator_id": "lcoe.desnz-2025.new-plants-uk",
+  "key": "9301ef380c5430feb7b6b975864961188cd4ddf72c72461b7b6229983ce3cc7a",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "desnz-generation-costs-2025/annex-a": {
+        "manifest_sha256": "19119d21d49e0ee30ca4fadb786bfd4200450c2b2d3a0caea140bdd5c72cca5c",
+        "sha256": "a6233e478d7d1b1c6471781a397e8ba2d3bed511e2eccfb597edb2011ecf20ea"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "desnz-generation-costs-2025": "ebb22470f598c6740a6056e3f6b541d301f6f2a02b520309756014536f745275"
+    },
+    "transform_sha256": "ab510631b86fa3c534992cbc43cf0297e7b8ddb7eb69c6737c2a0b9656be03d0"
+  },
+  "publisher_checks": []
+}

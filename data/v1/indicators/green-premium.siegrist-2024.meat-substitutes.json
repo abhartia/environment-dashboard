@@ -1,0 +1,85 @@
+{
+  "attribution": "Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European countries. Food Research International 197, 115213. doi:10.1016/j.foodres.2024.115213. CC BY 4.0.",
+  "description": "How the price of meat substitutes compares with conventional meat of the same kind (minced meat with minced meat, deli meat with deli meat), as the ratio of their prices per kilogram in supermarket web shops in August and September 2023: 1 means the same price. Siegrist and colleagues (2024) state it for Germany and Spain; across France, Italy, the Netherlands and the United Kingdom they give only a range, quoted in the notes.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "country",
+  "headline_entity": "ESP",
+  "id": "green-premium.siegrist-2024.meat-substitutes",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "ESP",
+    "period": "2023-08/2023-09",
+    "status": "final",
+    "value": 2.15
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Section 3 (Results), p. 5: \"In Spain, the average price ratio was highest with a value of 2.15.\" Two retailers' web shops (Spain, n = 2). Abstract: \"On average, meat substitutes were found to be 24 to 115 % more expensive compared to conventional meat, except for the German samples where price parity has been reached.\"", "Section 3 (Results), p. 5: \"The lowest price ratio for meat substitutes and their corresponding benchmarks was 0.95 for Germany.\" One retailer's web shop (Germany, n = 1). Abstract: \"On average, meat substitutes were found to be 24 to 115 % more expensive compared to conventional meat, except for the German samples where price parity has been reached.\""],
+  "notice": null,
+  "origins": [
+    {"acquisition": "manual", "artifact_id": "article-pdf", "bytes": 6294590, "citation_full": "Siegrist, A., Green, A., Michel, F. & Mathys, A. (2024). Comparing the nutritional value and prices of meat and milk substitutes with their animal-based benchmarks across six European countries. Food Research International 197, 115213. https://doi.org/10.1016/j.foodres.2024.115213", "date_accessed": "2026-10-08", "date_published": "2024-10-23", "doi": "10.1016/j.foodres.2024.115213", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Armin Siegrist, Ashley Green, Fabienne Michel and Alexander Mathys (ETH Zurich); published in Food Research International (Elsevier)", "r2_url": null, "sha256": "255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e", "source_id": "siegrist-2024", "title": "Prices of meat substitutes relative to meat in six European countries (Siegrist et al. 2024)", "url_download": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/f05ee96a-2609-4502-8e74-a2e94de5e534/content", "url_main": "https://doi.org/10.1016/j.foodres.2024.115213", "version_producer": "Food Research International 197, 115213 (2024)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the version-of-record PDF from the ETH Zurich Research Collection (sha256 255165bb02a3…, one download recorded by hand because the repository's cover page changes with every download) and found 6 passages from the abstract, the methods and the results word for word on their pages.",
+      "inputs": ["255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/meat_siegrist_2024.py",
+      "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
+    },
+    {
+      "description": "Published the two price ratios of meat substitutes to conventional meat that the results state for one country each (Germany and Spain), exactly as printed.",
+      "inputs": ["255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/meat_siegrist_2024.py",
+      "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
+    },
+    {
+      "description": "Did not publish the ranges stated for several countries at once (the abstract's '24 to 115 %' and 'between 1.24 and 1.46' for France, Italy, the Netherlands and the United Kingdom); they are quoted in each value's note.",
+      "inputs": ["255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/meat_siegrist_2024.py",
+      "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
+    }
+  ],
+  "published_value": {
+    "document": "siegrist-2024",
+    "locator": "Abstract, p. 1",
+    "quote": "On average, meat substitutes were found to be 24 to 115 % more expensive compared to conventional meat, except for the German samples where price parity has been reached."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Prices of substitutes collected in August 2023 and of conventional products in September 2023. The ratio is averaged within each product category, then weighted by the number of substitute products in each category.",
+    "bunkers": null,
+    "geography": "Germany (one retailer) and Spain (two retailers): web shops of major supermarket chains",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["DEU", "ESP"],
+    "note": [1, 0],
+    "period": ["2023-08/2023-09", "2023-08/2023-09"],
+    "status": ["final", "final"],
+    "value": [0.95, 2.15]
+  },
+  "time_basis": "calendar",
+  "title": "Price of meat substitutes compared with meat in Germany and Spain (Siegrist et al. 2024)",
+  "unit": {
+    "code": "ratio",
+    "label": "price per kilogram of meat substitutes divided by that of conventional meat",
+    "short": "ratio"
+  },
+  "vintage": "Food Research International 197, 115213 (2024)"
+}

@@ -1,0 +1,15 @@
+# Price of plant-based and conventional mince and sausages in Vienna (Falkenberg et al. 2023)
+# Indicator: green-premium.falkenberg-2023.meat (vintage Foods 12, 2211 (2023)); unit: euros per kilogram (retail price) (EUR-per-kg)
+# Source: Christof Falkenberg, Alena Trexler, Christian Garaus and Siegfried Pöchtrager (University of Natural Resources and Life Sciences, Vienna); published in Foods (MDPI) <https://doi.org/10.3390/foods12112211>
+# Credit: Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12, 2211. doi:10.3390/foods12112211. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/falkenberg-2023/meat
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,product,side,statistic
+green-premium.falkenberg-2023.meat,AUT,2022-05,11.4,6.79,15.12,range,final,"Table 3, row ""Conventional minced meat"": Mean 11.40, Min. 6.79, Max. 15.12",,,mince,conventional,mean
+green-premium.falkenberg-2023.meat,AUT,2022-05,12.47,6.79,15.12,range,final,"Table 3, row ""Conventional minced meat"": Median 12.47, Min. 6.79, Max. 15.12",,,mince,conventional,median
+green-premium.falkenberg-2023.meat,AUT,2022-05,16.32,7.9,22.17,range,final,"Table 3, row ""Plant-based minced meat"": Mean 16.32, Min. 7.90, Max. 22.17",,,mince,low-carbon,mean
+green-premium.falkenberg-2023.meat,AUT,2022-05,17.28,7.9,22.17,range,final,"Table 3, row ""Plant-based minced meat"": Median 17.28, Min. 7.90, Max. 22.17",,,mince,low-carbon,median
+green-premium.falkenberg-2023.meat,AUT,2022-05,15.24,9.42,31.87,range,final,"Table 3, row ""Conventional sausages"": Mean 15.24, Min. 9.42, Max. 31.87",,,sausages,conventional,mean
+green-premium.falkenberg-2023.meat,AUT,2022-05,15.0,9.42,31.87,range,final,"Table 3, row ""Conventional sausages"": Median 15.00, Min. 9.42, Max. 31.87",,,sausages,conventional,median
+green-premium.falkenberg-2023.meat,AUT,2022-05,19.72,11.92,28.06,range,final,"Table 3, row ""Plant-based sausages"": Mean 19.72, Min. 11.92, Max. 28.06",,,sausages,low-carbon,mean
+green-premium.falkenberg-2023.meat,AUT,2022-05,18.63,11.92,28.06,range,final,"Table 3, row ""Plant-based sausages"": Median 18.63, Min. 11.92, Max. 28.06",,,sausages,low-carbon,median

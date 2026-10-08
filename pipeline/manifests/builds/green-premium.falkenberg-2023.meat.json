@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.falkenberg-2023.meat.json",
+  "export_sha256": "a6e175dd0e3c596b3b5f317adf24763f9d814951f945e33d5b8a17ea97a0b5d9",
+  "indicator_id": "green-premium.falkenberg-2023.meat",
+  "key": "241f86358011e344275981dc28a270bc04c21ece889b1d492f970ce554447eda",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "falkenberg-2023/article-xml": {
+        "manifest_sha256": "bd6c17007169ec61a0c1a5dfdeb2900e8b0c4191b168cfd108ff2ef4c93d614f",
+        "sha256": "727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "falkenberg-2023": "e30fe392fabd0efd179154f7f04eff348913a9d37b1ba782bcf13528bf8a24a1"
+    },
+    "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
+  },
+  "publisher_checks": []
+}

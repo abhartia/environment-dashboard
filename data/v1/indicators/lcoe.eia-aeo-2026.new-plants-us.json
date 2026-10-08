@@ -1,0 +1,136 @@
+{
+  "attribution": "Source: U.S. Energy Information Administration (Apr 2026).",
+  "description": "What it would cost, per megawatt-hour, to build and run a new power plant in the United States that starts operating in 2031, by type of plant, as projected by the US Energy Information Administration: solar, wind, nuclear, geothermal and hydro beside natural gas plants with and without carbon capture, and batteries. Shown before and after US tax credits. Plants of different types run for different shares of the year and play different roles on the grid, so EIA warns that these costs alone do not say which plant is the better choice.",
+  "dimensions": [
+    {
+      "id": "technology",
+      "label": "Plant type",
+      "values": [
+        {"id": "advanced-nuclear", "label": "Advanced nuclear"},
+        {"id": "biomass", "label": "Biomass"},
+        {"id": "gas-combined-cycle", "label": "Natural gas combined-cycle"},
+        {"id": "gas-combined-cycle-ccs", "label": "Natural gas combined-cycle with carbon capture and sequestration (CCS)"},
+        {"id": "geothermal", "label": "Geothermal"},
+        {"id": "offshore-wind", "label": "Offshore wind"},
+        {"id": "hydroelectric", "label": "Hydroelectric"},
+        {"id": "solar-pv-battery", "label": "Solar photovoltaic with a four-hour battery (hybrid)"},
+        {"id": "solar-pv", "label": "Solar photovoltaic, standalone"},
+        {"id": "onshore-wind", "label": "Onshore wind"},
+        {"id": "combustion-turbine", "label": "Natural gas combustion turbine"},
+        {"id": "battery-storage", "label": "Battery storage (levelised cost of storage)"}
+      ]
+    },
+    {
+      "id": "cost_basis",
+      "label": "Tax credits",
+      "values": [
+        {"id": "before-tax-credits", "label": "Before tax credits (total system cost)"},
+        {"id": "with-tax-credits", "label": "Including tax credits (levelised tax credit and 45Q captured-carbon credit)"}
+      ]
+    },
+    {
+      "id": "average",
+      "label": "Average across regions",
+      "values": [
+        {"id": "simple-average", "label": "Simple average of the 25 US supply regions"},
+        {"id": "capacity-weighted", "label": "Average weighted by new capacity in 2031"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "country",
+  "headline_entity": "USA",
+  "id": "lcoe.eia-aeo-2026.new-plants-us",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "average": "simple-average",
+      "cost_basis": "before-tax-credits",
+      "technology": "gas-combined-cycle"
+    },
+    "entity": "USA",
+    "period": "2031",
+    "status": "projection",
+    "value": 77.45683012
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notes": ["EIA models this plant type at a capacity factor of 10%.", "EIA models this plant type at a capacity factor of 27%.", "EIA models this plant type at a capacity factor of 38%.", "EIA models this plant type at a capacity factor of 40%.", "EIA models this plant type at a capacity factor of 43%.", "EIA models this plant type at a capacity factor of 56%.", "EIA models this plant type at a capacity factor of 83%.", "EIA models this plant type at a capacity factor of 87%.", "EIA models this plant type at a capacity factor of 90%."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "lcoe-figures", "bytes": 675530, "citation_full": "Source: U.S. Energy Information Administration (Apr 2026).", "date_accessed": "2026-10-08", "date_published": "2026-04", "doi": null, "etag": "\"032fcdc1dc1dc1:0\"", "last_modified": "Tue, 31 Mar 2026 14:51:32 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "source_id": "eia-aeo-2026", "title": "Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026", "url_download": "https://www.eia.gov/outlooks/aeo/electricity_generation/xls/LCOE-LCOS-LACE_figures.xlsx", "url_main": "https://www.eia.gov/outlooks/aeo/electricity_generation/index.php", "version_producer": "AEO2026 (April 2026)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "lcoe-report", "bytes": 485982, "citation_full": "Source: U.S. Energy Information Administration (Apr 2026).", "date_accessed": "2026-10-08", "date_published": "2026-04", "doi": null, "etag": "\"076b5d91ec1dc1:0\"", "last_modified": "Tue, 31 Mar 2026 14:58:36 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad", "source_id": "eia-aeo-2026", "title": "Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026", "url_download": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "url_main": "https://www.eia.gov/outlooks/aeo/electricity_generation/index.php", "version_producer": "AEO2026 (April 2026)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read sheets 'lcoe-components' and 'lcoe-regional' of LCOE-LCOS-LACE_figures.xlsx (sha256 e371002d0282…), after checking that their titles name AEO2026, online year 2031 and 2025 dollars, and that the plant types and columns are where this edition has them.",
+      "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
+      "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
+    },
+    {
+      "description": "Checked inside the file: each total system cost equals the sum of its capital, fixed O&M, variable and transmission components; each total including tax credits equals the total plus the credits listed; the regional sheet's simple average with tax credits equals the components sheet's total including tax credits; every average lies within its regional minimum and maximum.",
+      "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
+      "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
+    },
+    {
+      "description": "Published, for each plant type: the total system cost before tax credits and the total including tax credits (simple averages of the 25 supply regions, each with its regional minimum and maximum as the range), and the capacity-weighted average including tax credits (null where EIA marks it NB, not built). Values as stored in the workbook; nothing is computed across plant types.",
+      "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
+      "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
+    },
+    {
+      "description": "Checked the averages including tax credits against the labels on page 8 of the report (publisher checks).",
+      "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
+      "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Levelised cost of electricity (levelised cost of storage for batteries) for plants entering service in 2031 in the AEO2026 Counterfactual Baseline case: capital, fixed and variable operation and maintenance including fuel, and transmission, over a 30-year cost recovery period at an after-tax weighted average cost of capital of 7.27%. Laws and regulations effective as of December 2025, including the One Big Beautiful Bill Act's changes to tax credits and the EPA's 2024 Section 111 rule (new gas combined-cycle plants without carbon capture limited to a 40% capacity factor). No carbon price. Projection; the cost to build and run a plant, not the value of its output to the grid.",
+    "bunkers": null,
+    "geography": "United States (25 electricity supply regions)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "average": ["simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted", "simple-average", "simple-average", "capacity-weighted"],
+      "cost_basis": ["before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits", "before-tax-credits", "with-tax-credits", "with-tax-credits"],
+      "technology": ["advanced-nuclear", "advanced-nuclear", "advanced-nuclear", "biomass", "biomass", "biomass", "gas-combined-cycle", "gas-combined-cycle", "gas-combined-cycle", "gas-combined-cycle-ccs", "gas-combined-cycle-ccs", "gas-combined-cycle-ccs", "geothermal", "geothermal", "geothermal", "offshore-wind", "offshore-wind", "offshore-wind", "hydroelectric", "hydroelectric", "hydroelectric", "solar-pv-battery", "solar-pv-battery", "solar-pv-battery", "solar-pv", "solar-pv", "solar-pv", "onshore-wind", "onshore-wind", "onshore-wind", "combustion-turbine", "combustion-turbine", "combustion-turbine", "battery-storage", "battery-storage", "battery-storage"]
+    },
+    "entity": ["USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA"],
+    "interval": ["range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null, "range", "range", null],
+    "lower": [104.34439400000001, 81.286404, null, 90.095814, 67.037824, null, 66.035737, 66.035737, null, 66.653306, 48.054756, null, 44.171697, 37.126715000000004, null, 107.349009, 107.349009, null, 70.23019, 55.33248099999999, null, 68.20543799999999, 66.73525299999999, null, 40.95102, 40.95102, null, 39.623555999999994, 39.623555999999994, null, 152.293191, 152.293191, null, 180.87787600000001, 144.064826, null],
+    "missing_reason": [null, null, "EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.", null, null, "EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.", null, null, null, null, null, null, null, null, null, null, null, "EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.", null, null, null, null, null, "EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average.", null, null, null, null, null, null, null, null, null, null, null, "EIA marks it NB (not built): no new capacity of this type is projected to come online in 2031, so there is no capacity-weighted average."],
+    "note": [8, 8, 8, 6, 6, 6, 3, 3, 3, 7, 7, 7, 8, 8, 8, 4, 4, 4, 5, 5, 5, 1, 1, 1, 1, 1, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0],
+    "period": ["2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031", "2031"],
+    "status": ["projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection"],
+    "upper": [122.648002, 99.590012, null, 179.086677, 156.02868700000002, null, 95.998205, 95.998205, null, 95.62460800000001, 77.11894500000001, null, 52.61267, 44.087666, null, 131.41255399999997, 131.41255399999997, null, 96.43134600000002, 74.71083499999999, null, 135.422665, 132.47196399999999, null, 82.25123399999998, 82.25123399999998, null, 110.973984, 110.973984, null, 209.00660800000003, 209.00660800000003, null, 211.224483, 174.558423, null],
+    "value": [110.86933718181818, 87.81134718181818, null, 107.60273551999998, 84.54474551999998, null, 77.45683012, 77.45683012, 77.86546501838984, 77.19220432, 58.468462880000004, 48.054756, 48.6949348, 40.38252, 40.44084546570314, 118.78947646666667, 118.78947646666667, null, 82.07628669565217, 64.76520608695652, 58.642386246958225, 96.33237928, 94.1977788, null, 58.33216903999999, 58.33216903999999, 48.759137, 56.74783100000001, 56.74783100000001, 46.711355538023135, 172.57105051999997, 172.57105051999997, 168.10331145926884, 190.44790248, 152.61163192, null]
+  },
+  "time_basis": "calendar",
+  "title": "Cost of electricity from new US power plants coming online in 2031 (EIA)",
+  "unit": {
+    "code": "USD2025/MWh",
+    "label": "US dollars (2025) per megawatt-hour",
+    "short": "USD/MWh"
+  },
+  "vintage": "AEO2026 (April 2026)"
+}

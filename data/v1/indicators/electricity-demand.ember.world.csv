@@ -1,0 +1,33 @@
+# World electricity demand
+# Indicator: electricity-demand.ember.world (vintage 2026-09-22); unit: terawatt-hours per year (TWh)
+# Source: Ember <https://ember-energy.org/data/yearly-electricity-data/>
+# Credit: Ember, Yearly Electricity Data (file of 2026-09-22), CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/electricity-demand/ember/world
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+electricity-demand.ember.world,WLD,2000,15325.294,,,,final,,,
+electricity-demand.ember.world,WLD,2001,15547.572,,,,final,,,
+electricity-demand.ember.world,WLD,2002,16098.029,,,,final,,,
+electricity-demand.ember.world,WLD,2003,16676.277,,,,final,,,
+electricity-demand.ember.world,WLD,2004,17464.022,,,,final,,,
+electricity-demand.ember.world,WLD,2005,18183.546,,,,final,,,
+electricity-demand.ember.world,WLD,2006,18889.705,,,,final,,,
+electricity-demand.ember.world,WLD,2007,19766.915,,,,final,,,
+electricity-demand.ember.world,WLD,2008,20157.001,,,,final,,,
+electricity-demand.ember.world,WLD,2009,19997.849,,,,final,,,
+electricity-demand.ember.world,WLD,2010,21310.699,,,,final,,,
+electricity-demand.ember.world,WLD,2011,22027.122,,,,final,,,
+electricity-demand.ember.world,WLD,2012,22577.478,,,,final,,,
+electricity-demand.ember.world,WLD,2013,23222.306,,,,final,,,
+electricity-demand.ember.world,WLD,2014,23791.633,,,,final,,,
+electricity-demand.ember.world,WLD,2015,24044.333,,,,final,,,
+electricity-demand.ember.world,WLD,2016,24724.776,,,,final,,,
+electricity-demand.ember.world,WLD,2017,25475.531,,,,final,,,
+electricity-demand.ember.world,WLD,2018,26507.498,,,,final,,,
+electricity-demand.ember.world,WLD,2019,26887.022,,,,final,,,
+electricity-demand.ember.world,WLD,2020,26766.09,,,,final,,,
+electricity-demand.ember.world,WLD,2021,28304.406,,,,final,,,
+electricity-demand.ember.world,WLD,2022,28960.067,,,,final,,,
+electricity-demand.ember.world,WLD,2023,29722.838,,,,preliminary,"Partly Ember's estimate: the file has no 2023 demand for 1 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+electricity-demand.ember.world,WLD,2024,30990.182,,,,preliminary,"Partly Ember's estimate: the file has no 2024 demand for 15 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+electricity-demand.ember.world,WLD,2025,31820.135,,,,preliminary,"Partly Ember's estimate: the file has no 2025 demand for 116 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,

@@ -1,0 +1,17 @@
+# Carbon capture capacity operating, being built and planned
+# Indicator: ccus.iea.capture-capacity-by-status (vintage CCUS Projects Database, file of 2026-03-26); unit: million tonnes of carbon dioxide per year of capture capacity (MtCO2/yr)
+# Source: International Energy Agency <https://www.iea.org/data-and-statistics/data-product/ccus-projects-database>
+# Credit: Calculated by Environment Dashboard from IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0 Changes: Summed the announced capacity of capture projects by status and start year, as the IEA's explorer does.
+# Notice: This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/ccus/iea/capture-capacity-by-status
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,status
+ccus.iea.capture-capacity-by-status,WLD,2026,62.534,,,,final,,,,operational
+ccus.iea.capture-capacity-by-status,WLD,2030,62.534,,,,final,,,,operational
+ccus.iea.capture-capacity-by-status,WLD,2035,62.534,,,,final,,,,operational
+ccus.iea.capture-capacity-by-status,WLD,2026,15.843,,,,projection,,,,under-construction
+ccus.iea.capture-capacity-by-status,WLD,2030,52.054,,,,projection,,,,under-construction
+ccus.iea.capture-capacity-by-status,WLD,2035,52.054,,,,projection,,,,under-construction
+ccus.iea.capture-capacity-by-status,WLD,2026,0.291,,,,projection,,,,planned
+ccus.iea.capture-capacity-by-status,WLD,2030,262.342,,,,projection,,,,planned
+ccus.iea.capture-capacity-by-status,WLD,2035,310.871,,,,projection,,,,planned

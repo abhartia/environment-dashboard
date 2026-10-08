@@ -1,0 +1,18 @@
+# Carbon capture capacity in operation, by sector
+# Indicator: ccus.iea.operating-capture-capacity (vintage CCUS Projects Database, file of 2026-03-26); unit: million tonnes of carbon dioxide per year of capture capacity (MtCO2/yr)
+# Source: International Energy Agency <https://www.iea.org/data-and-statistics/data-product/ccus-projects-database>
+# Credit: Calculated by Environment Dashboard from IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0 Changes: Summed the announced capacity of operating capture projects by sector, as the IEA's explorer does.
+# Notice: This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/ccus/iea/operating-capture-capacity
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,sector
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,62.534,,,,final,,,,all
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,37.603,,,,final,,,,natural-gas-processing
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,1.0,,,,final,,,,hydrogen-ammonia
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,2.695,,,,final,,,,biofuels
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,7.87,,,,final,,,,other-fuel-transformation
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,5.15,,,,final,,,,power
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,0.7,,,,final,,,,cement
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,1.425,,,,final,,,,iron-steel
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,6.07,,,,final,,,,other-industry
+ccus.iea.operating-capture-capacity,WLD,2026-03-26,0.021,,,,final,,,,dac

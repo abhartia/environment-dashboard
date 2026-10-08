@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/electricity-use.desnz.london.json",
+  "export_sha256": "3f2329b514e726ed5bb342d182dd4be128b3f3a552847de4e5fc5c1e3fd2755b",
+  "indicator_id": "electricity-use.desnz.london",
+  "key": "928e0821110356a042dac469fdb3425d6264295999a56c9d36585e2d2130d233",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "desnz-subnational-electricity/workbook": {
+        "manifest_sha256": "65e3489f58205b786ea15cbea7eb827b2fd77013b5c216a2c4e6105b337ba620",
+        "sha256": "9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "desnz-subnational-electricity": "dee67151e727a5ab878cf93a22b6959cfe68baef5c43ab291af095a14b2b368e"
+    },
+    "transform_sha256": "adc633ec418266cb314baddc794719ab5771a0431d3bdb88160a64218f84fdc5"
+  },
+  "publisher_checks": []
+}

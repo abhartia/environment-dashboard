@@ -1,0 +1,101 @@
+{
+  "attribution": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0",
+  "description": "How much more it cost to make steel from hydrogen-based direct reduced iron (H2 DRI) in 2024, as the IEA states it: 50 to 140 percent more than blast furnaces and 20 to 80 percent more than unabated natural gas-based DRI, depending on the region.",
+  "dimensions": [
+    {
+      "id": "comparator",
+      "label": "Conventional route compared with",
+      "values": [
+        {"id": "blast-furnace", "label": "Blast furnace"},
+        {"id": "unabated-gas-dri", "label": "Unabated natural gas-based direct reduced iron (DRI)"}
+      ]
+    },
+    {
+      "id": "bound",
+      "label": "End of the stated range",
+      "values": [
+        {"id": "low", "label": "Low end"},
+        {"id": "high", "label": "High end"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "green-premium.iea-ghr-2025.steel",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "bound": "low",
+      "comparator": "blast-furnace"
+    },
+    "entity": "WLD",
+    "period": "2024",
+    "status": "final",
+    "value": 50.0
+  },
+  "licence": {
+    "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Chapter 2, the competitiveness of hydrogen technologies (steel), p. 51: \"The cost gap is greater for H2 DRI, ranging from 50% to 140% (depending on the region) when compared with blast furnaces, and 20% to 80% compared with unabated natural gas-based DRI.\""],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 10610820, "citation_full": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0", "date_accessed": "2026-10-08", "date_published": "2025-09", "doi": null, "etag": "0x8DE0B26C4883D5C", "last_modified": "Tue, 14 Oct 2025 13:37:06 GMT", "licence": {"name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "International Energy Agency", "r2_url": null, "sha256": "94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2", "source_id": "iea-ghr-2025", "title": "Global Hydrogen Review 2025", "url_download": "https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf", "url_main": "https://www.iea.org/reports/global-hydrogen-review-2025", "version_producer": "Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the PDF (sha256 94f2912332e1…). Found each of the 1 quoted statement(s) word for word on PDF page(s) 53, and the 3 context sentence(s) the scope relies on, before publishing.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    },
+    {
+      "description": "Published each number exactly as printed, with its statement in the value's note. A range 'A-B%' is published as its low end A and high end B (dimension 'bound'); nothing was computed, rounded or combined with any other source.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    }
+  ],
+  "published_value": {
+    "document": "iea-ghr-2025",
+    "locator": "Chapter 2, the competitiveness of hydrogen technologies (steel), p. 51",
+    "quote": "The cost gap is greater for H2 DRI, ranging from 50% to 140% (depending on the region) when compared with blast furnaces, and 20% to 80% compared with unabated natural gas-based DRI."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Steel from hydrogen direct reduced iron (captive renewable power, per Figure 2.9), compared with blast furnaces and with unabated natural gas-based DRI; the range runs across regions. Levelised cost of production in 2024 (the text's present tense, matching Figure 2.9, 'Levelised cost of production of selected materials by technology, 2024'), IEA analysis. Energy costs are regional end-user prices for industry including taxes and charges; no explicit financial support, though support embedded in cost components (such as fossil fuel subsidies) may be included (figure note).",
+    "bunkers": null,
+    "geography": "World (range across regions)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "bound": ["low", "high", "low", "high"],
+      "comparator": ["blast-furnace", "blast-furnace", "unabated-gas-dri", "unabated-gas-dri"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD"],
+    "note": [0, 0, 0, 0],
+    "period": ["2024", "2024", "2024", "2024"],
+    "status": ["final", "final", "final", "final"],
+    "value": [50.0, 140.0, 20.0, 80.0]
+  },
+  "time_basis": "calendar",
+  "title": "Extra cost of steel made with hydrogen (IEA, Global Hydrogen Review)",
+  "unit": {
+    "code": "percent",
+    "label": "percent more than the conventional route",
+    "short": "%"
+  },
+  "vintage": "Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)"
+}

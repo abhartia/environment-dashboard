@@ -1,0 +1,10 @@
+# Extra cost of low-emissions methanol in China and India (IEA)
+# Indicator: green-premium.iea-ghr-2025.methanol (vintage Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)); unit: percent more than the conventional route (percent)
+# Source: International Energy Agency <https://www.iea.org/reports/global-hydrogen-review-2025>
+# Credit: IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/iea-ghr-2025/methanol
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,route,comparator
+green-premium.iea-ghr-2025.methanol,IND,2024,100.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (methanol), p. 52: ""India currently has the lowest cost gap (100%) between unabated natural gas-based production and electrolytic methanol, due to the high cost of imported natural gas.""",,,electrolysis,unabated-gas
+green-premium.iea-ghr-2025.methanol,CHN,2024,70.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (methanol), p. 52: ""In the case of China, the world’s largest producer of methanol, the price gap is around 70% for CCUS and 160% for electrolysis compared with unabated coal-based production, which is today’s main production route in the country.""",,,ccus,unabated-coal
+green-premium.iea-ghr-2025.methanol,CHN,2024,160.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (methanol), p. 52: ""In the case of China, the world’s largest producer of methanol, the price gap is around 70% for CCUS and 160% for electrolysis compared with unabated coal-based production, which is today’s main production route in the country.""",,,electrolysis,unabated-coal

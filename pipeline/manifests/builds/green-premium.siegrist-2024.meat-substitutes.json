@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.siegrist-2024.meat-substitutes.json",
+  "export_sha256": "6d3ad67a69f1e8b7a5350fadea6c11193879119ec75e406ef0154e2bd2e45c41",
+  "indicator_id": "green-premium.siegrist-2024.meat-substitutes",
+  "key": "a46a29f195ce32f4968305207dd00a116c9ccf7bb211b112c5971f9ae30b9b52",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "siegrist-2024/article-pdf": {
+        "manifest_sha256": "f9c9214afa207d50b7995f1da206e2964cebdd6ad17bcc0698097a93057a853a",
+        "sha256": "255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "siegrist-2024": "72974dba186fd8b8cd5faef0af522eb378de84ba1e33ddb97fb0b680e03bdefc"
+    },
+    "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
+  },
+  "publisher_checks": []
+}

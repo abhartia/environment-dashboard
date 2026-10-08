@@ -137,6 +137,86 @@ themselves, and never divides a total by population or multiplies an income shar
   305,146,300 t). The world top-10% share falls from 48.99% to 47.08% at that change of basis, so 2023 is not
   published. The indicator is labelled as shares of world emissions, not tonnes per person.
 
+## Decisions for the "Getting to zero" chapter (2026-10-08)
+
+The owner asked for the frameworks of Bill Gates's *How to Avoid a Climate Disaster* (2021) to be well represented.
+Evidence: docs/research/sources-zero-*-2026-10-08.json. Gates's own figures cannot be used: his five shares are
+Rhodium Group's (all rights reserved, built on IEA data) and his Green Premiums are Breakthrough Energy's, whose terms
+allow only unmodified, non-commercial copying. Each concept is therefore shown from primary producers, and nothing from
+the book is typed into the site.
+
+- **UNEP's notice is noncommercial for every UNEP report** (owner, 2026-10-08). "This publication may be reproduced in
+  whole or in part and in any form for educational or non-profit services ... No use of this publication may be made
+  for resale or any other commercial purpose" covers charting and downloading on this non-commercial site. unep-egr-2025
+  moved from display-only (it had no indicators, so no published file moved); unep-food-waste-index-2024 and
+  unep-agr-2025 already match. The PDFs are not re-hosted.
+- **UNEP Adaptation Gap Report 2025** (`unep-agr-2025`): two manual PDFs (UNEP's repository refuses scripts), read
+  from fixed pages. The 2019–2023 flows are Figure 4.4's printed data labels, never measured from bars, and UNEP took
+  them from the OECD DAC Climate-Related Development Finance data set (online annex 4.B), whose own terms could not be
+  read (oecd.org refuses scripts). Its "developing countries" are entity `UNEP_AGR_DEV`, with no membership list
+  because UNEP publishes none. The four indicators publish once a person records the files.
+- **FAO World Census of Agriculture** (artifact `world-census-agriculture` of `faostat`, CC BY 4.0): holdings and their
+  area by FAO's land-size classes, per country and census. Censuses fall in different years and countries define a
+  holding differently, so there is no world or regional sum and classes are never added. FAO files China's census
+  under area 351 ("China" including Hong Kong, Macao and Taiwan), so it is left out until FAO says whether those rows
+  cover the mainland only. The WCAD metadata endpoint returned HTTP 521 on 2026-10-08, so its "unless specified
+  otherwise in their metadata" check is still to be done. The world figures most often quoted (608 million farms,
+  about 35% of food from farms under 2 ha: Lowder et al. 2021; Ricciardi et al. 2018) are CC BY-NC-ND articles and are
+  not ingested.
+- **Net Zero Tracker 2025** (`net-zero-tracker-2025`, Zenodo record 17143240): the deposit is tagged CC BY 4.0, but
+  zerotracker.net/data-terms-of-use says the Tracker's datasets are CC BY-NC 4.0 since 3 December 2024. The stricter
+  class, noncommercial, applies until the Tracker says otherwise (owner, 2026-10-08). Only national target status and
+  year are published: the file's emissions columns come from Climate Watch CAIT, which cites OECD/IEA, and the
+  Stocktake report's coverage shares (all rights reserved) are not reproducible from the file, so no share of world
+  emissions is shown. The report's "198 incl. EU and Taiwan" does not match the file, which has no Taiwan row and
+  counts Bermuda, the Cayman Islands and Niue.
+- **Eurostat** (`eurostat`, open under Decision 2011/833/EU): electricity's share of final energy as Eurostat
+  publishes it (nrg_ind_fecf, E7000, FC_E), and government R&D budgets for energy (gba_nabsfin07, NABS05). Eurostat's
+  notice bars commercial reuse of data for countries outside the EU, EFTA and the candidate countries, so only those
+  are requested, and the candidate list is re-read at every build. NABS05 counts all energy research, fossil and
+  nuclear included.
+- **OECD government R&D budgets for energy** (`oecd-gbard`, open under the Data section of the OECD terms, read from
+  an Internet Archive capture because www.oecd.org refuses scripts, so re-checked by hand): constant 2020 PPP dollars,
+  with the OECD's status flags. The dataflow is annotated "NonProductionDataflow: true", which the OECD does not
+  explain. Japan rises from 5,268 (2022) to 13,682 (2023) under a "definition differs" flag. The IEA RD&D Budgets
+  product ("Terms of Use for Non-CC Material") is not used, although its explorer page says CC BY 4.0 (owner,
+  2026-10-08).
+- **IEA CCUS Projects Database** (`iea-ccus-projects`, CC BY 4.0 on the product and explorer pages, read from
+  Internet Archive captures because iea.org refuses scripts): the explorer's own data file, counted with the explorer's
+  own rule (ccus.js: capacity above zero, not suspended, transport and storage projects left out). These are
+  announced capacities of projects, not carbon dioxide captured. The IEA Notice obligations apply.
+- **The State of Carbon Dioxide Removal, 3rd edition** (`state-of-cdr-3`, CC BY 4.0): chapter 7's novel removals by
+  method and conventional forest removals. Open: the site's CC BY statement names the reports, not the data files; and
+  for projects not on registries the novel values come from CDR.fyi, whose terms forbid republishing. Chapter 3
+  (investment, from the commercial Net Zero Insights database) is not used.
+- **Land per unit of electricity: Lovering et al. 2022** (`lovering-2022`, CC BY 4.0, PLOS ONE): Table 1 only, as
+  printed and checked against the PDF. Its spread is the width between the quartiles, not the two quartiles. Coal,
+  gas, nuclear and dedicated biomass include the land that supplies the fuel; rooftop solar is zero by the authors'
+  assumption. The site-level file is not ingested: its 951 dam rows come from the subscription ICOLD World Register.
+  **Nøland et al. 2022** (`noland-2022`, CC BY 4.0, Scientific Reports) is its twin in watts per square metre, shown
+  beside it and never combined, from Table 16 without its gas row (IEA World Energy Outlook inputs) and biomass row (van
+  Zalk & Behrens' value, whose licence is unconfirmed).
+- **How much power: average power is a recorded unit conversion.** A year's energy (EIA RECS 2020 for the average US
+  home, public domain; DESNZ subnational electricity 2024 for Great Britain's average home and London, OGL v3; Ember
+  world electricity demand; EIA world primary energy) is divided by the hours in its own span counted from dates, and
+  the processing step says so. Vogtle's 4.53 GW is a net summer capacity (EIA FAQ, public domain), labelled as a
+  capacity, not an output.
+- **Green Premiums: one producer, one basis.** A clean and a fossil cost are shown side by side only when one producer
+  publishes both on one basis (EIA AEO2026 new-plant costs; DESNZ Generation Costs 2025, a twin; CEMCAP's reference
+  cement plant; one CC BY study each for ammonia, heating, cars, trucks and meat). Premiums a producer states are
+  published as printed, ranges as low and high ends. Nothing is computed across sources. IEA statements come only from
+  report PDFs the IEA serves to scripts, each sentence found on its page at every build; figures credited to
+  BloombergNEF, Argus or S&P are left out, and chart data embedded in iea.org pages is not read through the Internet
+  Archive (rule 7). Costs exclude subsidies and carbon prices except where marked: ETP's urea figure includes carbon
+  pricing, the IEA's ammonia premium is given both ways, and DESNZ totals carry the UK carbon price as their own row.
+  A value a paper takes from someone else is left out: Sacchi et al.'s fossil jet fuel cost is an IEA chart value
+  for 2019 by way of Becattini et al. 2021 (CC BY-NC-ND), so that side says there is no fossil comparator. No open
+  same-basis source was found for plastics or cultivated meat. gardarsdottir-2019 and siegrist-2024 are manual
+  snapshots because ETH's repository stamps a new cover page on every download.
+- **UNSD and the IEA** (open question, 2026-10-08). UNSD's metadata says its data for OECD and EU countries are
+  obtained through the IEA and that historical data may come from the IEA World Energy Statistics Database. The
+  existing `unsd-energy` views stay as they are until UNSD answers (owner, 2026-10-08); no new view uses UNSD.
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be

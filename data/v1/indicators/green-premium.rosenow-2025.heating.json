@@ -1,0 +1,121 @@
+{
+  "attribution": "Rosenow, J., Barnes, J., Galvin, R., O'Mara, S. & Lowes, R. (2025). Total cost of ownership of heat pumps and policy choice: The case of Great Britain. iScience 28, 111784. doi:10.1016/j.isci.2025.111784. CC BY 4.0.",
+  "description": "What heating a typical home in Great Britain costs over 15 years with a gas boiler and with an air-source heat pump, as Rosenow and colleagues (2025) calculate it: installation, minus the Boiler Upgrade Scheme grant for the heat pump, plus energy and maintenance, discounted. The central case and four sensitivity cases are given; all but one include the grant.",
+  "dimensions": [
+    {
+      "id": "option",
+      "label": "Heating system",
+      "values": [
+        {"id": "gas-boiler", "label": "Gas boiler (85% efficiency)"},
+        {"id": "heat-pump", "label": "Air-source heat pump (seasonal efficiency 2.9)"}
+      ]
+    },
+    {
+      "id": "side",
+      "label": "Side",
+      "values": [
+        {"id": "conventional", "label": "Gas boiler"},
+        {"id": "low-carbon", "label": "Heat pump"}
+      ]
+    },
+    {
+      "id": "case",
+      "label": "Case (Table 2 column)",
+      "values": [
+        {"id": "central", "label": "Central scenario"},
+        {"id": "discount-rate-7", "label": "7% discount rate"},
+        {"id": "heat-demand-plus-10", "label": "10% higher heat demand for heat pump"},
+        {"id": "no-grant-cost-minus-25", "label": "No BUS grant and 25% cost reduction"},
+        {"id": "heat-pump-life-20", "label": "20 years lifetime heat pump"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "country",
+  "headline_entity": "GBR",
+  "id": "green-premium.rosenow-2025.heating",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "case": "central",
+      "option": "heat-pump",
+      "side": "low-carbon"
+    },
+    "entity": "GBR",
+    "period": "2025",
+    "status": "final",
+    "value": 16861.0
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Table 2, row \"BAU—gas boiler\", column \"10% higher heat demand for heat pump\": £15,640", "Table 2, row \"BAU—gas boiler\", column \"20 years lifetime heat pump\": £15,640", "Table 2, row \"BAU—gas boiler\", column \"7% discount rate\": £13,495", "Table 2, row \"BAU—gas boiler\", column \"Central scenario\": £15,640", "Table 2, row \"BAU—gas boiler\", column \"No BUS grant and 25% cost reduction\": £15,640", "Table 2, row \"BAU—heat pump\", column \"10% higher heat demand for heat pump\": £17,924", "Table 2, row \"BAU—heat pump\", column \"20 years lifetime heat pump\": £15,714", "Table 2, row \"BAU—heat pump\", column \"7% discount rate\": £14,877", "Table 2, row \"BAU—heat pump\", column \"Central scenario\": £16,861", "Table 2, row \"BAU—heat pump\", column \"No BUS grant and 25% cost reduction\": £21,339"],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-xml", "bytes": 132326, "citation_full": "Rosenow, J., Barnes, J., Galvin, R., O'Mara, S. & Lowes, R. (2025). Total cost of ownership of heat pumps and policy choice: The case of Great Britain. iScience 28(2), 111784. https://doi.org/10.1016/j.isci.2025.111784", "date_accessed": "2026-10-08", "date_published": "2025-01-10", "doi": "10.1016/j.isci.2025.111784", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Jan Rosenow, Jacob Barnes, Ray Galvin, Samuel O'Mara and Richard Lowes (University of Oxford, University of Cambridge, Gemserv, University of Exeter); published in iScience (Cell Press)", "r2_url": null, "sha256": "06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87", "source_id": "rosenow-2025", "title": "Lifetime cost of a heat pump and a gas boiler in Great Britain (Rosenow et al. 2025)", "url_download": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11803245/fullTextXML", "url_main": "https://doi.org/10.1016/j.isci.2025.111784", "version_producer": "iScience 28, 111784 (2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the article's JATS XML from Europe PMC (sha256 06688ab35231…) and checked its DOI, the caption of Table 2 and 6 sentences of the methods that the scope relies on.",
+      "inputs": ["06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/heating_rosenow_2025.py",
+      "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
+    },
+    {
+      "description": "Published the 10 cells of the rows 'BAU—gas boiler' and 'BAU—heat pump' in all five columns, each addressed by its printed row label and column header, as printed without the pound sign and the thousands separator.",
+      "inputs": ["06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/heating_rosenow_2025.py",
+      "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
+    },
+    {
+      "description": "Left out the policy rows, which each cost only one of the two systems. Nothing was subtracted: the gas boiler and heat pump totals are shown side by side as the table gives them.",
+      "inputs": ["06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/heating_rosenow_2025.py",
+      "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
+    }
+  ],
+  "published_value": {
+    "document": "rosenow-2025",
+    "locator": "Table 2",
+    "quote": "Table 2. Sensitivity analysis, giving the TCO for different scenarios (gas boiler at 85% efficiency, heat pump with SCOP of 2.9)"
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Modelled total cost of ownership (net present value at a 3.5% discount rate, 7% in one case; 15-year life for both systems unless a case says otherwise), with the 2022 average heat pump installation cost from the MCS dashboard and DESNZ energy price projections under business as usual. The heat pump total includes the Boiler Upgrade Scheme grant at its level when the article was written, except in the case 'No BUS grant and 25% cost reduction'. The period is the year the article was published; the currency year is not stated.",
+    "bunkers": null,
+    "geography": "Great Britain, a typical gas-heated home",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "case": ["central", "discount-rate-7", "heat-demand-plus-10", "no-grant-cost-minus-25", "heat-pump-life-20", "central", "discount-rate-7", "heat-demand-plus-10", "no-grant-cost-minus-25", "heat-pump-life-20"],
+      "option": ["gas-boiler", "gas-boiler", "gas-boiler", "gas-boiler", "gas-boiler", "heat-pump", "heat-pump", "heat-pump", "heat-pump", "heat-pump"],
+      "side": ["conventional", "conventional", "conventional", "conventional", "conventional", "low-carbon", "low-carbon", "low-carbon", "low-carbon", "low-carbon"]
+    },
+    "entity": ["GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR"],
+    "note": [3, 2, 0, 4, 1, 8, 7, 5, 9, 6],
+    "period": ["2025", "2025", "2025", "2025", "2025", "2025", "2025", "2025", "2025", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [15640.0, 13495.0, 15640.0, 15640.0, 15640.0, 16861.0, 14877.0, 17924.0, 21339.0, 15714.0]
+  },
+  "time_basis": "calendar",
+  "title": "Lifetime cost of a gas boiler and a heat pump in Great Britain (Rosenow et al. 2025)",
+  "unit": {
+    "code": "GBP",
+    "label": "pounds, total cost of ownership over the system's life",
+    "short": "£"
+  },
+  "vintage": "iScience 28, 111784 (2025)"
+}

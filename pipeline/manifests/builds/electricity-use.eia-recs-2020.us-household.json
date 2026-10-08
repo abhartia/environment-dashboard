@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/electricity-use.eia-recs-2020.us-household.json",
+  "export_sha256": "8b9ddd217b1eb5aa12dc7ce886851f461e4887fb603c390d8bf48de91c0fb4a7",
+  "indicator_id": "electricity-use.eia-recs-2020.us-household",
+  "key": "0856271c26c5f57454f564cf4646d21b43e6e95a2cdcf1ba623aa506e49ff461",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "eia-recs-2020/table-ce2-1": {
+        "manifest_sha256": "27a7a62f1838ca0efd67bf2a2de09b050e64c181088bcbdc0f396a955bf5e4d6",
+        "sha256": "14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "eia-recs-2020": "0e9848985af4478546cf2336041fbd1f120d66d2c75adccf914d1ee584141667"
+    },
+    "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
+  },
+  "publisher_checks": []
+}

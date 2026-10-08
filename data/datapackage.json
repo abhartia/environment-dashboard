@@ -238,6 +238,44 @@
       "title": "Area burned each year, world and continents, by land cover"
     },
     {
+      "bytes": 1009,
+      "description": "The net summer generating capacity of the Alvin W. Vogtle Electric Generating Plant in Georgia, the largest nuclear power plant in the United States, with four reactors, in gigawatts, as stated by the US Energy Information Administration. A capacity is the most a plant can deliver, not what it delivers on average.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4bd51efc4f4166af79a8b2956f94008cca6e14bb7d6b6f0ff43cf2e1d2770145",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "capacity.eia.vogtle",
+      "path": "v1/indicators/capacity.eia.vogtle.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigawatts of net summer generating capacity (GW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3", "title": "U.S. Energy Information Administration: EIA FAQ: How many nuclear power plants are in the United States?"}
+      ],
+      "title": "Generating capacity of the largest US nuclear power plant (Vogtle)"
+    },
+    {
       "bytes": 1432,
       "description": "The part of the world's installed electricity generating capacity that is renewable, at the end of each year since 2016, as published by IRENA.",
       "dialect": {
@@ -505,6 +543,201 @@
       "title": "Life-cycle emissions of a petrol car in the EU (ICCT)"
     },
     {
+      "bytes": 1935,
+      "description": "How much CO2 a year the world's carbon capture projects are built or announced to capture: in operation, under construction and planned, counting projects due to start by 2026, by 2030 and by 2035, as the IEA's CCUS Projects Explorer shows them. Capacity not yet operating is what developers have announced, not a forecast by the IEA.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:58601617eb80d735240810bb8fce68e22948258353aa5cc345c0c1f8f111f088",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ccus.iea.capture-capacity-by-status",
+      "path": "v1/indicators/ccus.iea.capture-capacity-by-status.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year of capture capacity (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "status", "title": "Project status", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database", "title": "International Energy Agency: CCUS Projects Database (via the CCUS Projects Explorer)"}
+      ],
+      "title": "Carbon capture capacity operating, being built and planned"
+    },
+    {
+      "bytes": 1845,
+      "description": "The number of carbon capture projects in the IEA's CCUS Projects Database that operate, are under construction or are planned, counting those due to start by 2026, by 2030 and by 2035, with the IEA explorer's rule for which projects capture CO2.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:492910b66080c0bd9c81d1907e31a0540c106c48e9cffc7e8cb5695db05347cf",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ccus.iea.capture-projects-by-status",
+      "path": "v1/indicators/ccus.iea.capture-projects-by-status.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "projects (projects)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "status", "title": "Project status", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database", "title": "International Energy Agency: CCUS Projects Database (via the CCUS Projects Explorer)"}
+      ],
+      "title": "Number of carbon capture projects operating, being built and planned"
+    },
+    {
+      "bytes": 2002,
+      "description": "How much CO2 the world's operating carbon capture facilities are built to capture each year, by the sector they capture it from, including direct air capture, as recorded in the IEA's CCUS Projects Database. This is capacity, not the CO2 actually captured.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4bf1133a36e0288624a452fd89546f8263afce5d6f7634ca2982746035505a9e",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ccus.iea.operating-capture-capacity",
+      "path": "v1/indicators/ccus.iea.operating-capture-capacity.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year of capture capacity (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "Sector", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database", "title": "International Energy Agency: CCUS Projects Database (via the CCUS Projects Explorer)"}
+      ],
+      "title": "Carbon capture capacity in operation, by sector"
+    },
+    {
+      "bytes": 6316,
+      "description": "How much CO2 forests that people plant, restore or manage took out of the atmosphere each year worldwide, as estimated by three land-use bookkeeping models and their mean for The State of Carbon Dioxide Removal.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:a60b675013b3d119b14c7ceeae62cdd3791f01a200b20fc103771315498b2094",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "cdr.socdr-3.conventional-forest",
+      "path": "v1/indicators/cdr.socdr-3.conventional-forest.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "model", "title": "Model", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.stateofcdr.org/data-portal/3rd-edition", "title": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners): The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)"}
+      ],
+      "title": "Carbon dioxide removed by forests (conventional removal)"
+    },
+    {
+      "bytes": 5244,
+      "description": "How much CO2 newer removal methods actually took out of the atmosphere and put into durable storage each year, world total and by method (biochar, bioenergy with carbon capture and storage, direct air capture with storage, enhanced rock weathering and others), as compiled project by project for The State of Carbon Dioxide Removal. These are removals delivered, not capacity.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:bc7cb54c9062486e4f5af3217a3c7022b714d595ef563300b6e473fd161d9394",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "cdr.socdr-3.novel-by-method",
+      "path": "v1/indicators/cdr.socdr-3.novel-by-method.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide per year (MtCO2/yr)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "method", "title": "Method", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.stateofcdr.org/data-portal/3rd-edition", "title": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners): The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)"}
+      ],
+      "title": "Carbon dioxide removed by novel methods, by method"
+    },
+    {
       "bytes": 3998,
       "description": "Annual mean methane in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 1984.",
       "dialect": {
@@ -541,6 +774,45 @@
         {"path": "https://gml.noaa.gov/ccgg/trends_doi.html", "title": "NOAA Global Monitoring Laboratory: Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride"}
       ],
       "title": "Methane, global annual mean"
+    },
+    {
+      "bytes": 2143,
+      "description": "The cost of making a tonne of clinker, the main ingredient of cement, in one modelled European cement plant without capturing its CO2 (62.6 euros) and with each of six capture technologies (93.0 to 120.0 euros), all on the same prices, as the CEMCAP project published it.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f24a5c11a9964743c0340dc318ab3d8e444d0e153c3611288f5a92c81d2dc0df",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "clinker-cost.cemcap-2019.by-technology",
+      "path": "v1/indicators/clinker-cost.cemcap-2019.by-technology.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros (2014) per tonne of clinker (EUR2014/t-clinker)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "technology", "title": "Plant", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.3390/en12030542", "title": "Gardarsdottir, De Lena, Romano, Roussanaly, Voldsund, Pérez-Calvo, Berstad, Fu, Anantharaman, Sutter, Gazzani, Mazzotti and Cinti (SINTEF, Politecnico di Milano, ETH Zurich, Italcementi; the CEMCAP project); published in Energies (MDPI): Comparison of technologies for CO2 capture from cement production, part 2, cost analysis (CEMCAP)"}
+      ],
+      "title": "Cost of cement clinker with and without CO2 capture (CEMCAP)"
     },
     {
       "bytes": 10309,
@@ -808,6 +1080,158 @@
         {"path": "https://coralreefwatch.noaa.gov/", "title": "NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch: NOAA Coral Reef Watch coral bleaching heat stress and global bleaching status"}
       ],
       "title": "Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event"
+    },
+    {
+      "bytes": 2939,
+      "description": "Electricity the world used each year since 2000, in terawatt-hours, as published by Ember.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:6799127361dafbc3a02ebb3c701b3921ddec62b104818de593167e02013cbd5a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity-demand.ember.world",
+      "path": "v1/indicators/electricity-demand.ember.world.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "terawatt-hours per year (TWh)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "World electricity demand"
+    },
+    {
+      "bytes": 1222,
+      "description": "Metered electricity used at home in a year by the average household in Great Britain, in kilowatt-hours, from the UK Department for Energy Security and Net Zero.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:64c08e182420820b1a2a126fe42cd0230762acfd452fca74aa96e6d79051b669",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity-use.desnz.gb-household",
+      "path": "v1/indicators/electricity-use.desnz.gb-household.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilowatt-hours per household per year (kWh-per-household-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics", "title": "Department for Energy Security and Net Zero (UK Government): Subnational electricity consumption, Great Britain"}
+      ],
+      "title": "Electricity used by the average household in Great Britain in a year"
+    },
+    {
+      "bytes": 1147,
+      "description": "Metered electricity used in a year by all homes and businesses in London's 33 local authorities, in gigawatt-hours, from the UK Department for Energy Security and Net Zero.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:73750f49953bd181bf13bd745ea4c06dfb2e749dbab760ab69e72a5ef3fe670a",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity-use.desnz.london",
+      "path": "v1/indicators/electricity-use.desnz.london.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigawatt-hours per year (GWh-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics", "title": "Department for Energy Security and Net Zero (UK Government): Subnational electricity consumption, Great Britain"}
+      ],
+      "title": "Electricity used in London in a year"
+    },
+    {
+      "bytes": 962,
+      "description": "Electricity used at home in 2020 by the average US household, in kilowatt-hours, from the US Energy Information Administration's Residential Energy Consumption Survey.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b93f1d9aee9e73d52718ca8c93257af3e7b20e708107baac383cb15090627c39",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity-use.eia-recs-2020.us-household",
+      "path": "v1/indicators/electricity-use.eia-recs-2020.us-household.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilowatt-hours per household per year (kWh-per-household-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption", "title": "U.S. Energy Information Administration: Residential Energy Consumption Survey 2020, household consumption (Table CE2.1)"}
+      ],
+      "title": "Electricity used by the average US home in a year"
     },
     {
       "bytes": 382048,
@@ -1115,6 +1539,44 @@
         {"path": "https://ember-energy.org/data/monthly-electricity-data/", "title": "Ember: Monthly electricity data"}
       ],
       "title": "World electricity generation by source, monthly"
+    },
+    {
+      "bytes": 90506,
+      "description": "How much of the energy that homes, businesses, industry and transport use comes as electricity, as a share of all the fuels and electricity they use, for the European Union and European countries since 1990, as calculated by Eurostat. Non-energy uses of fuels, such as feedstocks for plastics, are not counted.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4c6b7daf94e3b44eadb1a8bf97eb64f111cfcd976e9c3b20f854963b1297eaaf",
+      "licenses": [
+        {"path": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice", "title": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required"}
+      ],
+      "mediatype": "text/csv",
+      "name": "electricity.eurostat.share-of-final-energy",
+      "path": "v1/indicators/electricity.eurostat.share-of-final-energy.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of final energy consumption (energy use) (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ec.europa.eu/eurostat/web/main/data/database", "title": "Eurostat (European Commission): Eurostat energy and R&D budget statistics"}
+      ],
+      "title": "Electricity's share of final energy use"
     },
     {
       "bytes": 46263,
@@ -1730,6 +2192,122 @@
       "title": "Electric share of new vehicle sales"
     },
     {
+      "bytes": 707360,
+      "description": "How much land the agricultural holdings in each of FAO's land-size classes held, in hectares, as counted in each country's census of agriculture, for every census FAO has compiled since the 1930 round.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9eaeaaa7c2c611c16a63d173c76ea998bf8077b829bf1aa9d2f278100a884b3a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "farms.faostat-wcad.area-by-land-size",
+      "path": "v1/indicators/farms.faostat-wcad.area-by-land-size.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares (ha)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "land-size", "title": "Land-size class of the holding (FAO's classes)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/WCAD", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
+      ],
+      "title": "Farmland by land size of the farm, by country and census"
+    },
+    {
+      "bytes": 217250,
+      "description": "How many agricultural holdings (farms) each country counted in its census of agriculture, for every census FAO has compiled since the 1930 World Census of Agriculture round. Each country's census year is its own, so the values are not added into a world total.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:80541438453a3b610daaf2923c58f161d527515d1abd85d01818fb61d707345c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "farms.faostat-wcad.holdings",
+      "path": "v1/indicators/farms.faostat-wcad.holdings.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "agricultural holdings (holdings)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/WCAD", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
+      ],
+      "title": "Number of farms, by country and census"
+    },
+    {
+      "bytes": 772091,
+      "description": "How many agricultural holdings each country counted in its census of agriculture in each of FAO's land-size classes, for every census FAO has compiled since the 1930 round.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f84333da608393d373b4a81992ea67f67f0457ff3d5a49aec9e27b8c9df81461",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "farms.faostat-wcad.holdings-by-land-size",
+      "path": "v1/indicators/farms.faostat-wcad.holdings-by-land-size.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "agricultural holdings (holdings)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "land-size", "title": "Land-size class of the holding (FAO's classes)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.fao.org/faostat/en/#data/WCAD", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
+      ],
+      "title": "Number of farms by land size, by country and census"
+    },
+    {
       "bytes": 4583,
       "description": "The share of the world's food, by economic value, lost after harvest on the farm, in storage, transport and processing, before it reaches shops, each year since 2015, in total and for four commodity groups, as estimated by FAO for SDG indicator 12.3.1a.",
       "dialect": {
@@ -1764,7 +2342,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Food lost between harvest and retail (SDG 12.3.1a)"
     },
@@ -1880,7 +2458,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Greenhouse gas emissions from agrifood systems, by country"
     },
@@ -1920,7 +2498,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Greenhouse gas emissions from agrifood systems, by process"
     },
@@ -1959,7 +2537,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Greenhouse gas emissions from agrifood systems, by stage: within the farm gate (including savanna fires and drained peat soils), land-use change, and before and after the farm"
     },
@@ -1997,7 +2575,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Greenhouse gas emissions from agrifood systems, world"
     },
@@ -2074,7 +2652,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "On-farm methane and nitrous oxide from animals, manure, fertiliser and rice fields, by farm product (14 products)"
     },
@@ -2113,7 +2691,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "On-farm methane and nitrous oxide per kilogram of farm product, from animals, manure, fertiliser and rice fields (14 products)"
     },
@@ -2152,7 +2730,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Methane from farm animals' digestion and manure, by animal"
     },
@@ -2190,7 +2768,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Methane from livestock, world"
     },
@@ -3003,6 +3581,763 @@
       "title": "Average rate of global sea level rise since 1999 (AVISO)"
     },
     {
+      "bytes": 3097,
+      "description": "The levelised cost of a tonne of ammonia from natural-gas plants that release their CO2, natural-gas plants that capture it (blue ammonia) and plants run on wind and solar power (green ammonia), modelled by Arnaiz del Pozo and Cloete (2022) with one synthesis loop and one cost method. The natural-gas plants pay a CO2 tax of 100 euros per tonne on what they emit, which is included in their cost; the green plants use technology costs expected for 2050.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:37070412dde031703c81a62acfb624b6ae335efc2f3257149147a1bb87626d78",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.arnaiz-del-pozo-2022.ammonia",
+      "path": "v1/indicators/green-premium.arnaiz-del-pozo-2022.ammonia.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros per tonne of ammonia (2020 euros) (EUR-per-t)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "How the ammonia is made", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"},
+          {"name": "setting", "title": "Where and at what energy prices", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1016/j.enconman.2022.115312", "title": "Carlos Arnaiz del Pozo (Universidad Politécnica de Madrid) and Schalk Cloete (SINTEF Industry); published in Energy Conversion and Management (Elsevier): Levelised cost of blue and green ammonia (Arnaiz del Pozo & Cloete 2022)"}
+      ],
+      "title": "Cost of making ammonia from natural gas and from wind and solar power (Arnaiz del Pozo & Cloete 2022)"
+    },
+    {
+      "bytes": 1484,
+      "description": "How much CO2 capture raises the cost of making clinker in one modelled European cement plant, as the CEMCAP project states it: by 49 to 92 percent, depending on the capture technology.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:272b107b6edab96d11f571798c87dd9f0b82a1bd7bd185e705d94a611ce7d060",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.cemcap-2019.clinker",
+      "path": "v1/indicators/green-premium.cemcap-2019.clinker.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "bound", "title": "End of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.3390/en12030542", "title": "Gardarsdottir, De Lena, Romano, Roussanaly, Voldsund, Pérez-Calvo, Berstad, Fu, Anantharaman, Sutter, Gazzani, Mazzotti and Cinti (SINTEF, Politecnico di Milano, ETH Zurich, Italcementi; the CEMCAP project); published in Energies (MDPI): Comparison of technologies for CO2 capture from cement production, part 2, cost analysis (CEMCAP)"}
+      ],
+      "title": "Extra cost of cement clinker with CO2 capture, percent (CEMCAP)"
+    },
+    {
+      "bytes": 1657,
+      "description": "What heating with a heat pump system costs per year, and what the equipment it replaces costs, in Project Drawdown's 2026 assessment of heat pumps: the running cost alone, and the running cost plus the purchase cost spread over the equipment's life without discounting. The baseline is a weighted average of the heating equipment heat pumps replace, not one type of boiler.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b4bff2dc093f1bd0988ac8baa649e805b8cb36a4b3d6426e7d35320a85532019",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (Zenodo deposits by Project Drawdown)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.drawdown-explorer.heating",
+      "path": "v1/indicators/green-premium.drawdown-explorer.heating.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "US dollars (2023) per heating system per year (USD2023-per-unit-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "Heating", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"},
+          {"name": "cost", "title": "Cost", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://drawdown.org/explorer", "title": "Project Drawdown: Drawdown Explorer solution assessments"}
+      ],
+      "title": "Yearly cost of a heat pump and of today's heating equipment (Project Drawdown)"
+    },
+    {
+      "bytes": 2383,
+      "description": "What a kilogram of plant-based mince and sausages cost in Austrian supermarkets in Vienna in May 2022, beside conventional minced meat and sausages in the same shops, as Falkenberg and colleagues (2023) recorded them: the mean and median of the products on sale, with the cheapest and dearest.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:eeb1a03dcd5cb4b67cf2f9f3d7ba7bab567a5ece82f6c7fed46015c84b450e68",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.falkenberg-2023.meat",
+      "path": "v1/indicators/green-premium.falkenberg-2023.meat.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros per kilogram (retail price) (EUR-per-kg)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "product", "title": "Product", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"},
+          {"name": "statistic", "title": "Statistic", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.3390/foods12112211", "title": "Christof Falkenberg, Alena Trexler, Christian Garaus and Siegfried Pöchtrager (University of Natural Resources and Life Sciences, Vienna); published in Foods (MDPI): Prices of plant-based and conventional mince and sausages in Austria (Falkenberg et al. 2023)"}
+      ],
+      "title": "Price of plant-based and conventional mince and sausages in Vienna (Falkenberg et al. 2023)"
+    },
+    {
+      "bytes": 1596,
+      "description": "What a petrol, a diesel and a battery electric car cost in total over 400,000 km and 15 years on the Czech market in 2022, counting purchase, energy and maintenance, as Furch and colleagues (2022) model it for one car of each kind.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:734932ee19ce8e93743c776259e5fcdd4bbf29aae90f3bbb875c40239834a312",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.furch-2022.cars-lifetime",
+      "path": "v1/indicators/green-premium.furch-2022.cars-lifetime.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros over the car's life (EUR)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "Car", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41598-022-14715-8", "title": "Jan Furch, Vlastimil Konečný and Zdeněk Krobot (University of Defence, Brno); published in Scientific Reports: Life cycle cost of passenger cars by drive type, Czech market (Furch et al. 2022)"}
+      ],
+      "title": "Life cycle cost of petrol, diesel and electric cars in Czechia (Furch et al. 2022)"
+    },
+    {
+      "bytes": 1578,
+      "description": "What a petrol, a diesel and a battery electric car cost per kilometre over 400,000 km and 15 years on the Czech market in 2022, counting purchase, energy and maintenance, as Furch and colleagues (2022) model it for one car of each kind.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e287761421ec18a921110fcbdd87e41c62bd968b6432a419e15007fe6243e0c5",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.furch-2022.cars-per-km",
+      "path": "v1/indicators/green-premium.furch-2022.cars-per-km.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros per kilometre (EUR-per-km)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "Car", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41598-022-14715-8", "title": "Jan Furch, Vlastimil Konečný and Zdeněk Krobot (University of Defence, Brno); published in Scientific Reports: Life cycle cost of passenger cars by drive type, Czech market (Furch et al. 2022)"}
+      ],
+      "title": "Cost per kilometre of petrol, diesel and electric cars in Czechia (Furch et al. 2022)"
+    },
+    {
+      "bytes": 1154,
+      "description": "How much more the IEA estimates it would cost to own and operate a containership running entirely on e-ammonia or e-methanol in 2030 than a conventional containership on fossil fuel (heavy fuel oil): 75 percent more.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:97459d9000cce6b437d3787181c5fe4a90424979575d3527da4cb56d70ffa180",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-efuels-2023.shipping",
+      "path": "v1/indicators/green-premium.iea-efuels-2023.shipping.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more total cost of ownership than a fossil-fuelled ship (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport", "title": "International Energy Agency: The Role of E-fuels in Decarbonising Transport"}
+      ],
+      "title": "Extra cost of a containership running on e-fuels in 2030 (IEA)"
+    },
+    {
+      "bytes": 1491,
+      "description": "How much more the IEA expects it to cost to produce near-zero emissions cement (a dry kiln with carbon capture and storage) than conventional cement in 2035 under today's policies, without policy support: 75 to 150 percent more, depending on the region.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5efcc7ff85b5d5dcec1c49a5662d44f3385f569c94aac3a41078adb5cb03f4fe",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-etp-2026.cement",
+      "path": "v1/indicators/green-premium.iea-etp-2026.cement.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "bound", "title": "End of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/energy-technology-perspectives-2026", "title": "International Energy Agency: Energy Technology Perspectives 2026"}
+      ],
+      "title": "Extra cost of near-zero emissions cement in 2035, percent (IEA)"
+    },
+    {
+      "bytes": 1515,
+      "description": "How much more the IEA expects it to cost to produce a tonne of near-zero emissions cement (a dry kiln with carbon capture and storage) than a tonne of conventional cement in 2035 under today's policies, without policy support: USD 50 to 175 per tonne, depending on the region.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:6ada865172df922d2b061fa43bace89ba37899347b140e9e875ab7868012862f",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-etp-2026.cement-usd",
+      "path": "v1/indicators/green-premium.iea-etp-2026.cement-usd.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "US dollars (2024) per tonne of cement (USD2024/t-cement)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "bound", "title": "End of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/energy-technology-perspectives-2026", "title": "International Energy Agency: Energy Technology Perspectives 2026"}
+      ],
+      "title": "Extra cost of near-zero emissions cement in 2035, per tonne (IEA)"
+    },
+    {
+      "bytes": 1706,
+      "description": "How much more the IEA expects it to cost to produce near-zero emissions iron-based steel (made with hydrogen) than conventional steel in 2035 under today's policies, without targeted policy support: about 20 to 145 percent more, depending on the region.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e74d5d30e522ce73a51b7182cd9b3aa681c9b609543a1725ac6650b69da31b76",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-etp-2026.steel",
+      "path": "v1/indicators/green-premium.iea-etp-2026.steel.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "bound", "title": "End of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/energy-technology-perspectives-2026", "title": "International Energy Agency: Energy Technology Perspectives 2026"}
+      ],
+      "title": "Extra cost of near-zero emissions steel in 2035, percent (IEA)"
+    },
+    {
+      "bytes": 1741,
+      "description": "How much more the IEA expects it to cost to produce a tonne of near-zero emissions iron-based steel (made with hydrogen) than a tonne of conventional steel in 2035 under today's policies, without targeted policy support: USD 125 to 600 per tonne of crude steel, depending on the region.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2e93145a6d1cacd9bba71d0671737d4660bf197b00ad79a147e55b79b363d01c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-etp-2026.steel-usd",
+      "path": "v1/indicators/green-premium.iea-etp-2026.steel-usd.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "US dollars (2024) per tonne of crude steel (USD2024/t-crude-steel)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "bound", "title": "End of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/energy-technology-perspectives-2026", "title": "International Energy Agency: Energy Technology Perspectives 2026"}
+      ],
+      "title": "Extra cost of near-zero emissions steel in 2035, per tonne (IEA)"
+    },
+    {
+      "bytes": 2052,
+      "description": "How much more the IEA expects low-emissions urea fertiliser to cost to produce in Japan than conventional urea in 2035 under today's policies: about 80 percent more when the low-emissions ammonia in it is made in Japan, and 55 percent more when that ammonia is imported from the Middle East. Carbon pricing is included in the costs.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5c9716e1dd2a245b62efb3cba78e8679995b6d9fbc30e5d4b5aa5b500c9a5883",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-etp-2026.urea",
+      "path": "v1/indicators/green-premium.iea-etp-2026.urea.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "supply", "title": "Where the low-emissions ammonia is made", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/energy-technology-perspectives-2026", "title": "International Energy Agency: Energy Technology Perspectives 2026"}
+      ],
+      "title": "Extra cost of low-emissions urea in Japan in 2035 (IEA)"
+    },
+    {
+      "bytes": 2507,
+      "description": "How much more it cost to produce low-emissions ammonia than conventional ammonia from unabated natural gas in the European Union in 2024, as the IEA states it: around 25 percent more with carbon capture and about 120 to 220 percent more from electrolysis; as little as 5 percent and 75 to 160 percent more if a CO2 cost of USD 100 per tonne applied.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4588e5fa8d43bc3bc0836bf5e24c22ca7736c822e0f1f400f4a9cdc1f18692c1",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-ghr-2025.ammonia",
+      "path": "v1/indicators/green-premium.iea-ghr-2025.ammonia.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "route", "title": "Low-emissions route", "type": "string"},
+          {"name": "co2_cost", "title": "CO2 cost assumed", "type": "string"},
+          {"name": "bound", "title": "Stated value or end of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/global-hydrogen-review-2025", "title": "International Energy Agency: Global Hydrogen Review 2025"}
+      ],
+      "title": "Extra cost of low-emissions ammonia in the European Union (IEA)"
+    },
+    {
+      "bytes": 1931,
+      "description": "How much more it cost to produce low-emissions methanol than conventional methanol in 2024, as the IEA states it: in China, around 70 percent more with carbon capture and 160 percent more by electrolysis than unabated coal-based production; in India, 100 percent more by electrolysis than unabated natural gas-based production, the lowest gap the IEA found.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:4e3dce69838b77e8df702ca7207d0ab6a83dd65002ffb73996cc53b29540c6c1",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-ghr-2025.methanol",
+      "path": "v1/indicators/green-premium.iea-ghr-2025.methanol.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "route", "title": "Low-emissions route", "type": "string"},
+          {"name": "comparator", "title": "Conventional route compared with", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/global-hydrogen-review-2025", "title": "International Energy Agency: Global Hydrogen Review 2025"}
+      ],
+      "title": "Extra cost of low-emissions methanol in China and India (IEA)"
+    },
+    {
+      "bytes": 2159,
+      "description": "How much more it cost to make steel from hydrogen-based direct reduced iron (H2 DRI) in 2024, as the IEA states it: 50 to 140 percent more than blast furnaces and 20 to 80 percent more than unabated natural gas-based DRI, depending on the region.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:aebd3398920623f19037f9f50315034d38a63f879b2e259bfc728516f02b1040",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.iea-ghr-2025.steel",
+      "path": "v1/indicators/green-premium.iea-ghr-2025.steel.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent more than the conventional route (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "comparator", "title": "Conventional route compared with", "type": "string"},
+          {"name": "bound", "title": "End of the stated range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.iea.org/reports/global-hydrogen-review-2025", "title": "International Energy Agency: Global Hydrogen Review 2025"}
+      ],
+      "title": "Extra cost of steel made with hydrogen (IEA, Global Hydrogen Review)"
+    },
+    {
+      "bytes": 2300,
+      "description": "What one heavy truck costs a month to run on diesel, on liquid biomethane and on electricity in one Finnish food logistics company's fleet in 2023: leasing, insurance, driver, energy and an emissions cost at the EU carbon price, simulated 1,000 times from the company's own data (Rajalehto and Helo 2025).",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:a67e8a59556b2c24166fadd86184bc9ca7ea2df88208e12074eaae286416fe9a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.rajalehto-helo-2025.trucks",
+      "path": "v1/indicators/green-premium.rajalehto-helo-2025.trucks.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros per truck per month (EUR-per-month)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "Truck", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"},
+          {"name": "statistic", "title": "Statistic", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1016/j.jclepro.2025.145524", "title": "Clara Rajalehto and Petri Helo (University of Vaasa); published in the Journal of Cleaner Production (Elsevier): Monthly cost of ownership of diesel, biomethane and electric trucks in Finland (Rajalehto & Helo 2025)"}
+      ],
+      "title": "Monthly cost of running diesel, biomethane and electric trucks in Finland (Rajalehto & Helo 2025)"
+    },
+    {
+      "bytes": 2852,
+      "description": "What heating a typical home in Great Britain costs over 15 years with a gas boiler and with an air-source heat pump, as Rosenow and colleagues (2025) calculate it: installation, minus the Boiler Upgrade Scheme grant for the heat pump, plus energy and maintenance, discounted. The central case and four sensitivity cases are given; all but one include the grant.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:ae45ffcefbe085f37cc9c53ec4401fceb42cd7c63dc4ffff0ddc727d2f710c6f",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.rosenow-2025.heating",
+      "path": "v1/indicators/green-premium.rosenow-2025.heating.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "pounds, total cost of ownership over the system's life (GBP)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "Heating system", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"},
+          {"name": "case", "title": "Case (Table 2 column)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1016/j.isci.2025.111784", "title": "Jan Rosenow, Jacob Barnes, Ray Galvin, Samuel O'Mara and Richard Lowes (University of Oxford, University of Cambridge, Gemserv, University of Exeter); published in iScience (Cell Press): Lifetime cost of a heat pump and a gas boiler in Great Britain (Rosenow et al. 2025)"}
+      ],
+      "title": "Lifetime cost of a gas boiler and a heat pump in Great Britain (Rosenow et al. 2025)"
+    },
+    {
+      "bytes": 3858,
+      "description": "The projected cost of making a kilogram of synthetic jet fuel from hydrogen and CO2 with European electricity in 2030 and 2050, under a 2 °C and a 3.5 °C climate scenario, as Sacchi and colleagues (2023) estimate it. The study gives no cost of fossil jet fuel of its own for those years, so there is no fossil comparator.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2ab62b8cac7351ca5268d10bfd052eb193c9ec375e2f0d8a55cca3f38041289e",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.sacchi-2023.jet-fuel",
+      "path": "v1/indicators/green-premium.sacchi-2023.jet-fuel.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "euros per kilogram of jet fuel (EUR-per-kg)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "option", "title": "Fuel", "type": "string"},
+          {"name": "side", "title": "Side", "type": "string"},
+          {"name": "scenario", "title": "Climate scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41467-023-39749-y", "title": "Romain Sacchi, Viola Becattini, Paolo Gabrielli, Brian Cox, Alois Dirnaichner, Christian Bauer and Marco Mazzotti (Paul Scherrer Institut, ETH Zurich, INFRAS and the Potsdam Institute for Climate Impact Research); published in Nature Communications: Levelised cost of synthetic jet fuel for European aviation (Sacchi et al. 2023)"}
+      ],
+      "title": "Cost of synthetic jet fuel for European aviation (Sacchi et al. 2023)"
+    },
+    {
+      "bytes": 1898,
+      "description": "How the price of meat substitutes compares with conventional meat of the same kind (minced meat with minced meat, deli meat with deli meat), as the ratio of their prices per kilogram in supermarket web shops in August and September 2023: 1 means the same price. Siegrist and colleagues (2024) state it for Germany and Spain; across France, Italy, the Netherlands and the United Kingdom they give only a range, quoted in the notes.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:3634d97475c4b6de411e5aa1d0c53e89784fd79081885bd04c54adfd35dbf496",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "green-premium.siegrist-2024.meat-substitutes",
+      "path": "v1/indicators/green-premium.siegrist-2024.meat-substitutes.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "price per kilogram of meat substitutes divided by that of conventional meat (ratio)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1016/j.foodres.2024.115213", "title": "Armin Siegrist, Ashley Green, Fabienne Michel and Alexander Mathys (ETH Zurich); published in Food Research International (Elsevier): Prices of meat substitutes relative to meat in six European countries (Siegrist et al. 2024)"}
+      ],
+      "title": "Price of meat substitutes compared with meat in Germany and Spain (Siegrist et al. 2024)"
+    },
+    {
       "bytes": 3336,
       "description": "Deaths attributable to heat each year worldwide, 1990–2021, as estimated by the Lancet Countdown (indicator 1.1.5). The numbers are modelled from temperature–mortality relationships, not counted.",
       "dialect": {
@@ -3234,6 +4569,47 @@
       "title": "Greenland Ice Sheet mass change since July 1971 (IMBIE)"
     },
     {
+      "bytes": 7534,
+      "description": "Hectares of land occupied for each terawatt-hour of electricity generated in a year, for eleven ways of making electricity, from Table 1 of Lovering et al. (2022): the median, the interquartile range and the mean across the sites and studies observed. Coal, natural gas, nuclear and dedicated biomass include the land used to mine, drill or grow their fuel. Wind and natural gas are given two ways: the land physically occupied, and the whole area inside the site's boundary. Rooftop solar is zero by the study's assumption.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:7986f968b6fffdc5f9de905b3ce9e6523fd47ff5acb66c7ab30c9a6307e88e72",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "land-use-intensity.lovering-2022.by-source",
+      "path": "v1/indicators/land-use-intensity.lovering-2022.by-source.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hectares per terawatt-hour generated in a year (ha-per-TWh-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "source", "title": "Way of making electricity", "type": "string"},
+          {"name": "area", "title": "Land counted", "type": "string"},
+          {"name": "statistic", "title": "Statistic", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1371/journal.pone.0270155", "title": "Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California Davis); published in PLOS ONE (Public Library of Science): Land-use intensity of electricity (Lovering et al. 2022)"}
+      ],
+      "title": "Land used per unit of electricity, by way of making it (Lovering et al. 2022)"
+    },
+    {
       "bytes": 5209574,
       "description": "How much land each country, the European Union and the world use as cropland and as permanent meadows and pastures (together, agricultural land), and how much is forest, each year since 1961 (forest since 1990), in thousands of hectares, as reported to and estimated by FAO.",
       "dialect": {
@@ -3268,7 +4644,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Agricultural land, cropland, pasture and forest area"
     },
@@ -3307,9 +4683,91 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss"}
+        {"path": "https://www.fao.org/faostat/en/", "title": "Food and Agriculture Organization of the United Nations (FAO), Statistics Division: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses"}
       ],
       "title": "Agricultural land, cropland, pasture and forest as a share of land area"
+    },
+    {
+      "bytes": 182931,
+      "description": "What it would cost, per megawatt-hour, to build and run a new power plant in the United Kingdom starting between 2030 and 2050, by type of plant, as estimated by the Department for Energy Security and Net Zero: wind, solar, tidal and geothermal beside gas plants with and without carbon capture and hydrogen plants, split into construction, running, fuel and carbon costs. Gas and hydrogen plants are shown at three illustrative shares of the year in operation. DESNZ says it is not appropriate to compare these costs across technologies that play very different roles in the power system.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:79edfa136f9e44ab64bc9db11fd86bdc14d7fe7fe02391644972c49c6b01df44",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "lcoe.desnz-2025.new-plants-uk",
+      "path": "v1/indicators/lcoe.desnz-2025.new-plants-uk.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "pounds (2024) per megawatt-hour (GBP2024/MWh)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "technology", "title": "Plant type and load factor", "type": "string"},
+          {"name": "estimate", "title": "Estimate", "type": "string"},
+          {"name": "component", "title": "Cost component", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/publications/electricity-generation-costs-2025", "title": "Department for Energy Security and Net Zero (UK): Electricity Generation Costs 2025"}
+      ],
+      "title": "Cost of electricity from new UK power plants, by component (DESNZ)"
+    },
+    {
+      "bytes": 8466,
+      "description": "What it would cost, per megawatt-hour, to build and run a new power plant in the United States that starts operating in 2031, by type of plant, as projected by the US Energy Information Administration: solar, wind, nuclear, geothermal and hydro beside natural gas plants with and without carbon capture, and batteries. Shown before and after US tax credits. Plants of different types run for different shares of the year and play different roles on the grid, so EIA warns that these costs alone do not say which plant is the better choice.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2ba69d5380183b45db3e0d006df16e1b9c0353c6b9569220f3a7657a3acd7b59",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "lcoe.eia-aeo-2026.new-plants-us",
+      "path": "v1/indicators/lcoe.eia-aeo-2026.new-plants-us.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "US dollars (2025) per megawatt-hour (USD2025/MWh)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "technology", "title": "Plant type", "type": "string"},
+          {"name": "cost_basis", "title": "Tax credits", "type": "string"},
+          {"name": "average", "title": "Average across regions", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/outlooks/aeo/electricity_generation/index.php", "title": "U.S. Energy Information Administration: Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026"}
+      ],
+      "title": "Cost of electricity from new US power plants coming online in 2031 (EIA)"
     },
     {
       "bytes": 9945,
@@ -3466,6 +4924,84 @@
         {"path": "https://www.climatewatchdata.org/", "title": "World Resources Institute (Climate Watch): Climate Watch NDC Tracker (2025 NDCs)"}
       ],
       "title": "How many countries have sent a 2025 climate pledge (NDC), and what the pledges contain"
+    },
+    {
+      "bytes": 2017,
+      "description": "The number of national governments in the Net Zero Tracker with a net zero (or carbon or climate neutrality) target, by how firm the target is, and the number with another kind of end target or none, as recorded for the Net Zero Stocktake 2025.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e58fceffd5cac99c03446528653ce7fb5be3c3e4a173cbcbec968059a77128bd",
+      "licenses": [
+        {"name": "CC-BY-NC-4.0", "path": "https://creativecommons.org/licenses/by-nc/4.0/", "title": "CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "net-zero.nzt-2025.countries-by-status",
+      "path": "v1/indicators/net-zero.nzt-2025.countries-by-status.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "national governments (countries)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "status", "title": "Status of the target", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17143240", "title": "Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero): Net Zero Stocktake 2025 dataset"}
+      ],
+      "title": "How many national governments have a net zero target, and how firm it is"
+    },
+    {
+      "bytes": 45526,
+      "description": "For each national government in the Net Zero Tracker, the year by which it aims to reach net zero emissions (or carbon or climate neutrality), and how firm the target is: written into law, set out in a policy document, declared or pledged, proposed or under discussion, or already achieved by the government's own account. Governments whose end target is not net zero, or that have no target, are shown without a year.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:a15e933eb925d8e1b9e1a888bd0ac2629d8eacef64d02912389a50ff1c7733e1",
+      "licenses": [
+        {"name": "CC-BY-NC-4.0", "path": "https://creativecommons.org/licenses/by-nc/4.0/", "title": "CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "net-zero.nzt-2025.target-by-country",
+      "path": "v1/indicators/net-zero.nzt-2025.target-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "target year (year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "status", "title": "Status of the target", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/17143240", "title": "Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero): Net Zero Stocktake 2025 dataset"}
+      ],
+      "title": "Net zero targets of national governments: target year and status"
     },
     {
       "bytes": 6000,
@@ -3698,6 +5234,236 @@
       "title": "Climate policy interventions that cut emissions (Stechemesser et al. 2024)"
     },
     {
+      "bytes": 5620,
+      "description": "Average electric power generated per square metre of land or sea, in watts, for ten ways of making electricity, from Table 16 of Nøland et al. (2022), who measured 8 to 451 sites per source on satellite images: the median, the mean and the standard deviation across sites. Nuclear includes the plant's safety area but not uranium mining; wind counts the whole area inside the farm's perimeter; rooftop solar is per square metre of roof, not land.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:db01412e8b30d1bcba7fca838441dc31a28dfd83c9edb5111a47917840f6a316",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "power-density.noland-2022.by-source",
+      "path": "v1/indicators/power-density.noland-2022.by-source.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "watts per square metre (W/m2)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "source", "title": "Way of making electricity", "type": "string"},
+          {"name": "statistic", "title": "Statistic", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41598-022-25341-9", "title": "Nøland, Auxepaules, Rousset, Perney and Falletti (Norwegian University of Science and Technology, Grenoble INP); published in Scientific Reports (Springer Nature): Power density of electricity generation (Nøland et al. 2022)"}
+      ],
+      "title": "Power generated per square metre, by way of making electricity (Nøland et al. 2022)"
+    },
+    {
+      "bytes": 1358,
+      "description": "The electricity the average household in Great Britain used at home in a year, expressed as average power in kilowatts: the year's kilowatt-hours spread evenly over its hours. From the UK Department for Energy Security and Net Zero.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:dcc51913f273f315d142a75f27d161d0abf3f705c0ef0d045b537bb60372ba9a",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "power-scale.desnz.gb-household",
+      "path": "v1/indicators/power-scale.desnz.gb-household.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilowatts (average over the year) (kW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics", "title": "Department for Energy Security and Net Zero (UK Government): Subnational electricity consumption, Great Britain"}
+      ],
+      "title": "Average electric power of the average household in Great Britain"
+    },
+    {
+      "bytes": 1298,
+      "description": "The electricity all homes and businesses in London used in a year, expressed as average power in gigawatts: the year's gigawatt-hours spread evenly over its hours. From the UK Department for Energy Security and Net Zero.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:69a53d78594bdd280c1106f84c532e9a7f48900ac849ab9623d2cbec23f38e36",
+      "licenses": [
+        {"name": "OGL-UK-3.0", "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", "title": "Open Government Licence v3.0 (Crown copyright)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "power-scale.desnz.london",
+      "path": "v1/indicators/power-scale.desnz.london.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "gigawatts (average over the year) (GW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics", "title": "Department for Energy Security and Net Zero (UK Government): Subnational electricity consumption, Great Britain"}
+      ],
+      "title": "Average electric power of London"
+    },
+    {
+      "bytes": 1065,
+      "description": "The electricity the average US household used at home in 2020, expressed as average power in kilowatts: the year's kilowatt-hours spread evenly over its 8,784 hours. From the US Energy Information Administration's Residential Energy Consumption Survey.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5437857d66da8550843401590664a9a4d5b120f2b57517eb80770bb4212cf1c3",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "power-scale.eia-recs-2020.us-household",
+      "path": "v1/indicators/power-scale.eia-recs-2020.us-household.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "kilowatts (average over the year) (kW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption", "title": "U.S. Energy Information Administration: Residential Energy Consumption Survey 2020, household consumption (Table CE2.1)"}
+      ],
+      "title": "Average electric power of the average US home"
+    },
+    {
+      "bytes": 4303,
+      "description": "All the energy the world uses each year since 1980, counting every fuel, expressed as average power in terawatts: the year's energy spread evenly over its hours. From US Energy Information Administration data.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:eb6df579a67eadf3b5d766bae748a6d4264953a83291241c5594f766c652ce1f",
+      "licenses": [
+        {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "power-scale.eia.world-primary-energy",
+      "path": "v1/indicators/power-scale.eia.world-primary-energy.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "terawatts (average over the year) (TW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.eia.gov/international/data/world", "title": "U.S. Energy Information Administration: International energy data"}
+      ],
+      "title": "Average power of the world's total energy use"
+    },
+    {
+      "bytes": 3470,
+      "description": "The electricity the world used each year since 2000, expressed as average power in terawatts: the year's terawatt-hours spread evenly over its hours. From Ember's yearly electricity data.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:1c0a7ebd460dc0dd73368cc33344a957f279f90a0b877c896d7c7e159f75a9e2",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "power-scale.ember.world-electricity",
+      "path": "v1/indicators/power-scale.ember.world-electricity.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "terawatts (average over the year) (TW)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ember-energy.org/data/yearly-electricity-data/", "title": "Ember: Yearly electricity data"}
+      ],
+      "title": "Average electric power of the world"
+    },
+    {
       "bytes": 3282,
       "description": "Of the outcome indicators Systems Change Lab tracks across power, buildings, industry, transport, cities, land, food, freshwater, the circular economy, carbon removal and finance, the share it assesses as on track for 2030, off track, well off track, heading in the right direction but too slowly, heading in the wrong direction, or with too little data to say. Indicators built from International Energy Agency data are left out.",
       "dialect": {
@@ -3735,6 +5501,82 @@
         {"path": "https://systemschangelab.org/download", "title": "Systems Change Lab (World Resources Institute and Bezos Earth Fund): Systems Change Lab: indicators of progress on the shifts needed for 1.5 °C"}
       ],
       "title": "Progress of the shifts needed for 1.5 °C (Systems Change Lab)"
+    },
+    {
+      "bytes": 44780,
+      "description": "How much European governments plan to spend each year on research and development whose main aim is energy, in million euro at current prices, as reported to Eurostat. This is all energy research, including fossil fuels and nuclear power as well as renewables and efficiency, and it is a budget allocation, not money spent.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:36fbe5b07a30456b7021162e8802addee6760113d554f0128d5a6d9e513b1907",
+      "licenses": [
+        {"path": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice", "title": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required"}
+      ],
+      "mediatype": "text/csv",
+      "name": "rd-budget.eurostat.energy",
+      "path": "v1/indicators/rd-budget.eurostat.energy.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million euro (current prices) (EUR-million)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://ec.europa.eu/eurostat/web/main/data/database", "title": "Eurostat (European Commission): Eurostat energy and R&D budget statistics"}
+      ],
+      "title": "Government R&D budgets for energy (Europe)"
+    },
+    {
+      "bytes": 96098,
+      "description": "How much governments plan to spend each year on research and development whose main aim is energy, in US dollars at 2020 prices and purchasing power, as reported to the OECD, for OECD members and some partner economies since 1981. This is all energy research, including fossil fuels and nuclear power as well as renewables and efficiency, and it is a budget allocation, not money spent.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:378c38232b79a8d6677ba3a4b7688a517f7c2105ecf2ca7ca2a5efe17eef5f85",
+      "licenses": [
+        {"path": "https://www.oecd.org/en/about/terms-conditions.html", "title": "OECD Terms and Conditions, section 3 Data (any use, with credit)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "rd-budget.oecd.energy",
+      "path": "v1/indicators/rd-budget.oecd.energy.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million US dollars at purchasing power parities, constant 2020 prices (USD-PPP-2020-million)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_RDS_GOV%40DF_GBARD_NABS07&df[ag]=OECD.STI.STP", "title": "OECD Directorate for Science, Technology and Innovation: Government budget allocations for R&D (GBARD), by socio-economic objective"}
+      ],
+      "title": "Government R&D budgets for energy"
     },
     {
       "bytes": 4506,

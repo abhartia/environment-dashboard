@@ -1,0 +1,37 @@
+# Power generated per square metre, by way of making electricity (Nøland et al. 2022)
+# Indicator: power-density.noland-2022.by-source (vintage Scientific Reports 12: 21280 (2022)); unit: watts per square metre (W/m2)
+# Source: Nøland, Auxepaules, Rousset, Perney and Falletti (Norwegian University of Science and Technology, Grenoble INP); published in Scientific Reports (Springer Nature) <https://doi.org/10.1038/s41598-022-25341-9>
+# Credit: Nøland, J. K., Auxepaules, J., Rousset, A., Perney, B. & Falletti, G. (2022). Spatial energy density of large-scale electricity generation from power sources worldwide. Scientific Reports 12, 21280. doi:10.1038/s41598-022-25341-9. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/power-density/noland-2022/by-source
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,source,statistic
+power-density.noland-2022.by-source,WLD,2022,587.17,,,,final,"Table 16, p. 20, row ""Nuclear"": n = 159 sites.",,,nuclear,median
+power-density.noland-2022.by-source,WLD,2022,764.69,,,,final,"Table 16, p. 20, row ""Nuclear"": n = 159 sites.",,,nuclear,mean
+power-density.noland-2022.by-source,WLD,2022,549.69,,,,final,"Table 16, p. 20, row ""Nuclear"": n = 159 sites.",,,nuclear,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,4.26,,,,final,"Table 16, p. 20, row ""Hydro"": n = 451 sites.",,,hydro,median
+power-density.noland-2022.by-source,WLD,2022,33.73,,,,final,"Table 16, p. 20, row ""Hydro"": n = 451 sites.",,,hydro,mean
+power-density.noland-2022.by-source,WLD,2022,157.28,,,,final,"Table 16, p. 20, row ""Hydro"": n = 451 sites.",,,hydro,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,14.45,,,,final,"Table 16, p. 20, row ""Solar (CSP)"": n = 27 sites.",,,solar-csp,median
+power-density.noland-2022.by-source,WLD,2022,20.33,,,,final,"Table 16, p. 20, row ""Solar (CSP)"": n = 27 sites.",,,solar-csp,mean
+power-density.noland-2022.by-source,WLD,2022,12.74,,,,final,"Table 16, p. 20, row ""Solar (CSP)"": n = 27 sites.",,,solar-csp,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,9.13,,,,final,"Table 16, p. 20, row ""Solar (PV)"": n = 17 sites.",,,solar-pv,median
+power-density.noland-2022.by-source,WLD,2022,9.91,,,,final,"Table 16, p. 20, row ""Solar (PV)"": n = 17 sites.",,,solar-pv,mean
+power-density.noland-2022.by-source,WLD,2022,3.28,,,,final,"Table 16, p. 20, row ""Solar (PV)"": n = 17 sites.",,,solar-pv,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,9.73,,,,final,"Table 16, p. 20, row ""Wave"": n = 11 sites.",,,wave,median
+power-density.noland-2022.by-source,WLD,2022,7.94,,,,final,"Table 16, p. 20, row ""Wave"": n = 11 sites.",,,wave,mean
+power-density.noland-2022.by-source,WLD,2022,2.77,,,,final,"Table 16, p. 20, row ""Wave"": n = 11 sites.",,,wave,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,5.56,,,,final,"Table 16, p. 20, row ""Geothermal"": n = 8 sites.",,,geothermal,median
+power-density.noland-2022.by-source,WLD,2022,4.88,,,,final,"Table 16, p. 20, row ""Geothermal"": n = 8 sites.",,,geothermal,mean
+power-density.noland-2022.by-source,WLD,2022,3.39,,,,final,"Table 16, p. 20, row ""Geothermal"": n = 8 sites.",,,geothermal,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,4.17,,,,final,"Table 16, p. 20, row ""Solar (rooftop)"": n = 39 countries (Table 9, p. 12, gives the same values with n = 40). Power per square metre of roof, from cumulative installations per country (the paper's reference 5, Capellán-Pérez et al. 2017), not land.",,,rooftop-pv,median
+power-density.noland-2022.by-source,WLD,2022,4.58,,,,final,"Table 16, p. 20, row ""Solar (rooftop)"": n = 39 countries (Table 9, p. 12, gives the same values with n = 40). Power per square metre of roof, from cumulative installations per country (the paper's reference 5, Capellán-Pérez et al. 2017), not land.",,,rooftop-pv,mean
+power-density.noland-2022.by-source,WLD,2022,2.25,,,,final,"Table 16, p. 20, row ""Solar (rooftop)"": n = 39 countries (Table 9, p. 12, gives the same values with n = 40). Power per square metre of roof, from cumulative installations per country (the paper's reference 5, Capellán-Pérez et al. 2017), not land.",,,rooftop-pv,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,3.84,,,,final,"Table 16, p. 20, row ""Wind (offshore)"": n = 11 sites.",,,wind-offshore,median
+power-density.noland-2022.by-source,WLD,2022,3.89,,,,final,"Table 16, p. 20, row ""Wind (offshore)"": n = 11 sites.",,,wind-offshore,mean
+power-density.noland-2022.by-source,WLD,2022,1.61,,,,final,"Table 16, p. 20, row ""Wind (offshore)"": n = 11 sites.",,,wind-offshore,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,2.29,,,,final,"Table 16, p. 20, row ""Tidal"": n = 12 sites.",,,tidal,median
+power-density.noland-2022.by-source,WLD,2022,2.84,,,,final,"Table 16, p. 20, row ""Tidal"": n = 12 sites.",,,tidal,mean
+power-density.noland-2022.by-source,WLD,2022,2.49,,,,final,"Table 16, p. 20, row ""Tidal"": n = 12 sites.",,,tidal,standard-deviation
+power-density.noland-2022.by-source,WLD,2022,1.49,,,,final,"Table 16, p. 20, row ""Wind (onshore)"": n = 148 sites.",,,wind-onshore,median
+power-density.noland-2022.by-source,WLD,2022,2.12,,,,final,"Table 16, p. 20, row ""Wind (onshore)"": n = 148 sites.",,,wind-onshore,mean
+power-density.noland-2022.by-source,WLD,2022,2.06,,,,final,"Table 16, p. 20, row ""Wind (onshore)"": n = 148 sites.",,,wind-onshore,standard-deviation

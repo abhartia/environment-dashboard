@@ -1,0 +1,15 @@
+# Cost of making ammonia from natural gas and from wind and solar power (Arnaiz del Pozo & Cloete 2022)
+# Indicator: green-premium.arnaiz-del-pozo-2022.ammonia (vintage Energy Conversion and Management 255, 115312 (2022)); unit: euros per tonne of ammonia (2020 euros) (EUR-per-t)
+# Source: Carlos Arnaiz del Pozo (Universidad Politécnica de Madrid) and Schalk Cloete (SINTEF Industry); published in Energy Conversion and Management (Elsevier) <https://doi.org/10.1016/j.enconman.2022.115312>
+# Credit: Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312. doi:10.1016/j.enconman.2022.115312. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/arnaiz-del-pozo-2022/ammonia
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,option,side,setting
+green-premium.arnaiz-del-pozo-2022.ammonia,EUR_STUDY,2050,479.0,,,,projection,"Section 4 (Summary & conclusions), p. 14: ""without CCS, the cost rises to 479.0""",,,kbr-without-capture,conventional,european-prices
+green-premium.arnaiz-del-pozo-2022.ammonia,EUR_STUDY,2050,385.9,,,,projection,"Section 4 (Summary & conclusions), p. 14: ""the KBR process achieves a levelized cost of ammonia (LCOA) of 385.9""",,,kbr,conventional-with-capture,european-prices
+green-premium.arnaiz-del-pozo-2022.ammonia,EUR_STUDY,2050,385.1,,,,projection,"Section 4 (Summary & conclusions), p. 15: ""The LAC plant reaches an almost identical LCOA as the KBR (385.1""",,,lac,conventional-with-capture,european-prices
+green-premium.arnaiz-del-pozo-2022.ammonia,EUR_STUDY,2050,332.1,,,,projection,"Section 4 (Summary & conclusions), p. 15: ""for the GSR concept the cost falls to 332.1"" / Abstract, p. 1: ""the GSR concept achieved an attractive levelized cost of ammonia (LCOA) of 332.1""",,,gsr,conventional-with-capture,european-prices
+green-premium.arnaiz-del-pozo-2022.ammonia,SAU,2050,192.7,,,,projection,"Section 4 (Summary & conclusions), p. 15: ""the LCOA of blue NH3 production in Saudi Arabia reduced to 192.7"" / Abstract, p. 1: ""the LCOA of the GSR technology drops to 192.7""",,,gsr,conventional-with-capture,saudi-arabia
+green-premium.arnaiz-del-pozo-2022.ammonia,DEU,2050,772.1,,,,projection,"Section 4 (Summary & conclusions), p. 15: ""772.1, 569.3, and 484.7 €/ton in Northern Germany, Southern Spain, and Saudi Arabia, respectively""",,,green,low-carbon,northern-germany
+green-premium.arnaiz-del-pozo-2022.ammonia,ESP,2050,569.3,,,,projection,"Section 4 (Summary & conclusions), p. 15: ""772.1, 569.3, and 484.7 €/ton in Northern Germany, Southern Spain, and Saudi Arabia, respectively""",,,green,low-carbon,southern-spain
+green-premium.arnaiz-del-pozo-2022.ammonia,SAU,2050,484.7,,,,projection,"Section 4 (Summary & conclusions), p. 15: ""772.1, 569.3, and 484.7 €/ton in Northern Germany, Southern Spain, and Saudi Arabia, respectively""",,,green,low-carbon,saudi-arabia

@@ -35,28 +35,28 @@
       "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
-      "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
+      "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
     {
       "description": "Checked that the shares mean what is published: the nine non-aggregated sources (Solar, Wind, Hydro, Bioenergy, Other renewables, Nuclear, Coal, Gas, Other fossil) add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
       "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
-      "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
+      "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
     {
       "description": "Marked a year preliminary, with a note giving the count, when the file has no Total generation for that year for a country or economy that has it for an earlier year. Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…; both sentences were found on pages 10, 12 before publishing) says it estimates the latest annual generation from monthly data and a country's missing years from historical trends, so the World value for such a year is partly Ember's estimate. Preliminary years in this vintage: 2023, 2024, 2025.",
       "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
-      "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
+      "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
     {
       "description": "Published Ember's 'Share of generation (%)' of its aggregated source 'Clean' (renewables plus nuclear) as printed.",
       "inputs": ["ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
-      "transform_sha256": "56848f85fd86402d110614460abe3045b5d574a8a2a3759781085281977f3425"
+      "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     }
   ],
   "published_value": null,

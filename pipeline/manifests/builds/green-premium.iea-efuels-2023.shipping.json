@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.iea-efuels-2023.shipping.json",
+  "export_sha256": "9d121eb41df3114e1bdfe11ff525316adedeb1e51cfbe3e7a6089df70cf89b75",
+  "indicator_id": "green-premium.iea-efuels-2023.shipping",
+  "key": "d680d102650f26d17798f2370ce94187f855780a8f8a5417cdcdf6e3ba21f600",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "iea-efuels-2023/report-pdf": {
+        "manifest_sha256": "0baaeadc7414fbc4c6cce10723b8555fa1cfe4cc7ccb6cd19293081a1868f44b",
+        "sha256": "fd1ece7465631b4b9047ea1af123a5d050279064a6ea87019bc377cec00ac3d7"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "iea-efuels-2023": "171331be6d40a7f3516907fd99d0c131d166e9d8b8a9e951ba95f215f4237e72"
+    },
+    "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+  },
+  "publisher_checks": []
+}

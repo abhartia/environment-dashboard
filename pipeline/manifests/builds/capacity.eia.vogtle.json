@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/capacity.eia.vogtle.json",
+  "export_sha256": "45c56a7fe804d622295c06bb7d01cfed7e35188b4e57e692a4b520b6682a5648",
+  "indicator_id": "capacity.eia.vogtle",
+  "key": "ab96ba8b52e8b397b0d2b0d776e9de35938c1824a4d8651181db81315d8aa2c3",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "eia-faq-nuclear-plants/faq-207": {
+        "manifest_sha256": "009f28d97736887ab7e3d458fc67c2e22c2f7b48b4385e567db4098adb64af65",
+        "sha256": "2bd28bd32bfe46d043a01ad082994a5a64a2d774bb8912a13e6d390890fd2640"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "eia-faq-nuclear-plants": "bdefb277494f068e3952891e803c888a8f007a3f194e7bfbe3791d108da01be7"
+    },
+    "transform_sha256": "f5d72e1b5a6eeff1c4f438c8d187977d58e493879cbd202bc11baedc0753ba83"
+  },
+  "publisher_checks": []
+}

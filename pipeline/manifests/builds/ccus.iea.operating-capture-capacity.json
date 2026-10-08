@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/ccus.iea.operating-capture-capacity.json",
+  "export_sha256": "4d7d9b4aa90f1b237c0cca9a26d48ffa3fff0534c30842c800c20602244ebf0e",
+  "indicator_id": "ccus.iea.operating-capture-capacity",
+  "key": "60d306d177f159acff2b90b38bdbca78b986fc2e86d3e85afce6437b634f3a0e",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "iea-ccus-projects/projects-json": {
+        "manifest_sha256": "5db79ee1579d9adba25064065439d2943785b63e413d1286646e7ceadf4b8e78",
+        "sha256": "d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "iea-ccus-projects": "7f62e3ef6cc86ae285e65efdd8a08fcbfde9a8383c81e6af9307c80e2e4077c2"
+    },
+    "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
+  },
+  "publisher_checks": []
+}

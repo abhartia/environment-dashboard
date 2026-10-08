@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/net-zero.nzt-2025.target-by-country.json",
+  "export_sha256": "d392f45c46a20e4832385b70aed3e6cac9c572434cbaf70f1e98fe9e07e9a0cd",
+  "indicator_id": "net-zero.nzt-2025.target-by-country",
+  "key": "80c23bc24140ebf8864bb92916e4cfe6f78d74b60a8c3f050875e0f979bd4dc3",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "net-zero-tracker-2025/stocktake-2025-csv": {
+        "manifest_sha256": "c6b0dba9fe3881fcdeb8fb04118eb317873d61639b7ee2349b25e5e6fd83501f",
+        "sha256": "fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "net-zero-tracker-2025": "5396b2c29852fc8c70d7e05cd1d7945730e75ac976dbbe56c74adce5249ed226"
+    },
+    "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
+  },
+  "publisher_checks": []
+}

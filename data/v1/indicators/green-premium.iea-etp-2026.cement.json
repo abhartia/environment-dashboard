@@ -1,0 +1,91 @@
+{
+  "attribution": "IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0",
+  "description": "How much more the IEA expects it to cost to produce near-zero emissions cement (a dry kiln with carbon capture and storage) than conventional cement in 2035 under today's policies, without policy support: 75 to 150 percent more, depending on the region.",
+  "dimensions": [
+    {
+      "id": "bound",
+      "label": "End of the stated range",
+      "values": [
+        {"id": "low", "label": "Low end"},
+        {"id": "high", "label": "High end"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "green-premium.iea-etp-2026.cement",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "bound": "low"
+    },
+    "entity": "WLD",
+    "period": "2035",
+    "status": "projection",
+    "value": 75.0
+  },
+  "licence": {
+    "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Chapter 3, near-zero emissions cement dashboard, p. 141: \"Near-zero emissions cement remains significantly more expensive, and in 2035 is still 75-150% more costly (USD 50-175 per tonne) in the STEPS, in the absence of policy support and significant scale-up.\""],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 33223886, "citation_full": "IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0", "date_accessed": "2026-10-08", "date_published": "2026-03", "doi": null, "etag": "0x8DED777A5D3C271", "last_modified": "Wed, 01 Jul 2026 13:50:01 GMT", "licence": {"name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "International Energy Agency", "r2_url": null, "sha256": "c4880aa007fcb05e771e75c21ec48ad8038e98570a0d4ab554440d14232c095b", "source_id": "iea-etp-2026", "title": "Energy Technology Perspectives 2026", "url_download": "https://iea.blob.core.windows.net/assets/8483779b-e472-435b-b173-2156f92b8a33/EnergyTechnologyPerspectives2026.pdf", "url_main": "https://www.iea.org/reports/energy-technology-perspectives-2026", "version_producer": "Energy Technology Perspectives 2026 (IEA, March 2026; revised April and July 2026)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the PDF (sha256 c4880aa007fc…). Found each of the 1 quoted statement(s) word for word on PDF page(s) 141, and the 1 context sentence(s) the scope relies on, before publishing.",
+      "inputs": ["c4880aa007fcb05e771e75c21ec48ad8038e98570a0d4ab554440d14232c095b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    },
+    {
+      "description": "Published each number exactly as printed, with its statement in the value's note. A range 'A-B%' is published as its low end A and high end B (dimension 'bound'); nothing was computed, rounded or combined with any other source.",
+      "inputs": ["c4880aa007fcb05e771e75c21ec48ad8038e98570a0d4ab554440d14232c095b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    }
+  ],
+  "published_value": {
+    "document": "iea-etp-2026",
+    "locator": "Chapter 3, near-zero emissions cement dashboard, p. 141",
+    "quote": "Near-zero emissions cement remains significantly more expensive, and in 2035 is still 75-150% more costly (USD 50-175 per tonne) in the STEPS, in the absence of policy support and significant scale-up."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Levelised cost of producing cement in 2035 in the IEA's Stated Policies Scenario (STEPS): dry kiln with carbon capture and storage, compared with a dry kiln, region by region; the range runs from lower- to higher-cost regions. Excludes explicit policy support such as carbon pricing or subsidies (method note, p. 163). Projection.",
+    "bunkers": null,
+    "geography": "World (range across regions)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "bound": ["low", "high"]
+    },
+    "entity": ["WLD", "WLD"],
+    "note": [0, 0],
+    "period": ["2035", "2035"],
+    "status": ["projection", "projection"],
+    "value": [75.0, 150.0]
+  },
+  "time_basis": "calendar",
+  "title": "Extra cost of near-zero emissions cement in 2035, percent (IEA)",
+  "unit": {
+    "code": "percent",
+    "label": "percent more than the conventional route",
+    "short": "%"
+  },
+  "vintage": "Energy Technology Perspectives 2026 (IEA, March 2026; revised April and July 2026)"
+}

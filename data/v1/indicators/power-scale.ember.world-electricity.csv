@@ -1,0 +1,33 @@
+# Average electric power of the world
+# Indicator: power-scale.ember.world-electricity (vintage 2026-09-22); unit: terawatts (average over the year) (TW)
+# Source: Ember <https://ember-energy.org/data/yearly-electricity-data/>
+# Credit: Calculated by Environment Dashboard from Ember, Yearly Electricity Data (file of 2026-09-22), CC BY 4.0. Changes: world electricity demand divided by the hours in each year to give average power in terawatts.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/power-scale/ember/world-electricity
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+power-scale.ember.world-electricity,WLD,2000,1.7446828324225865,,,,final,,,
+power-scale.ember.world-electricity,WLD,2001,1.7748369863013698,,,,final,,,
+power-scale.ember.world-electricity,WLD,2002,1.8376745433789954,,,,final,,,
+power-scale.ember.world-electricity,WLD,2003,1.9036845890410958,,,,final,,,
+power-scale.ember.world-electricity,WLD,2004,1.988162795992714,,,,final,,,
+power-scale.ember.world-electricity,WLD,2005,2.0757472602739724,,,,final,,,
+power-scale.ember.world-electricity,WLD,2006,2.15635901826484,,,,final,,,
+power-scale.ember.world-electricity,WLD,2007,2.2564971461187215,,,,final,,,
+power-scale.ember.world-electricity,WLD,2008,2.2947405510018215,,,,final,,,
+power-scale.ember.world-electricity,WLD,2009,2.2828594748858446,,,,final,,,
+power-scale.ember.world-electricity,WLD,2010,2.432728196347032,,,,final,,,
+power-scale.ember.world-electricity,WLD,2011,2.5145116438356165,,,,final,,,
+power-scale.ember.world-electricity,WLD,2012,2.5702957650273226,,,,final,,,
+power-scale.ember.world-electricity,WLD,2013,2.6509481735159817,,,,final,,,
+power-scale.ember.world-electricity,WLD,2014,2.7159398401826484,,,,final,,,
+power-scale.ember.world-electricity,WLD,2015,2.744786872146119,,,,final,,,
+power-scale.ember.world-electricity,WLD,2016,2.8147513661202184,,,,final,,,
+power-scale.ember.world-electricity,WLD,2017,2.908165639269406,,,,final,,,
+power-scale.ember.world-electricity,WLD,2018,3.0259700913242007,,,,final,,,
+power-scale.ember.world-electricity,WLD,2019,3.0692947488584474,,,,final,,,
+power-scale.ember.world-electricity,WLD,2020,3.047141393442623,,,,final,,,
+power-scale.ember.world-electricity,WLD,2021,3.2310965753424656,,,,final,,,
+power-scale.ember.world-electricity,WLD,2022,3.3059437214611873,,,,final,,,
+power-scale.ember.world-electricity,WLD,2023,3.3930180365296803,,,,preliminary,"Partly Ember's estimate: the file has no 2023 demand for 1 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+power-scale.ember.world-electricity,WLD,2024,3.528026183970856,,,,preliminary,"Partly Ember's estimate: the file has no 2024 demand for 15 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+power-scale.ember.world-electricity,WLD,2025,3.632435502283105,,,,preliminary,"Partly Ember's estimate: the file has no 2025 demand for 116 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,

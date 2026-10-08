@@ -1,0 +1,102 @@
+{
+  "attribution": "Calculated by Environment Dashboard from U.S. Energy Information Administration international energy data (Sep 2026). Changes: world total energy consumption converted from quadrillion Btu to terawatt-hours and divided by the hours in each year to give average power in terawatts.",
+  "description": "All the energy the world uses each year since 1980, counting every fuel, expressed as average power in terawatts: the year's energy spread evenly over its hours. From US Energy Information Administration data.",
+  "dimensions": [],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "power-scale.eia.world-primary-energy",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2024",
+    "status": "final",
+    "value": 20.219935798047537
+  },
+  "licence": {
+    "name": "Public domain (work of the US federal government)",
+    "spdx": null,
+    "url": "https://www.copyright.gov/title17/92chap1.html#105"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "intl-bulk", "bytes": 24153479, "citation_full": "Source: U.S. Energy Information Administration (Sep 2026).", "date_accessed": "2026-10-05", "date_published": "2026-09-30", "doi": null, "etag": "\"80a6e6761c53dd1:0\"", "last_modified": "Sat, 03 Oct 2026 09:49:21 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": "https://files.environmentdashboard.org/raw/9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9.zst", "sha256": "9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "source_id": "eia-international", "title": "International energy data", "url_download": "https://www.eia.gov/opendata/bulk/INTL.zip", "url_main": "https://www.eia.gov/international/data/world", "version_producer": "Sep 2026", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "bulk-manifest", "bytes": 28398, "citation_full": "Source: U.S. Energy Information Administration (Sep 2026).", "date_accessed": "2026-10-05", "date_published": "2026-09-30", "doi": null, "etag": "\"044131b054dd1:0\"", "last_modified": "Mon, 05 Oct 2026 09:58:00 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": "https://files.environmentdashboard.org/raw/1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372.zst", "sha256": "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372", "source_id": "eia-international", "title": "International energy data", "url_download": "https://www.eia.gov/opendata/bulk/manifest.txt", "url_main": "https://www.eia.gov/international/data/world", "version_producer": "Sep 2026", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read INTL.txt from EIA's bulk file INTL.zip. EIA's bulk manifest gives the INTL release as last updated 30 September 2026 and names this zip as its file, so the vintage is 'Sep 2026'. The zip was last modified on the server on Sat, 03 Oct 2026 09:49:21 GMT.",
+      "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+    },
+    {
+      "description": "Kept the annual consumption series in quadrillion Btu: total energy consumption and its five fuels (coal, natural gas, petroleum and other liquids, nuclear, renewables and other), checking each series' name and units. Kept the World and the 220 countries and territories in pipeline/geo/entities.csv, matched by EIA's ISO 3 code (EIA's XKS is Kosovo, KOS, and its SCG, Former Serbia and Montenegro, is Serbia and Montenegro as reported together, SRB_MNE); EIA's regional aggregates are left out, and so are these geographies, which have no entity in the crosswalk: Former Czechoslovakia; Former U.S.S.R.; Former Yugoslavia; Germany, East; Germany, West; Hawaiian Trade Zone; Netherlands Antilles; U.S. Pacific Islands; U.S. Territories; Wake Island.",
+      "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+    },
+    {
+      "description": "Checked EIA's accounting method against its own generation series: for every country other than the United States, the energy content of hydro, wind, solar, geothermal and tide and wave electricity is 3,412 Btu per kilowatt-hour, the captured-energy approach (11,140 country-years checked). Not on that basis in this file: USA: 72 values, e.g. solar 2023 3676, solar 2024 3622 Btu per kWh. World nuclear consumption is 10,379 Btu per kilowatt-hour of nuclear generation in 2024, the heat input of the plants.",
+      "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+    },
+    {
+      "description": "Where EIA's total differs from the sum of its five fuel series, both are published as given. Entities where they differ in this vintage: USA, WLD (World 2024: total minus the sum is -1.442 quad Btu).",
+      "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+    },
+    {
+      "description": "EIA's codes '--', 'NA' and 'ie' (which the file does not define) are null values whose reason quotes the code.",
+      "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+    },
+    {
+      "description": "Unit conversion to average power, for the World only: EIA's total energy consumption in quadrillion Btu times 10^15 times 1,055.05585262 joules per Btu (the International Table Btu, exact; EIA's 3,412.14 Btu per kilowatt-hour, checked above, is the same definition), divided by 3.6 x 10^15 joules per terawatt-hour, then by the hours in that calendar year (8,760, or 8,784 in a leap year), giving terawatts (TWh / h = TW), in exact decimal arithmetic. The result is the constant power that would deliver the same energy over the year.",
+      "inputs": ["9251a5920ebe70448fc7af522c4f938dc9e1f4728aca2928ecc814ca9f216ea9", "1e1d2b9f467bc5032ffe87dd0ff1ab8a3a223d27d0f777fc0a4710cf95cdf372"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
+      "transform_sha256": "c9b0ccd63ddb519389177f6155f7a1a5c107aefd372464e32c5accfb98f079bc"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Primary energy consumption as EIA accounts for it: fossil fuels at their heat content; electricity from hydro, wind, solar, geothermal and tide and wave power at its own energy content, 3,412 Btu per kilowatt-hour (the captured-energy approach; EIA's United States series depart from it for solar and geothermal); nuclear at the heat input of the plants. Not comparable with totals from the Energy Institute or the IEA, which count non-combustible electricity differently. 'Renewables and other' is EIA's own category and can be negative. Average power is EIA's annual total converted to terawatt-hours (1 Btu = 1,055.05585262 joules, the International Table Btu) and divided by the hours in the year.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [9.37461181016338, 9.273966015732308, 9.271614157925477, 9.380632903524226, 9.7966968410721, 10.09185485077126, 10.307257602287562, 10.659206364265424, 11.045119209744424, 11.264169971605137, 11.307987078949957, 11.304066627186238, 11.248591642131773, 11.346362188306944, 11.466982033214066, 11.770491562113971, 12.054424812425388, 12.1225265741632, 12.195412954976524, 12.422412129430212, 12.802129674416804, 12.933671385206528, 13.225156562578489, 13.70519774098171, 14.378586971391606, 14.881478344011844, 15.357812327095509, 15.792292989605132, 15.934585166962629, 15.785045367812499, 16.834671165531795, 17.28444715601758, 17.55280681246228, 17.87978895526587, 18.008422125956518, 18.01600357383256, 18.153582391992177, 18.37705739171008, 18.810070102901637, 19.08803550741708, 18.233551120527878, 19.171350949125685, 19.381370196944985, 19.806828380836752, 20.219935798047537]
+  },
+  "time_basis": "calendar",
+  "title": "Average power of the world's total energy use",
+  "unit": {
+    "code": "TW",
+    "label": "terawatts (average over the year)",
+    "short": "TW"
+  },
+  "vintage": "Sep 2026"
+}

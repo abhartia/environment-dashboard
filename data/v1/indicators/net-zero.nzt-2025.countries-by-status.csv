@@ -1,0 +1,16 @@
+# How many national governments have a net zero target, and how firm it is
+# Indicator: net-zero.nzt-2025.countries-by-status (vintage Net Zero Stocktake 2025 (Zenodo doi:10.5281/zenodo.17143240, 17 September 2025)); unit: national governments (countries)
+# Source: Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero) <https://zenodo.org/records/17143240>
+# Credit: Counted by Environment Dashboard from Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. Net Zero Stocktake 2025 dataset (Zenodo, doi:10.5281/zenodo.17143240). CC BY-NC 4.0. Changes: Counted the countries the Net Zero Tracker records with each status.
+# Notice: Net Zero Tracker data are shared under CC BY-NC 4.0, for non-commercial use only; the Tracker's Zenodo deposit labels the same file CC BY 4.0, and the stricter terms are followed until the Tracker confirms which applies.
+# Licence: CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0) <https://creativecommons.org/licenses/by-nc/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/net-zero/nzt-2025/countries-by-status
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,status
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,137.0,,,,final,,,,any-net-zero-target
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,4.0,,,,final,,,,achieved-self-declared
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,34.0,,,,final,,,,in-law
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,58.0,,,,final,,,,in-policy-document
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,14.0,,,,final,,,,declaration-pledge
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,27.0,,,,final,,,,proposed-in-discussion
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,57.0,,,,final,,,,other-end-target
+net-zero.nzt-2025.countries-by-status,WLD,2025-09-17,4.0,,,,final,,,,no-target

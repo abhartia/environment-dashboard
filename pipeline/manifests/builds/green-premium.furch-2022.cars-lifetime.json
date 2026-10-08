@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.furch-2022.cars-lifetime.json",
+  "export_sha256": "6e7f91616971d0056aa3064e69b57d7438d45f78618e438ae5c1333e0b19813d",
+  "indicator_id": "green-premium.furch-2022.cars-lifetime",
+  "key": "dc019d05289ef695a6edeb50707213af1ad7c2579c75bda350a690b3fdb63547",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "furch-2022/article-xml": {
+        "manifest_sha256": "317e22dd3e886292c0fd738252de59ae5aa639adb1bc7fac296e4f1b0ed4e658",
+        "sha256": "af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "furch-2022": "04522b4902acf3ccc4c6626c91b7c23d0573ee071e9457a94132e0623fbdaf51"
+    },
+    "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
+  },
+  "publisher_checks": []
+}

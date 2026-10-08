@@ -1,0 +1,17 @@
+# Number of carbon capture projects operating, being built and planned
+# Indicator: ccus.iea.capture-projects-by-status (vintage CCUS Projects Database, file of 2026-03-26); unit: projects (projects)
+# Source: International Energy Agency <https://www.iea.org/data-and-statistics/data-product/ccus-projects-database>
+# Credit: Calculated by Environment Dashboard from IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0 Changes: Counted the capture projects behind the IEA explorer's capacity by status.
+# Notice: This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/ccus/iea/capture-projects-by-status
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,status
+ccus.iea.capture-projects-by-status,WLD,2026,67.0,,,,final,,,,operational
+ccus.iea.capture-projects-by-status,WLD,2030,67.0,,,,final,,,,operational
+ccus.iea.capture-projects-by-status,WLD,2035,67.0,,,,final,,,,operational
+ccus.iea.capture-projects-by-status,WLD,2026,23.0,,,,projection,,,,under-construction
+ccus.iea.capture-projects-by-status,WLD,2030,44.0,,,,projection,,,,under-construction
+ccus.iea.capture-projects-by-status,WLD,2035,44.0,,,,projection,,,,under-construction
+ccus.iea.capture-projects-by-status,WLD,2026,2.0,,,,projection,,,,planned
+ccus.iea.capture-projects-by-status,WLD,2030,165.0,,,,projection,,,,planned
+ccus.iea.capture-projects-by-status,WLD,2035,198.0,,,,projection,,,,planned

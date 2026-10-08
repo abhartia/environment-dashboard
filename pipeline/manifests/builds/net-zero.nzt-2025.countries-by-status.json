@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/net-zero.nzt-2025.countries-by-status.json",
+  "export_sha256": "f1d758542d42f12d24563cf99dea98618898b5a505141332c0d624e4a2476da7",
+  "indicator_id": "net-zero.nzt-2025.countries-by-status",
+  "key": "80c23bc24140ebf8864bb92916e4cfe6f78d74b60a8c3f050875e0f979bd4dc3",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "net-zero-tracker-2025/stocktake-2025-csv": {
+        "manifest_sha256": "c6b0dba9fe3881fcdeb8fb04118eb317873d61639b7ee2349b25e5e6fd83501f",
+        "sha256": "fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "net-zero-tracker-2025": "5396b2c29852fc8c70d7e05cd1d7945730e75ac976dbbe56c74adce5249ed226"
+    },
+    "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
+  },
+  "publisher_checks": [
+    {"detail": "ours 137.0 vs stated 137 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2025-09-17", "quote": "As of 2025, 137 of the 198 national governments and self-governing territories (including the EU and Taiwan) have set net zero targets.", "source_id": "net-zero-tracker-2025", "stated": "137", "status": "pass", "url": "https://ca1-nzt.edcdn.com/PDFs-and-Excels/Net_Zero_Stocktake_2025.pdf?v=1758570577", "vintage": "Net Zero Stocktake 2025 (Zenodo doi:10.5281/zenodo.17143240, 17 September 2025)"}
+  ]
+}

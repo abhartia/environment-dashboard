@@ -1,0 +1,44 @@
+# Land used per unit of electricity, by way of making it (Lovering et al. 2022)
+# Indicator: land-use-intensity.lovering-2022.by-source (vintage PLOS ONE 17(7): e0270155 (2022)); unit: hectares per terawatt-hour generated in a year (ha-per-TWh-per-year)
+# Source: Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California Davis); published in PLOS ONE (Public Library of Science) <https://doi.org/10.1371/journal.pone.0270155>
+# Credit: Lovering, J., Swain, M., Blomqvist, L. & Hernandez, R. R. (2022). Land-use intensity of electricity production and tomorrow's energy landscape. PLOS ONE 17(7): e0270155. doi:10.1371/journal.pone.0270155. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/land-use-intensity/lovering-2022/by-source
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,source,area,statistic
+land-use-intensity.lovering-2022.by-source,WLD,2022,7.1,,,,final,"Table 1, p. 8, row ""Nuclear"": n = 59 observations; Tukey group A.",,,nuclear,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,4.8,,,,final,"Table 1, p. 8, row ""Nuclear"": n = 59 observations; Tukey group A.",,,nuclear,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,15.0,,,,final,"Table 1, p. 8, row ""Nuclear"": n = 59 observations; Tukey group A.",,,nuclear,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,45.0,,,,final,"Table 1, p. 8, row ""Geothermal"": n = 26 observations; Tukey group B.",,,geothermal,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,150.0,,,,final,"Table 1, p. 8, row ""Geothermal"": n = 26 observations; Tukey group B.",,,geothermal,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,140.0,,,,final,"Table 1, p. 8, row ""Geothermal"": n = 26 observations; Tukey group B.",,,geothermal,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,130.0,,,,final,"Table 1, p. 8, row ""Wind (footprint)"": n = 57 observations; Tukey group C.",,,wind,footprint,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,120.0,,,,final,"Table 1, p. 8, row ""Wind (footprint)"": n = 57 observations; Tukey group C.",,,wind,footprint,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,170.0,,,,final,"Table 1, p. 8, row ""Wind (footprint)"": n = 57 observations; Tukey group C.",,,wind,footprint,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,130.0,,,,final,"Table 1, p. 8, row ""Residue biomass"": n = 4 observations; Tukey group C D.",,,residue-biomass,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,71.0,,,,final,"Table 1, p. 8, row ""Residue biomass"": n = 4 observations; Tukey group C D.",,,residue-biomass,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,150.0,,,,final,"Table 1, p. 8, row ""Residue biomass"": n = 4 observations; Tukey group C D.",,,residue-biomass,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,410.0,,,,final,"Table 1, p. 8, row ""Natural gas (footprint)"": n = 17 observations; Tukey group C D.",,,natural-gas,footprint,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,210.0,,,,final,"Table 1, p. 8, row ""Natural gas (footprint)"": n = 17 observations; Tukey group C D.",,,natural-gas,footprint,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,410.0,,,,final,"Table 1, p. 8, row ""Natural gas (footprint)"": n = 17 observations; Tukey group C D.",,,natural-gas,footprint,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,650.0,,,,final,"Table 1, p. 8, row ""Hydroelectric (single purpose dams)"": n = 952 observations; left out of the ANOVA for its large variance.",,,hydro,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,2300.0,,,,final,"Table 1, p. 8, row ""Hydroelectric (single purpose dams)"": n = 952 observations; left out of the ANOVA for its large variance.",,,hydro,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,15000.0,,,,final,"Table 1, p. 8, row ""Hydroelectric (single purpose dams)"": n = 952 observations; left out of the ANOVA for its large variance.",,,hydro,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,1000.0,,,,final,"Table 1, p. 8, row ""Coal"": n = 30 observations; Tukey group D.",,,coal,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,1200.0,,,,final,"Table 1, p. 8, row ""Coal"": n = 30 observations; Tukey group D.",,,coal,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,1100.0,,,,final,"Table 1, p. 8, row ""Coal"": n = 30 observations; Tukey group D.",,,coal,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,1300.0,,,,final,"Table 1, p. 8, row ""Solar CSP"": n = 101 observations; Tukey group D E.",,,solar-csp,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,650.0,,,,final,"Table 1, p. 8, row ""Solar CSP"": n = 101 observations; Tukey group D E.",,,solar-csp,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,2000.0,,,,final,"Table 1, p. 8, row ""Solar CSP"": n = 101 observations; Tukey group D E.",,,solar-csp,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,1900.0,,,,final,"Table 1, p. 8, row ""Natural gas (spacing)"": n = 4 observations; Tukey group D E.",,,natural-gas,spacing,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,2800.0,,,,final,"Table 1, p. 8, row ""Natural gas (spacing)"": n = 4 observations; Tukey group D E.",,,natural-gas,spacing,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,1900.0,,,,final,"Table 1, p. 8, row ""Natural gas (spacing)"": n = 4 observations; Tukey group D E.",,,natural-gas,spacing,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,2000.0,,,,final,"Table 1, p. 8, row ""Ground-mounted PV"": n = 94 observations; Tukey group E.",,,ground-pv,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,860.0,,,,final,"Table 1, p. 8, row ""Ground-mounted PV"": n = 94 observations; Tukey group E.",,,ground-pv,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,2100.0,,,,final,"Table 1, p. 8, row ""Ground-mounted PV"": n = 94 observations; Tukey group E.",,,ground-pv,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,12000.0,,,,final,"Table 1, p. 8, row ""Wind (spacing)"": n = 57 observations; Tukey group F.",,,wind,spacing,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,12000.0,,,,final,"Table 1, p. 8, row ""Wind (spacing)"": n = 57 observations; Tukey group F.",,,wind,spacing,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,15000.0,,,,final,"Table 1, p. 8, row ""Wind (spacing)"": n = 57 observations; Tukey group F.",,,wind,spacing,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,58000.0,,,,final,"Table 1, p. 8, row ""Dedicated biomass"": n = 14 observations; Tukey group G.",,,dedicated-biomass,single,median
+land-use-intensity.lovering-2022.by-source,WLD,2022,59000.0,,,,final,"Table 1, p. 8, row ""Dedicated biomass"": n = 14 observations; Tukey group G.",,,dedicated-biomass,single,iqr
+land-use-intensity.lovering-2022.by-source,WLD,2022,160000.0,,,,final,"Table 1, p. 8, row ""Dedicated biomass"": n = 14 observations; Tukey group G.",,,dedicated-biomass,single,mean
+land-use-intensity.lovering-2022.by-source,WLD,2022,0.0,,,,final,"Section 2 (Methods), solar PV, p. 6: ""Integrated Solar PV, i.e. rooftop solar, is assigned an LUIE of zero in this study."" Not measured: an assumption of the study.",,,rooftop-pv,single,assigned

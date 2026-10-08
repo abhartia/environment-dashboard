@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/power-density.noland-2022.by-source.json",
+  "export_sha256": "b654c4f5a9c089919f138eacdcde9fdf30959e73a39d189dec80e0d009a70e0d",
+  "indicator_id": "power-density.noland-2022.by-source",
+  "key": "403a29bdc968f698e47c811f19a007240ca5e6150cee0ec88d826602db4ddb9e",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "noland-2022/article-pdf": {
+        "manifest_sha256": "782fd41cb031b112ee6ec92b64858aa0509cc147e1967b3cf866413f6bcd6bb2",
+        "sha256": "c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "noland-2022": "7e405cc390d79e4d1e9b23ece9acccd3542ef8a9ee75cc370c5a5b854ceecf5b"
+    },
+    "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
+  },
+  "publisher_checks": []
+}

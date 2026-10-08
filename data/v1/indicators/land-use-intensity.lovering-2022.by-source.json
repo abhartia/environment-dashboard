@@ -1,0 +1,145 @@
+{
+  "attribution": "Lovering, J., Swain, M., Blomqvist, L. & Hernandez, R. R. (2022). Land-use intensity of electricity production and tomorrow's energy landscape. PLOS ONE 17(7): e0270155. doi:10.1371/journal.pone.0270155. CC BY 4.0.",
+  "description": "Hectares of land occupied for each terawatt-hour of electricity generated in a year, for eleven ways of making electricity, from Table 1 of Lovering et al. (2022): the median, the interquartile range and the mean across the sites and studies observed. Coal, natural gas, nuclear and dedicated biomass include the land used to mine, drill or grow their fuel. Wind and natural gas are given two ways: the land physically occupied, and the whole area inside the site's boundary. Rooftop solar is zero by the study's assumption.",
+  "dimensions": [
+    {
+      "id": "source",
+      "label": "Way of making electricity",
+      "values": [
+        {"id": "nuclear", "label": "Nuclear (plant and uranium fuel cycle)"},
+        {"id": "geothermal", "label": "Geothermal"},
+        {"id": "wind", "label": "Wind"},
+        {"id": "residue-biomass", "label": "Residue biomass"},
+        {"id": "natural-gas", "label": "Natural gas (plant and gas fields)"},
+        {"id": "hydro", "label": "Hydroelectric (single-purpose dams)"},
+        {"id": "coal", "label": "Coal (plant and mining)"},
+        {"id": "solar-csp", "label": "Concentrating solar power"},
+        {"id": "ground-pv", "label": "Ground-mounted solar panels"},
+        {"id": "dedicated-biomass", "label": "Dedicated biomass (energy crops)"},
+        {"id": "rooftop-pv", "label": "Rooftop solar panels"}
+      ]
+    },
+    {
+      "id": "area",
+      "label": "Land counted",
+      "values": [
+        {"id": "single", "label": "The paper's one definition for this source"},
+        {"id": "footprint", "label": "Footprint: land physically occupied by turbine pads, well pads, roads and pipelines"},
+        {"id": "spacing", "label": "Spacing: the whole area inside the wind farm or gas field boundary"}
+      ]
+    },
+    {
+      "id": "statistic",
+      "label": "Statistic",
+      "values": [
+        {"id": "median", "label": "Median across the observations"},
+        {"id": "iqr", "label": "Interquartile range across the observations (the 75th minus the 25th percentile: a width, not two bounds)"},
+        {"id": "mean", "label": "Mean across the observations"},
+        {"id": "assigned", "label": "Assigned by the authors, not measured"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "land-use-intensity.lovering-2022.by-source",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "area": "single",
+      "source": "nuclear",
+      "statistic": "median"
+    },
+    "entity": "WLD",
+    "period": "2022",
+    "status": "final",
+    "value": 7.1
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Section 2 (Methods), solar PV, p. 6: \"Integrated Solar PV, i.e. rooftop solar, is assigned an LUIE of zero in this study.\" Not measured: an assumption of the study.", "Table 1, p. 8, row \"Coal\": n = 30 observations; Tukey group D.", "Table 1, p. 8, row \"Dedicated biomass\": n = 14 observations; Tukey group G.", "Table 1, p. 8, row \"Geothermal\": n = 26 observations; Tukey group B.", "Table 1, p. 8, row \"Ground-mounted PV\": n = 94 observations; Tukey group E.", "Table 1, p. 8, row \"Hydroelectric (single purpose dams)\": n = 952 observations; left out of the ANOVA for its large variance.", "Table 1, p. 8, row \"Natural gas (footprint)\": n = 17 observations; Tukey group C D.", "Table 1, p. 8, row \"Natural gas (spacing)\": n = 4 observations; Tukey group D E.", "Table 1, p. 8, row \"Nuclear\": n = 59 observations; Tukey group A.", "Table 1, p. 8, row \"Residue biomass\": n = 4 observations; Tukey group C D.", "Table 1, p. 8, row \"Solar CSP\": n = 101 observations; Tukey group D E.", "Table 1, p. 8, row \"Wind (footprint)\": n = 57 observations; Tukey group C.", "Table 1, p. 8, row \"Wind (spacing)\": n = 57 observations; Tukey group F."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-xml", "bytes": 159635, "citation_full": "Lovering J, Swain M, Blomqvist L, Hernandez RR (2022) Land-use intensity of electricity production and tomorrow's energy landscape. PLoS ONE 17(7): e0270155. https://doi.org/10.1371/journal.pone.0270155", "date_accessed": "2026-10-08", "date_published": "2022-07-06", "doi": "10.1371/journal.pone.0270155", "etag": "\"eaee50376eb9a2325161d6abc8c38473\"", "last_modified": "Wed, 06 Jul 2022 17:42:56 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California Davis); published in PLOS ONE (Public Library of Science)", "r2_url": null, "sha256": "363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "source_id": "lovering-2022", "title": "Land-use intensity of electricity (Lovering et al. 2022)", "url_download": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript", "url_main": "https://doi.org/10.1371/journal.pone.0270155", "version_producer": "PLOS ONE 17(7): e0270155 (2022)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 1104687, "citation_full": "Lovering J, Swain M, Blomqvist L, Hernandez RR (2022) Land-use intensity of electricity production and tomorrow's energy landscape. PLoS ONE 17(7): e0270155. https://doi.org/10.1371/journal.pone.0270155", "date_accessed": "2026-10-08", "date_published": "2022-07-06", "doi": "10.1371/journal.pone.0270155", "etag": "CPTq5v7n5PgCEAE=", "last_modified": "2022-07-06T17:42:56.837Z", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California Davis); published in PLOS ONE (Public Library of Science)", "r2_url": null, "sha256": "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16", "source_id": "lovering-2022", "title": "Land-use intensity of electricity (Lovering et al. 2022)", "url_download": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=printable", "url_main": "https://doi.org/10.1371/journal.pone.0270155", "version_producer": "PLOS ONE 17(7): e0270155 (2022)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read Table 1 from the article's XML (sha256 363fd323e30d…): its title, its seven column headings and its 12 row labels had to be exactly as expected. Found each row, cell by cell, in the printed table on page 8 of the PDF (sha256 d7d2d988f9a6…) before publishing.",
+      "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
+      "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
+    },
+    {
+      "description": "Published the median, the interquartile range and the mean of each row as printed (thousands commas removed, nothing rounded or recalculated). The interquartile range is the paper's own column: the width between the 25th and 75th percentiles, published as its own statistic, not as bounds. The number of observations and the paper's ANOVA group are in each value's note; the standard error is not published.",
+      "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
+      "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
+    },
+    {
+      "description": "Wind and natural gas each have two rows, footprint and spacing, published as two values of the 'area' dimension; the other sources have one definition each.",
+      "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
+      "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
+    },
+    {
+      "description": "Added rooftop solar at zero, labelled 'assigned', because the methods state that the study assigns it zero (sentence found in both files); it is an assumption, not a measurement.",
+      "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
+      "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
+    },
+    {
+      "description": "Found 7 sentences that the scope relies on (footprint and spacing, fuel-supply land, manufacturing land left out, and the lowest and highest medians) in the XML's text and on their PDF pages, and checked that nuclear has the lowest and dedicated biomass the highest median in the table.",
+      "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
+      "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
+    }
+  ],
+  "published_value": {
+    "document": "lovering-2022",
+    "locator": "Section 3 (Results), p. 7",
+    "quote": "Nuclear had the lowest median LUIE at 7.1 ha/TWh/y, and dedicated biomass the highest at 58,000 ha/TWh/y."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Land occupied per unit of electricity generated, in hectares per terawatt-hour per year. Includes the land used to supply fuel (mining, processing, transport, gas fields, energy crops) for coal, natural gas, nuclear and dedicated biomass. Excludes land to make panels, turbines and plants, transmission lines, offshore areas and underground impacts. Hydroelectric covers single-purpose dams only (the reservoir area). Rooftop solar is zero by assumption, not measured. The period is the year of publication.",
+    "bunkers": null,
+    "geography": "Sites studied: nuclear, wind and ground-mounted solar in the United States, coal in the United States and Canada, dams in 80 countries, other sources from published studies worldwide",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "area": ["single", "single", "single", "single", "single", "single", "footprint", "footprint", "footprint", "single", "single", "single", "footprint", "footprint", "footprint", "single", "single", "single", "single", "single", "single", "single", "single", "single", "spacing", "spacing", "spacing", "single", "single", "single", "spacing", "spacing", "spacing", "single", "single", "single", "single"],
+      "source": ["nuclear", "nuclear", "nuclear", "geothermal", "geothermal", "geothermal", "wind", "wind", "wind", "residue-biomass", "residue-biomass", "residue-biomass", "natural-gas", "natural-gas", "natural-gas", "hydro", "hydro", "hydro", "coal", "coal", "coal", "solar-csp", "solar-csp", "solar-csp", "natural-gas", "natural-gas", "natural-gas", "ground-pv", "ground-pv", "ground-pv", "wind", "wind", "wind", "dedicated-biomass", "dedicated-biomass", "dedicated-biomass", "rooftop-pv"],
+      "statistic": ["median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "median", "iqr", "mean", "assigned"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "note": [8, 8, 8, 3, 3, 3, 11, 11, 11, 9, 9, 9, 6, 6, 6, 5, 5, 5, 1, 1, 1, 10, 10, 10, 7, 7, 7, 4, 4, 4, 12, 12, 12, 2, 2, 2, 0],
+    "period": ["2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022", "2022"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [7.1, 4.8, 15.0, 45.0, 150.0, 140.0, 130.0, 120.0, 170.0, 130.0, 71.0, 150.0, 410.0, 210.0, 410.0, 650.0, 2300.0, 15000.0, 1000.0, 1200.0, 1100.0, 1300.0, 650.0, 2000.0, 1900.0, 2800.0, 1900.0, 2000.0, 860.0, 2100.0, 12000.0, 12000.0, 15000.0, 58000.0, 59000.0, 160000.0, 0.0]
+  },
+  "time_basis": "calendar",
+  "title": "Land used per unit of electricity, by way of making it (Lovering et al. 2022)",
+  "unit": {
+    "code": "ha-per-TWh-per-year",
+    "label": "hectares per terawatt-hour generated in a year",
+    "short": "ha/TWh/yr"
+  },
+  "vintage": "PLOS ONE 17(7): e0270155 (2022)"
+}

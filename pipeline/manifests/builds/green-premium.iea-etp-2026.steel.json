@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.iea-etp-2026.steel.json",
+  "export_sha256": "4c7dea12835327a619c5f507f4e30754a5e24115166c4f465f579a29514302c0",
+  "indicator_id": "green-premium.iea-etp-2026.steel",
+  "key": "86bf9b40d2f3336af7f0f6a8126fd62528b7ebfd88902cefe460e87005bf2d96",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "iea-etp-2026/report-pdf": {
+        "manifest_sha256": "229c736fd30e76e139008211c7353af9d744308b03415d2981e0b40b01fdc7b8",
+        "sha256": "c4880aa007fcb05e771e75c21ec48ad8038e98570a0d4ab554440d14232c095b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "iea-etp-2026": "dadc61143789725def98d7390f1fe6d94d6e53bb86231b458616ab56f8304d6d"
+    },
+    "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+  },
+  "publisher_checks": []
+}

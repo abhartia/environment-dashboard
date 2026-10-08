@@ -1,0 +1,8 @@
+# Generating capacity of the largest US nuclear power plant (Vogtle)
+# Indicator: capacity.eia.vogtle (vintage FAQ 207, as of March 2026); unit: gigawatts of net summer generating capacity (GW)
+# Source: U.S. Energy Information Administration <https://www.eia.gov/tools/faqs/faq.php?id=207&t=3>
+# Credit: Calculated by Environment Dashboard from U.S. Energy Information Administration (Mar 2026), FAQ "How many nuclear power plants are in the United States, and where are they located?" Changes: net summer capacity converted from megawatts to gigawatts.
+# Licence: Public domain (work of the US federal government) <https://www.copyright.gov/title17/92chap1.html#105>
+# Provenance and processing: https://environmentdashboard.org/data/capacity/eia/vogtle
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+capacity.eia.vogtle,USA,2026-03,4.53,,,,final,"EIA's answer is dated 'As of March 2026'. Four reactors; EIA gives the total nameplate capacity as about 4,658 MW.",,

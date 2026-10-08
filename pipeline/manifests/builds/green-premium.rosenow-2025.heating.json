@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/green-premium.rosenow-2025.heating.json",
+  "export_sha256": "1e5ef566f341edce9bda9bdecd25944593b2a8f07b19210f1d6ea5ecdc1fccb9",
+  "indicator_id": "green-premium.rosenow-2025.heating",
+  "key": "e01db7c813e4864a43e9d6b0989aa9b71fecdfd29cda721f6e08921497ee7be3",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "rosenow-2025/article-xml": {
+        "manifest_sha256": "fcad69fb403ac00f24989cbacf37c7928c0f9b0498db424495b812c4cbf00187",
+        "sha256": "06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "rosenow-2025": "983ccf393b245c4e240dce61a6ea831dfca98cc60de665c12e0523b63d1f65b8"
+    },
+    "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
+  },
+  "publisher_checks": []
+}

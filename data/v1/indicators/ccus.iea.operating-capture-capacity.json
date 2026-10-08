@@ -1,0 +1,109 @@
+{
+  "attribution": "Calculated by Environment Dashboard from IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0 Changes: Summed the announced capacity of operating capture projects by sector, as the IEA's explorer does.",
+  "description": "How much CO2 the world's operating carbon capture facilities are built to capture each year, by the sector they capture it from, including direct air capture, as recorded in the IEA's CCUS Projects Database. This is capacity, not the CO2 actually captured.",
+  "dimensions": [
+    {
+      "id": "sector",
+      "label": "Sector",
+      "values": [
+        {"id": "all", "label": "All sectors"},
+        {"id": "natural-gas-processing", "label": "Natural gas processing and LNG"},
+        {"id": "hydrogen-ammonia", "label": "Hydrogen or ammonia"},
+        {"id": "biofuels", "label": "Biofuels"},
+        {"id": "other-fuel-transformation", "label": "Other fuel transformation"},
+        {"id": "power", "label": "Power"},
+        {"id": "cement", "label": "Cement"},
+        {"id": "iron-steel", "label": "Iron and steel"},
+        {"id": "chemicals", "label": "Chemicals"},
+        {"id": "other-industry", "label": "Other industry"},
+        {"id": "dac", "label": "Direct air capture"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 3
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "ccus.iea.operating-capture-capacity",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "sector": "all"
+    },
+    "entity": "WLD",
+    "period": "2026-03-26",
+    "status": "final",
+    "value": 62.534
+  },
+  "licence": {
+    "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": "This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any manner.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "projects-json", "bytes": 81098, "citation_full": "IEA, CCUS Projects Database, IEA, Paris https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, Licence: CC BY 4.0", "date_accessed": "2026-10-08", "date_published": "2026-03-26", "doi": null, "etag": "0x8DE8B2368A938A2", "last_modified": "Thu, 26 Mar 2026 10:35:32 GMT", "licence": {"name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "International Energy Agency", "r2_url": null, "sha256": "d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035", "source_id": "iea-ccus-projects", "title": "CCUS Projects Database (via the CCUS Projects Explorer)", "url_download": "https://iea.blob.core.windows.net/scripts/ccus-projects-database/data/projects.json", "url_main": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database", "version_producer": "CCUS Projects Database, file of 2026-03-26", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the CCUS Projects Explorer's data file (fetched 2026-10-08, Last-Modified 2026-03-26, sha256 d132d5f6032c…): 422 projects, read with exact decimals.",
+      "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
+      "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
+    },
+    {
+      "description": "Kept the 390 projects the explorer counts: capacity above zero and a status other than 'Suspended/cancelled/decommissioned'.",
+      "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
+      "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
+    },
+    {
+      "description": "Applied the explorer's sector chart rule: left out transport and storage projects (projectType T&S, Transport, Storage) and industrial clusters, and projects without a start year or starting after 2030; kept those with status Operational.",
+      "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
+      "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
+    },
+    {
+      "description": "Summed their capacity (Mt CO2 per year) by the explorer's sectors, and over all sectors, exactly.",
+      "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
+      "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Announced capacity of capture facilities (capture, full-chain and utilisation projects; transport and storage projects left out), as the IEA's CCUS Projects Explorer sums it. Capacity is what a facility is designed or announced to capture, not CO2 actually captured or stored. Only projects above 100,000 tonnes a year (1,000 for direct air capture) with an announced timeline are in the database.",
+    "bunkers": null,
+    "geography": "World (projects in every country in the database)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "sector": ["all", "natural-gas-processing", "hydrogen-ammonia", "biofuels", "other-fuel-transformation", "power", "cement", "iron-steel", "other-industry", "dac"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26", "2026-03-26"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [62.534, 37.603, 1.0, 2.695, 7.87, 5.15, 0.7, 1.425, 6.07, 0.021]
+  },
+  "time_basis": "calendar",
+  "title": "Carbon capture capacity in operation, by sector",
+  "unit": {
+    "code": "MtCO2/yr",
+    "label": "million tonnes of carbon dioxide per year of capture capacity",
+    "short": "Mt CO₂/yr"
+  },
+  "vintage": "CCUS Projects Database, file of 2026-03-26"
+}

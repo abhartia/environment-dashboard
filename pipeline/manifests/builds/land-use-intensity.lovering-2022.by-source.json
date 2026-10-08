@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/land-use-intensity.lovering-2022.by-source.json",
+  "export_sha256": "b0c6890a1544dfcd3dc330e8c71a8e7e2c7835b0bd10d37f8b9b00e65590cf2a",
+  "indicator_id": "land-use-intensity.lovering-2022.by-source",
+  "key": "3eaf35ca0acdfcc5badecd7dc4d18389a0098c79e411c26d23288dbe8e0d1425",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "lovering-2022/article-pdf": {
+        "manifest_sha256": "9027c928a1bf441a921ec826aef6e17b0af1952b7f5ab60df1add447ed408af1",
+        "sha256": "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"
+      },
+      "lovering-2022/article-xml": {
+        "manifest_sha256": "ae3d0a50d640cf738986400d83c84efe547181254b2a5eecc0d246e12811ff11",
+        "sha256": "363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "lovering-2022": "0e931e2870a8f67fee3a6847c37f466561b997bf18e719e2a1b3803f4eba3bcb"
+    },
+    "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
+  },
+  "publisher_checks": []
+}

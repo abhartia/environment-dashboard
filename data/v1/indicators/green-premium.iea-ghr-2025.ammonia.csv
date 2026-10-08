@@ -1,0 +1,13 @@
+# Extra cost of low-emissions ammonia in the European Union (IEA)
+# Indicator: green-premium.iea-ghr-2025.ammonia (vintage Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)); unit: percent more than the conventional route (percent)
+# Source: International Energy Agency <https://www.iea.org/reports/global-hydrogen-review-2025>
+# Credit: IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/iea-ghr-2025/ammonia
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,route,co2_cost,bound
+green-premium.iea-ghr-2025.ammonia,EU27,2024,25.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: ""In the European Union for instance, the cost gap is around 25% for CCUS and ranges around 120-220% for electrolysis.""",,,ccus,none,point
+green-premium.iea-ghr-2025.ammonia,EU27,2024,120.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: ""In the European Union for instance, the cost gap is around 25% for CCUS and ranges around 120-220% for electrolysis.""",,,electrolysis,none,low
+green-premium.iea-ghr-2025.ammonia,EU27,2024,220.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: ""In the European Union for instance, the cost gap is around 25% for CCUS and ranges around 120-220% for electrolysis.""",,,electrolysis,none,high
+green-premium.iea-ghr-2025.ammonia,EU27,2024,5.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: ""This could reduce the cost gap to as little as 5% for CCUS, and 75-160% for electrolysis, assuming a CO2 cost of USD 100/t.""",,,ccus,usd-100,point
+green-premium.iea-ghr-2025.ammonia,EU27,2024,75.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: ""This could reduce the cost gap to as little as 5% for CCUS, and 75-160% for electrolysis, assuming a CO2 cost of USD 100/t.""",,,electrolysis,usd-100,low
+green-premium.iea-ghr-2025.ammonia,EU27,2024,160.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: ""This could reduce the cost gap to as little as 5% for CCUS, and 75-160% for electrolysis, assuming a CO2 cost of USD 100/t.""",,,electrolysis,usd-100,high

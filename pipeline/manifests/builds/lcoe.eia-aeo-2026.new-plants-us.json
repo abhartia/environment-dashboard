@@ -1,0 +1,39 @@
+{
+  "export": "data/v1/indicators/lcoe.eia-aeo-2026.new-plants-us.json",
+  "export_sha256": "67a7b5b8a778be03eb8e392e2e51829eff24be0f645aa49a5cbd4281b9e2aa9c",
+  "indicator_id": "lcoe.eia-aeo-2026.new-plants-us",
+  "key": "97a8cba11e5deffce930d71d7c6f7ef650020f131acb9ec383b3cdb93c59b288",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "eia-aeo-2026/lcoe-figures": {
+        "manifest_sha256": "b20aea53cd6cd4af8a512bfb3dab45852aa80de71bae73cb5c465197110941e9",
+        "sha256": "e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10"
+      },
+      "eia-aeo-2026/lcoe-report": {
+        "manifest_sha256": "1f508549027240bfe10c815be9dbbacc792625b5c32050ad90c92c9e558ede50",
+        "sha256": "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "eia-aeo-2026": "02a378609bea567efff4f0854176cd04ffb750bfb934d41c069e933b096ffce7"
+    },
+    "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
+  },
+  "publisher_checks": [
+    {"detail": "ours 87.81134718181818 vs stated 87.81 (tolerance ±0.005, difference 0.00134718)", "entity": "USA", "period": "2031", "quote": "$87.81", "source_id": "eia-aeo-2026", "stated": "87.81", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 84.54474551999998 vs stated 84.54 (tolerance ±0.005, difference 0.00474552)", "entity": "USA", "period": "2031", "quote": "$84.54", "source_id": "eia-aeo-2026", "stated": "84.54", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 77.45683012 vs stated 77.46 (tolerance ±0.005, difference 0.00316988)", "entity": "USA", "period": "2031", "quote": "$77.46", "source_id": "eia-aeo-2026", "stated": "77.46", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 58.468462880000004 vs stated 58.47 (tolerance ±0.005, difference 0.00153712)", "entity": "USA", "period": "2031", "quote": "$58.47", "source_id": "eia-aeo-2026", "stated": "58.47", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 40.38252 vs stated 40.38 (tolerance ±0.005, difference 0.00252)", "entity": "USA", "period": "2031", "quote": "$40.38", "source_id": "eia-aeo-2026", "stated": "40.38", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 118.78947646666667 vs stated 118.79 (tolerance ±0.005, difference 0.000523533)", "entity": "USA", "period": "2031", "quote": "$118.79", "source_id": "eia-aeo-2026", "stated": "118.79", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 64.76520608695652 vs stated 64.77 (tolerance ±0.005, difference 0.00479391)", "entity": "USA", "period": "2031", "quote": "$64.77", "source_id": "eia-aeo-2026", "stated": "64.77", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 94.1977788 vs stated 94.20 (tolerance ±0.005, difference 0.0022212)", "entity": "USA", "period": "2031", "quote": "$94.20", "source_id": "eia-aeo-2026", "stated": "94.20", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 58.33216903999999 vs stated 58.33 (tolerance ±0.005, difference 0.00216904)", "entity": "USA", "period": "2031", "quote": "$58.33", "source_id": "eia-aeo-2026", "stated": "58.33", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 56.74783100000001 vs stated 56.75 (tolerance ±0.005, difference 0.002169)", "entity": "USA", "period": "2031", "quote": "$56.75", "source_id": "eia-aeo-2026", "stated": "56.75", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 172.57105051999997 vs stated 172.57 (tolerance ±0.005, difference 0.00105052)", "entity": "USA", "period": "2031", "quote": "$172.57", "source_id": "eia-aeo-2026", "stated": "172.57", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"},
+    {"detail": "ours 152.61163192 vs stated 152.61 (tolerance ±0.005, difference 0.00163192)", "entity": "USA", "period": "2031", "quote": "$152.61", "source_id": "eia-aeo-2026", "stated": "152.61", "status": "pass", "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf", "vintage": "AEO2026 (April 2026)"}
+  ]
+}

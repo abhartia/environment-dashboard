@@ -1,0 +1,9 @@
+# Extra cost of near-zero emissions steel in 2035, per tonne (IEA)
+# Indicator: green-premium.iea-etp-2026.steel-usd (vintage Energy Technology Perspectives 2026 (IEA, March 2026; revised April and July 2026)); unit: US dollars (2024) per tonne of crude steel (USD2024/t-crude-steel)
+# Source: International Energy Agency <https://www.iea.org/reports/energy-technology-perspectives-2026>
+# Credit: IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/iea-etp-2026/steel-usd
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,bound
+green-premium.iea-etp-2026.steel-usd,WLD,2035,125.0,,,,projection,"Chapter 3, near-zero emissions steel dashboard, p. 139: ""Near-zero emissions steel is more expensive than conventional. This is especially true for iron-based steel, where levelised costs of production in 2035 are expected to be about 20-145% higher (USD 125-600 per tonne of crude steel) in the STEPS, in the absence of targeted policy support or significant scale-up.""",,,low
+green-premium.iea-etp-2026.steel-usd,WLD,2035,600.0,,,,projection,"Chapter 3, near-zero emissions steel dashboard, p. 139: ""Near-zero emissions steel is more expensive than conventional. This is especially true for iron-based steel, where levelised costs of production in 2035 are expected to be about 20-145% higher (USD 125-600 per tonne of crude steel) in the STEPS, in the absence of targeted policy support or significant scale-up.""",,,high

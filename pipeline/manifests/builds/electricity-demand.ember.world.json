@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/electricity-demand.ember.world.json",
+  "export_sha256": "26348a427c3ac8a4c205d79be8cb97678baead3513ef92870fb5dbe8aa971582",
+  "indicator_id": "electricity-demand.ember.world",
+  "key": "b9b76bbb02e6f56bc1c55debdde232d2392bf5e5dcb172cef262f7ca3961cf11",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "ember-yearly/generation-yearly-global": {
+        "manifest_sha256": "fe45b0aa961195bb7b3e062de9399f1cc95893b9373d76f7a70bec453785ff56",
+        "sha256": "ea214963f4a98b26f52aaf541736d4310349a905e64f83e63425bfc3ab6255d7"
+      },
+      "ember-yearly/methodology-pdf": {
+        "manifest_sha256": "2066969e28416a20d0edb3ba9ad53913f5a9aef875cff44b9d32e88a1b9c406a",
+        "sha256": "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"
+      }
+    },
+    "key_files": {
+      "pipeline/src/envdash/transforms/energy/ember_yearly.py": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
+    },
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "ember-yearly": "f6f2037aa4f997f182a3a96f0fc4dee47a71aa09482a96a60cf06c478421fca5"
+    },
+    "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
+  },
+  "publisher_checks": []
+}

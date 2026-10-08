@@ -1,0 +1,74 @@
+{
+  "attribution": "Department for Energy Security and Net Zero, Subnational electricity consumption statistics, Great Britain, 2005 to 2024 (published 18 December 2025). Contains public sector information licensed under the Open Government Licence v3.0.",
+  "description": "Metered electricity used at home in a year by the average household in Great Britain, in kilowatt-hours, from the UK Department for Energy Security and Net Zero.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "country",
+  "headline_entity": "GBR_GB",
+  "id": "electricity-use.desnz.gb-household",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "GBR_GB",
+    "period": "2024",
+    "status": "final",
+    "value": 3463.408415200937
+  },
+  "licence": {
+    "name": "Open Government Licence v3.0 (Crown copyright)",
+    "spdx": "OGL-UK-3.0",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "licence_class": "open",
+  "notes": ["DESNZ's 2024 electricity year: February 2024 to January 2025 for non-half-hourly meters (almost all homes), January to December for half-hourly meters."],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "workbook", "bytes": 2103254, "citation_full": "Department for Energy Security and Net Zero (2025). Subnational electricity consumption statistics, Great Britain, 2005 to 2024. GOV.UK. https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics", "date_accessed": "2026-10-08", "date_published": "2025-12-18", "doi": null, "etag": "\"69426e90-2017d6\"", "last_modified": "Wed, 17 Dec 2025 08:49:20 GMT", "licence": {"name": "Open Government Licence v3.0 (Crown copyright)", "spdx": "OGL-UK-3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"}, "producer": "Department for Energy Security and Net Zero (UK Government)", "r2_url": null, "sha256": "9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429", "source_id": "desnz-subnational-electricity", "title": "Subnational electricity consumption, Great Britain", "url_download": "https://assets.publishing.service.gov.uk/media/69426e905431f4f94d7f0b5e/Subnational_electricity_consumption_statistics_2005-2024.xlsx", "url_main": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics", "version_producer": "2005 to 2024 (published 18 December 2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read sheet '2024' of the workbook (sha256 9d40814a23f8…), after checking its title and its 24 column headings, and took row K03000001 'Great Britain (inc unallocated)', 'All local authorities', column 'Mean domestic consumption (kWh per household)'. Checked the cover sheet's statements on electricity years, units and the publication date.",
+      "inputs": ["9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/desnz_subnational.py",
+      "transform_sha256": "adc633ec418266cb314baddc794719ab5771a0431d3bdb88160a64218f84fdc5"
+    },
+    {
+      "description": "Published the mean as the workbook holds it.",
+      "inputs": ["9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/energy/desnz_subnational.py",
+      "transform_sha256": "adc633ec418266cb314baddc794719ab5771a0431d3bdb88160a64218f84fdc5"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Mean metered domestic electricity consumption per household: domestic consumption (standard and Economy 7 meters, including consumption DESNZ could not allocate to a local authority) divided by DESNZ's count of households (ONS, Welsh Government and National Records of Scotland estimates; Wales 2024 projected by DESNZ). Northern Ireland is not included.",
+    "bunkers": null,
+    "geography": "Great Britain (England, Scotland and Wales)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["GBR_GB"],
+    "note": [0],
+    "period": ["2024"],
+    "status": ["final"],
+    "value": [3463.408415200937]
+  },
+  "time_basis": "calendar",
+  "title": "Electricity used by the average household in Great Britain in a year",
+  "unit": {
+    "code": "kWh-per-household-per-year",
+    "label": "kilowatt-hours per household per year",
+    "short": "kWh/household/yr"
+  },
+  "vintage": "2005 to 2024 (published 18 December 2025)"
+}

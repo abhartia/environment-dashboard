@@ -1,0 +1,9 @@
+# Extra cost of cement clinker with CO2 capture, percent (CEMCAP)
+# Indicator: green-premium.cemcap-2019.clinker (vintage Energies 12(3), 542 (2019)); unit: percent more than the conventional route (percent)
+# Source: Gardarsdottir, De Lena, Romano, Roussanaly, Voldsund, Pérez-Calvo, Berstad, Fu, Anantharaman, Sutter, Gazzani, Mazzotti and Cinti (SINTEF, Politecnico di Milano, ETH Zurich, Italcementi; the CEMCAP project); published in Energies (MDPI) <https://doi.org/10.3390/en12030542>
+# Credit: Gardarsdottir, S.O. et al. (2019). Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis. Energies 12, 542. doi:10.3390/en12030542. CC BY 4.0.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/cemcap-2019/clinker
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,bound
+green-premium.cemcap-2019.clinker,CEMCAP_REF,2014,49.0,,,,final,"Section 4.1, p. 9: ""In general, the cost of clinker increases with 49–92% from the 62.6 €/tclk in the reference cement plant when the investigated CO 2 capture technologies are implemented.""",,,low
+green-premium.cemcap-2019.clinker,CEMCAP_REF,2014,92.0,,,,final,"Section 4.1, p. 9: ""In general, the cost of clinker increases with 49–92% from the 62.6 €/tclk in the reference cement plant when the investigated CO 2 capture technologies are implemented.""",,,high

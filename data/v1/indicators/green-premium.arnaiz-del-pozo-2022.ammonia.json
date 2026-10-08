@@ -1,0 +1,124 @@
+{
+  "attribution": "Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312. doi:10.1016/j.enconman.2022.115312. CC BY 4.0.",
+  "description": "The levelised cost of a tonne of ammonia from natural-gas plants that release their CO2, natural-gas plants that capture it (blue ammonia) and plants run on wind and solar power (green ammonia), modelled by Arnaiz del Pozo and Cloete (2022) with one synthesis loop and one cost method. The natural-gas plants pay a CO2 tax of 100 euros per tonne on what they emit, which is included in their cost; the green plants use technology costs expected for 2050.",
+  "dimensions": [
+    {
+      "id": "option",
+      "label": "How the ammonia is made",
+      "values": [
+        {"id": "kbr-without-capture", "label": "KBR Purifier process without CO2 capture"},
+        {"id": "kbr", "label": "KBR Purifier process with CO2 capture"},
+        {"id": "lac", "label": "Linde Ammonia Concept (LAC) with CO2 capture"},
+        {"id": "gsr", "label": "Gas switching reforming (GSR), advanced blue ammonia"},
+        {"id": "green", "label": "Green ammonia from wind and solar power"}
+      ]
+    },
+    {
+      "id": "side",
+      "label": "Side",
+      "values": [
+        {"id": "conventional", "label": "Natural gas, CO2 released"},
+        {"id": "conventional-with-capture", "label": "Natural gas with CO2 capture (blue)"},
+        {"id": "low-carbon", "label": "Wind and solar power (green)"}
+      ]
+    },
+    {
+      "id": "setting",
+      "label": "Where and at what energy prices",
+      "values": [
+        {"id": "european-prices", "label": "European energy prices (natural gas 6.5 €/GJ, electricity 60 €/MWh)"},
+        {"id": "northern-germany", "label": "Northern Germany, 2050 technology costs"},
+        {"id": "southern-spain", "label": "Southern Spain, 2050 technology costs"},
+        {"id": "saudi-arabia", "label": "Saudi Arabia"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "mixed",
+  "headline_entity": "EUR_STUDY",
+  "id": "green-premium.arnaiz-del-pozo-2022.ammonia",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "option": "kbr-without-capture",
+      "setting": "european-prices",
+      "side": "conventional"
+    },
+    "entity": "EUR_STUDY",
+    "period": "2050",
+    "status": "projection",
+    "value": 479.0
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Section 4 (Summary & conclusions), p. 14: \"the KBR process achieves a levelized cost of ammonia (LCOA) of 385.9\"", "Section 4 (Summary & conclusions), p. 14: \"without CCS, the cost rises to 479.0\"", "Section 4 (Summary & conclusions), p. 15: \"772.1, 569.3, and 484.7 €/ton in Northern Germany, Southern Spain, and Saudi Arabia, respectively\"", "Section 4 (Summary & conclusions), p. 15: \"The LAC plant reaches an almost identical LCOA as the KBR (385.1\"", "Section 4 (Summary & conclusions), p. 15: \"for the GSR concept the cost falls to 332.1\" / Abstract, p. 1: \"the GSR concept achieved an attractive levelized cost of ammonia (LCOA) of 332.1\"", "Section 4 (Summary & conclusions), p. 15: \"the LCOA of blue NH3 production in Saudi Arabia reduced to 192.7\" / Abstract, p. 1: \"the LCOA of the GSR technology drops to 192.7\""],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 5296008, "citation_full": "Arnaiz del Pozo, C. & Cloete, S. (2022). Techno-economic assessment of blue and green ammonia as energy carriers in a low-carbon future. Energy Conversion and Management 255, 115312. https://doi.org/10.1016/j.enconman.2022.115312", "date_accessed": "2026-10-08", "date_published": "2022-02-05", "doi": "10.1016/j.enconman.2022.115312", "etag": "37874cf7be3901dfcdab26f5ec2f1476", "last_modified": "Tue, 14 Jan 2025 10:09:15 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Carlos Arnaiz del Pozo (Universidad Politécnica de Madrid) and Schalk Cloete (SINTEF Industry); published in Energy Conversion and Management (Elsevier)", "r2_url": null, "sha256": "9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387", "source_id": "arnaiz-del-pozo-2022", "title": "Levelised cost of blue and green ammonia (Arnaiz del Pozo & Cloete 2022)", "url_download": "https://oa.upm.es/86025/3/86025.pdf", "url_main": "https://doi.org/10.1016/j.enconman.2022.115312", "version_producer": "Energy Conversion and Management 255, 115312 (2022)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the article's version-of-record PDF (sha256 9473fa567ff4…, the copy on the Universidad Politécnica de Madrid repository) and found 10 passages from the abstract, section 3.2.3, section 4 and Tables 3 and 4 word for word on their pages.",
+      "inputs": ["9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/ammonia_arnaiz_del_pozo_2022.py",
+      "transform_sha256": "34796ff32ad703a6053fd24e4e3c007c2fbfb70e5ca82592aa4dcb433860e006"
+    },
+    {
+      "description": "Published the 8 levelised costs of ammonia that the passages state, exactly as printed, in euros per tonne. Values listed with several places are read in the order the places are named. Where the abstract repeats a value, both statements agree and both are in the value's note.",
+      "inputs": ["9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/ammonia_arnaiz_del_pozo_2022.py",
+      "transform_sha256": "34796ff32ad703a6053fd24e4e3c007c2fbfb70e5ca82592aa4dcb433860e006"
+    },
+    {
+      "description": "Placed the plants costed at European energy prices at 'Europe, as the study defines it', the green plants in Germany, Spain and Saudi Arabia, and the gas switching reforming plant at Saudi prices in Saudi Arabia. Nothing was subtracted or divided: the conventional and lower-carbon costs are shown side by side as the article gives them.",
+      "inputs": ["9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/ammonia_arnaiz_del_pozo_2022.py",
+      "transform_sha256": "34796ff32ad703a6053fd24e4e3c007c2fbfb70e5ca82592aa4dcb433860e006"
+    }
+  ],
+  "published_value": {
+    "document": "arnaiz-del-pozo-2022",
+    "locator": "Section 4 (Summary & conclusions), p. 15",
+    "quote": "Using cost assumptions applicable to 2050, fully optimized green ammonia production from wind and solar power with electrolysers and energy storage showed substantially higher costs than the blue NH3 alternatives: 772.1, 569.3, and 484.7 €/ton in Northern Germany, Southern Spain, and Saudi Arabia, respectively. Moreover, the LCOA of blue NH3 production in Saudi Arabia reduced to 192.7 €/ton with the GSR process due to much lower energy costs."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Modelled levelised cost (cash-flow analysis: discount rate 8%, 25-year life, 2020 euros), not market prices. The article compares all plants under what it calls consistent assumptions for 2050. The cost of the natural-gas plants includes a CO2 tax of 100 euros per tonne of CO2 emitted and 20 euros per tonne for CO2 transport and storage (none in Saudi Arabia).",
+    "bunkers": null,
+    "geography": "Natural-gas plants at European energy prices (Western Europe cost basis) and in Saudi Arabia; green plants in northern Germany, southern Spain and Saudi Arabia",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "option": ["kbr-without-capture", "kbr", "lac", "gsr", "gsr", "green", "green", "green"],
+      "setting": ["european-prices", "european-prices", "european-prices", "european-prices", "saudi-arabia", "northern-germany", "southern-spain", "saudi-arabia"],
+      "side": ["conventional", "conventional-with-capture", "conventional-with-capture", "conventional-with-capture", "conventional-with-capture", "low-carbon", "low-carbon", "low-carbon"]
+    },
+    "entity": ["EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "SAU", "DEU", "ESP", "SAU"],
+    "note": [1, 0, 3, 4, 5, 2, 2, 2],
+    "period": ["2050", "2050", "2050", "2050", "2050", "2050", "2050", "2050"],
+    "status": ["projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection"],
+    "value": [479.0, 385.9, 385.1, 332.1, 192.7, 772.1, 569.3, 484.7]
+  },
+  "time_basis": "calendar",
+  "title": "Cost of making ammonia from natural gas and from wind and solar power (Arnaiz del Pozo & Cloete 2022)",
+  "unit": {
+    "code": "EUR-per-t",
+    "label": "euros per tonne of ammonia (2020 euros)",
+    "short": "€/t"
+  },
+  "vintage": "Energy Conversion and Management 255, 115312 (2022)"
+}

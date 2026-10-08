@@ -1,0 +1,11 @@
+# Extra cost of steel made with hydrogen (IEA, Global Hydrogen Review)
+# Indicator: green-premium.iea-ghr-2025.steel (vintage Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)); unit: percent more than the conventional route (percent)
+# Source: International Energy Agency <https://www.iea.org/reports/global-hydrogen-review-2025>
+# Credit: IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0
+# Licence: CC BY 4.0, subject to the IEA Notice for CC-licensed Content <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/iea-ghr-2025/steel
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,comparator,bound
+green-premium.iea-ghr-2025.steel,WLD,2024,50.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (steel), p. 51: ""The cost gap is greater for H2 DRI, ranging from 50% to 140% (depending on the region) when compared with blast furnaces, and 20% to 80% compared with unabated natural gas-based DRI.""",,,blast-furnace,low
+green-premium.iea-ghr-2025.steel,WLD,2024,140.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (steel), p. 51: ""The cost gap is greater for H2 DRI, ranging from 50% to 140% (depending on the region) when compared with blast furnaces, and 20% to 80% compared with unabated natural gas-based DRI.""",,,blast-furnace,high
+green-premium.iea-ghr-2025.steel,WLD,2024,20.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (steel), p. 51: ""The cost gap is greater for H2 DRI, ranging from 50% to 140% (depending on the region) when compared with blast furnaces, and 20% to 80% compared with unabated natural gas-based DRI.""",,,unabated-gas-dri,low
+green-premium.iea-ghr-2025.steel,WLD,2024,80.0,,,,final,"Chapter 2, the competitiveness of hydrogen technologies (steel), p. 51: ""The cost gap is greater for H2 DRI, ranging from 50% to 140% (depending on the region) when compared with blast furnaces, and 20% to 80% compared with unabated natural gas-based DRI.""",,,unabated-gas-dri,high

@@ -1,0 +1,119 @@
+{
+  "attribution": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0",
+  "description": "How much more it cost to produce low-emissions ammonia than conventional ammonia from unabated natural gas in the European Union in 2024, as the IEA states it: around 25 percent more with carbon capture and about 120 to 220 percent more from electrolysis; as little as 5 percent and 75 to 160 percent more if a CO2 cost of USD 100 per tonne applied.",
+  "dimensions": [
+    {
+      "id": "route",
+      "label": "Low-emissions route",
+      "values": [
+        {"id": "ccus", "label": "Natural gas with carbon capture (CCUS)"},
+        {"id": "electrolysis", "label": "Electrolysis (electrolytic hydrogen)"}
+      ]
+    },
+    {
+      "id": "co2_cost",
+      "label": "CO2 cost assumed",
+      "values": [
+        {"id": "none", "label": "Without a CO2 cost"},
+        {"id": "usd-100", "label": "With a CO2 cost of USD 100 per tonne"}
+      ]
+    },
+    {
+      "id": "bound",
+      "label": "Stated value or end of the stated range",
+      "values": [
+        {"id": "point", "label": "Stated value"},
+        {"id": "low", "label": "Low end of the stated range"},
+        {"id": "high", "label": "High end of the stated range"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "country",
+  "headline_entity": "EU27",
+  "id": "green-premium.iea-ghr-2025.ammonia",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "bound": "low",
+      "co2_cost": "none",
+      "route": "electrolysis"
+    },
+    "entity": "EU27",
+    "period": "2024",
+    "status": "final",
+    "value": 120.0
+  },
+  "licence": {
+    "name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: \"In the European Union for instance, the cost gap is around 25% for CCUS and ranges around 120-220% for electrolysis.\"", "Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51: \"This could reduce the cost gap to as little as 5% for CCUS, and 75-160% for electrolysis, assuming a CO2 cost of USD 100/t.\""],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "report-pdf", "bytes": 10610820, "citation_full": "IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0", "date_accessed": "2026-10-08", "date_published": "2025-09", "doi": null, "etag": "0x8DE0B26C4883D5C", "last_modified": "Tue, 14 Oct 2025 13:37:06 GMT", "licence": {"name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "International Energy Agency", "r2_url": null, "sha256": "94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2", "source_id": "iea-ghr-2025", "title": "Global Hydrogen Review 2025", "url_download": "https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf", "url_main": "https://www.iea.org/reports/global-hydrogen-review-2025", "version_producer": "Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of the PDF (sha256 94f2912332e1…). Found each of the 2 quoted statement(s) word for word on PDF page(s) 53, and the 3 context sentence(s) the scope relies on, before publishing.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    },
+    {
+      "description": "Published each number exactly as printed, with its statement in the value's note. A range 'A-B%' is published as its low end A and high end B (dimension 'bound'); nothing was computed, rounded or combined with any other source.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    },
+    {
+      "description": "'As little as 5%' is published as the stated value 5 for carbon capture with a CO2 cost of USD 100 per tonne; the sentence gives no other figure for that case.",
+      "inputs": ["94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/green_premium.py",
+      "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
+    }
+  ],
+  "published_value": {
+    "document": "iea-ghr-2025",
+    "locator": "Chapter 2, the competitiveness of hydrogen technologies (ammonia), p. 51",
+    "quote": "In the European Union for instance, the cost gap is around 25% for CCUS and ranges around 120-220% for electrolysis."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Ammonia made with carbon capture or by electrolysis, compared with conventional (unabated natural gas-based) ammonia. Levelised cost of production in 2024 (the text's present tense, matching Figure 2.9, 'Levelised cost of production of selected materials by technology, 2024'), IEA analysis. Energy costs are regional end-user prices for industry including taxes and charges; no explicit financial support, though support embedded in cost components (such as fossil fuel subsidies) may be included (figure note). The 'with a CO2 cost' values assume USD 100 per tonne of CO2, the figure's carbon tax case.",
+    "bunkers": null,
+    "geography": "European Union",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "bound": ["point", "low", "high", "point", "low", "high"],
+      "co2_cost": ["none", "none", "none", "usd-100", "usd-100", "usd-100"],
+      "route": ["ccus", "electrolysis", "electrolysis", "ccus", "electrolysis", "electrolysis"]
+    },
+    "entity": ["EU27", "EU27", "EU27", "EU27", "EU27", "EU27"],
+    "note": [0, 0, 0, 1, 1, 1],
+    "period": ["2024", "2024", "2024", "2024", "2024", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final"],
+    "value": [25.0, 120.0, 220.0, 5.0, 75.0, 160.0]
+  },
+  "time_basis": "calendar",
+  "title": "Extra cost of low-emissions ammonia in the European Union (IEA)",
+  "unit": {
+    "code": "percent",
+    "label": "percent more than the conventional route",
+    "short": "%"
+  },
+  "vintage": "Global Hydrogen Review 2025 (IEA, September 2025; revised October 2025)"
+}

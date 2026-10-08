@@ -1,0 +1,109 @@
+{
+  "attribution": "Furch, J., Konečný, V. & Krobot, Z. (2022). Modelling of life cycle cost of conventional and alternative vehicles. Scientific Reports 12, 10661. doi:10.1038/s41598-022-14715-8. CC BY 4.0.",
+  "description": "What a petrol, a diesel and a battery electric car cost per kilometre over 400,000 km and 15 years on the Czech market in 2022, counting purchase, energy and maintenance, as Furch and colleagues (2022) model it for one car of each kind.",
+  "dimensions": [
+    {
+      "id": "option",
+      "label": "Car",
+      "values": [
+        {"id": "petrol", "label": "Petrol car (Petrol 1.5 dm³ TSI 110 kW)"},
+        {"id": "diesel", "label": "Diesel car (Diesel 2.0 dm³ TSI 110 kW)"},
+        {"id": "electric", "label": "Battery electric car (Electric 80 kW)"}
+      ]
+    },
+    {
+      "id": "side",
+      "label": "Side",
+      "values": [
+        {"id": "conventional", "label": "Petrol or diesel car"},
+        {"id": "low-carbon", "label": "Battery electric car"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 3
+  },
+  "geo_coverage": "country",
+  "headline_entity": "CZE",
+  "id": "green-premium.furch-2022.cars-per-km",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "option": "electric",
+      "side": "low-carbon"
+    },
+    "entity": "CZE",
+    "period": "2022",
+    "status": "final",
+    "value": 0.206
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Table 1, row \"Life cycle specific costs LCCS\", column \"Diesel 2.0 dm3 TSI 110 kW\": 0.177", "Table 1, row \"Life cycle specific costs LCCS\", column \"Electric 80 kW\": 0.206. The article's text (Discussion, Figure 11): \"the specific cost of an electric vehicle without battery replacement is €0.21, for an electric vehicle with battery replacement is €0.25\".", "Table 1, row \"Life cycle specific costs LCCS\", column \"Petrol 1.5 dm3 TSI 110 kW\": 0.185"],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-xml", "bytes": 119716, "citation_full": "Furch, J., Konečný, V. & Krobot, Z. Modelling of life cycle cost of conventional and alternative vehicles. Sci Rep 12, 10661 (2022). https://doi.org/10.1038/s41598-022-14715-8", "date_accessed": "2026-10-08", "date_published": "2022-06-23", "doi": "10.1038/s41598-022-14715-8", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Jan Furch, Vlastimil Konečný and Zdeněk Krobot (University of Defence, Brno); published in Scientific Reports", "r2_url": null, "sha256": "af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4", "source_id": "furch-2022", "title": "Life cycle cost of passenger cars by drive type, Czech market (Furch et al. 2022)", "url_download": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9226055/fullTextXML", "url_main": "https://doi.org/10.1038/s41598-022-14715-8", "version_producer": "Scientific Reports 12, 10661 (2022)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the article's JATS XML from Europe PMC (sha256 af876aea0cf1…) and checked its DOI, the caption and column headers of Table 1 and 2 sentences of the text.",
+      "inputs": ["af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/cars_furch_2022.py",
+      "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
+    },
+    {
+      "description": "Published the row 'Life cycle specific costs LCCS' for the petrol, diesel and electric cars, each cell addressed by its printed row label and column header and published as printed (thousands separators removed), after checking that each car's service life reads 400,000 km and 15 years.",
+      "inputs": ["af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/cars_furch_2022.py",
+      "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
+    },
+    {
+      "description": "Left out the CNG and hybrid cars. Nothing was subtracted: the petrol, diesel and electric costs are shown side by side as the table gives them.",
+      "inputs": ["af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/cars_furch_2022.py",
+      "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
+    }
+  ],
+  "published_value": {
+    "document": "furch-2022",
+    "locator": "Table 1",
+    "quote": "Table 1. Basic input and calculated values for selected passenger car drive types."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Modelled life cycle cost over 400,000 km and 15 years: purchase price, fuel or electricity, fluids, tyres, batteries, mandatory costs and maintenance, in euros (currency year not stated). Prices of 2022; not a market average. For the electric car the article's text gives €0.21 per km without and €0.25 with a battery replacement; Table 1's value is published as printed.",
+    "bunkers": null,
+    "geography": "Czechia: one car model per drive type as offered on the Czech market in 2022",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "option": ["petrol", "diesel", "electric"],
+      "side": ["conventional", "conventional", "low-carbon"]
+    },
+    "entity": ["CZE", "CZE", "CZE"],
+    "note": [2, 0, 1],
+    "period": ["2022", "2022", "2022"],
+    "status": ["final", "final", "final"],
+    "value": [0.185, 0.177, 0.206]
+  },
+  "time_basis": "calendar",
+  "title": "Cost per kilometre of petrol, diesel and electric cars in Czechia (Furch et al. 2022)",
+  "unit": {
+    "code": "EUR-per-km",
+    "label": "euros per kilometre",
+    "short": "€/km"
+  },
+  "vintage": "Scientific Reports 12, 10661 (2022)"
+}

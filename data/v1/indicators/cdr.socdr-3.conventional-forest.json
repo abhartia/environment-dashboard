@@ -1,0 +1,90 @@
+{
+  "attribution": "The State of Carbon Dioxide Removal, 3rd Edition (2026), chapter 7 data (https://www.stateofcdr.org/data-portal/3rd-edition). CC BY 4.0.",
+  "description": "How much CO2 forests that people plant, restore or manage took out of the atmosphere each year worldwide, as estimated by three land-use bookkeeping models and their mean for The State of Carbon Dioxide Removal.",
+  "dimensions": [
+    {
+      "id": "model",
+      "label": "Model",
+      "values": [
+        {"id": "mean", "label": "Mean of the three models"},
+        {"id": "blue", "label": "BLUE"},
+        {"id": "luce", "label": "LUCE"},
+        {"id": "oscar", "label": "OSCAR"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "cdr.socdr-3.conventional-forest",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "model": "mean"
+    },
+    "entity": "WLD",
+    "period": "2024",
+    "status": "final",
+    "value": 2178.59
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": "Novel CDR includes values the report takes from CDR.fyi for projects not listed on registries; CDR.fyi's own terms do not allow republishing its data, and whether the report's CC BY 4.0 licence covers them is not yet confirmed.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "chapter-7-csv", "bytes": 5129380, "citation_full": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)", "date_accessed": "2026-10-08", "date_published": "2026-06", "doi": "10.17605/OSF.IO/ZRD65", "etag": "\"6a174f2a-4e44a4\"", "last_modified": "Wed, 27 May 2026 20:08:10 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)", "r2_url": null, "sha256": "250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "source_id": "state-of-cdr-3", "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)", "url_download": "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv", "url_main": "https://www.stateofcdr.org/data-portal/3rd-edition", "version_producer": "The State of Carbon Dioxide Removal, 3rd Edition (2026)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "chapter-7-pdf", "bytes": 1937668, "citation_full": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)", "date_accessed": "2026-10-08", "date_published": "2026-06", "doi": "10.17605/OSF.IO/ZRD65", "etag": "\"6a1dcf54-1d9104\"", "last_modified": "Mon, 01 Jun 2026 18:28:36 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)", "r2_url": null, "sha256": "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "source_id": "state-of-cdr-3", "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)", "url_download": "https://www.stateofcdr.org/asset/SoCDR-Ed3_Chapter-7_Final.pdf", "url_main": "https://www.stateofcdr.org/data-portal/3rd-edition", "version_producer": "The State of Carbon Dioxide Removal, 3rd Edition (2026)", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "technical-annex-ch7", "bytes": 857632, "citation_full": "The State of Carbon Dioxide Removal, 3rd Edition. Smith, S. M., Grassi, G., Gupta, S., Schwingshackl, C., Harrington, K. J., Pilli, R., Rink, A. Chapter 7: Current levels of CDR, in The State of Carbon Dioxide Removal 3rd Edition 2026 (eds. Edwards, M. R. et al.). DOI: https://doi.org/10.17605/OSF.IO/VH7U6 (2026)", "date_accessed": "2026-10-08", "date_published": "2026-06", "doi": "10.17605/OSF.IO/ZRD65", "etag": "\"6a1d5120-d1620\"", "last_modified": "Mon, 01 Jun 2026 09:30:08 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "The State of Carbon Dioxide Removal (University of Oxford Smith School and partners)", "r2_url": null, "sha256": "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65", "source_id": "state-of-cdr-3", "title": "The State of Carbon Dioxide Removal, 3rd Edition (chapter 7 data)", "url_download": "https://www.stateofcdr.org/asset/SoCDR-Ed3-Technical-annex-Ch7_Final.pdf", "url_main": "https://www.stateofcdr.org/data-portal/3rd-edition", "version_producer": "The State of Carbon Dioxide Removal, 3rd Edition (2026)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read SoCDR-Edition-3-Chapter-7.csv (fetched 2026-10-08, Last-Modified Wed, 27 May 2026 20:08:10 GMT, sha256 250208937d47…), UTF-8 with a byte-order mark.",
+      "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
+      "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
+    },
+    {
+      "description": "Kept the world rows of 'Conventional CDR from bookkeeping models by country and year' (afforestation, reforestation and forest management): the bookkeeping models BLUE, LUCE and OSCAR and their mean, as printed.",
+      "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
+      "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Conventional CDR from afforestation, reforestation and forest management, from the bookkeeping models BLUE, LUCE and OSCAR and their mean, as compiled for chapter 7.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "model": ["mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "mean", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "luce", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar", "oscar"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [1825.49, 1918.14, 1931.58, 1928.08, 1952.59, 2084.57, 2128.01, 2116.64, 2125.2, 2190.39, 2198.33, 2220.33, 2243.81, 2224.21, 2233.0, 2221.02, 2212.38, 2203.03, 2194.05, 2178.59, 2124.14, 2237.83, 2232.43, 2219.3, 2258.24, 2509.38, 2537.44, 2508.85, 2515.95, 2618.38, 2593.75, 2631.12, 2655.93, 2608.25, 2616.13, 2586.51, 2591.84, 2577.26, 2547.04, 2518.94, 1516.07, 1617.04, 1610.08, 1607.29, 1614.48, 1732.13, 1780.6, 1757.78, 1747.15, 1808.43, 1794.14, 1806.82, 1824.21, 1798.58, 1799.17, 1786.87, 1775.35, 1764.74, 1748.49, 1732.45, 1836.27, 1899.55, 1952.24, 1957.63, 1985.06, 2012.2, 2066.01, 2083.3, 2112.51, 2144.35, 2207.1, 2223.06, 2251.31, 2265.8, 2283.71, 2289.67, 2269.96, 2267.08, 2286.62, 2284.39]
+  },
+  "time_basis": "calendar",
+  "title": "Carbon dioxide removed by forests (conventional removal)",
+  "unit": {
+    "code": "MtCO2/yr",
+    "label": "million tonnes of carbon dioxide per year",
+    "short": "Mt CO₂/yr"
+  },
+  "vintage": "The State of Carbon Dioxide Removal, 3rd Edition (2026)"
+}

@@ -1,0 +1,26 @@
+{
+  "export": "data/v1/indicators/farms.faostat-wcad.area-by-land-size.json",
+  "export_sha256": "06a74600d9bbd8349214b884f6a706f75db423de72a0a7e4b045b3f7dd35c7a9",
+  "indicator_id": "farms.faostat-wcad.area-by-land-size",
+  "key": "7b2743e48d5a64772558955139d88ed2d97e3883c1863e38969a07bd4a65b085",
+  "key_parts": {
+    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "inputs": {
+      "faostat/datasets-catalogue": {
+        "manifest_sha256": "eba47f01bcc0a5491911464569a82f33bbed01098863755ed333c00f6eea8dce",
+        "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
+      },
+      "faostat/world-census-agriculture": {
+        "manifest_sha256": "a2f8e28a7fa1f751859c4db1af55eff8d76a570eec14760ca65f73f4d56e9d08",
+        "sha256": "a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "faostat": "6a5fe694f80773f813e5b98bf6f787448c9b21f22f2f78e59034d02f187ce812"
+    },
+    "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
+  },
+  "publisher_checks": []
+}

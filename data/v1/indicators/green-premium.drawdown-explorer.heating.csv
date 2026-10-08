@@ -1,0 +1,11 @@
+# Yearly cost of a heat pump and of today's heating equipment (Project Drawdown)
+# Indicator: green-premium.drawdown-explorer.heating (vintage Drawdown Explorer, Use Heat Pumps spreadsheet on Zenodo (methodology June 2026)); unit: US dollars (2023) per heating system per year (USD2023-per-unit-per-year)
+# Source: Project Drawdown <https://drawdown.org/explorer>
+# Credit: Project Drawdown, The Drawdown Explorer (http://drawdown.org/explorer): solution assessment spreadsheets on Zenodo, CC BY 4.0; methodology doi:10.5281/zenodo.20865531.
+# Licence: CC BY 4.0 (Zenodo deposits by Project Drawdown) <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/green-premium/drawdown-explorer/heating
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,option,side,cost
+green-premium.drawdown-explorer.heating,WLD,2023,1180.0,,,,final,"Use Heat Pumps spreadsheet, sheet 'results', row 26: 'net cost per unit BAU' (2023 US$/unit/yr).",,,baseline,conventional,net
+green-premium.drawdown-explorer.heating,WLD,2023,830.0,,,,final,"Use Heat Pumps spreadsheet, sheet 'results', row 24: 'operating cost per unit BAU' (2023 US$/unit/yr).",,,baseline,conventional,operating
+green-premium.drawdown-explorer.heating,WLD,2023,990.0,,,,final,"Use Heat Pumps spreadsheet, sheet 'results', row 32: 'net cost per unit solution' (2023 US$/unit/yr).",,,heat-pump,low-carbon,net
+green-premium.drawdown-explorer.heating,WLD,2023,540.0,,,,final,"Use Heat Pumps spreadsheet, sheet 'results', row 30: 'operating cost per unit solution' (2023 US$/unit/yr).",,,heat-pump,low-carbon,operating

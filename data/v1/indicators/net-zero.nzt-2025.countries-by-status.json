@@ -1,0 +1,106 @@
+{
+  "attribution": "Counted by Environment Dashboard from Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. Net Zero Stocktake 2025 dataset (Zenodo, doi:10.5281/zenodo.17143240). CC BY-NC 4.0. Changes: Counted the countries the Net Zero Tracker records with each status.",
+  "description": "The number of national governments in the Net Zero Tracker with a net zero (or carbon or climate neutrality) target, by how firm the target is, and the number with another kind of end target or none, as recorded for the Net Zero Stocktake 2025.",
+  "dimensions": [
+    {
+      "id": "status",
+      "label": "Status of the target",
+      "values": [
+        {"id": "any-net-zero-target", "label": "Any net zero target"},
+        {"id": "achieved-self-declared", "label": "Achieved (self-declared)"},
+        {"id": "in-law", "label": "In law"},
+        {"id": "in-policy-document", "label": "In policy document"},
+        {"id": "declaration-pledge", "label": "Declaration / pledge"},
+        {"id": "proposed-in-discussion", "label": "Proposed / in discussion"},
+        {"id": "other-end-target", "label": "Another kind of end target, not net zero"},
+        {"id": "no-target", "label": "No target"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "net-zero.nzt-2025.countries-by-status",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "status": "any-net-zero-target"
+    },
+    "entity": "WLD",
+    "period": "2025-09-17",
+    "status": "final",
+    "value": 137.0
+  },
+  "licence": {
+    "name": "CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0)",
+    "spdx": "CC-BY-NC-4.0",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "Net Zero Tracker data are shared under CC BY-NC 4.0, for non-commercial use only; the Tracker's Zenodo deposit labels the same file CC BY 4.0, and the stricter terms are followed until the Tracker confirms which applies.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "stocktake-2025-csv", "bytes": 8534432, "citation_full": "Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2026. Dataset: Tatlow, H., Manya, D. and Siu, D. (2025), Net Zero Stocktake 2025, Zenodo, https://doi.org/10.5281/zenodo.17143240", "date_accessed": "2026-10-08", "date_published": "2025-09-17", "doi": "10.5281/zenodo.17143240", "etag": null, "last_modified": null, "licence": {"name": "CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0)", "spdx": "CC-BY-NC-4.0", "url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "producer": "Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero)", "r2_url": null, "sha256": "fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b", "source_id": "net-zero-tracker-2025", "title": "Net Zero Stocktake 2025 dataset", "url_download": "https://zenodo.org/api/records/17143240/files/Data_finalised_for_Zenodo_16_09(Sheet1).csv/content", "url_main": "https://zenodo.org/records/17143240", "version_producer": "Net Zero Stocktake 2025 (Zenodo doi:10.5281/zenodo.17143240, 17 September 2025)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read Data_finalised_for_Zenodo_16_09(Sheet1).csv from Zenodo record 17143240 (fetched 2026-10-08, sha256 fd2471cfb041…), as cp1252 text, and checked that its md5 is the 68515520c574f51bf5d69af4d493ca57 Zenodo lists.",
+      "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
+      "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
+    },
+    {
+      "description": "Kept the 198 rows with Entity_type 'Country' (the European Union, EUU, is published as EU27) and only their target columns; the GDP, population and emissions context columns were not read.",
+      "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
+      "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
+    },
+    {
+      "description": "Took the Tracker's own classification: data_is_nzt marks a net zero or similar end target (net zero, zero emissions, zero carbon, climate neutral, climate positive, carbon neutral(ity), GHG neutral(ity), carbon negative, net negative), data_NonNZ_EndTarget another kind of end target, and 'No target at all' none; the build checks that each flag agrees with the End_target label.",
+      "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
+      "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
+    },
+    {
+      "description": "Counted the 198 country rows by status: each of the Tracker's five statuses of a net zero target, any net zero target (their sum), another kind of end target, and no target. The European Union counts once, as one of the 198, as in the Tracker's own report; its member states count too.",
+      "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
+      "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Targets as coded by the Net Zero Tracker from public documents for its Net Zero Stocktake 2025 (deposited 17 September 2025). 'Net zero' includes the Tracker's similar target names (carbon neutrality, climate neutrality, net negative and others). The status is the Tracker's: in law, in a policy document, a declaration or pledge, proposed or in discussion, or achieved by the government's own account.",
+    "bunkers": null,
+    "geography": "198 national governments and self-governing territories in the Net Zero Tracker; the European Union counts as one of them, as in the Tracker's report, and its member states also count",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "status": ["any-net-zero-target", "achieved-self-declared", "in-law", "in-policy-document", "declaration-pledge", "proposed-in-discussion", "other-end-target", "no-target"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2025-09-17", "2025-09-17", "2025-09-17", "2025-09-17", "2025-09-17", "2025-09-17", "2025-09-17", "2025-09-17"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [137.0, 4.0, 34.0, 58.0, 14.0, 27.0, 57.0, 4.0]
+  },
+  "time_basis": "calendar",
+  "title": "How many national governments have a net zero target, and how firm it is",
+  "unit": {
+    "code": "countries",
+    "label": "national governments",
+    "short": "governments"
+  },
+  "vintage": "Net Zero Stocktake 2025 (Zenodo doi:10.5281/zenodo.17143240, 17 September 2025)"
+}

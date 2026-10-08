@@ -1,0 +1,119 @@
+{
+  "attribution": "Sacchi, R., Becattini, V., Gabrielli, P., Cox, B., Dirnaichner, A., Bauer, C. & Mazzotti, M. (2023). How to make climate-neutral aviation fly. Nature Communications 14, 3989. doi:10.1038/s41467-023-39749-y. CC BY 4.0.",
+  "description": "The projected cost of making a kilogram of synthetic jet fuel from hydrogen and CO2 with European electricity in 2030 and 2050, under a 2 °C and a 3.5 °C climate scenario, as Sacchi and colleagues (2023) estimate it. The study gives no cost of fossil jet fuel of its own for those years, so there is no fossil comparator.",
+  "dimensions": [
+    {
+      "id": "option",
+      "label": "Fuel",
+      "values": [
+        {"id": "conventional-jet-fuel", "label": "Conventional (fossil) jet fuel"},
+        {"id": "synthetic-jet-fuel", "label": "Synthetic jet fuel from hydrogen and CO2 (Fischer-Tropsch)"}
+      ]
+    },
+    {
+      "id": "side",
+      "label": "Side",
+      "values": [
+        {"id": "conventional", "label": "Fossil jet fuel"},
+        {"id": "low-carbon", "label": "Synthetic jet fuel"}
+      ]
+    },
+    {
+      "id": "scenario",
+      "label": "Climate scenario",
+      "values": [
+        {"id": "2c", "label": "2 °C climate scenario (RCP 2.6)"},
+        {"id": "3-5c", "label": "3.5 °C climate scenario (RCP 6)"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "EUR_STUDY",
+  "id": "green-premium.sacchi-2023.jet-fuel",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "option": "synthetic-jet-fuel",
+      "scenario": "2c",
+      "side": "low-carbon"
+    },
+    "entity": "EUR_STUDY",
+    "period": "2050",
+    "status": "projection",
+    "value": 2.1
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Table 4, row \"2 °C\", column \"LC syn-jet fuel (€/kgJF) 2030\": 3.1", "Table 4, row \"2 °C\", column \"LC syn-jet fuel (€/kgJF) 2050\": 2.1", "Table 4, row \"3.5 °C\", column \"LC syn-jet fuel (€/kgJF) 2030\": 3.8", "Table 4, row \"3.5 °C\", column \"LC syn-jet fuel (€/kgJF) 2050\": 3.2"],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-xml", "bytes": 204287, "citation_full": "Sacchi, R., Becattini, V., Gabrielli, P. et al. How to make climate-neutral aviation fly. Nat Commun 14, 3989 (2023). https://doi.org/10.1038/s41467-023-39749-y", "date_accessed": "2026-10-08", "date_published": "2023-07-06", "doi": "10.1038/s41467-023-39749-y", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Romain Sacchi, Viola Becattini, Paolo Gabrielli, Brian Cox, Alois Dirnaichner, Christian Bauer and Marco Mazzotti (Paul Scherrer Institut, ETH Zurich, INFRAS and the Potsdam Institute for Climate Impact Research); published in Nature Communications", "r2_url": null, "sha256": "d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e", "source_id": "sacchi-2023", "title": "Levelised cost of synthetic jet fuel for European aviation (Sacchi et al. 2023)", "url_download": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10326079/fullTextXML", "url_main": "https://doi.org/10.1038/s41467-023-39749-y", "version_producer": "Nature Communications 14, 3989 (2023)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the article's JATS XML from Europe PMC (sha256 d6c6f56ad109…) and checked its DOI, the caption of Table 4 and 5 sentences of the Methods.",
+      "inputs": ["d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/jet_fuel_sacchi_2023.py",
+      "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
+    },
+    {
+      "description": "Published the 4 levelised costs of synthetic jet fuel in Table 4 (two scenarios, 2030 and 2050), each addressed by its printed scenario row and column header, exactly as printed.",
+      "inputs": ["d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/jet_fuel_sacchi_2023.py",
+      "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
+    },
+    {
+      "description": "Published no value for conventional jet fuel: the article's 0.50 €/kg is a third party's 2019 production cost used as an input (via Becattini et al. 2021, from an International Energy Agency chart), so each conventional cell is a missing value that says so.",
+      "inputs": ["d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/jet_fuel_sacchi_2023.py",
+      "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
+    }
+  ],
+  "published_value": {
+    "document": "sacchi-2023",
+    "locator": "Table 4",
+    "quote": "Table 4. Levelized costs (LC) for H2 and synthetic fuel production and compression estimated for 2030 and 2050 for the 2 ° and 3.5 °C climate scenarios"
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Modelled levelised cost of production (projections for 2030 and 2050), with electricity costs from the REMIND model and learning rates for electrolysis and direct air capture that depend on the scenario. The currency year is not stated.",
+    "bunkers": null,
+    "geography": "Europe as the study defines it: aviation departing from the EU-27 and EFTA countries, with European electricity costs",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "option": ["conventional-jet-fuel", "conventional-jet-fuel", "conventional-jet-fuel", "conventional-jet-fuel", "synthetic-jet-fuel", "synthetic-jet-fuel", "synthetic-jet-fuel", "synthetic-jet-fuel"],
+      "scenario": ["2c", "2c", "3-5c", "3-5c", "2c", "2c", "3-5c", "3-5c"],
+      "side": ["conventional", "conventional", "conventional", "conventional", "low-carbon", "low-carbon", "low-carbon", "low-carbon"]
+    },
+    "entity": ["EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "EUR_STUDY", "EUR_STUDY"],
+    "missing_reason": ["No fossil comparator in Sacchi et al. (2023). The article's only conventional jet fuel cost is an input it takes from another study: \"The cost of conventional jet fuel is assumed to be 0.50 €/kg, corresponding to the average production cost in 2019\" (Methods, citing Becattini et al. 2021, who cite an International Energy Agency chart). It is a third party's 2019 cost, not one the study computes for 2030 or 2050.", "No fossil comparator in Sacchi et al. (2023). The article's only conventional jet fuel cost is an input it takes from another study: \"The cost of conventional jet fuel is assumed to be 0.50 €/kg, corresponding to the average production cost in 2019\" (Methods, citing Becattini et al. 2021, who cite an International Energy Agency chart). It is a third party's 2019 cost, not one the study computes for 2030 or 2050.", "No fossil comparator in Sacchi et al. (2023). The article's only conventional jet fuel cost is an input it takes from another study: \"The cost of conventional jet fuel is assumed to be 0.50 €/kg, corresponding to the average production cost in 2019\" (Methods, citing Becattini et al. 2021, who cite an International Energy Agency chart). It is a third party's 2019 cost, not one the study computes for 2030 or 2050.", "No fossil comparator in Sacchi et al. (2023). The article's only conventional jet fuel cost is an input it takes from another study: \"The cost of conventional jet fuel is assumed to be 0.50 €/kg, corresponding to the average production cost in 2019\" (Methods, citing Becattini et al. 2021, who cite an International Energy Agency chart). It is a third party's 2019 cost, not one the study computes for 2030 or 2050.", null, null, null, null],
+    "note": [null, null, null, null, 0, 1, 2, 3],
+    "period": ["2030", "2050", "2030", "2050", "2030", "2050", "2030", "2050"],
+    "status": ["projection", "projection", "projection", "projection", "projection", "projection", "projection", "projection"],
+    "value": [null, null, null, null, 3.1, 2.1, 3.8, 3.2]
+  },
+  "time_basis": "calendar",
+  "title": "Cost of synthetic jet fuel for European aviation (Sacchi et al. 2023)",
+  "unit": {
+    "code": "EUR-per-kg",
+    "label": "euros per kilogram of jet fuel",
+    "short": "€/kg"
+  },
+  "vintage": "Nature Communications 14, 3989 (2023)"
+}

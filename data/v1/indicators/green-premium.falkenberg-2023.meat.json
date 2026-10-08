@@ -1,0 +1,121 @@
+{
+  "attribution": "Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12, 2211. doi:10.3390/foods12112211. CC BY 4.0.",
+  "description": "What a kilogram of plant-based mince and sausages cost in Austrian supermarkets in Vienna in May 2022, beside conventional minced meat and sausages in the same shops, as Falkenberg and colleagues (2023) recorded them: the mean and median of the products on sale, with the cheapest and dearest.",
+  "dimensions": [
+    {
+      "id": "product",
+      "label": "Product",
+      "values": [
+        {"id": "mince", "label": "Minced meat"},
+        {"id": "sausages", "label": "Sausages"}
+      ]
+    },
+    {
+      "id": "side",
+      "label": "Side",
+      "values": [
+        {"id": "conventional", "label": "Conventional meat"},
+        {"id": "low-carbon", "label": "Plant-based alternative"}
+      ]
+    },
+    {
+      "id": "statistic",
+      "label": "Statistic",
+      "values": [
+        {"id": "mean", "label": "Mean of the products"},
+        {"id": "median", "label": "Median of the products"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "country",
+  "headline_entity": "AUT",
+  "id": "green-premium.falkenberg-2023.meat",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "product": "mince",
+      "side": "low-carbon",
+      "statistic": "mean"
+    },
+    "entity": "AUT",
+    "period": "2022-05",
+    "status": "final",
+    "value": 16.32
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": ["Table 3, row \"Conventional minced meat\": Mean 11.40, Min. 6.79, Max. 15.12", "Table 3, row \"Conventional minced meat\": Median 12.47, Min. 6.79, Max. 15.12", "Table 3, row \"Conventional sausages\": Mean 15.24, Min. 9.42, Max. 31.87", "Table 3, row \"Conventional sausages\": Median 15.00, Min. 9.42, Max. 31.87", "Table 3, row \"Plant-based minced meat\": Mean 16.32, Min. 7.90, Max. 22.17", "Table 3, row \"Plant-based minced meat\": Median 17.28, Min. 7.90, Max. 22.17", "Table 3, row \"Plant-based sausages\": Mean 19.72, Min. 11.92, Max. 28.06", "Table 3, row \"Plant-based sausages\": Median 18.63, Min. 11.92, Max. 28.06"],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "article-xml", "bytes": 135678, "citation_full": "Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12(11), 2211. https://doi.org/10.3390/foods12112211", "date_accessed": "2026-10-08", "date_published": "2023-05-31", "doi": "10.3390/foods12112211", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Christof Falkenberg, Alena Trexler, Christian Garaus and Siegfried Pöchtrager (University of Natural Resources and Life Sciences, Vienna); published in Foods (MDPI)", "r2_url": null, "sha256": "727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af", "source_id": "falkenberg-2023", "title": "Prices of plant-based and conventional mince and sausages in Austria (Falkenberg et al. 2023)", "url_download": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253197/fullTextXML", "url_main": "https://doi.org/10.3390/foods12112211", "version_producer": "Foods 12, 2211 (2023)", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the article's JATS XML from Europe PMC (sha256 727b62b8c073…) and checked its DOI, the caption and column headers of Table 3 and 2 sentences of the text.",
+      "inputs": ["727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/meat_falkenberg_2023.py",
+      "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
+    },
+    {
+      "description": "Published the mean and the median price per kilogram of the four product groups, with the minimum and maximum as the range: 8 values, each addressed by its printed row label and column header and published as printed.",
+      "inputs": ["727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/meat_falkenberg_2023.py",
+      "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
+    },
+    {
+      "description": "Nothing was subtracted: plant-based and conventional prices are shown side by side as the table gives them.",
+      "inputs": ["727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/green_premium/meat_falkenberg_2023.py",
+      "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
+    }
+  ],
+  "published_value": {
+    "document": "falkenberg-2023",
+    "locator": "Table 3",
+    "quote": "Table 3. Descriptive indicators for price per kilogram (kg) for each product group in euro (EUR)."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Shelf prices observed in May 2022, recalculated per kilogram from price and pack mass; statistics across the products observed. Conventional meat is not split by species.",
+    "bunkers": null,
+    "geography": "Vienna, Austria: the nationwide supermarket chains Billa, Billa Plus, Spar/Eurospar/Interspar, Hofer and Lidl",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "product": ["mince", "mince", "mince", "mince", "sausages", "sausages", "sausages", "sausages"],
+      "side": ["conventional", "conventional", "low-carbon", "low-carbon", "conventional", "conventional", "low-carbon", "low-carbon"],
+      "statistic": ["mean", "median", "mean", "median", "mean", "median", "mean", "median"]
+    },
+    "entity": ["AUT", "AUT", "AUT", "AUT", "AUT", "AUT", "AUT", "AUT"],
+    "interval": ["range", "range", "range", "range", "range", "range", "range", "range"],
+    "lower": [6.79, 6.79, 7.9, 7.9, 9.42, 9.42, 11.92, 11.92],
+    "note": [0, 1, 4, 5, 2, 3, 6, 7],
+    "period": ["2022-05", "2022-05", "2022-05", "2022-05", "2022-05", "2022-05", "2022-05", "2022-05"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final"],
+    "upper": [15.12, 15.12, 22.17, 22.17, 31.87, 31.87, 28.06, 28.06],
+    "value": [11.4, 12.47, 16.32, 17.28, 15.24, 15.0, 19.72, 18.63]
+  },
+  "time_basis": "calendar",
+  "title": "Price of plant-based and conventional mince and sausages in Vienna (Falkenberg et al. 2023)",
+  "unit": {
+    "code": "EUR-per-kg",
+    "label": "euros per kilogram (retail price)",
+    "short": "€/kg"
+  },
+  "vintage": "Foods 12, 2211 (2023)"
+}
