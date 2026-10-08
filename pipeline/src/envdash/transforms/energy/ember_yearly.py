@@ -206,12 +206,10 @@ def check_definitions(wy: WorldYear) -> None:
         raise EmberFormatError(f"World {y}: Clean share {clean_share}% is not Clean / Total generation")
 
 
-def country_gaps(df: pl.DataFrame) -> dict[str, tuple[int, list[str]]]:
-    """year -> (countries with Total generation in an earlier year, those of them without it in this year)."""
+def country_gaps(df: pl.DataFrame, source: str = "Total generation") -> dict[str, tuple[int, list[str]]]:
+    """year -> (countries with a value for `source` in an earlier year, those of them without one in this year)."""
     t = df.filter(
-        (pl.col("Area type") == COUNTRY)
-        & (pl.col("Electricity source") == "Total generation")
-        & pl.col(GEN).is_not_null()
+        (pl.col("Area type") == COUNTRY) & (pl.col("Electricity source") == source) & pl.col(GEN).is_not_null()
     )
     years_of: dict[str, set[int]] = defaultdict(set)
     for area, year in t.select("Area", "Year").iter_rows():

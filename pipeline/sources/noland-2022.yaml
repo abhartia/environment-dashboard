@@ -1,0 +1,106 @@
+# Nøland, Auxepaules, Rousset, Perney & Falletti (2022), Scientific Reports 12: 21280: power density (mean power
+# generated per square metre of land or sea) of large-scale electricity generation, from plant-level case studies
+# (Table 16).
+# Evidence: docs/research/sources-zero-space-and-power-2026-10-08.json (question a, rank 2).
+# Checked 2026-10-08:
+#   - The research read the Europe PMC copy because nature.com redirected its scripts to a login. On 2026-10-08 the
+#     publisher's own PDF answered a scripted GET (303 to idp.nature.com, which sets a cookie and returns to the PDF
+#     with ?error=cookies_not_supported; final HTTP 200, application/pdf, 2,802,223 bytes, sha256
+#     c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de, identical on two downloads). So the producer's
+#     file is used and the Europe PMC mirror is not.
+#   - The licence quote is on page 26 of that PDF; the article page's "Rights and permissions" section says the same.
+#   - citation.text is the article page's "Cite this article" line, verbatim.
+# What is used and what is not. Only Table 16 (page 20), the authors' aggregate of their own plant-level population
+# studies (sites measured on satellite images, generation from public records), and only the median, mean and
+# standard deviation of power density in watts per square metre. Left out:
+#   - the natural gas row: it is the upper estimate of Table 6, which is built on IEA World Energy Outlook 2022 figures
+#     (gas primary energy, generation, capacity; reference 35) and a Statista pipeline length (reference 40), under
+#     the IEA's and Statista's terms, not this article's;
+#   - the biomass row: it is van Zalk and Behrens (2018)'s meta-analysis value (footnote 3), whose own licence a
+#     person has not yet confirmed on the article page (ScienceDirect blocks scripts);
+#   - Table 2 (shares from BP and IEA), Table 10 (capacity factors from Our World in Data), Tables 15, 19 and 20 (IEA
+#     Net Zero scenario land use) and the annual energy density columns (the same values in another unit);
+#   - the supplementary plant files (SI 1 lists Higashi-Niigata under the United Arab Emirates and Futtsu under
+#     Russia; both are in Japan).
+# Rooftop solar is power per square metre of roof surface (Table 9: cumulative installations per country, from
+# Capellán-Pérez et al. 2017), not land. Twin: lovering-2022 (land per unit of electricity, other boundaries);
+# shown side by side, never combined.
+id: noland-2022
+title: Power density of electricity generation (Nøland et al. 2022)
+publisher: >-
+  Nøland, Auxepaules, Rousset, Perney and Falletti (Norwegian University of Science and Technology, Grenoble INP);
+  published in Scientific Reports (Springer Nature)
+landing_url: https://doi.org/10.1038/s41598-022-25341-9
+description: >-
+  Mean power generated per square metre (watts per square metre) by nuclear plants including their safety area,
+  hydroelectric reservoirs, concentrating solar, ground-mounted and floating solar farms, wave and tidal farms,
+  geothermal fields including the area between wells, offshore and onshore wind farms (the whole area inside the
+  farm's perimeter), and rooftop solar per square metre of roof, from the authors' measurements of 8 to 451 sites per
+  source worldwide (Table 16). Each source gives the median, the mean and the standard deviation across sites. The
+  land boundaries differ from Lovering et al. (2022): nuclear includes the security zone but not uranium mining, and
+  wind counts the whole farm area.
+citation:
+  type: article-journal
+  title: Spatial energy density of large-scale electricity generation from power sources worldwide
+  author:
+    - {family: Nøland, given: Jonas Kristiansen}
+    - {family: Auxepaules, given: Juliette}
+    - {family: Rousset, given: Antoine}
+    - {family: Perney, given: Benjamin}
+    - {family: Falletti, given: Guillaume}
+  issued: "2022-12-08"
+  publisher: Springer Nature
+  container-title: Scientific Reports
+  volume: "12"
+  page: "21280"
+  DOI: 10.1038/s41598-022-25341-9
+  URL: https://doi.org/10.1038/s41598-022-25341-9
+  text: >-
+    Nøland, J.K., Auxepaules, J., Rousset, A. et al. Spatial energy density of large-scale electricity generation from
+    power sources worldwide. Sci Rep 12, 21280 (2022). https://doi.org/10.1038/s41598-022-25341-9
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.nature.com/articles/s41598-022-25341-9.pdf
+  licence_quote: >-
+    Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits
+    use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate
+    credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if
+    changes were made.
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  # The licence asks for credit, a link to the licence and an indication of changes.
+  attribution: >-
+    Nøland, J. K., Auxepaules, J., Rousset, A., Perney, B. & Falletti, G. (2022). Spatial energy density of
+    large-scale electricity generation from power sources worldwide. Scientific Reports 12, 21280.
+    doi:10.1038/s41598-022-25341-9. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Nøland, J. K., Auxepaules, J., Rousset, A., Perney, B. & Falletti, G. (2022).
+    Spatial energy density of large-scale electricity generation from power sources worldwide. Scientific Reports 12,
+    21280. doi:10.1038/s41598-022-25341-9. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-pdf
+    url: https://www.nature.com/articles/s41598-022-25341-9.pdf
+    format: pdf
+    description: >-
+      The published article (26 pages). Table 16 (page 20) gives the median, mean and standard deviation of mean
+      specific power in W/m2 and of annual energy density in TWh/km2, the capacity factor and the number of sites
+      per source; Table 7 (page 8) splits nuclear with and without the safety area, Table 9 (page 12) rooftop solar
+      by region and Table 11 (page 14) wind by continent. 2,802,223 bytes.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published 8 December 2022 (volume 12) as a one-off study; no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2022)
+twins: [lovering-2022]
+research_ref: >-
+  docs/research/sources-zero-space-and-power-2026-10-08.json#Nøland, Auxepaules, Rousset, Perney & Falletti (2022),
+  Spatial energy density of large-scale electricity generation from power sources worldwide, Scientific Reports 12:
+  21280

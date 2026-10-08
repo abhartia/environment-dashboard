@@ -1,0 +1,96 @@
+# UK Department for Energy Security and Net Zero (DESNZ), Subnational electricity consumption statistics, Great
+# Britain, 2005 to 2024 (Accredited Official Statistics).
+# Evidence: docs/research/sources-zero-space-and-power-2026-10-08.json (question b, rank 4).
+# Checked 2026-10-08:
+#   - GOV.UK content API
+#     (https://www.gov.uk/api/content/government/statistics/regional-and-local-authority-electricity-consumption-statistics):
+#     organisation Department for Energy Security and Net Zero; updated 2025-12-18 with the change note "Updated with
+#     Sub-national electricity consumption statistics and distribution 2024 tables."; attachment "Subnational
+#     electricity consumption statistics 2005 to 2024", the xlsx below (2,103,254 bytes).
+#   - The workbook: HTTP 200, ETag "69426e90-2017d6", Last-Modified Wed 17 Dec 2025, sha256
+#     9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429. Its cover sheet: "Publication date: 18 December
+#     2025", "Next update: December 2026". The asset URL is per revision, so it pins this edition.
+#   - The licence sentence is in the GOV.UK page footer (the link text "Open Government Licence v3.0" sits inside it).
+#     DESNZ gives no specific attribution statement, so OGL v3's default applies: "Contains public sector information
+#     licensed under the Open Government Licence v3.0."
+#   - Third-party content: the household counts behind the mean per household are ONS, Welsh Government and National
+#     Records of Scotland estimates (cover sheet), all Crown copyright under the same licence; Wales 2024 households
+#     are DESNZ's own projections from 2023.
+# Electricity years (cover sheet): half-hourly meters cover the calendar year; non-half-hourly meters (almost all
+# homes) cover February to January ("the 2024 electricity year was February 2024 to January 2025"). Both spans of the
+# 2024 year are 366 days. Northern Ireland is not covered.
+id: desnz-subnational-electricity
+title: Subnational electricity consumption, Great Britain
+publisher: Department for Energy Security and Net Zero (UK Government)
+landing_url: https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics
+description: >-
+  Metered electricity consumption in Great Britain (England, Scotland and Wales) by country, region and local
+  authority, one sheet per year from 2005 to 2024: numbers of meters, total consumption in gigawatt-hours, mean and
+  median consumption per meter in kilowatt-hours for domestic and non-domestic meters, and, from 2012, mean domestic
+  consumption per household. Built from meter-level consumption data supplied by electricity data aggregators.
+  Domestic and most non-domestic meters are counted over February to January, half-hourly meters over the calendar
+  year.
+citation:
+  type: dataset
+  title: Subnational electricity consumption statistics, Great Britain, 2005 to 2024
+  author:
+    - {literal: Department for Energy Security and Net Zero}
+  issued: "2025-12-18"
+  publisher: GOV.UK
+  URL: https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics
+  # DESNZ publishes no recommended citation; this is the GOV.UK publication record's organisation, date and title.
+  text: >-
+    Department for Energy Security and Net Zero (2025). Subnational electricity consumption statistics, Great Britain,
+    2005 to 2024. GOV.UK.
+    https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics
+licence_class: open
+licence:
+  name: Open Government Licence v3.0 (Crown copyright)
+  spdx: OGL-UK-3.0
+  url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+evidence:
+  terms_url: https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics
+  licence_quote: All content is available under the Open Government Licence v3.0, except where otherwise stated
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  # OGL v3: "If the Information Provider does not provide a specific attribution statement, you must use the
+  # following: Contains public sector information licensed under the Open Government Licence v3.0."
+  attribution: >-
+    Department for Energy Security and Net Zero, Subnational electricity consumption statistics, Great Britain, 2005 to
+    2024 (published 18 December 2025). Contains public sector information licensed under the Open Government Licence
+    v3.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Department for Energy Security and Net Zero, Subnational electricity
+    consumption statistics, Great Britain, 2005 to 2024 (published 18 December 2025). Contains public sector
+    information licensed under the Open Government Licence v3.0.
+  mirror_raw: true
+  # OGL v3 "Non-endorsement", and its exclusion of "departmental or public sector organisation logos, crests and the
+  # Royal Arms".
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: workbook
+    url: https://assets.publishing.service.gov.uk/media/69426e905431f4f94d7f0b5e/Subnational_electricity_consumption_statistics_2005-2024.xlsx
+    format: xlsx
+    description: >-
+      'Cover sheet' (electricity years, methodology, units, publication dates) and one sheet per year, 2005 to 2024.
+      On sheet '2024', row 'K03000001 Great Britain (inc unallocated), All local authorities' gives 'Mean domestic
+      consumption (kWh per household)', and row 'E12000007 London, All local authorities' gives 'Total consumption
+      (GWh): All meters'. 2,103,254 bytes.
+status:
+  state: active
+  note: Annual, each December; the 2024 tables were published on 18 December 2025.
+  us_federal: false
+update_cadence: Annual (December), covering the year before last
+next_release:
+  expected: 2026-12-31
+  note: >-
+    The cover sheet says "Next update: December 2026" without a day; 31 December 2026 is the check-by date, not an
+    announced date. The new workbook will have a new GOV.UK asset URL.
+  url: https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics
+twins: []
+research_ref: >-
+  docs/research/sources-zero-space-and-power-2026-10-08.json#DESNZ Subnational electricity consumption statistics,
+  Great Britain, 2005-2024 (London and city totals; mean domestic consumption per household)

@@ -1,0 +1,16 @@
+{
+  "artifact_id": "workbook",
+  "command": "uv run python tests/fixtures/zip_member_fixture.py --source desnz-subnational-electricity --artifact workbook --member xl/worksheets/sheet1.xml --suffix .sheet1",
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 5718,
+  "fixture_sha256": "ff9d5f2910d368e05175bc8d5e250693ce9115e9c34cf8c28c0edc19c07c51e6",
+  "full_bytes": 2103254,
+  "full_sha256": "9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429",
+  "licence": "Open Government Licence v3.0 (Crown copyright)",
+  "member": "xl/worksheets/sheet1.xml",
+  "member_bytes": 5718,
+  "member_sha256": "ff9d5f2910d368e05175bc8d5e250693ce9115e9c34cf8c28c0edc19c07c51e6",
+  "rows_kept": "whole member",
+  "source_id": "desnz-subnational-electricity",
+  "url": "https://assets.publishing.service.gov.uk/media/69426e905431f4f94d7f0b5e/Subnational_electricity_consumption_statistics_2005-2024.xlsx"
+}

@@ -1,0 +1,94 @@
+# US Energy Information Administration, 2020 Residential Energy Consumption Survey (RECS), Table CE2.1: annual
+# household site fuel consumption, totals and averages.
+# Evidence: docs/research/sources-zero-space-and-power-2026-10-08.json (question b, rank 3).
+# Licence: EIA "Copyrights and Reuse" page, as for eia-international. The table's own footer credits only EIA ("Data
+# source: U.S. Energy Information Administration, Office of Energy Demand and Integrated Statistics, Forms EIA-457A,
+# D, E, F, & G of the 2020 Residential Energy Consumption Survey").
+# citation.text is EIA's requested acknowledgement form ("Source: U.S. Energy Information Administration (Oct 2008)."
+# on the same page), with the table's final release date (March 2024, printed in the workbook).
+# Checked 2026-10-08: ce2.1.xlsx GET 200, 37,081 bytes, Last-Modified Mon 25 Mar 2024, ETag "80265728ed7eda1:0",
+# sha256 14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff. The technical documentation PDF: GET 200,
+# 681,860 bytes, Last-Modified Wed 21 May 2025, sha256
+# fdc47fbc71fb0a90ca229e42b6f501a6ea95f8a085377e05c334d45640ac7ebf; page 13 says the consumption estimates cover
+# 1 January to 31 December 2020 (366 days), which the power-scale conversion relies on.
+# The 2024 RECS data are due in spring 2027 (EIA RECS page, 2026-10-08); they will be a new source entry.
+id: eia-recs-2020
+title: Residential Energy Consumption Survey 2020, household consumption (Table CE2.1)
+publisher: U.S. Energy Information Administration
+landing_url: https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption
+description: >-
+  Annual site energy consumption of US homes in 2020 by fuel, in physical units and in Btu, for all homes and by
+  region, housing type, income and other characteristics: the number of housing units, total consumption, and average
+  consumption per household using each fuel. For electricity, every home uses it, so the average is per home: about
+  10,600 kilowatt-hours in 2020 for all 123.5 million primary occupied homes in the 50 states and the District of
+  Columbia. Electricity from a home's own solar panels is included. The estimates come from a sample survey of
+  households and their energy suppliers' bills for calendar year 2020; EIA publishes a relative standard error for
+  each value.
+citation:
+  type: dataset
+  title: 2020 Residential Energy Consumption Survey, Table CE2.1 Annual household site fuel consumption in the U.S.
+  author:
+    - {literal: U.S. Energy Information Administration}
+  issued: "2024-03"
+  publisher: U.S. Energy Information Administration
+  version: Final release March 2024
+  URL: https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption
+  text: "Source: U.S. Energy Information Administration (Mar 2024)."
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://www.eia.gov/about/copyrights_reuse.php
+  licence_quote: >-
+    U.S. government publications are in the public domain and are not subject to copyright protection. You may use
+    and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that
+    are on our website or that you receive through our email distribution service.
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: >-
+    Source: U.S. Energy Information Administration (Mar 2024), 2020 Residential Energy Consumption Survey, Table
+    CE2.1.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from U.S. Energy Information Administration, 2020 Residential Energy
+    Consumption Survey, Table CE2.1 (Mar 2024).
+  mirror_raw: true
+  # Same page: "The EIA logo is a registered trademark ... and may not be used without the expressed consent of the
+  # U.S. Energy Information Administration."
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: table-ce2-1
+    url: https://www.eia.gov/consumption/residential/data/2020/c&e/xls/ce2.1.xlsx
+    format: xlsx
+    description: >-
+      Table CE2.1 as a workbook with three sheets: 'Btu', 'physical units' and 'rse' (relative standard errors). Row
+      'All homes' of 'physical units' gives the number of housing units (million), total electricity consumption
+      (billion kWh) and average electricity consumption per household (kWh). Data release March 2023, revised March
+      2024. 37,081 bytes.
+  - id: ce-technical-documentation
+    url: https://www.eia.gov/consumption/residential/data/2020/pdf/2020%20RECS%20CE%20Methodology%20-%20Monthly%20Appendix%20-%20Final.pdf
+    format: pdf
+    description: >-
+      "2020 Residential Energy Consumption Survey: Consumption and Expenditures Technical Documentation Summary" (May
+      2025, 48 pages), linked from the RECS methodology page. Its 'Consumption and Expenditures Annualization and
+      Imputation' section (page 13) defines the reference period as 1 January to 31 December 2020.
+status:
+  state: archived
+  note: >-
+    The 2020 survey's consumption tables are final (revised March 2024). EIA lost more than 100 of its about 350
+    staff in 2025; the 2024 survey's data are announced for spring 2027.
+  us_federal: true
+update_cadence: Every four to five years (2015, 2020, 2024 survey cycles)
+next_release:
+  expected: 2027-06-30
+  note: >-
+    EIA's RECS page (read 2026-10-08): "EIA will be releasing the entire set of data from the 2024 RECS in spring
+    2027." No day is given; 30 June 2027 is the check-by date, not an announced date.
+  url: https://www.eia.gov/consumption/residential/
+twins: []
+research_ref: >-
+  docs/research/sources-zero-space-and-power-2026-10-08.json#EIA Residential Energy Consumption Survey 2020, Table
+  CE2.1 (average household electricity use)

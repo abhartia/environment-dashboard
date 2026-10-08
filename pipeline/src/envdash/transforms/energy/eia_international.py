@@ -39,6 +39,11 @@ together, because EIA's "renewables and other" is negative in that country-year 
 3 October 2026, up to 109.6% for Estonia in 1992; Laos, a large exporter of hydropower, has 106.1% in 2017). Such
 values are published with a note giving both numbers.
 
+World average power (derived, power-scale.eia.world-primary-energy): the World's total energy consumption converted
+to terawatt-hours with the International Table Btu (1,055.05585262 joules, the definition behind EIA's 3,412.14 Btu
+per kWh) and divided by the hours in that calendar year (envdash.power), in exact decimal arithmetic. One series,
+one source: it is never joined with Ember's electricity.
+
 Publisher check: none. EIA states no world primary energy share in the INTL release.
 """
 
@@ -54,7 +59,7 @@ from decimal import Decimal
 from functools import lru_cache
 from pathlib import Path
 
-from envdash import geo
+from envdash import geo, power
 from envdash.models import Dimension, DimensionValue, Display, Observation, Scope, Unit
 from envdash.paths import Paths
 from envdash.transform import Input, InputFile, Result, Spec, Transform, Validation
@@ -389,6 +394,19 @@ def fossil_share_observations(t: Table) -> list[Observation]:
     return obs
 
 
+def world_power_observations(t: Table) -> list[Observation]:
+    """World total energy consumption as average power, in terawatts: quad Btu -> TWh (International Table Btu) over
+    the hours in that calendar year (envdash.power)."""
+    obs = []
+    for p, v in sorted(t.by_entity["WLD"][TOTAL].items()):
+        if not isinstance(v, Decimal):
+            obs.append(Observation(entity="WLD", period=p, value=None, missing_reason=_code_reason(v)))
+            continue
+        tw = power.average_power(power.quad_btu_to_twh(v), power.year_hours(int(p)))
+        obs.append(Observation(entity="WLD", period=p, value=float(tw)))
+    return obs
+
+
 # --- transforms ---------------------------------------------------------------------------------------------------
 
 
@@ -552,5 +570,41 @@ def transforms(paths: Paths) -> list[Transform]:
             ),
             module_file=here,
             validation=Validation(min_rows=200 * 45, value_range=(0.0, 120.0)),
+        ),
+        Transform(
+            spec=Spec(
+                id="power-scale.eia.world-primary-energy",
+                title="Average power of the world's total energy use",
+                description="All the energy the world uses each year since 1980, counting every fuel, expressed as "
+                "average power in terawatts: the year's energy spread evenly over its hours. From US Energy "
+                "Information Administration data.",
+                kind="derived",
+                unit=Unit(code="TW", label="terawatts (average over the year)", short="TW"),
+                display=Display(decimals=1),
+                scope=Scope(
+                    geography="World",
+                    basis=BASIS + " Average power is EIA's annual total converted to terawatt-hours (1 Btu = "
+                    "1,055.05585262 joules, the International Table Btu) and divided by the hours in the year.",
+                ),
+                geo_coverage="global-only",
+                headline_entity="WLD",
+            ),
+            inputs=inputs,
+            run=_runner(
+                world_power_observations,
+                [
+                    "Unit conversion to average power, for the World only: EIA's total energy consumption in "
+                    "quadrillion Btu times 10^15 times 1,055.05585262 joules per Btu (the International Table Btu, "
+                    "exact; EIA's 3,412.14 Btu per kilowatt-hour, checked above, is the same definition), divided by "
+                    "3.6 x 10^15 joules per terawatt-hour, then by the hours in that calendar year (8,760, or 8,784 "
+                    "in a leap year), giving terawatts (TWh / h = TW), in exact decimal arithmetic. The result is the "
+                    "constant power that would deliver the same energy over the year.",
+                ],
+                changes="world total energy consumption converted from quadrillion Btu to terawatt-hours and divided "
+                "by the hours in each year to give average power in terawatts.",
+            ),
+            module_file=here,
+            validation=Validation(min_rows=40, value_range=(1.0, 100.0)),
+            key_files=(Path(power.__file__),),
         ),
     ]

@@ -118,6 +118,10 @@ AGGREGATES: dict[str, str] = {
     # synthetic jet fuel with European electricity for flights from the EU-27 and EFTA. Each indicator's scope says
     # which Europe it is; this is not a membership list.
     "EUR_STUDY": "Europe (as the study cited defines it)",
+    # desnz-subnational-electricity reports Great Britain (code K03000001: England, Scotland and Wales, without
+    # Northern Ireland) and the London region (E12000007, the 33 London local authorities), not the United Kingdom.
+    "GBR_GB": "Great Britain (England, Scotland and Wales)",
+    "GBR_LONDON": "London (the London region of England)",
 }
 
 STATIONS: dict[str, str] = {
