@@ -1,0 +1,95 @@
+# OECD: government budget allocations for R&D (GBARD) by socio-economic objective (NABS 2007), from the OECD's SDMX
+# API (dataflow OECD.STI.STP,DSD_RDS_GOV@DF_GBARD_NABS07,1.0).
+# Evidence: docs/research/sources-zero-levers-and-adaptation-2026-10-08.json, candidates "4. Innovation: public energy
+# RD&D and venture funding", item "OECD Government budget allocations for R&D by socio-economic objective (NABS
+# 2007), objective 'Energy'".
+# Owner decision (2026-10-08): research budgets come from OECD and Eurostat GBARD only; the IEA's Energy Technology
+# RD&D Budgets (product or explorer) are not used.
+# Licence, read 2026-10-08. www.oecd.org answers HTTP 403 to scripts, so the terms were read from the Internet Archive
+# capture https://web.archive.org/web/20261006151414/https://www.oecd.org/en/about/terms-conditions.html (sha256 of
+# the raw page cec832554d09fc2f0142c440b66d93cd308020fbc8ae5d07b973d647ee8119e1) and terms_check is manual. Section
+# "3. Data":
+#   - "Data may be subject to restrictions beyond the scope of these Terms and Conditions, either because specific
+#     terms apply to those Data or because third parties may have ownership interests. It is the user's
+#     responsibility to verify, either directly in the metadata or ... whether the Data is fully or partially owned
+#     by third parties". The dataflow's structure (?references=all) names no third-party owner and no other terms.
+#   - "Permitted Use" (quoted below), and: "When sharing or licensing work created using the Data, you agree to include
+#     the same acknowledgment requirement in any sub-licenses that you grant" (notice below).
+#   - The dataflow carries the annotation NonProductionDataflow "true", which the OECD does not explain; the data are
+#     served by the public API and listed in the Data Explorer. To be asked.
+# Unit: US dollars converted at purchasing power parities, constant prices of 2020 (UNIT_MEASURE USD_PPP, PRICE_BASE
+# Q, BASE_PER 2020, UNIT_MULT 6: millions), the OECD's own conversion. Nothing is converted here.
+id: oecd-gbard
+title: Government budget allocations for R&D (GBARD), by socio-economic objective
+publisher: OECD Directorate for Science, Technology and Innovation
+landing_url: https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_RDS_GOV%40DF_GBARD_NABS07&df[ag]=OECD.STI.STP
+description: >-
+  Government budget allocations for research and development, by the socio-economic objective of the spending
+  (NABS 2007), for OECD members and partner economies, from 1981. Here the objective Energy (NABS05) is used, in
+  millions of US dollars at purchasing power parities and constant 2020 prices, as converted by the OECD. Energy is
+  an objective covering every form of energy, so it includes research on fossil fuels and nuclear power as well as
+  renewables and efficiency: it is all energy R&D in government budgets, not clean-energy research alone. The OECD's
+  flags (estimated, provisional, break in series, definition differs) are kept. Budgets are plans for spending, not
+  money spent.
+citation:
+  type: dataset
+  title: Government budget allocations for R&D
+  author:
+    - {literal: OECD}
+  issued: "2026"
+  publisher: OECD
+  URL: https://sdmx.oecd.org/public/rest/dataflow/OECD.STI.STP/DSD_RDS_GOV@DF_GBARD_NABS07/1.0
+  # The OECD terms' form where no specific citation is given: "OECD (year), (dataset name),(data source) DOI or URL
+  # (accessed on (date))".
+  text: >-
+    OECD (2026), Government budget allocations for R&D, OECD Data Explorer (dataflow
+    OECD.STI.STP:DSD_RDS_GOV@DF_GBARD_NABS07), https://data-explorer.oecd.org/ (accessed on {date_accessed})
+licence_class: open
+licence:
+  name: OECD Terms and Conditions, section 3 Data (any use, with credit)
+  spdx: null
+  url: https://www.oecd.org/en/about/terms-conditions.html
+evidence:
+  terms_url: https://www.oecd.org/en/about/terms-conditions.html
+  licence_quote: >-
+    Except where additional restrictions apply as stated above, you can extract from, download, copy, adapt, print,
+    distribute, share and embed Data for any purpose, even for commercial use. You must give appropriate credit to the
+    OECD by using the citation associated with the relevant Data, or, if no specific citation is available, you must
+    cite the source information using the following format: OECD (year), (dataset name),(data source) DOI or URL
+    (accessed on (date)).
+  checked_on: 2026-10-08
+  terms_check: manual
+obligations:
+  attribution: >-
+    OECD (2026), Government budget allocations for R&D, OECD Data Explorer (dataflow
+    OECD.STI.STP:DSD_RDS_GOV@DF_GBARD_NABS07), https://data-explorer.oecd.org/ (accessed on {date_accessed}).
+  attribution_modified: >-
+    Selected by Environment Dashboard from OECD (2026), Government budget allocations for R&D, OECD Data Explorer
+    (dataflow OECD.STI.STP:DSD_RDS_GOV@DF_GBARD_NABS07), https://data-explorer.oecd.org/ (accessed on
+    {date_accessed}).
+  notice: >-
+    Anyone reusing these OECD data must credit the OECD in the same way, and pass this requirement on.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: application/vnd.sdmx.data+csv, 463,563 bytes, 1,388 rows, 43 economies, 1981-2025.
+  - id: gbard-energy-usd-ppp-2020
+    url: https://sdmx.oecd.org/public/rest/data/OECD.STI.STP,DSD_RDS_GOV@DF_GBARD_NABS07,1.0/.A.C.NABS05._T._Z.USD_PPP.Q?format=csvfilewithlabels
+    format: csv
+    description: >-
+      SDMX-CSV with labels: GBARD (measure C), objective Energy (NABS05), all funding modes (_T), US dollars at PPP,
+      constant prices (base year 2020), every economy and year, with observation status flags (OBS_STATUS,
+      OBS_STATUS_2, OBS_STATUS_3, AUX_OBS_STATUS).
+    access:
+      conditional: false
+status:
+  state: active
+  note: >-
+    Updated when the OECD releases new R&D statistics (latest years provisional; the 2025 values in this pull are
+    flagged provisional or estimated). Not a US federal product.
+  us_federal: false
+update_cadence: Several times a year, as countries report
+twins: [eurostat]
+research_ref: >-
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#4. Innovation: public energy RD&D and venture
+  funding
