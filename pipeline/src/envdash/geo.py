@@ -109,6 +109,10 @@ AGGREGATES: dict[str, str] = {
     "UN_OCE": "Oceania (as grouped by GWIS)",
     # EFFIS's total for the countries in the EU Civil Protection Mechanism, as EFFIS lists them.
     "UCPM": "Countries in the EU Civil Protection Mechanism (as listed by EFFIS)",
+    # desnz-subnational-electricity reports Great Britain (code K03000001: England, Scotland and Wales, without
+    # Northern Ireland) and the London region (E12000007, the 33 London local authorities), not the United Kingdom.
+    "GBR_GB": "Great Britain (England, Scotland and Wales)",
+    "GBR_LONDON": "London (the London region of England)",
 }
 
 STATIONS: dict[str, str] = {

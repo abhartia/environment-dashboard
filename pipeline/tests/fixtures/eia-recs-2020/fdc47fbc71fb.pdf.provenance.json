@@ -1,0 +1,15 @@
+{
+  "artifact_id": "ce-technical-documentation",
+  "command": "uv run python tests/fixtures/make_fixture.py --source eia-recs-2020 --artifact ce-technical-documentation --first 1000000 --last 0",
+  "data_rows_total": 5816,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 681860,
+  "fixture_sha256": "fdc47fbc71fb0a90ca229e42b6f501a6ea95f8a085377e05c334d45640ac7ebf",
+  "full_bytes": 681860,
+  "full_sha256": "fdc47fbc71fb0a90ca229e42b6f501a6ea95f8a085377e05c334d45640ac7ebf",
+  "header_lines": 1,
+  "licence": "Public domain (work of the US federal government)",
+  "rows_kept": "all 5816 data rows",
+  "source_id": "eia-recs-2020",
+  "url": "https://www.eia.gov/consumption/residential/data/2020/pdf/2020%20RECS%20CE%20Methodology%20-%20Monthly%20Appendix%20-%20Final.pdf"
+}

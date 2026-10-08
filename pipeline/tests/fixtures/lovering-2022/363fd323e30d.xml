@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS ONE</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS ONE</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0270155</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-22-07105</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Earth sciences</subject><subj-group><subject>Geography</subject><subj-group><subject>Human geography</subject><subj-group><subject>Land use</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Social sciences</subject><subj-group><subject>Human geography</subject><subj-group><subject>Land use</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Physical sciences</subject><subj-group><subject>Physics</subject><subj-group><subject>Electricity</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Energy and power</subject><subj-group><subject>Fuels</subject><subj-group><subject>Fossil fuels</subject><subj-group><subject>Natural gas</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Physical sciences</subject><subj-group><subject>Materials science</subject><subj-group><subject>Materials</subject><subj-group><subject>Fuels</subject><subj-group><subject>Fossil fuels</subject><subj-group><subject>Natural gas</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Energy and power</subject><subj-group><subject>Alternative energy</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Energy and power</subject><subj-group><subject>Fuels</subject><subj-group><subject>Fossil fuels</subject><subj-group><subject>Coal</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Physical sciences</subject><subj-group><subject>Materials science</subject><subj-group><subject>Materials</subject><subj-group><subject>Fuels</subject><subj-group><subject>Fossil fuels</subject><subj-group><subject>Coal</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Physical sciences</subject><subj-group><subject>Materials science</subject><subj-group><subject>Materials</subject><subj-group><subject>Organic materials</subject><subj-group><subject>Coal</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Energy and power</subject><subj-group><subject>Bioenergy</subject><subj-group><subject>Bioenergy feedstock</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Energy and power</subject><subj-group><subject>Alternative energy</subject><subj-group><subject>Wind power</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Energy and power</subject><subj-group><subject>Fuels</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Physical sciences</subject><subj-group><subject>Materials science</subject><subj-group><subject>Materials</subject><subj-group><subject>Fuels</subject></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Land-use intensity of electricity production and tomorrow’s energy landscape</article-title>
+<alt-title alt-title-type="running-head">Land-use intensity of electricity production and tomorrow’s energy landscape</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0003-3797-774X</contrib-id>
+<name name-style="western">
+<surname>Lovering</surname>
+<given-names>Jessica</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-8087-8686</contrib-id>
+<name name-style="western">
+<surname>Swain</surname>
+<given-names>Marian</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Blomqvist</surname>
+<given-names>Linus</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Hernandez</surname>
+<given-names>Rebecca R.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+<xref ref-type="aff" rid="aff006"><sup>6</sup></xref>
+<xref ref-type="aff" rid="aff007"><sup>7</sup></xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Fastest Path to Zero Initiative, University of Michigan, Ann Arbor, MI, United States of America</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Breakthrough Institute, Oakland, CA, United States of America</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Bren School of Environmental Science &amp; Management, University of California, Santa Barbara, CA, United States of America</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>Energy and Resources Group, University of California, Berkeley, California, United States of America</addr-line></aff>
+<aff id="aff005"><label>5</label> <addr-line>Earth Sciences Division, Climate and Carbon Sciences Program, Lawrence Berkeley National Laboratory, Berkeley, California, United States of America</addr-line></aff>
+<aff id="aff006"><label>6</label> <addr-line>Department of Land, Air, &amp; Water Resources, University of California, Davis, Davis, CA, United States of America</addr-line></aff>
+<aff id="aff007"><label>7</label> <addr-line>Wild Energy Initiative, John Muir Institute of the Environment, University of California, Davis, Davis, CA, United States of America</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Saikia</surname>
+<given-names>Lalit Chandra</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>National Institute of Technology Silchar, India, INDIA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">lovering@umich.edu</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>6</day>
+<month>7</month>
+<year>2022</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2022</year>
+</pub-date>
+<volume>17</volume>
+<issue>7</issue>
+<elocation-id>e0270155</elocation-id>
+<history>
+<date date-type="received">
+<day>9</day>
+<month>3</month>
+<year>2022</year>
+</date>
+<date date-type="accepted">
+<day>6</day>
+<month>6</month>
+<year>2022</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Lovering et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0270155"/>
+<abstract>
+<p>The global energy system has a relatively small land footprint at present, comprising just 0.4% of ice-free land. This pales in comparison to agricultural land use– 30–38% of ice-free land–yet future low-carbon energy systems that shift to more extensive technologies could dramatically alter landscapes around the globe. The challenge is more acute given the projected doubling of global energy consumption by 2050 and widespread electrification of transportation and industry. Yet unlike greenhouse gas emissions, land use intensity of energy has been rarely studied in a rigorous way. Here we calculate land-use intensity of energy (LUIE) for real-world sites across all major sources of electricity, integrating data from published literature, databases, and original data collection. We find a range of LUIE that span four orders of magnitude, from nuclear with 7.1 ha/TWh/y to dedicated biomass at 58,000 ha/TWh/y. By applying these LUIE results to the future electricity portfolios of ten energy scenarios, we conclude that land use could become a significant constraint on deep decarbonization of the power system, yet low-carbon, land-efficient options are available.</p>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution>USDA National Institute of Food and Agriculture</institution>
+</funding-source>
+<award-id>Hatch Project 1010512</award-id>
+<principal-award-recipient>
+<name name-style="western">
+<surname>Hernandez</surname>
+<given-names>Rebecca R.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<award-group id="award002">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/100007707</institution-id>
+<institution>University of California, Davis</institution>
+</institution-wrap>
+</funding-source>
+<principal-award-recipient>
+<name name-style="western">
+<surname>Hernandez</surname>
+<given-names>Rebecca R.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<award-group id="award003">
+<funding-source>
+<institution>UC President's Postdoctoral Fellowship</institution>
+</funding-source>
+<principal-award-recipient>
+<name name-style="western">
+<surname>Hernandez</surname>
+<given-names>Rebecca R.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<funding-statement>R.R.H. received funding for this project from the USDA National Institute of Food and Agriculture Hatch Project 1010512, the Department of Land, Air and Water Resources at UC Davis, and the UC President's Postdoctoral Fellowship. <ext-link ext-link-type="uri" xlink:href="https://nifa.usda.gov/grants" xlink:type="simple">https://nifa.usda.gov/grants</ext-link> <ext-link ext-link-type="uri" xlink:href="https://www.lawr.ucdavis.edu/" xlink:type="simple">https://www.lawr.ucdavis.edu/</ext-link> <ext-link ext-link-type="uri" xlink:href="https://ppfp.ucop.edu/info/" xlink:type="simple">https://ppfp.ucop.edu/info/</ext-link> The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="4"/>
+<table-count count="1"/>
+<page-count count="17"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>All relevant data are within the paper and its <xref ref-type="sec" rid="sec009">Supporting Information</xref> files.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec001" sec-type="intro">
+<title>1. Introduction</title>
+<p>Providing energy for a population of a projected 10 billion by mid-century has many impacts on public health and the environment beyond just carbon emissions. These impacts include water use, materials consumption, local particulate pollution, and land use. The land footprint of energy systems can displace natural ecosystems, lead to land degradation, and create trade-offs for food production, urban development, and conservation. For example, a recent analysis showed that energy sprawl is now the largest driver of land-use change in the United States [<xref ref-type="bibr" rid="pone.0270155.ref001">1</xref>]. Furthermore, land-intensive energy sources may face growing opposition during the siting process, potentially slowing down the rate of the clean energy transition. Giordono et al. (2018) analyzed proposed wind farms in the western United States and found that over 35% of projects faced some form of opposition [<xref ref-type="bibr" rid="pone.0270155.ref002">2</xref>]. The land footprint of energy may become an even larger driver of environmental impacts in the coming decades, if energy consumption rises rapidly in emerging economies and countries shift their mix of energy sources to meet decarbonization targets [<xref ref-type="bibr" rid="pone.0270155.ref003">3</xref>], potentially towards more land-intensive energy sources.</p>
+<p>The land footprint of energy is seldom considered in regional and global assessments of decarbonization pathways, land-use change, and biodiversity threats, with the occasional exception of particularly land-intensive sources like bioenergy [<xref ref-type="bibr" rid="pone.0270155.ref004">4</xref>–<xref ref-type="bibr" rid="pone.0270155.ref010">10</xref>]. There is a need to consider land use as a key factor in energy systems planning, along with other environmental impacts, public health, greenhouse gas emissions, affordability, and energy security.</p>
+<p>There are only a limited set of existing studies that assess land-use intensity of energy (LUIE) across all major electricity sources and all have methodological weaknesses. Previous studies calculated LUIE based on a single installation [<xref ref-type="bibr" rid="pone.0270155.ref011">11</xref>], a small number of non-randomly selected facilities [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>–<xref ref-type="bibr" rid="pone.0270155.ref014">14</xref>], or use modeled electricity generation data. LUIE figures drawing only on a single or handful of sample units may by chance represent unusually small or large facilities, and thus misrepresent the full distribution of intensities, which are better characterized by the mean or median of a larger sample. Furthermore, modeled electricity generation data may not reflect actual performance. As such, LUIE figures drawing on larger, real-world samples are needed.</p>
+<p>In this study, we collected and calculated the land-use intensity (measured as hectares occupied per terawatt-hour of electricity generated in a given year [ha/TWh/y]) for real-world electricity generation–not hypothetical or modeled electricity generation–across all major sources of electricity and a broad geographic distribution. We focus on the land footprint of electricity only, as most future energy scenarios predict disproportionate growth in electricity consumption as transportation and industry electrify to reduce emissions, and electricity production has the broadest range of technologies with diverse land-use impacts [<xref ref-type="bibr" rid="pone.0270155.ref015">15</xref>, <xref ref-type="bibr" rid="pone.0270155.ref016">16</xref>]. Our data set covers 73 countries and 45 US states. Data are collected from published studies as well as public records, datasets, and original geospatial analysis (see <xref ref-type="sec" rid="sec009">Supporting information</xref> for full details). We cover coal, natural gas, nuclear, wind, solar photovoltaic (PV), concentrated solar power (CSP), geothermal, hydroelectric, and biomass (including electricity from dedicated biomass feedstock production, hereafter called “dedicated biomass”; and electricity from waste and residue biomass, hereafter called “residue biomass”).</p>
+<p>We apply our LUIE results to ten prominent scenarios for future energy supply. These scenarios vary greatly in their mix of renewables, fossil fuels, and nuclear energy, but all had large increases in global electricity generation. Our study is the first to reflect the diversity of land-use intensity both within and across energy technologies as they operate in the real world. This new dataset will aid policy-makers in a quantitative and comparative understanding of the balance between energy, land, and climate change mitigation and the implications of a build-out of low-carbon electricity sources on global land use.</p>
+</sec>
+<sec id="sec002" sec-type="materials|methods">
+<title>2. Methods</title>
+<p>Our LUIE dataset is compiled from ten peer-reviewed studies, eight published reports from government agencies and national labs, nine databases, and two original geospatial analyses. To provide LUIE results representative of the current state of each energy technology, we required that data sources represent existing, operational energy facilities and real world, rather than modeled, electricity generation data. The one exception is for concentrating solar power (CSP), as we could only find real generating data for a handful sites; here, we also included a dataset with a range of expected generation from existing CSP sites [<xref ref-type="bibr" rid="pone.0270155.ref017">17</xref>]. As we only focused on electricity generation, we excluded liquid biofuels used in transportation and traditional biomass used directly for heating and lighting.</p>
+<p>We drew on peer-reviewed literature to aggregate data for coal, natural gas, and biomass LUIE. For geothermal, hydroelectric, and solar, we combined data from past studies and publicly available datasets. For wind and nuclear, we calculated area requirements using original measurements in Google Earth Pro and electricity generation data from the US Energy Information Administration (EIA) databases. Where possible, we obtained globally representative samples of energy facilities, but due to limitations on electricity generation data for individual power plants, data for the following energy sources include only facilities in the United States: nuclear, wind, and ground-mounted PV. For solar PV and wind, we expect LUIE to be similar across countries as the technology is produced by a small number of international suppliers and depends mostly on solar insolation. For nuclear power, we expect the LUIE based on US plants to be an upper bound, as most other countries with large nuclear fleets have higher numbers of reactors at each site, leading to economies of scale in terms of occupied land.</p>
+<p>Our LUIE calculations do not include land that is occupied by the upstream manufacturing of electricity generating facilities (e.g., the land required to mine materials for solar panel or wind turbine production, or the materials that go into nuclear or coal power plants). We also exclude land required for electricity transmission infrastructure (e.g., high voltage transmission corridors), offshore area impacts (for wind farms and natural gas drilling), and underground impacts for geothermal, natural gas, and coal mining).</p>
+<p>The formula to measure direct LUIE (<xref ref-type="disp-formula" rid="pone.0270155.e001">Eq 1</xref>), involves dividing the land occupied by an electricity-producing facility by the energy it produces over a year [<xref ref-type="bibr" rid="pone.0270155.ref013">13</xref>, <xref ref-type="bibr" rid="pone.0270155.ref018">18</xref>–<xref ref-type="bibr" rid="pone.0270155.ref022">22</xref>]. For most combustion-based generation—except nuclear—the power plant is only a small proportion of the land occupied to produce energy, with fuel production taking up a much larger amount of land. We call the area for fuel production indirect land use (<xref ref-type="disp-formula" rid="pone.0270155.e002">Eq 2</xref>). This indirect land use applies to coal, natural gas, dedicated biomass, and nuclear, which require externally-sourced fuel. Total LUIE (<xref ref-type="disp-formula" rid="pone.0270155.e003">Eq 3</xref>) is the sum of direct and indirect LUIE. Where data for a single facility was incomplete, for example only direct LUIE was provided, it was combined with the average indirect LUIE result from other sources to calculate total LUIE.</p>
+<disp-formula id="pone.0270155.e001">
+<alternatives>
+<graphic id="pone.0270155.e001g" mimetype="image" position="anchor" xlink:href="info:doi/10.1371/journal.pone.0270155.e001" xlink:type="simple"/>
+<mml:math display="block" id="M1">
+<mml:msub><mml:mrow><mml:mi>L</mml:mi><mml:mi>U</mml:mi><mml:mi>I</mml:mi><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>i</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>i</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>E</mml:mi><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>g</mml:mi><mml:mi>y</mml:mi></mml:mrow></mml:mfrac><mml:mrow><mml:mo>[</mml:mo><mml:mfrac><mml:mrow><mml:mi>h</mml:mi><mml:mi>a</mml:mi><mml:mo>*</mml:mo><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>W</mml:mi><mml:mi>h</mml:mi></mml:mrow></mml:mfrac><mml:mo>]</mml:mo></mml:mrow>
+</mml:math>
+</alternatives>
+<abstract>
+<p><bold>Eq 1:</bold> Direct land use intensity</p>
+</abstract>
+</disp-formula>
+<disp-formula id="pone.0270155.e002">
+<alternatives>
+<graphic id="pone.0270155.e002g" mimetype="image" position="anchor" xlink:href="info:doi/10.1371/journal.pone.0270155.e002" xlink:type="simple"/>
+<mml:math display="block" id="M2">
+<mml:msub><mml:mrow><mml:mi>L</mml:mi><mml:mi>U</mml:mi><mml:mi>I</mml:mi><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>d</mml:mi><mml:mi>i</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>d</mml:mi><mml:mi>i</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>E</mml:mi><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>g</mml:mi><mml:mi>y</mml:mi></mml:mrow></mml:mfrac><mml:mrow><mml:mo>[</mml:mo><mml:mfrac><mml:mrow><mml:mi>h</mml:mi><mml:mi>a</mml:mi><mml:mo>*</mml:mo><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>W</mml:mi><mml:mi>h</mml:mi></mml:mrow></mml:mfrac><mml:mo>]</mml:mo></mml:mrow>
+</mml:math>
+</alternatives>
+<abstract>
+<p><bold>Eq 2:</bold> Indirect land use intensity (applicable energy systems: coal, natural gas, biomass, nuclear)</p>
+</abstract>
+</disp-formula>
+<disp-formula id="pone.0270155.e003">
+<alternatives>
+<graphic id="pone.0270155.e003g" mimetype="image" position="anchor" xlink:href="info:doi/10.1371/journal.pone.0270155.e003" xlink:type="simple"/>
+<mml:math display="block" id="M3">
+<mml:msub><mml:mrow><mml:mi>L</mml:mi><mml:mi>U</mml:mi><mml:mi>I</mml:mi><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi><mml:mi>o</mml:mi><mml:mi>t</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>i</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>d</mml:mi><mml:mi>i</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>E</mml:mi><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>g</mml:mi><mml:mi>y</mml:mi></mml:mrow></mml:mfrac><mml:mrow><mml:mo>[</mml:mo><mml:mfrac><mml:mrow><mml:mi>h</mml:mi><mml:mi>a</mml:mi><mml:mo>*</mml:mo><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>W</mml:mi><mml:mi>h</mml:mi></mml:mrow></mml:mfrac><mml:mo>]</mml:mo></mml:mrow>
+</mml:math>
+</alternatives>
+<abstract>
+<p><bold>Eq 3:</bold> Total land use intensity</p>
+</abstract>
+</disp-formula>
+<disp-formula id="pone.0270155.e004">
+<alternatives>
+<graphic id="pone.0270155.e004g" mimetype="image" position="anchor" xlink:href="info:doi/10.1371/journal.pone.0270155.e004" xlink:type="simple"/>
+<mml:math display="block" id="M4">
+<mml:mtable columnalign="left"><mml:mtr><mml:mtd><mml:msub><mml:mi>A</mml:mi><mml:mrow><mml:mi mathvariant="italic">foatprint</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi mathvariant="normal">Footprint</mml:mi><mml:mspace width="0.25em"/><mml:mo stretchy="false">[</mml:mo><mml:mi>h</mml:mi><mml:mi>a</mml:mi><mml:mo stretchy="false">]</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mi>O</mml:mi><mml:mi>R</mml:mi></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:msub><mml:mi>A</mml:mi><mml:mrow><mml:mi mathvariant="italic">spacing</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi mathvariant="normal">Footprint</mml:mi><mml:mspace width="0.25em"/><mml:mo stretchy="false">[</mml:mo><mml:mi>h</mml:mi><mml:mi>a</mml:mi><mml:mo stretchy="false">]</mml:mo><mml:mo>+</mml:mo><mml:mi mathvariant="normal">Spacing</mml:mi><mml:mspace width="0.25em"/><mml:mo stretchy="false">[</mml:mo><mml:mi>h</mml:mi><mml:mi>a</mml:mi><mml:mo stretchy="false">]</mml:mo></mml:mtd></mml:mtr></mml:mtable>
+</mml:math>
+</alternatives>
+<abstract>
+<p><bold>Eq 4:</bold> Direct area definitions (applicable energy systems: natural gas, wind)</p>
+</abstract>
+</disp-formula>
+<p>For two electricity sources (natural gas and wind), we offer two definitions of occupied land for our calculation of land use intensity: “footprint” and “spacing” area (<xref ref-type="disp-formula" rid="pone.0270155.e004">Eq 4</xref>). Footprint area represents land directly covered by infrastructure, while spacing area is the entire area within the perimeter of a production site (further details in <xref ref-type="supplementary-material" rid="pone.0270155.s001">S1 Text</xref>). For each electricity source, we included all individual LUIE values and calculated the median, average, standard deviation, and interquartile range. To determine if our calculated LUIEs were statistically distinguishable, we performed an ANOVA with Tukey’s pairwise comparison. We anticipate large variability in LUIE within and across energy technologies, as has been demonstrated and discussed by previous studies [<xref ref-type="bibr" rid="pone.0270155.ref023">23</xref>–<xref ref-type="bibr" rid="pone.0270155.ref026">26</xref>].</p>
+<p>Details on our data sourcing for each technology are provided below. A table summarizing the characteristics of the data in each source is provided in the <xref ref-type="supplementary-material" rid="pone.0270155.s002">S1 Table</xref>.</p>
+<p><bold>Coal:</bold> Total LUIE for coal (n = 30) includes direct land impacts from power plant infrastructure and indirect impacts from coal mining, processing, and transportation for the US and Canada. Several studies performed case studies or lifecycle analysis -both direct and indirect land use—on a small number of coal power plants with varying technologies, including mining and transportation of fuel and waste disposal; these included Fthenakis &amp; Kim (2009), Hertwich et al. (2015), Spitzley &amp; Keoleian (2005), Smil (2010), and Gates (1985) [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>, <xref ref-type="bibr" rid="pone.0270155.ref027">27</xref>–<xref ref-type="bibr" rid="pone.0270155.ref031">31</xref>]. Indirect land use, specifically from mining, is the dominant contributor to coal’s land-use intensity, and thus a broader survey that focuses on land occupation for regional coal mining can give a more comprehensive estimate. Jordaan (2010) and McDonald et al. (2009) perform surveys of the land used for coal mining in Canada and the US, respectively [<xref ref-type="bibr" rid="pone.0270155.ref013">13</xref>, <xref ref-type="bibr" rid="pone.0270155.ref032">32</xref>]. These two studies of indirect land-use were given in units of embodied energy for the mined coal, so we applied a 35% conversion efficiency to convert to electricity units, based on Ftheankis &amp; Kim (2009) [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>]. This gives an estimate of hectares per TWh for just the indirect, mining component of coal’s land use intensity.</p>
+<p><bold>Natural Gas:</bold> Total LUIE for natural gas (n = 17) includes direct impacts from power plant infrastructure and indirect impacts from natural gas drilling and transportation infrastructure. Footprint LUIE represents the area covered by gas well pads, access roads, and pipelines. Five sources provided data on footprint LUIE [<xref ref-type="bibr" rid="pone.0270155.ref028">28</xref>, <xref ref-type="bibr" rid="pone.0270155.ref032">32</xref>–<xref ref-type="bibr" rid="pone.0270155.ref035">35</xref>]. Spacing LUIE refers to the entire production field, including all the area in between well pads, even if that land does not have any structures or roads covering it. The US National Energy Technology Laboratory (2014) and US Department of Energy (1983) complete detailed life-cycle assessments for both direct and indirect land-use, including extraction, purification, pipeline transmission, and power plant [<xref ref-type="bibr" rid="pone.0270155.ref033">33</xref>, <xref ref-type="bibr" rid="pone.0270155.ref034">34</xref>]. Spitzley &amp; Keoleian (2005) and Smil (2010) assess direct land-use through case studies of various natural gas power plants technologies [<xref ref-type="bibr" rid="pone.0270155.ref028">28</xref>, <xref ref-type="bibr" rid="pone.0270155.ref030">30</xref>]. Jordaan (2010) and Bryce (2011) provided figures only for indirect impacts from natural gas drilling for Canada and the US [<xref ref-type="bibr" rid="pone.0270155.ref032">32</xref>, <xref ref-type="bibr" rid="pone.0270155.ref035">35</xref>]. Jordaan et al. (2017) calculates lifecycle land use intensity for natural gas, from wells, to pipelines, to power plants [<xref ref-type="bibr" rid="pone.0270155.ref024">24</xref>]. McDonald et al. (2009) and Copeland et al. (2011) provided calculations for indirect spacing LUIE, assessing the area fragmented by natural gas drilling and pipelines [<xref ref-type="bibr" rid="pone.0270155.ref013">13</xref>, <xref ref-type="bibr" rid="pone.0270155.ref036">36</xref>].</p>
+<p><bold>Nuclear:</bold> Land use for nuclear includes direct impacts (n = 59) from the power plant and indirect impacts from the uranium fuel cycle, including mining, milling, conversion, enrichment, and fabrication. We collected original data for direct land-use for all operating nuclear power plants in the United States, by drawing polygons around each power plant using Google Earth Pro. EIA provides data on each plant’s electricity output [<xref ref-type="bibr" rid="pone.0270155.ref037">37</xref>]. Finch (1997), Eliasson &amp; Lee (2003), Harries et al. (1997), and Schneider (2013) survey land area for uranium mining and processing [<xref ref-type="bibr" rid="pone.0270155.ref038">38</xref>–<xref ref-type="bibr" rid="pone.0270155.ref042">42</xref>], mostly in Australia, which averages 0.08 ha/TWh/y when we converted these per ton measurements into electricity units. Fthenakis &amp; Kim (2009) was the only study that provides an estimate for the other aspects of the nuclear fuel cycle: conversion, enrichment, and fabrication [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>]. This is a constraint on data availability, as Fthenakis &amp; Kim (2009) looked only at uranium mining in the US, where almost no uranium mining occurs today. In the US, spent fuel is stored on-site and is therefore included in our direct LUIE calculation. Although the back-end of the nuclear fuel cycle is undetermined in the U.S., we did find two studies that estimated land use for the now-cancelled Yucca Mountain waste repository, which would add an additional 0.012–2.9 ha/TWh to the total LUIE for nuclear[<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>, <xref ref-type="bibr" rid="pone.0270155.ref043">43</xref>]. Countries that recycle or reprocess their spent fuel will likely have less land occupation.</p>
+<p>We also estimated the additional land-use occupied by exclusion zones around the two major nuclear power accidents at Chernobyl in Ukraine (260,000 ha) [<xref ref-type="bibr" rid="pone.0270155.ref044">44</xref>], and Fukushima in Japan (63,000 ha) [<xref ref-type="bibr" rid="pone.0270155.ref045">45</xref>]. We calculated the LUIE of nuclear accidents by combining these two exclusion zones and dividing that area by total historical nuclear power generation (~82,000 TWh) [<xref ref-type="bibr" rid="pone.0270155.ref046">46</xref>], which resulted in an additional LUIE of 3.9 ha/TWh/y. However, in both cases, the exclusion zones are at least partially inhabited and, in the case of Chernobyl, the zone is occupied by abundant wildlife [<xref ref-type="bibr" rid="pone.0270155.ref047">47</xref>].</p>
+<p><bold>Hydroelectric:</bold> The direct area of hydroelectric dams is the area flooded by the reservoir. Our dataset (n = 962) is compiled from International Commission on Large Dam’s (ICOLD) World Register of Dams database and represents single-use hydroelectric dams in eighty countries [<xref ref-type="bibr" rid="pone.0270155.ref048">48</xref>]. The World Register of Dams provided data on mean annual electricity and reservoir area. We exclude run-of-the-river hydroelectric projects since they represent a small portion (roughly 4%) of worldwide hydroelectric capacity and reliable generation data could not be found [<xref ref-type="bibr" rid="pone.0270155.ref049">49</xref>]. However, results from Fthenakis &amp; Kim (2009) suggest LUIE for run-of-the-river projects are much smaller than for traditional hydroelectric (about 10 ha/TWh/y) [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>].</p>
+<p><bold>Biomass:</bold> Like other combustibles, the land impacts from biomass include the direct area of the power plant as well as the area needed to supply the feedstock for the plant (indirect LUIE). Our dataset for dedicated biomass (n = 14) represents woody biomass production from willow, poplar, and spruce trees. Data are drawn from six sources [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>–<xref ref-type="bibr" rid="pone.0270155.ref014">14</xref>, <xref ref-type="bibr" rid="pone.0270155.ref028">28</xref>, <xref ref-type="bibr" rid="pone.0270155.ref050">50</xref>, <xref ref-type="bibr" rid="pone.0270155.ref051">51</xref>]. For residue biomass, we assume no land requirement for feedstock production. Spitzley &amp; Keoleian (2005), Fthenakis &amp; Kim (2009), Kumar et al. (2003), and Smil (2010) provide generation and direct area information for various biomass plants [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>, <xref ref-type="bibr" rid="pone.0270155.ref028">28</xref>, <xref ref-type="bibr" rid="pone.0270155.ref036">36</xref>, <xref ref-type="bibr" rid="pone.0270155.ref051">51</xref>]. Coal power plants can also be used as a proxy since it is common to retrofit a coal plant to burn biomass, but we would expect a biomass plant to have a larger LUIE since the plant runs at lower efficiency. Dijkman &amp; Benders (2010), Kumar et al. (2003), and McDonald et al. (2009) calculate indirect land-use for biomass feedstock production looking at different crops [<xref ref-type="bibr" rid="pone.0270155.ref013">13</xref>, <xref ref-type="bibr" rid="pone.0270155.ref050">50</xref>, <xref ref-type="bibr" rid="pone.0270155.ref051">51</xref>].</p>
+<p><bold>Wind:</bold> While there are several studies of power density for wind farms (m<sup>2</sup>/MW), we created an original dataset to calculate the land use intensity of existing wind farms using historic electricity generation data. Land impacts from wind come from the area covered by wind turbines and access roads. We calculate both footprint and spacing LUIE results for wind (n = 57). Footprint area represents only the area physically covered by the turbine pad and access roads; spacing area includes all the area in between turbines. Our dataset is generated from a randomized sample of operating US wind farms over 20 MW from EIA. We used EIA Form 860 and Form 923 to gather data on installed capacity and annual electricity output for each wind farm for 2013 [<xref ref-type="bibr" rid="pone.0270155.ref052">52</xref>, <xref ref-type="bibr" rid="pone.0270155.ref053">53</xref>]. We combined this with measurements of the footprint and spacing area of each wind farm calculated using Google Earth Pro. For footprint area, we traced perimeters around each turbine pad and the access roads connecting them. For spacing area, we traced the perimeter of the entire wind farm, including all the space in between turbines.</p>
+<p><bold>Solar PV:</bold> Our datasets for ground-mounted PV are based on existing, operational plants over 20 MW in 18 US states with capacity factors over 5%. For all sites, annual electricity generation data came from EIA Form 923 [<xref ref-type="bibr" rid="pone.0270155.ref053">53</xref>]. Area measurements came from Hernandez et al. (n = 17) [<xref ref-type="bibr" rid="pone.0270155.ref054">54</xref>]; Ong et al. (n = 61) [<xref ref-type="bibr" rid="pone.0270155.ref021">21</xref>]; and the Solar Energy Industries Association (n = 13) [<xref ref-type="bibr" rid="pone.0270155.ref055">55</xref>]. For ground-mounted PV, we define direct area as the area of panels or heliostats, roads established during development, and all ancillary facilities. Ancillary facilities may include new service roads, power collection systems, communication cables, overhead and underground transmission lines, electrical sites, switchyards, project substations, meteorological towers, thermal storage units, and operations and maintenance facilities. Integrated Solar PV, i.e. rooftop solar, is assigned an LUIE of zero in this study.</p>
+<p><bold>Solar CSP:</bold> There are very few operating solar CSP plants globally for which we could find real electricity generation data. Ong et al. (2013) and Lilliestam et al. (2021) provide data on land area for solar CSP plants, but both provide only estimated or anticipated electricity generation. Ong uses two different capacity factors to provide a range of generation for each plant. We found real electricity generation data for ten plants, primarily in the US with one in Italy and two in Spain. Because solar CSP could play a large role in future energy systems, we decided to include LUIE from datasets that use estimates of electricity generation. This resulted in n = 101 data points for unique power plants across 13 countries. However, for plants where there was overlap across the datasets, and we had real electricity generation, we found that the larger estimated dataset over-estimated electricity generation by ~30%, which would bias the LUIE figure downward.</p>
+<p><bold>Geothermal:</bold> Geothermal land impacts include the area covered by power plant infrastructure and injection wells. Bertani (2005) provided a detailed list of worldwide geothermal power plants; however, their measured areas represented the entire expanse of the underground geothermal reservoir, only a fraction of which had aboveground land disturbance from the power plant and production wells [<xref ref-type="bibr" rid="pone.0270155.ref056">56</xref>]. We cross-referenced Bertani’s generation data with land use data from geospatial measurements from the Global Energy Observatory (GEO) online database [<xref ref-type="bibr" rid="pone.0270155.ref057">57</xref>]. Bertani’s land area measurements were ~60 times larger than those measured from satellite imagery in the GEO database. Our resulting dataset included 26 plants in 18 countries.</p>
+<sec id="sec003">
+<title>2.1 Application to scenarios</title>
+<p>The ten scenarios we assess are all global decarbonization pathways that make normative choices about electricity demand, electrification rates, and generating technologies (see <xref ref-type="supplementary-material" rid="pone.0270155.s001">S1 Text</xref>). The exception is IEA’s 6 degree scenario, which is a “business-as-usual” forecast. These scenarios vary in their assumptions about total electricity demand and the technology mix (see S1 Fig in <xref ref-type="supplementary-material" rid="pone.0270155.s001">S1 Text</xref>), as well as the end year of their projections (the JD scenario is for the year 2030 [<xref ref-type="bibr" rid="pone.0270155.ref058">58</xref>], Brook is for 2060 [<xref ref-type="bibr" rid="pone.0270155.ref059">59</xref>], and all others are for 2050). They were not selected based on economic or technical feasibility, but rather to represent a diverse range of future electricity scenarios, illustrating the possible land use implications of different decarbonization pathways. To determine the total land area required for electricity generation in the current (2017) and future scenarios, we multiplied the average LUIE result for each energy technology (in ha/TWh/y) by the amount of generation from that technology (in TWh/y) and summed totals over all electricity sources. Using the average LUIE provides a more accurate land use estimate when summing up over many sources, as using the median tends to underestimate total land use when multiplied by all electricity consumption.</p>
+<p>A thorough study of the land use implication for fossil- or biomass-fueled power plants with Carbon Capture and Storage (CCS) has yet to be performed, although data from Hertwich et al. suggest it would increase footprint by 40% compared to a plant without CCS. If a scenario included fossil or biomass generation with CCS, we multiplied our natural gas, coal, and biomass LUIEs by 1.4 [<xref ref-type="bibr" rid="pone.0270155.ref027">27</xref>]. Electricity generation from oil combustion was included in some scenarios in very small quantities; we used the footprint LUIE from a natural gas plant for this figure, as estimates in the literature are not available.</p>
+<p>To understand the significance of the differences across all future scenarios, we also propagated the errors (standard error of each electricity source) through the total land use calculation to provide an uncertainty range for each scenario’s total land use. In all scenarios, the uncertainty is dominated by the standard deviation in the LUIE of hydroelectric, which is large due to the regional variability of hydroelectric resources.</p>
+</sec>
+</sec>
+<sec id="sec004" sec-type="results">
+<title>3. Results</title>
+<p>Our LUIE calculations include land occupied by the electricity-producing facility (called “direct area”) and, if applicable, the land needed to source power plant fuel (called “indirect area”). For wind and natural gas, we offer two definitions of occupied land: “footprint” and “spacing” area. Footprint land is physically occupied by components of the power plant or fuel extraction equipment, while spacing is the land in between physical components in an electricity generation or fuel extraction site. For wind, footprint area measures only the area covered by turbine pads and access roads, while spacing area measures the entire area within the boundaries of the wind farm. For natural gas, footprint area for the indirect land use measures only the area covered by well pads, access roads, and pipelines, while spacing area includes the entire area inside the perimeter of a natural gas production field.</p>
+<p>We find that median LUIE varies by four orders of magnitude across the electricity sources considered in this study (<xref ref-type="fig" rid="pone.0270155.g001">Fig 1</xref>, <xref ref-type="table" rid="pone.0270155.t001">Table 1</xref>). Nuclear had the lowest median LUIE at 7.1 ha/TWh/y, and dedicated biomass the highest at 58,000 ha/TWh/y.</p>
+<fig id="pone.0270155.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0270155.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>Land use intensity of electricity (LUIE: ha/TWh/y), shown on log scale.</title>
+<p>Boxes represent the inter-quartile range with the median as the middle bar. Whiskers extend to the highest or lowest data point that is within 1.5 times the inter-quartile range; points outside this range represent outliers. Electricity sources: nuclear energy (Nuclear), geothermal energy (Geo), wind energy with footprint only, (Wind-), natural gas footprint only (NG-) and including spacing (NG+), hydroelectric power for single purpose dams (Hydro), coal (Coal), concentrating solar power (CSP), ground-mounted photovoltaic solar energy (PV), wind energy with footprint (Wind-) and spacing (Wind+), and residual biomass (BioRes) and dedicated biomass (BioDed).</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.g001" xlink:type="simple"/>
+</fig>
+<table-wrap id="pone.0270155.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0270155.t001</object-id>
+<label>Table 1</label> <caption><title>Land use intensity of electricity (LUIE) showing total direct and indirect land use (ha/TWh/y).</title> <p>We show median, mean, and interquartile range (IQR) for the LUIE, along with the number (n) of observations for each power source. We performed an ANOVA analysis with Tukey’s pairwise comparisons on the log<sub>10</sub> of LUIE for different sources, which is represented by different letters. Sources that share a letter have mean LUIE that are not statistically different. Hydroelectric was excluded from the ANOVA analysis because its variance was too large.</p></caption>
+<alternatives>
+<graphic id="pone.0270155.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="center"/>
+<th align="center">ANOVA Tukey’s Pairwise</th>
+<th align="center">LUIE Median</th>
+<th align="center">LUIE IQR</th>
+<th align="center">LUIE Mean</th>
+<th align="center">LUIE Standard Error</th>
+<th align="center">LUIE n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Nuclear</bold></td>
+<td align="center">A</td>
+<td align="center">7.1</td>
+<td align="center">4.8</td>
+<td align="center">15</td>
+<td align="center">4.4</td>
+<td align="center">59</td>
+</tr>
+<tr>
+<td align="left"><bold>Geothermal</bold></td>
+<td align="center">B</td>
+<td align="center">45</td>
+<td align="center">150</td>
+<td align="center">140</td>
+<td align="center">46</td>
+<td align="center">26</td>
+</tr>
+<tr>
+<td align="left"><bold>Wind (footprint)</bold></td>
+<td align="center">C</td>
+<td align="center">130</td>
+<td align="center">120</td>
+<td align="center">170</td>
+<td align="center">18</td>
+<td align="center">57</td>
+</tr>
+<tr>
+<td align="left"><bold>Residue biomass</bold></td>
+<td align="center">C D</td>
+<td align="center">130</td>
+<td align="center">71</td>
+<td align="center">150</td>
+<td align="center">31</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left"><bold>Natural gas (footprint)</bold></td>
+<td align="center">C D</td>
+<td align="center">410</td>
+<td align="center">210</td>
+<td align="center">410</td>
+<td align="center">58</td>
+<td align="center">17</td>
+</tr>
+<tr>
+<td align="left"><bold>Hydroelectric (single purpose dams)</bold></td>
+<td align="center">---</td>
+<td align="center">650</td>
+<td align="center">2,300</td>
+<td align="center">15,000</td>
+<td align="center">4,300</td>
+<td align="center">952</td>
+</tr>
+<tr>
+<td align="left"><bold>Coal</bold></td>
+<td align="center">D</td>
+<td align="center">1,000</td>
+<td align="center">1,200</td>
+<td align="center">1,100</td>
+<td align="center">170</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="left"><bold>Solar CSP</bold></td>
+<td align="center">D E</td>
+<td align="center">1,300</td>
+<td align="center">650</td>
+<td align="center">2,000</td>
+<td align="center">220</td>
+<td align="center">101</td>
+</tr>
+<tr>
+<td align="left"><bold>Natural gas (spacing)</bold></td>
+<td align="center">D E</td>
+<td align="center">1,900</td>
+<td align="center">2,800</td>
+<td align="center">1,900</td>
+<td align="center">890</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left"><bold>Ground-mounted PV</bold></td>
+<td align="center">E</td>
+<td align="center">2,000</td>
+<td align="center">860</td>
+<td align="center">2,100</td>
+<td align="center">120</td>
+<td align="center">94</td>
+</tr>
+<tr>
+<td align="left"><bold>Wind (spacing)</bold></td>
+<td align="center">F</td>
+<td align="center">12,000</td>
+<td align="center">12,000</td>
+<td align="center">15,000</td>
+<td align="center">1,700</td>
+<td align="center">57</td>
+</tr>
+<tr>
+<td align="left"><bold>Dedicated biomass</bold></td>
+<td align="center">G</td>
+<td align="center">58,000</td>
+<td align="center">59,000</td>
+<td align="center">160,000</td>
+<td align="center">77,000</td>
+<td align="center">14</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+</table-wrap>
+<p>Indirect land use for combustion-based electricity–land used for fuel sourcing for coal, natural gas, and biomass—is a larger share of LUIE than direct land use. Indirect land use comprises over 90% of total land use for natural gas generation, approximately 55% for coal generation, and over 99% for dedicated biomass (see <xref ref-type="supplementary-material" rid="pone.0270155.s001">S1 Text</xref> for more details on data sources). The opposite is true for nuclear power, where indirect land use for uranium mining is only 10% of total LUIE and the majority of land impacts come from the power plant itself. When including accident exclusion zones in the total LUIE for nuclear, indirect land use drops to 6% of total. Although our calculations do not include upstream land impacts from manufacturing of materials, other studies of renewable energy technologies find upstream (indirect) land demands to be negligible, less than 1% of total land use [<xref ref-type="bibr" rid="pone.0270155.ref012">12</xref>].</p>
+<p>To test for statistical differences in LUIE across different sources, we conducted an ANOVA analysis with Tukey’s pairwise comparisons on the natural logarithm of the means of the different sources (<xref ref-type="table" rid="pone.0270155.t001">Table 1</xref>). The ANOVA model uses pooled variance and has an R<sup>2</sup> of 90.46%. Hydroelectric was excluded due to its large variance, which would compromise all the pairwise comparisons since it increases the pooled variance.</p>
+<p>According to this analysis, dedicated biomass, wind (footprint and spacing), geothermal, and nuclear were significantly different from every other source. Ground-mounted PV, solar CSP, and natural gas (spacing) were not significantly different from each other; the same was true for solar CSP, natural gas (spacing), and coal. Natural gas (spacing) was not significantly different from natural gas (footprint). Hydroelectric has a large variance, even after we narrowed our analysis to dams that are only used for power generation, excluding dams with secondary purposes for irrigation, flood control, and drinking water supply.</p>
+<sec id="sec005">
+<title>3.1 Comparing LUIE and life-cycle GHG emissions</title>
+<p>Land-use intensity and GHG emissions are both important metrics for assessing the environmental impacts of electricity production. We identify several electricity-generating technologies that minimize both land use (from our LUIE results) and GHG emissions (median results for the entire electricity life-cycle from IPCC) [<xref ref-type="bibr" rid="pone.0270155.ref060">60</xref>], including rooftop PV, nuclear, wind (footprint only), and geothermal (<xref ref-type="fig" rid="pone.0270155.g002">Fig 2</xref>). The large variance of hydroelectric, biomass, and geothermal reflect the dependence of these sources on local conditions. A dam in a steep mountain valley generates large amounts of electricity on very little land, compared with a dam in a shallow basin. Similarly, the type of land flooded to create the reservoir, or the type of biomass feedstock used can lead the large difference in lifecycle GHG emissions.</p>
+<fig id="pone.0270155.g002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0270155.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title>Relationship between the land use intensity of electricity (ha/TWh/y) and lifecycle GHG emissions (metric tons CO<sup>2</sup>-eq/TWh) on a log scale.</title>
+<p>Error bars represent interquartile range. GHG emissions source data: IPCC Fifth Assessment, Working Group III [<xref ref-type="bibr" rid="pone.0270155.ref060">60</xref>].</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.g002" xlink:type="simple"/>
+</fig>
+</sec>
+<sec id="sec006">
+<title>3.2 Future energy scenarios</title>
+<p>We applied our mean LUIE results to the electricity mix of future scenarios for the global power sector, as well as to today’s global electricity mix [<xref ref-type="bibr" rid="pone.0270155.ref061">61</xref>], to determine the current and projected land requirements for future global electricity roadmaps (<xref ref-type="fig" rid="pone.0270155.g003">Fig 3</xref>). Our LUIE results suggest that current total global land use for electricity production is approximately 72 (±1.7) Mha, with 80% of that land used for hydroelectric dams.</p>
+<fig id="pone.0270155.g003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0270155.g003</object-id>
+<label>Fig 3</label>
+<caption>
+<title>Land area (Mha) for future electricity generation scenarios, broken down by source of land use: Hydroelectric, fossil fuels, non-hydro renewables, and spacing from wind and natural gas.</title>
+<p>Land use for biomass electricity is included in non-hydro renewables, but we assume all biomass comes from residue or waste for these calculations, thus representing a lower bound. JD1 refers to the Jacobson &amp; Delucchi scenario assuming all wind is onshore, and JD2 assumes 50% of wind is onshore and 50% is offshore. Total land required to generate electricity in each future decarbonization scenario is shown with standard errors. GEA_Sup, GEA_Eff, and GEA_Mix are the GEA Supply, Efficiency, and Mixed scenarios respectively. Electricity generation data for the current mix (2017) comes from the BP Statistical Review.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.g003" xlink:type="simple"/>
+</fig>
+<p>We assessed ten global decarbonization pathways from six different organizations and studies: the 2, 4, and 6 degree Celsius scenarios from the International Energy Agency’s <italic>Energy Technology Perspectives</italic> (hereafter “IEA”) [<xref ref-type="bibr" rid="pone.0270155.ref062">62</xref>], Greenpeace’s <italic>Energy [R]evolution</italic> (“GP”) [<xref ref-type="bibr" rid="pone.0270155.ref063">63</xref>], World Wildlife Fund’s <italic>Energy Report</italic> (“WWF”) [<xref ref-type="bibr" rid="pone.0270155.ref064">64</xref>], three scenarios from the <italic>Global Energy Assessment</italic> (“GEA”) [<xref ref-type="bibr" rid="pone.0270155.ref010">10</xref>], Jacobson &amp; Delucchi (“JD”) [<xref ref-type="bibr" rid="pone.0270155.ref058">58</xref>], and Barry Brook (“Brook”) [<xref ref-type="bibr" rid="pone.0270155.ref059">59</xref>]. Real-world land requirements vary by region and the dynamics of land-use change are highly context-dependent. These projections are not intended as forecasts, but rather as estimates of the scale of land use that would be needed for electricity production in hypothetical decarbonized electricity portfolios.</p>
+<p>Our analysis suggests the possibility of a significant expansion of the land footprint for electricity in the coming decades, ranging from an additional 30–80 Mha for physical footprint to and additional 80–800 Mha when spacing is included. The scenario with the lowest total land-use was the IEA 6 Degree scenario, which is a business-as-usual scenario that includes a large share of fossil fuels. The WWF and Greenpeace scenarios also had low total land use, but this was in part due to their lower overall projected electricity consumption, as well as their limited reliance on large hydroelectric. Brook had lower land-use despite higher overall electricity consumption, primarily due to their reliance on nuclear power, which has the lowest LUIE. The Jacobson scenarios had the highest land use both because they were converting all global energy use to electricity, and they also rely extensively on wind and solar.</p>
+<p>The projected expansion of land-use across these scenarios is a similar order of magnitude to the value projected for global urban expansion (60–241 Mha) [<xref ref-type="bibr" rid="pone.0270155.ref065">65</xref>], and when spacing is included this may exceed forecasted cropland expansion (average 160–320 Mha of various projections) [<xref ref-type="bibr" rid="pone.0270155.ref006">6</xref>]. If biomass was to come from dedicated feedstocks, the additional land required would be between 80 and 700 Mha across these scenarios. For comparison, Jacobson et al. (2017) estimated that the land required for a 100% renewable system would be lower than our calculation (35 Mha or 177 Mha with spacing), but their land-use figures represent hypothetical electricity generation, which tends to be lower than realized generation from our surveys [<xref ref-type="bibr" rid="pone.0270155.ref016">16</xref>]. Trainor et al. (2016) calculated additional land use from EIA scenarios in the US and found land use could grow by 18–24 Mha by 2040, but this is for all energy supplied in the US (not just electricity) [<xref ref-type="bibr" rid="pone.0270155.ref001">1</xref>].</p>
+</sec>
+<sec id="sec007">
+<title>3.3 Sourcing of biomass carries great uncertainty</title>
+<p>Future biomass demand will likely be met by a mixture of waste or residues and dedicated feedstocks. However, the average land-use intensity of residue and dedicated biomass differs by four orders of magnitude. To represent an upper boundary on our results, we could assume all biomass comes from dedicated feedstock production. This upper bound estimate results in biomass comprising over 99% of the total land use in future energy scenarios (unless the scenario excludes biomass). The GP, WWF, and GEA energy scenarios reviewed here specify that the biomass in their scenarios should come only from forestry and agricultural wastes and residues, rather than dedicated production. The level of biomass required in those scenarios is within the range of global technical potential [<xref ref-type="bibr" rid="pone.0270155.ref066">66</xref>], see <xref ref-type="fig" rid="pone.0270155.g004">Fig 4</xref> but estimates of global technical potential do not reflect economic or geographic constraints on biomass residue recovery (see <xref ref-type="supplementary-material" rid="pone.0270155.s001">S1 Text</xref>). There is also evidence at the regional level that residues alone are unlikely to meet bioenergy demand, which could result in increased logging and displacement of other wood products [<xref ref-type="bibr" rid="pone.0270155.ref067">67</xref>]. To take a lower bound on biomass, we could assume all feedstock comes from waste or residue. Then biomass constitutes only about 1% of total land use in future energy scenarios.</p>
+<fig id="pone.0270155.g004" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0270155.g004</object-id>
+<label>Fig 4</label>
+<caption>
+<title>Amount of electricity sourced from biomass in each of the scenarios we evaluated.</title>
+<p>Most scenarios do not specify whether the biomass will be sourced from dedicated crops or managed forests, or sourced from waste and residue. However, several scenarios include more biomass combustion than could be reasonably sourced from waste and residues, assuming all waste and residue produced globally could be economically collected. *Global technical potential for biomass production comes from Searchinger and Heimlich (2015).</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.g004" xlink:type="simple"/>
+</fig>
+<p>When median LUIE results are applied to global decarbonization scenarios, land use for the power sector could grow by a doubling to an order of magnitude if spacing is included. See <xref ref-type="supplementary-material" rid="pone.0270155.s001">S1 Text</xref> for full details on how we applied our LUIE to a range of future energy scenarios. However, if the entire energy system is decarbonized, including transportation and industry, global electricity demand could grow by 3–5 times, thus implying an even larger impact on total land use.</p>
+</sec>
+</sec>
+<sec id="sec008" sec-type="conclusions">
+<title>4. Discussion</title>
+<p>Renewable energy sources like ground-mounted PV, CSP, and wind feature prominently in many decarbonization scenarios, but since they can have higher land use intensity than fossil fuels, large-scale deployment of these technologies could considerably increase energy sprawl and loss of natural habitat. The types of landscapes impacted will vary by energy source, and while there are several opportunities for mitigating the land requirement of low-carbon electricity systems, there is also evidence that renewable energy development to date has often occurred on previously undeveloped land [<xref ref-type="bibr" rid="pone.0270155.ref054">54</xref>, <xref ref-type="bibr" rid="pone.0270155.ref068">68</xref>].</p>
+<p>Some power technologies can produce electricity without requiring additional land. Solar PV can be placed on rooftops, over parking lots, or on top of inland water body surfaces, known as floatovoltaics [<xref ref-type="bibr" rid="pone.0270155.ref069">69</xref>, <xref ref-type="bibr" rid="pone.0270155.ref070">70</xref>]; PV and wind turbines can be built on degraded, contaminated, or on top of agricultural land—the latter with PV, known as an agrivoltaic systems [<xref ref-type="bibr" rid="pone.0270155.ref071">71</xref>, <xref ref-type="bibr" rid="pone.0270155.ref072">72</xref>]; biomass feedstock can be sourced from residues and waste materials [<xref ref-type="bibr" rid="pone.0270155.ref066">66</xref>]; and nuclear power plants (as well as wind and PV) can be built offshore [<xref ref-type="bibr" rid="pone.0270155.ref073">73</xref>–<xref ref-type="bibr" rid="pone.0270155.ref075">75</xref>]. Dams that were originally constructed for water supply, irrigation, or flood control can be retrofitted with hydroelectric capabilities [<xref ref-type="bibr" rid="pone.0270155.ref076">76</xref>]. However, there are limitations on scaling these non-additional sources. Integrated PV faces barriers owing to economic, policy, and technological constraints. A recent estimate put the technical potential of rooftop-mounted solar PV in the United States at 1,400 TWh/y–about 38% of current US electricity demand [<xref ref-type="bibr" rid="pone.0270155.ref077">77</xref>]. As a technical potential, this estimate is higher than the economic or market potential for the technology. Currently, only about one-third of US solar capacity is in distributed rooftop installations, while the rest is from ground-mounted, utility-scale power plants [<xref ref-type="bibr" rid="pone.0270155.ref078">78</xref>], of which, in the case of California, the plurality are sited in natural habitats like scrublands and shrublands [<xref ref-type="bibr" rid="pone.0270155.ref054">54</xref>]. Technological advances that improve efficiency and/or electricity generation could arguably reduce LUIE but evidence of a causal relationship is lacking. For example, the manufacturing and construction of bifacial PV (light collected from both sides of the panel surface) is driven by estimates of 20–40% electricity gains over monofacial panels, which could ostensibly drive smaller power plant footprints to meet finite electricity needs. However, the exponential increases in electricity demand globally and the nascent state of the technology’s economic and reliability outcomes mean that impacts on real-world LUIE are yet to be determined [<xref ref-type="bibr" rid="pone.0270155.ref079">79</xref>].</p>
+<p>Denholm et al. (2009) estimate that half of US wind is co-sited with cropland or pasture [<xref ref-type="bibr" rid="pone.0270155.ref068">68</xref>]. Additionally, areas with good wind resources and proximity to end users do not always overlap with existing agricultural area, sometimes requiring wind energy development on previously undeveloped land, as was recently found to be the case in California [<xref ref-type="bibr" rid="pone.0270155.ref080">80</xref>]. Finally, energy infrastructure can create habitat fragmentation and disturbance that adversely affects wildlife behavior within and beyond the boundary of the physical footprint [<xref ref-type="bibr" rid="pone.0270155.ref007">7</xref>, <xref ref-type="bibr" rid="pone.0270155.ref037">37</xref>, <xref ref-type="bibr" rid="pone.0270155.ref081">81</xref>–<xref ref-type="bibr" rid="pone.0270155.ref083">83</xref>]. Studies seeking to map existing and future energy infrastructure (e.g., Jenkins et al., 2021) may, in part, inform decisions regarding impacts on wildlife; however, projections including spatially-explicit footprints require robust, accurate, and representative model parameters[<xref ref-type="bibr" rid="pone.0270155.ref084">84</xref>].</p>
+<p>In contrast to previously published studies which base their LUIE figures on either a single power plant or engineering calculations with hypothetical parameters, our LUIE estimates draw on large samples of real-world electricity generation. Other published figures are often far from our estimated means or medians. For example, Fthenakis and Kim’s figure for hydro, drawing on a single reservoir from Colorado, is equivalent to about 400 ha/TWh/y, and the central estimate provided by McDonald et al. (2009) is equivalent to 5,400 ha/TWh/y. This can be compared with our sample of 952 hydroelectric installations, which has a median of 650 and a mean of 15000. The land-use intensities for nuclear power are 13 ha/TWh/y in Fthenakis and Kim, and 240 ha/TWh/y in McDonald et al.; our sample of 59 plants across the US had a mean of 15. Note that the central estimate in McDonald et al. (2009) is the midpoint between “reasonable” minimum and maximum values for land-use intensity. For hydroelectric, their min is 1,600 ha/TWh/y and their max is 9,200 ha/TWh/y, which far from captures the full range found in our sample, going from less than 1 ha/TWh/y to over 1 million ha/TWh/y. Smil (2010) offers examples of land-use intensities for a handful of energy sources. For natural gas, he provides a range of about 6–60 ha/TWh/y; our estimated median for natural gas (footprint) is 410 and for natural gas (spacing), 1900. This large discrepancy could be the result of Smil (2010) basing his estimates on particularly land-efficient natural gas operations, rather than the actual range of existing installations.</p>
+<p>For policymakers interested in the land-use effects of expanding a given power source, using our calculated mean LUIE is preferrable to using estimates from single cases, since real-world scale-up will include the full distribution of land-use intensities of different installations. Scaling up an energy source means building more of some low-footprint installations and more of some high-footprint installations, so it is the average land-use intensity that will determine the expected overall impacts. Using LUIE estimates from a single installation, which may by chance represent a particularly small or particularly large footprint, may severely bias projected land-use impacts.</p>
+<p>Our results suggest that production of electricity to meet decarbonization goals could become a significant new driver of land-use and land-cover change with implications for habitat and biodiversity loss, food security, and other environmental and social priorities. An expanding footprint is not inevitable: the LUIE for integrated PV, nuclear, the footprint of wind, and geothermal are each less than coal or natural gas, which together, currently generate more than 60% of the world’s electricity [<xref ref-type="bibr" rid="pone.0270155.ref062">62</xref>].</p>
+<p>Impacts of energy development can be mitigated through strategic local-scale approaches that consider proximate impacts within and near development boundaries and landscape-level approaches that target more systemic, cumulative impacts of entire energy systems [<xref ref-type="bibr" rid="pone.0270155.ref085">85</xref>, <xref ref-type="bibr" rid="pone.0270155.ref086">86</xref>]. Decision-support tools can integrate multiple criteria, leading to reductions in various types of environmental and social impacts while optimizing generation with respect to the cultural and economic interests of stakeholders [<xref ref-type="bibr" rid="pone.0270155.ref087">87</xref>]. Examples of such approaches already exist for several regions and sources, including hydroelectricity and solar energy [<xref ref-type="bibr" rid="pone.0270155.ref069">69</xref>, <xref ref-type="bibr" rid="pone.0270155.ref080">80</xref>, <xref ref-type="bibr" rid="pone.0270155.ref088">88</xref>, <xref ref-type="bibr" rid="pone.0270155.ref089">89</xref>]. However, even with better siting, the larger the aggregate footprint of energy, the more likely environmental impacts are to grow [<xref ref-type="bibr" rid="pone.0270155.ref013">13</xref>]. This underscores the long-term environmental benefits of electricity sources that have both low land and carbon footprints, and the importance of using LUIE as a metric alongside other factors like GHG emissions, cost, and reliability in planning and governance of energy development.</p>
+</sec>
+<sec id="sec009" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pone.0270155.s001" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.s001" xlink:type="simple">
+<label>S1 Text</label>
+<caption>
+<title>Supplementary information.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pone.0270155.s002" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.s002" xlink:type="simple">
+<label>S1 Table</label>
+<caption>
+<title>Details of data sourcing by electricity generation technology.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pone.0270155.s003" mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.s003" xlink:type="simple">
+<label>S1 File</label>
+<caption>
+<title>Full dataset of land-use intensity data by fuel source.</title>
+<p>(XLSX)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank Crystal Yeh, Matthew MacCaughey, and Madison K. Hoffacker for assistance with data collection, and Laura Small for assistance with data analysis. We also thank Ben Phalan, Patrick Meyfroidt, Ken Caldeira, David Simpson, and Harry Saunders for their helpful comments.</p>
+</ack>
+<ref-list>
+<title>References</title>
+<ref id="pone.0270155.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Trainor</surname> <given-names>AM</given-names></name>, <name name-style="western"><surname>McDonald</surname> <given-names>RI</given-names></name>, <name name-style="western"><surname>Fargione</surname> <given-names>J</given-names></name>. <article-title>Energy Sprawl is the Largest Driver of Land Use Change in United States.</article-title> <source><italic>PLoS One</italic></source> <year>2016</year>; <volume>11</volume>: <fpage>1</fpage>–<lpage>16</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0162269" xlink:type="simple">10.1371/journal.pone.0162269</ext-link></comment> <object-id pub-id-type="pmid">27607423</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Giordono</surname> <given-names>LS</given-names></name>, <name name-style="western"><surname>Boudet</surname> <given-names>HS</given-names></name>, <name name-style="western"><surname>Karmazina</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Opposition “overblown”? Community response to wind energy siting in the Western United States.</article-title> <source><italic>Energy Res Soc Sci</italic></source> <year>2018</year>; <volume>43</volume>: <fpage>119</fpage>–<lpage>131</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>International Energy Agency</collab>. <source><italic>World Energy Outlook 2015</italic></source>. (<year>2015</year>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1787/weo-2014-en" xlink:type="simple">10.1787/weo-2014-en</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0270155.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lambin</surname> <given-names>EF</given-names></name>, <name name-style="western"><surname>Meyfroidt</surname> <given-names>P</given-names></name>. <article-title>Global land use change, economic globalization, and the looming land scarcity</article-title>. <source><italic>Proc Natl Acad Sci U S A</italic></source> <year>2011</year>; <volume>108</volume>: <fpage>3465</fpage>–<lpage>72</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1073/pnas.1100480108" xlink:type="simple">10.1073/pnas.1100480108</ext-link></comment> <object-id pub-id-type="pmid">21321211</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref005"><label>5</label><mixed-citation publication-type="book" xlink:type="simple"><collab>Millennium Ecosystem Assessment.</collab> <source><italic>Ecosystems and Human Well-being</italic>: <italic>Synthesis</italic></source>. <publisher-loc>Washington, DC</publisher-loc>: <publisher-name>Island Press</publisher-name>, <year>2005</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Smith</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Gregory</surname> <given-names>PJ</given-names></name>, <name name-style="western"><surname>van Vuuren</surname> <given-names>D</given-names></name>, <etal>et al</etal>. <article-title>Competition for land</article-title>. <source><italic>Philos Trans R Soc Lond B Biol Sci</italic></source> <year>2010</year>; <volume>365</volume>: <fpage>2941</fpage>–<lpage>57</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rstb.2010.0127" xlink:type="simple">10.1098/rstb.2010.0127</ext-link></comment> <object-id pub-id-type="pmid">20713395</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Northrup</surname> <given-names>JM</given-names></name>, <name name-style="western"><surname>Wittemyer</surname> <given-names>G</given-names></name>. <article-title>Characterising the impacts of emerging energy development on wildlife, with an eye towards mitigation.</article-title> <source><italic>Ecol Lett</italic></source> <year>2013</year>; <volume>16</volume>: <fpage>112</fpage>–<lpage>125</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/ele.12009" xlink:type="simple">10.1111/ele.12009</ext-link></comment> <object-id pub-id-type="pmid">23013218</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Oakleaf</surname> <given-names>JR</given-names></name>, <name name-style="western"><surname>Kennedy</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Baruch-Mordo</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>A World at Risk: Aggregating Development Trends to Forecast Global Habitat Conversion.</article-title> <source><italic>PLoS One</italic></source> <year>2015</year>; <volume>10</volume>: <fpage>e0138334</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0138334" xlink:type="simple">10.1371/journal.pone.0138334</ext-link></comment> <object-id pub-id-type="pmid">26445282</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gasparatos</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Doll</surname> <given-names>CNH</given-names></name>, <name name-style="western"><surname>Esteban</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Renewable energy and biodiversity: Implications for transitioning to a Green Economy.</article-title> <source><italic>Renew Sustain Energy Rev</italic></source> <year>2017</year>; <volume>70</volume>: <fpage>161</fpage>–<lpage>184</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref010"><label>10</label><mixed-citation publication-type="book" xlink:type="simple"><collab>International Institute for Applied Systems Analysis</collab>. <source><italic>Global Energy Assessment</italic>: <italic>Toward a Sustainable Future</italic></source>. <publisher-name>Cambridge University Press</publisher-name>. (<year>2012</year>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1017/CBO9780511793677" xlink:type="simple">10.1017/CBO9780511793677</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0270155.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Pimentel</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Herz</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Glickstein</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Renewable Energy: Current and Potential Issues</article-title>. <source><italic>Bioscience</italic></source> <year>2002</year>; <volume>52</volume>: <fpage>1111</fpage>–<lpage>1120</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Fthenakis</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>HC</given-names></name>. <article-title>Land use and electricity generation: A life-cycle analysis.</article-title> <source><italic>Renew Sustain Energy Rev</italic></source> <year>2009</year>; <volume>13</volume>: <fpage>1465</fpage>–<lpage>1474</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>McDonald</surname> <given-names>RI</given-names></name>, <name name-style="western"><surname>Fargione</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Kiesecker</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Energy sprawl or energy efficiency: climate policy impacts on natural habitat for the United States of America.</article-title> <source><italic>PLoS One</italic></source> <year>2009</year>; <volume>4</volume>: <fpage>e6802</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0006802" xlink:type="simple">10.1371/journal.pone.0006802</ext-link></comment> <object-id pub-id-type="pmid">19707570</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref014"><label>14</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Smil</surname> <given-names>V.</given-names></name> <source><italic>Power Density</italic>.</source> <publisher-loc>Cambridge, MA</publisher-loc>: <publisher-name>MIT Press</publisher-name>, <year>2015</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Arent</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Pless</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Mai</surname> <given-names>T</given-names></name>, <etal>et al</etal>. <article-title>Implications of high renewable electricity penetration in the U.S. for water use, greenhouse gas emissions, land-use, and materials supply</article-title>. <source><italic>Appl Energy</italic>.</source> Epub ahead of print January <year>2014</year>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.apenergy.2013.12.022" xlink:type="simple">10.1016/j.apenergy.2013.12.022</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0270155.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jacobson</surname> <given-names>MZ</given-names></name>, <name name-style="western"><surname>Delucchi</surname> <given-names>MA</given-names></name>, <name name-style="western"><surname>Bauer</surname> <given-names>ZAF</given-names></name>, <etal>et al</etal>. <article-title>100% Clean and Renewable Wind, Water, and Sunlight All-Sector Energy Roadmaps for 139 Countries of the World.</article-title> <source><italic>Joule</italic></source> <year>2017</year>; <volume>1</volume>: <fpage>108</fpage>–<lpage>121</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref017"><label>17</label><mixed-citation publication-type="other" xlink:type="simple">Lilliestam J, Thonig R, Zang C, et al. CSP.guru, <ext-link ext-link-type="uri" xlink:href="http://doi.org/10.5281/zenodo.4613099" xlink:type="simple">http://doi.org/10.5281/zenodo.4613099</ext-link> (2021).</mixed-citation></ref>
+<ref id="pone.0270155.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Keoleian</surname> <given-names>G a.</given-names></name>, <name name-style="western"><surname>Volk</surname> <given-names>T a</given-names></name>. <article-title>Renewable Energy from Willow Biomass Crops: Life Cycle Energy, Environmental and Economic Performance.</article-title> <source><italic>CRC Crit Rev Plant Sci</italic></source> <year>2005</year>; <volume>24</volume>: <fpage>385</fpage>–<lpage>406</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Horner</surname> <given-names>RM</given-names></name>, <name name-style="western"><surname>Murphy</surname> <given-names>DJ</given-names></name>, <name name-style="western"><surname>Clark</surname> <given-names>CE</given-names></name>. <source><italic>Life Cycle Land Use Energy Intensity (LUEI) for Utility-Scale Solar Electricity Generation Technologies</italic>.</source> <year>2013</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref020"><label>20</label><mixed-citation publication-type="other" xlink:type="simple">Boyce M, Naugle D. <italic>Energy Development and Wildlife Conservation in Western North America</italic>, <ext-link ext-link-type="uri" xlink:href="http://books.google.com/books?hl=en&amp;lr=&amp;id=sTFQvUPQMMkC&amp;oi=fnd&amp;pg=PR7&amp;dq=Energy+Development+and+Wildlife+Conservation+in+Western+North+America&amp;ots=T2WaM5hukU&amp;sig=Sw6K1l6KoOx8PPXInWZ3Ikid5HA" xlink:type="simple">http://books.google.com/books?hl=en&amp;lr=&amp;id=sTFQvUPQMMkC&amp;oi=fnd&amp;pg=PR7&amp;dq=Energy+Development+and+Wildlife+Conservation+in+Western+North+America&amp;ots=T2WaM5hukU&amp;sig=Sw6K1l6KoOx8PPXInWZ3Ikid5HA</ext-link> (2011, accessed 12 June 2014).</mixed-citation></ref>
+<ref id="pone.0270155.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ong</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Campbell</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Denholm</surname> <given-names>P</given-names></name>, <etal>et al</etal>. <source><italic>Land-Use Requirements for Solar Power Plants in the United States</italic></source>. <year>2013</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Denholm</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Margolis</surname> <given-names>RM</given-names></name>. <article-title>Land-use requirements and the per-capita solar footprint for photovoltaic generation in the United States.</article-title> <source><italic>Energy Policy</italic></source> <year>2008</year>; <volume>36</volume>: <fpage>3531</fpage>–<lpage>3543</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mackay</surname> <given-names>DJC</given-names></name>. <article-title>Solar energy in the context of energy use, energy transportation and energy storage Solar energy in the context of energy use, energy transportation and energy storage.</article-title> <source><italic>Philos Trans R Soc A</italic></source>; <volume>371</volume>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rsta.2011.0431" xlink:type="simple">10.1098/rsta.2011.0431</ext-link></comment> <object-id pub-id-type="pmid">23816908</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jordaan</surname> <given-names>SM</given-names></name>, <name name-style="western"><surname>Heath</surname> <given-names>GA</given-names></name>, <name name-style="western"><surname>Macknick</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Understanding the life cycle surface land requirements of natural gas-fired electricity.</article-title> <source><italic>Nat Energy</italic></source> <year>2017</year>; <volume>2</volume>: <fpage>804</fpage>–<lpage>812</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hernandez</surname> <given-names>RR</given-names></name>, <name name-style="western"><surname>Cagle</surname> <given-names>AE</given-names></name>, <name name-style="western"><surname>Grodsky</surname> <given-names>SM</given-names></name>, <etal>et al</etal>. <article-title>Comments on: Land use for United States power generation: A critical review of existing metrics with suggestions for going forward.</article-title> <source><italic>Renew Sustain Energy Rev</italic>.</source></mixed-citation></ref>
+<ref id="pone.0270155.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Capellán-Pérez</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>De Castro</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Arto</surname> <given-names>I</given-names></name>. <article-title>Assessing vulnerabilities and limits in the transition to renewable energies: Land requirements under 100% solar energy scenarios.</article-title> <source><italic>Renew Sustain Energy Rev</italic></source> <year>2017</year>; <volume>77</volume>: <fpage>760</fpage>–<lpage>782</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hertwich</surname> <given-names>EG</given-names></name>, <name name-style="western"><surname>Gibon</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Bouman</surname> <given-names>E a.</given-names></name>, <etal>et al</etal>. <article-title>Integrated life-cycle assessment of electricity-supply scenarios confirms global environmental benefit of low-carbon technologies</article-title>. <source><italic>Proc Natl Acad Sci</italic></source> <year>2015</year>; <volume>112</volume>: <fpage>6277</fpage>–<lpage>6282</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1073/pnas.1312753111" xlink:type="simple">10.1073/pnas.1312753111</ext-link></comment> <object-id pub-id-type="pmid">25288741</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Spitzley D</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Keoleian</surname> <given-names>GA</given-names></name>. <source><italic>Life Cycle Environmental and Economic Assessment of Willow Biomass Electricity</italic>: <italic>A Comparison with Other Renewable and Non-Renewable Sources</italic></source>. <year>2005</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jacobson</surname> <given-names>MZ</given-names></name>. <article-title>Review of solutions to global warming, air pollution, and energy security.</article-title> <source><italic>Energy Environ Sci</italic></source> <year>2009</year>; <volume>2</volume>: <fpage>148</fpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Smil</surname> <given-names>V.</given-names></name> <source><italic>Power Density Primer</italic>: <italic>Understanding the Spatial Dimension of the Unfolding Transition to Renewable Electricity Generation (Part I–Definitions)</italic>.</source> <ext-link ext-link-type="uri" xlink:href="http://www.vaclavsmil.com/wp-content/uploads/docs/smil-article-power-density-primer.pdf" xlink:type="simple">http://www.vaclavsmil.com/wp-content/uploads/docs/smil-article-power-density-primer.pdf</ext-link> (<year>2010</year>).</mixed-citation></ref>
+<ref id="pone.0270155.ref031"><label>31</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Gates</surname> <given-names>DM</given-names></name>. <source><italic>Energy and Ecology</italic>.</source> <publisher-loc>Sunderland, MA</publisher-loc>: <publisher-name>Sinauer Associates Inc</publisher-name>, <year>1985</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref032"><label>32</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Jordaan</surname> <given-names>SM</given-names></name>. <source><italic>The land use footprint of energy extraction in Alberta</italic></source>. <publisher-name>University of Calgary</publisher-name>, <year>2010</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref033"><label>33</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>DOE</collab>. <source><italic>Energy technology characterizations handbook</italic>: <italic>environmental pollution and control factors</italic></source>, <ext-link ext-link-type="uri" xlink:href="http://hdl.handle.net/2027/uc1.b4236598" xlink:type="simple">http://hdl.handle.net/2027/uc1.b4236598</ext-link> (<year>1983</year>).</mixed-citation></ref>
+<ref id="pone.0270155.ref034"><label>34</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Skone</surname> <given-names>TJ</given-names></name>, <name name-style="western"><surname>Littlefield</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Marriott</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <source><italic>Life Cycle Analysis of Natural Gas Extraction and Power Generation</italic></source>. <year>2014</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref035"><label>35</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Bryce</surname> <given-names>R.</given-names></name> <source><italic>Power Hungry</italic>: <italic>The Myths of ‘Green’ Energy and the Real Fuels of the Future</italic></source>. <publisher-loc>New York</publisher-loc>: <publisher-name>PublicAffairs</publisher-name>, <year>2011</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref036"><label>36</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Copeland</surname> <given-names>HE</given-names></name>, <name name-style="western"><surname>Pocewicz</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Kiesecker</surname> <given-names>JM</given-names></name>. <source><italic>Geography of energy development in Western North America</italic>: <italic>potential impacts on terrestrial ecosystems</italic></source>. <year>2011</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref037"><label>37</label><mixed-citation publication-type="other" xlink:type="simple">OECD/NEA. <italic>Uranium 2014</italic>: <italic>Resources</italic>, <italic>Production and Demand</italic>, <ext-link ext-link-type="uri" xlink:href="http://www.oecd-nea.org/ndd/pubs/2012/7059-uranium-2011.pdf" xlink:type="simple">http://www.oecd-nea.org/ndd/pubs/2012/7059-uranium-2011.pdf</ext-link> (2014).</mixed-citation></ref>
+<ref id="pone.0270155.ref038"><label>38</label><mixed-citation publication-type="other" xlink:type="simple">Finch WI. Uranium, Its Impact on the National and Global Energy Mix. <italic>USGS</italic>.</mixed-citation></ref>
+<ref id="pone.0270155.ref039"><label>39</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Eliasson</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>Y</given-names></name>. <source><italic>Integrated Assessment of Sustainable Energy Systems in China</italic></source>. <publisher-loc>Dordrecht, Netherlands</publisher-loc>: <publisher-name>Kluwer Academic Publishers</publisher-name>, <year>2003</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref040"><label>40</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Harries</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Levins</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Ring</surname> <given-names>B</given-names></name>, <etal>et al</etal>. <article-title>Management of waste from uranium mining and milling in Australia</article-title>. <source><italic>Nucl Eng Des</italic></source> <year>1997</year>; <volume>176</volume>: <fpage>15</fpage>–<lpage>21</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref041"><label>41</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mudd</surname> <given-names>GM</given-names></name>. <source>Compilation of Uranium Production History and Uranium Deposit Data Across Australia</source>. <year>2011</year>; <volume>41</volume>.</mixed-citation></ref>
+<ref id="pone.0270155.ref042"><label>42</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Schneider</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Carlsen</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Tavrides</surname> <given-names>E</given-names></name>, <etal>et al</etal>. <article-title>A Top Down Assessment of Energy, Water and Land use in Uranium Mining, Milling, and Refining.</article-title> <source><italic>Energy Econ</italic></source> <year>2013</year>; <volume>40</volume>: <fpage>911</fpage>–<lpage>926</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref043"><label>43</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>American</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Energy</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Jacobson</surname> <given-names>MZ</given-names></name>, <etal>et al</etal>. <source>Scientific American ‘ s “A Path to Sustainable Energy by What about just the United States?</source> <year>2009</year>; <fpage>1</fpage>–<lpage>13</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref044"><label>44</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bondarkov</surname> <given-names>MD</given-names></name>, <name name-style="western"><surname>Oskolkov</surname> <given-names>BY</given-names></name>, <name name-style="western"><surname>Gaschak</surname> <given-names>SP</given-names></name>, <etal>et al</etal>. <article-title>Environmental Radiation Monitoring in the Chernobyl Exclusion Zone—History and Results 25 Years After.</article-title> <source><italic>Health Phys</italic></source> <year>2011</year>; <volume>101</volume>: <fpage>442</fpage>–<lpage>485</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/HP.0b013e318229df28" xlink:type="simple">10.1097/HP.0b013e318229df28</ext-link></comment> <object-id pub-id-type="pmid">21878769</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref045"><label>45</label><mixed-citation publication-type="other" xlink:type="simple">World Nuclear Association. Fukushima Accident, <ext-link ext-link-type="uri" xlink:href="http://www.world-nuclear.org/information-library/safety-and-security/safety-of-plants/fukushima-accident.aspx" xlink:type="simple">http://www.world-nuclear.org/information-library/safety-and-security/safety-of-plants/fukushima-accident.aspx</ext-link> (2016, accessed 7 July 2016).</mixed-citation></ref>
+<ref id="pone.0270155.ref046"><label>46</label><mixed-citation publication-type="other" xlink:type="simple">BP. <italic>BP statistical review of world energy</italic>, <ext-link ext-link-type="uri" xlink:href="http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html" xlink:type="simple">http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html</ext-link> (2016, accessed 31 July 2014).</mixed-citation></ref>
+<ref id="pone.0270155.ref047"><label>47</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Deryabina</surname> <given-names>TG</given-names></name>, <name name-style="western"><surname>Kuchmel S</surname> <given-names>V</given-names></name>., <name name-style="western"><surname>Nagorskaya</surname> <given-names>LL</given-names></name>, <etal>et al</etal>. <article-title>Long-term census data reveal abundant wildlife populations at Chernobyl</article-title>. <source><italic>Curr Biol</italic></source> <year>2015</year>; <volume>25</volume>: <fpage>R811</fpage>–<lpage>R826</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref048"><label>48</label><mixed-citation publication-type="other" xlink:type="simple">International Commission on Large Dams. World Register of Dams, <ext-link ext-link-type="uri" xlink:href="http://www.icold-cigb.net/GB/World_register/world_register.asp" xlink:type="simple">www.icold-cigb.net/GB/World_register/world_register.asp</ext-link> (2015, accessed 27 August 2015).</mixed-citation></ref>
+<ref id="pone.0270155.ref049"><label>49</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>International Energy Agency (IEA)</collab>. <source><italic>Technology Roadmap</italic>: <italic>Hydropower</italic>. Epub ahead of print</source> <year>2012</year>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/SpringerReference%5F7300" xlink:type="simple">10.1007/SpringerReference_7300</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0270155.ref050"><label>50</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Dijkman</surname> <given-names>TJ</given-names></name>, <name name-style="western"><surname>Benders</surname> <given-names>RMJ</given-names></name>. <article-title>Comparison of renewable fuels based on their land use using energy densities.</article-title> <source><italic>Renew Sustain Energy Rev</italic></source> <year>2010</year>; <volume>14</volume>: <fpage>3148</fpage>–<lpage>3155</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref051"><label>51</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kumar</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Cameron</surname> <given-names>JB</given-names></name>, <name name-style="western"><surname>Flynn</surname> <given-names>PC</given-names></name>. <article-title>Biomass power cost and optimum plant size in western Canada</article-title>. <source><italic>Biomass and Bioenergy</italic></source> <year>2003</year>; <volume>24</volume>: <fpage>445</fpage>–<lpage>464</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref052"><label>52</label><mixed-citation publication-type="other" xlink:type="simple">U.S. Energy Information Administration. EIA 860, <ext-link ext-link-type="uri" xlink:href="https://www.eia.gov/electricity/data/eia860/" xlink:type="simple">https://www.eia.gov/electricity/data/eia860/</ext-link>.</mixed-citation></ref>
+<ref id="pone.0270155.ref053"><label>53</label><mixed-citation publication-type="other" xlink:type="simple">U.S. Energy Information Administration. EIA 923, <ext-link ext-link-type="uri" xlink:href="https://www.eia.gov/electricity/data/eia923/" xlink:type="simple">https://www.eia.gov/electricity/data/eia923/</ext-link>.</mixed-citation></ref>
+<ref id="pone.0270155.ref054"><label>54</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hernandez</surname> <given-names>RR</given-names></name>, <name name-style="western"><surname>Hoffacker</surname> <given-names>MK</given-names></name>, <name name-style="western"><surname>Murphy-Mariscal</surname> <given-names>ML</given-names></name>, <etal>et al</etal>. <article-title>Solar energy development impacts on land-cover change</article-title>. <source><italic>Proc Natl Acad Sci</italic></source> <year>2015</year>; <volume>112</volume>: <fpage>13579</fpage>–<lpage>13584</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1073/pnas.1517656112" xlink:type="simple">10.1073/pnas.1517656112</ext-link></comment> <object-id pub-id-type="pmid">26483467</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref055"><label>55</label><mixed-citation publication-type="other" xlink:type="simple">Solar Energy Industries Association. Major Solar Projects in the United States Operating, Under Construction, or Under Development, <ext-link ext-link-type="uri" xlink:href="http://www.seia.org/research-resources/major-solar-projects-list" xlink:type="simple">www.seia.org/research-resources/major-solar-projects-list</ext-link> (2015, accessed 5 October 2015).</mixed-citation></ref>
+<ref id="pone.0270155.ref056"><label>56</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bertani</surname> <given-names>R.</given-names></name> <article-title>World geothermal power generation in the period 2001–2005.</article-title> <source><italic>Geothermics</italic></source> <year>2005</year>; <volume>34</volume>: <fpage>651</fpage>–<lpage>690</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref057"><label>57</label><mixed-citation publication-type="other" xlink:type="simple">Global Energy Observatory. Power Plant Online Database, <ext-link ext-link-type="uri" xlink:href="http://globalenergyobservatory.org" xlink:type="simple">http://globalenergyobservatory.org</ext-link> (2015, accessed 24 November 2015).</mixed-citation></ref>
+<ref id="pone.0270155.ref058"><label>58</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jacobson</surname> <given-names>MZ</given-names></name>, <name name-style="western"><surname>Delucchi</surname> <given-names>MA</given-names></name>. <article-title>Providing all global energy with wind, water, and solar power, Part I: Technologies, energy resources, quantities and areas of infrastructure, and materials.</article-title> <source><italic>Energy Policy</italic></source> <year>2011</year>; <volume>39</volume>: <fpage>1154</fpage>–<lpage>1169</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref059"><label>59</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Brook</surname> <given-names>BW</given-names></name>. <article-title>Could nuclear fission energy, etc., solve the greenhouse problem? The affirmative case</article-title>. <source><italic>Energy Policy</italic></source> <year>2012</year>; <volume>42</volume>: <fpage>4</fpage>–<lpage>8</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref060"><label>60</label><mixed-citation publication-type="other" xlink:type="simple">Schlömer S, Bruckner T, Fulton L, et al. Annex III: Technology-specific cost and performance parameters. In: <italic>Climate Change 2014</italic>: <italic>Mitigation of Climate Change</italic>. <italic>Contribution of Working Group III to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change</italic>. 2014, pp. 1329–1356.</mixed-citation></ref>
+<ref id="pone.0270155.ref061"><label>61</label><mixed-citation publication-type="other" xlink:type="simple">BP. <italic>BP statistical review of world energy</italic>, <ext-link ext-link-type="uri" xlink:href="https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html" xlink:type="simple">https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html</ext-link> (2018).</mixed-citation></ref>
+<ref id="pone.0270155.ref062"><label>62</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>International Energy Agency</collab>. <source><italic>Energy Technology Perspectives 2015</italic></source>. <year>2015</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref063"><label>63</label><mixed-citation publication-type="other" xlink:type="simple">Greenpeace, Global Wind Energy Council, European Renewable Energy Council. <italic>Energy [R]evolution</italic>: <italic>A Sustainable World Energy Outlook</italic>, <ext-link ext-link-type="uri" xlink:href="http://www.greenpeace.org/international/en/publications/Campaign-reports/Climate-Reports/Energy-Revolution-2012/" xlink:type="simple">http://www.greenpeace.org/international/en/publications/Campaign-reports/Climate-Reports/Energy-Revolution-2012/</ext-link> (2012).</mixed-citation></ref>
+<ref id="pone.0270155.ref064"><label>64</label><mixed-citation publication-type="other" xlink:type="simple">World Wildlife Fund. <italic>The Energy Report</italic>: <italic>100% Renewable Energy by 2050</italic>. 2011.</mixed-citation></ref>
+<ref id="pone.0270155.ref065"><label>65</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Angel</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Parent</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Civco</surname> <given-names>DL</given-names></name>, <etal>et al</etal>. <article-title>The dimensions of global urban expansion: Estimates and projections for all countries, 2000–2050.</article-title> <source><italic>Prog Plann</italic></source> <year>2011</year>; <volume>75</volume>: <fpage>53</fpage>–<lpage>107</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref066"><label>66</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Searchinger</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Heimlich</surname> <given-names>R</given-names></name>. <source><italic>Avoiding Bioenergy Competition for Food Crops and Land</italic></source>. <year>2015</year>.</mixed-citation></ref>
+<ref id="pone.0270155.ref067"><label>67</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Abt</surname> <given-names>RC</given-names></name>, <name name-style="western"><surname>Abt</surname> <given-names>KL</given-names></name>, <name name-style="western"><surname>Cubbage</surname> <given-names>FW</given-names></name>, <etal>et al</etal>. <article-title>Effect of policy-based bioenergy demand on southern timber markets: A case study of North Carolina</article-title>. <source><italic>Biomass and Bioenergy</italic></source> <year>2010</year>; <volume>34</volume>: <fpage>1679</fpage>–<lpage>1686</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref068"><label>68</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Denholm</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Hand</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Jackson</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <source>Land-Use Requirements of Modern Wind Power Plants in the United States</source>.</mixed-citation></ref>
+<ref id="pone.0270155.ref069"><label>69</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hernandez</surname> <given-names>RR</given-names></name>, <name name-style="western"><surname>Hoffacker</surname> <given-names>MK</given-names></name>, <name name-style="western"><surname>Field</surname> <given-names>CB</given-names></name>. <article-title>Efficient use of land to meet sustainable energy needs.</article-title> <source><italic>Nat Clim Chang</italic></source> <year>2015</year>; <volume>5</volume>: <fpage>353</fpage>–<lpage>358</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref070"><label>70</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Cagle</surname> <given-names>AE</given-names></name>, <name name-style="western"><surname>Armstrong</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Exley</surname> <given-names>G</given-names></name>, <etal>et al</etal>. <article-title>The land sparing, water surface use efficiency, and water surface transformation of floating photovoltaic solar energy installations.</article-title> <source><italic>Sustainability</italic></source>; <volume>12</volume>.</mixed-citation></ref>
+<ref id="pone.0270155.ref071"><label>71</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Smith</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Forsyth</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Sinclair</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <source>Built-Environment Wind Turbine Roadmap</source>.</mixed-citation></ref>
+<ref id="pone.0270155.ref072"><label>72</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hernandez</surname> <given-names>RR</given-names></name>, <name name-style="western"><surname>Armstrong</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Burney</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Techno–ecological synergies of solar energy for global sustainability.</article-title> <source><italic>Nat Sustain</italic></source> <year>2019</year>; <volume>2</volume>: <fpage>560</fpage>–<lpage>568</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref073"><label>73</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lee</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>JI</given-names></name>, <etal>et al</etal>. <article-title>A new design concept for offshore nuclear power plants with enhanced safety features</article-title>. <source><italic>Nucl Eng Des</italic></source> <year>2013</year>; <volume>254</volume>: <fpage>129</fpage>–<lpage>141</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref074"><label>74</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Vo</surname> <given-names>TTE</given-names></name>, <name name-style="western"><surname>Ko</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Huh</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Overview of Possibilities of Solar Floating Photovoltaic Systems in the OffShore Industry</article-title>. <source><italic>Energies</italic></source>; <volume>14</volume>.</mixed-citation></ref>
+<ref id="pone.0270155.ref075"><label>75</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Guo</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Wang</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Lian</surname> <given-names>J</given-names></name>. <article-title>Review of integrated installation technologies for offshore wind turbines: Current progress and future development trends</article-title>. <source><italic>Energy Convers Manag</italic></source>; <volume>255</volume>.</mixed-citation></ref>
+<ref id="pone.0270155.ref076"><label>76</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hadjerioua</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Wei</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Kao</surname> <given-names>S-C</given-names></name>. <source><italic>An assessment of energy potential at non-powered dams in the United States</italic></source>. Epub ahead of print <year>2012</year>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2172/1039957" xlink:type="simple">10.2172/1039957</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0270155.ref077"><label>77</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gagnon</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Margolis</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Melius</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <source><italic>Rooftop Solar Photovoltaic Technical Potential in the United States</italic>: <italic>A Detailed Assessment</italic></source>, <ext-link ext-link-type="uri" xlink:href="http://www.nrel.gov/docs/fy16osti/65298.pdf" xlink:type="simple">http://www.nrel.gov/docs/fy16osti/65298.pdf</ext-link> (<year>2016</year>).</mixed-citation></ref>
+<ref id="pone.0270155.ref078"><label>78</label><mixed-citation publication-type="other" xlink:type="simple">U.S. Energy Information Administration. Today In Energy: EIA electricity data now include estimated small-scale solar PV capacity and generation, <ext-link ext-link-type="uri" xlink:href="http://www.eia.gov/todayinenergy/detail.cfm?id=23972" xlink:type="simple">www.eia.gov/todayinenergy/detail.cfm?id=23972</ext-link> (2015, accessed 7 July 2016).</mixed-citation></ref>
+<ref id="pone.0270155.ref079"><label>79</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Khan</surname> <given-names>MR</given-names></name>, <name name-style="western"><surname>Patel</surname> <given-names>MT</given-names></name>, <name name-style="western"><surname>Asadpour</surname> <given-names>R</given-names></name>, <etal>et al</etal>. <article-title>A review of next generation bifacial solar farms: predictive modeling of energy yield, economics, and reliability</article-title>. <source><italic>Appl Phys</italic></source>; 54.</mixed-citation></ref>
+<ref id="pone.0270155.ref080"><label>80</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wu</surname> <given-names>GC</given-names></name>, <name name-style="western"><surname>Torn</surname> <given-names>MS</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>JH</given-names></name>. <article-title>Incorporating land-use requirements and environmental constraints in low-carbon electricity planning for California</article-title>. <source><italic>Environ Sci Technol</italic></source> <year>2015</year>; <volume>49</volume>: <fpage>2013</fpage>–<lpage>2021</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1021/es502979v" xlink:type="simple">10.1021/es502979v</ext-link></comment> <object-id pub-id-type="pmid">25541644</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref081"><label>81</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jones</surname> <given-names>IL</given-names></name>, <name name-style="western"><surname>Bull</surname> <given-names>JW</given-names></name>, <name name-style="western"><surname>Milner-Gulland</surname> <given-names>EJ</given-names></name>, <etal>et al</etal>. <article-title>Quantifying habitat impacts of natural gas infrastructure to facilitate biodiversity offsetting.</article-title> <source><italic>Ecol Evol</italic></source> <year>2014</year>; <volume>4</volume>: <fpage>79</fpage>–<lpage>90</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/ece3.884" xlink:type="simple">10.1002/ece3.884</ext-link></comment> <object-id pub-id-type="pmid">24455163</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref082"><label>82</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Grodsky</surname> <given-names>SM</given-names></name>, <name name-style="western"><surname>Campbell</surname> <given-names>JW</given-names></name>, <name name-style="western"><surname>Hernandez</surname> <given-names>RR</given-names></name>. <article-title>Solar energy development impacts flower-visiting beetles and flies in the Mojave Desert</article-title>. <source><italic>Biol Conserv</italic></source>; <volume>263</volume>.</mixed-citation></ref>
+<ref id="pone.0270155.ref083"><label>83</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Conkling</surname> <given-names>TJ</given-names></name>, <name name-style="western"><surname>Vander Zanden</surname> <given-names>HB</given-names></name>, <name name-style="western"><surname>Allison</surname> <given-names>TD</given-names></name>, <etal>et al</etal>. <article-title>Vulnerability of avian populations to renewable energy production.</article-title> <source><italic>R Soc Open Sci</italic></source>; <volume>9</volume>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rsos.211558" xlink:type="simple">10.1098/rsos.211558</ext-link></comment> <object-id pub-id-type="pmid">35360356</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref084"><label>84</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jenkins</surname> <given-names>JD</given-names></name>, <name name-style="western"><surname>Mayfield</surname> <given-names>EN</given-names></name>, <name name-style="western"><surname>Larson</surname> <given-names>ED</given-names></name>, <etal>et al</etal>. <article-title>Mission net-zero America: The nation-building path to a prosperous, net-zero emissions economy.</article-title> <source><italic>Joule</italic></source> <year>2021</year>; <volume>5</volume>: <fpage>2755</fpage>–<lpage>2761</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref085"><label>85</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kiesecker</surname> <given-names>JM</given-names></name>, <name name-style="western"><surname>Copeland</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Pocewicz</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Development by design: blending landscape-level planning with the mitigation hierarchy</article-title>. <source><italic>Front Ecol Environ</italic></source> <year>2010</year>; <volume>8</volume>: <fpage>261</fpage>–<lpage>266</lpage>.</mixed-citation></ref>
+<ref id="pone.0270155.ref086"><label>86</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Margules</surname> <given-names>CR</given-names></name>, <name name-style="western"><surname>Pressey</surname> <given-names>RL</given-names></name>. <article-title>Systematic conservation planning</article-title>. <source><italic>Nature</italic></source> <year>2000</year>; <volume>405</volume>: <fpage>243</fpage>–<lpage>53</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/35012251" xlink:type="simple">10.1038/35012251</ext-link></comment> <object-id pub-id-type="pmid">10821285</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref087"><label>87</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kareiva</surname> <given-names>P.</given-names></name> <article-title>Dam choices: Analyses for multiple needs</article-title>. <source><italic>Proc Natl Acad Sci U S A</italic></source> <year>2012</year>; <volume>109</volume>: <fpage>5553</fpage>–<lpage>5554</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1073/pnas.1203263109" xlink:type="simple">10.1073/pnas.1203263109</ext-link></comment> <object-id pub-id-type="pmid">22460796</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref088"><label>88</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ziv</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Baran</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Nam</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Trading-off fish biodiversity, food security, and hydropower in the Mekong River Basin</article-title>. <source><italic>Proc Natl Acad Sci U S A</italic></source> <year>2012</year>; <volume>109</volume>: <fpage>5609</fpage>–<lpage>5614</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1073/pnas.1201423109" xlink:type="simple">10.1073/pnas.1201423109</ext-link></comment> <object-id pub-id-type="pmid">22393001</object-id></mixed-citation></ref>
+<ref id="pone.0270155.ref089"><label>89</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hurford</surname> <given-names>AP</given-names></name>, <name name-style="western"><surname>Huskova</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Harou</surname> <given-names>JJ</given-names></name>. <article-title>Using many-objective trade-off analysis to help dams promote economic development, protect the poor and enhance ecological health.</article-title> <source><italic>Environ Sci Policy</italic></source> <year>2013</year>; <volume>38</volume>: <fpage>1</fpage>–<lpage>15</lpage>.</mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="aggregated-review-documents" id="pone.0270155.r001" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0270155.r001</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Saikia</surname>
+<given-names>Lalit Chandra</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Lalit Chandra Saikia</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0270155" document-id-type="doi" document-type="article" id="rel-obj001" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">8 Apr 2022</named-content>
+</p>
+<p><!-- <div> -->PONE-D-22-07105<!-- </div> --><!-- <div> -->Land-use intensity of electricity production and tomorrow’s energy landscape<!-- </div> --><!-- <div> -->PLOS ONE</p>
+<p>Dear Dr. Lovering,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.<!-- </div> --><!-- <div> --> <!-- </div> --><!-- <div> -->The authors must respond to all the queries of all the reviewers and the manuscript must be modified as suggested by the reviewer. The paper is recommended for Minor Revision.<!-- </div> --><!-- <div> --></p>
+<p>Please submit your revised manuscript by May 23 2022 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email>. When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:<!-- </div> --><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p></list-item><list-item><p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p></list-item><list-item><p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p></list-item></list><!-- <div> -->If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link>. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link>.</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Lalit Chandra Saikia, PhD</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Journal Requirements:</p>
+<p>When submitting your revision, we need you to address these additional requirements.</p>
+<p>1. Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at </p>
+<p><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf</ext-link> and </p>
+<p><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf</ext-link></p>
+<p>2. Please review your reference list to ensure that it is complete and correct. If you have cited papers that have been retracted, please include the rationale for doing so in the manuscript text, or remove these references and replace them with relevant current references. Any changes to the reference list should be mentioned in the rebuttal letter that accompanies your revised manuscript. If you need to cite a retracted article, indicate the article’s retracted status in the References list and also include a citation and full reference for the retraction notice.</p>
+<p>3. Thank you for stating the following in the Acknowledgments Section of your manuscript: </p>
+<p>"R.R.H. received funding for this project from the USDA National Institute of Food and Agriculture Hatch Project 1010512, the Department of Land, Air and Water Resources at UC Davis, and the UC President's Postdoctoral Fellowship."</p>
+<p>We note that you have provided funding information that is not currently declared in your Funding Statement. However, funding information should not appear in the Acknowledgments section or other areas of your manuscript. We will only publish funding information present in the Funding Statement section of the online submission form. </p>
+<p>Please remove any funding-related text from the manuscript and let us know how you would like to update your Funding Statement. Currently, your Funding Statement reads as follows: </p>
+<p>"R.R.H. received funding for this project from the USDA National Institute of Food and Agriculture Hatch Project 1010512, the Department of Land, Air and Water Resources at UC Davis, and the UC President's Postdoctoral Fellowship.</p>
+<p><ext-link ext-link-type="uri" xlink:href="https://nifa.usda.gov/grants" xlink:type="simple">https://nifa.usda.gov/grants</ext-link></p>
+<p><ext-link ext-link-type="uri" xlink:href="https://www.lawr.ucdavis.edu/" xlink:type="simple">https://www.lawr.ucdavis.edu/</ext-link></p>
+<p><ext-link ext-link-type="uri" xlink:href="https://ppfp.ucop.edu/info/ " xlink:type="simple">https://ppfp.ucop.edu/info/ </ext-link></p>
+<p>The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript."</p>
+<p>Please include your amended statements within your cover letter; we will change the online submission form on your behalf.</p>
+<p>Additional Editor Comments:</p>
+<p>The authors must respond to all the queries of all the reviewers and the manuscript must be modified as suggested by the reviewer. The paper is recommended for Minor Revision.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><!-- <font color="black"> --><bold>Comments to the Author</bold></p>
+<p>1. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Partly</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->2. Has the statistical analysis been performed appropriately and rigorously? <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->3. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->4. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->5. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)<!-- </font> --></p>
+<p>Reviewer #1: With the increase of energy demand, its consumption of land will have impacts on people's health, ecology and environment. This study extensively collects power generation data and land occupancy data of the major electricity sources. Based on these data, the land-use intensity of energy (LUIE) for the main electricity sources, such as coal, natural gas and nuclear energy, is calculated. Calculation results are then applied to future scenarios, which can help policymakers formulate energy development strategies more scientifically. With a large amount of data and detailed analysis, this study provides a good reference for land-use intensity of energy. The paper is recommended for publication in PLOS ONE. Some questions are suggested below.</p>
+<p>(1) In the manuscript, the specific method for calculating coat indirect land area is unclear.</p>
+<p>(2) The study uses a large amount of data from multiple countries and states in the United States, which undoubtedly increases the authority of the manuscript. However, are the data collected within a similar time period, e.g. recent 5 years or 10 years?</p>
+<p>(3) The results of this study suggest that the IEA 6 Degree scenario has the smallest land-use area, which is a business-as-usual scenario. However, the use of a large amount of fossil energy will bring environmental problems. Can the environmental effects be taken into account to calculate and compare the generalized LUIE for various future scenarios, for example, converting the economic loss per unit of carbon emissions into an equivalent increase in land-use area?</p>
+<p>(4) The calculation results of LUIE of different studies for the same power source are quite different. This may be attributed to the fact that the amount and weight of data used in each study are different or different calculation standards are used. Using a large amount of data can enhance the accuracy of the calculation results. But how to explain the rationality of the calculation standards chosen in the manuscript?</p>
+<p>Reviewer #2: Lovering and colleagues investigate the Land Use Intensity of Electricity (LUIE) production in the United States for a variety of current electricity generation approaches. These approaches include coal, natural gas, nuclear, hydroelectric, biomass, wind, solar photovoltaic, and concentrating solar power (solar-CSP). Given the global need to transition from “business as usual” scenarios for energy production, this is a timely and important study. Moreover, this study is unique in that it considers the impact to land use for each of these approaches which an essential contribution to understanding how electricity generation may compete and further exacerbate resource conflict both here in the United States and abroad as we manage the transition away from fossil fuels. Overall, the manuscript is in good shape. It was a joy to read and provided unique and novel insights which I had not considered. I do have few concerns:</p>
+<p>1. For question 1 – “Is the manuscript technically sound, and do the data support the conclusions?” The data as presented are sound and do support the conclusions. I do have one concern which I don’t consider trivial and that is with respect to the storage of spent nuclear fuel. It is true that currently nuclear fuel in the United States is stored onsite. However our stockpile of spent fuel is growing rapidly. For example, An April 2020 report from the Congressional Research Service indicates that the amount of spent nuclear fuel in storage is expected to double by 2048. This is an issue which is unique to nuclear because unlike a hydroelectric dam or natural gas power plant which has a more-or-less fixed footprint at construction, the footprint associated with a nuclear powerplant will continue to grow throughout its lifecycle. I think that if the authors acknowledge this and work it into their paper it likely won’t alter the fundamental findings of the paper and would go a long way to strengthening the paper.</p>
+<p>2. For question 2 – “Has the statistical analysis been performed appropriately and rigorously?” Yes, in general. Although I would refer the authors to my comments on item #1.</p>
+<p>3. For question 3 – “Have the authors made all data underlying the findings in their manuscript fully available?” I’m not entirely sure how to address this. The compiled data set was generated entirely from publicly available information and the authors do cite each source from which data were obtained. However, the authors do not provide the compiled data set (or, at the very least, I wasn’t able to access it).</p>
+<p>4. For question 4 – “Is the manuscript presented in an intelligible fashion and written in standard English?” Yes – the paper was very well written. It was a joy to read.</p>
+<p>Reviewer #3: According to the principle of thermodynamics, I am not 100% sure you can write "energy production" or similar. Better to write "energy conversion or management"?</p>
+<p>You wrote "To provide LUIE results representative of the current state of each energy technology, we required that data sources represent existing, operational energy facilities and real world, rather than modeled, electricity generation data". What you precisely mean? Did you get the time series data or you got for instance the annual power production for those specific plants from literature (i.e. TWh/year/plant)?</p>
+<p>What could be the effect of climate and technological advancements (i.e. increased efficiencies) on your analysis?</p>
+<p>Some energy sources, as you have pointed out depends on locations, for instance solar is driven by latitude, could you further discuss on this or even better plot them in a map?</p>
+<p>Can you discuss about other emerging technologies? and or provide further suggestions on how to avoid this energy and land use conflict (i.e., marine energy, agrivoltaics, supercritical geothermal, etc.)?</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->6. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link>). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link>.<!-- </font> --></p>
+<p>Reviewer #1: <bold>Yes: </bold>DONG　CHEN</p>
+<p>Reviewer #2: No</p>
+<p>Reviewer #3: <bold>Yes: </bold>Pietro Elia Campana</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email>. Please note that Supporting Information files do not need this step.<!-- </div> --></p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0270155.r002">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0270155.r002</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 0</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0270155" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj002" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0270155.r001" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">23 May 2022</named-content>
+</p>
+<p>Per the editor's request, we have removed funding information from the Acknowledgements section of the manuscript. All Reviewer Comments have been addressed as detailed in the attached "Response to Reviewers"</p>
+<supplementary-material id="pone.0270155.s004" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0270155.s004" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Response to Reviewers.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pone.0270155.r003" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0270155.r003</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Saikia</surname>
+<given-names>Lalit Chandra</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Lalit Chandra Saikia</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0270155" document-id-type="doi" document-type="article" id="rel-obj003" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">6 Jun 2022</named-content>
+</p>
+<p>Land-use intensity of electricity production and tomorrow’s energy landscape</p>
+<p>PONE-D-22-07105R1</p>
+<p>Dear Dr. Lovering,</p>
+<p>We’re pleased to inform you that your manuscript has been judged scientifically suitable for publication and will be formally accepted for publication once it meets all outstanding technical requirements.</p>
+<p>Within one week, you’ll receive an e-mail detailing the required amendments. When these have been addressed, you’ll receive a formal acceptance letter and your manuscript will be scheduled for publication.</p>
+<p>An invoice for payment will follow shortly after the formal acceptance. To ensure an efficient process, please log into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="http://www.editorialmanager.com/pone/" xlink:type="simple">http://www.editorialmanager.com/pone/</ext-link>, click the 'Update My Information' link at the top of the page, and double check that your user information is up-to-date. If you have any billing related questions, please contact our Author Billing department directly at <email xlink:type="simple">authorbilling@plos.org</email>.</p>
+<p>If your institution or institutions have a press office, please notify them about your upcoming paper to help maximize its impact. If they’ll be preparing press materials, please inform our press team as soon as possible -- no later than 48 hours after receiving the formal acceptance. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>Kind regards,</p>
+<p>Lalit Chandra Saikia, PhD</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Additional Editor Comments (optional):</p>
+<p>The authors have addressed all the comments of the reviewer. The paper is recommended for publication.</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><!-- <font color="black"> --><bold>Comments to the Author</bold></p>
+<p>1. If the authors have adequately addressed your comments raised in a previous round of review and you feel that this manuscript is now acceptable for publication, you may indicate that here to bypass the “Comments to the Author” section, enter your conflict of interest statement in the “Confidential to Editor” section, and submit your "Accept" recommendation.<!-- </font> --></p>
+<p>Reviewer #1: All comments have been addressed</p>
+<p>Reviewer #3: All comments have been addressed</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->2. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->3. Has the statistical analysis been performed appropriately and rigorously? <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->4. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->5. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->6. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)<!-- </font> --></p>
+<p>Reviewer #1: (No Response)</p>
+<p>Reviewer #3: All my previous minor comments were addressed. I appreciate the inclusion of each comment response in the text.</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->7. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link>). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link>.<!-- </font> --></p>
+<p>Reviewer #1: <bold>Yes: </bold>Dong Chen</p>
+<p>Reviewer #3: No</p>
+<p>**********</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0270155.r004" specific-use="acceptance-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0270155.r004</article-id>
+<title-group>
+<article-title>Acceptance letter</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Saikia</surname>
+<given-names>Lalit Chandra</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Lalit Chandra Saikia</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0270155" document-id-type="doi" document-type="article" id="rel-obj004" link-type="peer-reviewed-article"/>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">14 Jun 2022</named-content>
+</p>
+<p>PONE-D-22-07105R1 </p>
+<p>Land-use intensity of electricity production and tomorrow’s energy landscape </p>
+<p>Dear Dr. Lovering:</p>
+<p>I'm pleased to inform you that your manuscript has been deemed suitable for publication in PLOS ONE. Congratulations! Your manuscript is now with our production department. </p>
+<p>If your institution or institutions have a press office, please let them know about your upcoming paper now to help maximize its impact. If they'll be preparing press materials, please inform our press team within the next 48 hours. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>If we can help with anything else, please email us at <email xlink:type="simple">plosone@plos.org</email>. </p>
+<p>Thank you for submitting your work to PLOS ONE and supporting open access. </p>
+<p>Kind regards, </p>
+<p>PLOS ONE Editorial Office Staff</p>
+<p>on behalf of</p>
+<p>Dr. Lalit Chandra Saikia  </p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+</body>
+</sub-article>
+</article>

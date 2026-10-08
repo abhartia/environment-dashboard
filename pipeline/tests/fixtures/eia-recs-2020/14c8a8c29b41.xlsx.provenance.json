@@ -1,0 +1,13 @@
+{
+  "artifact_id": "table-ce2-1",
+  "command": "uv run python tests/fixtures/make_fixture.py --source eia-recs-2020 --artifact table-ce2-1 --whole",
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 37081,
+  "fixture_sha256": "14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff",
+  "full_bytes": 37081,
+  "full_sha256": "14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff",
+  "licence": "Public domain (work of the US federal government)",
+  "rows_kept": "the whole file (37,081 bytes)",
+  "source_id": "eia-recs-2020",
+  "url": "https://www.eia.gov/consumption/residential/data/2020/c&e/xls/ce2.1.xlsx"
+}

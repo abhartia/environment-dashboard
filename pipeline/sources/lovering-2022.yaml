@@ -1,0 +1,103 @@
+# Lovering, Swain, Blomqvist & Hernandez (2022), PLOS ONE 17(7): e0270155: land-use intensity of electricity (LUIE),
+# hectares occupied per terawatt-hour generated in a year, for twelve ways of making electricity (Table 1).
+# Evidence: docs/research/sources-zero-space-and-power-2026-10-08.json (question a, rank 1).
+# Checked 2026-10-08:
+#   - The article's own JATS XML (PLOS "manuscript" file, 159,635 bytes, sha256
+#     363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0) carries <license
+#     xlink:href="http://creativecommons.org/licenses/by/4.0/"> with the sentence quoted below; the printed PDF's front
+#     page says the same ("Copyright: © 2022 Lovering et al. This is an open access article distributed under the terms
+#     of the Creative Commons Attribution License ..."). Crossref agrees (vor licence CC BY 4.0 from 2022-07-06).
+#   - The PDF (PLOS "printable" file, 1,104,687 bytes, sha256
+#     d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16) was downloaded twice with identical bytes, so it
+#     is not stamped per download. Table 1 is text on its page 8.
+#   - citation.text is the article's own "Citation:" line (PDF page 1), verbatim.
+# Not registered: the supplementary site-level file (S1 File, 1,430 rows). Its 951 hydro rows are each credited to
+# the International Commission on Large Dams' World Register of Dams, a subscription database whose terms were not
+# read, so that file is not re-hosted or read here. Table 1 combines direct and indirect rows for coal, gas and
+# nuclear in ways the file does not show, and residue biomass is not in the file at all, so only Table 1 is
+# published, as printed. Because only the article itself is registered, its raw files may be mirrored (mirror_raw).
+# Twin: noland-2022 measures power density (watts per square metre) with other boundaries; the two are shown side by
+# side and never combined.
+id: lovering-2022
+title: Land-use intensity of electricity (Lovering et al. 2022)
+publisher: >-
+  Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California
+  Davis); published in PLOS ONE (Public Library of Science)
+landing_url: https://doi.org/10.1371/journal.pone.0270155
+description: >-
+  A synthesis of land use per unit of electricity for nuclear, geothermal, wind, residue and dedicated biomass,
+  natural gas, hydroelectric dams, coal, concentrating solar and ground-mounted solar panels, in hectares occupied per
+  terawatt-hour generated in a year (ha/TWh/y). Table 1 gives the median, mean, interquartile range (the width from
+  the 25th to the 75th percentile, not the two quartiles), standard error and number of sites for each. Coal, natural
+  gas, nuclear and dedicated biomass include the land used to mine, grow, process or transport their fuel; land to
+  make panels, turbines and plants, transmission lines and offshore areas are not counted. Wind and natural gas have
+  two values: the land physically occupied (footprint) and the whole area inside the site's boundary (spacing).
+  Rooftop solar is assigned zero by assumption. Nuclear, wind and ground-mounted solar sites are in the United
+  States, coal sites in the United States and Canada, dams in 80 countries.
+citation:
+  type: article-journal
+  title: Land-use intensity of electricity production and tomorrow's energy landscape
+  author:
+    - {family: Lovering, given: Jessica}
+    - {family: Swain, given: Marian}
+    - {family: Blomqvist, given: Linus}
+    - {family: Hernandez, given: Rebecca R.}
+  issued: "2022-07-06"
+  publisher: Public Library of Science
+  container-title: PLOS ONE
+  volume: "17"
+  page: e0270155
+  DOI: 10.1371/journal.pone.0270155
+  URL: https://doi.org/10.1371/journal.pone.0270155
+  text: >-
+    Lovering J, Swain M, Blomqvist L, Hernandez RR (2022) Land-use intensity of electricity production and tomorrow's
+    energy landscape. PLoS ONE 17(7): e0270155. https://doi.org/10.1371/journal.pone.0270155
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript
+  licence_quote: >-
+    This is an open access article distributed under the terms of the Creative Commons Attribution License, which
+    permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source
+    are credited.
+  checked_on: 2026-10-08
+  terms_check: api
+obligations:
+  attribution: >-
+    Lovering, J., Swain, M., Blomqvist, L. & Hernandez, R. R. (2022). Land-use intensity of electricity production and
+    tomorrow's energy landscape. PLOS ONE 17(7): e0270155. doi:10.1371/journal.pone.0270155. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Lovering, J., Swain, M., Blomqvist, L. & Hernandez, R. R. (2022). Land-use
+    intensity of electricity production and tomorrow's energy landscape. PLOS ONE 17(7): e0270155.
+    doi:10.1371/journal.pone.0270155. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08 (application/xml).
+  - id: article-xml
+    url: https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript
+    format: xml
+    description: >-
+      The article as JATS XML: Table 1 (table-wrap pone.0270155.t001) as a table of cells, the methods text that
+      assigns rooftop solar zero, and the licence element. 159,635 bytes.
+    access: {conditional: false}
+  # GET 200 on 2026-10-08 (application/pdf), 17 pages; identical bytes on two downloads.
+  - id: article-pdf
+    url: https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=printable
+    format: pdf
+    description: >-
+      The printed article (17 pages). Table 1 is text on page 8; the transform checks every row it reads from the XML
+      against this printed table.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published 6 July 2022 (volume 17, issue 7) as a one-off study; no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2022)
+twins: [noland-2022]
+research_ref: >-
+  docs/research/sources-zero-space-and-power-2026-10-08.json#Lovering, Swain, Blomqvist & Hernandez (2022), Land-use
+  intensity of electricity production and tomorrow's energy landscape, PLOS ONE 17(7): e0270155

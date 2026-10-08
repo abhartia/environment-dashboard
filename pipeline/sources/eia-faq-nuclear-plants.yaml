@@ -1,0 +1,73 @@
+# US Energy Information Administration, Frequently Asked Question 207: "How many nuclear power plants are in the
+# United States, and where are they located?" The FAQ states the capacity of the largest US nuclear power plant,
+# Vogtle in Georgia, which the site uses as one named large power station on its power scale.
+# Evidence: docs/research/sources-zero-space-and-power-2026-10-08.json (question b, rank 5).
+# Licence: EIA "Copyrights and Reuse" page, as for eia-international.
+# Checked 2026-10-08: GET 200 (text/html, 54,224 bytes); a HEAD request gets an Akamai 503, as for eia-international,
+# so the artifact is read with GET only. The page's "Other FAQs" sidebar is shuffled on every request (two GETs a
+# minute apart differ only there), so most weekly fetches record a new snapshot with the same FAQ text. The transform
+# quotes the FAQ's own sentences, so a change to the stated capacity fails the build rather than passing silently.
+# Why the FAQ and not Form EIA-860: EIA-860 lists Vogtle's four generators separately; a plant total would be our sum.
+# The FAQ is EIA's own statement of the plant's capacity, as of the month it names. The page shows no publication
+# date, so citation.text (EIA's acknowledgement form) carries the answer's own date ("As of March 2026").
+id: eia-faq-nuclear-plants
+title: "EIA FAQ: How many nuclear power plants are in the United States?"
+publisher: U.S. Energy Information Administration
+landing_url: https://www.eia.gov/tools/faqs/faq.php?id=207&t=3
+description: >-
+  EIA's answer to how many nuclear power plants and reactors operate in the United States and where, with the
+  largest and smallest plants and their nameplate and net summer generating capacity in megawatts, as of the month the
+  answer names. Net summer capacity is the most a plant can supply to the grid in summer conditions, after its own
+  use; nameplate capacity is the generators' rated output.
+citation:
+  type: webpage
+  title: How many nuclear power plants are in the United States, and where are they located?
+  author:
+    - {literal: U.S. Energy Information Administration}
+  issued: "2026"
+  publisher: U.S. Energy Information Administration
+  URL: https://www.eia.gov/tools/faqs/faq.php?id=207&t=3
+  text: "Source: U.S. Energy Information Administration (Mar 2026)."
+licence_class: open
+licence:
+  name: Public domain (work of the US federal government)
+  spdx: null
+  url: https://www.copyright.gov/title17/92chap1.html#105
+evidence:
+  terms_url: https://www.eia.gov/about/copyrights_reuse.php
+  licence_quote: >-
+    U.S. government publications are in the public domain and are not subject to copyright protection. You may use
+    and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that
+    are on our website or that you receive through our email distribution service.
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: >-
+    Source: U.S. Energy Information Administration (Mar 2026), FAQ "How many nuclear power plants are in the United
+    States, and where are they located?"
+  attribution_modified: >-
+    Calculated by Environment Dashboard from U.S. Energy Information Administration (Mar 2026), FAQ "How many nuclear
+    power plants are in the United States, and where are they located?"
+  mirror_raw: true
+  no_logo: true
+acquisition: automatic
+artifacts:
+  - id: faq-207
+    url: https://www.eia.gov/tools/faqs/faq.php?id=207&t=3
+    format: html
+    description: >-
+      The FAQ page. Its answer opens "As of March 2026, the United States had 94 operating commercial nuclear power
+      reactors at 54 power plants" and lists the Alvin W. Vogtle Electric Generating Plant in Georgia as the largest,
+      with four reactors, a total nameplate capacity of about 4,658 MW and a total net summer capacity of 4,530 MW.
+    access: {conditional: false}
+status:
+  state: active
+  note: >-
+    EIA revises the answer when its plant inventory changes; the version read on 2026-10-08 is dated March 2026. EIA
+    lost more than 100 of its about 350 staff in 2025.
+  us_federal: true
+update_cadence: Irregular (revised when EIA's generator inventory changes)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-space-and-power-2026-10-08.json#EIA FAQ 'How many nuclear power plants are in the United
+  States, and where are they located?' (largest US plant)
