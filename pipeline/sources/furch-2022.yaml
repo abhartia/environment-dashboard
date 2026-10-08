@@ -1,0 +1,84 @@
+# Furch, Konečný & Krobot (2022), Scientific Reports 12, 10661: the life cycle cost of passenger cars with petrol,
+# diesel, CNG, hybrid and battery electric drives on the Czech market.
+# Evidence: docs/research/sources-zero-green-premium-papers-2026-10-08.json ("Furch et al. 2022 ..."); verdict "use
+# with caveat" (fuel and electricity unit prices are not tabulated with sources). Green Premium work of 2026-10-08.
+# Checked 2026-10-08:
+#   - The article is read from its JATS XML on Europe PMC (PMC9226055, HTTP 200 application/xml, 119,716 bytes); the
+#     <license> element carries the licence quoted below. nature.com serves the same article.
+#   - Table 1 is the authors' own life cycle cost model (equations 18-20) for one car model per drive on the Czech
+#     market in 2022, over 400,000 km and 15 years. Its "Life cycle specific costs LCCS" row prints no unit; equation
+#     20 defines it as the life cycle cost (euros) divided by the service life (kilometres).
+#   - The electric car's battery: Table 1's electric column lists "Accumulator battery costs" of 18,184, and the text
+#     (p. 13) states "if the vehicles were operated up to a range of 400,000 kms, the specific cost of an electric
+#     vehicle without battery replacement is €0.21, for an electric vehicle with battery replacement is €0.25". The
+#     table's electric value is published as printed with that sentence in its note; the text's rounded values are
+#     not published.
+id: furch-2022
+title: Life cycle cost of passenger cars by drive type, Czech market (Furch et al. 2022)
+publisher: >-
+  Jan Furch, Vlastimil Konečný and Zdeněk Krobot (University of Defence, Brno); published in Scientific Reports
+landing_url: https://doi.org/10.1038/s41598-022-14715-8
+description: >-
+  A life cycle cost model for passenger cars applied to six cars offered on the Czech market in 2022 (petrol, diesel,
+  petrol and CNG, plug-in hybrid, mild hybrid and battery electric): purchase price, fuel or electricity, fluids,
+  tyres, batteries, mandatory costs and corrective and preventive maintenance over 400,000 km and 15 years, in euros,
+  and per kilometre. One car model per drive; not a market average.
+citation:
+  type: article-journal
+  title: Modelling of life cycle cost of conventional and alternative vehicles
+  author:
+    - {family: Furch, given: Jan}
+    - {family: Konečný, given: Vlastimil}
+    - {family: Krobot, given: Zdeněk}
+  issued: "2022-06-23"
+  publisher: Springer Nature
+  container-title: Scientific Reports
+  volume: "12"
+  page: "10661"
+  DOI: 10.1038/s41598-022-14715-8
+  URL: https://doi.org/10.1038/s41598-022-14715-8
+  # "Cite this article" on nature.com.
+  text: >-
+    Furch, J., Konečný, V. & Krobot, Z. Modelling of life cycle cost of conventional and alternative vehicles. Sci Rep
+    12, 10661 (2022). https://doi.org/10.1038/s41598-022-14715-8
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9226055/fullTextXML
+  licence_quote: >-
+    This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use,
+    sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit
+    to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes
+    were made.
+  checked_on: 2026-10-08
+  terms_check: api
+obligations:
+  attribution: >-
+    Furch, J., Konečný, V. & Krobot, Z. (2022). Modelling of life cycle cost of conventional and alternative vehicles.
+    Scientific Reports 12, 10661. doi:10.1038/s41598-022-14715-8. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Furch, J., Konečný, V. & Krobot, Z. (2022). Modelling of life cycle cost of
+    conventional and alternative vehicles. Scientific Reports 12, 10661. doi:10.1038/s41598-022-14715-8. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-xml
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9226055/fullTextXML
+    format: xml
+    description: >-
+      The article's full text and tables as JATS XML from Europe PMC (PMC9226055). Table 1: basic input and calculated
+      values for six passenger car drive types, including the life cycle cumulative costs (LCC) and life cycle
+      specific costs (LCCS).
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published once on 23 June 2022 (volume 12); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2022)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-papers-2026-10-08.json#Furch et al. 2022, Scientific Reports 12:10661, doi
+  10.1038/s41598-022-14715-8

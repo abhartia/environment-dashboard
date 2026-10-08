@@ -1,0 +1,87 @@
+# Rajalehto & Helo (2025), Journal of Cleaner Production 509, 145524: the monthly total cost of ownership of a
+# diesel, a liquid biomethane and a battery electric heavy truck in one Finnish food logistics company's fleet.
+# Evidence: docs/research/sources-zero-green-premium-papers-2026-10-08.json ("Rajalehto & Helo 2025 ..."); verdict
+# "use; single company". Green Premium work of 2026-10-08.
+# Checked 2026-10-08:
+#   - Crossref (api.crossref.org/works/10.1016/j.jclepro.2025.145524) lists http://creativecommons.org/licenses/by/4.0/
+#     among the version-of-record licences.
+#   - ScienceDirect does not serve scripts, so the article is read from the copy on the University of Vaasa's
+#     repository Osuva (handle 11111/3261, formerly 10024/19322; dc.type.version "publishedVersion", dc.rights
+#     "CC BY 4.0", dc.relation.doi 10.1016/j.jclepro.2025.145524). The file is Elsevier's typeset version of record:
+#     pdfinfo gives Creator "Elsevier", Subject "Journal of Cleaner Production, 509 (2025) 145524.
+#     doi:10.1016/j.jclepro.2025.145524", 14 pages, and page 1 carries the licence line quoted below. HTTP 200
+#     application/pdf, 2,953,471 bytes, sha256 8b72c98ad063d41c1ef8912f95943cce8328269670e5fcf476f0d3c03c699b58 (the
+#     handle's /bitstreams/<id>/download link redirects to the API URL registered below); two downloads gave the
+#     same bytes. Osuva lists MD5 33626f1d083b31d305702e3a65b855d7 for the bitstream as stored.
+#   - What is used: Table 3 (monthly cost of ownership from 1,000 Monte Carlo simulations per truck). The inputs are
+#     the case company's leasing, insurance, labour, telemetry and energy invoices from its local distributors, plus an
+#     EU ETS allowance price for emissions costs; no value is attributed to a price vendor.
+id: rajalehto-helo-2025
+title: Monthly cost of ownership of diesel, biomethane and electric trucks in Finland (Rajalehto & Helo 2025)
+publisher: >-
+  Clara Rajalehto and Petri Helo (University of Vaasa); published in the Journal of Cleaner Production (Elsevier)
+landing_url: https://doi.org/10.1016/j.jclepro.2025.145524
+description: >-
+  A case study of heavy trucks (64-tonne combinations, 40 pallets) run by one Finnish food logistics company on
+  comparable routes from January to October 2023: a Volvo FH6x4 on diesel, a Volvo FH6x4 on liquid biomethane (LBG)
+  and a Volvo FH Electric, all leased for five years. The monthly total cost of ownership (leasing, insurance, labour,
+  energy and an emissions cost at the EU ETS price) is simulated 1,000 times per truck from the measured consumption,
+  daily distances and energy prices. Subsidies are not modelled separately. One company's trucks; not a market
+  average.
+citation:
+  type: article-journal
+  title: Comparing feasibility of low-carbon heavy-duty road freight vehicles
+  author:
+    - {family: Rajalehto, given: Clara}
+    - {family: Helo, given: Petri}
+  issued: "2025-04-19"
+  publisher: Elsevier
+  container-title: Journal of Cleaner Production
+  volume: "509"
+  page: "145524"
+  DOI: 10.1016/j.jclepro.2025.145524
+  URL: https://doi.org/10.1016/j.jclepro.2025.145524
+  text: >-
+    Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon heavy-duty road freight vehicles. Journal of
+    Cleaner Production 509, 145524. https://doi.org/10.1016/j.jclepro.2025.145524
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://osuva.uwasa.fi/server/api/core/bitstreams/a7579096-fe2c-4c0e-8e3c-0b0626d919df/content
+  licence_quote: >-
+    © 2025 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY license (
+    http://creativecommons.org/licenses/by/4.0/ ).
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  attribution: >-
+    Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon heavy-duty road freight vehicles. Journal of
+    Cleaner Production 509, 145524. doi:10.1016/j.jclepro.2025.145524. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Rajalehto, C. & Helo, P. (2025). Comparing feasibility of low-carbon
+    heavy-duty road freight vehicles. Journal of Cleaner Production 509, 145524. doi:10.1016/j.jclepro.2025.145524.
+    CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-pdf
+    url: https://osuva.uwasa.fi/server/api/core/bitstreams/a7579096-fe2c-4c0e-8e3c-0b0626d919df/content
+    format: pdf
+    description: >-
+      Version of record (14 pages) as deposited on the University of Vaasa repository Osuva (handle 11111/3261).
+      Table 3 (page 8): mean, median, minimum and maximum of the simulated monthly total cost of ownership of the
+      diesel, LBG and electric trucks; Tables 1 and 2 (pages 4-5): the trucks and the simulation inputs.
+      2,953,471 bytes.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published once (available online 19 April 2025; volume 509); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2025)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-papers-2026-10-08.json#Rajalehto & Helo 2025, Journal of Cleaner Production
+  509:145524, doi 10.1016/j.jclepro.2025.145524

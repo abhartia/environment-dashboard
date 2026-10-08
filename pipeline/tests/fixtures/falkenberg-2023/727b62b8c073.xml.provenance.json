@@ -1,0 +1,15 @@
+{
+  "artifact_id": "article-xml",
+  "command": "uv run python tests/fixtures/make_fixture.py --source falkenberg-2023 --artifact article-xml --first 1000000 --last 0",
+  "data_rows_total": 218,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 135678,
+  "fixture_sha256": "727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af",
+  "full_bytes": 135678,
+  "full_sha256": "727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 218 data rows",
+  "source_id": "falkenberg-2023",
+  "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253197/fullTextXML"
+}

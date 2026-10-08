@@ -1,0 +1,15 @@
+{
+  "artifact_id": "article-xml",
+  "command": "uv run python tests/fixtures/make_fixture.py --source furch-2022 --artifact article-xml --first 1000000 --last 0",
+  "data_rows_total": 17,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 119716,
+  "fixture_sha256": "af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4",
+  "full_bytes": 119716,
+  "full_sha256": "af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "all 17 data rows",
+  "source_id": "furch-2022",
+  "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9226055/fullTextXML"
+}

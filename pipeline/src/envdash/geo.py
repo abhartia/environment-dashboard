@@ -109,6 +109,11 @@ AGGREGATES: dict[str, str] = {
     "UN_OCE": "Oceania (as grouped by GWIS)",
     # EFFIS's total for the countries in the EU Civil Protection Mechanism, as EFFIS lists them.
     "UCPM": "Countries in the EU Civil Protection Mechanism (as listed by EFFIS)",
+    # Studies that cost something "in Europe" without a list of countries: Arnaiz del Pozo & Cloete (2022) price their
+    # ammonia plants at "European energy prices" on a Western Europe cost basis, and Sacchi et al. (2023) cost
+    # synthetic jet fuel with European electricity for flights from the EU-27 and EFTA. Each indicator's scope says
+    # which Europe it is; this is not a membership list.
+    "EUR_STUDY": "Europe (as the study cited defines it)",
 }
 
 STATIONS: dict[str, str] = {

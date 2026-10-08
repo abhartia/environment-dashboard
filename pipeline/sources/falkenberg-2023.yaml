@@ -1,0 +1,80 @@
+# Falkenberg, Trexler, Garaus & Pöchtrager (2023), Foods 12, 2211: prices per kilogram of plant-based mince and
+# sausages and of their conventional meat counterparts in Austrian supermarkets (Vienna, May 2022).
+# Evidence: docs/research/sources-zero-green-premium-papers-2026-10-08.json ("Falkenberg et al. 2023 ..."); verdict
+# "use; retail prices, meat not split by species". Green Premium work of 2026-10-08.
+# Checked 2026-10-08:
+#   - mdpi.com does not serve scripts. The article is read from its JATS XML on Europe PMC (PMC10253197, HTTP 200
+#     application/xml, 135,678 bytes); the <license> element carries the licence quoted below
+#     (ali:license_ref https://creativecommons.org/licenses/by/4.0/).
+#   - The prices are the authors' own observations: "Standardized observations were conducted to collect data in May
+#     2022 in Vienna" in the nationwide chains Billa, Billa Plus, Spar/Eurospar/Interspar, Hofer and Lidl, with every
+#     price per kilogram recalculated from price and pack mass. No price vendor is involved. The conventional meat's
+#     nutrition data came from AGES and the Österreichische Nährwerttabelle; those are not used.
+id: falkenberg-2023
+title: Prices of plant-based and conventional mince and sausages in Austria (Falkenberg et al. 2023)
+publisher: >-
+  Christof Falkenberg, Alena Trexler, Christian Garaus and Siegfried Pöchtrager (University of Natural Resources and
+  Life Sciences, Vienna); published in Foods (MDPI)
+landing_url: https://doi.org/10.3390/foods12112211
+description: >-
+  Prices, ingredients and nutrition of the 38 plant-based mince and 36 plant-based sausage products sold by the
+  nationwide supermarket chains in Vienna in May 2022, compared with conventional minced meat and sausages in the same
+  shops. Table 3 gives the mean, standard deviation, median, minimum and maximum price per kilogram in euros for each
+  product group. Retail prices in one city and month; conventional meat is not split by species.
+citation:
+  type: article-journal
+  title: "Meat Substitute Markets: A Comparative Analysis of Meat Analogs in Austria"
+  author:
+    - {family: Falkenberg, given: Christof}
+    - {family: Trexler, given: Alena}
+    - {family: Garaus, given: Christian}
+    - {family: Pöchtrager, given: Siegfried}
+  issued: "2023-05-31"
+  publisher: MDPI
+  container-title: Foods
+  volume: "12"
+  page: "2211"
+  DOI: 10.3390/foods12112211
+  URL: https://doi.org/10.3390/foods12112211
+  text: >-
+    Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of
+    Meat Analogs in Austria. Foods 12(11), 2211. https://doi.org/10.3390/foods12112211
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253197/fullTextXML
+  licence_quote: >-
+    Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and
+    conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).
+  checked_on: 2026-10-08
+  terms_check: api
+obligations:
+  attribution: >-
+    Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat Substitute Markets: A Comparative Analysis of
+    Meat Analogs in Austria. Foods 12, 2211. doi:10.3390/foods12112211. CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Falkenberg, C., Trexler, A., Garaus, C. & Pöchtrager, S. (2023). Meat
+    Substitute Markets: A Comparative Analysis of Meat Analogs in Austria. Foods 12, 2211. doi:10.3390/foods12112211.
+    CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-xml
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253197/fullTextXML
+    format: xml
+    description: >-
+      The article's full text and tables as JATS XML from Europe PMC (PMC10253197). Table 3: descriptive indicators of
+      the price per kilogram (euros) of plant-based and conventional minced meat and sausages.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published once on 31 May 2023 (volume 12, issue 11); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2023)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-papers-2026-10-08.json#Falkenberg et al. 2023, Foods 12:2211 (PMC10253197,
+  CC BY 4.0)
