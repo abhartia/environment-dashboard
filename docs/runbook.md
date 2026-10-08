@@ -102,6 +102,23 @@ Also (owner), by email:
   and on-farm energy use (IEA activity data and grid emission factors, EDGAR v7 cold-chain F-gases) carry
   restrictions. Record the answer in `docs/sources.md` and in `pipeline/sources/faostat.yaml` and
   `faostat-all-sectors.yaml`.
+- Licence questions from 2026-10-08 (not yet sent; record each answer in `docs/sources.md` and the source's YAML):
+  - coalition@climatetrace.org: are the subsectors Climate TRACE models from IEA-based inputs (road transport,
+    buildings, heat plants, several manufacturing subsectors) its own CC BY 4.0 estimates; and which list of external
+    datasets governs, the terms page or the data guide?
+  - rights@iea.org: do IEA terms restrict a third party's own estimates that use IEA energy statistics as one input;
+    and is the CCUS Projects Database explorer file CC BY 4.0, as its pages say?
+  - hello@zerotracker.net: which licence applies to the 2025 Zenodo deposit (record 17143240), CC BY 4.0 as tagged
+    or CC BY-NC 4.0 as the data terms say?
+  - socdr@smithschool.ox.ac.uk: does The State of CDR's CC BY 4.0 cover the chapter 7 data file and the values it
+    takes from CDR.fyi?
+  - UN Statistics Division, energy statistics: do IEA terms restrict the OECD and EU values in the UNSD Energy
+    Statistics Database (unsd-energy)?
+- Download by hand (UNEP's repository refuses scripts): the Adaptation Gap Report 2025 (`AGR2025.pdf` from
+  https://wedocs.unep.org/handle/20.500.11822/48798, 15,336,689 bytes, sha256 7aae2efd…f79cf) and its online
+  annexes (`AGR2025_Online_Annexes.pdf` from https://wedocs.unep.org/handle/20.500.11822/48839), then
+  `uv run envdash snapshot add --source unep-agr-2025 --artifact report-pdf --file <path> --note "downloaded by <who>
+  from <item page>"` (and `--artifact online-annexes-pdf`).
 
 ### 5. GitHub
 

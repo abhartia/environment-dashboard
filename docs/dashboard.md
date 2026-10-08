@@ -13,7 +13,7 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
   and each number reading the latest published value at that moment (never interpolated; before a record begins the
   row says when it starts). Moving across the rows travels in time; selecting a row opens its chapter
   (`lib/dash/story.ts`, `components/dash/story-timeline.tsx`).
-- **Chapter** (`/emissions`, `/energy`, `/air`, `/heat`, `/oceans`, `/people`, `/food`, `/action`): a drill-down tree on
+- **Chapter** (`/emissions`, `/energy`, `/air`, `/heat`, `/oceans`, `/people`, `/food`, `/action`, `/zero`): a drill-down tree on
   one screen. Each **node** is one idea: a kicker (the page's `h1`), one big traced number, one sentence and one chart.
   The path so far reads across the top. There are no text buttons: a band, a line or a bar opens the next idea when
   it has one, and the other directions show as small cards carrying the next idea's kicker and the shape of its chart.
@@ -41,6 +41,15 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
   per kilogram) and methane by animal; each stack adds up to FAO's published total. Land leads to forests: FAO's forest
   area and its net change, then tree cover lost each year (Global Forest Watch: all loss and the part due to fire), what
   drove it, where, and humid tropical primary forest; clearing land for farming links to the same view.
+- **Getting to zero** represents the frameworks of Bill Gates's *How to Avoid a Climate Disaster* (2021) from primary
+  producers (his own figures, Rhodium Group's and Breakthrough Energy's, cannot be republished). It opens on Climate
+  TRACE's emissions grouped into his five activities (making things, plugging in, growing things, getting around,
+  keeping warm and cool), grouped in the pipeline the way Rhodium grouped his numbers; each subsector carries its
+  activity in the data, so the tree only selects. Its cards are his five questions: how much of the total (shares of
+  the five), the plan for cement (making things, and the premium for clean steel and cement), how much power (the
+  world, a city, a home), how much space (land per unit of electricity), and how much it costs (the Green Premium:
+  stated premiums, then one producer's clean and fossil costs side by side per activity). Then the strategy: net zero
+  targets, electrifying, capturing what is left and removing carbon, research budgets, and adapting (farms by size).
 
 A drill target written `chapter:node` opens another chapter's view (`crossDrill` in `kit.ts` carries its title and
 chart shape).

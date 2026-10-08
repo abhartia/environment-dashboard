@@ -9,8 +9,9 @@ import { heat } from "@/lib/dash/heat-tree";
 import { oceans } from "@/lib/dash/oceans-tree";
 import { people } from "@/lib/dash/people-tree";
 import type { DrillNode } from "@/lib/dash/types";
+import { zero } from "@/lib/dash/zero-tree";
 
 export type Chapter = { ids: () => string[]; node: (id: string) => DrillNode };
 
 /** Every dashboard chapter, by its URL segment. Each is a drill-down tree of nodes (lib/dash/<chapter>-tree.ts). */
-export const CHAPTERS: Record<string, Chapter> = { emissions, air, heat, oceans, energy, people, food, action };
+export const CHAPTERS: Record<string, Chapter> = { emissions, air, heat, oceans, energy, people, food, action, zero };

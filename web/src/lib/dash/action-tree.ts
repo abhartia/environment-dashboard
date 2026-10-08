@@ -2,9 +2,10 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
-import { bars, type Built, chapter, credit, dimLabel, entitiesWithData, headline, latestPeriod, line, matches, points, ranking } from "@/lib/dash/kit";
+import { bars, type Built, chapter, credit, crossDrill, dimLabel, entitiesWithData, headline, latestPeriod, line, matches, points, ranking } from "@/lib/dash/kit";
 import type { Bar } from "@/lib/dash/types";
 import { formatPeriod } from "@/lib/format";
+import { zeroRoot } from "@/lib/dash/zero-tree";
 
 /**
  * The action chapter: what can be done, as measured. Household options ranked by the emissions they cut → one domain
@@ -119,6 +120,7 @@ function root(): Built {
       { label: "Policies that worked", to: "policies" },
       { label: "Who emits the most", to: "inequality" },
       { label: "Carbon left for 1.5 °C", to: "budget" },
+      crossDrill("Getting to zero", "zero", zeroRoot()),
     ],
     credit: credit(OPTIONS),
     indicators: [OPTIONS],

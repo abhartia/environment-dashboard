@@ -10,6 +10,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `arnaiz-del-pozo-2022` | Carlos Arnaiz del Pozo (Universidad Politécnica de Madrid) and Schalk Cloete (SINTEF Industry); published in Energy Conversion and Management (Elsevier) | CC BY 4.0 | open | yes | automatic | 2026-10-08 (pdf) |
 | `falkenberg-2023` | Christof Falkenberg, Alena Trexler, Christian Garaus and Siegfried Pöchtrager (University of Natural Resources and Life Sciences, Vienna); published in Foods (MDPI) | CC BY 4.0 | open | yes | automatic | 2026-10-08 (api) |
 | `rajalehto-helo-2025` | Clara Rajalehto and Petri Helo (University of Vaasa); published in the Journal of Cleaner Production (Elsevier) | CC BY 4.0 | open | yes | automatic | 2026-10-08 (pdf) |
+| `climate-trace` | Climate TRACE coalition | CC BY 4.0 | open | yes | automatic | 2026-10-08 (page) |
 | `c3s-climate-pulse` | Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission | CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store) | open | yes | automatic | 2026-10-04 (api) |
 | `c3s-era5-bulletin` | Copernicus Climate Change Service (C3S), implemented by ECMWF for the European Commission | CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store) | open | yes | automatic | 2026-10-04 (api) |
 | `desnz-ghg-factors-2026` | Department for Energy Security and Net Zero (UK Government) | Open Government Licence v3.0 (Crown copyright) | open | yes | automatic | 2026-10-04 (page) |
@@ -107,4 +108,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-102 sources: 82 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
+103 sources: 83 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.

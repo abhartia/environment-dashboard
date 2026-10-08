@@ -2,7 +2,7 @@
 
 Environment Dashboard lets the public drill down from the causes of climate change, through its consequences, to what
 can be done. It is a **dashboard, not a set of articles**: each chapter (`/emissions`, `/energy`, `/air`, `/heat`,
-`/oceans`, `/people`, `/food`, `/action`) shows one idea at a time as one big traced number and one animated chart, and
+`/oceans`, `/people`, `/food`, `/action`, `/zero`) shows one idea at a time as one big traced number and one animated chart, and
 each choice splits it one more way (`docs/dashboard.md`). **Every number on the site must be traceable to its primary source**: the publisher, dataset version,
 exact file, fetch date, sha256, the transformation applied, and the licence. That promise is what the code protects.
 

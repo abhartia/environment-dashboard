@@ -11,6 +11,7 @@ export const CHAPTER_META = [
   { slug: "people", title: "People", question: "What is heat doing to people?" },
   { slug: "food", title: "Food and land", question: "What does feeding ourselves do to the climate and the land?" },
   { slug: "action", title: "What can be done", question: "Which choices cut emissions most, and how much carbon is left?" },
+  { slug: "zero", title: "Getting to zero", question: "What would it take to go from today's emissions to zero?" },
 ] as const;
 
 export type ChapterSlug = (typeof CHAPTER_META)[number]["slug"];
