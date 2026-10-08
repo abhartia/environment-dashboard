@@ -46,12 +46,26 @@
 # them, so the class stays open under FAO's own clause; docs/sources.md treats EDGAR's IEA-derived CO2 as restricted,
 # so permission to redistribute these GT items should be confirmed with FAO (open question, not yet asked: the owner
 # is to ask faostat@fao.org; see docs/runbook.md).
+# World Census of Agriculture (WCAD), added 2026-10-08 (docs/research/sources-zero-levers-and-adaptation-2026-10-08.json,
+# item 6, "FAOSTAT World Census of Agriculture: Structural data from agricultural censuses (WCAD)"): HTTP 200, 387,051
+# bytes, Last-Modified Fri, 19 Jun 2026 13:54:45 GMT, ETag "85ad313d5fb467b48f0e443e4f3d6938", sha256
+# a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e; catalogue DatasetCode WCAD, DateUpdate 2026-04-27,
+# FileRows 28,565 (equal to the CSV's data rows). Same publisher, same bulk service and the same FAO Statistical
+# Database Terms of Use as the other domains, so it is an artifact of this entry. FAO's terms apply "unless specified
+# otherwise in their metadata": the domain metadata could not be read on 2026-10-08 (fenixservices.fao.org/faostat/api/
+# v1/en/metadata/WCAD returned HTTP 521, as did the same endpoint for RL, so the whole service was down; the
+# authenticated faostatservices.fao.org API returned 401; files-faostat.fao.org/production/WCAD/WCAD_e.pdf returned
+# 403). The catalogue's own WCAD entry (DatasetDescription) states no other terms: it says the data "are prepared based
+# on the national census reports and other dissemination products available in the public domain or directly provided
+# by member countries to FAO". Re-check the metadata page when the service is back. Each country's census year and
+# WCA round differ and FAO notes that "countries may apply their own definitions of agricultural holdings", so values
+# are published per country and census and never summed across countries or years.
 id: faostat
-title: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use and food loss
+title: FAOSTAT agrifood emissions, livestock emissions, emissions intensities, land use, food loss and farm censuses
 publisher: Food and Agriculture Organization of the United Nations (FAO), Statistics Division
 landing_url: https://www.fao.org/faostat/en/
 description: >-
-  Five FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes
+  Six FAOSTAT domains. Emissions totals (GT): CO2, CH4, N2O and CO2-equivalent (AR5 GWP100) emissions in kilotonnes
   for agrifood systems (farm gate, land-use change, pre- and post-production) and for all IPCC sectors, by country and
   region, 1961-2023, with two sources per value ("FAO TIER 1" estimates and "UNFCCC" country submissions) and projection
   rows for 2030 and 2050 in the same file. Emissions from livestock (GLE): enteric fermentation and manure emissions by
@@ -60,7 +74,9 @@ description: >-
   rice and cereals excluding rice), 1961-2023. Land use (RL): agricultural land, cropland, permanent meadows and pastures, forest land (from FRA)
   and land area in 1000 ha, 1961-2024 (forest land to 2025). SDG indicators (SDGB): 12.3.1a food loss percentage
   (share of food lost from post-harvest up to, but not including, retail, weighted by economic value) and the Global
-  Food Loss Index (2015 = 100), total and by commodity group, 2015-2024.
+  Food Loss Index (2015 = 100), total and by commodity group, 2015-2024. World Census of Agriculture (WCAD): number
+  and area of agricultural holdings in total and by FAO's land-size classes, from each country's agricultural census
+  in the WCA rounds 1930-2020 (census years up to 2023), with no world or regional totals.
 citation:
   type: dataset
   title: FAOSTAT
@@ -136,6 +152,16 @@ artifacts:
       SDG Indicators (SDGB). Zipped normalized CSV (latin-1) of all SDG series under FAO custodianship; we use item
       codes 24044 (12.3.1a food loss percentage, %) and 24045 (12.3.1a Global Food Loss Index), total and by commodity
       group, 2015-2024.
+  - id: world-census-agriculture
+    url: https://bulks-faostat.fao.org/production/World_Census_Agriculture_E_All_Data_(Normalized).zip
+    format: zip
+    description: >-
+      World Census of Agriculture: Structural data from agricultural censuses (WCAD). Zipped normalized CSV (UTF-8):
+      Area Code, Area Code (M49), Area, Item Code, Item, Element Code, Element, WCA Round code, WCA Round, Census Year
+      Code, Census Year, Unit, Value, Flag, Note. One row per country, census and item: number (element 60850, unit
+      "No") and area (element 50260, ha) of holdings in total (item 27002) and by land-size class (items 27003x), plus
+      holders, tenure, legal status, parcels and household size. The Note column carries the country's definition of
+      a holding where FAO recorded one.
   - id: datasets-catalogue
     url: https://bulks-faostat.fao.org/production/datasets_E.json
     format: json
@@ -147,7 +173,8 @@ status:
   state: active
   note: >-
     Updated on FAO's annual cycle: Land Use on 2 October 2026 and SDG indicators on 29 September 2026; the emissions
-    domains (GT, GLE) were last updated 28 October 2025 with data to 2023. FAO is not on the January 2026 US withdrawal
+    domains (GT, GLE) were last updated 28 October 2025 with data to 2023. The World Census of Agriculture domain was last
+    updated 27 April 2026; it changes as countries' censuses are added. FAO is not on the January 2026 US withdrawal
     memorandum (FR Doc 2026-00976); UNFCCC is, which concerns the "UNFCCC" source rows in GT.
   us_federal: false
 update_cadence: >-
@@ -163,4 +190,6 @@ twins: []
 research_ref: >-
   docs/research/sources-food-land-nature.json#FAOSTAT Climate Change: Agrifood systems emissions (GT, GLE, GCE, GPP,
   EI); #FAOSTAT Land Use (RL); #FAOSTAT SDG 12.3.1a Food Loss Percentage;
-  docs/research/sources-ghg-food-personal-2026-10-05.json#NEED B (GT by stage and process, EI, GLE by animal)
+  docs/research/sources-ghg-food-personal-2026-10-05.json#NEED B (GT by stage and process, EI, GLE by animal);
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#FAOSTAT World Census of Agriculture: Structural data
+  from agricultural censuses (WCAD)

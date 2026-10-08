@@ -1,0 +1,18 @@
+{
+  "artifact_id": "world-census-agriculture",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact world-census-agriculture --member 'World_Census_Agriculture_E_All_Data_(Normalized).csv' --area-code 115 --item-element 27002:60850 --item-element 270030:60850 --item-element 270030:50260 --suffix .cambodia",
+  "data_rows_total": 28565,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 798,
+  "fixture_sha256": "f7980a7ba2ac20933170332e5072b6c7767139ea40be58a0fdc5076d85c3fadc",
+  "full_bytes": 387051,
+  "full_sha256": "a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "World_Census_Agriculture_E_All_Data_(Normalized).csv",
+  "member_bytes": 4942562,
+  "member_sha256": "a0fda5b5f7b2f4cdd0723d5982ca0f771d6302ae305be66397ac2cdd72c33001",
+  "rows_kept": "3 of 28565 data rows: Area Code 115, (Item Code:Element Code) in 27002:60850, 270030:60850, 270030:50260",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/World_Census_Agriculture_E_All_Data_(Normalized).zip"
+}

@@ -1,0 +1,18 @@
+{
+  "artifact_id": "world-census-agriculture",
+  "command": "uv run python tests/fixtures/faostat/make_zip_fixture.py --artifact world-census-agriculture --member 'World_Census_Agriculture_E_All_Data_(Normalized).csv' --area-code 100 --item-element 27002:60850 --item-element 270030:60850 --item-element 270031:60850 --item-element 270033:60850 --item-element 270030:50260 --item-element 270031:50260 --item-element 270033:50260 --suffix .india",
+  "data_rows_total": 28565,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6278,
+  "fixture_sha256": "2cafd3e19f4b311b8c4effd6b7ba45ea936d8cfda014b79d3759877c3b34d151",
+  "full_bytes": 387051,
+  "full_sha256": "a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e",
+  "header_lines": 1,
+  "licence": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+  "member": "World_Census_Agriculture_E_All_Data_(Normalized).csv",
+  "member_bytes": 4942562,
+  "member_sha256": "a0fda5b5f7b2f4cdd0723d5982ca0f771d6302ae305be66397ac2cdd72c33001",
+  "rows_kept": "45 of 28565 data rows: Area Code 100, (Item Code:Element Code) in 27002:60850, 270030:60850, 270031:60850, 270033:60850, 270030:50260, 270031:50260, 270033:50260",
+  "source_id": "faostat",
+  "url": "https://bulks-faostat.fao.org/production/World_Census_Agriculture_E_All_Data_(Normalized).zip"
+}
