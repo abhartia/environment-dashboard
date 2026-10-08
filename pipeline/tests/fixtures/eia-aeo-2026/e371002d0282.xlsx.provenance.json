@@ -1,0 +1,15 @@
+{
+  "artifact_id": "lcoe-figures",
+  "command": "uv run python tests/fixtures/make_fixture.py --source eia-aeo-2026 --artifact lcoe-figures --first 1000000 --last 0",
+  "data_rows_total": 4015,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 675530,
+  "fixture_sha256": "e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10",
+  "full_bytes": 675530,
+  "full_sha256": "e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10",
+  "header_lines": 1,
+  "licence": "Public domain (work of the US federal government)",
+  "rows_kept": "all 4015 data rows",
+  "source_id": "eia-aeo-2026",
+  "url": "https://www.eia.gov/outlooks/aeo/electricity_generation/xls/LCOE-LCOS-LACE_figures.xlsx"
+}

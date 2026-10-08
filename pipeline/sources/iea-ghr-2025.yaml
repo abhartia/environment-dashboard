@@ -1,0 +1,87 @@
+# IEA, Global Hydrogen Review 2025 (September 2025; revised October 2025): statements of the cost gap between
+# low-emissions and conventional ammonia, methanol and steel in 2024.
+# Evidence: docs/research/sources-zero-green-premium-2026-10-08.json (candidate rank 10), re-checked 2026-10-08
+# against the downloaded PDF (the research's reading of pages 51-52 is printed pages 51-52, PDF pages 53-54).
+# iea.org pages block scripts; the PDF is served to scripts from the IEA's blob host, and nothing is read from iea.org
+# or any copy of it.
+# Licence, read 2026-10-08 in the PDF (page 287 of 288, the colophon; terms_url): quoted below; page footers read
+# "IEA. CC BY 4.0." The IEA Notice obligations are as recorded in iea-gevo-2026 and iea-etp-2026.
+# What the quoted sentences rest on: Figure 2.9 "Levelised cost of production of selected materials by technology,
+# 2024" (PDF page 55), credited "IEA. CC BY 4.0." with no third-party source line. Its notes: energy costs are
+# regional end-user prices for industry including taxes and charges; "Costs shown here do not include explicit
+# financial support but may include financial support embedded in individual cost components (e.g. fossil fuel
+# subsidies)"; the CO2 element "represents the cost increase if a USD 100/t CO2 tax were in place".
+# Third-party material in this report, not used: Figure 3.8 and the USD 0.8-4.6/kg unabated gas hydrogen range
+# (BloombergNEF and Argus), Figure 2.4 (cost premium on end products), and every figure whose source line names
+# Argus Media Group, BloombergNEF, S&P Global or McKinsey & Company. The raw PDF holds that material, so it is not
+# re-hosted (mirror_raw false) and its tests run on the snapshot.
+id: iea-ghr-2025
+title: Global Hydrogen Review 2025
+publisher: International Energy Agency
+landing_url: https://www.iea.org/reports/global-hydrogen-review-2025
+description: >-
+  The IEA's yearly review of hydrogen production, demand, trade, investment and policy. Chapter 2 states the cost gap
+  in 2024 between low-emissions and conventional production of ammonia (European Union: around 25% with carbon capture
+  and 120-220% from electrolysis; as little as 5% and 75-160% if a CO2 cost of USD 100 per tonne applied), methanol
+  (China: around 70% with carbon capture and 160% from electrolysis, compared with unabated coal; India: 100% for
+  electrolytic methanol compared with unabated natural gas) and steel (hydrogen direct reduced iron 50-140% above
+  blast furnaces and 20-80% above unabated natural gas DRI, depending on the region). Values are quoted with their
+  page.
+citation:
+  type: report
+  title: Global Hydrogen Review 2025
+  author:
+    - {literal: International Energy Agency}
+  issued: "2025-09"
+  publisher: IEA
+  URL: https://www.iea.org/reports/global-hydrogen-review-2025
+  # The IEA Notice's preferred attribution form.
+  text: >-
+    IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0
+licence_class: open
+licence:
+  name: CC BY 4.0, subject to the IEA Notice for CC-licensed Content
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf
+  licence_quote: >-
+    Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution
+    4.0 International Licence.
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  attribution: >-
+    IEA 2025; Global Hydrogen Review 2025, https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0
+  attribution_modified: >-
+    Quoted by Environment Dashboard from IEA 2025; Global Hydrogen Review 2025,
+    https://www.iea.org/reports/global-hydrogen-review-2025, License: CC BY 4.0
+  derived_disclaimer: >-
+    This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and
+    responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any
+    manner.
+  mirror_raw: false
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: application/pdf, 10,610,820 bytes, Last-Modified Tue, 14 Oct 2025 13:37:06 GMT, ETag
+  # 0x8DE0B26C4883D5C, sha256 94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2; 288 pages, colophon
+  # "Typeset in France by IEA - September 2025", "Revised version, October 2025".
+  - id: report-pdf
+    url: https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf
+    format: pdf
+    description: >-
+      The full report. Read: PDF pages 53 and 54 (printed pages 51 and 52, "The competitiveness of hydrogen
+      technologies") and page 55 (Figure 2.9 and its notes).
+status:
+  state: active
+  note: >-
+    Annual (each September or October). The 2026 edition has been published; its cost-acceptability figures are
+    images without data, so the 2025 edition's text statements are the ones used.
+  us_federal: false
+update_cadence: Annual (September or October)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-2026-10-08.json#IEA, Global Hydrogen Review 2025 and 2026
+  (cost-acceptability chapter in 2026)

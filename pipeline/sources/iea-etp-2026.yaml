@@ -1,0 +1,97 @@
+# IEA, Energy Technology Perspectives 2026 (March 2026; revised April and July 2026): statements of the production
+# cost premium of near-zero emissions steel, cement and urea over conventional production.
+# Evidence: docs/research/sources-zero-green-premium-2026-10-08.json (candidate rank 3), re-checked 2026-10-08.
+# iea.org pages return 403 with "cf-mitigated: challenge" to scripts; the report PDF is served to scripts from the
+# IEA's own blob host (iea.blob.core.windows.net). Nothing is read from iea.org pages or from any copy of them: the
+# chart series embedded in iea.org chapter pages (for example Figure 7.15) are not used.
+# Licence, read 2026-10-08 in the PDF itself (page 387 of 388, the colophon; terms_url): quoted below. Every page
+# footer reads "IEA. CC BY 4.0." The colophon adds "Unless otherwise indicated, all material presented in figures and
+# tables is derived from IEA data and analysis."
+# The IEA "Notice for CC-licensed Content" (recorded in iea-gevo-2026 from its Internet Archive copy of 2026-10-02;
+# iea.org blocks scripts) adds: no IEA logo, visual identity or cover images and no suggestion of IEA endorsement; the
+# preferred attribution "IEA 202[X]; [Title name], [URL], License: [relevant CC license e.g. CC BY 4.0]"; third-party
+# components are not licensed; and adaptations must carry the derived-work disclaimer, reproduced verbatim in
+# obligations.derived_disclaimer.
+# Third-party material in this report, not used: the SAF cost dashboard (its method note cites Argus), Figure 1.11
+# (built on BloombergNEF and Argus data), and Figures 2.2, 4.10, 7.14 and 7.21-7.28 (BloombergNEF, S&P Global, CRU
+# and others). The statements used are IEA's own levelised cost of production analysis: the dashboard method notes
+# (pages 162-163) say conventional and near-zero routes are compared per region and that "Costs do not include any
+# explicit policy supports, e.g. carbon pricing or subsidies"; Figure 1.17 (urea, page 73) is credited "IEA. CC BY
+# 4.0." and says "The cost of carbon pricing is included in the LCOP".
+# The PDF is 33,223,886 bytes, above the 20 MB the weekly terms check used to accept; fetch.TERMS_MAX_BYTES was
+# raised to 40 MB for it.
+# Because the PDF holds third-party figures that the CC licence does not cover, the raw file is not re-hosted
+# (mirror_raw false), and its tests run on the snapshot (-m snapshot), not on a committed fixture.
+id: iea-etp-2026
+title: Energy Technology Perspectives 2026
+publisher: International Energy Agency
+landing_url: https://www.iea.org/reports/energy-technology-perspectives-2026
+description: >-
+  The IEA's report on clean energy technologies, their supply chains and the cost of making low-emissions materials.
+  It states, in its own words, how much more near-zero emissions steel and cement are expected to cost to produce
+  than conventional steel and cement in 2035 in the Stated Policies Scenario (STEPS) without policy support (steel
+  about 20-145% higher, USD 125-600 per tonne of crude steel; cement 75-150%, USD 50-175 per tonne), and the cost
+  premium of low-emissions urea in Japan in 2035 (about 80%, about 55% with imported low-emissions ammonia). Values are
+  projections, quoted with their page; unless stated otherwise the report's US dollars are real 2024 dollars at market
+  exchange rates.
+citation:
+  type: report
+  title: Energy Technology Perspectives 2026
+  author:
+    - {literal: International Energy Agency}
+  issued: "2026-03"
+  publisher: IEA
+  URL: https://www.iea.org/reports/energy-technology-perspectives-2026
+  # The IEA Notice's preferred attribution form (the report page's citation box is on iea.org, which blocks scripts).
+  text: >-
+    IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026,
+    License: CC BY 4.0
+licence_class: open
+licence:
+  name: CC BY 4.0, subject to the IEA Notice for CC-licensed Content
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://iea.blob.core.windows.net/assets/8483779b-e472-435b-b173-2156f92b8a33/EnergyTechnologyPerspectives2026.pdf
+  licence_quote: >-
+    Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution
+    4.0 International Licence.
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  attribution: >-
+    IEA 2026; Energy Technology Perspectives 2026, https://www.iea.org/reports/energy-technology-perspectives-2026,
+    License: CC BY 4.0
+  attribution_modified: >-
+    Quoted by Environment Dashboard from IEA 2026; Energy Technology Perspectives 2026,
+    https://www.iea.org/reports/energy-technology-perspectives-2026, License: CC BY 4.0
+  derived_disclaimer: >-
+    This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and
+    responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any
+    manner.
+  mirror_raw: false
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: application/pdf, 33,223,886 bytes, Last-Modified Wed, 01 Jul 2026 13:50:01 GMT, ETag
+  # 0x8DED777A5D3C271, sha256 c4880aa007fcb05e771e75c21ec48ad8038e98570a0d4ab554440d14232c095b; 388 pages, colophon
+  # "Typeset in France by IEA - March 2026", "Revised versions: April and July 2026".
+  - id: report-pdf
+    url: https://iea.blob.core.windows.net/assets/8483779b-e472-435b-b173-2156f92b8a33/EnergyTechnologyPerspectives2026.pdf
+    format: pdf
+    description: >-
+      The full report. Read: page 32 (US dollars are real 2024 dollars unless stated otherwise), page 73 (urea,
+      Figure 1.17), page 139 (near-zero emissions steel dashboard), page 141 (near-zero emissions cement dashboard)
+      and the dashboard method notes on pages 162-163.
+status:
+  state: active
+  note: >-
+    Published in March 2026 and revised in April and July 2026 (the corrections are listed at www.iea.org/corrections,
+    which blocks scripts). A revision replaces the PDF at the same address; the build re-finds every quote on its page.
+  us_federal: false
+update_cadence: Irregular (a new edition every one to three years)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-2026-10-08.json#IEA, Energy Technology Perspectives 2026 (March 2026;
+  revised April and July 2026)

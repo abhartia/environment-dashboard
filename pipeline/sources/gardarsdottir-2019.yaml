@@ -1,0 +1,105 @@
+# Gardarsdottir et al. (2019), "Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost
+# Analysis", Energies 12(3), 542 (the CEMCAP project): the cost of clinker from one modelled European cement plant
+# without and with six CO2 capture technologies, on one set of prices.
+# Evidence: docs/research/sources-zero-green-premium-2026-10-08.json (candidate rank 7), re-checked 2026-10-08.
+# Licence, read 2026-10-08 in the version of record: its last page (PDF page 21, printed page 20 of 20) carries MDPI's
+# statement quoted below. MDPI (mdpi.com) answers scripts with HTTP 403 (Akamai), so the publisher's own copy cannot be
+# fetched automatically. The ETH Zurich Research Collection (the repository of co-authors Sutter, Gazzani and
+# Mazzotti; handle 20.500.11850/328396, DOI 10.3929/ethz-b-000328396, "Rights / license: Creative Commons Attribution
+# 4.0 International") serves the same version of record (energies-12-00542.pdf, 20 pages) behind a cover page that
+# ETH generates on every download ("This page was generated automatically upon download"), so its sha256 changes with
+# each download (50f05980... and 7dfbb0b9... two minutes apart on 2026-10-08). The source is therefore manual: the
+# file is recorded once with `envdash snapshot add`, and the build re-finds every quote on its page.
+# Third-party inputs: the reference plant's total direct cost is "based on estimations from the IEAGHG" (section 3.3);
+# the paper's own cost model, prices and results are the authors'. The supplementary equipment lists (on mdpi.com,
+# blocked) state no licence and are not used.
+# The CEMCAP economic model spreadsheet (Zenodo 10.5281/zenodo.1446522, cc-by-4.0, 5.6 MB .xlsm) holds the model, not
+# the published results; it is not registered.
+id: gardarsdottir-2019
+title: Comparison of technologies for CO2 capture from cement production, part 2, cost analysis (CEMCAP)
+publisher: >-
+  Gardarsdottir, De Lena, Romano, Roussanaly, Voldsund, Pérez-Calvo, Berstad, Fu, Anantharaman, Sutter, Gazzani,
+  Mazzotti and Cinti (SINTEF, Politecnico di Milano, ETH Zurich, Italcementi; the CEMCAP project); published in
+  Energies (MDPI)
+landing_url: https://doi.org/10.3390/en12030542
+description: >-
+  A techno-economic comparison of CO2 capture for a modelled best-available-technology European cement plant (3,000
+  tonnes of clinker a day): the reference plant without capture and the same plant with MEA absorption, oxyfuel,
+  chilled ammonia (CAP), membrane-assisted CO2 liquefaction (MAL), and calcium looping in a tail-end and an integrated
+  configuration. Table 6 gives the cost of clinker for each, in 2014 euros per tonne of clinker, on one set of prices
+  (coal 3 euros per gigajoule, electricity 58.1 euros per megawatt-hour, 8% discount rate, 91.3% capacity factor) and
+  with no carbon tax. The text states that capture raises the cost of clinker by 49-92%. Capture covers most but not
+  all of the plant's emissions.
+citation:
+  type: article-journal
+  title: "Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost Analysis"
+  author:
+    - {family: Gardarsdottir, given: Stefania O.}
+    - {family: De Lena, given: Edoardo}
+    - {family: Romano, given: Matteo C.}
+    - {family: Roussanaly, given: Simon}
+    - {family: Voldsund, given: Mari}
+    - {family: Pérez-Calvo, given: José-Francisco}
+    - {family: Berstad, given: David O.}
+    - {family: Fu, given: Chao}
+    - {family: Anantharaman, given: Rahul}
+    - {family: Sutter, given: Daniel}
+    - {family: Gazzani, given: Matteo}
+    - {family: Mazzotti, given: Marco}
+    - {family: Cinti, given: Giovanni}
+  issued: "2019-02-01"
+  publisher: MDPI
+  container-title: Energies
+  volume: "12"
+  page: "542"
+  DOI: 10.3390/en12030542
+  URL: https://doi.org/10.3390/en12030542
+  # The journal's citation form for the article (Energies 2019, 12, 542), with the DOI.
+  text: >-
+    Gardarsdottir, S.O.; De Lena, E.; Romano, M.; Roussanaly, S.; Voldsund, M.; Pérez-Calvo, J.-F.; Berstad, D.; Fu,
+    C.; Anantharaman, R.; Sutter, D.; Gazzani, M.; Mazzotti, M.; Cinti, G. Comparison of Technologies for CO2 Capture
+    from Cement Production—Part 2: Cost Analysis. Energies 2019, 12, 542. https://doi.org/10.3390/en12030542
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.research-collection.ethz.ch/server/api/core/bitstreams/b427f6c2-8368-4a12-b35c-80c1661bbc95/content
+  licence_quote: >-
+    This article is an open access article distributed under the terms and conditions of the Creative Commons
+    Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  attribution: >-
+    Gardarsdottir, S.O. et al. (2019). Comparison of Technologies for CO2 Capture from Cement Production—Part 2: Cost
+    Analysis. Energies 12, 542. doi:10.3390/en12030542. CC BY 4.0.
+  attribution_modified: >-
+    Selected by Environment Dashboard from Gardarsdottir, S.O. et al. (2019). Comparison of Technologies for CO2
+    Capture from Cement Production—Part 2: Cost Analysis. Energies 12, 542. doi:10.3390/en12030542. CC BY 4.0.
+  mirror_raw: true
+acquisition: manual
+artifacts:
+  - id: article-pdf
+    url: https://www.research-collection.ethz.ch/server/api/core/bitstreams/b427f6c2-8368-4a12-b35c-80c1661bbc95/content
+    format: pdf
+    description: >-
+      The version of record (energies-12-00542.pdf, 20 pages) behind ETH Zurich's one-page download cover, 21 pages in
+      all. Read: PDF page 7 (cost figures in 2014 euros), page 9 (no carbon tax in variable OPEX; Table 4 prices),
+      page 10 (section 4.1: "increases with 49–92%") and page 11 (Table 6, cost of clinker). The URL answers scripted
+      requests (HTTP 200 on 2026-10-08, application/pdf, about 2.1 MB), but ETH regenerates the cover page on every
+      download, so a person records one copy with uv run envdash snapshot add --source gardarsdottir-2019 --artifact
+      article-pdf --file <path>. MDPI's own copy (https://www.mdpi.com/1996-1073/12/3/542/pdf) may be recorded the
+      same way instead after a browser download; the page numbers above then shift down by one.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published 1 February 2019 as a one-off journal article; the CEMCAP project ended in 2018.
+  us_federal: false
+update_cadence: One-off (published 2019)
+twins: []
+research_ref: >-
+  docs/research/sources-zero-green-premium-2026-10-08.json#Gardarsdottir et al. 2019, 'Comparison of Technologies for
+  CO2 Capture from Cement Production - Part 2: Cost Analysis', Energies 12(3):542 (CEMCAP), with the CEMCAP economic
+  model on Zenodo

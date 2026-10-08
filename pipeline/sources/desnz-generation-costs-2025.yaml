@@ -1,0 +1,97 @@
+# UK Department for Energy Security and Net Zero, Electricity Generation Costs 2025: the report and its Annex A.
+# Evidence: docs/research/sources-zero-green-premium-2026-10-08.json (candidate rank 2), re-checked 2026-10-08.
+# Licence: the report's page 2 (terms_url) quotes OGL v3.0 "except where otherwise stated" and asks for permission for
+# "third-party copyright information" it identifies; none is identified on the Annex A tables. The renewable cost
+# inputs were commissioned from Arup and the hydrogen-to-power inputs from Baringa and are published by DESNZ as Crown
+# copyright; fuel and carbon prices are DESNZ's own assumptions; gas CCUS capture-plant capex is DESNZ internal
+# analysis with WSP, the other gas CCUS components come from the 2020 Generation Costs Report.
+# GOV.UK content API (2026-10-08): first published 2026-01-14; updated 2026-03-18 "Inclusion of LCOE Totals row in
+# Annex A."
+# Why this source: a twin of eia-aeo-2026 for the United Kingdom. Annex A gives, in one table per commissioning year
+# and on one set of assumptions (real 2024 pounds, DESNZ central fuel and carbon prices), the levelised cost of
+# unabated gas plants and of gas with carbon capture at the same illustrative load factors of 5% and 30% (baseload is
+# 93% for unabated gas and 88% for gas CCUS), next to renewables and hydrogen plants. Totals include carbon costs (UK
+# ETS price plus the Carbon Price Support), which Annex A publishes as their own row, so both are shown. DESNZ's own
+# caution, report section 5: "It is not appropriate to present LCOEs comparatively when technologies play very
+# different roles in the power system."
+id: desnz-generation-costs-2025
+title: Electricity Generation Costs 2025
+publisher: Department for Energy Security and Net Zero (UK)
+landing_url: https://www.gov.uk/government/publications/electricity-generation-costs-2025
+description: >-
+  DESNZ's estimates of the levelised cost of electricity for new plants in the United Kingdom commissioning in 2030,
+  2035, 2040, 2045 and 2050, in real 2024 pounds per megawatt-hour, split into pre-development, construction, fixed and
+  variable operation and maintenance, fuel, carbon, CO2 transport and storage, decommissioning, steam revenue and
+  additional costs, with the total. Technologies: large-scale solar, onshore wind, fixed and floating offshore wind,
+  gas CCGT, gas OCGT (300 and 760 MW) and gas reciprocating engines at 5%, 30% and 93% load factors, gas with
+  post-combustion carbon capture (CCUS) at 5%, 30% and 88%, hydrogen turbines (CCHT, OCHT) and engines, tidal stream
+  and deep geothermal. All are 'Nth of a kind' unless marked first of a kind (FOAK). Component cells are rounded to
+  whole pounds and may not sum to the total; some are printed as '<1'. Fuel and carbon costs follow DESNZ's central
+  fossil fuel price and carbon price assumptions.
+citation:
+  type: report
+  title: Electricity Generation Costs 2025
+  author:
+    - {literal: Department for Energy Security and Net Zero}
+  issued: "2026-01-14"
+  publisher: Department for Energy Security and Net Zero
+  URL: https://www.gov.uk/government/publications/electricity-generation-costs-2025
+  text: >-
+    Department for Energy Security and Net Zero (2026), Electricity Generation Costs 2025, Annex A: Additional
+    estimates and key assumptions 2025. © Crown copyright 2026, Open Government Licence v3.0.
+licence_class: open
+licence:
+  name: Open Government Licence v3.0
+  spdx: OGL-UK-3.0
+  url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+evidence:
+  terms_url: https://assets.publishing.service.gov.uk/media/69ba657326909a14239612e3/electricity-generation-costs-report-2025.pdf
+  licence_quote: >-
+    This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated.
+  checked_on: 2026-10-08
+  terms_check: pdf
+obligations:
+  # OGL v3.0 asks for "Contains public sector information licensed under the Open Government Licence v3.0." where no
+  # other attribution is specified.
+  attribution: >-
+    Contains public sector information licensed under the Open Government Licence v3.0. Source: Department for Energy
+    Security and Net Zero, Electricity Generation Costs 2025, Annex A.
+  attribution_modified: >-
+    Selected by Environment Dashboard from Department for Energy Security and Net Zero, Electricity Generation Costs
+    2025, Annex A. Contains public sector information licensed under the Open Government Licence v3.0.
+  mirror_raw: true
+  # OGL v3.0: the licence does not grant the right to use "the Information in a way that suggests any official status
+  # or that the Information Provider and/or Licensor endorse you or your use of the Information".
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: 1,807,935 bytes, Last-Modified Fri, 10 Apr 2026 12:41:16 GMT, ETag "69d8efec-1b963f",
+  # sha256 a6233e478d7d1b1c6471781a397e8ba2d3bed511e2eccfb597edb2011ecf20ea. GOV.UK media URLs are fixed per upload;
+  # a revision gets a new URL, found on the landing page.
+  - id: annex-a
+    url: https://assets.publishing.service.gov.uk/media/69d8efec96c86b7513170229/annex-a-additional-estimates-and-key-assumptions-2025.xlsx
+    format: xlsx
+    description: >-
+      Annex A: Additional estimates and key assumptions 2025. Sheets "Additional Estimates 2030" to "Additional
+      Estimates 2050" (levelised cost by component and total, one column per technology and load factor) and
+      "Technical and Cost Assumptions". The Home sheet's general notes say all costs are in real 2024 GBP.
+  # GET 200 on 2026-10-08: 1,360,527 bytes, Last-Modified Wed, 18 Mar 2026, sha256
+  # 4eb820b33ea99d06bc65178cfac0d32e1da818f15046842c2ff8680a3855a164; 43 pages. Page 2 holds the licence.
+  - id: report-pdf
+    url: https://assets.publishing.service.gov.uk/media/69ba657326909a14239612e3/electricity-generation-costs-report-2025.pdf
+    format: pdf
+    description: >-
+      The report: methods, assumptions and the main LCOE charts. Used for the licence statement and the scope
+      wording (carbon costs include UK ETS prices and the Carbon Price Support; baseload is 93% for unabated gas and
+      hydrogen and 88% for gas CCUS because of the assumed availability of the CO2 transport and storage network).
+status:
+  state: active
+  note: >-
+    DESNZ publishes a Generation Costs report every two to three years (2016, 2020, 2023, 2025). Not a US federal
+    programme.
+  us_federal: false
+update_cadence: Every two to three years
+twins: [eia-aeo-2026]
+research_ref: >-
+  docs/research/sources-zero-green-premium-2026-10-08.json#UK DESNZ, Electricity Generation Costs 2025 (report and
+  Annex A: additional estimates and key assumptions)

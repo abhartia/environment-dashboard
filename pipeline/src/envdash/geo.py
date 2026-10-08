@@ -118,6 +118,9 @@ STATIONS: dict[str, str] = {
     # bereiter-2015-co2: a composite of several Antarctic cores (Law Dome, Dome C, WAIS Divide, Siple Dome, Talos
     # Dome, EDML, Vostok), so not one site.
     "ANT_ICECORES": "Antarctic ice cores (composite of several sites)",
+    # gardarsdottir-2019: the CEMCAP project's modelled reference plant, the one site its costs describe. It is not a
+    # real plant, and not a country or region average.
+    "CEMCAP_REF": "CEMCAP reference cement plant (a modelled European plant, 3,000 tonnes of clinker a day)",
 }
 
 
