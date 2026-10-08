@@ -1,0 +1,120 @@
+# UNEP Adaptation Gap Report 2025: Running on empty. Adaptation finance needs and modelled adaptation costs of
+# developing countries by 2035, and international public adaptation finance flows from developed to developing
+# countries, 2019-2023, as printed in the report.
+# Evidence: docs/research/sources-zero-levers-and-adaptation-2026-10-08.json, item 6 ("Adaptation Gap Report 2025:
+# Running on empty (main report)" and "Adaptation Gap Report 2025: Online Annexes").
+# Class decision: noncommercial, by the owner's decision of 2026-10-08 that UNEP's standard notice is class
+# noncommercial for every UNEP report (as unep-food-waste-index-2024 and unep-egr-2025). The notice on PDF page 2
+# (quoted below; it continues "No use of this publication may be made for resale or any other commercial purpose
+# whatsoever without prior permission in writing from the United Nations Environment Programme.") allows reproduction
+# "in whole or in part and in any form for educational or non-profit services" with acknowledgement. The same page
+# says "The use of information from this document for publicity or advertising is not permitted." (in notice) and
+# "© Maps, photos and illustrations as specified", so the PDF is not re-hosted (mirror_raw false).
+# How the terms were read: wedocs.unep.org, unep.org and doi.org's target answer scripts with HTTP 403 or a Cloudflare
+# challenge (2026-10-08), so terms_check is manual and both artifacts are downloaded by hand. The research pass read
+# the quote on PDF page 2 of the 4 November 2025 revision of AGR2025.pdf (15,336,689 bytes, sha256
+# 7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf, 98 pages) and of AGR2025_Online_Annexes.pdf
+# (1,162,685 bytes, sha256 d62c387c331d97ddb80c523bfe0dac0d62de0a57f789bd0e8b328acc69580a8f, 60 pages), which
+# carries the same notice. The person who downloads the files checks page 2 of each against this quote.
+# Where the flow numbers come from: UNEP does not measure them itself. Online annex 4.B (annexes PDF p. 48, printed
+# 45) says they "have been obtained from the Organisation for Economic Co-operation and Development (OECD)
+# Development Assistance Committee (DAC)'s Climate-Related Development Finance (CRDF) data set (recipients'
+# perspective)", as commitments at 2023 constant prices, with Rio-marker coefficients (100 per cent principal, about
+# 40 per cent significant) and only the share of multilateral finance attributed to developed countries. The OECD's
+# own terms for that data set could not be read (www.oecd.org returns 403 to scripts), so the values are taken from
+# UNEP's report under UNEP's notice, and the OECD origin is stated in each flow value's provenance.
+# citation.text: the "Suggested citation" on PDF page 2 (the extracted text splits "A daptation" and the DOI; both are
+# joined here).
+id: unep-agr-2025
+title: "Adaptation Gap Report 2025: Running on empty"
+publisher: United Nations Environment Programme (UNEP)
+landing_url: https://doi.org/10.59117/20.500.11822/48798
+description: >-
+  UNEP's annual assessment of progress in adapting to climate change. The 2025 edition estimates what adapting will
+  cost developing countries each year by 2035, from two lines of evidence (modelled costs, and the finance needs
+  countries state in their national adaptation plans and nationally determined contributions), and compares it with
+  the international public finance for adaptation that developed countries commit to developing countries, tracked
+  for 2019-2023 from the OECD's Climate-Related Development Finance data set. Values are taken from the report's
+  printed text, each with its page.
+citation:
+  type: report
+  title: >-
+    Adaptation Gap Report 2025: Running on empty. The world is gearing up for climate resilience — without the money
+    to get there
+  author:
+    - {literal: United Nations Environment Programme}
+  issued: "2025"
+  publisher: United Nations Environment Programme
+  DOI: 10.59117/20.500.11822/48798
+  URL: https://doi.org/10.59117/20.500.11822/48798
+  text: >-
+    United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. The world is gearing up
+    for climate resilience — without the money to get there [Neufeldt, H., Hammill, A., Leiter, T., Magnan, A.,
+    Watkiss, P., Bakhtiari, F., Bueno Rubial, P., Butera, B., Canales, N., Chapagain, D., Christiansen, L., Dale, T.,
+    Milford, F., Niles, K., Njuguna, L., Pauw, P., Singh, C. and Yang, G.]. Nairobi.
+    https://wedocs.unep.org/20.500.11822/48798.
+licence_class: noncommercial
+licence:
+  name: UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)
+  spdx: null
+  # The notice is on PDF page 2 of the report.
+  url: https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf
+evidence:
+  terms_url: https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf
+  licence_quote: >-
+    This publication may be reproduced in whole or in part and in any form for educational or non-profit services
+    without special permission from the copyright holder, provided acknowledgement of the source is made.
+  checked_on: 2026-10-08
+  terms_check: manual
+obligations:
+  attribution: >-
+    United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. Nairobi.
+    https://doi.org/10.59117/20.500.11822/48798
+  notice: >-
+    © 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No
+    use for resale or any other commercial purpose without prior written permission from UNEP; use of this
+    information for publicity or advertising is not permitted.
+  mirror_raw: false
+acquisition: manual
+artifacts:
+  - id: report-pdf
+    url: null
+    format: pdf
+    description: >-
+      The main report, AGR2025.pdf (98 pages in the 4 November 2025 revision). Executive summary (PDF p. 13, printed
+      xiii), chapter 4 key messages (PDF p. 58, printed 40) and Figure 4.4 with section 4.3.2 (PDF p. 65, printed 47)
+      hold the values used; the Foreword (PDF p. 9, printed ix) restates the flows rounded. A person opens
+      https://wedocs.unep.org/handle/20.500.11822/48798 in a web browser (UNEP's repository challenges scripts),
+      downloads AGR2025.pdf, checks that page 2 carries the notice quoted in this entry, and records it with
+      `uv run envdash snapshot add --source unep-agr-2025 --artifact report-pdf --file AGR2025.pdf
+      --url "<the link it was downloaded from>" --note "downloaded by <who> from https://wedocs.unep.org/handle/20.500.11822/48798"`.
+      The copy read by the research pass on 2026-10-08 was 15,336,689 bytes with sha256
+      7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf. UNEP's first upload (13,931,764 bytes, sha256
+      12677df58ea90d02e821a45f534e1fdf7145616797e8c308b52ed563d869a871) has the same 98 pages and values. Any other
+      hash means UNEP has replaced the file, and the transform's page numbers must be checked again (the build stops
+      if a sentence is not on its page).
+  - id: online-annexes-pdf
+    url: null
+    format: pdf
+    description: >-
+      The report's online annexes, AGR2025_Online_Annexes.pdf (60 pages). Annex 4.B (PDF p. 48, printed 45) states
+      that the international public adaptation finance flows come from the OECD DAC Climate-Related Development
+      Finance (CRDF) data set (recipients' perspective), as commitments at 2023 constant prices. A person opens
+      https://wedocs.unep.org/handle/20.500.11822/48839 in a web browser, downloads AGR2025_Online_Annexes.pdf, checks
+      page 2 for the same notice, and records it with `uv run envdash snapshot add --source unep-agr-2025 --artifact
+      online-annexes-pdf --file AGR2025_Online_Annexes.pdf --url "<the link it was downloaded from>"
+      --note "downloaded by <who> from https://wedocs.unep.org/handle/20.500.11822/48839"`. The copy read by the
+      research pass was 1,162,685 bytes with sha256 d62c387c331d97ddb80c523bfe0dac0d62de0a57f789bd0e8b328acc69580a8f.
+status:
+  state: active
+  note: >-
+    The 2025 edition was published before COP30 (late October 2025) and revised on 4 November 2025 (only the reviewer
+    list changed, per the research pass). The 2026 edition is expected before COP31 in November 2026, with no date
+    announced. UNEP is not on the January 2026 US withdrawal memorandum. The flows are OECD DAC data, which UNEP
+    reprocesses.
+  us_federal: false
+update_cadence: Annual, shortly before the November UN climate conference
+twins: []
+research_ref: >-
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#Adaptation Gap Report 2025: Running on empty (main
+  report); #Adaptation Gap Report 2025: Online Annexes

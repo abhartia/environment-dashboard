@@ -14,10 +14,17 @@
 #     publication may be made for resale or any other commercial purpose whatsoever without prior permission in
 #     writing from the United Nations Environment Programme." It also says "The use of information from this document
 #     for publicity or advertising is not permitted."
-#   - Class display-only, as the plan assigns. The imprint permits reproduction only "for educational or non-profit
-#     services", a narrower condition than non-commercial, and is the same standard UNEP notice the plan treats as
-#     noncommercial for UNEP's Food Waste Index; the owner should settle one class for both. Until then the values
-#     are quoted with page references, never downloaded or mirrored.
+#   - Class noncommercial, by the owner's decision of 2026-10-08 (it was display-only until then): UNEP's standard
+#     notice ("This publication may be reproduced in whole or in part and in any form for educational or non-profit
+#     services without special permission ... No use of this publication may be made for resale or any other
+#     commercial purpose ...") is class noncommercial for every UNEP report. It allows reproduction "in whole or in
+#     part and in any form" for non-profit services with acknowledgement and forbids commercial use, so values taken
+#     from the report may be charted and downloaded on this non-commercial site, carrying those terms, as for the
+#     Food Waste Index 2024 (unep-food-waste-index-2024) and the Adaptation Gap Report 2025 (unep-agr-2025), which
+#     carry the same notice. The PDF is still not re-hosted (mirror_raw false), as for the other UNEP reports: the
+#     notice covers non-profit reproduction with acknowledgement, and the raw file needs no public copy. No indicator
+#     reads this source yet, so the change moves no published file. licence.name and the notice now read as in the
+#     other two UNEP entries.
 #   - citation.text: the "Suggested citation" on PDF p. 2 (the extracted text breaks the DOI as "20.500.11 822"; the
 #     DOI is 10.59117/20.500.11822/48854, confirmed by Crossref: issued 2025-11, ISBN 9789280742398).
 #   - No 2026 edition yet: unepccc.org/publications/emissions-gap-report-2026/ returns 404.
@@ -28,9 +35,9 @@ landing_url: https://doi.org/10.59117/20.500.11822/48854
 description: >-
   UNEP's sixteenth annual assessment of the gap between where global greenhouse gas emissions are heading and where
   they need to be to limit warming to 1.5 °C or 2 °C. It projects warming this century under current policies and
-  under full implementation of national pledges, and states the cuts needed by 2030 and 2035 compared with 2019. Only
-  short quoted statements and the numbers in them are shown, each with its page; the report's figures are never
-  reproduced. Its emissions totals include land use, land-use change and forestry, unlike fossil-only totals.
+  under full implementation of national pledges, and states the cuts needed by 2030 and 2035 compared with 2019. Values
+  are taken from the report's printed text, each with its page; the report's figures are not reproduced as images.
+  Its emissions totals include land use, land-use change and forestry, unlike fossil-only totals.
 citation:
   type: report
   title: "Emissions Gap Report 2025: Off target – Continued collective inaction puts global temperature goal at risk"
@@ -44,11 +51,9 @@ citation:
     United Nations Environment Programme (2025). Emissions Gap Report 2025: Off target – Continued collective inaction
     puts global temperature goal at risk [Olhoff, A., chief editor; Lamb, W.; Kuramochi, T.; Rogelj, J.; den Elzen,
     M.; Christensen, J.; Fransen, T.; Pathak, M.; Tong, D. (eds)]. Nairobi. https://doi.org/10.59117/20.500.11822/48854.
-licence_class: display-only
+licence_class: noncommercial
 licence:
-  name: >-
-    © 2025 United Nations Environment Programme; reproduction allowed for educational or non-profit services with
-    acknowledgement, no commercial use
+  name: UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)
   spdx: null
   url: https://wedocs.unep.org/bitstream/handle/20.500.11822/48854/EGR2025.pdf
 evidence:
@@ -63,8 +68,10 @@ obligations:
     United Nations Environment Programme (2025). Emissions Gap Report 2025: Off target – Continued collective inaction
     puts global temperature goal at risk. Nairobi. doi:10.59117/20.500.11822/48854.
   notice: >-
-    © 2025 United Nations Environment Programme. Quoted with acknowledgement for educational, non-profit use; the full
-    report is at https://doi.org/10.59117/20.500.11822/48854.
+    © 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No
+    use for resale or any other commercial purpose without prior written permission from UNEP; use of this
+    information for publicity or advertising is not permitted. The full report is at
+    https://doi.org/10.59117/20.500.11822/48854.
   mirror_raw: false
 acquisition: manual
 artifacts:

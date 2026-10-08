@@ -109,6 +109,10 @@ AGGREGATES: dict[str, str] = {
     "UN_OCE": "Oceania (as grouped by GWIS)",
     # EFFIS's total for the countries in the EU Civil Protection Mechanism, as EFFIS lists them.
     "UCPM": "Countries in the EU Civil Protection Mechanism (as listed by EFFIS)",
+    # UNEP's Adaptation Gap Report: the developing countries whose adaptation costs and finance needs it estimates,
+    # and the recipients of the international public adaptation finance it tracks (non-Annex I Parties to the
+    # UNFCCC, per its online annex 4.B). UNEP publishes no member list, so no memberships are declared.
+    "UNEP_AGR_DEV": "Developing countries (as grouped by UNEP's Adaptation Gap Report)",
 }
 
 STATIONS: dict[str, str] = {
