@@ -1,0 +1,95 @@
+# IEA CCUS Projects Database, through the data file of the IEA's CCUS Projects Explorer.
+# Evidence: docs/research/sources-zero-levers-and-adaptation-2026-10-08.json, candidates "3. Capture what's left: CCS
+# and direct air capture", item "IEA CCUS Projects Database 2026, via the CCUS Projects Explorer data file".
+# www.iea.org answers HTTP 403 ("cf-mitigated: challenge") to scripts; the blob-hosted explorer files answer. So the
+# licence was read, as for iea-gevo-2026, from Internet Archive captures, and terms_check is manual:
+#   - Product page, https://web.archive.org/web/20260820202659/https://www.iea.org/data-and-statistics/data-product/ccus-projects-database
+#     (raw page sha256 a71dd8721924d40ff73014850a08a901f647d403520dd1239477916bd6701c5c): "Last updated March 2026",
+#     "Licence CC BY 4.0", "This work is available under the Creative Commons Attribution 4.0 license (CC BY 4.0)."
+#     (quoted below), and the cite box "IEA, CCUS Projects Database, IEA, Paris
+#     https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, Licence: CC BY 4.0". Unlike the
+#     Global EV Outlook data product, this product is CC BY, not "Terms of Use for Non-CC Material".
+#   - Explorer page, https://web.archive.org/web/20260919030626/https://www.iea.org/data-and-statistics/data-tools/ccus-projects-explorer
+#     (raw page sha256 943a98e160f50ab2a043a91091411dce9563f2ff76fa323af55a01c8242ea540): "Last updated 26 Mar 2026
+#     Licence CC BY 4.0". Its script, https://iea.blob.core.windows.net/scripts/ccus-projects-database/ccus.js
+#     (60,742 bytes, Last-Modified 26 Mar 2026), loads data/projects.json, the artifact below.
+#   - The IEA "Notice for CC-licensed Content" applies as recorded in iea-gevo-2026: no IEA logo or visual identity and
+#     no suggestion of endorsement; the attribution form "IEA 202[X]; [Title name], [URL], License: [relevant CC
+#     license e.g. CC BY 4.0]"; components attributed to a third party are not licensed (none is so attributed in this
+#     file); adaptations carry the derived-work disclaimer, verbatim below.
+# The explorer's counting rule, read from ccus.js on 2026-10-08 (sha256
+# 2e0952491a4d84ba0ba6818597e4a9245b3d71f3f97721e238b7b7dc2381868d), is applied and quoted in
+# envdash/transforms/energy/iea_ccus.py. The script itself is not registered: it is the IEA's code, not data, and
+# the CC BY statement is for the database.
+# What the file is: 422 project rows with country, projectType, year, status, sector, region and capacity (the
+# explorer labels capacity "Mt CO2 per year"); no project names. Capacities are announced capture or storage
+# capacities of facilities, not tonnes of CO2 captured. Suspended, cancelled and decommissioned projects are not in
+# the file. The full database (xlsx, project names and sources) needs an IEA account and is not registered.
+id: iea-ccus-projects
+title: CCUS Projects Database (via the CCUS Projects Explorer)
+publisher: International Energy Agency
+landing_url: https://www.iea.org/data-and-statistics/data-product/ccus-projects-database
+description: >-
+  The IEA's database of carbon capture, utilisation and storage projects worldwide that have an announced capacity of
+  more than 100,000 tonnes of CO2 a year (1,000 tonnes for direct air capture) and an announced timeline: operating,
+  under construction and planned, with the year each starts, its sector (power, cement, hydrogen, natural gas
+  processing, direct air capture and others), its part in the chain (capture, full chain, utilisation, transport and
+  storage) and its capacity in million tonnes of CO2 a year. Capacities are what the projects are designed or
+  announced to handle, not CO2 actually captured or stored.
+citation:
+  type: dataset
+  title: CCUS Projects Database
+  author:
+    - {literal: International Energy Agency}
+  issued: "2026-03-26"
+  publisher: IEA
+  URL: https://www.iea.org/data-and-statistics/data-product/ccus-projects-database
+  # The product page's cite box (Internet Archive copy of 2026-08-20), verbatim.
+  text: >-
+    IEA, CCUS Projects Database, IEA, Paris https://www.iea.org/data-and-statistics/data-product/ccus-projects-database,
+    Licence: CC BY 4.0
+licence_class: open
+licence:
+  name: CC BY 4.0, subject to the IEA Notice for CC-licensed Content
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.iea.org/data-and-statistics/data-product/ccus-projects-database
+  licence_quote: This work is available under the Creative Commons Attribution 4.0 license (CC BY 4.0).
+  checked_on: 2026-10-08
+  terms_check: manual
+obligations:
+  attribution: >-
+    IEA 2026; CCUS Projects Database, https://www.iea.org/data-and-statistics/data-product/ccus-projects-database,
+    License: CC BY 4.0
+  attribution_modified: >-
+    Calculated by Environment Dashboard from IEA 2026; CCUS Projects Database,
+    https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, License: CC BY 4.0
+  derived_disclaimer: >-
+    This is a work derived by Environment Dashboard from IEA material and Environment Dashboard is solely liable and
+    responsible for this derived work. The derived work is not endorsed by the IEA or its Member countries in any
+    manner.
+  mirror_raw: true
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  # GET 200 on 2026-10-08: application/json, 81,098 bytes, Last-Modified Thu, 26 Mar 2026 10:35:32 GMT, ETag
+  # 0x8DE8B2368A938A2 (Azure blob), pretty-printed JSON array.
+  - id: projects-json
+    url: https://iea.blob.core.windows.net/scripts/ccus-projects-database/data/projects.json
+    format: json
+    description: >-
+      The CCUS Projects Explorer's data file: one object per project with country, projectType (Capture, Full chain,
+      CCU, T&S, Storage), year (start of operation), status (Operational, Under construction, Planned), sector,
+      region and capacity (Mt CO2 per year).
+status:
+  state: active
+  note: >-
+    Updated about once a year (last on 26 March 2026; the explorer says "Last updated 26 Mar 2026"). iea.org blocks
+    scripts; the blob-hosted explorer files do not. Not exposed to US federal cuts.
+  us_federal: false
+update_cadence: About once a year
+twins: []
+research_ref: >-
+  docs/research/sources-zero-levers-and-adaptation-2026-10-08.json#3. Capture what's left: CCS and direct air capture
