@@ -1,0 +1,90 @@
+{
+  "attribution": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. Nairobi. https://doi.org/10.59117/20.500.11822/48798",
+  "description": "UNEP's comparison of what developing countries will need each year by 2035 to adapt with the international public adaptation finance they received in 2023: needs are 12 to 14 times the flows, as printed in the report.",
+  "dimensions": [
+    {
+      "id": "end",
+      "label": "End of the printed range",
+      "values": [
+        {"id": "low", "label": "Low end"},
+        {"id": "high", "label": "High end"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "UNEP_AGR_DEV",
+  "id": "adaptation-finance.unep-agr-2025.needs-to-flows-ratio",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "end": "low"
+    },
+    "entity": "UNEP_AGR_DEV",
+    "period": "2035",
+    "status": "projection",
+    "value": 12.0
+  },
+  "licence": {
+    "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
+    "spdx": null,
+    "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "© 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.",
+  "origins": [
+    {"acquisition": "manual", "artifact_id": "report-pdf", "bytes": 15336689, "citation_full": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. The world is gearing up for climate resilience — without the money to get there [Neufeldt, H., Hammill, A., Leiter, T., Magnan, A., Watkiss, P., Bakhtiari, F., Bueno Rubial, P., Butera, B., Canales, N., Chapagain, D., Christiansen, L., Dale, T., Milford, F., Niles, K., Njuguna, L., Pauw, P., Singh, C. and Yang, G.]. Nairobi. https://wedocs.unep.org/20.500.11822/48798.", "date_accessed": "2026-10-08", "date_published": null, "doi": "10.59117/20.500.11822/48798", "etag": null, "last_modified": null, "licence": {"name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)", "spdx": null, "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"}, "producer": "United Nations Environment Programme (UNEP)", "r2_url": null, "sha256": "7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf", "source_id": "unep-agr-2025", "title": "Adaptation Gap Report 2025: Running on empty", "url_download": "https://wedocs.unep.org/handle/20.500.11822/48798", "url_main": "https://doi.org/10.59117/20.500.11822/48798", "version_producer": "Adaptation Gap Report 2025: Running on empty", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of UNEP's report PDF (sha256 7aae2efd6169…, downloaded by hand from UNEP's repository; see the snapshot note) and found these sentences, each with its value as printed, on PDF p. 13 (printed xiii), PDF p. 58 (printed 40), PDF p. 68 (printed 50) before publishing: \"The estimated future costs/needs are approximately 12–14 times as much as international public flows.\" \"with needs that are 12–14 times as much as current finance flows\" \"Note that the gap would fall to 10–12 times as much if mobilized private adaptation sector flows from international public finance were included.\"",
+      "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
+      "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+    },
+    {
+      "description": "Published the range \"12–14 times\" as its two ends, 12 and 14, as printed. The report compares adaptation costs and needs by 2035 with international public adaptation finance in 2023; it says the ratio would be \"10–12 times\" as much if private finance mobilised from international public finance were included (p. 50, note 12), which is not published here.",
+      "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
+      "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+    }
+  ],
+  "published_value": {
+    "document": "unep-agr-2025",
+    "locator": "Chapter 4, key messages, p. 40",
+    "quote": "The estimated future costs/needs are approximately 12–14 times as much as international public flows."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Annual adaptation costs and finance needs by 2035 (constant 2023 prices) divided by international public adaptation finance flows in 2023, as stated by UNEP; private finance mobilised is not included.",
+    "bunkers": null,
+    "geography": "Developing countries, as grouped by UNEP's Adaptation Gap Report 2025",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "end": ["low", "high"]
+    },
+    "entity": ["UNEP_AGR_DEV", "UNEP_AGR_DEV"],
+    "period": ["2035", "2035"],
+    "status": ["projection", "projection"],
+    "value": [12.0, 14.0]
+  },
+  "time_basis": "calendar",
+  "title": "How many times adaptation needs exceed international public adaptation finance",
+  "unit": {
+    "code": "times",
+    "label": "times as much as international public flows",
+    "short": "×"
+  },
+  "vintage": "Adaptation Gap Report 2025: Running on empty"
+}

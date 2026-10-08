@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T17:24:18Z",
+  "generated_at": "2026-10-08T19:38:24Z",
   "run_url": null,
   "schema_version": 1,
   "sources": {
@@ -634,12 +634,12 @@
       "vintage": null
     },
     "unep-agr-2025": {
-      "checked_at": "2026-10-08T17:24:18Z",
-      "last_success": null,
-      "manual_last_verified": null,
-      "reason": "adaptation-finance.unep-agr-2025.flows-2023: no snapshot yet for ['unep-agr-2025/report-pdf']; run envdash fetch (or envdash snapshot add); adaptation-finance.unep-agr-2025.international-public-flows: no snapshot yet for ['unep-agr-2025/report-pdf', 'unep-agr-2025/online-annexes-pdf']; run envdash fetch (or envdash snapshot add); adaptation-finance.unep-agr-2025.needs-2035: no snapshot yet for ['unep-agr-2025/report-pdf']; run envdash fetch (or envdash snapshot add); adaptation-finance.unep-agr-2025.needs-to-flows-ratio: no snapshot yet for ['unep-agr-2025/report-pdf']; run envdash fetch (or envdash snapshot add)",
+      "checked_at": "2026-10-08T19:38:24Z",
+      "last_success": "2026-10-08T19:32:08Z",
+      "manual_last_verified": "2026-10-08",
+      "reason": "adaptation-finance.unep-agr-2025.international-public-flows: no snapshot yet for ['unep-agr-2025/online-annexes-pdf']; run envdash fetch (or envdash snapshot add)",
       "state": "failed",
-      "terms": null,
+      "terms": "manual",
       "vintage": null
     },
     "unep-egr-2025": {

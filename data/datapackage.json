@@ -84,6 +84,122 @@
       "title": "Emission cuts from household consumption options (Ivanova et al. 2020)"
     },
     {
+      "bytes": 1248,
+      "description": "International public finance committed by developed countries to help developing countries adapt in 2023, in billion US dollars at constant 2023 prices, as the Adaptation Gap Report 2025 states it when comparing it with needs.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9935429a62502049cf3f75bb12d9934caf6333196b274236fd0c0760af09c877",
+      "licenses": [
+        {"path": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf", "title": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "adaptation-finance.unep-agr-2025.flows-2023",
+      "path": "v1/indicators/adaptation-finance.unep-agr-2025.flows-2023.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion US dollars (constant 2023 prices) (USD-bn-2023)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.59117/20.500.11822/48798", "title": "United Nations Environment Programme (UNEP): Adaptation Gap Report 2025: Running on empty"}
+      ],
+      "title": "International public finance for adaptation in 2023, as the report rounds it"
+    },
+    {
+      "bytes": 1600,
+      "description": "UNEP's estimate of what developing countries will need each year by 2035 to adapt to climate change, from two lines of evidence that are the ends of its plausible central range: modelled costs of adaptation, and the finance needs countries state in their national adaptation plans and nationally determined contributions, extrapolated to all developing countries. In billion US dollars a year at constant 2023 prices, not adjusted for inflation to 2035.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c7a2cfa94ac654cc63b96f31fe1193be9391950e33ff53ae769e6e3ae783b410",
+      "licenses": [
+        {"path": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf", "title": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "adaptation-finance.unep-agr-2025.needs-2035",
+      "path": "v1/indicators/adaptation-finance.unep-agr-2025.needs-2035.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "billion US dollars a year (constant 2023 prices) (USD-bn-2023-per-year)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "line-of-evidence", "title": "Line of evidence", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.59117/20.500.11822/48798", "title": "United Nations Environment Programme (UNEP): Adaptation Gap Report 2025: Running on empty"}
+      ],
+      "title": "What adapting to climate change will cost developing countries each year by 2035"
+    },
+    {
+      "bytes": 1388,
+      "description": "UNEP's comparison of what developing countries will need each year by 2035 to adapt with the international public adaptation finance they received in 2023: needs are 12 to 14 times the flows, as printed in the report.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5af432abae1ad42ef14e9960f6360eca4ad23e43dbdc654948e893736689c5bc",
+      "licenses": [
+        {"path": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf", "title": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "adaptation-finance.unep-agr-2025.needs-to-flows-ratio",
+      "path": "v1/indicators/adaptation-finance.unep-agr-2025.needs-to-flows-ratio.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "times as much as international public flows (times)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "end", "title": "End of the printed range", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.59117/20.500.11822/48798", "title": "United Nations Environment Programme (UNEP): Adaptation Gap Report 2025: Running on empty"}
+      ],
+      "title": "How many times adaptation needs exceed international public adaptation finance"
+    },
+    {
       "bytes": 59324,
       "description": "From a survey of nearly 130,000 people in 125 countries (Gallup World Poll 2021–2022): the share willing to give 1% of their household income every month to fight global warming, the share who approve of pro-climate norms, the share who want their government to do more, and what people believe about their compatriots: the average believed share willing to contribute and the share who think a majority is willing. In almost every country, people underestimate how many of their compatriots are willing.",
       "dialect": {

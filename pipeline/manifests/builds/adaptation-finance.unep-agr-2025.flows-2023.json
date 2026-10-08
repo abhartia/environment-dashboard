@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/adaptation-finance.unep-agr-2025.flows-2023.json",
+  "export_sha256": "ac5c64520589cbfdac167d8d88600138f925605a23d82623ebe5fdc3f94b186a",
+  "indicator_id": "adaptation-finance.unep-agr-2025.flows-2023",
+  "key": "4e046a775916a303d1679409a0c2705b11470d87326859e3b523e906fccb96f0",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "unep-agr-2025/report-pdf": {
+        "manifest_sha256": "91088e0b530e55f028f46cb8ee26369fe7d42581cce832c9136daf69f432ffd7",
+        "sha256": "7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "unep-agr-2025": "a5bcebdbc8689019c516b6dfd0a5c3a35d527662b38bb0ab73562b5778a11651"
+    },
+    "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+  },
+  "publisher_checks": []
+}

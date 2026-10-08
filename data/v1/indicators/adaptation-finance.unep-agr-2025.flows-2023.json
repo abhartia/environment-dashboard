@@ -1,0 +1,77 @@
+{
+  "attribution": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. Nairobi. https://doi.org/10.59117/20.500.11822/48798",
+  "description": "International public finance committed by developed countries to help developing countries adapt in 2023, in billion US dollars at constant 2023 prices, as the Adaptation Gap Report 2025 states it when comparing it with needs.",
+  "dimensions": [],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "UNEP_AGR_DEV",
+  "id": "adaptation-finance.unep-agr-2025.flows-2023",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "UNEP_AGR_DEV",
+    "period": "2023",
+    "status": "final",
+    "value": 26.0
+  },
+  "licence": {
+    "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
+    "spdx": null,
+    "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "© 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.",
+  "origins": [
+    {"acquisition": "manual", "artifact_id": "report-pdf", "bytes": 15336689, "citation_full": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. The world is gearing up for climate resilience — without the money to get there [Neufeldt, H., Hammill, A., Leiter, T., Magnan, A., Watkiss, P., Bakhtiari, F., Bueno Rubial, P., Butera, B., Canales, N., Chapagain, D., Christiansen, L., Dale, T., Milford, F., Niles, K., Njuguna, L., Pauw, P., Singh, C. and Yang, G.]. Nairobi. https://wedocs.unep.org/20.500.11822/48798.", "date_accessed": "2026-10-08", "date_published": null, "doi": "10.59117/20.500.11822/48798", "etag": null, "last_modified": null, "licence": {"name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)", "spdx": null, "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"}, "producer": "United Nations Environment Programme (UNEP)", "r2_url": null, "sha256": "7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf", "source_id": "unep-agr-2025", "title": "Adaptation Gap Report 2025: Running on empty", "url_download": "https://wedocs.unep.org/handle/20.500.11822/48798", "url_main": "https://doi.org/10.59117/20.500.11822/48798", "version_producer": "Adaptation Gap Report 2025: Running on empty", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of UNEP's report PDF (sha256 7aae2efd6169…, downloaded by hand from UNEP's repository; see the snapshot note) and found these sentences, each with its value as printed, on PDF p. 13 (printed xiii), PDF p. 58 (printed 40) before publishing: \"the latest available international public adaptation finance flows from developed country Parties to developing country Parties were tracked at US$26 billion in 2023 (constant 2023 prices).\" \"International public adaptation finance flows to developing countries were tracked at US$26 billion in 2023 (in constant 2023 prices), a slight decline compared to 2022.\"",
+      "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
+      "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+    },
+    {
+      "description": "Published \"US$26 billion in 2023\" as 26 billion US dollars for 2023, the rounded figure the report compares with needs. The unrounded 2023 value of Figure 4.4 is in adaptation-finance.unep-agr-2025.international-public-flows.",
+      "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
+      "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+    }
+  ],
+  "published_value": {
+    "document": "unep-agr-2025",
+    "locator": "Executive summary, p. xiii",
+    "quote": "the latest available international public adaptation finance flows from developed country Parties to developing country Parties were tracked at US$26 billion in 2023 (constant 2023 prices)."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "International public finance for adaptation committed by developed countries (Annex II Parties to the UNFCCC) to developing countries (non-Annex I Parties), bilateral and through the developed-country share of multilateral institutions, in constant 2023 prices. Commitments, not disbursements. UNEP's figures from the OECD DAC Climate-Related Development Finance data set (recipients' perspective), counting projects with adaptation as a principal objective in full and as a significant objective at about 40 percent. Private finance mobilised, export credits and flows between developing countries are not included.",
+    "bunkers": null,
+    "geography": "Developing countries, as grouped by UNEP's Adaptation Gap Report 2025",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["UNEP_AGR_DEV"],
+    "period": ["2023"],
+    "status": ["final"],
+    "value": [26.0]
+  },
+  "time_basis": "calendar",
+  "title": "International public finance for adaptation in 2023, as the report rounds it",
+  "unit": {
+    "code": "USD-bn-2023",
+    "label": "billion US dollars (constant 2023 prices)",
+    "short": "US$ bn"
+  },
+  "vintage": "Adaptation Gap Report 2025: Running on empty"
+}

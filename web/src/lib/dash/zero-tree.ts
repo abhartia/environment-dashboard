@@ -77,6 +77,11 @@ const RD_EU = "rd-budget.eurostat.energy";
 const FARMS = "farms.faostat-wcad.holdings";
 const FARMS_BY_SIZE = "farms.faostat-wcad.holdings-by-land-size";
 const FARM_AREA_BY_SIZE = "farms.faostat-wcad.area-by-land-size";
+const AGR_NEEDS = "adaptation-finance.unep-agr-2025.needs-2035";
+const AGR_FLOW = "adaptation-finance.unep-agr-2025.flows-2023";
+const AGR_RATIO = "adaptation-finance.unep-agr-2025.needs-to-flows-ratio";
+/** UNEP's Adaptation Gap Report's developing countries (no member list is published). */
+const AGR_DEV = "UNEP_AGR_DEV";
 
 // --- colours ---------------------------------------------------------------------------------------------------
 
@@ -1211,11 +1216,52 @@ function adapt(): Built {
       "Each country's latest agricultural census, with its year; censuses fall in different years and are never added.",
     ),
     drills: [
+      { label: "Money for adapting", to: "adapt-finance" },
       { label: "How big the farms are", to: "adapt-sizes" },
       crossDrill("Food and land", "food", food.node("root")),
     ],
     credit: credit(FARMS),
     indicators: [FARMS],
+  };
+}
+
+function adaptFinance(): Built {
+  const low = headline(AGR_RATIO, AGR_DEV, { end: "low" });
+  // The high end is published beside it; the headline takes the low end, as the sentence says.
+  if (must(AGR_RATIO, AGR_DEV, { end: "high" }) < low.value) throw new Error("zero/adapt-finance: the ratio's ends are reversed");
+  const flow = headline(AGR_FLOW, AGR_DEV);
+  const needs = indicator(AGR_NEEDS)
+    .observations.filter((o) => o.entity === AGR_DEV && o.value !== null)
+    .map((o) => ({ line: o.dims["line-of-evidence"], value: o.value as number }));
+  // The bars share UNEP's 2023 prices; a change of basis in either indicator fails the build.
+  if (!indicator(AGR_NEEDS).unit.code.startsWith("USD-bn-2023") || !indicator(AGR_FLOW).unit.code.startsWith("USD-bn-2023")) {
+    throw new Error("zero/adapt-finance: needs and flows are no longer both in 2023 US dollars");
+  }
+  if (needs.some((n) => n.value <= flow.value)) throw new Error("zero/adapt-finance: the sentence says needs exceed the flow, but one estimate does not");
+  return {
+    id: "adapt-finance",
+    parent: "adapt",
+    crumb: "Money for adapting",
+    kicker: "Adapting needs far more money than is given",
+    headline: low,
+    sentence: `needed a year by 2035, at the low end of UNEP's range: developing countries' adaptation needs against what developed countries' governments gave them in ${flow.period} (UNEP's Adaptation Gap Report). The first two bars are its two estimates of need; the third is the ${flow.period} flow.`,
+    chart: bars(
+      [
+        ...needs.map((n) => ({ key: n.line, label: dimLabel(AGR_NEEDS, "line-of-evidence", n.line), value: n.value, colour: PREMIUM })),
+        { key: "flow", label: `International public adaptation finance, ${flow.period}`, value: flow.value, colour: CLEAN },
+      ],
+      "US$ bn (2023 prices)",
+      0,
+      flow.period,
+      "Developing countries as UNEP groups them. The flows are commitments, which UNEP takes from the OECD's climate-related development finance data.",
+      [
+        { label: "Needed a year", colour: PREMIUM },
+        { label: "Given", colour: CLEAN },
+      ],
+    ),
+    drills: [{ label: "How big the farms are", to: "adapt-sizes" }],
+    credit: credit(AGR_RATIO, AGR_NEEDS, AGR_FLOW),
+    indicators: [AGR_RATIO, AGR_NEEDS, AGR_FLOW],
   };
 }
 
@@ -1337,6 +1383,7 @@ const NODES: Record<string, () => Built> = {
   innovate,
   "innovate-eu": innovateEu,
   adapt,
+  "adapt-finance": adaptFinance,
   "adapt-sizes": adaptSizes,
   "adapt-area": adaptArea,
 };

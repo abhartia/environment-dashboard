@@ -1,0 +1,91 @@
+{
+  "attribution": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. Nairobi. https://doi.org/10.59117/20.500.11822/48798",
+  "description": "UNEP's estimate of what developing countries will need each year by 2035 to adapt to climate change, from two lines of evidence that are the ends of its plausible central range: modelled costs of adaptation, and the finance needs countries state in their national adaptation plans and nationally determined contributions, extrapolated to all developing countries. In billion US dollars a year at constant 2023 prices, not adjusted for inflation to 2035.",
+  "dimensions": [
+    {
+      "id": "line-of-evidence",
+      "label": "Line of evidence",
+      "values": [
+        {"id": "modelled-costs", "label": "Modelled costs of adaptation, by 2035"},
+        {"id": "finance-needs", "label": "Finance needs in national adaptation plans and NDCs, 2023–2035"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "UNEP_AGR_DEV",
+  "id": "adaptation-finance.unep-agr-2025.needs-2035",
+  "kind": "published-value",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "line-of-evidence": "modelled-costs"
+    },
+    "entity": "UNEP_AGR_DEV",
+    "period": "2035",
+    "status": "projection",
+    "value": 310.0
+  },
+  "licence": {
+    "name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)",
+    "spdx": null,
+    "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"
+  },
+  "licence_class": "noncommercial",
+  "notes": ["Annual cost by 2035, from an updated modelling analysis.", "Annual finance needs for the period 2023–2035, from national adaptation plans and NDCs extrapolated to all developing countries."],
+  "notice": "© 2025 United Nations Environment Programme. Reproduced for non-profit use with acknowledgement of the source. No use for resale or any other commercial purpose without prior written permission from UNEP; use of this information for publicity or advertising is not permitted.",
+  "origins": [
+    {"acquisition": "manual", "artifact_id": "report-pdf", "bytes": 15336689, "citation_full": "United Nations Environment Programme (2025). Adaptation Gap Report 2025: Running on empty. The world is gearing up for climate resilience — without the money to get there [Neufeldt, H., Hammill, A., Leiter, T., Magnan, A., Watkiss, P., Bakhtiari, F., Bueno Rubial, P., Butera, B., Canales, N., Chapagain, D., Christiansen, L., Dale, T., Milford, F., Niles, K., Njuguna, L., Pauw, P., Singh, C. and Yang, G.]. Nairobi. https://wedocs.unep.org/20.500.11822/48798.", "date_accessed": "2026-10-08", "date_published": null, "doi": "10.59117/20.500.11822/48798", "etag": null, "last_modified": null, "licence": {"name": "UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use)", "spdx": null, "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf"}, "producer": "United Nations Environment Programme (UNEP)", "r2_url": null, "sha256": "7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf", "source_id": "unep-agr-2025", "title": "Adaptation Gap Report 2025: Running on empty", "url_download": "https://wedocs.unep.org/handle/20.500.11822/48798", "url_main": "https://doi.org/10.59117/20.500.11822/48798", "version_producer": "Adaptation Gap Report 2025: Running on empty", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the text of UNEP's report PDF (sha256 7aae2efd6169…, downloaded by hand from UNEP's repository; see the snapshot note) and found these sentences, each with its value as printed, on PDF p. 13 (printed xiii), PDF p. 58 (printed 40) before publishing: \"the costs of adaptation are estimated to be in a plausible central range of US$310–365 billion/year for developing countries by the year 2035 (in constant 2023 prices, not inflation-adjusted). This is based on two lines of evidence\" \"The reanalysis estimates the costs of adaptation to be in a plausible central range of US$310–365 billion per year for developing countries by the year 2035 (in 2023 prices).\" \"An updated modelling analysis estimates adaptation costs at US$310 billion/year for developing countries by 2035.\" \"An updated assessment of submitted national adaptation plans (NAPs) and nationally determined contributions (NDCs), with extrapolation to all developing countries, estimates adaptation finance needs at US$365 billion/year for the period 2023–2035.\"",
+      "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
+      "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+    },
+    {
+      "description": "Published the two lines of evidence as printed: \"US$310 billion/year\" (modelled costs, by 2035) as 310 and \"US$365 billion/year\" (finance needs, 2023–2035) as 365. They are the two ends of the report's plausible central range, \"US$310–365 billion/year\" (also on p. xiii), which is not published as a midpoint.",
+      "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
+      "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
+    }
+  ],
+  "published_value": {
+    "document": "unep-agr-2025",
+    "locator": "Chapter 4, key messages, p. 40",
+    "quote": "the costs of adaptation are estimated to be in a plausible central range of US$310–365 billion/year for developing countries by the year 2035 (in constant 2023 prices, not inflation-adjusted). This is based on two lines of evidence: An updated modelling analysis estimates adaptation costs at US$310 billion/year for developing countries by 2035. An updated assessment of submitted national adaptation plans (NAPs) and nationally determined contributions (NDCs), with extrapolation to all developing countries, estimates adaptation finance needs at US$365 billion/year for the period 2023–2035."
+  },
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Annual costs of adaptation (modelled, by 2035) and adaptation finance needs (national plans and NDCs, 2023–2035), constant 2023 prices, not inflation-adjusted.",
+    "bunkers": null,
+    "geography": "Developing countries, as grouped by UNEP's Adaptation Gap Report 2025",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "line-of-evidence": ["modelled-costs", "finance-needs"]
+    },
+    "entity": ["UNEP_AGR_DEV", "UNEP_AGR_DEV"],
+    "note": [0, 1],
+    "period": ["2035", "2023/2035"],
+    "status": ["projection", "projection"],
+    "value": [310.0, 365.0]
+  },
+  "time_basis": "calendar",
+  "title": "What adapting to climate change will cost developing countries each year by 2035",
+  "unit": {
+    "code": "USD-bn-2023-per-year",
+    "label": "billion US dollars a year (constant 2023 prices)",
+    "short": "US$ bn/yr"
+  },
+  "vintage": "Adaptation Gap Report 2025: Running on empty"
+}
