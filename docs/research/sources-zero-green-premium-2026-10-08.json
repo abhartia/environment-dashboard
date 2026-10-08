@@ -1,0 +1,605 @@
+{
+  "date": "2026-10-08",
+  "question": "Owner request: represent Bill Gates's 'Green Premium' (How to Avoid a Climate Disaster) by activity, using only open, primary, traceable sources.",
+  "need": "The extra cost of the zero-carbon way of doing something compared with the fossil way, by activity: electricity, cement, steel, plastics and chemicals, aviation fuel, shipping, trucking and cars, heating (heat pump vs gas boiler), and farming and food (green vs grey ammonia, meat alternatives vs beef). Costs appear only as system-level facts with a named source (docs/style.md: no savings, payback, tariff or investment framing; a negative premium is described as 'costs less to produce/run per unit', never as a saving for the reader). The website never computes a number. A difference or ratio may be computed in the pipeline only when the clean and fossil inputs share source, vintage, currency year, unit and basis (same region, year, discount rate, carbon-price and subsidy treatment). Strong preference for producers that publish the premium itself, or both costs on one basis, in a downloadable table. Licence comes from the producer's own terms; material a report attributes to third parties (BNEF, S&P/Platts, Argus, Wood Mackenzie, JATO, ICIS, CRU, IHS, paid IEA data) is excluded even inside an open report. Gates's own Green Premium figures come from Breakthrough Energy, whose terms rule them out, so premiums have to be assembled from other producers activity by activity.",
+  "method": "Fetched on 2026-10-08 with curl (browser user agent) and pdftotext/openpyxl; no host blocks were worked around (iea.org HTML, mdpi.com, ScienceDirect, RSC, ACS, Cell, energy-transitions.org, gatesnotes.com and transportenvironment.org refuse scripts; their terms were read from web.archive.org copies or repository copies of the publisher PDF, as stated per candidate). Already-registered sources (irena-costs-2025, drawdown-explorer) were read from the repo's own snapshots in pipeline/.snapshots. Three research sub-agents covered IEA reports, NGO and think-tank reports, and peer-reviewed papers; their key claims for ETP 2026, the CEMCAP cement table and the ICCT truck figure were spot-checked against the downloaded text. Values quoted as 'text' are sentences in the report, not table cells.",
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "US EIA, Levelized Costs of New Generation Resources in the Annual Energy Outlook 2026 (April 2026), figure data workbook",
+      "producer": "U.S. Energy Information Administration (EIA)",
+      "landing_url": "https://www.eia.gov/outlooks/aeo/electricity_generation/index.php",
+      "file_urls": [
+        "https://www.eia.gov/outlooks/aeo/electricity_generation/xls/LCOE-LCOS-LACE_figures.xlsx",
+        "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_report.pdf",
+        "https://www.eia.gov/outlooks/aeo/electricity_generation/pdf/LCOE_Methodology.pdf"
+      ],
+      "file_checks": "LCOE-LCOS-LACE_figures.xlsx: 675,530 bytes, sha256 e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10. LCOE_report.pdf (AEO2026 edition, despite the unversioned name): 485,982 bytes, sha256 8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad. Both HTTP 200 to scripts.",
+      "licence_name": "US government work, public domain (EIA copyrights and reuse page); acknowledgement requested",
+      "licence_terms_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service. However, if you use or reproduce any of our information products, you should use an acknowledgment, which includes the publication date, such as: \"Source: U.S. Energy Information Administration (Oct 2008).\"",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "already_registered_as": "eia-international is registered (a different EIA product); this workbook would be a new source or a new artifact.",
+      "premiums_covered": [
+        {"activity": "electricity", "clean": "solar PV standalone (single-axis), onshore wind, offshore wind, gas combined cycle with 95% CCS, advanced nuclear, geothermal", "fossil": "natural gas combined cycle (unabated), combustion turbine", "unit": "2025 US dollars per megawatt-hour", "basis": "levelised cost of electricity for plants entering service in 2031, AEO2026 Counterfactual Baseline case, 30-year cost recovery, average of 25 US supply regions; columns for capital, fixed O&M, variable (incl. fuel), transmission, 'Total system LCOE', levelised tax credit, levelised capture credit, and total including credits", "year": "online year 2031", "region": "United States (simple average; regional sheet gives each of 25 EMM regions)", "location_in_file": "sheet 'lcoe-components' rows 5-18 (total system LCOE before credits in column G, after credits in column J); 'lcoe-regional' for regional min/max; 'lcoe_lace' for value-cost comparison"}
+      ],
+      "third_party_exclusions": "None found: data source line on every figure is 'U.S. Energy Information Administration, Annual Energy Outlook 2026' (NEMS model).",
+      "headline_checks": [
+        "lcoe-components, 2025 USD/MWh, total system LCOE before credits: combined-cycle 77.46 (capacity factor 0.40); combined-cycle with CCS 77.19 (CF 0.87), 58.47 after the 45Q captured-carbon credit; solar standalone 58.33 (CF 0.27); onshore wind 56.75 (CF 0.38); offshore wind 118.79 (CF 0.43); advanced nuclear 110.87 before, 87.81 after the tax credit; combustion turbine 172.57 (CF 0.10).",
+        "Report p.7: 'The stated LCOE values include the levelized tax credit component for eligible technologies.'"
+      ],
+      "caveats": [
+        "EIA itself says LCOE comparisons across technologies are of limited value and pairs LCOE with levelized avoided cost (LACE); dispatchable and variable plants serve different roles. A premium computed from this file is 'cost of building and running a new plant', not system cost.",
+        "Rows use different capacity factors (combined-cycle at 40% vs CCS at 87%), so a CCS-vs-unabated difference mixes operating assumptions; use the published rows side by side rather than computing a single premium, or compare only rows the report itself compares.",
+        "Use 'Total system LCOE' (before credits) for a technology cost comparison; the after-credit totals embed US subsidy policy as modified by the One Big Beautiful Bill Act.",
+        "US only; projected, not observed."
+      ],
+      "recommendation": "Register (open). Best same-basis, downloadable, public-domain electricity comparison. Publish the published rows (clean and fossil LCOE before credits) as a pair; any computed difference stays in the pipeline and is labelled as derived from one EIA table."
+    },
+    {
+      "rank": 2,
+      "name": "UK DESNZ, Electricity Generation Costs 2025 (report and Annex A: additional estimates and key assumptions)",
+      "producer": "UK Department for Energy Security and Net Zero (DESNZ)",
+      "landing_url": "https://www.gov.uk/government/publications/electricity-generation-costs-2025",
+      "file_urls": [
+        "https://assets.publishing.service.gov.uk/media/69d8efec96c86b7513170229/annex-a-additional-estimates-and-key-assumptions-2025.xlsx",
+        "https://assets.publishing.service.gov.uk/media/69ba657326909a14239612e3/electricity-generation-costs-report-2025.pdf",
+        "https://assets.publishing.service.gov.uk/media/6a07221011067c8a15431e0a/Annex_B_-_Example_LCOE_calculator_2025.xlsx"
+      ],
+      "file_checks": "Annex A xlsx: 1,807,935 bytes, sha256 a6233e478d7d1b1c6471781a397e8ba2d3bed511e2eccfb597edb2011ecf20ea. Report PDF: 1,360,527 bytes, sha256 4eb820b33ea99d06bc65178cfac0d32e1da818f15046842c2ff8680a3855a164. gov.uk content API: first published 2026-01-14, updated 2026-03-18.",
+      "licence_name": "Open Government Licence v3.0 (Crown copyright 2026)",
+      "licence_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "licence_quote": "This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated. [...] Where we have identified any third-party copyright information you will need to obtain permission from the copyright holders concerned. (report PDF p.2). OGL v3.0: 'You are free to: copy, publish, distribute and transmit the Information; adapt the Information; exploit the Information commercially and non-commercially'.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "electricity", "clean": "large-scale solar, onshore wind, fixed and floating offshore wind, gas CCUS, hydrogen CCHT/OCHT/engines, tidal, geothermal", "fossil": "gas CCGT, gas OCGT, gas reciprocating engines (at 5%, 30% and 93% load factors)", "unit": "2024 GBP per megawatt-hour", "basis": "levelised cost by component (pre-development, construction, fixed and variable O&M, fuel, carbon cost, CO2 transport and storage, decommissioning) for projects commissioning in a given year; NOAK unless marked FOAK; DESNZ central fossil fuel and carbon price assumptions", "year": "commissioning 2030, 2035, 2040, 2045, 2050 (one sheet each)", "region": "United Kingdom (Great Britain)", "location_in_file": "Annex A sheets 'Additional Estimates 2030' to '... 2050', rows 'Pre-development costs' to 'Total13'; 'Technical and Cost Assumptions'"}
+      ],
+      "third_party_exclusions": "Renewable cost inputs were commissioned from Arup and hydrogen-to-power from Baringa and published as Crown copyright under OGL; no third-party copyright is flagged on the LCOE tables. Fuel prices are DESNZ's own fossil fuel price assumptions.",
+      "headline_checks": [
+        "Annex A 'Additional Estimates 2030' totals (2024 GBP/MWh): large-scale solar 60, onshore wind 58, fixed offshore wind 103, floating offshore (FOAK) 153; gas CCGT 93% load factor 111 (of which fuel 45, carbon 41), CCGT 30% 147; gas CCUS 88% load factor 105 (carbon 5, CO2 transport and storage 3); 50% hydrogen-blend CCHT (FOAK) 93% 178; hydrogen OCHT (FOAK) 93% 396.",
+        "Report Table 4: gas CCGT commissioning 2030 at 93% load factor, £109/MWh under 2025 carbon price assumptions and £165/MWh under 2023 assumptions.",
+        "Report section 5: 'It is not appropriate to present LCOEs comparatively when technologies play very different roles in the power system.'"
+      ],
+      "caveats": [
+        "Fossil LCOEs include a UK carbon price (about £41/MWh for CCGT in 2030), so a 'premium' read from totals is net of carbon pricing; the carbon component is a separate row, so a pre-carbon comparison is possible in the pipeline from the same table.",
+        "DESNZ explicitly cautions against comparing renewables with dispatchable plant; comparisons within its dispatchable group (unabated CCGT vs gas CCUS vs hydrogen turbines at the same load factor) are on its own stated basis.",
+        "Some cells are text '<1'; the transform must keep them as published text, not substitute numbers."
+      ],
+      "recommendation": "Register (open). Gives the cleanest same-basis low-carbon-dispatchable vs unabated-gas pair (gas CCUS 105 vs CCGT 111 at baseload in 2030; hydrogen turbines far higher) and UK renewables vs gas. Show with DESNZ's own caution."
+    },
+    {
+      "rank": 3,
+      "name": "IEA, Energy Technology Perspectives 2026 (March 2026; revised April and July 2026)",
+      "producer": "International Energy Agency (IEA)",
+      "landing_url": "https://www.iea.org/reports/energy-technology-perspectives-2026",
+      "file_urls": [
+        "https://iea.blob.core.windows.net/assets/8483779b-e472-435b-b173-2156f92b8a33/EnergyTechnologyPerspectives2026.pdf",
+        "https://web.archive.org/web/20260408010434/https://www.iea.org/reports/energy-technology-perspectives-2026/supply-chain-risks-and-industrial-competitiveness"
+      ],
+      "file_checks": "PDF 33,223,886 bytes, sha256 c4880aa007fcb05e771e75c21ec48ad8038e98570a0d4ab554440d14232c095b (blob host answers scripts; iea.org pages return 403 with a Cloudflare challenge and were read from the Internet Archive).",
+      "licence_name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+      "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+      "licence_quote": "Subject to the IEA's Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence. Unless otherwise indicated, all material presented in figures and tables is derived from IEA data and analysis. (PDF colophon). The Notice adds that the OECD/IEA 'does not license to you or anyone else any component within the CC-licensed Content that is attributed to a third-party' and requires the derived-work disclaimer on adaptations.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "steel", "clean": "near-zero-emissions (hydrogen-based) iron and steel", "fossil": "conventional steel", "unit": "percent higher and US dollars per tonne of crude steel", "basis": "levelised cost of production, Stated Policies Scenario (STEPS), no targeted policy support", "year": "2035", "region": "global range", "location_in_file": "text p.139 (also p.113): 'about 20-145% higher (USD 125-600 per tonne of crude steel) in the STEPS'"},
+        {"activity": "steel", "clean": "H2-DRI steel on grid power, on dedicated renewables, and from imported iron", "fossil": "conventional steel without carbon cost and at USD 150/t CO2", "unit": "US dollars per tonne", "basis": "levelised cost, STEPS", "year": "2035", "region": "EU, Japan, US, China, India, Brazil, Australia", "location_in_file": "Figure 7.15 (p.320); series embedded as chart data (credited 'IEA. Licence: CC BY 4.0') on the archived chapter page above; not offered as a download"},
+        {"activity": "cement", "clean": "near-zero-emissions cement", "fossil": "conventional cement", "unit": "percent and US dollars per tonne", "basis": "STEPS, absence of policy support and scale-up", "year": "2035", "region": "global", "location_in_file": "text p.141: 'still 75-150% more costly (USD 50-175 per tonne) in the STEPS'"},
+        {"activity": "shipping", "clean": "methanol- and ammonia-fuelled ships", "fossil": "conventional ships", "unit": "ratio of cost to own and operate", "basis": "IEA analysis", "year": "current (2024-2025)", "region": "global", "location_in_file": "text p.113 ('about twice')"},
+        {"activity": "hydrogen (input to ammonia, steel, refining)", "clean": "electrolytic hydrogen", "fossil": "unabated fossil hydrogen", "unit": "ratio", "basis": "IEA analysis", "year": "current", "region": "global", "location_in_file": "text p.113 ('1.2-7.5 times')"},
+        {"activity": "cars", "clean": "small battery-electric car", "fossil": "equivalent combustion car", "unit": "percent purchase-price premium", "basis": "IEA analysis", "year": "2024", "region": "Germany", "location_in_file": "text p.110 ('just over 40%')"},
+        {"activity": "fertiliser (urea)", "clean": "low-emissions urea", "fossil": "conventional urea", "unit": "percent", "basis": "cost index", "year": "now to 2035", "region": "global", "location_in_file": "text p.73 ('about 80% falling to 55%'); Figure 1.17 image only"},
+        {"activity": "industrial heat", "clean": "industrial heat pumps", "fossil": "coal and gas boilers", "unit": "ratio", "basis": "IEA analysis", "year": "current", "region": "global", "location_in_file": "text p.137 ('about 3 times' coal boilers, 'up to 10 times' gas)"}
+      ],
+      "third_party_exclusions": "Excluded: the SAF cost dashboard (p.155: HEFA 2-3 times fossil jet, synthetic kerosene over 9 times) because its method note (p.168) cites Argus (2025); Figure 1.11 (built on GHR 2025's BNEF/Argus-based figure); Figures 2.2, 4.10, 7.14 and 7.21-7.28 (BNEF, S&P, CRU and others). Figure 2.15 (relative cost of clean technologies and low-emissions products, 2024-2035) has no third-party source line but is image-only.",
+      "headline_checks": [
+        "Text p.139 (verified in downloaded PDF): near-zero steel 'about 20-145% higher (USD 125-600 per tonne of crude steel) in the STEPS' in 2035.",
+        "Text p.141 (verified): near-zero cement 'still 75-150% more costly (USD 50-175 per tonne) in the STEPS'.",
+        "Fig 7.15 embedded series (sub-agent reading of archived page, not re-verified): EU H2-DRI on grid 987-1,553 USD/t, on renewables 888-1,349, imported iron 835-1,050; conventional 364-577 without carbon cost, 569-813 at USD 150/t CO2."
+      ],
+      "caveats": [
+        "Projected 2035 STEPS values, not current market prices; global ranges.",
+        "Most premiums are sentences, not table cells: publishable as quoted statements with page numbers (as energy-institute-review-2026 does), not as a data series.",
+        "Reading chart series out of archived iea.org page HTML may conflict with AGENTS.md rule 7 (no scraping workarounds); see open_questions. The clean alternative is asking the IEA (rights@iea.org) for the Fig 7.15 and Fig 2.15 data.",
+        "Adaptations must carry the IEA derived-work disclaimer and no IEA logo."
+      ],
+      "recommendation": "Register (open) for quoted steel and cement premiums (the only global, recent, open, published premiums for these two activities). Treat Fig 7.15 data as pending an owner decision on rule 7."
+    },
+    {
+      "rank": 4,
+      "name": "IEA, The Future of Heat Pumps (2022), Figure 3.1 levelised cost of heating",
+      "producer": "International Energy Agency (IEA)",
+      "landing_url": "https://www.iea.org/reports/the-future-of-heat-pumps",
+      "file_urls": [
+        "https://iea.blob.core.windows.net/assets/4713780d-c0ae-4686-8c9b-29e782452695/TheFutureofHeatPumps.pdf",
+        "https://web.archive.org/web/20230204154529/https://www.iea.org/data-and-statistics/charts/levelised-cost-of-heating-in-selected-cold-climate-countries",
+        "https://web.archive.org/web/20230204165210/https://www.iea.org/data-and-statistics/charts/levelised-cost-of-heating-and-cooling-in-mild-climates",
+        "https://web.archive.org/web/20260219035927/https://www.iea.org/data-and-statistics/charts/levelised-cost-of-heat-for-coal-or-natural-gas-boilers-electric-boilers-and-heat-pumps-in-selected-regions-2024"
+      ],
+      "file_checks": "PDF 7,442,639 bytes, sha256 a890d75acf93cdbd8352c2419880ac74e08736ba85e613b68dedcb950bd4a93b.",
+      "licence_name": "CC BY 4.0 (PDF colophon), subject to the IEA Notice for CC-licensed Content",
+      "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+      "licence_quote": "Subject to the IEA's Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence. (colophon; some page footers carry a 'CC BY 4.4' typo). Chart pages: 'IEA. Licence: CC BY 4.0'.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "heating", "clean": "air-to-air and air-to-water heat pumps", "fossil": "gas boiler", "unit": "2021 US dollars per megawatt-hour of heat", "basis": "levelised cost of heating (capital plus operating), IEA analysis", "year": "2021", "region": "Canada, Korea, Germany, United Kingdom (cold climates); mild-climate set on a second chart", "location_in_file": "Figure 3.1 (p.66); series embedded on the two archived chart-library pages"},
+        {"activity": "industrial heat", "clean": "industrial heat pump, electric boiler", "fossil": "coal or natural gas boiler", "unit": "US dollars per megawatt-hour", "basis": "levelised cost of heat", "year": "2024", "region": "selected regions", "location_in_file": "archived chart page 'levelised-cost-of-heat-for-coal-or-natural-gas-boilers-electric-boilers-and-heat-pumps-in-selected-regions-2024'"}
+      ],
+      "third_party_exclusions": "None found on Figure 3.1 (no source line, so IEA analysis). Net Zero Roadmap 2023 Figure 4.10 (heat pump vs boiler purchase premium in months of income) is excluded because it cites JATO for vehicle costs.",
+      "headline_checks": [
+        "Cold-climate chart (sub-agent reading of embedded series, USD 2021/MWh, air-to-air / air-to-water / gas boiler): Canada 66.3 / 72.4 / 66.3; Korea 71.6 / 81.4 / 97.3; Germany 172.3 / 166.3 / 169.8; United Kingdom 145.7 / 139.6 / 114.1.",
+        "Text p.63: air-to-water heat pumps cost 2-4 times a gas boiler to install."
+      ],
+      "caveats": [
+        "2021 prices, before the 2022 gas price shock; dated.",
+        "The report frames results as household bill savings (p.12, p.52: USD 300-900 a year); only the levelised cost per MWh of heat is compatible with the no-financial-advice rule.",
+        "Same rule-7 question as ETP 2026 for embedded chart series."
+      ],
+      "recommendation": "Usable for heating if the owner accepts reading published chart series; otherwise quote the 2-4x installed-cost statement only. Prefer pairing with Drawdown's open spreadsheet values (rank 5) for a downloadable source."
+    },
+    {
+      "rank": 5,
+      "name": "Project Drawdown, Drawdown Explorer solution assessment spreadsheets (Zenodo community pdexplorer) - cost rows",
+      "producer": "Project Drawdown",
+      "landing_url": "https://drawdown.org/explorer",
+      "file_urls": [
+        "https://zenodo.org/records/21246268 (Use Heat Pumps)",
+        "https://zenodo.org/records/21231076 (Mobilize Electric Cars)",
+        "https://zenodo.org/records/21246101 (Improve Diets)",
+        "https://zenodo.org/records/21246254 (Deploy Industrial Green Hydrogen)",
+        "https://zenodo.org/records/21231071 (Improve Cement Production)",
+        "https://zenodo.org/records/20865531 (Methodology, June 2026)"
+      ],
+      "file_checks": "Read from the repo's snapshots of the registered artifacts (sha256: use-heat-pumps 9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd; deploy-industrial-green-hydrogen 026db9d6a2c4c8070fe0289e84e93d3fba4fdb7004e0d53ba3644142f65a1dc4; improve-diets 08623adce6468d438bd6eed7063538acb0ba8551b312503a6d9fe81cb4506433; mobilize-electric-cars d7e8a6328ec3e9dffcb2b14964855c34974cefa813414087e0b39fbb49767d56). Zenodo community listing on 2026-10-08: 39 records, all cc-by-4.0, none newer than 2026-08-18; no steel, aviation, shipping or plastics solution.",
+      "licence_name": "CC BY 4.0 (Zenodo deposits) and the Drawdown FAQ grant",
+      "licence_terms_url": "https://drawdown.org/explorer/faqs",
+      "licence_quote": "Please use our materials – the numbers, the graphics, the maps, the analysis – in your work. That's why we created them! We have intentionally made all of this material freely available so it can be used to accelerate meaningful climate action around the world. Everyone has access to it equally. We only ask that you give credit to Project Drawdown, link to the appropriate page(s), and cite our work",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "already_registered_as": "drawdown-explorer (open). The transform reads only Table 8 (climate impact); cost rows would be a new indicator from the same artifacts.",
+      "premiums_covered": [
+        {"activity": "heating", "clean": "installed heat pump system", "fossil": "2023 baseline heating equipment (gas, oil, electric resistance mix)", "unit": "2023 US dollars per unit (initial) and per unit per year (operating, net annualised)", "basis": "Drawdown meta-analysis of EIA 2023, IEA 2022, IRENA 2022, UKERC 2023, Walker et al. 2021 and others; 'net cost per unit' = amortised initial + operating", "year": "2023 baseline", "region": "global (inputs mainly North America and Europe)", "location_in_file": "sheet 'results' rows 22-38 ('Cost: 2023 Baseline', 'Cost: Solution', 'cost per unit solution compared to BAU', 'cost per metric ton CO2-eq')"},
+        {"activity": "cars", "clean": "electric car", "fossil": "conventional (combustion) car", "unit": "2023 US dollars per passenger-kilometre", "basis": "cost differential (total cost of ownership studies), population-weighted mean; also per tonne CO2-eq", "year": "2023 baseline", "region": "World plus Japan, South Korea, China, United States, France, Germany, United Kingdom", "location_in_file": "sheet 'results' rows 23-29; sheet '2. current state cost' rows 6-14 by country"},
+        {"activity": "food (meat alternatives)", "clean": "protein-rich plant and animal foods substituted for ruminant meat", "fossil": "beef", "unit": "2023 US dollars per kilogram", "basis": "retail prices (World Bank ICP via Bai et al. 2021, Food Policy)", "year": "2023 baseline", "region": "global (177 countries)", "location_in_file": "sheet 'results' rows 22-38; sheet '2. current state cost' rows 6-47"},
+        {"activity": "hydrogen", "clean": "green (electrolytic) hydrogen", "fossil": "baseline hydrogen", "unit": "2023 US dollars per kilogram", "basis": "flagged by Drawdown 'for discussion purposes only'; inputs are a 2020 IEA chart (2019 values)", "year": "2019-2023", "region": "global", "location_in_file": "sheet 'results' rows 22-38"}
+      ],
+      "third_party_exclusions": "The spreadsheets embed third-party input tables (literature values, FAOSTAT, IEA charts), which the CC BY deposit cannot relicense; only Drawdown's own result cells on the 'results' sheet are usable (as the existing registration already decided). The green hydrogen cost rows rest on a pre-CC-BY IEA chart and are marked by Drawdown itself as not an estimate.",
+      "headline_checks": [
+        "Use Heat Pumps, results: initial cost per unit BAU 5,300 vs solution 6,800; operating cost 830 vs 540 per year; net cost per unit 1,180 vs 990 per year; cost per unit solution compared to BAU -190; cost per tonne CO2-eq (100-year) -200 (2023 USD).",
+        "Mobilize Electric Cars, results: cost per unit solution compared to baseline -0.0494 USD per passenger-km (population-weighted mean); by country China -0.069, United States +0.0039, Japan -0.0198, Germany -0.0056 (2. current state cost, row 8 means).",
+        "Improve Diets: beef 21.29 USD/kg vs substitutes 20.73 USD/kg; difference -0.557 USD per kg substituted; -8.54 USD per tonne CO2-eq.",
+        "Deploy Industrial Green Hydrogen: BAU 1.91 vs solution 3.58 USD/kg, with the note 'Because the cost is theoretical rather than based on real projects, we are not providing a cost/unit solution estimate.'",
+        "Improve Cement Production: only clinker substitution, alternative fuels and efficiency (net -17.1 million USD per Mt cement), not near-zero cement."
+      ],
+      "caveats": [
+        "Negative 'net net cost' values must not be presented as savings for the reader (style rule); describe them as the lower cost per unit of the option, with Drawdown's caveats.",
+        "Diets 'substitute' is a weighted mix of protein foods (including non-ruminant animal foods), not plant-based meat analogues or cultivated meat.",
+        "No steel, cement (near-zero), aviation, shipping or plastics solutions in the current deposit."
+      ],
+      "recommendation": "Use (already registered, open): add a cost indicator for heat pumps, electric cars and diets from the results sheets. Do not publish the green hydrogen cost rows."
+    },
+    {
+      "rank": 6,
+      "name": "ICCT reports on e-kerosene/SAF cost (2022, 2025, 2026) and heavy-duty truck total cost of ownership (EU 2023, toll fact sheets 2026)",
+      "producer": "International Council on Clean Transportation (ICCT)",
+      "landing_url": "https://theicct.org/",
+      "file_urls": [
+        "https://theicct.org/wp-content/uploads/2022/02/fuels-us-europe-current-future-cost-ekerosene-us-europe-mar22.pdf",
+        "https://theicct.org/wp-content/uploads/2026/03/ID-452-–-SAF-Netherlands_working-paper_final-v2.pdf",
+        "https://theicct.org/wp-content/uploads/2023/11/ID-54-–-EU-HDV-TCO_paper_final2.pdf"
+      ],
+      "licence_name": "CC BY-SA 4.0 (ICCT terms of use, 'except as otherwise noted')",
+      "licence_terms_url": "https://theicct.org/legal/",
+      "licence_quote": "Except as otherwise noted, material on this site is the property of the International Council on Clean Transportation, and is licensed under a Creative Commons Creative Commons Attribution-ShareAlike 4.0 International License.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "share-alike",
+      "already_registered_as": "icct-lca-2025 uses the same terms (share-alike, mirror_raw false because the footer also says 'All Rights Reserved').",
+      "premiums_covered": [
+        {"activity": "aviation fuel", "clean": "e-kerosene (power-to-liquid)", "fossil": "fossil jet fuel (EIA prices, public domain)", "unit": "2020 US dollars per gallon (Table A5) and per megajoule (Figure 3)", "basis": "production cost vs jet fuel price, ICCT modelling", "year": "2020 to 2050", "region": "United States and European Union", "location_in_file": "2022 paper Table A5, Figure 3"},
+        {"activity": "aviation fuel", "clean": "e-kerosene and agricultural-residue SAF", "fossil": "fossil jet (EASA 2024 reference price)", "unit": "2024 euros per litre and per tonne", "basis": "minimum selling price", "year": "2024-2025", "region": "Netherlands", "location_in_file": "2026 working paper ID 452 p.10, p.13, Figures 1-2"},
+        {"activity": "trucking", "clean": "battery-electric long-haul truck (and fuel-cell, HVO, H2-ICE)", "fossil": "diesel truck", "unit": "euros per kilometre (total cost of ownership)", "basis": "500 km depot round trip, ICCT TCO model", "year": "trucks bought 2023 and 2030", "region": "European Union", "location_in_file": "2023 paper ID 54, Figure 6 (p.16)"}
+      ],
+      "third_party_exclusions": "ID 452's fossil jet comparator is EASA's reference price, which EASA states comes from 'Price Reporting Agencies (Platts, S&P Global Commodity Insights, Argus Media, General Index)': exclude the fossil side (the e-kerosene and SAF costs are ICCT's own). ID 54's diesel retail prices come from DKV Mobility (a fuel-card company): third-party input to the TCO. ID-398 (2025) contains S&P content marked 'All rights reserved'. ID-205 (ships) uses a Maersk Mc-Kinney Moller Center model under its own terms. No recent ICCT e-ammonia/e-methanol vs fossil bunker fuel cost comparison was found.",
+      "headline_checks": [
+        "ID 54 Figure 6 (verified in extracted text): 2023 trucks diesel 1.21 EUR/km vs battery-electric 1.26 EUR/km; 2030 trucks battery-electric 0.94 EUR/km.",
+        "2022 e-kerosene paper: e-kerosene '7-10 times more expensive' than fossil jet today; still about 45% above it in 2050 in the US (text).",
+        "ID 452: e-kerosene minimum selling price EUR 4.23/litre (EUR 5,588/t), range 3.8-5.0 (5.2 with direct-air-capture CO2); residue-based SAF EUR 2.12/litre (EUR 2,806/t), 2024 euros."
+      ],
+      "caveats": [
+        "Share-alike: derived JSON carries CC BY-SA 4.0 (licence class share-alike already exists).",
+        "Truck TCO is a fleet-operator metric; publish as cost per kilometre by powertrain, never as savings or payback.",
+        "The 2022 e-kerosene comparator (EIA) is clean, but values are in 2020 dollars and four years old."
+      ],
+      "recommendation": "Register (share-alike) for aviation fuel (2022 paper: both sides open) and trucking (2023 TCO, noting the DKV diesel price input). Use 2026 ID 452 only for the clean-fuel side."
+    },
+    {
+      "rank": 7,
+      "name": "Gardarsdottir et al. 2019, 'Comparison of Technologies for CO2 Capture from Cement Production - Part 2: Cost Analysis', Energies 12(3):542 (CEMCAP), with the CEMCAP economic model on Zenodo",
+      "producer": "CEMCAP consortium (SINTEF, ETH Zurich, Politecnico di Milano and others), published by MDPI",
+      "landing_url": "https://doi.org/10.3390/en12030542",
+      "file_urls": [
+        "https://www.research-collection.ethz.ch/handle/20.500.11850/328396",
+        "https://doi.org/10.5281/zenodo.1446522"
+      ],
+      "file_checks": "Publisher PDF from the ETH Research Collection: sha256 409c99230fae6e6b8289ad087fb6a012392f88502d1ceb407d029237ef15afdc. mdpi.com returned 403 to scripts.",
+      "licence_name": "CC BY 4.0 (article); Zenodo model spreadsheet cc-by-4.0",
+      "licence_terms_url": "http://creativecommons.org/licenses/by/4.0/",
+      "licence_quote": "This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "cement", "clean": "clinker from the same reference plant with CO2 capture (MEA, oxyfuel, chilled ammonia, membrane-assisted liquefaction, calcium looping tail-end and integrated)", "fossil": "reference European cement plant without capture", "unit": "2014 euros per tonne of clinker; euros per tonne CO2 avoided", "basis": "same plant, same assumed prices (coal 3 EUR/GJ, electricity 58.1 EUR/MWh), CEMCAP framework", "year": "2014 price base", "region": "Europe (reference plant)", "location_in_file": "Table 6 (cost of clinker, cost of CO2 avoided); Table 4 assumptions"}
+      ],
+      "third_party_exclusions": "None: inputs are the paper's own assumed prices. Supplementary equipment lists (mdpi .../s1) could not be opened (blocked) and state no licence.",
+      "headline_checks": [
+        "Table 6 (verified): cost of clinker 62.6 EUR/t reference; MEA 107.4; oxyfuel 93.0; chilled ammonia 104.9; membrane-assisted liquefaction 120.0; CaL tail-end 105.8; CaL integrated 110.3. Text: 'increases with 49-92%'."
+      ],
+      "caveats": [
+        "Capture covers most but not all plant emissions; 'near-zero' cement in IEA terms may differ.",
+        "2014 euros; a techno-economic model of a reference plant, not market prices.",
+        "Supplementary data licence not stated; use only the article table."
+      ],
+      "recommendation": "Register (open) as the same-basis cement pair (clean and fossil on one plant). Pair in the UI with ETP 2026's quoted 75-150% global premium."
+    },
+    {
+      "rank": 8,
+      "name": "Devlin et al. 2023, 'Global green hydrogen-based steel opportunities surrounding high quality renewable energy and iron ore deposits', Nature Communications 14:2578",
+      "producer": "Devlin, A., Kossen, J., Goldie-Jones, H., Yang, A. (University of Oxford), published by Springer Nature",
+      "landing_url": "https://www.nature.com/articles/s41467-023-38123-2",
+      "file_urls": [
+        "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-38123-2/MediaObjects/41467_2023_38123_MOESM3_ESM.xlsx"
+      ],
+      "licence_name": "CC BY 4.0 (article); source-data file carries no licence text",
+      "licence_terms_url": "https://www.nature.com/articles/s41467-023-38123-2",
+      "licence_quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "steel", "clean": "green-hydrogen DRI-EAF steel powered by dedicated solar and wind ('islanded'), and on grid power", "fossil": "blast furnace-basic oxygen furnace steel, with and without a carbon tax", "unit": "US dollars per tonne of steel", "basis": "levelised cost, 8% real discount rate", "year": "2030, 2040, 2050", "region": "by country (Australia, United States, Sweden, China, India and others)", "location_in_file": "source-data sheet 'Fig 4 + S4'"}
+      ],
+      "third_party_exclusions": "The blast-furnace comparator (supplementary Table S15) comes from TransitionZero's Global Steel Cost Tracker (2022), whose licence could not be checked (HTTP 429). IEA World Energy Prices (paid) feeds the grid-power case only; CRU data is used only for ore weights in Fig 5. The islanded green values appear independent of both.",
+      "headline_checks": [
+        "Sheet 'Fig 4 + S4', 2030, no scrap, islanded green vs blast furnace (USD/t): Australia 744.7 vs 772.9; United States 809.8 vs 780; Sweden 971.5 vs 765.8; China 731.4 vs 723; India 748.6 vs 621 (sub-agent reading, not re-verified)."
+      ],
+      "caveats": [
+        "Fossil comparator is third-party (TransitionZero) until its licence is confirmed; until then only the clean side is usable, which defeats the same-source rule.",
+        "Nature Communications now publishes some articles under CC BY-NC-ND; this one is CC BY, but the source-data file's licence is not stated.",
+        "Projections, not observed costs."
+      ],
+      "recommendation": "Hold: usable for steel only after confirming TransitionZero's licence and Springer Nature's position on source-data files."
+    },
+    {
+      "rank": 9,
+      "name": "RMI, 'Asia-Pacific's Green Steel Demand Opportunity' (April 2026) and 'Scaling Green Ammonia and Methanol' (August 2026, China)",
+      "producer": "RMI (Rocky Mountain Institute)",
+      "landing_url": "https://rmi.org/",
+      "file_urls": [
+        "https://rmi.org/download/49408/",
+        "https://rmi.org/download/35824/"
+      ],
+      "licence_name": "CC BY-SA 4.0 (report 'Copyrights and Citation' page), conflicting 'All rights reserved' on back cover",
+      "licence_terms_url": "https://rmi.org/download/49408/",
+      "licence_quote": "We therefore allow interested parties to reference, share, and cite our work through the Creative Commons CC BY-SA 4.0 license.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "share-alike",
+      "premiums_covered": [
+        {"activity": "steel", "clean": "hydrogen DRI-EAF in Japan; hydrogen DRI imported from Australia", "fossil": "coal blast furnace (BF-BOF) in Japan; gas DRI in Middle East and North Africa", "unit": "US dollars per tonne of hot-rolled coil", "basis": "RMI analysis; currency year not stated", "year": "current (2025-2026)", "region": "Japan", "location_in_file": "Exhibit 14 (pp.17-18); Exhibit 15 end-product effects"},
+        {"activity": "ammonia (fertiliser)", "clean": "green (electrolytic) ammonia", "fossil": "coal-based ammonia", "unit": "Chinese yuan per tonne", "basis": "RMI analysis", "year": "2025, projected to 2050", "region": "China", "location_in_file": "Exhibit 9 (pp.31-32)"}
+      ],
+      "third_party_exclusions": "Exhibit source lines say 'RMI analysis', but endnotes cite BNEF and Wood Mackenzie for background inputs (steel) and other exhibits in the ammonia report cite BNEF, McKinsey and IEA: use only exhibits whose source line is RMI analysis, and record the endnote dependency.",
+      "headline_checks": [
+        "Exhibit 14: hydrogen DRI-EAF made in Japan 1,269 USD/t; H-DRI imported from Australia 1,071; coal BF-BOF in Japan 667; gas DRI in MENA 695. Exhibit 15: ICE car 28,000 to 28,353 USD (+1%).",
+        "Exhibit 9: green ammonia about RMB 4,850/t in 2025 vs RMB 2,300-2,500/t coal-based; about RMB 2,300/t by 2050."
+      ],
+      "caveats": [
+        "Licence conflict between the CC BY-SA statement and 'All rights reserved' needs written confirmation from RMI before bulk reuse (same pattern as ICCT).",
+        "Currency year unstated for the steel exhibit; values read from the exhibit text."
+      ],
+      "recommendation": "Possible (share-alike) after RMI confirms the licence; useful as the only open per-tonne green-vs-grey ammonia pair found and an end-product (car) effect for steel."
+    },
+    {
+      "rank": 10,
+      "name": "IEA, Global Hydrogen Review 2025 and 2026 (cost-acceptability chapter in 2026)",
+      "producer": "International Energy Agency (IEA)",
+      "landing_url": "https://www.iea.org/reports/global-hydrogen-review-2025",
+      "file_urls": [
+        "https://iea.blob.core.windows.net/assets/a6c466dd-b6f0-44bd-a60a-6940eccfb1c3/GlobalHydrogenReview2025.pdf",
+        "https://iea.blob.core.windows.net/assets/af4b6218-0311-4963-91ab-903cb18ca0ca/GlobalHydrogenReview2026.pdf"
+      ],
+      "file_checks": "GHR 2025 PDF 10,610,820 bytes, sha256 94f2912332e1e1d6bf0ac9514684cb189b30f1df7ed152505f5f67968413aeb2; GHR 2026 PDF 16,496,847 bytes, sha256 d90ee75920751d62186346eb24d8197983095e3b243232e22fce78c9ec5e98cb.",
+      "licence_name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+      "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+      "licence_quote": "Subject to the IEA's Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "ammonia (fertiliser)", "clean": "ammonia with CCUS; electrolytic ammonia", "fossil": "unabated gas-based ammonia", "unit": "percent", "basis": "levelised cost, IEA analysis, without and with USD 100/t CO2", "year": "2024", "region": "European Union", "location_in_file": "GHR 2025 text pp.51-52 (Fig 2.9 image only)"},
+        {"activity": "chemicals (methanol)", "clean": "methanol with CCUS; electrolytic methanol", "fossil": "coal-based methanol", "unit": "percent", "basis": "levelised cost", "year": "2024", "region": "China", "location_in_file": "GHR 2025 text pp.51-52"},
+        {"activity": "steel", "clean": "H2-DRI; gas DRI + CCUS", "fossil": "blast furnace; gas DRI", "unit": "percent", "basis": "levelised cost", "year": "2024", "region": "global; Middle East and North America for DRI+CCUS", "location_in_file": "GHR 2025 text pp.51-52"},
+        {"activity": "steel, ammonia, methanol, refining, e-SAF, shipping", "clean": "low-emissions routes", "fossil": "incumbent routes", "unit": "total levelised cost of end use (USD), assuming USD 150/t CO2", "basis": "cost acceptability analysis", "year": "2024 (EU steel) and 2035", "region": "EU, China, others", "location_in_file": "GHR 2026 Figures 4.2, 4.4, 4.5, 4.7, 4.8 (images only)"}
+      ],
+      "third_party_exclusions": "Excluded: GHR 2025 Fig 3.8 (hydrogen cost by pathway; BloombergNEF and Argus) including the USD 0.8-4.6/kg unabated-gas range; GHR 2025 Fig 2.4 (cost premium on end products; Bloomberg); GHR 2026 Figs 3.20, 3.22 (renewable ammonia USD 800-3,600/t vs fossil 440-700/t; BNEF and Argus), 3.23 (ICIS, BNEF, Argus), 2.22 (IATA), 3.21 (Juelich). Text on GHR 2026 pp.110-111 describing Fig 3.20 is treated as tainted.",
+      "headline_checks": [
+        "GHR 2025 pp.51-52 (sub-agent reading): EU ammonia about 25% more with CCUS and 120-220% more with electrolysis (5% and 75-160% at USD 100/t CO2); China methanol about 70% more with CCUS and 160% with electrolysis; H2-DRI steel 50-140% more than blast furnace, 20-80% more than gas DRI."
+      ],
+      "caveats": [
+        "Text statements only; the 2026 cost-acceptability figures have no downloadable data and were not archived.",
+        "Hydrogen cost figures are third-party-tainted in both editions."
+      ],
+      "recommendation": "Use as quoted statements for green vs grey ammonia (the farming/fertiliser activity) and methanol; ask the IEA for GHR 2026 Chapter 4 data."
+    },
+    {
+      "rank": 11,
+      "name": "IEA, The Role of E-fuels in Decarbonising Transport (2023)",
+      "producer": "International Energy Agency (IEA)",
+      "landing_url": "https://www.iea.org/reports/the-role-of-e-fuels-in-decarbonising-transport",
+      "file_urls": ["https://iea.blob.core.windows.net/assets/a24ed363-523f-421b-b34f-0df6a58b2e12/TheRoleofE-fuelsinDecarbonisingTransport.pdf"],
+      "file_checks": "PDF 4,458,187 bytes, sha256 fd1ece7465631b4b9047ea1af123a5d050279064a6ea87019bc377cec00ac3d7.",
+      "licence_name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+      "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+      "licence_quote": "Subject to the IEA's Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "shipping", "clean": "containership on e-ammonia or e-methanol", "fossil": "heavy fuel oil", "unit": "percent of total cost of ownership", "basis": "IEA analysis", "year": "2030", "region": "global", "location_in_file": "text pp.8, 56-57"},
+        {"activity": "aviation fuel", "clean": "e-kerosene", "fossil": "fossil jet fuel", "unit": "USD/GJ and ratio", "basis": "IEA analysis", "year": "2030", "region": "global", "location_in_file": "text pp.7, 48"}
+      ],
+      "third_party_exclusions": "None found (all figures IEA analysis, per sub-agent).",
+      "headline_checks": [
+        "Containership TCO on e-ammonia or e-methanol about 75% above heavy fuel oil in 2030; e-kerosene could fall to USD 50/GJ (about USD 2,150/t) by 2030, still 2-3 times jet fuel (sub-agent reading)."
+      ],
+      "caveats": ["2023 projections; text and images only."],
+      "recommendation": "Use as quoted statements for shipping (the only open shipping premium found) and as a second aviation statement."
+    },
+    {
+      "rank": 12,
+      "name": "IEA, Breakthrough Agenda Report 2026 (and 2025)",
+      "producer": "International Energy Agency (IEA), with IRENA and UN Climate Change High-Level Champions",
+      "landing_url": "https://www.iea.org/reports/breakthrough-agenda-report-2026",
+      "file_urls": [
+        "https://iea.blob.core.windows.net/assets/db5f570c-e35a-4535-8358-ca8f79b1400f/BreakthroughAgendaReport2026.pdf",
+        "https://iea.blob.core.windows.net/assets/6f3b4ad7-b1aa-4791-b363-e4efe58cbb83/BreakthroughAgendaReport2025.pdf"
+      ],
+      "file_checks": "2026 PDF 5,435,604 bytes, sha256 760a71a7d2ee7c078ea16dd52d88b67652a34fd39f2aaabb996396ac147a15ba; 2025 PDF 2,371,459 bytes, sha256 2bf5e973bd552805b08b625bb80880b640f8f657b64cb75c2068cd14fb387fc5.",
+      "licence_name": "2026: CC BY 4.0 (standard IEA colophon). 2025: inconsistent (web page and footers CC BY 4.0, colophon 'IEA. All rights reserved.')",
+      "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+      "licence_quote": "Subject to the IEA's Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence. (2026 colophon)",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open (2026 edition only)",
+      "premiums_covered": [
+        {"activity": "cement", "clean": "dry kiln with CCS", "fossil": "dry kiln", "unit": "percent", "basis": "2024 energy prices, no explicit policy", "year": "2024-2025", "region": "global", "location_in_file": "2026 p.48 dashboard (2025 p.38)"},
+        {"activity": "ammonia (fertiliser)", "clean": "ammonia with carbon capture; electrolytic ammonia", "fossil": "gas or coal ammonia", "unit": "percent / ratio", "basis": "as above", "year": "2025", "region": "global", "location_in_file": "2026 p.56"},
+        {"activity": "trucking", "clean": "electric trucks", "fossil": "diesel trucks", "unit": "ratio of purchase price", "basis": "IEA analysis", "year": "2025", "region": "global", "location_in_file": "2026 p.41"}
+      ],
+      "third_party_exclusions": "2025 edition's SECI auction figure (USD 641/t) is a third-party data point: excluded.",
+      "headline_checks": ["2026 text: ammonia with carbon capture about 30% more, electrolytic up to 3 times; electric trucks 2-3 times diesel purchase price; cement with CCS 75-150% (sub-agent reading)."],
+      "caveats": ["Statements only; use the 2026 edition because the 2025 PDF says all rights reserved."],
+      "recommendation": "Use as a cross-check quote; ETP 2026 and GHR give the same ranges with more context."
+    },
+    {
+      "rank": 13,
+      "name": "European Hydrogen Observatory, Cost of hydrogen production (levelised cost by country and route), 2022-2024 files",
+      "producer": "Clean Hydrogen Partnership (Clean Hydrogen Joint Undertaking), European Hydrogen Observatory",
+      "landing_url": "https://observatory.clean-hydrogen.europa.eu/hydrogen-landscape/production-trade-and-cost/cost-hydrogen-production",
+      "file_urls": ["https://observatory.clean-hydrogen.europa.eu/sites/default/files/2025-09/Hydrogen%20production%20costs%202024.xlsx"],
+      "file_checks": "232,711 bytes, sha256 4c10193a2a62ea05defbe191fd5b05c14226b08104221d37b1d3dbf7f736e01a; one sheet, columns Country, Technology, Cost (component), Value (EUR/kg), Year.",
+      "licence_name": "Attribution-only reproduction notice (Clean Hydrogen JU legal notice)",
+      "licence_terms_url": "https://observatory.clean-hydrogen.europa.eu/legal-notice",
+      "licence_quote": "©Clean Hydrogen JU, Reproduction is authorised, provided the source is acknowledged, save where otherwise stated.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "hydrogen (input to ammonia, steel, refining)", "clean": "renewable hydrogen directly connected to renewable generation; grid electrolysis; reforming with carbon capture", "fossil": "steam methane reforming (SMR)", "unit": "euros per kilogram", "basis": "levelised cost by component (CAPEX, natural gas, CO2 costs under EU ETS, electricity, grid fees, taxes, other OPEX)", "year": "2024 (also 2022, 2023 files)", "region": "EU member states and others", "location_in_file": "Sheet1 rows 8 onward"}
+      ],
+      "third_party_exclusions": "The page's notes list inputs including 'Bloomberg New Energy Finance analysis' and the IEA Global Hydrogen Review for electrolysis CAPEX: the electrolytic routes' CAPEX component is BNEF-derived. The values are the Observatory's own calculation, but this is a third-party-dependent input.",
+      "headline_checks": ["Sum of components, 2024, EUR/kg: Germany SMR 3.15, reforming with capture 3.92, renewable-direct 6.47, grid electrolysis 8.99; Spain 2.68 / 3.41 / 5.69 / 5.04; France 2.86 / 3.60 / 7.35 / 5.30 (sums computed here for checking only; the file publishes components)."],
+      "caveats": [
+        "Totals are sums of published components (a pipeline computation within one file).",
+        "SMR cost includes EU ETS CO2 costs.",
+        "BNEF-derived CAPEX input: needs an owner decision on whether a producer's own model output that uses a third-party input is acceptable."
+      ],
+      "recommendation": "Possible for hydrogen (the input behind green ammonia and green steel) in Europe, pending the BNEF-input decision."
+    },
+    {
+      "rank": 14,
+      "name": "Agora Industry and Wuppertal Institute, 'Low-carbon technologies for the global steel transformation' (April 2024)",
+      "producer": "Agora Industry",
+      "landing_url": "https://www.agora-industry.org/",
+      "file_urls": ["https://www.agora-industry.org/fileadmin/Projekte/2021/2021-06_IND_INT_GlobalSteel/A-IND_324_Low-Carbon-Technologies_WEB.pdf"],
+      "licence_name": "PDF: CC BY-NC-SA 4.0; individual figures on the website: CC BY",
+      "licence_terms_url": "https://www.agora-industry.org/",
+      "licence_quote": "This work is licensed under CC-BY-NC-SA 4.0. (PDF). Figure pages: 'Under consideration of the Creative Commons license CC BY (attribution) the image may be further processed in any format or medium (also commercially, also in modified form), as long as the author is mentioned and a link to the license is given.'",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "noncommercial (PDF) / open (figure pages)",
+      "premiums_covered": [
+        {"activity": "steel", "clean": "hydrogen DRI routes; near-zero scrap EAF", "fossil": "coal blast furnace-BOF", "unit": "real 2020 US dollars per tonne; percent", "basis": "Agora Industry and Wuppertal Institute modelling", "year": "2030", "region": "global", "location_in_file": "Figure 6 (p.24); text"}
+      ],
+      "third_party_exclusions": "None on Figure 6 (source 'Agora Industry and Wuppertal Institute (2024)'). Agora's 'Creating markets for climate-friendly basic materials' (cement +30%) partly rests on ETC 2018, which has no licence. Agora Energiewende heat studies are '© LCP Delta 2024': excluded.",
+      "headline_checks": ["Text: hydrogen DRI routes carry a '54-74% cost premium' over the blast furnace route; near-zero scrap EAF '35-68% higher' (2030)."],
+      "caveats": ["Blast furnace absolute value could not be read reliably from extracted text; check visually.", "No data file."],
+      "recommendation": "Secondary steel source (quote); ETP 2026 is broader and more recent."
+    },
+    {
+      "rank": 15,
+      "name": "Energy Innovation, Coal Cost Crossover 3.0 (January 2023) dataset",
+      "producer": "Energy Innovation Policy & Technology LLC",
+      "landing_url": "https://energyinnovation.org/",
+      "file_urls": ["https://energyinnovation.org/wp-content/uploads/Coal-Cost-Crossover-3-Dataset-2.xlsx"],
+      "licence_name": "CC BY 4.0",
+      "licence_terms_url": "https://energyinnovation.org/",
+      "licence_quote": "This research is accessible under the CC BY license. Users are free to copy, distribute, transform, and build upon the material… (PDF); site footer: 'All research licensed under CC BY 4.0'.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "electricity", "clean": "new local or regional wind and solar", "fossil": "running cost of each existing US coal plant", "unit": "US dollars per megawatt-hour", "basis": "plant-by-plant, with and without federal tax credits; inputs EIA, FERC, EPA, NREL ATB 2022", "year": "2021-2022 data", "region": "United States, 210 plants", "location_in_file": "sheet 'Plant Info'"}
+      ],
+      "third_party_exclusions": "None found (public inputs).",
+      "headline_checks": ["209 of 210 plants come out with renewables cheaper; Barry (Alabama) coal 46.63 USD/MWh vs local solar 19.82 with tax credit, 38.87 without."],
+      "caveats": ["Existing coal running cost vs new renewables is a different question from new-vs-new; 2022 inputs predate the 2025 changes to US tax credits."],
+      "recommendation": "Optional; EIA AEO2026 is the better, newer electricity comparison."
+    },
+    {
+      "rank": 16,
+      "name": "IRENA, Renewable Power Generation Costs in 2025 (registered as irena-costs-2025): fossil comparison check",
+      "producer": "International Renewable Energy Agency (IRENA)",
+      "landing_url": "https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025",
+      "file_urls": [
+        "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_data_file_2026.xlsx",
+        "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf"
+      ],
+      "file_checks": "Data file read from repo snapshot sha256 44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172 (108 sheets). Full report PDF downloaded 2026-10-08: 73,385,028 bytes, sha256 38c8c70b848187c89d64b8817f0ebe831a9587c00257c1cc93195f22833a0eab (not yet registered as an artifact).",
+      "licence_name": "IRENA publication terms (free use with acknowledgement)",
+      "licence_terms_url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf",
+      "licence_quote": "Unless otherwise stated, material in this publication may be freely used, shared, copied, reproduced, printed and/or stored, provided that appropriate acknowledgement is given of IRENA as the source and copyright holder.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "already_registered_as": "irena-costs-2025 (open)",
+      "premiums_covered": [
+        {"activity": "electricity", "clean": "utility-scale solar PV, onshore wind and other renewables commissioned in 2025", "fossil": "cheapest new fossil-fuel plant in the same market", "unit": "share of projects (percent)", "basis": "IRENA project database vs IRENA's fossil benchmark", "year": "2025", "region": "global", "location_in_file": "full report p.24 text and executive summary p.4/7 text only; not in the data file"}
+      ],
+      "third_party_exclusions": "The data file has NO fossil-fuel LCOE band or column on any sheet (scanned all 108 sheets; the only fossil-related sheets are 'Fig 1.1' generation shares, 'Fig 1.8' avoided fossil fuel cost by country and 'Fig 1.9' avoided fuel cost scenarios). The report's global gas LCOE benchmark ('around USD 102/MWh') is explicitly BloombergNEF's (BNEF, 2026b): excluded. The US gas LCOE of about USD 53/MWh and 'towards USD 100/MWh' in Italy, Germany and Japan sit in the same paragraph without a separate attribution, and the USD 2,400/kW CCGT capex is unattributed; their origin is unclear.",
+      "headline_checks": [
+        "Full report p.24: 'more than 90% of utility-scale renewable projects commissioned in 2025 delivered power below the cost of the cheapest new fossil-fuel plant built in the same market'; 'about 96% of onshore wind and 91% of solar PV projects undercut the cheapest local fossil-fuel option'.",
+        "Data file Fig 1.8: avoided fossil-fuel cost in 2025, China 176.8 and United States 34.6 billion USD; executive summary: about USD 480 billion avoided globally."
+      ],
+      "caveats": [
+        "A 'share cheaper than fossil' statement is a quoted IRENA claim, not a premium value; it can carry a kicker (rule 3) only if checked against its source text.",
+        "Avoided fuel cost is a national system-level figure, not a unit premium, and must not be framed as savings to readers."
+      ],
+      "recommendation": "No new premium data; optionally quote the >90% / 96% / 91% statements with page reference. Do not use IRENA's gas LCOE figures."
+    },
+    {
+      "rank": 17,
+      "name": "UK Climate Change Committee, The Seventh Carbon Budget (February 2025) full dataset",
+      "producer": "Climate Change Committee (CCC)",
+      "landing_url": "https://www.theccc.org.uk/publication/the-seventh-carbon-budget/",
+      "file_urls": ["https://www.theccc.org.uk/wp-content/uploads/2025/02/The-Seventh-Carbon-Budget-full-dataset.xlsx"],
+      "file_checks": "15,907,902 bytes, sha256 fe5fbe17d81065c99f3a534e8ecb2af01e379edf291c9429baad9d17d0f6ff72.",
+      "licence_name": "Open Government Licence v3.0 (CCC copyright terms)",
+      "licence_terms_url": "https://www.theccc.org.uk/copyright-terms-conditions/",
+      "licence_quote": "The material on this website is licensed under the Open Government Licence v3.0 except where otherwise stated. [...] The permission to reproduce CCC OGL licensed material does not extend to any material on this site that is identified as being the copyright of a third party.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open",
+      "premiums_covered": [
+        {"activity": "all sectors (system level)", "clean": "Balanced Pathway", "fossil": "baseline scenario", "unit": "million GBP per year (additional capital, annualised capital and operating expenditure)", "basis": "costs relative to the baseline, adjusted for double counting", "year": "2025-2050", "region": "United Kingdom (and devolved nations)", "location_in_file": "sheets 'Sector-level data', 'Subsector-level data', 'Measure-level data'; variables 'Cost: additional ...'"}
+      ],
+      "third_party_exclusions": "Not checked per measure.",
+      "headline_checks": ["Sector-level, Balanced Pathway, UK, 2040, GBP million: residential buildings capex +16,009, opex -2,751, annualised capex +15,297; surface transport opex -18,116; electricity supply annualised capex +9,481, opex -4,652; aviation opex -3,628 (demand change included)."],
+      "caveats": ["Aggregate net costs of a pathway, not a per-unit green premium; includes demand changes. Price base not confirmed from the dataset."],
+      "recommendation": "Not a green-premium source; note as a possible UK 'whole-system cost' card later."
+    },
+    {
+      "rank": 18,
+      "name": "Other peer-reviewed papers checked (weaker fit)",
+      "producer": "various",
+      "landing_url": "see items",
+      "file_urls": [
+        "https://doi.org/10.1016/j.jclepro.2022.131339 (Bhaskar et al. 2022, CC BY 4.0, green steel Norway)",
+        "https://doi.org/10.1039/D3EE01077E (Rosner et al. 2023, CC BY-NC 3.0, hydrogen vs gas DRI)",
+        "https://doi.org/10.1016/j.apenergy.2021.117322 (Paltsev et al. 2021, CC BY 4.0, industrial CCS cost multipliers)",
+        "https://doi.org/10.1016/j.apenergy.2020.114848 (Rissman et al. 2020, CC BY 4.0, review)"
+      ],
+      "licence_name": "per item",
+      "licence_terms_url": "per item (publisher PDF statements read from repository copies: NVA/NORA, eScholarship, MIT DSpace, OSTI)",
+      "licence_quote": "Bhaskar 2022: 'This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).' Rosner 2023: 'This article is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported Licence.' Paltsev 2021: 'This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/)'.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open / noncommercial (Rosner)",
+      "premiums_covered": [
+        {"activity": "steel", "clean": "H2-DRI-EAF", "fossil": "BF-BOF (assumed literature value 400-500 USD/t, not modelled)", "unit": "USD per tonne liquid steel", "basis": "not the same basis", "year": "2022", "region": "Norway", "location_in_file": "Bhaskar 2022 results"},
+        {"activity": "cement and industry with CCS", "clean": "plants with capture", "fossil": "reference plant = 1", "unit": "cost multiplier", "basis": "MIT EPPA; fuel prices from GTAP (licensed database)", "year": "2021", "region": "regional", "location_in_file": "Paltsev 2021 Table 4"}
+      ],
+      "third_party_exclusions": "Bhaskar: electricity prices from Nord Pool (terms not checked). Paltsev: GTAP fuel prices (licensed). Rissman: second-hand figures only.",
+      "headline_checks": ["Bhaskar 2022: green steel 622-722 USD/t, about 40% above BF-BOF. Paltsev 2021 Table 4: coal-fired post-combustion capture 1.936, gas-fired 1.854, cryogenic 1.24 (reference 1). Rosner 2023: gas DRI steel 582.18 USD/t (2022 USD)."],
+      "caveats": ["Different bases or proprietary inputs; none beats ETP 2026, CEMCAP or Devlin for these activities."],
+      "recommendation": "Do not register now."
+    },
+    {
+      "rank": 19,
+      "name": "IPCC AR6 WGIII, data for Figure SPM.7 (mitigation options: potential and cost bands per tonne CO2-eq, 2030)",
+      "producer": "IPCC Working Group III (via the IPCC Data Distribution Centre data catalogue)",
+      "landing_url": "https://www.ipcc.ch/report/ar6/wg3/figures/summary-for-policymakers/figure-spm-7/",
+      "file_urls": [
+        "https://doi.org/10.48490/ayfg-tv12 (WGIII SPM.7 data; resolves to https://ipcc-browser.ipcc-data.org/browser/dataset?id=447)",
+        "https://doi.org/10.48490/3c86-xp02 (AR6 SYR SPM.7(a) data, dataset id 6119)",
+        "https://zenodo.org/records/6496232 (AR6 WG3 Plots and Processing, cc-by-4.0, temperature plots only)"
+      ],
+      "licence_name": "Not determined",
+      "licence_terms_url": "https://www.ipcc.ch/copyright/",
+      "licence_quote": "DataCite metadata for both DOIs has an empty rightsList (checked 2026-10-08). The IPCC data browser pages are a JavaScript app returning HTTP 404 to scripts. The repo registers the WGIII SPM as display-only under the IPCC copyright page: 'You may freely download and copy the material contained on this website for your personal, non-commercial use, without any right to resell or redistribute it or to compile or create derivative works there from'.",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "undetermined (display-only until a data licence is found)",
+      "premiums_covered": [
+        {"activity": "electricity, industry, transport, buildings, AFOLU (by option)", "clean": "each mitigation option", "fossil": "reference technology", "unit": "cost bands in USD per tonne CO2-eq (net lifetime cost of avoided emissions)", "basis": "IPCC assessment of about 175 sources", "year": "2030", "region": "global", "location_in_file": "Figure SPM.7 panel (a)"}
+      ],
+      "third_party_exclusions": "Not assessed.",
+      "headline_checks": ["Not read: data files not reachable by script."],
+      "caveats": ["Abatement cost bands, not a per-unit product premium; WGIII data on CEDA was not found (the CEDA API returns only WGI SPM datasets)."],
+      "recommendation": "Open question: a person should open the IPCC data catalogue entry in a browser and record its licence."
+    },
+    {
+      "rank": 20,
+      "name": "IRENA, Innovation Outlook: Renewable Ammonia (2022)",
+      "producer": "IRENA and Ammonia Energy Association",
+      "landing_url": "https://www.irena.org/publications/2022/May/Innovation-Outlook-Renewable-Ammonia",
+      "file_urls": ["https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2022/May/IRENA_Innovation_Outlook_Ammonia_2022.pdf"],
+      "licence_name": "IRENA publication terms",
+      "licence_terms_url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2022/May/IRENA_Innovation_Outlook_Ammonia_2022.pdf",
+      "licence_quote": "Unless otherwise stated, material in this publication may be freely used, shared, copied, reproduced, printed and/or stored, provided that appropriate acknowledgement is given of IRENA as the source and copyright holder. Material in this publication that is attributed to third parties may be subject to separate terms of use and restrictions...",
+      "fetched_on": "2026-10-08",
+      "proposed_licence_class": "open (renewable side only)",
+      "premiums_covered": [
+        {"activity": "ammonia (fertiliser)", "clean": "renewable ammonia at best solar and wind sites", "fossil": "natural gas and coal ammonia", "unit": "US dollars per tonne", "basis": "different sources for each side", "year": "2021-2022", "region": "global", "location_in_file": "key findings p.12; section 2.2, Figure 13"}
+      ],
+      "third_party_exclusions": "The fossil ammonia cost (USD 110-340/t) and Figure 13 are attributed to Haldor Topsoe et al. (2020) ('Source: CAPEX and OPEX from Haldor Topsoe et al. (2020)'): excluded. The renewable side (USD 720/t today, 480 by 2030, 310 by 2050) is IRENA's.",
+      "headline_checks": ["Key findings: 'The cost of renewable ammonia is currently an estimated USD 720 per tonne at locations with the best solar and wind resources'; fossil 'typically in the range of USD 110-340 per tonne' (third-party)."],
+      "caveats": ["Clean and fossil sides come from different producers, so no premium may be computed; dated (pre-2022 gas shock)."],
+      "recommendation": "Do not use for a premium."
+    }
+  ],
+  "excluded": [
+    {"name": "Breakthrough Energy 'Green Premium' figures (the figures Gates popularised)", "url": "https://www.breakthroughenergy.org/terms", "reason": "Terms section 3 grants 'a limited, revocable license to copy and distribute the Content… only for non-commercial purposes' with no right to modify, and section 4 says 'You may not use automated means, such as bots, to access and collect Content from the Site.' The Green Premium pages are no longer on the site. Class at best display-only; unusable for public JSON."},
+    {"name": "Gates Notes Green Premium pages", "url": "https://www.gatesnotes.com/", "reason": "Not verified: the site returns 403 to scripts and archived copies are an empty page shell with no terms text. A person needs to read the terms in a browser; expected to be all rights reserved."},
+    {"name": "Energy Transitions Commission (Mission Possible 2018 and sector reports)", "url": "https://www.energy-transitions.org/", "reason": "Cloudflare blocks scripts (manual download needed). No terms page beyond '© 2026 Energy Transitions Commission'; Mission Possible 2018 has no rights statement and its analysis was done by Material Economics, McKinsey, UMAS and SYSTEMIQ. Exhibit 7 has the familiar end-product effects (steel +1% on a car, cement +3% on a house, +10-20% on a 6,500 km flight) but they cannot be used."},
+    {"name": "Mission Possible Partnership sector transition strategies (steel, aviation, trucking, ammonia, cement, aluminium, shipping) and MPP-RMI steel 2026", "url": "https://www.missionpossiblepartnership.org/", "reason": "'© COPYRIGHT 2022 MISSION POSSIBLE PARTNERSHIP' / 'All rights reserved'. The GitHub models (missionpossiblepartnership/mpp-steel-model) are AGPL-3.0 code with input spreadsheets but no published output tables."},
+    {"name": "World Economic Forum Net-Zero Industry Tracker 2024 (Table 2 is a green-premium table)", "url": "https://www.weforum.org/", "reason": "'© 2024 World Economic Forum. All rights reserved. No part of this publication may be reproduced…'"},
+    {"name": "Transport & Environment", "url": "https://www.transportenvironment.org/", "reason": "Archived copyright page: graphs and charts licensed CC BY-NC-ND 4.0 (no derivatives); live site blocks scripts."},
+    {"name": "Global Maritime Forum / Getting to Zero Coalition 'Climate Action in Shipping 2026'", "url": "https://www.globalmaritimeforum.org/", "reason": "No licence; fuel prices attributed to Platts, S&P and the IMO dashboard."},
+    {"name": "UMAS, Clean Air Task Force, Global Efficiency Intelligence, Lazard LCOE+, Fraunhofer ISE LCOE 2024, CE Delft cultivated meat TEA (2021)", "url": "various", "reason": "All rights reserved or personal-use-only terms (UMAS 'All Rights Reserved'; CATF '© Copyright 2026 Clean Air Task Force, Inc. All Rights Reserved.'; GEI 'You agree not to reproduce, duplicate, copy… without express written permission'; Lazard 'a single copy… for your own use'; Fraunhofer ISE 'for personal use only… commercial use or distribution… strictly forbidden'; CE Delft '© copyright, CE Delft')."},
+    {"name": "Good Food Institute price-parity material (plant-based and cultivated meat)", "url": "https://gfi.org/", "reason": "Reproduction allowed only 'for noncommercial educational purposes', and price data comes from Euromonitor, SPINS and Nielsen (all rights reserved)."},
+    {"name": "IEA SAF cost dashboard (ETP 2026 p.155), Renewables 2025 bio-jet charts, GHR 2025 Fig 3.8 and Fig 2.4, GHR 2026 Figs 3.20-3.23, Net Zero Roadmap 2023 Fig 4.10", "url": "https://www.iea.org/", "reason": "Third-party attributed inside CC BY reports: Argus, BloombergNEF, ICIS, IATA, JATO, Juelich. The IEA Notice does not license third-party components."},
+    {"name": "IEA/NEA Projected Costs of Generating Electricity 2020 (PDF and data file)", "url": "https://iea.blob.core.windows.net/assets/2df33f6b-eba0-4639-926a-bc1c3d3e3268/IEA-NEAProjectedCostsofGeneratingElectricity2020-Datafile.xlsx", "reason": "Conflicting terms: page says CC BY 4.0, PDF says 'No reproduction… without prior written permission', xlsx says 'Source: IEA. NEA. All rights reserved'. Not cleared."},
+    {"name": "IEA Iron and Steel Technology Roadmap (2020), Cement Technology Roadmap (2018, co-owned with WBCSD), Achieving Net Zero Heavy Industry Sectors in G7 (2022)", "url": "https://www.iea.org/", "reason": "PDF colophons say 'All rights reserved' or 'No reproduction… without prior written permission' despite later CC BY 4.0 web labels; also dated or without cost tables."},
+    {"name": "US DOE Pathways to Commercial Liftoff reports", "url": "https://liftoff.energy.gov/", "reason": "Host no longer resolves (2026-10-08); archived summaries cite BNEF, Lazard and GCCSI for their market metrics."},
+    {"name": "Way et al. 2022 (Joule), Bachmann et al. 2023 (Nature Sustainability), Vogl et al. 2018, Devlin & Yang 2022, Gabrielli et al. 2023, Zibunas et al. 2022, Meng et al. 2023", "url": "various", "reason": "Way: cost data from Lazard, BNEF and the Bloomberg Terminal. Bachmann: IHS Markit PEP database (paid). The others are CC BY-NC-ND (no derivatives)."}
+  ],
+  "coverage_matrix": {
+    "electricity": "EIA AEO2026 LCOE workbook (US, public domain, both sides in one table) and DESNZ Electricity Generation Costs 2025 Annex A (UK, OGL, incl. gas CCUS and hydrogen turbines vs unabated gas). IRENA RPGC 2025 adds only a quoted 'more than 90% of new renewable projects cheaper than the cheapest new fossil plant' statement; its data file has no fossil cost.",
+    "cement": "IEA ETP 2026 quoted premium (75-150%, USD 50-175/t, 2035, global; CC BY) plus Gardarsdottir et al. 2019 / CEMCAP Table 6 (clinker with vs without capture, same plant, 2014 EUR; CC BY) as the same-basis pair.",
+    "steel": "IEA ETP 2026 quoted premium (20-145%, USD 125-600/t crude steel, 2035; CC BY); Fig 7.15 regional series if the owner accepts reading published chart data. Devlin et al. 2023 (CC BY) pending TransitionZero licence; RMI Japan exhibit (CC BY-SA) pending licence confirmation.",
+    "plastics_and_chemicals": "none found for plastics. Chemicals only as quoted IEA GHR 2025 statements for methanol (China: about +70% with CCUS, +160% electrolytic) and ETP 2026 urea (+80% falling to +55%). Lopez et al. 2023 (EES, CC BY 3.0, fossil to green chemicals) has an open licence but its content could not be read.",
+    "aviation_fuel": "ICCT 2022 e-kerosene vs fossil jet (US and EU, 2020 USD, fossil price from EIA; CC BY-SA). IEA E-fuels 2023 quote (e-kerosene 2-3 times jet fuel in 2030). IEA's SAF dashboard and Renewables 2025 bio-jet charts are excluded (Argus).",
+    "shipping": "Quoted statements only: IEA E-fuels 2023 (e-ammonia/e-methanol containership cost of ownership about 75% above heavy fuel oil in 2030) and ETP 2026 (about twice the cost to own and operate). No open downloadable table found.",
+    "trucking": "ICCT 2023 EU heavy-duty TCO Figure 6 (EUR/km by powertrain, 2023 and 2030 trucks; CC BY-SA; diesel price input from DKV). IEA Breakthrough Agenda 2026 quote (electric trucks 2-3 times diesel purchase price).",
+    "cars": "Project Drawdown 'Mobilize Electric Cars' cost differential per passenger-km (2023 USD, world and 7 countries; CC BY, already registered). ETP 2026 quote (German small BEV purchase premium just over 40% in 2024).",
+    "heating": "Project Drawdown 'Use Heat Pumps' BAU vs heat pump initial, operating and net annualised cost (2023 USD; CC BY, already registered). IEA Future of Heat Pumps Figure 3.1 levelised cost of heating, heat pump vs gas boiler by country (2021 USD/MWh; CC BY; chart data only, rule-7 question).",
+    "farming_fertiliser_green_ammonia": "Quoted IEA statements: GHR 2025 (EU ammonia +25% with CCUS, +120-220% electrolytic in 2024) and Breakthrough Agenda 2026 (electrolytic up to 3 times). RMI China exhibit (RMB 4,850/t green vs 2,300-2,500/t coal-based; CC BY-SA, licence conflict). European Hydrogen Observatory gives the hydrogen input by EU country (BNEF capex input).",
+    "food_meat_alternatives": "Partial: Project Drawdown 'Improve Diets' gives beef vs a weighted basket of protein-rich substitutes, retail USD/kg (2023). No open source found for plant-based meat analogues or cultivated meat vs beef (GFI and CE Delft excluded; Humbird 2021 and Risner et al. 2021 are CC BY per Crossref but unread and compare to commodity meat only loosely)."
+  },
+  "open_questions": [
+    "Rule 7: IEA chart-library and chapter pages embed the plotted series (data-chart-csv attribute, credited 'IEA. Licence: CC BY 4.0') while marking them 'not available for download', and iea.org blocks scripts, so they were read from Internet Archive copies. Is reading published chart data from an archived page acceptable, or should the owner ask the IEA (rights@iea.org) for ETP 2026 Fig 7.15 and Fig 2.15, GHR 2026 Chapter 4 and Future of Heat Pumps Fig 3.1 data?",
+    "Quoted statements: most open premiums for steel, cement, ammonia and shipping are sentences with ranges in IEA reports, not table cells. Should these be published as quoted statements with page references (as energy-institute-review-2026 is), and how does check-build verify a kicker against a quote on refresh?",
+    "Same-basis rule versus carbon prices and subsidies: DESNZ fossil totals include a UK carbon cost; EIA totals after credits include US tax and 45Q credits; IEA ranges are sometimes with and without USD 100-150/t CO2. Decide one convention (e.g. always before carbon price and subsidies, using the published component columns) before computing any difference.",
+    "Share-alike sources (ICCT, RMI): RMI's CC BY-SA statement conflicts with 'All rights reserved' on the back cover; confirm with RMI. ICCT is handled as in icct-lca-2025.",
+    "Producer models with third-party inputs: the European Hydrogen Observatory's electrolysis cost uses BNEF capex; Devlin et al. 2023 uses TransitionZero for the blast-furnace comparator; ICCT truck TCO uses DKV diesel prices. Is a producer's own computed value acceptable when one input is third-party, or only when the published value itself is unattributed?",
+    "Supplementary data licences: Springer Nature source-data files (Devlin 2023) and MDPI supplements carry no licence text; confirm they fall under the article's CC BY.",
+    "IPCC AR6 WGIII Figure SPM.7 data (doi:10.48490/ayfg-tv12): DataCite has no rights statement and the catalogue is not script-readable; a person should check its licence in a browser.",
+    "Gates Notes and Energy Transitions Commission terms need a manual browser check (both block scripts); both are expected to be unusable.",
+    "Not yet checked: NREL Annual Technology Baseline (NREL renamed; atb.nrel.gov no longer resolves from here), Link et al. 2024 Nature Energy (truck TCO, CC BY per Crossref), Wilson et al. 2024 Joule (heat pumps, CC BY per Crossref), Fasihi et al. 2021 Applied Energy (green ammonia, CC BY per Crossref), Humbird 2021 and Risner et al. 2021 (cultivated meat, CC BY per Crossref), Lopez et al. 2023 EES (chemicals, CC BY 3.0). Their values and input attributions were not read.",
+    "Framing: several sources show negative premiums (heat pumps, electric cars and trucks over a lifetime, new renewables). The style rule forbids savings framing; the dashboard needs wording such as 'costs X less per megawatt-hour of heat to supply, on Drawdown's estimate' and must avoid per-household or per-reader amounts.",
+    "Gates's book defines premiums at market prices without carbon pricing and often as a percentage of the product price. None of the open sources reproduces his table; the dashboard should say it shows other producers' estimates of the same idea, not Gates's figures."
+  ]
+}

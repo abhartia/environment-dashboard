@@ -1,0 +1,2839 @@
+{
+  "need": {
+    "asked_on": "2026-10-08",
+    "summary": "Represent the strategy chapters of Bill Gates's 'How to Avoid a Climate Disaster' with traced, open-licence data from primary producers: (1) net-zero targets and the share of emissions they cover; (2) electricity's share of final energy; (3) operating carbon capture and direct air capture; (4) public energy RD&D and clean-energy venture funding; (5) clean electricity standards, low-carbon fuel standards, green public procurement; (6) adaptation finance, smallholder farms, CGIAR, crop yield losses; (7) which Systems Change Lab indicators map to Gates's sectors and levers.",
+    "rules": "Licence from the producer's own terms, quoted verbatim with URL and date. Classes open, share-alike, noncommercial usable; no-derivatives and display-only cannot enter data/; anything built on IEA World Energy Balances is no-derivatives; third-party material inside open products is excluded. Hosts that block scripts are recorded for manual download, never worked around.",
+    "method": "Three research passes (net-zero and policy; electrification, capture and RD&D; adaptation) by curl and web search on 2026-10-08, plus a fresh Systems Change Lab export parsed locally. No repo file other than this one was changed."
+  },
+  "candidates": {
+    "1. From 51 billion to zero: net-zero targets": [
+      {
+        "item": 1,
+        "name": "Net Zero Tracker – Net Zero Stocktake 2025 underlying dataset (Zenodo)",
+        "producer": "Net Zero Tracker (Energy & Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero); deposited by Helen Tatlow, Diego Manya, Denise Siu",
+        "landing_url": "https://zenodo.org/records/17143240",
+        "file_urls": [
+          "https://zenodo.org/api/records/17143240/files/Data_finalised_for_Zenodo_16_09(Sheet1).csv/content"
+        ],
+        "licence_name": "CONFLICT: Zenodo record metadata cc-by-4.0, but the producer's site says CC BY-NC 4.0 for datasets from 3 Dec 2024",
+        "licence_terms_url": "https://zerotracker.net/data-terms-of-use (site, dated 26 FEB 2025); Zenodo API https://zenodo.org/api/records/17143240 license {'id':'cc-by-4.0'}",
+        "licence_quote": "Net Zero Tracker datasets are licensed under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. [...] The Current Snapshot dataset was available for download under a CC BY 4.0 license up until 2 December 2024.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial",
+        "what_it_measures": "Net-zero and other end targets for 4,083 entities: status, target year, interim targets, gas and scope coverage, offsets, plans, and GDP, population and GHG context columns",
+        "years": "Snapshot with a data-collection cut-off of 10 Sep 2025. Earlier vintages are also on Zenodo, all tagged cc-by-4.0: 2023 (record 8021261, xlsx) and 2024 (record 13768013, NZS2024Data.xlsx).",
+        "granularity": "Entity level: 198 countries, 712 regions, 1,186 cities, 1,987 companies",
+        "iea_derived": "partly. The country GHG columns (GHG_Country_2019, and GHG_emissions for 2022 whose source column is blank) come from the Climate Watch CAIT dataset, according to zerotracker.net/methodology. Climate Watch's own metadata says fuel-combustion figures must be cited as 'GHG Emissions from Fuel Combustion, OECD/IEA, 2025'. The target fields are not IEA-derived.",
+        "headline_checks": [
+          {
+            "value": 4083,
+            "what": "entities in file",
+            "read_from": "Zenodo CSV, sha256 fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b (md5 matches Zenodo's 68515520c574f51bf5d69af4d493ca57)"
+          },
+          {
+            "value": 1935,
+            "what": "entities with a net zero or similar target (data_is_nzt=1); matches the report's '1,935 of 4,083'",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 198,
+            "what": "country rows (Entity_type=Country, includes the EU and Taiwan)",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 137,
+            "what": "countries with a net zero or similar target",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 58,
+            "what": "those 137 countries with status 'In policy document'",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 34,
+            "what": "status 'In law'",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 27,
+            "what": "status 'Proposed / in discussion'",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 14,
+            "what": "status 'Declaration / pledge'",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 4,
+            "what": "status 'Achieved (self-declared)'",
+            "read_from": "same CSV"
+          },
+          {
+            "value": 1245,
+            "what": "companies with a net zero target (of 1,987)",
+            "read_from": "same CSV"
+          },
+          {
+            "value": "USA: End_target 'No target'",
+            "what": "United States federal status",
+            "read_from": "same CSV"
+          }
+        ],
+        "caveats": "1) The CC BY on Zenodo conflicts with the site's CC BY-NC. The site is the producer's own terms page, and the Zenodo deposit is the producer's own too (its depositors led the database update, and the Stocktake report links to it). 2) The CSV is cp1252-encoded. Last_updated has 2 Excel serial numbers, e.g. 45870.87. 3) The CSV holds no published coverage shares. My own sums of GDP PPP 2021, GHG_Country_2019 and population over the 137 countries give about 79%, 77% and 81% including the EU row, against the report's published 77%, 74% and 79%. The method differs (EU double count, LULUCF), so these sums must not be published. 4) A separate Zenodo record 17762745 holds the report PDF (cc-by-4.0); its uploader is unclear.",
+        "recommendation": "Use: country status counts and target years from this Zenodo vintage, as noncommercial. Leave out the GHG columns (IEA-derived) and any emissions-coverage share. Ask NZT to confirm the licence (see open questions)."
+      },
+      {
+        "item": 1,
+        "name": "Net Zero Tracker – live Current Snapshot / Longform / Entity Audit Log",
+        "producer": "Net Zero Tracker consortium",
+        "landing_url": "https://zerotracker.net/data-explorer",
+        "file_urls": [
+          "https://download.zerotracker.net/csv/current_current-snapshot_2026-10-07_06-39-46.xlsx (URL seen in the JS bundle; NOT downloaded)",
+          "https://download.zerotracker.net/csv/longform_2026-10-08_04-39-43.zip (not downloaded)",
+          "https://ca1-nzt.edcdn.com/PDFs-and-Excels/snapshot_2024-12-02_12-09-56.xlsx (legacy CC BY 4.0 snapshot linked from data-terms-of-use; not downloaded)"
+        ],
+        "licence_name": "CC BY-NC 4.0 (from 3 Dec 2024); the legacy snapshot of 2 Dec 2024 is CC BY 4.0",
+        "licence_terms_url": "https://zerotracker.net/data-terms-of-use",
+        "licence_quote": "Net Zero Tracker datasets are licensed under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. This Creative Commons license allows users to share, adapt and build upon the data, provided they meet the following conditions: Attribution (BY): The Net Zero Tracker must be credited in any copies or adaptations. NonCommercial (NC): The work cannot be used for commercial purposes.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial",
+        "what_it_measures": "Same as the Zenodo dataset, updated every 4 hours",
+        "years": "current",
+        "granularity": "entity",
+        "iea_derived": "partly (same GHG context columns)",
+        "headline_checks": [],
+        "caveats": "The 'Download Data' button opens a form that asks for name, email and organisation and uses Google reCAPTCHA. I did not fetch the file URLs exposed in the JS, because that would bypass the gate. A person needs to download it and record it with snapshot add. The /terms page (30 JAN 2025) is a general 'owned by the Net Zero Tracker' IP clause; the data licence is only on /data-terms-of-use, which earlier research missed. Footer: 'Copyright © 2026. All rights reserved.' Citation from /methodology: 'Net Zero Tracker. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2026.'",
+        "recommendation": "Prefer the Zenodo vintage, which can be fetched by script and is versioned. Use the live snapshot only through a manual download."
+      },
+      {
+        "item": 1,
+        "name": "Net Zero Stocktake 2025 report (PDF)",
+        "producer": "Net Zero Tracker (NewClimate Institute, Oxford Net Zero, ECIU, Data-Driven EnviroLab)",
+        "landing_url": "https://zerotracker.net/analysis/net-zero-stocktake-2025",
+        "file_urls": [
+          "https://ca1-nzt.edcdn.com/PDFs-and-Excels/Net_Zero_Stocktake_2025.pdf?v=1758570577",
+          "https://netzeroclimate.org/wp-content/uploads/2025/09/Net_Zero_Stocktake_2025.pdf (downloaded)"
+        ],
+        "licence_name": "None stated in the PDF (no licence or copyright text found). Covered by the site's general terms: all rights reserved.",
+        "licence_terms_url": "https://zerotracker.net/terms",
+        "licence_quote": "The Site and its original content, features and functionality are owned by the Net Zero Tracker and are protected by international copyright, trademark, patent, trade secret and other intellectual property or proprietary rights laws.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only",
+        "what_it_measures": "Coverage shares of national net-zero pledges",
+        "years": "2025 (coverage computed on 2021 data)",
+        "granularity": "world",
+        "iea_derived": "partly. The emissions share uses CAIT, whose fuel-combustion figures come from IEA. The GDP and population shares do not.",
+        "headline_checks": [
+          {
+            "value": "137 of 198",
+            "what": "national governments with net zero targets",
+            "read_from": "PDF p.17, sha256 b78ff7bc13167baaed2a7ed04d61464fef7c6c7974b76ac2c4d33007e7e50ece"
+          },
+          {
+            "value": "74% / 77% / 79%",
+            "what": "share of global GHG (incl. LULUCF) / GDP PPP (2021 constant intl $) / population in 2021 covered by country net-zero pledges, all statuses",
+            "read_from": "same PDF, Figure 3"
+          },
+          {
+            "value": "67%",
+            "what": "remaining national targets in law or formal policy",
+            "read_from": "same PDF"
+          }
+        ],
+        "caveats": "Data cut-off is 10 Sep 2025. The PDF names the Zenodo dataset as its source. The emissions share is partly IEA-derived and its denominator source is not given in the PDF.",
+        "recommendation": "Don't put the report's percentages into data/. Show status counts from the Zenodo CSV instead."
+      },
+      {
+        "item": 1,
+        "name": "Climate Watch Net-Zero Tracker (ndcs source 'Net_Zero', indicators nz_*)",
+        "producer": "World Resources Institute (Climate Watch)",
+        "landing_url": "https://www.climatewatchdata.org/net-zero-tracker (curl gets 404; the site is now client-rendered and climatewatch.org also serves it)",
+        "file_urls": [
+          "https://www.climatewatchdata.org/api/v1/ndcs?source=Net_Zero",
+          "https://www.climatewatchdata.org/api/v1/ndcs?indicators=nz_status",
+          "https://www.climatewatchdata.org/api/v1/metadata"
+        ],
+        "licence_name": "CONFLICT: metadata summary_of_licenses says CC BY-NC 4.0, but its terms_of_service_link points to CC BY 4.0, and the site-wide permissions page says CC BY 4.0",
+        "licence_terms_url": "https://www.climatewatchdata.org/api/v1/metadata (source 'net_zero'); permissions page source: https://raw.githubusercontent.com/ClimateWatch-Vizzuality/climate-watch/develop/app/javascript/app/components/about/about-permissions/about-permissions-component.jsx",
+        "licence_quote": "metadata: \"summary_of_licenses\": \"Creative Commons Attribution-NonCommercial 4.0 International license\", \"terms_of_service_link\": \"https://creativecommons.org/licenses/by/4.0/\". Permissions page: \"Except as noted below, data and visualizations on this site carry a Creative Commons CC BY 4.0 license, which permits unrestricted reuse of Climate Watch content when proper attribution is provided\"",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial",
+        "what_it_measures": "National net-zero targets with dated status (In Law / In Policy Document / In Political Pledge), target year, source documents, gas and sector coverage, offsets, shipping and aviation",
+        "years": "Metadata says 'Last updated January 2024', but values include 2025 dates (e.g. 9/10/2025) and one '7/1/2026'",
+        "granularity": "country (107 parties including the EU; USA absent)",
+        "iea_derived": "false",
+        "headline_checks": [
+          {
+            "value": 107,
+            "what": "parties with a net-zero entry",
+            "read_from": "https://www.climatewatchdata.org/api/v1/ndcs?source=Net_Zero, sha256 b04785479abd272b454aca020baca7b38faa7f4f479bd98bbb9a9cbe461367b9"
+          },
+          {
+            "value": 31,
+            "what": "highest status 'Net-zero Target in Law'",
+            "read_from": "same"
+          },
+          {
+            "value": 60,
+            "what": "'Net-zero Target in Policy Document'",
+            "read_from": "same"
+          },
+          {
+            "value": 16,
+            "what": "'Net-zero Target in Political Pledge'",
+            "read_from": "same"
+          }
+        ],
+        "caveats": "This is WRI's own analysis, not Net Zero Tracker data. Methodology PDF (sha256 4b19f0cc2edd84d2be9936bfc0ef84ac40ffc9a35be6163a692116dc8f2070f2, 'Last Updated: August 4, 2024'): 'The initial launch of the Net-Zero Tracker (2020) built upon a source list of 20 net-zero targets provided by the Energy & Climate Intelligence Unit (ECIU), which has since been updated with original WRI analysis.' A separate metadata record 'eciu' (Net Zero Tracker 2020 Scorecard) is ECIU's data and must not be used. Status values are free text with embedded dates and <br>; the highest status comes from label_id. It is narrower than NZT: no 'proposed' category and 107 vs 137 parties.",
+        "recommendation": "Not recommended. Prefer NZT (Zenodo), which is broader and has clearer status classes. If used, register as noncommercial until WRI resolves the conflict."
+      }
+    ],
+    "2. Electrify everything: electricity share of final energy": [
+      {
+        "item": 2,
+        "name": "UNSD Energy Statistics Database, transaction 12 (final energy consumption) by commodity",
+        "producer": "United Nations Statistics Division",
+        "landing_url": "https://unstats.un.org/unsd/energystats/data/",
+        "file_urls": [
+          "https://data.un.org/ws/rest/data/UNSD,DF_UNDATA_ENERGY,1.2/A...12/ALL/?format=csv",
+          "https://data.un.org/ws/rest/dataflow/UNSD/DF_UNDATA_ENERGY/1.2/?references=all"
+        ],
+        "licence_name": "UNSD terms of use (free redistribution, UNSD cited, not for profit)",
+        "licence_terms_url": "https://unstats.un.org/unsd/energystats/data/",
+        "licence_quote": "Terms of Use: All data and metadata provided by UNSD may be copied freely, duplicated and further distributed provided that UNSD is cited as the reference and the use is not for profit. Otherwise please contact UNSD.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial (if the IEA question is settled in its favour, otherwise no-derivatives or excluded)",
+        "what_it_measures": "Final energy consumption (code 12, excludes non-energy use; NA = final consumption including non-energy use) of each of 75 commodities, in its own unit with a CONVERSION_FACTOR to TJ. Electricity is 7000 in GWh (factor 3.6). There is no all-commodities total and no World or regional area (all 251 areas are M49 countries or former countries).",
+        "years": "1990-2024 (2024 partial: electricity 7000/12 present for 227 areas in 2022 and 2023, 130 in 2024)",
+        "granularity": "country, annual, by commodity and by sector (121, 122, 123 and subsectors)",
+        "iea_derived": "partly. UNSD metadata (https://unstats.un.org/unsd/energystats/pubs/yearbook/2023/metadata.pdf, sha256 ada357c759f75507ac9d6304501d36b7fe1e08855457f8db2c11add934c3ae5d) says data for OECD and EU countries 'are obtained through the IEA, in the format of the IEA/Eurostat Joint Annual Energy Questionnaires', and historical OECD/EU data 'may have been imported from the IEA World Energy Statistics Database'. 'International Energy Agency (IEA), World Energy Statistics, various editions' is listed 150 times among country sources, including non-OECD countries. This applies to the existing unsd-energy entry too.",
+        "headline_checks": [
+          {
+            "value": "8772747.04 GWh (status A)",
+            "what": "China, electricity (7000), final energy consumption (12), 2023",
+            "read_from": "https://data.un.org/ws/rest/data/UNSD,DF_UNDATA_ENERGY,1.2/A...12/ALL/?format=csv (302 to /legacy/ws/, 200, 7,370,225 bytes, 104,133 lines) sha256 708c53662bbd0d3df64ed58c76f0e6a10a5f56de11ef8565b818b5322b2e26e1"
+          },
+          {
+            "value": "3894256.089 GWh (status A)",
+            "what": "United States, electricity final energy consumption, 2023",
+            "read_from": "same file, sha256 708c53662bbd0d3df64ed58c76f0e6a10a5f56de11ef8565b818b5322b2e26e1"
+          },
+          {
+            "value": "613647.417 GWh",
+            "what": "Brazil, electricity final energy consumption, 2024",
+            "read_from": "same file"
+          },
+          {
+            "value": "1403400 GWh (2022) then 1182194.005 GWh (2023)",
+            "what": "India, electricity final energy consumption: a 16% drop that looks like a series break",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "A share of final energy has to be summed in the pipeline: OBS_VALUE x CONVERSION_FACTOR (the factor is already per published unit, so UNIT_MULT is not applied again), excluding the 'of which' codes 5212, 5222 and 5232. The aggregates 0100 Hard Coal and 0200 Brown Coal equal the sum of their subtypes in 2,267 and 1,150 country-years and must be dropped to avoid double counting. Whether blended biogasoline/biodiesel is already inside motor gasoline/diesel is unconfirmed. My test shares for 2023 (China 39.5%, US 22.4%, Germany 20.8%, India 18.8%) depend on those choices and are not a validated method. The derivation would be a pipeline transform, never done in web/.",
+        "recommendation": "Only usable after the IEA question is settled. If kept, use transaction 12 and record the summing method (exclusions and conversion) in the transform. Without a UNSD total this is a computed share, so Eurostat should lead for the EU."
+      },
+      {
+        "item": 2,
+        "name": "UNSD Energy Statistics Dashboards (Energy_Dashboards.xlsx), world and sub-region energy balances",
+        "producer": "United Nations Statistics Division",
+        "landing_url": "https://unstats.un.org/unsd/energystats/data/",
+        "file_urls": [
+          "https://unstats.un.org/unsd/energystats/dashboards/Energy_Dashboards.xlsx"
+        ],
+        "licence_name": "UNdata terms of use (the workbook's own terms link)",
+        "licence_terms_url": "https://data.un.org/Host.aspx?Content=UNdataUse",
+        "licence_quote": "By using this dashboard, you agree to the terms and conditions of use of UN data, available at the link below: (workbook Introduction sheet A64, linking https://data.un.org/Host.aspx?Content=UNdataUse). The UNSD dataset page adds: 'All data and metadata provided by UNSD may be copied freely, duplicated and further distributed provided that UNSD is cited as the reference and the use is not for profit.'",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial (same IEA caveat as above)",
+        "what_it_measures": "Energy balance in TJ by product group (Coal, Oil, Natural gas, Biofuels and waste, Nuclear, 'Electricity and heat', Total Energy) and flow (including 'Final consumption' and 'Final Energy Consumption'), for World, regions and 22 sub-regions. Electricity is not separated from heat.",
+        "years": "1990-2023",
+        "granularity": "world, region and sub-region; no countries",
+        "iea_derived": "partly (built from the UNSD database above)",
+        "headline_checks": [
+          {
+            "value": "373831442.156 TJ",
+            "what": "World 2023 final energy consumption, Total Energy (sheet 'Energy balance', row 30)",
+            "read_from": "https://unstats.un.org/unsd/energystats/dashboards/Energy_Dashboards.xlsx (200, 9,566,923 bytes, Last-Modified 27 Jan 2026) sha256 0011ecded3b4d1d06b275350696cd9c29522ac5f9742981afc37d0e482274dc7"
+          },
+          {
+            "value": "108606904.138 TJ",
+            "what": "World 2023 final energy consumption, 'Electricity and heat'",
+            "read_from": "same file"
+          },
+          {
+            "value": "418722689.880 TJ",
+            "what": "World 2023 final consumption including non-energy use, Total Energy",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "This is the only UNSD file with a published all-fuels total. Electricity and heat are combined, so it gives a world share of electricity plus heat (about 29%), not of electricity alone. The data sit in veryHidden pivot sheets ('EB data', 166,574 rows). The 2023 Energy Balances PDFs (unstats.un.org/unsd/energystats/pubs/balance/2023/01.pdf, sha256 4d24a13175125c2a99334439ca97492b728985b2da164dac95b293d6c0c1e0a5) say 'Copyright United Nations 2025 All rights reserved' and are sold through shop.un.org, so the PDFs are display-only.",
+        "recommendation": "Useful as a world denominator if the IEA question clears. Label the series 'electricity and heat'. Do not divide UNSD country electricity sums by this total without recording the mix."
+      },
+      {
+        "item": 2,
+        "name": "Eurostat share of fuels in final energy consumption (nrg_ind_fecf), electricity",
+        "producer": "Eurostat (European Commission)",
+        "landing_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_ind_fecf_esmsip2.htm",
+        "file_urls": [
+          "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_fecf?format=JSON&lang=en&siec=E7000",
+          "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_bal_c?format=JSON&lang=en&nrg_bal=FC_E&siec=TOTAL&siec=E7000&siec=H8000&unit=KTOE"
+        ],
+        "licence_name": "Eurostat copyright notice: reuse authorised with acknowledgement (Commission Decision of 12 December 2011, 2011/833/EU); editorial content CC BY 4.0",
+        "licence_terms_url": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice",
+        "licence_quote": "Reuse of statistical data, metadata, publications, and other dissemination tools published on this website for commercial or non-commercial purposes is authorised provided the source is acknowledged. The reuse policy of the European Commission is implemented by the Decision of 12 December 2011.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Electricity (E7000) as a percentage of final energy consumption, energy use (FC_E), with sector variants (FC_IND_E industry and others). The ratio is published by Eurostat, so the site computes nothing.",
+        "years": "1990-2024",
+        "granularity": "EU27_2020, member states and other reporting countries, annual",
+        "iea_derived": "false. Eurostat collects energy statistics from member states under its own regulation via the joint questionnaires and calculates the indicator from its simplified energy balances (nrg_bal_s).",
+        "headline_checks": [
+          {
+            "value": "23.45%",
+            "what": "EU27_2020, electricity share of final energy consumption (FC_E), 2024",
+            "read_from": "nrg_ind_fecf API JSON (200, 5,823 bytes, updated 2026-07-16) sha256 6c90b4398624a0fe81a80502ab879c83563fa0a6dc640dc2bf59f10dbe0f02dc"
+          },
+          {
+            "value": "23.09% (2023); 17.9% (1990)",
+            "what": "EU27_2020, same indicator",
+            "read_from": "same file"
+          },
+          {
+            "value": "205847.685 ktoe of 877876.488 ktoe",
+            "what": "EU27 2024 electricity and total final consumption, energy use (nrg_bal_c, updated 2026-08-27)",
+            "read_from": "nrg_bal_c API JSON sha256 d90add7e28cc67d9e799fc2dbeea80b37a2ed31315c2008f070e0ee3cb237536"
+          }
+        ],
+        "caveats": "Covers only the EU and other European reporters. The copyright page was read from a saved copy (sha256 d66baeb838e6e0a7fc6eb5a2311af5c1593a0f8fbe9598f36fada2ce847e11a4); a repeat GET of /eurostat/help/copyright-notice returned HTTP 429 'Too Many Requests - Quota Exhausted'. /eurostat/about-us/policies/copyright returns 404.",
+        "recommendation": "Register. It is the cleanest open and traced 'electrify everything' series, used as published for the EU and its member states."
+      },
+      {
+        "item": 2,
+        "name": "Tracking SDG 7: The Energy Progress Report 2025 (SEforALL / ESMAP portal)",
+        "producer": "IEA, IRENA, UNSD, World Bank, WHO (custodians)",
+        "landing_url": "https://trackingsdg7.esmap.org/",
+        "file_urls": [
+          "https://web.archive.org/web/20250718205449/https://trackingsdg7.esmap.org/data/files/download-documents/sdg7-report2025-0620-v6-highres.pdf"
+        ],
+        "licence_name": "CC BY-NC 3.0 IGO, with chapter copyrights held by IEA, IRENA and UN",
+        "licence_terms_url": "https://creativecommons.org/licenses/by-nc/3.0/igo/",
+        "licence_quote": "This work is available under the Creative Commons Attribution—NonCommercial 3.0 IGO license (CC BY-NC 3.0 IGO) ... Renewable energy—© IEA, IRENA, and UN, 2025. Contact rights@iea.org ... Energy efficiency—© IEA and UN, 2025.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded (the 7.2 and 7.3 indicators are IEA-derived)",
+        "what_it_measures": "SDG 7 indicators: access to electricity, clean cooking, renewable share of total final energy consumption, energy intensity, international public finance. No electricity-share-of-final-energy indicator.",
+        "years": "to 2023 (2025 edition)",
+        "granularity": "country",
+        "iea_derived": "true for 7.2 and 7.3. The renewables chapter says data come 'from the IEA World Energy Balances database (IEA 2024a), UNSD Energy Balances 2022 ...'",
+        "headline_checks": [],
+        "caveats": "trackingsdg7.esmap.org returns HTTP 403 with 'cf-mitigated: challenge' (Cloudflare) on every path. The report was read from the Internet Archive capture (sha256 7d42a589560fda1ffbc90aea1a3781ae750c674f1b549ccacc90182db02100c2). No 2026 capture exists.",
+        "recommendation": "Reject for this topic."
+      },
+      {
+        "item": 2,
+        "name": "Ember electricity demand",
+        "producer": "Ember",
+        "landing_url": "https://ember-energy.org/data/yearly-electricity-data/",
+        "file_urls": [
+          "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv",
+          "https://api.ember-energy.org/v1/openapi.json"
+        ],
+        "licence_name": "CC BY 4.0 (already registered as ember-yearly)",
+        "licence_terms_url": "https://ember-energy.org/creative-commons/",
+        "licence_quote": "(registry) Ember content is released under a Creative Commons Attribution Licence (CC-BY-4.0); openapi.json info.license.name 'CC-BY-4.0 (data)'",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Electricity demand only: the API DemandYearly schema has demand_twh and demand_mwh_per_capita. The global generation CSV has no demand or final-energy column. Nothing on share of final energy.",
+        "years": "to 2025",
+        "granularity": "country",
+        "iea_derived": "false",
+        "headline_checks": [],
+        "caveats": "The global CSV now has Last-Modified 6 Oct 2026 (sha256 b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1), newer than the registry's 22 Sep file. The API returns 403 without an api_key.",
+        "recommendation": "Not a source for electricity share of final energy."
+      },
+      {
+        "item": 2,
+        "name": "World Bank WDI electricity series",
+        "producer": "World Bank, sourcing IEA",
+        "landing_url": "https://api.worldbank.org/v2/sources/2/indicators",
+        "file_urls": [
+          "https://api.worldbank.org/v2/sources/2/series/EG.FEC.RNEW.ZS/metadata?format=json"
+        ],
+        "licence_name": "WDI CC BY 4.0, overridden by the third-party source",
+        "licence_terms_url": "https://datacatalog.worldbank.org/int/public-licenses#cc-by",
+        "licence_quote": "Source : IEA Energy Statistics Data Browser, International Energy Agency (IEA) ... date accessed: 2025-03-25 (same Source for EG.FEC.RNEW.ZS, EG.USE.ELEC.KH.PC and EG.ELC.COAL.ZS)",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded",
+        "what_it_measures": "No WDI series gives electricity share of final energy. EG.ELC.* are generation shares and EG.USE.ELEC.KH.PC is consumption per person.",
+        "years": "n/a",
+        "granularity": "country",
+        "iea_derived": "true",
+        "headline_checks": [],
+        "caveats": "",
+        "recommendation": "Reject."
+      }
+    ],
+    "3. Capture what's left: CCS and direct air capture": [
+      {
+        "item": 3,
+        "name": "IEA CCUS Projects Database 2026, via the CCUS Projects Explorer data file",
+        "producer": "International Energy Agency",
+        "landing_url": "https://www.iea.org/data-and-statistics/data-product/ccus-projects-database",
+        "file_urls": [
+          "https://iea.blob.core.windows.net/scripts/ccus-projects-database/data/projects.json",
+          "https://iea.blob.core.windows.net/scripts/ccus-projects-database/ccus.js",
+          "(account needed) IEA CCUS Projects Database 2026.xlsx, updated 27/03/2026"
+        ],
+        "licence_name": "CC BY 4.0, subject to the IEA Notice for CC-licensed Content",
+        "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+        "licence_quote": "Licence CC BY 4.0 This work is available under the Creative Commons Attribution 4.0 license (CC BY 4.0). (product page; cite box: 'IEA, CCUS Projects Database, IEA, Paris https://www.iea.org/data-and-statistics/data-product/ccus-projects-database, Licence: CC BY 4.0')",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "422 projects with country, projectType, year, status, sector and capacity in Mt CO2 per year (the script labels it 'Mt CO2 per year'). Statuses: Operational, Under construction, Planned; suspended, cancelled and decommissioned projects are not in the file. Direct air capture appears as sector 'DAC'.",
+        "years": "commissioning years 1972-2050 (planned)",
+        "granularity": "project, with no names; country and region",
+        "iea_derived": "true, but this is IEA's own CC BY product, not World Energy Balances. The acknowledgements list input from Global CCS Institute and companies, but no part is marked third-party.",
+        "headline_checks": [
+          {
+            "value": "62.534 Mt CO2/yr across 67 projects",
+            "what": "Operational capture capacity: sum of capacity for status Operational and projectType Capture, Full chain, Full Chain or CCU (the explorer's own rule excludes T&S, Transport and Storage)",
+            "read_from": "https://iea.blob.core.windows.net/scripts/ccus-projects-database/data/projects.json (200, 81,098 bytes, Last-Modified 26 Mar 2026, ETag 0x8DE8B2368A938A2) sha256 d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"
+          },
+          {
+            "value": "0.021 Mt CO2/yr across 8 projects",
+            "what": "Operational direct air capture capacity (sector DAC: Canada 0.002, Iceland 0.004 and 0.006, Oman 0.001, United States 0.001, 0.001, 0.001 and 0.005)",
+            "read_from": "same file"
+          },
+          {
+            "value": "72 Operational, 55 Under construction, 295 Planned",
+            "what": "Project counts by status, all project types",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "iea.org returns 403 to scripts. The product page was read from the Internet Archive capture of 20260820202659 (decompressed sha256 a71dd8721924d40ff73014850a08a901f647d403520dd1239477916bd6701c5c) and the explorer page from 20260919030626 (sha256 943a98e160f50ab2a043a91091411dce9563f2ff76fa323af55a01c8242ea540; 'Last updated 26 Mar 2026 Licence CC BY 4.0'). The full xlsx needs an IEA login (free account) and is a manual download. The JSON is an undocumented explorer file with no project names and spells 'Full chain' two ways. The capacity sum is a pipeline step. The registry's IEA Notice obligations apply (no logo, derived-work disclaimer). This is announced capacity, not CO2 actually captured.",
+        "recommendation": "Register as open, using the blob JSON automatically and, optionally, the xlsx downloaded by a person. Label it 'capacity of operating projects'."
+      },
+      {
+        "item": 3,
+        "name": "The State of Carbon Dioxide Removal, 3rd Edition (2026): chapter 7 and chapter 3 data",
+        "producer": "State of CDR consortium (University of Oxford Smith School and partners)",
+        "landing_url": "https://www.stateofcdr.org/data-portal/3rd-edition",
+        "file_urls": [
+          "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv",
+          "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-3.csv",
+          "https://www.stateofcdr.org/asset/SoCDR-Ed3-Technical-annex-Ch7_Final.pdf"
+        ],
+        "licence_name": "CC BY 4.0",
+        "licence_terms_url": "https://creativecommons.org/licenses/by/4.0/",
+        "licence_quote": "©2026 SoCDR Reports licensed under CC BY 4.0 (site footer, stateofcdr.org); data portal: \"Credit for figure use: 'The State of Carbon Dioxide Removal, 3rd Edition'\"",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open for chapter 7 novel CDR (with a third-party caveat); excluded for chapter 3 investment",
+        "what_it_measures": "Chapter 7: novel CDR actually delivered to durable storage (Mt CO2/yr) by method and year, world and by country for 2025, plus conventional (forest) CDR. Chapter 3: demonstration projects, start-up investment, job postings.",
+        "years": "2017-2025 (novel CDR)",
+        "granularity": "world by method; country for 2025",
+        "iea_derived": "partly. The chapter 7 annex says novel CDR was compiled from 'databases including the International Energy Agency (IEA), CDR.fyi, Mission Innovation, and registries like Isometric and Puro.earth', and cites the IEA CCUS Projects Database with 'Licence: CC BY 4.0'.",
+        "headline_checks": [
+          {
+            "value": "2.04 Mt CO2/yr",
+            "what": "Global novel CDR, all methods, 2025",
+            "read_from": "https://www.stateofcdr.org/asset/SoCDR-Edition-3-Chapter-7.csv (200, 5,129,380 bytes, Last-Modified 27 May 2026) sha256 250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f"
+          },
+          {
+            "value": "0.0015 Mt CO2/yr (2025); 0.0014 (2024)",
+            "what": "Global novel CDR from direct air capture with storage",
+            "read_from": "same file"
+          },
+          {
+            "value": "1.4629 Mt CO2/yr",
+            "what": "Biochar soil amendment, 2025",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "Removals delivered, not capacity: direct air capture plants without confirmed storage or still testing are excluded. For projects not on registries, values are 'the annual delivered CDR reported in CDR.fyi', whose terms forbid republishing. CDR.fyi staff co-authored the report, but whether the CC BY grant covers those values is unconfirmed. Chapter 3 investment comes from the Net Zero Insights database (commercial) and is excluded. Chapter 7 by-country maps use GADM boundaries (rejected in the registry); only the numbers would be used.",
+        "recommendation": "Register chapter 7 world novel CDR by method as open, recording the CDR.fyi caveat and quoting the annex method. Do not use the chapter 3 investment rows."
+      },
+      {
+        "item": 3,
+        "name": "Global CCS Institute: Global Status of CCS report and CO2RE database",
+        "producer": "Global Carbon Capture and Storage Institute Ltd",
+        "landing_url": "https://www.globalccsinstitute.com/resources/global-status-report/",
+        "file_urls": [
+          "https://co2re.co/FacilityData"
+        ],
+        "licence_name": "All rights reserved; click-through terms",
+        "licence_terms_url": "https://www.globalccsinstitute.com/terms-of-use/",
+        "licence_quote": "All intellectual property rights in Content (other than your Contributions) are owned or licensed by the Global CCS Institute. Nothing transfers to you.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded (display-only at most)",
+        "what_it_measures": "CCS facilities and capacity",
+        "years": "2025 edition; 2026 edition 'launches on 20 October'",
+        "granularity": "facility",
+        "iea_derived": "false",
+        "headline_checks": [],
+        "caveats": "The report download needs a name and email form. co2re.co needs a click-through T&C that also says member content 'is made available on a confidential basis'. /copyright-statement/ returns the homepage (200, no statement text); /copyright/ returns 404. Terms page sha256 f06fb58b311b9a2ae5e2d78f88721c25c8807f4d4b3dbf688887010eba5e06ee.",
+        "recommendation": "Reject; record under Rejected."
+      },
+      {
+        "item": 3,
+        "name": "CDR.fyi",
+        "producer": "CDRfyi Inc",
+        "landing_url": "https://www.cdr.fyi/",
+        "file_urls": [],
+        "licence_name": "CDR.fyi Terms of Service",
+        "licence_terms_url": "https://www.cdr.fyi/terms-of-service",
+        "licence_quote": "This license does not include any right to extract, reuse, re-host, or republish data outside the Site, except as expressly permitted in these Terms or under a separate written agreement with CDR.fyi.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded",
+        "what_it_measures": "Durable CDR purchases and deliveries",
+        "years": "",
+        "granularity": "",
+        "iea_derived": "false",
+        "headline_checks": [],
+        "caveats": "Section 5.3 also forbids copying data into any 'dashboard ... whether offered free of charge or for a fee'. /terms returns 404; /terms-of-service returns 200 (sha256 de95302dc2c895d385dc874afddd7a1a912f40198647342ff500b23d355b01b6).",
+        "recommendation": "Reject."
+      }
+    ],
+    "4. Innovation: public energy RD&D and venture funding": [
+      {
+        "item": 4,
+        "name": "IEA Energy Technology RD&D Budgets (product) and RD&D Budgets Data Explorer (api.iea.org/rdd)",
+        "producer": "International Energy Agency",
+        "landing_url": "https://www.iea.org/data-and-statistics/data-product/energy-technology-rdd-budgets",
+        "file_urls": [
+          "https://api.iea.org/rdd?COUNTRY=IEA&PRODUCT=Public%20RD%26D%20in%20million%20EUR%20(y-1%20prices%20and%20exch.%20rates)&TECHNOLOGY=TOTAL&isRegion=true",
+          "https://api.iea.org/rdd/list/COUNTRY",
+          "https://api.iea.org/rdd/technologies",
+          "https://iea.blob.core.windows.net/scripts/iea-rdd/rdd.js"
+        ],
+        "licence_name": "Product: Terms of Use for Non-CC Material. Data Explorer page: CC BY 4.0.",
+        "licence_terms_url": "https://www.iea.org/terms/creative-commons-cc-licenses",
+        "licence_quote": "Product page: 'IEA, Energy Technology RD&D Budgets, IEA, Paris ... Licence: Terms of Use for Non-CC Material'. Explorer page: 'Energy Technology RD&D Budgets Data Explorer ... Last updated 29 May 2026 Licence CC BY 4.0'",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "no-derivatives for the product ZIP; open for the explorer API only if the owner accepts the iea-gevo-2026 precedent",
+        "what_it_measures": "Public energy RD&D budgets by technology for 33 reporting countries and the European Union, plus IEA regional totals, in EUR, USD or USD PPP (y-1 prices)",
+        "years": "1974-2025",
+        "granularity": "country and IEA region, technology hierarchy",
+        "iea_derived": "true (IEA's own collection; not World Energy Balances)",
+        "headline_checks": [
+          {
+            "value": "25978.304 million EUR (2025); 27796.691 (2024)",
+            "what": "IEA total public energy RD&D budget, y-1 prices and exchange rates",
+            "read_from": "api.iea.org/rdd ?COUNTRY=IEA ... TECHNOLOGY=TOTAL&isRegion=true (200, 9,193 bytes) sha256 e252b2f0efe6f4b15aca2c8c7eaa715c353f8f1a2c65dd97f6b52853e648308f"
+          }
+        ],
+        "caveats": "iea.org returns 403. The product page was read from the Internet Archive capture of 20260918054009 (sha256 837bb0427b033e039c0c0069444274fc2f4d6eb9ccf3cca451f14ecef038b9dc) and the explorer page from 20260918055408 (sha256 7fb171970ca32bc914012fbf5e5a2839d3a31758fc421ab869865a3254cad5bb). The API is undocumented. A United States query in USD returned rows only to 2015 (sha256 0d95a5c8f76062b57914b60cc9fd52af621e967ddacadf9b214d660edc4711a9), not yet explained. The product ZIP needs a login.",
+        "recommendation": "Hold for an owner decision. Use OECD GBARD and Eurostat GBARD meanwhile."
+      },
+      {
+        "item": 4,
+        "name": "OECD Government budget allocations for R&D by socio-economic objective (NABS 2007), objective 'Energy'",
+        "producer": "OECD Directorate for Science, Technology and Innovation",
+        "landing_url": "https://data-explorer.oecd.org/",
+        "file_urls": [
+          "https://sdmx.oecd.org/public/rest/data/OECD.STI.STP,DSD_RDS_GOV@DF_GBARD_NABS07,1.0/USA+JPN+DEU+FRA+GBR+KOR+CAN.A..NABS05+_T.....?startPeriod=2020",
+          "https://sdmx.oecd.org/public/rest/dataflow/OECD.STI.STP/DSD_RDS_GOV@DF_GBARD_NABS07/1.0?references=all"
+        ],
+        "licence_name": "OECD Terms and Conditions, Data section (reuse for any purpose with citation)",
+        "licence_terms_url": "https://www.oecd.org/en/about/terms-conditions.html",
+        "licence_quote": "Except where additional restrictions apply as stated above, you can extract from, download, copy, adapt, print, distribute, share and embed Data for any purpose, even for commercial use. You must give appropriate credit to the OECD by using the citation associated with the relevant Data",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Government R&D budget allocations for the Energy objective (NABS05), in national currency, USD PPP current and constant prices; funding mode split",
+        "years": "to 2024 or 2025 (US 2025 provisional)",
+        "granularity": "OECD and partner countries, annual",
+        "iea_derived": "false (national R&D budget statistics, Frascati/NABS)",
+        "headline_checks": [
+          {
+            "value": "6140 million USD (2024); 6004 (2025, P provisional)",
+            "what": "United States, GBARD Energy, current prices",
+            "read_from": "sdmx.oecd.org CSV (200, 58,677 bytes) sha256 715520e1cc2bbda8864df6cb79cdf2d47a35f24ab35a5b5b075f106a7e6004ae"
+          },
+          {
+            "value": "3019.251752 million EUR (2024)",
+            "what": "Germany, GBARD Energy, national currency",
+            "read_from": "same file"
+          },
+          {
+            "value": "1437211.533 million JPY (2023, D definition differs; 2021 B break)",
+            "what": "Japan, GBARD Energy",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "www.oecd.org returns 403. Terms were read from the Internet Archive capture of 20261006151414 (sha256 cec832554d09fc2f0142c440b66d93cd308020fbc8ae5d07b973d647ee8119e1). The terms say users must check each dataset's metadata for third-party restrictions; this dataflow has none. The dataflow carries an annotation 'NonProductionDataflow: true' (meaning unclear). NABS 'Energy' includes fossil and nuclear R&D, so it is not 'clean energy'. Japan has breaks and definition flags.",
+        "recommendation": "Register as open. Show values per country with their status flags, and describe the measure as all energy R&D budgets."
+      },
+      {
+        "item": 4,
+        "name": "Eurostat GBARD by socioeconomic objectives (gba_nabsfin07), NABS05 Energy",
+        "producer": "Eurostat",
+        "landing_url": "https://ec.europa.eu/eurostat/databrowser/view/gba_nabsfin07/default/table",
+        "file_urls": [
+          "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gba_nabsfin07?format=JSON&lang=en&geo=EU27_2020&sinceTimePeriod=2018"
+        ],
+        "licence_name": "Eurostat copyright notice (2011/833/EU reuse with acknowledgement)",
+        "licence_terms_url": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice",
+        "licence_quote": "Reuse of statistical data, metadata, publications, and other dissemination tools published on this website for commercial or non-commercial purposes is authorised provided the source is acknowledged.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Government budget allocations for R&D for the Energy objective, in million euro, euro per inhabitant, PPS, % of GDP and % of total GBARD",
+        "years": "to 2025 (2025 provisional for NABS05)",
+        "granularity": "EU27 and countries, annual",
+        "iea_derived": "false",
+        "headline_checks": [
+          {
+            "value": "6362.909 million EUR (2024); 5584.292 (2025, p); 4311.114 (2018, e)",
+            "what": "EU27_2020 GBARD Energy",
+            "read_from": "gba_nabsfin07 API JSON (200, 24,246 bytes, updated 2026-09-25) sha256 761fe2961f47ea5d52198f5ed5c4b7b8bfb7dfc2bfa00f867ef8121f95b2403c"
+          },
+          {
+            "value": "5.0% (2024)",
+            "what": "EU27 Energy as percentage of total GBARD",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "EU27 values for 2018-2022 are flagged e (estimated). The dataset also uses status codes 'p' and '|C' (confidential). Same breadth caveat as OECD.",
+        "recommendation": "Register as open, alongside OECD GBARD."
+      },
+      {
+        "item": 4,
+        "name": "Mission Innovation country clean-energy RD&D figures",
+        "producer": "Mission Innovation secretariat and member governments",
+        "landing_url": "https://mission-innovation.net/",
+        "file_urls": [],
+        "licence_name": "none stated",
+        "licence_terms_url": "https://mission-innovation.net/terms-of-use/ (404)",
+        "licence_quote": "(no licence or terms page found; the homepage links only a privacy notice)",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only",
+        "what_it_measures": "Self-reported national clean-energy RD&D against self-chosen baselines",
+        "years": "about 2015-2020 (phase 1)",
+        "granularity": "member country",
+        "iea_derived": "partly (MI has an MoU with IEA for RD&D tracking)",
+        "headline_checks": [],
+        "caveats": "Baselines and definitions differ by member and no current data series was found (homepage sha256 5157d71a194075115497a2ebb75ac4fed08f04599764f61166afe895be3f57f1).",
+        "recommendation": "Reject."
+      },
+      {
+        "item": 4,
+        "name": "Clean-energy venture funding",
+        "producer": "PitchBook, BNEF, Net Zero Insights, Crunchbase and similar",
+        "landing_url": "",
+        "file_urls": [],
+        "licence_name": "proprietary",
+        "licence_terms_url": "",
+        "licence_quote": "",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded",
+        "what_it_measures": "Venture and private investment",
+        "years": "",
+        "granularity": "",
+        "iea_derived": "false",
+        "headline_checks": [],
+        "caveats": "No open-licence primary source found. The State of CDR chapter 3 investment rows come from the Net Zero Insights database (annex 3, sha256 d7e0d53b234eb2613160e58761a1476f3a96fa1ee7775d1fd0d4a260fc392605), and IEA start-up funding figures are built on third-party deal data, so both are excluded (the IEA case not checked).",
+        "recommendation": "Reject for this topic."
+      }
+    ],
+    "5. Policy and demand: standards, procurement, policy databases": [
+      {
+        "item": 5,
+        "name": "Climate Policy Database v2025",
+        "producer": "NewClimate Institute, with Wageningen University & Research and PBL",
+        "landing_url": "https://climatepolicydatabase.org/about",
+        "file_urls": [
+          "https://zenodo.org/api/records/19682932/files/ClimatePolicyDatabase_v2025.csv/content (downloaded)",
+          "https://climatepolicydatabase.org/sites/default/files/2026-04/ClimatePolicyDatabase%20-%20v2025.xlsx",
+          "https://climatepolicydatabase.org/policies/export?page&_format=csv (live)",
+          "Codebook: https://climatepolicydatabase.org/sites/default/files/2026-04/CPDB%20Codebook%20v1.4_0.pdf"
+        ],
+        "licence_name": "CONFLICT: Zenodo record 19682932 cc-by-4.0; the NewClimate legal notice, which states it applies to climatepolicydatabase.org, says CC BY-NC 4.0",
+        "licence_terms_url": "https://newclimate.org/about-us/legal-notice (direct fetch HTTP 403; read from Internet Archive capture 20260507082422, sha256 005092b14a7925d108db1df058baa76d0f9725e09ace1b5f625d5777834c2aff). The climatepolicydatabase.org/about page says 'For the legal information & privacy policy, please visit newclimate.org'.",
+        "licence_quote": "The following information applies to the websites www.newclimate.org, www.climatepolicydatabase.org and www.climateresponsibility.org. [...] This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License for non commercial use. Any commercial reproduction, in full or in part, is prohibited without the prior written consent of climatepolicy.net.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial",
+        "what_it_measures": "National, and some subnational, mitigation policies coded by instrument, sector, policy type, status and dates",
+        "years": "Decision dates 1927 to 2026; v2025 covers policies adopted by end-2025 (published on Zenodo 2026-04-21). Annual versions exist from v2019.",
+        "granularity": "Policy level, 198 jurisdictions (comprehensive for 42 economies)",
+        "iea_derived": "partly. The instrument taxonomy 'was developed based on the IEA policies database' (codebook), and 1,331 of 6,727 rows cite iea.org in reference. These are qualitative records under IEA PAMS terms, not World Energy Balances.",
+        "headline_checks": [
+          {
+            "value": 6727,
+            "what": "policies (rows; unique policy_id)",
+            "read_from": "Zenodo CSV, sha256 77ceb6959afb7c150f3421945da9917d51ed667825a7fbf3be09d4dc1a2032a4 (md5 matches Zenodo's e64ffc22b4bdb188c5c07465a943f400)"
+          },
+          {
+            "value": 166,
+            "what": "policies with instrument 'Obligation schemes' (59 jurisdictions); 73 also tagged sector 'Electricity and heat', 60 'Transport'",
+            "read_from": "same"
+          },
+          {
+            "value": 53,
+            "what": "'Green certificates' (49 tagged Electricity and heat)",
+            "read_from": "same"
+          },
+          {
+            "value": 67,
+            "what": "'Procurement rules' (20 jurisdictions)",
+            "read_from": "same"
+          },
+          {
+            "value": 72,
+            "what": "'Tendering schemes'",
+            "read_from": "same"
+          },
+          {
+            "value": 165,
+            "what": "'Vehicle fuel-economy and emissions standards'",
+            "read_from": "same"
+          },
+          {
+            "value": 404,
+            "what": "'Renewable energy target'",
+            "read_from": "same"
+          }
+        ],
+        "caveats": "The data has no 'clean electricity standard', 'low-carbon fuel standard' or 'green public procurement' instrument. The nearest codes are Obligation schemes, Green certificates, Procurement rules and Sectoral standards. Title keyword checks found 8 titles mentioning renewable portfolio standards, 0 clean electricity standards, 2 low-carbon or clean fuel standards (Canada) and 5 green or public procurement. Those are text matches, not coded classes, so they can't be published as counts under the no-heuristics rule. Multi-value fields are comma-separated, so counts are per policy per tag. Descriptions may include IEA PAMS text (third-party). Codebook PDF sha256 1e9154fdafb5ca67e616d6b60df723bf092fb1abc5c8cf3d9a3730283d92cd44.",
+        "recommendation": "Use: counts by coded instrument × sector from the Zenodo vintage, as noncommercial, labelled with CPDB's own instrument names (not 'clean electricity standard'). Ask NewClimate which licence applies to the Zenodo file."
+      },
+      {
+        "item": 5,
+        "name": "Climate Change Laws of the World / Climate Policy Radar database",
+        "producer": "Grantham Research Institute (LSE) and Climate Policy Radar",
+        "landing_url": "https://climate-laws.org/",
+        "file_urls": [
+          "Bulk CSV only via form: https://form.jotform.com/233131638610347 (name and details required; manual)",
+          "Targets CSV: 'Request to download all target data (.csv)' button plus form (manual)",
+          "https://huggingface.co/datasets/ClimatePolicyRadar/all-document-text-data (gated 'auto', HF login required; README 401)",
+          "https://huggingface.co/datasets/ClimatePolicyRadar/national-climate-targets (open; ML training passages)"
+        ],
+        "licence_name": "CC BY 4.0",
+        "licence_terms_url": "https://raw.githubusercontent.com/climatepolicyradar/navigator-frontend/main/themes/cclw/pages/terms-of-use.tsx (last commit 6dd824d1038ab39183b74597f801337d6e44ae58, 2025-09-30; fetched sha256 d25b81e3e7eb64ae9bf58af18f8ba6123f0af96486deb0088ce87e8f3b94642c)",
+        "licence_quote": "Climate Policy Radar is pleased to make the content of the CPR Database available as open data under the Creative Commons Attribution Licence (CC-BY).",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "9,000+ laws, policies and UNFCCC submissions per country. Tags include framework laws, instruments (Annex II includes 'Standards, obligations and norms' and 'Green procurement') and targets. Since January 2023 only net-zero and climate-neutrality targets are identified manually.",
+        "years": "Rolling",
+        "granularity": "document / 'family' per country",
+        "iea_derived": "false",
+        "headline_checks": [],
+        "caveats": "The FAQ (themes/cclw/constants/faqs.tsx, sha256 fec4e8ba4221e967e76e500727bfd1e4b151b7eca77ecaeea56ee4db244a7a24) repeats CC-BY and says bulk CSV needs a form, so a person has to download it. Terms add: 'If you wish to use, copy, redistribute, publish, or exploit a substantial amount of the information from the CPR Database for commercial purposes, please contact us'. That doesn't apply to a non-commercial site. Required acknowledgement: '...made available under the Creative Commons CC-BY licence. The data in this database was sourced primarily from the Grantham Research Institute at the London School of Economics.' Instruments are tagged only for 'a subset of documents', and targets are incomplete after Jan 2023, so counts are lower bounds of what was tagged. Full texts are government documents. The live climate-laws.org page is client-rendered, so I checked the licence in the GitHub source, not the rendered page. HF national-climate-targets (cc-by-4.0) is ML training data and its README says it 'is not a list of all climate targets'.",
+        "recommendation": "Good open option for counts of net-zero laws and documents tagged 'Green procurement' or 'Standards, obligations and norms'. Needs a manual form download recorded with snapshot add."
+      },
+      {
+        "item": 5,
+        "name": "IEA Policies and Measures Databases (PAMS: iea.org/policies)",
+        "producer": "International Energy Agency (the renewables part is joint IEA/IRENA)",
+        "landing_url": "https://www.iea.org/policies (HTTP 403, Cloudflare challenge)",
+        "file_urls": [],
+        "licence_name": "Custom 'Terms of Use for the Policies and Measures Databases'. Not CC BY and not Non-CC Material.",
+        "licence_terms_url": "https://www.iea.org/terms/terms-of-use-for-the-policies-and-measures-databases-pams (403; read from Internet Archive capture 20260820163722, sha256 585627444ff13a0a23f787c615b8e6adf2fc4adeb41fc647859d0ef7434612f2); https://www.iea.org/terms (capture 20261007081618, sha256 05dc08954f43b88013098729043eaa7799543c8b32816573070d50217e874e30)",
+        "licence_quote": "you may reproduce portions of material or information from PAMS provided that such reproduction: (i) does not have the effect of creating a duplicate or substantially similar database to PAMS; and (ii) is appropriately attributed as coming from PAMS with one of the following notices: [...] IEA Policies and Measures Database © OECD/IEA, [date of download of data or information]",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open (custom terms allowing attribution and modification, with a no-duplicate-database condition). If you want a strict reading, treat it as display-only.",
+        "what_it_measures": "Past, existing and planned government energy and climate policies",
+        "years": "Terms 'Last amended 16 February 2015'",
+        "granularity": "policy",
+        "iea_derived": "true (IEA policy records, not energy statistics)",
+        "headline_checks": [],
+        "caveats": "From iea.org/terms: 'The following content is not made available under a CC BY 4.0 licence as part of the Open Use Terms: [...] The Policies and Measures Databases.' Also: 'Portions of PAMS may contain material or information that is subject to the copyright of a third party.' No IEA logo may be used. iea.org blocks scripts, so any export is manual, and I found no bulk download. Climate Action Tracker policy data stays no-derivatives under the existing CAT registration (pipeline/sources/cat-2025-thermometer.yaml); I didn't re-check it.",
+        "recommendation": "Low priority. CPDB already covers it and cites IEA PAMS for about 1,331 rows. If used, publish only aggregate counts with the exact PAMS notice and the download date."
+      }
+    ],
+    "6. Adaptation: finance gap, smallholders, agricultural research, yield losses": [
+      {
+        "item": 6,
+        "name": "Adaptation Gap Report 2025: Running on empty (main report)",
+        "producer": "United Nations Environment Programme (UNEP), co-produced with UNEP Copenhagen Climate Centre (UNEP-CCC)",
+        "landing_url": "https://doi.org/10.59117/20.500.11822/48798",
+        "file_urls": [
+          "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf?sequence=5&isAllowed=y (linked from unepccc.org/publications/adaptation-gap-report-2025/, HTTP 200; the wedocs link answers 302 to the item page, which answers 403)",
+          "Read from: https://web.archive.org/web/20251106072404id_/https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf?sequence=7 (15,336,689 bytes, sha256 7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf, 98 pages, PDF modified 2025-11-04; the size matches the '14.63 MB' shown on the item page captured 2025-10-30)",
+          "Earlier copy: https://web.archive.org/web/20251029144628id_/https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf (13,931,764 bytes, sha256 12677df58ea90d02e821a45f534e1fdf7145616797e8c308b52ed563d869a871). Same imprint and same values on the same pages; only the reviewer list differs."
+        ],
+        "licence_name": "© 2025 United Nations Environment Programme; reproduction for educational or non-profit services with acknowledgement; no commercial use (standard UNEP notice)",
+        "licence_terms_url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/48798/AGR2025.pdf (PDF p. 2)",
+        "licence_quote": "This publication may be reproduced in whole or in part and in any form for educational or non-profit services without special permission from the copyright holder, provided acknowledgement of the source is made. The United Nations Environment Programme would appreciate receiving a copy of any publication that uses this publication as a source. No use of this publication may be made for resale or any other commercial purpose whatsoever without prior permission in writing from the United Nations Environment Programme.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only (to match the registered unep-egr-2025 entry, which has the identical notice; unep-food-waste-index-2024 treats the same notice as noncommercial, so the owner should settle one class for all three)",
+        "what_it_measures": "Adaptation finance needs and modelled adaptation costs of developing countries to 2035; international public adaptation finance flows from developed to developing countries (2019-2023); the finance gap and its ratio; progress on the Glasgow doubling goal and the NCQG",
+        "years": "Flows 2019-2023; needs and costs for 2035 (constant 2023 prices)",
+        "granularity": "All developing countries, LDCs and SIDS (Table 4.2); no country values",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "US$310–365 billion per year by 2035 (constant 2023 prices)",
+            "what": "Plausible central range of the cost of adaptation / adaptation finance needs of developing countries",
+            "read_from": "AGR2025.pdf sha256 7aae2efd…f79cf, PDF p.13 (printed xiii, Executive summary) and p.58 (printed 40, Key messages)"
+          },
+          {
+            "value": "US$310 billion/year (modelled costs) and US$365 billion/year (NAP/NDC-based needs, 2023-2035)",
+            "what": "The two lines of evidence behind the range",
+            "read_from": "same file, PDF p.58 (printed 40)"
+          },
+          {
+            "value": "US$26 billion in 2023 (constant 2023 prices), down from US$28 billion in 2022",
+            "what": "International public adaptation finance flows to developing countries",
+            "read_from": "same file, PDF p.9 (printed ix, Foreword: 'fell from US$28 billion in 2022 to US$26 billion in 2023') and p.13 (printed xiii)"
+          },
+          {
+            "value": "19.8, 24.7, 21.3, 27.9, 25.9 (US$ billion, 2019-2023)",
+            "what": "Adaptation part of international public climate finance commitments, Figure 4.4",
+            "read_from": "same file, PDF p.65 (printed 47); text p.65: 'declined slightly in 2023 to US$25.9 billion'"
+          },
+          {
+            "value": "Approximately US$40 billion by 2025 (doubling of about US$20 billion in 2019; about US$47 billion if inflation is counted)",
+            "what": "Glasgow Climate Pact doubling goal; 2019-2023 compound annual growth of 7% against the 12% needed",
+            "read_from": "same file, PDF p.10 (printed x), p.58 (printed 40), p.65 (printed 47), and Box 4.5 on PDF p.78 (printed 60)"
+          },
+          {
+            "value": "12–14 times; gap US$284–339 billion per year",
+            "what": "Needs relative to current flows, and the adaptation finance gap (Table 4.2: LDCs gap US$23.1–35.6 billion, SIDS US$3.0–4.8 billion)",
+            "read_from": "same file, PDF p.13 (printed xiii) and p.68 (printed 50, Table 4.2 and footnote 12: 10–12 times if mobilised private finance is included)"
+          }
+        ],
+        "caveats": "Flow data are not UNEP's own measurements: Annex 4.B says they come from the 'OECD Development Assistance Committee (DAC) Climate-Related Development Finance data set (recipients' perspective)', using Rio markers with coefficients (100% for principal, about 40% for significant) and MDB shares attributed to developed countries (online annexes PDF p.48, printed 45). The OECD terms for that data set could not be read (oecd.org returns 403 to scripts, as recorded in the Rejected list). The PDF also says '© Maps, photos and illustrations as specified' and 'The use of information from this document for publicity or advertising is not permitted.' UNEP publishes no data files, only the PDFs. Live wedocs, unep.org and doi.org all return 403 or a challenge to scripts, so this is a manual artifact.",
+        "recommendation": "Register as manual quoted statements, like unep-egr-2025: the needs range, the 2023 flow, the 12–14 times ratio and the Glasgow goal, each with its page. Do not put the Figure 4.4 series in data/ unless the owner settles the UNEP notice as noncommercial; even then, name the OECD CRDF origin in the provenance note."
+      },
+      {
+        "item": 6,
+        "name": "Adaptation Gap Report 2025: Online Annexes (methodology, including Annex 4.B on finance flows)",
+        "producer": "United Nations Environment Programme (UNEP)",
+        "landing_url": "https://wedocs.unep.org/handle/20.500.11822/48839",
+        "file_urls": [
+          "https://wedocs.unep.org/bitstream/handle/20.500.11822/48839/AGR2025_Online_Annexes.pdf?sequence=4&isAllowed=y (link found on the Internet Archive copy of unep.org/resources/adaptation-gap-report-2025, captured 20251221002655). Read from: https://web.archive.org/web/20251029145837id_/… (1,162,685 bytes, sha256 d62c387c331d97ddb80c523bfe0dac0d62de0a57f789bd0e8b328acc69580a8f, 60 pages)"
+        ],
+        "licence_name": "Same UNEP notice as the main report",
+        "licence_terms_url": "AGR2025_Online_Annexes.pdf, PDF p.2",
+        "licence_quote": "This publication may be reproduced in whole or in part and in any form for educational or non-profit services without special permission from the copyright holder, provided acknowledgement of the source is made.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only (same decision as the main report)",
+        "what_it_measures": "Methods only: data sources, coefficients, sector mapping (an AC-CRS-CODES.xlsx crosswalk is named in the text, but I found no file for it)",
+        "years": "2019-2023",
+        "granularity": "n/a",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "Data source: OECD DAC Climate-Related Development Finance (CRDF), recipients' perspective; commitments at 2023 constant prices; period 2019–2023",
+            "what": "Origin of the adaptation finance flows",
+            "read_from": "AGR2025_Online_Annexes.pdf sha256 d62c387c…580a8f, PDF p.48 (printed 45), Table 4.B.1 continued on p.49"
+          }
+        ],
+        "caveats": "Provenance support only, not a data source.",
+        "recommendation": "Cite in the AGR entry's comments as the evidence for the OECD CRDF origin of the flows."
+      },
+      {
+        "item": 6,
+        "name": "Lowder, Sánchez & Bertini (2021) Which farms feed the world and has farmland become more concentrated? World Development 142:105455",
+        "producer": "FAO authors (© 2021 The Food and Agriculture Organization of the United Nations); published by Elsevier",
+        "landing_url": "https://doi.org/10.1016/j.worlddev.2021.105455",
+        "file_urls": [
+          "https://www.sciencedirect.com/science/article/pii/S0305750X2100067X (live: HTTP 403 to scripts)",
+          "Read from Internet Archive capture https://web.archive.org/web/20211207001446id_/https://www.sciencedirect.com/science/article/pii/S0305750X2100067X (sha256 1ce7d2d6b5387e975ff233f18ba59a4dee833b401b09aa580ccb4ce6fcc8d856)",
+          "Elsevier's own API https://api.elsevier.com/content/article/PII:S0305750X2100067X?httpAccept=text/xml (HTTP 200, metadata only)"
+        ],
+        "licence_name": "CC BY-NC-ND 4.0",
+        "licence_terms_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "licence_quote": "Under a Creative Commons license open access [link: https://creativecommons.org/licenses/by-nc-nd/4.0/] — ScienceDirect article page; page JSON: \"access\":{\"openAccess\":true,...,\"license\":\"http://creativecommons.org/licenses/by-nc-nd/4.0/\"}; Elsevier API: <openaccessUserLicense>http://creativecommons.org/licenses/by-nc-nd/4.0/</openaccessUserLicense>; page footer: \"© 2021 The Food and Agriculture Organization of the United Nations. Published by Elsevier Ltd.\"",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "no-derivatives",
+        "what_it_measures": "Number of farms worldwide; distribution of farms and farmland by size; share of food produced by family farms and by farms under 2 ha",
+        "years": "Latest agricultural censuses (WCA rounds, mostly 2006-2015)",
+        "granularity": "World totals and shares; country and regional tables in the paper",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "more than 608 million farms",
+            "what": "Farms in the world",
+            "read_from": "Archived ScienceDirect page (sha256 1ce7d2d6…c8d856), Highlights and Abstract"
+          },
+          {
+            "value": "84% of all farms; about 12% of all agricultural land; roughly 35% of the world's food",
+            "what": "Farms under 2 ha: share of farms, of farmland operated and of food produced",
+            "read_from": "same page, Abstract"
+          },
+          {
+            "value": "more than 70% of the world's farmland",
+            "what": "Operated by the largest 1% of farms (larger than 50 ha)",
+            "read_from": "same page, Abstract"
+          },
+          {
+            "value": "roughly 80% of the world's food in value terms",
+            "what": "Produced by family farms",
+            "read_from": "same page, Abstract"
+          }
+        ],
+        "caveats": "The PDF imprint was not read: ScienceDirect returns 403 and no repository copy exists (OpenAlex: any_repository_has_fulltext false). The licence was read from the publisher's own page (archived) and API, consistent with Crossref (pointer only). I found no supplementary data file. The 35% is a value estimate built from census plus survey data with stated biases.",
+        "recommendation": "Use as no-derivatives: quote the 608 million and 35% values with attribution and a link, unchanged; nothing goes into data/ downloads. If the dashboard needs downloadable country farm counts, use FAOSTAT WCAD (below)."
+      },
+      {
+        "item": 6,
+        "name": "Ricciardi, Ramankutty, Mehrabi, Jarvis & Chookolingo (2018) How much of the world's food do smallholders produce? Global Food Security 17:64-72",
+        "producer": "University of British Columbia authors (© 2019 The Authors); published by Elsevier",
+        "landing_url": "https://doi.org/10.1016/j.gfs.2018.05.002",
+        "file_urls": [
+          "https://www.sciencedirect.com/science/article/pii/S2211912417301293 (live: 403)",
+          "Archived capture https://web.archive.org/web/20210905121125id_/https://www.sciencedirect.com/science/article/pii/S2211912417301293 (sha256 1dda7a4eed587153eb03dc6adca66242958a49cd3ff087fa1cdff39c5ca929bd)",
+          "https://api.elsevier.com/content/article/PII:S2211912417301293?httpAccept=text/xml (200)"
+        ],
+        "licence_name": "CC BY-NC-ND 4.0",
+        "licence_terms_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "licence_quote": "Under a Creative Commons license open access — page JSON \"access\":{\"openAccess\":true,\"openArchive\":false,\"license\":\"http://creativecommons.org/licenses/by-nc-nd/4.0/\",\"sponsorType\":\"Author\"}; footer \"© 2019 The Authors. Published by Elsevier B.V.\"; Elsevier API <openaccessUserLicense>http://creativecommons.org/licenses/by-nc-nd/4.0/</openaccessUserLicense>",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "no-derivatives",
+        "what_it_measures": "Share of crop production and food supply from farms by size class (55 countries, 154 crops)",
+        "years": "Data 2001-2015 (median 2013)",
+        "granularity": "Global estimate from a 55-country sample",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "30–34% of food supply on 24% of gross agricultural area",
+            "what": "Farms under 2 ha",
+            "read_from": "Archived ScienceDirect page (sha256 1dda7a4e…a929bd), Highlights and Abstract"
+          },
+          {
+            "value": "28–31% of total crop production",
+            "what": "Farms under 2 ha",
+            "read_from": "same page, Abstract"
+          }
+        ],
+        "caveats": "The article became open access with a delay (Crossref: 241 days). The sample covers about 51% of global crop production.",
+        "recommendation": "Quote as no-derivatives beside the Lowder figure (the two differ in method and coverage)."
+      },
+      {
+        "item": 6,
+        "name": "Data for: How much of the world's food do smallholders produce? (Mendeley Data, doi:10.17632/tp63z6dz5g.1)",
+        "producer": "Vincent Ricciardi et al., University of British Columbia",
+        "landing_url": "https://data.mendeley.com/datasets/tp63z6dz5g/1",
+        "file_urls": [
+          "https://data.mendeley.com/public-files/datasets/tp63z6dz5g/files/340db947-c33e-4616-81cb-d9efabff2e85/file_downloaded (data.zip, 268,356,086 bytes, repository sha256 402005e58ea2d79aa3e9c48f33ac2a28175e1e69178b1b90995ec7810b486657; not downloaded)"
+        ],
+        "licence_name": "CC BY 4.0",
+        "licence_terms_url": "http://creativecommons.org/licenses/by/4.0",
+        "licence_quote": "You can share, copy and modify this dataset so long as you give appropriate credit, provide a link to the CC BY license, and indicate if changes were made, but you may not do so in a way that suggests the rights holder has endorsed you or your use of the dataset. Note that further permission may be required for any content within the dataset that is identified as belonging to a third party. (Mendeley public API data_licence; DataCite rightsList cc-by-4.0)",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open (with a third-party check)",
+        "what_it_measures": "Subnational crop production and area by 11 farm-size classes, with food, feed, seed and loss allocations",
+        "years": "2001-2015, single version (2018-05-22)",
+        "granularity": "Subnational, 55 countries",
+        "iea_derived": false,
+        "headline_checks": [],
+        "caveats": "Compiled from national censuses and household surveys, whose own terms may apply under the 'third party' clause. Reproducing the 30–34% share would be our own analysis rather than a published number. Not opened (268 MB).",
+        "recommendation": "Low priority. Only if country-level farm-size production is wanted; check the zip's README for third-party restrictions first."
+      },
+      {
+        "item": 6,
+        "name": "FAOSTAT World Census of Agriculture: Structural data from agricultural censuses (WCAD)",
+        "producer": "FAO Statistics Division (ESS), Agricultural Census Team",
+        "landing_url": "https://www.fao.org/faostat/en/#data/WCAD",
+        "file_urls": [
+          "https://bulks-faostat.fao.org/production/World_Census_Agriculture_E_All_Data_(Normalized).zip (HTTP 200, 387,051 bytes, Last-Modified 2026-06-19, sha256 a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e; catalogue DateUpdate 2026-04-27, 28,565 rows)"
+        ],
+        "licence_name": "CC BY 4.0 (FAO Statistical Database Terms of Use)",
+        "licence_terms_url": "https://www.fao.org/contact-us/terms/db-terms-of-use/en/",
+        "licence_quote": "Unless specified otherwise in their metadata or webpage, all datasets disseminated through FAO corporate statistical databases (see examples in Annex 1) are licensed under the Creative Commons Attribution-4.0 International licence (CC BY 4.0)",
+        "fetched_on": "2026-10-08 (terms page HTTP 200, quote matches pipeline/sources/faostat.yaml)",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Number and area of agricultural holdings, by land-size class, tenure, legal status, holder sex and age",
+        "years": "WCA rounds 1930-2020 (census years to 2022)",
+        "granularity": "Country (189 areas); no world or regional aggregate; 81 countries have a WCA 2020 holdings count",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "146,453,741 holdings (2015/16, WCA 2020 round, flag A)",
+            "what": "India, number of holdings",
+            "read_from": "WCAD zip sha256 a266d086…6078e, Normalized CSV"
+          },
+          {
+            "value": "209,470,000 holdings (2016)",
+            "what": "China, number of holdings",
+            "read_from": "same file"
+          },
+          {
+            "value": "1,900,487 holdings (2022)",
+            "what": "United States, number of holdings",
+            "read_from": "same file"
+          }
+        ],
+        "caveats": "Each country's census year differs and definitions of a holding vary (see the Note column). A world total would require summing across years, with gaps for missing countries, which AGENTS.md rule 8 forbids. The domain metadata endpoint (fenixservices.fao.org/faostat/api/v1/en/metadata/WCAD) returned HTTP 521, so 'unless specified otherwise in their metadata' could not be checked for WCAD.",
+        "recommendation": "Best open option for item 6 farms: country drill-down of holdings by size class (share of holdings under 1 ha and 1-2 ha, and the area they hold), labelled with each census year. Keep the world 608 million and 35% as Lowder quotes."
+      },
+      {
+        "item": 6,
+        "name": "CGIAR Financial Report: Year Ended 2023 (consolidated system report)",
+        "producer": "CGIAR System Organization",
+        "landing_url": "https://hdl.handle.net/10568/151922 (cgspace.cgiar.org/items/25916b21-b451-4140-bccf-4028807d5b59, HTTP 200)",
+        "file_urls": [
+          "https://cgspace.cgiar.org/server/api/core/bitstreams/9518cf92-e087-4865-89f1-d9206b9bb3e0/content (financial_highlights_2023.pdf, 1,103,607 bytes, sha256 1d15fb1b43e7078574be39088475ee6574aca10da12fb43a255c957962457dd8, MD5 0e3aee42a7736294d39d6a0926d69c22 = repository checksum, 25 pages)"
+        ],
+        "licence_name": "CGSpace dcterms.license 'Other'; the PDF has no rights notice; cgiar.org Terms of Use (effective 22 May 2018) for System Organization Materials",
+        "licence_terms_url": "https://www.cgiar.org/legal",
+        "licence_quote": "You may download, copy, reproduce, republish, modify, post, broadcast, transmit, distribute, make available to the public, or otherwise use System Organization Materials in any way, provided that (i) you attribute the work and any identified source, (ii) your use is for non-commercial, research, educational, or personal purposes, and (iii) you, in turn, license such Materials under the same conditions.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "noncommercial (with a share-alike obligation; arguably share-alike class)",
+        "what_it_measures": "CGIAR system revenue (recognised, not cash), expenditure, Trust Fund windows, bilateral funding, staff",
+        "years": "2023 with 2022 comparison",
+        "granularity": "System and centre",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "$870 million (2023), up 13% from $771 million in 2022",
+            "what": "CGIAR aggregated revenue",
+            "read_from": "financial_highlights_2023.pdf sha256 1d15fb1b…57dd8, PDF p.4 and p.8"
+          },
+          {
+            "value": "$510 million (59%)",
+            "what": "CGIAR Trust Fund contribution to revenue (Window 1 $302 million, Window 3 $208 million)",
+            "read_from": "same file, PDF p.9"
+          },
+          {
+            "value": "$320 million (37%)",
+            "what": "Bilateral project grants",
+            "read_from": "same file, PDF p.9"
+          },
+          {
+            "value": "$859 million",
+            "what": "2023 expenditure",
+            "read_from": "same file, PDF p.8"
+          }
+        ],
+        "caveats": "The share-alike clause (iii) means any re-use must carry the same terms. It is unclear whether cgiar.org's terms govern a file hosted on CGSpace, whose licence field is only 'Other'. A CGSpace search on 2026-10-08 found no consolidated report for 2024 or 2025. The CGIAR Financial Report Dashboards are Tableau embeds (tableau-core.cgiar.org) with no download or licence of their own. The ASTI 'CGIAR data tool' says 'The underlying data will be available for download in the future.'",
+        "recommendation": "Quote the 2023 revenue with its page, as noncommercial. Ask CGIAR whether a 2024/2025 consolidated report exists and confirm the terms for the CGSpace copy."
+      },
+      {
+        "item": 6,
+        "name": "CGIAR System Organization Audited Financial Statements for the year ended 31 December 2025",
+        "producer": "CGIAR System Organization",
+        "landing_url": "https://hdl.handle.net/10568/183429 (CGSpace item c7c686a9-0474-46e7-a9fc-3a0716c036a8)",
+        "file_urls": [
+          "https://cgspace.cgiar.org/server/api/core/bitstreams/42c2050e-80b5-4003-ab7d-a1eeef818ed1/content (1,016,215 bytes, sha256 18801517004093680ecf87e9cab77fdeb20b532439c0fb95e7e49133129159ba, MD5 fcd4d470df19a48bab329cf8c42f3fc5 = repository checksum, 40 pages)"
+        ],
+        "licence_name": "CC BY 4.0 (CGSpace record metadata, dcterms.license 'CC-BY-4.0'; no notice inside the PDF)",
+        "licence_terms_url": "https://cgspace.cgiar.org/server/api/core/items/c7c686a9-0474-46e7-a9fc-3a0716c036a8",
+        "licence_quote": "dcterms.license: CC-BY-4.0; dcterms.accessRights: Open Access",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open (repository field only; conflicts with the cgiar.org NC/SA terms)",
+        "what_it_measures": "Trust Fund Window 1 and Window 2 transfers to each CGIAR centre; the System Organization's own revenue",
+        "years": "2025 and 2024",
+        "granularity": "Per centre (13 centres)",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "$228.46 million (2025: Window 1 $133.87 million + Window 2 $94.59 million); $245.72 million (2024)",
+            "what": "Window 1 and 2 transfers to CGIAR centres",
+            "read_from": "so2025.pdf sha256 18801517…129159ba, PDF p.39 (printed 'Page 38 of 39'), Schedule IV"
+          },
+          {
+            "value": "$51,534 thousand (2025); $57,493 thousand (2024)",
+            "what": "System Organization total revenue and gains",
+            "read_from": "same file, PDF p.11, Statement of Activities"
+          }
+        ],
+        "caveats": "Not total CGIAR funding: bilateral grants and Window 3 money are booked in each centre's statements, not here. The licence comes from repository metadata, not the document itself.",
+        "recommendation": "Usable only for a 'pooled Trust Fund money passed to centres' series. Total-funding questions need the consolidated report."
+      },
+      {
+        "item": 6,
+        "name": "ASTI (IFPRI Agricultural Science and Technology Indicators) public agricultural R&D spending",
+        "producer": "IFPRI / ASTI",
+        "landing_url": "https://www.asti.cgiar.org/data",
+        "file_urls": [
+          "https://www.asti.cgiar.org/data (HTTP 200; downloads generated client-side by the tool)",
+          "https://doi.org/10.7910/DVN/LLVX1G (ASTI global assessment, CC0 1.0, 2012 data, zero files)",
+          "https://doi.org/10.7910/DVN/Y7HUZI (ASTI Zambia database, 2023, CC BY 4.0)"
+        ],
+        "licence_name": "Website: none visible ('©ASTI 2023'; disclaimer text loads by script). Dataverse: CC0 (global assessment, no files) and CC BY 4.0 (Zambia 2023)",
+        "licence_terms_url": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/Y7HUZI",
+        "licence_quote": "IFPRI DATAVERSE TERMS OF USE — By using this website and any of the materials made available through it, you agree to abide by the Terms of Use of IFPRI Dataverse. The datasets and documents in this study are licensed under [CC BY 4.0] (Y7HUZI termsOfUse)",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded for now (website data terms unverified); Dataverse country files open but stale",
+        "what_it_measures": "Public agricultural R&D spending and researcher numbers by country",
+        "years": "Website: to recent years (not checked); Dataverse: mostly 2015-2018 releases",
+        "granularity": "Country (low and middle income)",
+        "iea_derived": false,
+        "headline_checks": [],
+        "caveats": "ASTI /terms and /about/terms-of-use return 404. The FAQ, data and CGIAR-data pages show no licence. Of the 57 ASTI datasets on Dataverse, the newest is 2023 (Zambia), and the global assessment record has no files.",
+        "recommendation": "Ask IFPRI/ASTI for the licence of the website download tool before registering. No value read."
+      },
+      {
+        "item": 6,
+        "name": "Hultgren et al. (2025) Impacts of climate change on global agriculture accounting for adaptation. Nature 642:644-652",
+        "producer": "Climate Impact Lab (Hultgren, Carleton, Delgado et al.); Springer Nature",
+        "landing_url": "https://doi.org/10.1038/s41586-025-09085-w",
+        "file_urls": [
+          "https://www.nature.com/articles/s41586-025-09085-w (HTTP 200; HTML sha256 a58514d975ade89202731d0ee07530c3a02b5e10cce035210f0435a495c277b0)",
+          "https://zenodo.org/records/14511340 (CC BY 4.0; one file, Zenodo_readme.txt, 258 bytes)",
+          "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package (no licence; head 3ccdffcd4e4ff6e55566ce76e2aac130ee86349a, 2025-07-09)",
+          "https://uchicago.box.com/s/a1ni7tthdtw5qqss5iifpe1mc7otqmte (impact data, per the GitLab README; not fetched)"
+        ],
+        "licence_name": "Article: CC BY-NC-ND 4.0. Zenodo record: CC BY 4.0 (readme only). GitLab code and Box data: no licence",
+        "licence_terms_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "licence_quote": "Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "no-derivatives (article); data excluded (no licence on the files that hold the data)",
+        "what_it_measures": "Global crop calorie loss per °C of warming, including adaptation and income growth",
+        "years": "Historical panel; projections to 2050 and 2100",
+        "granularity": "12,658 regions, six staple crops",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "5.5 × 10^14 kcal per year per 1 °C GMST rise; 120 kcal per person per day; 4.4% of recommended consumption per 1 °C",
+            "what": "Global production decline",
+            "read_from": "nature.com article HTML (sha256 a58514d9…c277b0), Abstract"
+          },
+          {
+            "value": "23% of global losses in 2050 and 34% at end of century",
+            "what": "Alleviated by adaptation and income growth (moderate-emissions scenario)",
+            "read_from": "same, Abstract"
+          }
+        ],
+        "caveats": "The CC BY 4.0 on Zenodo does not cover the data, which is only on a UChicago Box link with no licence. docs/research/sources-impacts.json lists the replication record as CC BY 4.0 and should be corrected to say it holds only a readme.",
+        "recommendation": "Quote the per-degree loss with attribution, unchanged. Do not ingest the data unless the authors attach a licence."
+      },
+      {
+        "item": 6,
+        "name": "Ortiz-Bobea et al. (2021) Anthropogenic climate change has slowed global agricultural productivity growth. Nature Climate Change 11:306-312",
+        "producer": "Ortiz-Bobea, Ault, Carrillo, Chambers, Lobell; Springer Nature",
+        "landing_url": "https://doi.org/10.1038/s41558-021-01000-1",
+        "file_urls": [
+          "https://www.nature.com/articles/s41558-021-01000-1 (HTTP 200, subscription; HTML sha256 7b1b7e251b1f02b62873ee7034b39c33ea447b3abb14128ce2c0fca8861ba02f)",
+          "https://doi.org/10.6077/pfsd-0v93 (Cornell CCSS/CISER deposit, version 3.0)"
+        ],
+        "licence_name": "Article: subscription (Crossref springer.com/tdm only). Data: 'Custom terms specific to this dataset' (DataCite)",
+        "licence_terms_url": "https://data.socialsciences.cornell.edu/api/datasets/:persistentId/versions/3.0/customlicense?persistentId=doi:10.6077/PFSD-0V93 (HTTP 405 with an AWS WAF CAPTCHA page; not bypassed)",
+        "licence_quote": "Not readable. DataCite rights: 'Custom terms specific to this dataset'.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only (article); data unverified",
+        "what_it_measures": "Effect of anthropogenic climate change on global agricultural total factor productivity since 1961",
+        "years": "1961-2015 (approximately)",
+        "granularity": "Global and regional",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "about 21% since 1961 (about 26–34% in warmer regions such as Africa and Latin America and the Caribbean)",
+            "what": "Reduction in global agricultural TFP from anthropogenic climate change; 'equivalent to losing the last 7 years of productivity growth'",
+            "read_from": "nature.com article HTML (sha256 7b1b7e25…ba02f), Abstract"
+          }
+        ],
+        "caveats": "The data terms page is behind a CAPTCHA, so it needs a person to read it.",
+        "recommendation": "Quote the 21% only. A person should read the CISER custom terms before any data use."
+      },
+      {
+        "item": 6,
+        "name": "Lobell, Schlenker & Costa-Roberts (2011) Climate trends and global crop production since 1980. Science 333:616-620",
+        "producer": "AAAS / Science",
+        "landing_url": "https://doi.org/10.1126/science.1204531",
+        "file_urls": [
+          "https://www.science.org/doi/10.1126/science.1204531 (HTTP 403)"
+        ],
+        "licence_name": "None (subscription; Crossref lists no licence; not open access per Europe PMC)",
+        "licence_terms_url": "https://www.science.org/doi/10.1126/science.1204531",
+        "licence_quote": "No licence statement available (403); Crossref license field empty.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only",
+        "what_it_measures": "Global maize, wheat, rice and soybean production change from 1980-2008 climate trends",
+        "years": "1980-2008",
+        "granularity": "Global, by crop and country",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "maize −3.8%, wheat −5.5% (soybeans and rice roughly balanced)",
+            "what": "Global production change relative to a no-climate-trend counterfactual",
+            "read_from": "PubMed abstract PMID 21551030 via Europe PMC REST API (https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1126/science.1204531)"
+          }
+        ],
+        "caveats": "Old and superseded by Ortiz-Bobea and Hultgren. The value was read from the abstract, not the publisher page.",
+        "recommendation": "Skip, or quote only."
+      },
+      {
+        "item": 6,
+        "name": "Iizumi et al. (2018) Crop production losses associated with anthropogenic climate change for 1981–2010 compared with preindustrial levels. International Journal of Climatology 38:5405-5417",
+        "producer": "NARO (Japan) authors; Wiley / Royal Meteorological Society",
+        "landing_url": "https://doi.org/10.1002/joc.5818",
+        "file_urls": [
+          "https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/joc.5818 (HTTP 403)",
+          "https://rmets.onlinelibrary.wiley.com/doi/pdf/10.1002/joc.5818 (HTTP 403)"
+        ],
+        "licence_name": "CC BY-NC 4.0 (Crossref pointer only, vor); OpenAlex lists cc-by-nc-nd for the NARO repository copy",
+        "licence_terms_url": "http://creativecommons.org/licenses/by-nc/4.0/",
+        "licence_quote": "Not read from the producer (Wiley 403; the Internet Archive lookup service was offline when I tried).",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "unverified (likely noncommercial)",
+        "what_it_measures": "Production losses of maize, soybean, rice and wheat from anthropogenic climate change, 1981-2010",
+        "years": "1981-2010",
+        "granularity": "Global, by crop",
+        "iea_derived": false,
+        "headline_checks": [],
+        "caveats": "Licence and values not verified.",
+        "recommendation": "Needs a manual read of the Wiley article page and PDF imprint before use."
+      }
+    ],
+    "7. Systems Change Lab and the upstream sources it names": [
+      {
+        "item": 7,
+        "name": "Systems Change Lab 'Download all available data' export (registered: systems-change-lab)",
+        "producer": "Systems Change Lab (World Resources Institute and Bezos Earth Fund)",
+        "landing_url": "https://systemschangelab.org/download",
+        "file_urls": [
+          "https://systemschangelab.org/scl-download/all"
+        ],
+        "licence_name": "CC BY 4.0 for SCL's own data; third-party data under their own terms; IEA data under IEA terms",
+        "licence_terms_url": "https://systemschangelab.org/licensing",
+        "licence_quote": "Data, maps and visualizations on the Systems Change Lab website are under a Creative Commons Attribution 4.0 International (CC BY 4.0) license, which allows for any commercial or non-commercial use as long as you cite Systems Change Lab.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open (per indicator, only after each upstream provider's licence is read; IEA-naming indicators excluded)",
+        "what_it_measures": "438 indicators (196 outcome indicators with an SCL status), yearly values for WLD and up to ~560 geographies, with 2030/2035/2040/2050 benchmark_low/mid/high where SCL sets targets.",
+        "years": "varies by indicator, 1956-2050 (benchmarks)",
+        "granularity": "world, countries, some regions; some indicators split by 'disagg'",
+        "iea_derived": "45 of 438 metadata files name the IEA (same count as on 2026-10-04); the existing transform's regex (IEA|International Energy Agency|iea.org) catches them",
+        "headline_checks": [
+          {
+            "value": "41%",
+            "what": "PWR-18 zero-carbon sources in electricity generation, WLD 2024 (Total); 2030 trajectory benchmarks 50.0/51.0/52.2 for 2025",
+            "read_from": "PWR-18/PWR-18.csv in the export, sha256 c954af97..."
+          },
+          {
+            "value": "2.0 MtCO2/yr (2025); DACCS 0.0015, BECCS 0.51, biochar 1.5",
+            "what": "CR-1 technological carbon removal, WLD; benchmark 2030 30/360/690 Mt",
+            "read_from": "CR-1/CR-1.csv, same zip"
+          },
+          {
+            "value": "1920 kgCO2/t crude steel (2023)",
+            "what": "X-IN-34 carbon intensity of steel, WLD; 2050 benchmark 0/65/130",
+            "read_from": "X-IN-34/X-IN-34.csv, same zip"
+          },
+          {
+            "value": "105 kcal/capita/day (2023)",
+            "what": "XP-FA-51 ruminant meat availability in high-consuming regions",
+            "read_from": "XP-FA-51/XP-FA-51.csv, same zip"
+          },
+          {
+            "value": "45 of 438",
+            "what": "indicator metadata files naming the IEA",
+            "read_from": "*_metadata.csv in the same zip"
+          }
+        ],
+        "caveats": [
+          "Every download is byte-different (timestamped metadata), so sha256 change is not a data change.",
+          "No heat-pump indicator and no 'electricity share of final energy' indicator exist in the export.",
+          "SCL licensing page: 'You must not imply that Systems Change Lab, World Resources Institute, Bezos Earth Fund or any other partner organizations endorse your use of the data.'",
+          "Several non-IEA indicators rest on sources whose terms forbid reuse (CDR.fyi, CPI, worldsteel subscription data) or are unread; SCL's CC BY does not lift those."
+        ],
+        "recommendation": "Use SCL for the levers where the upstream is open and SCL adds something (its benchmarks, or a calculation from open FAOSTAT data): PWR-18/11/12 benchmarks (values via Ember directly), CR-1 (State of CDR, open), FA-98/99/100/101, XP-FA-51, P-FA-8, P-FA-85. For industry, go to LeadIT directly. See scl_mapping."
+      },
+      {
+        "item": 7,
+        "name": "LeadIT Green Steel Tracker",
+        "producer": "Leadership Group for Industry Transition (LeadIT; secretariat at Stockholm Environment Institute)",
+        "landing_url": "https://www.industrytransition.org/green-steel-tracker/",
+        "file_urls": [
+          "'Download the dataset' link on the landing page (not fetched)"
+        ],
+        "licence_name": "CC BY (version not stated on the page)",
+        "licence_terms_url": "https://www.industrytransition.org/green-steel-tracker/",
+        "licence_quote": "The dataset might be used by others under a CC BY license . It should be cited as: LeadIT. (2026). Green Steel Tracker. Leadership Group for Industry Transition. https://www.industrytransition.org/green-steel-tracker/",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Announced and operating low-carbon steel projects (hydrogen DRI, CCUS, electrification), by country, status and start year.",
+        "years": "2010-2030 (announced start years)",
+        "granularity": "project, country",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "40 projects (2024, Total)",
+            "what": "IN-70 low-carbon steel projects to phase out blast-furnace production, as compiled by SCL from LeadIT",
+            "read_from": "IN-70/IN-70.csv in the SCL export sha256 c954af97... (not the LeadIT file itself)"
+          }
+        ],
+        "caveats": [
+          "'CC BY' with no version; ask LeadIT which version.",
+          "Dataset file itself not downloaded or inspected; check for third-party columns (e.g. GEM, company data) before registering.",
+          "Counts of projects are not capacity or emissions."
+        ],
+        "recommendation": "Best open source for Gates's 'making things' (green steel). Register LeadIT directly rather than through SCL; read the file and its readme first."
+      },
+      {
+        "item": 7,
+        "name": "LeadIT Green Cement Technology Tracker",
+        "producer": "Leadership Group for Industry Transition (LeadIT)",
+        "landing_url": "https://www.industrytransition.org/green-cement-technology-tracker/",
+        "file_urls": [
+          "'Download the Dataset' link on the landing page (not fetched)"
+        ],
+        "licence_name": "CC BY (version not stated)",
+        "licence_terms_url": "https://www.industrytransition.org/green-cement-technology-tracker/",
+        "licence_quote": "The dataset might be used by others under a CC BY license . It should be cited as: Lorea, C; Sanchez, F; Torres-Morales, E. 2025. Green Cement Technology Tracker, Version May 2025 (05/2025) , Stockholm, Dataset, https://www.industrytransition.org/green-cement-technology-tracker",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "open",
+        "what_it_measures": "Low-carbon cement projects, including carbon capture units at cement kilns and calcined-clay kilns.",
+        "years": "2015-2024+",
+        "granularity": "project, country",
+        "iea_derived": false,
+        "headline_checks": [
+          {
+            "value": "70 projects (2024, Total)",
+            "what": "IN-63 low-carbon cement projects announced, as compiled by SCL",
+            "read_from": "IN-63/IN-63.csv in the SCL export sha256 c954af97..."
+          }
+        ],
+        "caveats": [
+          "Redirects to /trackers/green-cement-technology-tracker/.",
+          "CC BY version unstated; file not yet inspected."
+        ],
+        "recommendation": "Register with the steel tracker as one LeadIT source; it also gives Gates's 'capture' lever a cement-specific count."
+      },
+      {
+        "item": 7,
+        "name": "World Steel Association figures (behind SCL X-IN-34, IN-35, IN-36, IN-1)",
+        "producer": "World Steel Association",
+        "landing_url": "https://worldsteel.org/data/about-our-data/",
+        "file_urls": [],
+        "licence_name": "Copyright; quotation with acknowledgement",
+        "licence_terms_url": "https://worldsteel.org/data/about-our-data/",
+        "licence_quote": "Information on this site may be quoted as long as the source of the information is acknowledged at each instance of use.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only",
+        "what_it_measures": "Crude steel production, apparent steel use, CO2 intensity of steel.",
+        "years": "2007-2024",
+        "granularity": "world, some countries",
+        "iea_derived": false,
+        "headline_checks": [],
+        "caveats": [
+          "The same page says subscription data 'can be used internally but cannot be shared with a third party'."
+        ],
+        "recommendation": "Quote only; never put worldsteel values into data/ through SCL."
+      },
+      {
+        "item": 7,
+        "name": "Global Cement and Concrete Association GNR 2.0 (behind SCL IN-23, IN-27)",
+        "producer": "GCCA",
+        "landing_url": "https://gccassociation.org/gnr/",
+        "file_urls": [],
+        "licence_name": "none found",
+        "licence_terms_url": "https://gccassociation.org/gnr/",
+        "licence_quote": "",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "display-only (no licence found)",
+        "what_it_measures": "Clinker-to-cement ratio, alternative fuel share in cement kilns.",
+        "years": "1990-2022",
+        "granularity": "world",
+        "iea_derived": false,
+        "headline_checks": [],
+        "caveats": [
+          "The URL SCL cites returns 404; /gnr/ is 200 with no licence text; /terms-and-conditions/ 404."
+        ],
+        "recommendation": "Not usable until GCCA terms are found."
+      },
+      {
+        "item": 7,
+        "name": "Climate Policy Initiative, Global Landscape of Climate Finance (behind SCL X-FIN-9, FA-31)",
+        "producer": "Climate Policy Initiative",
+        "landing_url": "https://www.climatepolicyinitiative.org/",
+        "file_urls": [],
+        "licence_name": "CPI terms of use (all rights reserved)",
+        "licence_terms_url": "https://www.climatepolicyinitiative.org/terms-of-use/",
+        "licence_quote": "You may not modify, copy, distribute, display, send, perform, reproduce, publish, license, create derivative works from, transfer, sell or otherwise infringe on any intellectual property rights related to any information, content, software, products or services obtained from or otherwise connected to the Sites.",
+        "fetched_on": "2026-10-08",
+        "proposed_licence_class": "excluded",
+        "what_it_measures": "Climate finance flows.",
+        "years": "2011-2023",
+        "granularity": "world",
+        "iea_derived": false,
+        "headline_checks": [],
+        "caveats": [],
+        "recommendation": "Exclude; record under Rejected."
+      }
+    ]
+  },
+  "scl_mapping": {
+    "export": {
+      "url": "https://systemschangelab.org/scl-download/all",
+      "http": 200,
+      "bytes": 2924326,
+      "sha256": "c954af97e906e0d74ac6ff298297a421046cae7e280824451fa1cf23cfff0182",
+      "fetched_on": "2026-10-08",
+      "indicators": 438,
+      "outcome_indicators": 196,
+      "metadata_files_naming_iea": 45
+    },
+    "method": "Each indicator's <code>_metadata.csv 'Data source(s)' table was read; 'names_iea' uses the same regex as pipeline/src/envdash/transforms/action/systems_change_lab.py (\\bIEA\\b|International Energy Agency|iea\\.org). world_latest_in_export is the latest WLD value with disagg Total or none. Verdicts record the upstream provider's licence where it was read on 2026-10-08; 'unread' means not yet checked and therefore not usable under the registry rule.",
+    "not_in_export": [
+      "heat pumps (sales or stock)",
+      "electricity share of final energy consumption",
+      "share of low-carbon (green) steel or cement in production",
+      "operating CCS capacity (only carbon removal is tracked)",
+      "public energy RD&D other than the IEA-based X-FIN-15"
+    ],
+    "by_lever": {
+      "Ch.4 Plugging in (electricity)": [
+        {
+          "code": "PWR-18",
+          "title": "Zero-carbon sources in electricity generation",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Yearly Electricity Data; Ember; https://ember-energy.org/data/yearly-electricity-data/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "41",
+            "unit": "%"
+          },
+          "n_geographies": 201,
+          "verdict": "Ember Yearly Electricity Data, CC BY 4.0, already registered (ember-yearly) and already published directly as electricity.ember.clean-share-*. Use Ember directly; SCL adds only its own 2030/2050 benchmarks (SCL CC BY 4.0)."
+        },
+        {
+          "code": "PWR-11",
+          "title": "Coal in electricity generation",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Yearly Electricity Data; Ember; https://ember-energy.org/data/yearly-electricity-data/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "34",
+            "unit": "%"
+          },
+          "n_geographies": 213,
+          "verdict": "Ember, CC BY 4.0 (registered). Already on site via electricity.ember.mix-*; SCL benchmarks are the only addition."
+        },
+        {
+          "code": "PWR-12",
+          "title": "Unabated fossil gas in electricity generation",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Yearly Electricity Data; Ember; https://ember-energy.org/data/yearly-electricity-data/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "22",
+            "unit": "%"
+          },
+          "n_geographies": 212,
+          "verdict": "Ember, CC BY 4.0 (registered). As PWR-11."
+        },
+        {
+          "code": "PWR-19",
+          "title": "Renewables in electricity capacity",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Right Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "Renewable Capacity Statistics 2023; IRENA; https://www.irena.org/Publications/2023/Mar/Renewable-capacity-statistics-2023"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "40.2",
+            "unit": "%"
+          },
+          "n_geographies": 215,
+          "verdict": "IRENA Renewable Capacity Statistics 2023 (registered irena-capacity-2026 uses the 2026 PDF; site already has capacity.irena.renewable-share-world). SCL copy is older (to 2022)."
+        },
+        {
+          "code": "PWR-20",
+          "title": "Capacity additions of renewable energy",
+          "units": "GW",
+          "indicator_type": "Outcome",
+          "scl_status": "Right Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "What are the latest trends in renewable energy?; IRENA; https://www.irena.org/Statistics/View-Data-by-Topic/Capacity-and-Generation/Statistics-Time-Series"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "291.8",
+            "unit": "GW"
+          },
+          "n_geographies": 1,
+          "verdict": "IRENA statistics time series page; the IRENASTAT tables are deferred in docs/sources.md (conflicting copyright). Use registered IRENA PDF instead."
+        },
+        {
+          "code": "PWR-7",
+          "title": "Transmission grid capacity",
+          "units": "million km",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Global Electricity Transmission Report and Database; Global Transmissions; https://globaltransmission.info/global-electricity-transmission-report-and-database-2022-31/",
+            "Global Electricity DSO Profiles Report; Global Transmissions; https://globaltransmission.info/3rd-edition-of-the-global-electricity-dso-profiles-report/"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "4.8",
+            "unit": "million km"
+          },
+          "n_geographies": 1,
+          "verdict": "Global Transmissions (commercial report and database); licence not checked; likely paid. Not usable until terms read."
+        },
+        {
+          "code": "PWR-8",
+          "title": "Distribution grid capacity",
+          "units": "million km",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Global Electricity Transmission Report and Database; Global Transmissions; https://globaltransmission.info/global-electricity-transmission-report-and-database-2022-31/",
+            "Global Electricity DSO Profiles Report; Global Transmissions; https://globaltransmission.info/3rd-edition-of-the-global-electricity-dso-profiles-report/"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "41",
+            "unit": "million km"
+          },
+          "n_geographies": 1,
+          "verdict": "Global Transmissions; as PWR-7."
+        },
+        {
+          "code": "PWR-10",
+          "title": "Cost of energy storage technologies",
+          "units": "$/kWh",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Monetizing Energy Storage - A toolkit to assess future cost and value; O. Schmidt and I. Staffell; https://global.oup.com/academic/product/monetizing-energy-storage-9780192888174?cc=gb&lang=en"
+          ],
+          "world_latest_in_export": null,
+          "n_geographies": 1,
+          "verdict": "Schmidt and Staffell, Monetizing Energy Storage (OUP book); copyrighted book data. Not usable."
+        },
+        {
+          "code": "PWR-48",
+          "title": "Countries with strong electrification plans",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Regulatory Indicators for Sustainable Energy - Electrification Planning; RISE; https://rise.esmap.org/"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "111",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 139,
+          "verdict": "World Bank ESMAP RISE; rise.esmap.org returned HTTP 403 to scripts on 2026-10-08; licence unread. Manual check."
+        },
+        {
+          "code": "PWR-24",
+          "title": "Countries with renewable energy targets",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "NDCs and Renewable Energy Targets In 2021; IRENA; https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2022/Jan/IRENA_NDCs_RE_Targets_2022.pdf",
+            "Renewable energy targets in 2022: A guide to design; IRENA; https://www.irena.org/Publications/2022/Nov/Renewable-energy-targets-in-2022",
+            "NDCs and Renewable Energy Targets In 2023; IRENA; https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2024/Jan/IRENA_NDCs_renewable_energy_targets_2023.pdf"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "113",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 1,
+          "verdict": "IRENA NDC and RE-targets PDFs; IRENA publication notice (as for irena-capacity-2026) would need checking per PDF."
+        }
+      ],
+      "Ch.5 Making things (steel, cement, hydrogen)": [
+        {
+          "code": "X-IN-34",
+          "title": "Carbon intensity of steel production",
+          "units": "kgCO₂/t crude steel",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "Sustainability Indicators 2024 Report; World Steel Association; https://worldsteel.org/wp-content/uploads/Sustainability-Indicators-report-2024.pdf"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "1920",
+            "unit": "kgCO₂/t crude steel"
+          },
+          "n_geographies": 1,
+          "verdict": "worldsteel Sustainability Indicators 2024 report. worldsteel about-our-data page: 'Information on this site may be quoted as long as the source of the information is acknowledged' and subscription data 'cannot be shared with a third party' -> display-only at best (quote the published world figure)."
+        },
+        {
+          "code": "IN-35",
+          "title": "CO2 emissions from steel production",
+          "units": "MtCO₂",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "Environmental sustainability indicators; World Steel Association; https://worldsteel.org/steel-topics/sustainability/sustainability-indicators/",
+            "World Steel in Figures 2023; World Steel Association; https://worldsteel.org/steel-topics/statistics/world-steel-in-figures-2023/"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "3747",
+            "unit": "MtCO₂"
+          },
+          "n_geographies": 1,
+          "verdict": "worldsteel; display-only as X-IN-34."
+        },
+        {
+          "code": "IN-36",
+          "title": "Production of steel",
+          "units": "tonnes",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "World Steel in Figures 2025; World Steel Association; https://worldsteel.org/data/world-steel-in-figures/world-steel-in-figures-2025/#world-crude-steel-production-1950-to-2024",
+            "World Steel in Figures 2024; World Steel Association; https://worldsteel.org/data/world-steel-in-figures/world-steel-in-figures-2024/",
+            "World Steel in Figures 2023; World Steel Association; https://worldsteel.org/steel-topics/statistics/world-steel-in-figures-2023/",
+            "World Steel in Figures 2022; World Steel Association; https://worldsteel.org/steel-topics/statistics/world-steel-in-figures-2022/",
+            "World Steel in Figures 2021; World Steel Association; https://worldsteel.org/data/world-steel-in-figures/world-steel-in-figures-2021/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "1885",
+            "unit": "tonnes"
+          },
+          "n_geographies": 43,
+          "verdict": "worldsteel World Steel in Figures; display-only as X-IN-34."
+        },
+        {
+          "code": "IN-1",
+          "title": "Apparent steel use",
+          "units": "Mt",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "World Steel in Figures 2022; World Steel Association; https://worldsteel.org/steel-topics/statistics/world-steel-in-figures-2022/",
+            "World Steel in Figures 2023; World Steel Association; https://worldsteel.org/steel-topics/statistics/world-steel-in-figures-2023/"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "1768",
+            "unit": "Mt"
+          },
+          "n_geographies": 31,
+          "verdict": "worldsteel; display-only."
+        },
+        {
+          "code": "IN-21",
+          "title": "CO2 emissions from cement production",
+          "units": "MtCO₂",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "A comprehensive and synthetic dataset for global, regional and national greenhouse gas emissions by sector 1970-2018 with an extension to 2019; Minx et al.; https://zenodo.org/record/5566761#.YvZxyvjMI2y"
+          ],
+          "world_latest_in_export": {
+            "year": 2020,
+            "value": "1590",
+            "unit": "MtCO₂"
+          },
+          "n_geographies": 164,
+          "verdict": "Minx et al. 2021 Zenodo 5566761 (CC BY 4.0 label) but built from EDGAR fossil CO2, which this registry treats as IEA-derived (no-derivatives, see edgar-2026-ghg). Treat as no-derivatives; prefer GCP 'cement' column from gcp-fossil-co2-2025 (already registered, open)."
+        },
+        {
+          "code": "IN-23",
+          "title": "Clinker-to-cement ratio",
+          "units": "%",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "% Clinker in Cement (Clinker/Cementitious Ratio); GCCA; https://gccassociation.org/sustainability-innovation/gnr-gcca-in-numbers/"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "76",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "GCCA GNR 2.0 'GCCA in Numbers'; GNR page gives no licence (gccassociation.org/gnr/ 200, no licence text; old link 404). Display-only until terms are found."
+        },
+        {
+          "code": "IN-27",
+          "title": "Alternative fuels for thermal energy in cement production",
+          "units": "%",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "GNR 2.0 – GCCA in Numbers; Global Cement and Concrete Association; https://gccassociation.org/sustainability-innovation/gnr-gcca-in-numbers/"
+          ],
+          "world_latest_in_export": {
+            "year": 2019,
+            "value": "19.1",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "GCCA GNR; as IN-23."
+        },
+        {
+          "code": "IN-63",
+          "title": "Low-carbon cement projects that have been announced",
+          "units": "Number of projects",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Green Cement Technology Tracker; Leadership Group for Industry Transition (LeadIT); https://www.industrytransition.org/green-cement-technology-tracker/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "70",
+            "unit": "Number of projects"
+          },
+          "n_geographies": 1,
+          "verdict": "LeadIT Green Cement Technology Tracker: page says 'The dataset might be used by others under a CC BY license' (fetched 2026-10-08). Open; register LeadIT directly (count of announced low-carbon cement projects, incl. carbon capture units)."
+        },
+        {
+          "code": "IN-24",
+          "title": "Low-carbon cement projects planned to become operational",
+          "units": "",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Green Cement Technology Tracker; Leadership Group for Industry Transition (LeadIT); https://www.industrytransition.org/green-cement-technology-tracker/"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "8",
+            "unit": ""
+          },
+          "n_geographies": 1,
+          "verdict": "LeadIT Green Cement Technology Tracker, CC BY (as IN-63)."
+        },
+        {
+          "code": "IN-70",
+          "title": "Low-carbon steel projects to phase out blast-furnace production",
+          "units": "Number of projects",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Green Steel Tracker; Leadership Group for Industry Transition (LeadIT); https://www.industrytransition.org/green-steel-tracker/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "40",
+            "unit": "Number of projects"
+          },
+          "n_geographies": 1,
+          "verdict": "LeadIT Green Steel Tracker: 'The dataset might be used by others under a CC BY license' (fetched 2026-10-08). Open; register LeadIT directly."
+        },
+        {
+          "code": "IN-42",
+          "title": "Low-carbon steel projects planned to become operational",
+          "units": "Number of projects",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Green Steel Tracker; Leadership Group for Industry Transition (LeadIT); https://www.industrytransition.org/green-steel-tracker/"
+          ],
+          "world_latest_in_export": {
+            "year": 2030,
+            "value": "54",
+            "unit": "Number of projects"
+          },
+          "n_geographies": 1,
+          "verdict": "LeadIT Green Steel Tracker, CC BY."
+        },
+        {
+          "code": "IN-43",
+          "title": "Steel companies committing to zero-emission steel",
+          "units": "Number of companies",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Green Steel Tracker; Leadership Group for Industry Transition (LeadIT); https://www.industrytransition.org/green-steel-tracker/"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "28",
+            "unit": "Number of companies"
+          },
+          "n_geographies": 1,
+          "verdict": "LeadIT Green Steel Tracker, CC BY."
+        },
+        {
+          "code": "IN-38",
+          "title": "Cost of producing decarbonized steel",
+          "units": "USD/t crude steel",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Steel Net Zero Explorer; Mission Possible Partnership; https://dash-mpp.plotly.host/mpp-steel-net-zero-explorer/"
+          ],
+          "world_latest_in_export": null,
+          "n_geographies": 1,
+          "verdict": "Mission Possible Partnership Steel Net Zero Explorer; licence not checked; scenario cost model, not an observation. Not recommended."
+        }
+      ],
+      "Ch.6 Growing things (food and farming)": [
+        {
+          "code": "XP-FA-51",
+          "title": "Ruminant meat consumption in high-consuming regions, as measured by ruminant meat availability in regions consuming over 60 kcal/cap/day in 2017",
+          "units": "kcal/capita/day",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "Food Balances (2010-); FAOSTAT; https://www.fao.org/faostat/en/#data/FBS",
+            "Food Balances (-2013, old methodology and population); FAOSTAT; https://www.fao.org/faostat/en/#data/FBSH"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "105",
+            "unit": "kcal/capita/day"
+          },
+          "n_geographies": 12,
+          "verdict": "FAOSTAT Food Balances (FBS/FBSH), CC BY 4.0 (faostat registered open). SCL's regional aggregation and benchmarks are SCL's own (CC BY 4.0). Usable via SCL; or rebuild from FAOSTAT FBS in the pipeline."
+        },
+        {
+          "code": "P-FA-8",
+          "title": "Ruminant meat productivity",
+          "units": "kg of meat produced/ha",
+          "indicator_type": "Outcome",
+          "scl_status": "Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Crops and livestock products; FAOSTAT; https://www.fao.org/faostat/en/#data/QCL",
+            "Land Use; FAOSTAT; https://www.fao.org/faostat/en/#data/RL"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "31",
+            "unit": "kg of meat produced/ha"
+          },
+          "n_geographies": 211,
+          "verdict": "FAOSTAT QCL and RL, CC BY 4.0. Usable."
+        },
+        {
+          "code": "FA-98",
+          "title": "Enteric fermentation emissions intensity",
+          "units": "gCO₂e/1,000 kcal",
+          "indicator_type": "Outcome",
+          "scl_status": "Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Emissions totals; FAOSTAT; https://www.fao.org/faostat/en/#data/GT",
+            "Food Balances (2010-); FAOSTAT; https://www.fao.org/faostat/en/#data/FBS"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "3045",
+            "unit": "gCO₂e/1,000 kcal"
+          },
+          "n_geographies": 188,
+          "verdict": "FAOSTAT GT and FBS. GT enteric fermentation is an agrifood item (open in this registry). Usable (SCL's intensity calculation, CC BY 4.0)."
+        },
+        {
+          "code": "FA-99",
+          "title": "Rice cultivation emissions intensity",
+          "units": "gCO₂e/1,000 kcal",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Emissions totals; FAOSTAT; https://www.fao.org/faostat/en/#data/GT",
+            "Food Balances (2010-); FAOSTAT; https://www.fao.org/faostat/en/#data/FBS"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "370",
+            "unit": "gCO₂e/1,000 kcal"
+          },
+          "n_geographies": 122,
+          "verdict": "FAOSTAT GT and FBS; rice cultivation is an agrifood item (open). Usable."
+        },
+        {
+          "code": "FA-100",
+          "title": "Emissions intensity from synthetic fertilizer, manure applied to soils, and crop residues",
+          "units": "gCO₂e/1,000 kcal",
+          "indicator_type": "Outcome",
+          "scl_status": "Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Emissions totals; FAOSTAT; https://www.fao.org/faostat/en/#data/GT",
+            "Food Balances (2010-); FAOSTAT; https://www.fao.org/faostat/en/#data/FBS"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "68",
+            "unit": "gCO₂e/1,000 kcal"
+          },
+          "n_geographies": 175,
+          "verdict": "FAOSTAT GT and FBS; agrifood items (open). Usable."
+        },
+        {
+          "code": "FA-101",
+          "title": "Emissions intensity from manure management and manure left on pasture",
+          "units": "gCO₂e/1,000 kcal",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Emissions totals; FAOSTAT; https://www.fao.org/faostat/en/#data/GT",
+            "Food Balances (2010-); FAOSTAT; https://www.fao.org/faostat/en/#data/FBS"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "670",
+            "unit": "gCO₂e/1,000 kcal"
+          },
+          "n_geographies": 172,
+          "verdict": "FAOSTAT GT and FBS; agrifood items (open). Usable."
+        },
+        {
+          "code": "X-FA-28",
+          "title": "Share of food production lost",
+          "units": "% of food produced",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Food Balances (2010-); FAOSTAT; https://www.fao.org/faostat/en/#data/FBS",
+            "Global Food Loss Index; FAOSTAT; https://www.fao.org/faostat/en/#data/SDGB"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "13.3",
+            "unit": "% of food produced"
+          },
+          "n_geographies": 201,
+          "verdict": "FAOSTAT FBS and SDG 12.3.1a, open. Site already publishes food-loss.faostat.sdg-12-3-1a."
+        },
+        {
+          "code": "FA-36",
+          "title": "Food waste",
+          "units": "kg/capita",
+          "indicator_type": "Outcome",
+          "scl_status": "Insufficient Data",
+          "names_iea": false,
+          "upstream_sources": [
+            "Food Waste Index Report 2021; UNEP; https://www.unep.org/resources/report/unep-food-waste-index-report-2021",
+            "Food Waste Index Report 2024; UNEP; https://www.unep.org/resources/publication/food-waste-index-report-2024"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "132",
+            "unit": "kg/capita"
+          },
+          "n_geographies": 1,
+          "verdict": "UNEP Food Waste Index Report 2021/2024; registered noncommercial (unep-food-waste-index-2024). Already on site."
+        },
+        {
+          "code": "P-FA-85",
+          "title": "Crop production per hectare of land harvested",
+          "units": "tonnes/ha",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Crops and livestock products; FAOSTAT; https://www.fao.org/faostat/en/#data/QCL"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "6.8",
+            "unit": "tonnes/ha"
+          },
+          "n_geographies": 200,
+          "verdict": "FAOSTAT QCL, open. Crop yield per hectare (Gates's 'more food per acre'). Usable."
+        },
+        {
+          "code": "FA-84",
+          "title": "Pastureland area, as measured by land area dedicated to permanent meadows and pastures",
+          "units": "ha",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Land Use; FAOSTAT; https://www.fao.org/faostat/en/#data/RL"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "3059",
+            "unit": "ha"
+          },
+          "n_geographies": 212,
+          "verdict": "FAOSTAT RL, open. Already on site via land-use.faostat.*."
+        },
+        {
+          "code": "FA-69",
+          "title": "Public investment in alternative proteins",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Public funding tracker; Good Food Institute; https://gfi.org/resource/alternative-proteins-state-of-global-policy/#tracker"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "565",
+            "unit": "USD"
+          },
+          "n_geographies": 29,
+          "verdict": "Good Food Institute public funding tracker; gfi.org/terms-of-use returned 404 on 2026-10-08; licence unread. Not usable until checked."
+        },
+        {
+          "code": "FA-70",
+          "title": "Meat alternatives in retail meat markets",
+          "units": "% of pre-packaged meat market sales",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "U.S. retail market insights for the plant-based industry; Good Food Institute; https://gfi.org/marketresearch/",
+            "Germany plant-based food retail market insights; Good Food Institute Europe; https://gfieurope.org/wp-content/uploads/2024/10/EN-Germany-plant-based-food-retail-market-insights-October-2024.pdf?_gl=1*ej0899*_up*MQ..*_ga*NzUxODQzMzAzLjE3NDU5MzU1NjA.*_ga_L41TG2128L*MTc0NTkzNTU1OC4xLjAuMTc0NTkzNTU1OC4wLjAuMA",
+            "Netherlands plant-based foods retail market insights; Good Food Institute Europe; https://gfieurope.org/wp-content/uploads/2024/10/EN-Netherlands-plant-based-foods-retail-market-insights-October-2024.pdf?_gl=1*ssmkx*_up*MQ..*_ga*NzUxODQzMzAzLjE3NDU5MzU1NjA.*_ga_L41TG2128L*MTc0NTkzNTU1OC4xLjAuMTc0NTkzNTU1OC4wLjAuMA..",
+            "Spain plant-based food retail market insights; Good Food Institute Europe; https://gfieurope.org/wp-content/uploads/2024/10/EN-Spain-plant-based-food-retail-market-insights-2021-PY-2024-October-2024.pdf?_gl=1*osr10p*_up*MQ..*_ga*NzUxODQzMzAzLjE3NDU5MzU1NjA.*_ga_L41TG2128L*MTc0NTkzNTU1OC4xLjAuMTc0NTkzNTU1OC4wLjAuMA.."
+          ],
+          "world_latest_in_export": null,
+          "n_geographies": 4,
+          "verdict": "GFI market insights; licence unread. Not usable yet."
+        },
+        {
+          "code": "FA-71",
+          "title": "Relative cost of meat alternatives to conventional meat products",
+          "units": "% difference in cost by weight",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "2023 outlook: The state of the plant-based meat category; Good Food Institute; https://gfi.org/blog/2023-outlook-the-state-of-the-plant-based-meat-category/",
+            "Reducing the price of alternative proteins; Good Food Institute; https://gfi.org/wp-content/uploads/2021/12/Reducing-the-price-of-alternative-proteins_GFI_2022.pdf",
+            "State of the Industry Report: Plant-based meat, seafood, eggs, and dairy; Good Food Institute; https://gfi.org/resource/plant-based-meat-eggs-and-dairy-state-of-the-industry-report/",
+            "2023 APAC State of the Industry Report; Good Food Institute | Asia Pacific; https://gfi-apac.org/2023-apac-state-of-the-industry-report/",
+            "State of the Industry Report: Plant-based meat, seafood, eggs, dairy, and ingredients; Good Food Institute; https://gfi.org/wp-content/uploads/2025/04/2024-State-of-the-Industry-Plant-based-meat-seafood-eggs-dairy-and-ingredients.pdf?_gl=1%2A96r970%2A_up%2AMQ..%2A_ga%2AMTU2NjA2OTY0MS4xNzQ1OTMzNzY3%2A_ga_TT1WCK8ETL%2AMTc0NTkzMzc2NC4xLjEuMTc0NTkzMzg2OC4wLjAuMA..",
+            "Germany plant-based food retail market insights; Good Food Institute Europe; https://gfieurope.org/wp-content/uploads/2024/10/EN-Germany-plant-based-food-retail-market-insights-October-2024.pdf?_gl=1*ej0899*_up*MQ..*_ga*NzUxODQzMzAzLjE3NDU5MzU1NjA.*_ga_L41TG2128L*MTc0NTkzNTU1OC4xLjAuMTc0NTkzNTU1OC4wLjAuMA",
+            "Netherlands plant-based foods retail market insights; Good Food Institute Europe; https://gfieurope.org/wp-content/uploads/2024/10/EN-Netherlands-plant-based-foods-retail-market-insights-October-2024.pdf?_gl=1*ssmkx*_up*MQ..*_ga*NzUxODQzMzAzLjE3NDU5MzU1NjA.*_ga_L41TG2128L*MTc0NTkzNTU1OC4xLjAuMTc0NTkzNTU1OC4wLjAuMA..",
+            "Spain plant-based food retail market insights; Good Food Institute Europe; https://gfieurope.org/wp-content/uploads/2024/10/EN-Spain-plant-based-food-retail-market-insights-2021-PY-2024-October-2024.pdf?_gl=1*osr10p*_up*MQ..*_ga*NzUxODQzMzAzLjE3NDU5MzU1NjA.*_ga_L41TG2128L*MTc0NTkzNTU1OC4xLjAuMTc0NTkzNTU1OC4wLjAuMA.."
+          ],
+          "world_latest_in_export": null,
+          "n_geographies": 9,
+          "verdict": "GFI reports; licence unread. Not usable yet."
+        }
+      ],
+      "Ch.7 Getting around (transport)": [
+        {
+          "code": "TRNS-27",
+          "title": "Battery electric, plug-in hybrid and fuel cell electric vehicles in light-duty vehicle sales",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Off Track",
+          "names_iea": true,
+          "upstream_sources": [
+            "Global EV Data Explorer; IEA; https://www.iea.org/articles/global-ev-data-explorer"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "22",
+            "unit": "%"
+          },
+          "n_geographies": 50,
+          "verdict": "IEA Global EV Data Explorer. Excluded by the SCL rule, but the IEA GEVO API is CC BY 4.0 and already registered (iea-gevo-2026; ev.iea.sales-share published). Use that, not SCL."
+        },
+        {
+          "code": "TRNS-28",
+          "title": "Battery electric, plug-in hybrid and fuel cell electric vehicles in the light-duty vehicle fleet",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Off Track",
+          "names_iea": true,
+          "upstream_sources": [
+            "Global EV Data Explorer; IEA; https://www.iea.org/articles/global-ev-data-explorer"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "4.5",
+            "unit": "%"
+          },
+          "n_geographies": 35,
+          "verdict": "IEA Global EV Data Explorer; as TRNS-27 (EV stock share available from iea-gevo-2026)."
+        },
+        {
+          "code": "TRNS-29",
+          "title": "Battery electric, plug-in hybrid and fuel cell electric vehicles in medium- and heavy-duty commercial vehicle sales",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": true,
+          "upstream_sources": [
+            "Global EV Data Explorer; IEA; https://www.iea.org/articles/global-ev-data-explorer"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "1.8",
+            "unit": "%"
+          },
+          "n_geographies": 17,
+          "verdict": "IEA; as TRNS-27."
+        },
+        {
+          "code": "TRNS-31",
+          "title": "Battery electric, plug-in hybrid and fuel cell electric vehicles in bus sales",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": true,
+          "upstream_sources": [
+            "Global EV Data Explorer; IEA; https://www.iea.org/articles/global-ev-data-explorer"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "6.2",
+            "unit": "%"
+          },
+          "n_geographies": 29,
+          "verdict": "IEA; as TRNS-27."
+        },
+        {
+          "code": "TRNS-40",
+          "title": "Sustainable aviation fuels in aviation fuel supply",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Media Briefing: Update on Sustainable Aviation Fuels (SAF); ; ",
+            "Developing Sustainable Aviation Fuel (SAF); IATA; https://www.iata.org/en/programs/sustainability/sustainable-aviation-fuels/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "0.3",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "IATA SAF briefings; IATA copyright, licence not open. Display-only at best."
+        },
+        {
+          "code": "TRNS-39",
+          "title": "Zero-emission fuels in marine shipping fuel supply",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Climate Action In Shipping: Progress towards Shipping's 2030 Breakthrough 2024 edition; Baresic et al.; https://globalmaritimeforum.org/report/climate-action-in-shipping-progress-towards-shippings-2030-breakthrough-2024/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "0",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "Global Maritime Forum report (Baresic et al.); licence unread."
+        },
+        {
+          "code": "TRNS-32",
+          "title": "Jurisdictions with internal combustion engine phase-out targets",
+          "units": "Number of jurisdictions",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "INTERACTIVE PHASE-OUT MAP: LIGHT-DUTY VEHICLES; International Council on Clean Transportation; https://theicct.org/phase-out-map-ldv/"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "22",
+            "unit": "Number of jurisdictions"
+          },
+          "n_geographies": 1,
+          "verdict": "ICCT phase-out map; ICCT registered share-alike (icct-lca-2025) for its LCA paper; check the map's own terms."
+        },
+        {
+          "code": "TRNS-15",
+          "title": "Share of kilometers traveled by passenger cars",
+          "units": "% of passenger-km",
+          "indicator_type": "Outcome",
+          "scl_status": "Wrong Direction",
+          "names_iea": false,
+          "upstream_sources": [
+            "ITF Transport Outlook 2023; International Transport Forum; https://www.itf-oecd.org/itf-transport-outlook-2023"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "48",
+            "unit": "% of passenger-km"
+          },
+          "n_geographies": 1,
+          "verdict": "ITF Transport Outlook 2023 (OECD/ITF); www.oecd.org blocks scripts; terms unread."
+        }
+      ],
+      "Ch.8 Keeping cool and warm (buildings)": [
+        {
+          "code": "BLDG-28",
+          "title": "Countries with zero-carbon building codes",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Policies; Climate Policy Database; https://www.climatepolicydatabase.org/policies?decision_date=&high_impact=All&sector%5B916%5D=916&policy_instrument%5B863%5D=863&policy_instrument%5B864%5D=864&keywords="
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "30",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 5,
+          "verdict": "Climate Policy Database (NewClimate Institute) query; licence of CPDB per item 5 research."
+        },
+        {
+          "code": "BLDG-24",
+          "title": "New buildings that are zero-carbon in operation",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Insufficient Data",
+          "names_iea": true,
+          "upstream_sources": [
+            "Net Zero by 2050; IEA; https://www.iea.org/reports/net-zero-by-2050"
+          ],
+          "world_latest_in_export": {
+            "year": 2020,
+            "value": "5",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "IEA Net Zero by 2050: excluded (IEA)."
+        },
+        {
+          "code": "BLDG-25",
+          "title": "Carbon intensity of buildings operations",
+          "units": "kgCO₂/m²",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": true,
+          "upstream_sources": [
+            "Global CO2 emissions from the operation of buildings in the Net Zero Scenario, 2010-2030; IEA; https://www.iea.org/data-and-statistics/charts/global-co2-emissions-from-the-operation-of-buildings-in-the-net-zero-scenario-2010-2030",
+            "Global floor area and buildings energy intensity in the Net Zero Scenario, 2010-2030; IEA; https://www.iea.org/data-and-statistics/charts/global-floor-area-and-buildings-energy-intensity-in-the-net-zero-scenario-2010-2030"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "39",
+            "unit": "kgCO₂/m²"
+          },
+          "n_geographies": 1,
+          "verdict": "IEA charts: excluded (IEA)."
+        },
+        {
+          "code": "BLDG-11",
+          "title": "Energy intensity of buildings",
+          "units": "kWh/m2",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": true,
+          "upstream_sources": [
+            "Global floor area and buildings energy intensity in the Net Zero Scenario, 2010-2030; IEA; https://www.iea.org/data-and-statistics/charts/global-floor-area-and-buildings-energy-intensity-in-the-net-zero-scenario-2010-2030"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "145",
+            "unit": "kWh/m2"
+          },
+          "n_geographies": 1,
+          "verdict": "IEA: excluded."
+        }
+      ],
+      "Capture what's left (carbon removal and capture)": [
+        {
+          "code": "CR-1",
+          "title": "Technological carbon removal",
+          "units": "MtCO₂/yr",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "The State of Carbon Dioxide Removal; The State of Carbon Dioxide Removal; https://www.stateofcdr.org/report/3rd-edition",
+            "EPA Facility Level GHG Emissions Data; U.S. Environmental Protection Agency; https://ghgdata.epa.gov/flight/"
+          ],
+          "world_latest_in_export": {
+            "year": 2025,
+            "value": "2.0",
+            "unit": "MtCO₂/yr"
+          },
+          "n_geographies": 1,
+          "verdict": "The State of Carbon Dioxide Removal (3rd edition) and US EPA FLIGHT (public domain). stateofcdr.org footer: 'SoCDR Reports licensed under CC BY 4.0' (fetched 2026-10-08); the data portal's own licence is not stated separately. Open, pending confirmation that the data (not only reports) are CC BY. World total and by method incl. DACCS and BECCS."
+        },
+        {
+          "code": "CR-13",
+          "title": "Operational carbon removal projects",
+          "units": "Number of projects",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Carbon Dioxide Removal (CDR) Launchpad Projects; Mission Innovation; https://mission-innovation.net/wp-content/uploads/2024/01/CDR-Launchpad-Projects-Jan-2024-update.pdf#:~:text=The%20project%20aims%20to:%20Contribute%20to",
+            "Project Map; Carbon Removal at COP; https://web.archive.org/web/20241005235047/https://carbonremovals.org/gs-project-map/"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "199",
+            "unit": "Number of projects"
+          },
+          "n_geographies": 46,
+          "verdict": "Mission Innovation CDR Launchpad PDF and an Internet Archive capture of carbonremovals.org project map; licences unread. Not usable yet."
+        },
+        {
+          "code": "CR-6",
+          "title": "Companies purchasing carbon removal credits",
+          "units": "Number of companies",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Unique purchasers of carbon removal credits; CDR.fyi; https://www.cdr.fyi/leaderboards"
+          ],
+          "world_latest_in_export": {
+            "year": 2025,
+            "value": "360",
+            "unit": "Number of companies"
+          },
+          "n_geographies": 1,
+          "verdict": "CDR.fyi: terms of service 5.1 grant only internal viewing, 'This license does not include any right to extract, reuse, re-host, or republish data outside the Site' -> excluded."
+        },
+        {
+          "code": "CR-7",
+          "title": "Corporate spending on carbon removal credits",
+          "units": "Total USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Total sales; CDR.fyi; https://www.cdr.fyi/"
+          ],
+          "world_latest_in_export": {
+            "year": 2025,
+            "value": "11",
+            "unit": "Total USD"
+          },
+          "n_geographies": 1,
+          "verdict": "CDR.fyi -> excluded (as CR-6)."
+        },
+        {
+          "code": "CR-3",
+          "title": "Public spending on carbon removal research, development and demonstration",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Horizon Europe; Carbon Gap; https://tracker.carbongap.org/policy/horizon-europe/",
+            "Carbon removal policy in the United Kingdom; Carbon Gap; https://tracker.carbongap.org/region/united-kingdom/",
+            "CDR policy at a national level; Carbon Gap; https://tracker.carbongap.org/regional-analyses/#map"
+          ],
+          "world_latest_in_export": null,
+          "n_geographies": 5,
+          "verdict": "Carbon Gap policy tracker; licence unread; only 5 geographies, no world value."
+        },
+        {
+          "code": "CR-2",
+          "title": "Governments investing in carbon removal research, development and demonstration",
+          "units": "Number of governments",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": true,
+          "upstream_sources": [
+            "Program to capture and store carbon dioxide (CO2) pollution directly from the air; Grantham Research Institute on Climate Change and the Environment; https://climate-laws.org/geographies/united-states-of-america/policies/program-to-capture-and-store-carbon-dioxide-co2-pollution-directly-from-the-air",
+            "Biden Administration Launches $3.5 Billion Program to Capture Carbon Pollution from the Air; U.S. Department of Energy; https://web.archive.org/web/20250122001358/https://www.energy.gov/articles/biden-administration-launches-35-billion-program-capture-carbon-pollution-air",
+            "Government invests over £116 million to drive forward green innovation in the UK; United Kingdom Department for Business, Energy & Industrial Stategy; https://www.gov.uk/government/news/government-invests-over-116-million-to-drive-forward-green-innovation-in-the-uk",
+            "Commission awards over €1 billion to innovative projects for the EU climate transition; European Commission; https://ec.europa.eu/commission/presscorner/detail/en/IP_22_2163",
+            "Direct Air Capture; IEA; https://iea.blob.core.windows.net/assets/78633715-15c0-44e1-81df-41123c556d57/DirectAirCapture_Akeytechnologyfornetzero.pdf",
+            "Funded projects; Innovation, Science and Economic Development Canada; https://ised-isde.canada.ca/site/ised/en/programs-and-initiatives/strategic-response-fund/investments/projects",
+            "Government of Canada invests in making Canada a world leader in technology to combat climate change; Government of Canada; https://www.canada.ca/en/innovation-science-economic-development/news/2019/06/government-of-canada-invests-in-making-canada-a-world-leader-in-technology-to-combat-climate-change.html",
+            "Direct CO2 Capture from Air via Crystallization with a Trichelating Iminoguanidine Ligand; ACS Omega; https://pubs.acs.org/doi/10.1021/acsomega.0c02460",
+            "Policies database; IEA; https://www.iea.org/policies",
+            "Climeworks to study large-scale DAC+S deployment in Norway, enabled by government funding; Climeworks; https://climeworks.com/press-release/climeworks-to-study-large-scale-dac-s-deployment-in-norway",
+            "Launch of SWEET call for proposals on topic of Net Zero; Swiss Government; https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-100382.html",
+            "Carbon removal policy in Sweden; Carbon Gap; https://tracker.carbongap.org/region/sweden/"
+          ],
+          "world_latest_in_export": {
+            "year": 2025,
+            "value": "35",
+            "unit": "Number of governments"
+          },
+          "n_geographies": 37,
+          "verdict": "Names the IEA (DAC report and Policies database) among 12 sources -> excluded by rule."
+        },
+        {
+          "code": "CR-5",
+          "title": "Governments funding carbon removal enabling infrastructure",
+          "units": "Number of governments",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": true,
+          "upstream_sources": [
+            "Council on Environmental Quality Report to Congress on Carbon Capture, Utilization, and Sequestration; Executive Office of the United States; https://bidenwhitehouse.archives.gov/wp-content/uploads/2021/06/CEQ-CCUS-Permitting-Report.pdf",
+            "The Carbon Capture and Storage Infrastructure Fund; United Kingdom Department for Business, Energy & Industrial Stategy; https://www.gov.uk/government/publications/design-of-the-carbon-capture-and-storage-ccs-infrastructure-fund/the-carbon-capture-and-storage-infrastructure-fund-an-update-on-its-design-accessible-webpage",
+            "Carbon Capture, Use and Storage Development Fund; Climate Policy Database; https://climatepolicydatabase.org/policies/carbon-capture-use-and-storage-development-fund",
+            "Accelerating carbon capture technologies; Australian Government Department of Climate Change, Energy, the Environment and Water; https://www.minister.industry.gov.au/ministers/pitt/media-releases/accelerating-carbon-capture-technologies",
+            "CO2 Transport and Storage; IEA; https://www.iea.org/energy-system/carbon-capture-utilisation-and-storage/co2-transport-and-storage"
+          ],
+          "world_latest_in_export": {
+            "year": 2025,
+            "value": "34",
+            "unit": "Number of governments"
+          },
+          "n_geographies": 35,
+          "verdict": "Names the IEA -> excluded."
+        },
+        {
+          "code": "CR-11",
+          "title": "Countries mentioning carbon removal in their Long-term Strategies or NDCs",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Explore Long-Term Strategies (LTS); Climate Watch; https://www.climatewatchdata.org/lts-explore?category=ghg_target&indicator=lts_crbn_rmvl",
+            "NDC Registry; UNFCCC; https://unfccc.int/NDCREG"
+          ],
+          "world_latest_in_export": {
+            "year": 2025,
+            "value": "28",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 29,
+          "verdict": "Climate Watch LTS explorer (noncommercial per climate-watch-ndc) and UNFCCC NDC registry. Noncommercial at best."
+        }
+      ],
+      "Innovation (public RD&D)": [
+        {
+          "code": "X-FIN-15",
+          "title": "Public investments in low-carbon energy research, development and demonstration",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": true,
+          "upstream_sources": [
+            "Global public energy RD&D budget with share of low-carbon, 2015-2023; IEA; https://www.iea.org/data-and-statistics/data-tools/energy-technology-rdd-budgets-data-explorer"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "38",
+            "unit": "USD"
+          },
+          "n_geographies": 1,
+          "verdict": "IEA Energy Technology RD&D Budgets data explorer -> excluded (IEA)."
+        },
+        {
+          "code": "PWR-60",
+          "title": "Research and development spending on green hydrogen",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": true,
+          "upstream_sources": [
+            "Global Hydrogen Review 2023; IEA; https://www.iea.org/reports/global-hydrogen-review-2023"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "0.6",
+            "unit": "USD"
+          },
+          "n_geographies": 1,
+          "verdict": "IEA Global Hydrogen Review -> excluded."
+        },
+        {
+          "code": "CR-3",
+          "title": "Public spending on carbon removal research, development and demonstration",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Horizon Europe; Carbon Gap; https://tracker.carbongap.org/policy/horizon-europe/",
+            "Carbon removal policy in the United Kingdom; Carbon Gap; https://tracker.carbongap.org/region/united-kingdom/",
+            "CDR policy at a national level; Carbon Gap; https://tracker.carbongap.org/regional-analyses/#map"
+          ],
+          "world_latest_in_export": null,
+          "n_geographies": 5,
+          "verdict": "Carbon Gap; see above."
+        },
+        {
+          "code": "FA-69",
+          "title": "Public investment in alternative proteins",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Public funding tracker; Good Food Institute; https://gfi.org/resource/alternative-proteins-state-of-global-policy/#tracker"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "565",
+            "unit": "USD"
+          },
+          "n_geographies": 29,
+          "verdict": "GFI; see above."
+        },
+        {
+          "code": "X-FIN-80",
+          "title": "Government support for agricultural research, education and technical assistance",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Producer Support Estimate (PSE) and General Services Support Estimate (GSSE); OECD; https://www.oecd.org/agriculture/topics/agricultural-policy-monitoring-and-evaluation/",
+            "Rising Public Agricultural Support to Mitigate Climate Change; ; "
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "34.8",
+            "unit": "USD"
+          },
+          "n_geographies": 1,
+          "verdict": "OECD PSE/GSSE database plus Searchinger et al. (World Bank, CC BY 3.0 IGO likely); OECD terms unread (www.oecd.org 403 to scripts). Agricultural research support, relevant to Gates's CGIAR point."
+        }
+      ],
+      "Policy and demand (standards, procurement, pricing)": [
+        {
+          "code": "X-FIN-14",
+          "title": "Countries with green public procurement practices in their procurement strategies and regulations",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Green Public Procurement; World Bank; https://openknowledge.worldbank.org/bitstream/handle/10986/36508/Green-Public-Procurement-An-Overview-of-Green-Reforms-in-Country-Procurement-Systems.pdf?sequence=1&isAllowed=y"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "79",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 150,
+          "verdict": "World Bank 'Green Public Procurement' report on Open Knowledge Repository (World Bank OKR items are normally CC BY 3.0 IGO; check the PDF imprint). 2021 only, 150 countries."
+        },
+        {
+          "code": "CE-23",
+          "title": "Countries with sustainable public procurement policies",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "SDG Indicators Database; UNSTATS; https://unstats.un.org/sdgs/dataportal/database"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "49",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 54,
+          "verdict": "UN SDG Global Database (SDG 12.7.1): UN terms of use already rejected in docs/sources.md (non-commercial personal use, no redistribution). Producer is UNEP; would need UNEP's own terms."
+        },
+        {
+          "code": "NE-15",
+          "title": "GHG emissions covered by direct carbon pricing",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "State and Trends of Carbon Pricing Dashboard; World Bank; https://carbonpricingdashboard.worldbank.org"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "23.97",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "World Bank Carbon Pricing Dashboard: rejected in docs/sources.md (Cloudflare 403); site already publishes carbon-pricing.wb-2026.emissions-covered from the CC BY 3.0 IGO report."
+        },
+        {
+          "code": "NE-14",
+          "title": "Weighted average direct carbon price",
+          "units": "USD/tCO₂e",
+          "indicator_type": "Outcome",
+          "scl_status": "Well Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Carbon Pricing Dashboard; World Bank; https://carbonpricingdashboard.worldbank.org/map_data",
+            "State and Trends of Carbon Pricing Dashboard; World Bank; https://carbonpricingdashboard.worldbank.org"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "19",
+            "unit": "USD/tCO₂e"
+          },
+          "n_geographies": 1,
+          "verdict": "World Bank Carbon Pricing Dashboard; as NE-15."
+        },
+        {
+          "code": "NE-18",
+          "title": "Fossil fuel subsidies",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Fossil Fuel Subsidy Tracker; IISD and OECD; https://fossilfuelsubsidytracker.org"
+          ],
+          "world_latest_in_export": {
+            "year": 2024,
+            "value": "921",
+            "unit": "USD"
+          },
+          "n_geographies": 193,
+          "verdict": "IISD/OECD Fossil Fuel Subsidy Tracker; licence unread; the consumption-subsidy part of the tracker uses IEA price-gap estimates (check before use)."
+        },
+        {
+          "code": "PWR-24",
+          "title": "Countries with renewable energy targets",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "NDCs and Renewable Energy Targets In 2021; IRENA; https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2022/Jan/IRENA_NDCs_RE_Targets_2022.pdf",
+            "Renewable energy targets in 2022: A guide to design; IRENA; https://www.irena.org/Publications/2022/Nov/Renewable-energy-targets-in-2022",
+            "NDCs and Renewable Energy Targets In 2023; IRENA; https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2024/Jan/IRENA_NDCs_renewable_energy_targets_2023.pdf"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "113",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 1,
+          "verdict": "IRENA RE targets; see above."
+        },
+        {
+          "code": "TRNS-32",
+          "title": "Jurisdictions with internal combustion engine phase-out targets",
+          "units": "Number of jurisdictions",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "INTERACTIVE PHASE-OUT MAP: LIGHT-DUTY VEHICLES; International Council on Clean Transportation; https://theicct.org/phase-out-map-ldv/"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "22",
+            "unit": "Number of jurisdictions"
+          },
+          "n_geographies": 1,
+          "verdict": "ICCT ICE phase-out map; see above."
+        }
+      ],
+      "From 51 billion to zero (targets)": [
+        {
+          "code": "GOV-38",
+          "title": "Share of countries that have published mid-century long-term low-emission strategies that include monitoring and reporting mechanisms",
+          "units": "%",
+          "indicator_type": "Outcome",
+          "scl_status": "Insufficient Data",
+          "names_iea": false,
+          "upstream_sources": [
+            "Long-term low-emission development strategies; UNFCCC; https://unfccc.int/documents/632339"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "74",
+            "unit": "%"
+          },
+          "n_geographies": 1,
+          "verdict": "UNFCCC LT-LEDS synthesis; UN copyright, terms unread."
+        },
+        {
+          "code": "CR-19",
+          "title": "Countries committed to reaching net-negative emissions, including through carbon removal",
+          "units": "Number of countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Carbon Neutral Finland 2035; State Treasury Republic of Finland; https://www.treasuryfinland.fi/investor-relations/sustainability-and-finnish-government-bonds/carbon-neutral-finland-2035/",
+            "Carbon removal policy in Denmark; Carbon Gap; https://tracker.carbongap.org/regional-analysis/national/denmark/",
+            "Sweden's climate goals; Swedish Civil Defence and Resilience Agency; https://www.krisinformation.se/en/hazards-and-risks/climate-change/swedens-climate-goals/"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "3",
+            "unit": "Number of countries"
+          },
+          "n_geographies": 4,
+          "verdict": "Government web pages and Carbon Gap; 4 geographies only."
+        },
+        {
+          "code": "FIN-34",
+          "title": "Corporations with validated science-based targets",
+          "units": "Number of corporations",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Companies Taking Action; Science Based Targets; https://sciencebasedtargets.org/companies-taking-action#table"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "4088",
+            "unit": "Number of corporations"
+          },
+          "n_geographies": 1,
+          "verdict": "Science Based Targets initiative 'Companies taking action'; terms unread."
+        },
+        {
+          "code": "FIN-35",
+          "title": "Financial institutions with interim net-zero targets for 2025 or 2030",
+          "units": "Number of financial institutions",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "GFANZ 2023 Progress Report; THE GLASGOW FINANCIAL ALLIANCE FOR NET ZERO; https://assets.bbhub.io/company/sites/63/2023/11/GFANZ-2023-Progress-Report.pdf"
+          ],
+          "world_latest_in_export": {
+            "year": 2023,
+            "value": "464",
+            "unit": "Number of financial institutions"
+          },
+          "n_geographies": 1,
+          "verdict": "GFANZ 2023 progress report; licence unread."
+        }
+      ],
+      "Adaptation": [
+        {
+          "code": "X-FIN-23",
+          "title": "Climate finance flows to developing countries",
+          "units": "USD",
+          "indicator_type": "Outcome",
+          "scl_status": "Off Track",
+          "names_iea": false,
+          "upstream_sources": [
+            "Climate Finance Provided and Mobilised by Developed Countries in 2013-2022; OECD; https://www.oecd.org/en/publications/climate-finance-provided-and-mobilised-by-developed-countries-in-2013-2022_19150727-en.html"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "116",
+            "unit": "USD"
+          },
+          "n_geographies": 1,
+          "verdict": "OECD 'Climate Finance Provided and Mobilised by Developed Countries in 2013-2022' (disagg 'Adaptation'); OECD publications are CC BY 4.0 since July 2024 per OECD terms, but www.oecd.org returns 403 to scripts, so the terms must be read by hand."
+        },
+        {
+          "code": "FA-87",
+          "title": "Access to early warning systems, as measured by the population living in countries with early warning systems",
+          "units": "% of population in countries",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Global status of multi-hazard early warning systems 2024; UNDDR; https://www.undrr.org/reports/global-status-MHEWS-2024"
+          ],
+          "world_latest_in_export": {
+            "year": 2022,
+            "value": "58",
+            "unit": "% of population in countries"
+          },
+          "n_geographies": 102,
+          "verdict": "UNDRR Global status of multi-hazard early warning systems 2024; UN copyright, terms unread."
+        },
+        {
+          "code": "FA-30",
+          "title": "Amount of government spending on agricultural insurance payments among OECD members and select other countries",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Producer Support Estimate (PSE) and General Services Support Estimate (GSSE); OECD; https://www.oecd.org/agriculture/topics/agricultural-policy-monitoring-and-evaluation/",
+            "Rising Public Agricultural Support to Mitigate Climate Change; Searchinger et al.; https://openknowledge.worldbank.org/entities/publication/7eef73a7-c4f6-590b-8e31-3a4051d875a9"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "24",
+            "unit": "USD"
+          },
+          "n_geographies": 26,
+          "verdict": "OECD PSE; terms unread."
+        },
+        {
+          "code": "X-FIN-81",
+          "title": "Crop insurance",
+          "units": "USD",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Producer Support Estimate (PSE) and General Services Support Estimate (GSSE); OECD; https://www.oecd.org/agriculture/topics/agricultural-policy-monitoring-and-evaluation/",
+            "Rising Public Agricultural Support to Mitigate Climate Change; Searchinger et al.; https://openknowledge.worldbank.org/entities/publication/7eef73a7-c4f6-590b-8e31-3a4051d875a9"
+          ],
+          "world_latest_in_export": {
+            "year": 2021,
+            "value": "24.2",
+            "unit": "USD"
+          },
+          "n_geographies": 1,
+          "verdict": "OECD PSE plus Searchinger et al.; as FA-30."
+        },
+        {
+          "code": "FA-25",
+          "title": "Access to improved irrigation technologies, as measured by the extent of irrigated land",
+          "units": "hectares equipped for irrigation",
+          "indicator_type": "Enabler and Barrier",
+          "scl_status": null,
+          "names_iea": false,
+          "upstream_sources": [
+            "Global Map Of Irrigation Areas; World Bank; https://datacatalog.worldbank.org/search/dataset/0039827"
+          ],
+          "world_latest_in_export": {
+            "year": 2018,
+            "value": "353136965",
+            "unit": "hectares equipped for irrigation"
+          },
+          "n_geographies": 204,
+          "verdict": "World Bank Global Map of Irrigation Areas (Data Catalog, typically CC BY 4.0); 2018 only."
+        }
+      ]
+    }
+  },
+  "open_questions": [
+    "[net-zero/policy] Net Zero Tracker licence: the Zenodo deposit for 2025 (record 17143240) is tagged CC BY 4.0, but the site has said CC BY-NC 4.0 since 3 Dec 2024. Should we ask them which applies (hello@zerotracker.net or frances.green@eciu.net) or just use noncommercial? The 2023 and 2024 deposits are also tagged CC BY 4.0.",
+    "[net-zero/policy] Climate Policy Database licence: same question for its Zenodo deposit (CC BY 4.0) against NewClimate's legal notice (CC BY-NC 4.0), contact climatepolicydatabase@newclimate.org.",
+    "[net-zero/policy] Climate Watch net-zero licence: its metadata says CC BY-NC 4.0 but links to CC BY 4.0. Only worth asking WRI if we decide to use it.",
+    "[net-zero/policy] Net Zero Tracker GHG columns: the 2022 GHG_emissions column has a blank source. Working assumption is that it is IEA-derived like CAIT, so leave it out.",
+    "[net-zero/policy] Coverage shares: the published 74/77/79% can't be reproduced from the CSV. If wanted, take them from the report, which is all rights reserved and partly IEA-derived for the emissions share, so leave them out of data/.",
+    "[net-zero/policy] Manual downloads: these need a person: the Net Zero Tracker live snapshot (form with reCAPTCHA), the Climate Change Laws of the World bulk CSV and targets CSV (forms), the Hugging Face all-document-text-data set (login), and IEA PAMS exports (Cloudflare block).",
+    "[net-zero/policy] Climate Change Laws of the World live page: CC BY 4.0 confirmed only in the GitHub source, not the rendered climate-laws.org page.",
+    "[electrification/capture/RD&D] Is the registered UNSD source too IEA-based? UNSD's metadata says data for OECD and EU countries come 'through the IEA' and that older data 'may have been imported from the IEA World Energy Statistics Database'. About 150 country entries cite IEA World Energy Statistics. Should unsd-energy stay noncommercial, be limited to countries whose metadata names only UNSD or national sources, or be reclassified?",
+    "[electrification/capture/RD&D] How should a UNSD share be derived, if at all? It needs summing fuels in the pipeline, dropping the 0100/0200 coal aggregates and the 5212/5222/5232 'of which' codes, and settling whether blended biofuels sit inside motor gasoline and diesel. Should that be written up with UNSD's balance rules first, or should only Eurostat's published share be used?",
+    "[electrification/capture/RD&D] Can the IEA explorers be used when their products are not CC? The RD&D explorer page says 'Licence CC BY 4.0', but the RD&D product says 'Terms of Use for Non-CC Material'. The CCUS explorer and product both say CC BY 4.0, so only RD&D conflicts. The registry accepted the same split for EVs.",
+    "[electrification/capture/RD&D] Does the State of CDR licence cover its CDR.fyi-based values? Some 2025 novel-removal values come from CDR.fyi, whose terms forbid republishing. Asking socdr@smithschool.ox.ac.uk would settle it.",
+    "[electrification/capture/RD&D] What does OECD's 'NonProductionDataflow: true' annotation on the GBARD dataflow mean? It may affect whether the dataflow is a stable artifact.",
+    "[electrification/capture/RD&D] Why do some IEA RD&D API queries stop at 2015? The United States query in USD returned rows only to 2015, while the IEA total runs to 2025.",
+    "[electrification/capture/RD&D] Unreachable hosts (HTTP status): trackingsdg7.esmap.org 403 with cf-mitigated: challenge (every path); www.iea.org 403 (/terms, product pages); www.oecd.org 403 (terms); these were read from Internet Archive captures instead. Eurostat website 429 on a repeat fetch. web.archive.org refused connections for a few minutes, then answered 200. cdr.fyi/terms 404; mission-innovation.net/terms-of-use/ 404; globalccsinstitute.com/copyright/ 404; globalccsinstitute.com/copyright-statement/ returned the homepage (200, no statement); Ember API 403 without a key.",
+    "[adaptation] UNEP notice class: pick one class (display-only or noncommercial) for the UNEP notice, which now covers the Emissions Gap Report 2025, the Food Waste Index 2024 and the Adaptation Gap Report 2025. This decides whether the Figure 4.4 flow series (2019–2023) can be charted from data/.",
+    "[adaptation] OECD terms for the flows: what licence applies to the OECD Climate-Related Development Finance data set behind UNEP's flows? oecd.org returns 403 to scripts. Fetching the data directly from OECD could replace UNEP's PDF numbers for the flow series, if OECD's terms allow it.",
+    "[adaptation] Live AGR 2025 file: wedocs serves only to browsers. A person should download the report and confirm the live file's sha256 against 7aae2efd… (the 4 November 2025 revision).",
+    "[adaptation] CGIAR consolidated report: CGSpace shows no consolidated financial report for 2024 or 2025. Ask CGIAR whether one exists, and which terms govern CGSpace copies: the item licence ('Other' or CC-BY-4.0) or cgiar.org's non-commercial, share-alike terms.",
+    "[adaptation] ASTI download terms: what licence covers the ASTI website data download? The disclaimer is script-only and the terms URLs return 404.",
+    "[adaptation] WCAD metadata: the metadata endpoint returned 521. Re-check that 'unless specified otherwise in their metadata' does not apply.",
+    "[adaptation] Hultgren data: ask the authors to put a licence on the impact data (currently on UChicago Box) or on the GitLab repository. Correct docs/research/sources-impacts.json, which treats the Zenodo CC BY 4.0 as covering the data.",
+    "[adaptation] Pages a person must read: Ortiz-Bobea's CISER custom terms (CAPTCHA) and Iizumi 2018 on Wiley (403).",
+    "[SCL] LeadIT trackers say 'CC BY' without a version and the dataset files were not opened; read the files for third-party columns and ask LeadIT for the version before registering.",
+    "[SCL] SCL IN-21 (cement CO2) comes from Minx et al. 2021 (Zenodo 5566761, CC BY 4.0 label) but is built from EDGAR fossil CO2, which this registry treats as IEA-derived; treat as no-derivatives and use the GCP cement column (gcp-fossil-co2-2025) instead.",
+    "[SCL] Upstream terms still unread for indicators otherwise relevant: Good Food Institute (FA-69/70/71; gfi.org/terms-of-use 404), ESMAP RISE (PWR-48, PWR-22; rise.esmap.org 403 to scripts), Global Transmissions (PWR-7/8), IISD/OECD Fossil Fuel Subsidy Tracker (NE-18), Global Maritime Forum (TRNS-39), ICCT phase-out map (TRNS-32), World Bank GPP report (X-FIN-14), OECD PSE and climate finance (X-FIN-80, X-FIN-23; www.oecd.org 403).",
+    "[SCL] Does the State of CDR CC BY 4.0 cover the CR-1 values SCL republishes, given some come from CDR.fyi (whose terms forbid republishing)? Same question as for the State of CDR candidate under item 3."
+  ]
+}

@@ -1,0 +1,1260 @@
+{
+ "title": "Sources for Gates's five activities ('How to Avoid a Climate Disaster') by sector, all greenhouse gases",
+ "researched_on": "2026-10-08",
+ "need": "Gates's book splits the world's 'about 51 billion tons' of greenhouse gases a year into five activities: making things (31%), plugging in (27%), growing things (19%), getting around (16%) and keeping warm and cool (7%), from Rhodium Group data that is proprietary. The site needs an open-licence dataset from the primary producer, all greenhouse gases, for the world and ideally every country as a yearly series, split into sectors fine enough that each maps to exactly one of the five activities or is shown as 'not one of the five' (fuel supply, waste, F-gases, wildfires, natural sinks). The values are regrouped and written to public JSON, so no-derivatives and display-only sources are unusable, and anything built on IEA energy statistics (IEA-EDGAR CO2, IEA World Energy Balances) counts as no-derivatives in this registry. Every regrouped number must keep its subsector-level provenance.",
+ "candidates": [
+  {
+   "rank": 1,
+   "name": "Climate TRACE Emissions Inventory (Zenodo V5.10.0; live API v5.11.0)",
+   "producer": "Climate TRACE coalition (secretariat WattTime); sector models by WattTime, TransitionZero, RMI, JHU APL, Duke, University of Missouri and others",
+   "landing_url": "https://doi.org/10.5281/zenodo.22919723 (concept doi:10.5281/zenodo.15014790; latest version on Zenodo is V5.10.0, record 22919723, published 2026-08-27). Live: https://climatetrace.org/data ('September release 5.11.0 includes monthly emissions data through July 2026'; v5.11.0 is not yet on Zenodo).",
+   "file_urls": [
+    "https://zenodo.org/api/records/22919723/files/<sector>_<subsector>.zip/content (69 subsector zips, plus fluorinated_gases.zip, ers_plan_global.zip, geometries.gpkg.zip; 71 files, 39,641,394,773 bytes in all; Zenodo gives md5 only, no sha256)",
+    "Inside each zip: <gas>/DATA/<subsector>_country_emissions_v5_10_0.csv for gas in co2, ch4, n2o, co2e_100yr, co2e_20yr (plus *_emissions_sources_v5_10_0.csv and *_emissions_sources_confidence_v5_10_0.csv at asset level, monthly from 2021, and ABOUT_THE_DATA/about_the_data_v5_10_0.pdf and detailed_data_schema_v5_10_0.csv)",
+    "Country CSV columns: iso3_country, sector, subsector, start_time, end_time, gas, emissions_quantity, emissions_quantity_units (tonnes), temporal_granularity (annual), created_date, modified_date. 3,024 rows each = 252 codes x 12 years (2015-2026; 2026 is a partial year). One file per subsector per gas: there is no single country x sector x gas file.",
+    "Each country file can be read without downloading the whole zip (HTTP Range on Zenodo works; road-transportation.zip alone is 4,688,736,120 bytes but its co2e_100yr country CSV is about 0.5 MB)",
+    "API (live version only, not pinnable): https://api.climatetrace.org/v7/rankings/countries?gas=co2e_100yr&start=YYYY-01-01&end=YYYY-12-31&subsectors=<slug> ; https://api.climatetrace.org/v7/definitions/subsectors"
+   ],
+   "licence_name": "CC BY 4.0 with listed exceptions (external datasets)",
+   "licence_terms_url": "https://climatetrace.org/terms",
+   "licence_quote": "The emissions data and associated metadata has been made available via Climate TRACE under the Creative Commons Attribution 4.0 International License (CC BY 4.0), with the exception of external datasets listed below.",
+   "licence_quote_exceptions_verbatim": "Country-level emissions estimates for: Other energy use / Railways / Other transportation / Other onsite fuel usage / Other Solid fuels / Other fossil fuel operations / Other manufacturing / Solid waste disposal / Biological treatment of solid waste / Incineration and open burning of waste / Fluorinated gases. Source: EDGAR. Country-level emissions estimates for: Rice cultivation (in some geographies) / Other Agricultural Soil Emissions / Enteric Fermentation – Other / Manure Management – Other / Other onsite fuel usage. Source: FAOSTAT. Source-level emissions estimates for some sources in “Other manufacturing” sector from: European Pollutant Release and Transfer Register / US EPA FLIGHT dataset / Israel Pollutant Release and Transfer Register. Source-level emissions estimates for some sources in “Solid Waste Disposal” sector from: US EPA FLIGHT dataset / US EPA Landfill Methane Outreach Program (LMOP) (some landfills only) / Canada Greenhouse Gas Reporting Program – Facility GHG Data / European Pollutant Release and Transfer Register. (Line breaks shown as ' / '.)",
+   "licence_quote_zenodo": "Zenodo record 22919723 license field 'cc-by-4.0'; its description says: 'All Climate TRACE data are free and publicly available under a CC-BY 4.0 license to enable action and accountability at the massive scale necessary for global progress.'",
+   "licence_quote_data_guide": "about_the_data_v5_10_0.pdf (inside every V5.10.0 zip, sha256 e69878f267709a182cb690a49217ee5c2269973395a90182d9f4b207657f126d): 'All emissions data has been made available via Climate TRACE under the Creative Commons Attribution 4.0 International License (CC BY 4.0) with the following exceptions.' It names the EDGAR source as 'comprising IEA-EDGAR CO2, EDGAR CH4, EDGAR N2O, EDGAR F-GASES version 8.0' plus 'The Community Emissions Data System (CEDS) ... (v_2024_07_08)', and its EDGAR list adds 'Solid fuel transformation' and 'Cropland fires (country and source level)', which the web terms page does not list.",
+   "fetched_on": "2026-10-08 (terms page HTTP 200, 428,901 bytes; the Next.js page is regenerated, so its sha256 is not a stable vintage key)",
+   "proposed_licence_class": "open for the Climate TRACE-modelled subsectors; the listed EDGAR subsectors split by gas: CO2 is IEA-EDGAR CO2 and so no-derivatives here (cannot enter data/), CH4/N2O/F-gases are EDGAR CC BY 4.0 (open); FAOSTAT-sourced subsectors open under FAO's CC BY 4.0. A second, unlisted group is IEA/EDGAR-derived by Climate TRACE's own methodology (see exclusions) and needs an owner decision before it can be called open.",
+   "exclusions": {
+    "listed_in_terms_and_guide": [
+     "other-energy-use",
+     "railways",
+     "other-transport",
+     "other-onsite-fuel-usage",
+     "other-solid-fuels",
+     "other-fossil-fuel-operations (Zenodo V5.10.0 only; not a valid subsector in the v5.11.0 API)",
+     "other-manufacturing",
+     "solid-waste-disposal (country level; only 368 of 1,084 Mt in 2025 are asset-level sources)",
+     "biological-treatment-of-solid-waste-and-biogenic",
+     "incineration-and-open-burning-of-waste",
+     "fluorinated-gases",
+     "rice-cultivation (some geographies)",
+     "other-agricultural-soil-emissions",
+     "enteric-fermentation-other",
+     "manure-management-other",
+     "cropland-fires (data guide only)"
+    ],
+    "world_size": {
+     "2024": {
+      "world_total_Mt": 59912.09,
+      "edgar_listed_subsectors_co2e_Mt": 8064.15,
+      "faostat_listed_subsectors_co2e_Mt (rice counted whole)": 3187.57,
+      "cropland_fires_co2e_Mt (data guide only)": 43.14,
+      "all_listed_co2e_Mt": 11294.86,
+      "all_listed_share_of_total_pct": 18.85,
+      "edgar_listed_fossil_co2_Mt (IEA-EDGAR CO2, no-derivatives)": 4670.65,
+      "edgar_listed_non_co2_co2e_Mt (EDGAR CH4/N2O/F-gas, CC BY)": 3393.51,
+      "unlisted_edgar_ceds_iea_derived_co2e_Mt": 12118.44,
+      "unlisted_edgar_ceds_iea_derived_co2_Mt": 11643.88,
+      "iea_lineage_co2_total_Mt": 16314.53,
+      "iea_lineage_co2_share_pct": 27.23
+     },
+     "2025": {
+      "world_total_Mt": 54418.39,
+      "edgar_listed_subsectors_co2e_Mt": 8067.85,
+      "faostat_listed_subsectors_co2e_Mt (rice counted whole)": 3185.59,
+      "cropland_fires_co2e_Mt (data guide only)": 47.92,
+      "all_listed_co2e_Mt": 11301.35,
+      "all_listed_share_of_total_pct": 20.77,
+      "edgar_listed_fossil_co2_Mt (IEA-EDGAR CO2, no-derivatives)": 4670.65,
+      "edgar_listed_non_co2_co2e_Mt (EDGAR CH4/N2O/F-gas, CC BY)": 3397.2,
+      "unlisted_edgar_ceds_iea_derived_co2e_Mt": 12251.65,
+      "unlisted_edgar_ceds_iea_derived_co2_Mt": 11773.91,
+      "iea_lineage_co2_total_Mt": 16444.56,
+      "iea_lineage_co2_share_pct": 30.22
+     }
+    },
+    "world_size_note": "From the live API (v5.11.0), gas=co2e_100yr (AR6 GWP100) and gas=co2 per subsector. Listed subsectors total 11,301 Mt in 2025 = 20.8% of the 54,418 Mt world total (11,295 Mt = 18.9% of 59,912 Mt in 2024). Of that, the IEA-EDGAR CO2 that may not be regrouped is 4,671 Mt (8.6% of 2025); EDGAR's CC BY non-CO2 is 3,397 Mt (mostly F-gases 1,740 and landfill methane 1,084); FAOSTAT (CC BY) is 3,186 Mt with rice counted whole. The EDGAR values are identical in 2024 and 2025: Climate TRACE forward-fills EDGAR from 2022 or 2023. The methodology document 'Data-Informed Disaggregation and Implicit Estimation of Emissions in Other Subsectors' (March 2026) says the EDGAR- or FAOSTAT-based subsectors 'together accounted for approximately 18% of global emissions in 2024'.",
+    "unlisted_but_iea_or_edgar_derived": {
+     "evidence": [
+      "climatetrace.org/data subsector notes (fetched 2026-10-08): road-transportation 'Country level data derived from EDGAR; estimates available from 2015 to 2022.'; residential-onsite-fuel-usage 'Emissions estimates were derived by disaggregating EDGAR Version 8 emissions data using satellite-derived floor area estimates'; non-residential-onsite-fuel-usage 'Data from EDGAR. Estimates available from 2015 to 2022.'; other-chemicals, other-metals, wood-and-wood-products, other-mining-quarrying 'spatially disaggregating country-level CEDS emissions estimates'; glass and lime 'total sectoral emissions within a country using USGS statistics, EDGAR and CEDS'; food-beverage-tobacco and textiles 'UNIDO statistics, EDGAR and CEDS'.",
+      "Buildings methodology (github.com/climatetracecoalition/methodology-documents, 2025/Buildings, November 2025): super-resolving EDGAR v8 'ensures the sum of the original EDGAR data is equivalent to the super-resolved dataset at a global and national level'.",
+      "Road methodology (2025/Transportation, JHU APL, Fall 2025), section 2.3.7: an activity scale factor of 0.7895 'To better align our estimates with EDGAR v2025' computed from 'annual country level EDGAR v2025 road transportation CO2 emission estimates'.",
+      "Heat plants methodology (2025/Power, March 2026): activity from IEA World Energy Balances.",
+      "CEDS README (github.com/JGCRI/CEDS): CEDS 'uses open-source data (with the exception of the IEA energy statistics which must be purchased from IEA)'."
+     ],
+     "subsectors": [
+      "road-transportation",
+      "residential-onsite-fuel-usage",
+      "non-residential-onsite-fuel-usage",
+      "heat-plants",
+      "glass",
+      "lime",
+      "food-beverage-tobacco",
+      "textiles-leather-apparel",
+      "other-chemicals",
+      "other-metals",
+      "wood-and-wood-products",
+      "other-mining-quarrying"
+     ],
+     "world_2025_co2e_Mt": 12251.65,
+     "world_2025_co2_Mt": 11773.91,
+     "consequence": "Together with the listed EDGAR CO2, about 16.4 Gt of the 2025 total (30.2%) has IEA lineage. Road transport (6.8 Gt) and both buildings subsectors (3.6 Gt) are almost all of 'getting around' and 'keeping warm and cool'. Climate TRACE labels them CC BY; this registry's IEA rule would make them no-derivatives. Owner decision and a written question to Climate TRACE are needed (open_questions)."
+    }
+   },
+   "granularity": "68 subsectors in the v5.11.0 API (69 subsector zips in V5.10.0, which still has other-fossil-fuel-operations) under 10 sectors: power, transportation, buildings, manufacturing, mineral-extraction, fossil-fuel-operations, agriculture, forestry-and-land-use, waste, fluorinated-gases. Gases: co2, ch4, n2o, co2e_100yr, co2e_20yr; F-gases exist only in co2e. 252 country codes, including UNK (non-broadcasting vessels with unknown port, 346 Mt in 2024), XKX and ZNC. International aviation and shipping are assigned to countries.",
+   "years": "Country files 2015-2026 yearly (2026 partial, to June in V5.10.0; to July in v5.11.0). Asset level monthly from 2021. EDGAR/FAOSTAT-based subsectors are forward-filled after 2022 or 2023.",
+   "gwp": "IPCC AR6 GWP100 (co2e_100yr) and GWP20 (co2e_20yr), per the detailed_data_schema and data guide.",
+   "lulucf": "Forestry-and-land-use is reported gross and net in 11 subsectors and can be strongly negative: removals -15,748 Mt, net-shrubgrass -1,544, net-forest-land -694, net-wetland -258 in 2025 (API v5.11.0), against fires 10,408 and clearing 2,689; the sector nets to -3,375 Mt in 2025 and +2,330 Mt in 2024. In Zenodo V5.10.0 the 2025 rows of removals, net-forest-land, net-shrubgrass and net-wetland are 0 for every country (not yet estimated, written as 0, not blank), so V5.10.0 sums to 73,039 Mt for 2025.",
+   "iea_derived": "Partly, see exclusions: listed EDGAR CO2 (4.7 Gt) plus unlisted EDGAR/CEDS/IEA-derived subsectors (11.8 Gt CO2) in 2025.",
+   "headline_checks": [
+    {
+     "value": "World 2025 = 54,418.4 Mt CO2e; 2024 = 59,912.1 Mt (v5.11.0)",
+     "query": "GET https://api.climatetrace.org/v7/rankings/countries?gas=co2e_100yr&start=2025-01-01&end=2025-12-31 -> totals.emissionsQuantity 54418388106.90265; same for 2024 -> 59912089917.853645. Summing the same query with &subsectors=<each of the 68 slugs from /v7/definitions/subsectors> gives 54418388106.902664 and 59912089917.85368, so the subsectors add exactly to the total."
+    },
+    {
+     "value": "World 2024 = 67,218.1 Mt, 2025 = 73,039.1 Mt in Zenodo V5.10.0",
+     "query": "Sum of emissions_quantity over all rows with start_time year 2024 (2025) in the 69 files co2e_100yr/DATA/<subsector>_country_emissions_v5_10_0.csv extracted by HTTP Range from record 22919723. Excluding forestry-and-land-use: 59,476 Mt (2024) and 59,663 Mt (2025) against 57,582 and 57,794 in v5.11.0. V5.10.0 to v5.11.0 revisions are large: aluminum 2025 810 -> 332 Mt, forest-land-clearing 5,193 -> 2,689 Mt, oil-and-gas-production 4,027 -> 3,389 Mt."
+    },
+    {
+     "value": "Listed external subsectors 2025 = 11,301 Mt (20.8%); IEA-EDGAR CO2 within them 4,671 Mt",
+     "query": "Same rankings query per listed slug with gas=co2e_100yr and gas=co2 (other-fossil-fuel-operations returns 400 'invalid subsector provided' in v5.11.0)."
+    },
+    {
+     "value": "Solid waste disposal 2025: country total 1,083.9 Mt vs 367.9 Mt in asset-level sources (V5.10.0)",
+     "query": "co2e_100yr/DATA/solid-waste-disposal_emissions_sources_v5_10_0.csv monthly rows summed for 2025 vs the country file; the 716 Mt remainder is the EDGAR country-level part."
+    },
+    {
+     "value": "Five activities, Rhodium-compatible grouping, 2025 v5.11.0: making things 30.1%, plugging in 25.7%, growing things 20.0%, getting around 15.3%, keeping warm and cool 8.9% (Gates: 31/27/19/16/7)",
+     "query": "scripts in this research: map each subsector per gates_mapping (variant rhodium_compatible), sum API co2e_100yr world totals, divide by the sum of the five (wildfires, removals, net land fluxes, reservoirs excluded)."
+    }
+   ],
+   "caveats": [
+    "Modelled estimates, revised every month; pin the Zenodo version, never the API.",
+    "Zero is used both for 'not emitted' and, in V5.10.0 2025 land rows, for 'not yet estimated'; the pipeline must treat those as missing, not zero (rule 8).",
+    "2026 rows are partial years.",
+    "Climate TRACE's forestry fluxes (fires and natural removals of over 15 Gt) are not comparable with inventories or with Rhodium, which leaves out forest fires; keep them out of the five activities and show them as their own layer.",
+    "Asset-level sources and country totals do not reconcile for every subsector (rice: sources 749 Mt vs country 713 Mt in 2024, V5.10.0), so use country files only.",
+    "Attribution must credit Climate TRACE and, for listed subsectors, EDGAR (JRC) or FAO; 'indicate if you have made any changes' is required by CC BY."
+   ],
+   "recommendation": "Use as the only source for the five-activity view, from the pinned Zenodo version, with every subsector carrying a provenance tag. Ingest the Climate TRACE-modelled subsectors as open. For listed EDGAR subsectors ingest only the gas=ch4, n2o and F-gas (co2e) parts as open with EDGAR credited, and leave their gas=co2 parts out (shown as 'IEA-licensed, not shown', a gap of 4.7 Gt). FAOSTAT-sourced subsectors are open with FAO credited. Do not ingest the unlisted EDGAR/CEDS/IEA-derived subsectors until the owner decides (open question 1); without them 'keeping warm and cool' and road transport cannot be shown. Show the shares under the 'strict' mapping by default and say which grouping Rhodium uses."
+  },
+  {
+   "rank": 2,
+   "name": "PRIMAP-hist v2.8 (country-reported priority, HISTCR)",
+   "producer": "Potsdam Institute for Climate Impact Research (Gütschow, Pflüger)",
+   "landing_url": "https://doi.org/10.5281/zenodo.22876287",
+   "file_urls": [
+    "https://zenodo.org/api/records/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.csv/content (77,184,781 bytes, md5 433e451930941a327c1a125b996d0ae6)",
+    "https://zenodo.org/api/records/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_no_rounding_22-Sep-2026.csv/content (136,643,918 bytes; the only variant with LULUCF)"
+   ],
+   "licence_name": "CC BY-NC-SA 4.0",
+   "licence_terms_url": "https://zenodo.org/records/22876287",
+   "licence_quote": "Since v2.8 PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users can not use it freely and have to obtain a commercial license. The commercial license is only available for the country reported priority (CR) time-series as the third party priority (TP) time-series builds heavily on EDGAR and FAOSTAT data.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "noncommercial",
+   "exclusions": "HISTTP 'is no longer actively maintained' and builds on EDGAR; use HISTCR only.",
+   "granularity": "IPCC 2006 categories 1.A (fuel combustion, not split), 1.B.1, 1.B.2, 1.B.3, 1.C, 2.A-2.H, 3.A, M.AG.ELV, 4, 5, M.LULUCF. The record says: 'The full IPCC2006 category hierarchy contains many more subcategories, but data availability is not sufficient to resolve the full IPCC category tree in PRIMAP-hist.' 1.A.1-1.A.4 are not available, so electricity, transport, manufacturing combustion and buildings cannot be separated.",
+   "years": "1750-2025 (2025 extrapolated)",
+   "gwp": "AR6 GWP100 variables available (also SAR/AR4/AR5)",
+   "lulucf": "Only in the no_rounding files; net",
+   "iea_derived": "CR energy CO2 gap-filled from CDIAC and Energy Institute growth rates; EDGAR is used for gap filling 'except energy CO2'. Not IEA-derived for energy CO2, as far as the record says.",
+   "headline_checks": [
+    {
+     "value": "Category tree lacks 1.A.1-1.A.4",
+     "query": "Zenodo API record 22876287 metadata.description, section 'The categories currently resoved by PRIMAP-hist are organized as follows'"
+    }
+   ],
+   "caveats": [
+    "Cannot meet the need: no split of fuel combustion, so electricity, transport and buildings (50 of Gates's 100 points) and factory fuel use cannot be separated.",
+    "Share-alike: downloads must carry CC BY-NC-SA."
+   ],
+   "recommendation": "Not for the five activities. Keep as the long-history source for fugitive, IPPU, agriculture and waste totals."
+  },
+  {
+   "rank": 3,
+   "name": "Climate Watch historical GHG emissions (CAIT, data source id 274)",
+   "producer": "World Resources Institute (Climate Watch)",
+   "landing_url": "https://www.climatewatchdata.org/ghg-emissions",
+   "file_urls": [
+    "https://www.climatewatchdata.org/api/v1/data/historical_emissions?regions[]=<ISO3>&source_ids[]=274&gas_ids[]=553",
+    "https://www.climatewatchdata.org/api/v1/data/historical_emissions/sectors?source_ids[]=274"
+   ],
+   "licence_name": "CC BY 4.0 except third-party data (fuel combustion = OECD/IEA; LULUCF = FAO permission required)",
+   "licence_terms_url": "https://www.climatewatchdata.org/about/permissions (JavaScript page; text read from WRI's source repository github.com/ClimateWatch-Vizzuality/climate-watch, develop branch, app/javascript/app/components/about/about-permissions/about-permissions-component.jsx, last changed 2026-04-01 in commit 97916298)",
+   "licence_quote": "Except as noted below, data and visualizations on this site carry a Creative Commons CC BY 4.0 license ... Please note that for the Land Use, Land-Use Change and Forestry indicator in the Country GHG Emissions data collection, WRI has been granted a non-exclusive, non-transferrable right to publish these data by the Food and Agriculture Organization of the United Nations. Therefore, if users wish to republish this dataset in whole or in part, they should contact FAO directly at copyright@fao.org. ... Any use of emissions from fuel combustion data should be cited as GHG Emissions from Fuel Combustion, OECD/IEA, 2025",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "no-derivatives for the energy subsectors (IEA-derived); excluded for LULUCF (FAO permission); open for the rest",
+   "exclusions": "Electricity/Heat, Transportation, Manufacturing/Construction, Building, Other Fuel Combustion, Bunker Fuels are IEA fuel-combustion data; LULUCF needs FAO permission.",
+   "granularity": "Total excl./incl. LULUCF; Energy (Electricity/Heat, Manufacturing/Construction, Transportation, Building, Fugitive Emissions, Other Fuel Combustion); Industrial Processes; Agriculture; Waste; LULUCF; Bunker Fuels. Maps cleanly to Gates's five, but every energy activity is IEA data.",
+   "years": "1990-2023",
+   "gwp": "AR5 GWP100 (per earlier research)",
+   "lulucf": "Separate indicator, net (FAO)",
+   "iea_derived": "Yes, all fuel-combustion subsectors",
+   "headline_checks": [
+    {
+     "value": "Sector list confirmed; latest year 2023",
+     "query": "GET /api/v1/data/historical_emissions/sectors?source_ids[]=274 (ids 3208-3220 incl. Electricity/Heat 3216, Manufacturing/Construction 3217, Transportation 3218, Building 3219); GET /api/v1/data/historical_emissions?regions[]=WORLD&source_ids[]=274&gas_ids[]=553 returned country rows ending 2023 (WORLD is not accepted as a region code; the world aggregate code was not found)."
+    }
+   ],
+   "caveats": [
+    "The world aggregate could not be queried; earlier research verified USA 2023 values."
+   ],
+   "recommendation": "Reject for the five activities (energy subsectors are IEA)."
+  },
+  {
+   "rank": 4,
+   "name": "CEDS v_2025_03_18 aggregate data (Community Emissions Data System)",
+   "producer": "Pacific Northwest National Laboratory / JGCRI (Hoesly, Smith et al.)",
+   "landing_url": "https://doi.org/10.5281/zenodo.15059443",
+   "file_urls": [
+    "https://zenodo.org/api/records/15059443/files/CEDS_v_2025_03_18_aggregate.zip/content (62,726,328 bytes)",
+    "https://zenodo.org/api/records/15059443/files/CEDS_v_2025_03_18_detailed.zip/content (77,283,588 bytes)"
+   ],
+   "licence_name": "CC BY 4.0 (Zenodo licence field)",
+   "licence_terms_url": "https://zenodo.org/records/15059443",
+   "licence_quote": "Zenodo license 'cc-by-4.0'. CEDS README: 'The system is written in R and uses open-source data (with the exception of the IEA energy statistics which must be purchased from IEA).'",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "no-derivatives under this registry's IEA rule (built on IEA energy statistics), although the producer labels it CC BY",
+   "exclusions": "n/a",
+   "granularity": "Country x CEDS sector (about 60, IPCC-like: 1A1a electricity, 1A3b road, 1A4b residential ...) x fuel; species SO2, NOx, BC, OC, NH3, NMVOC, CO, CO2, CH4, N2O. No F-gases, no LULUCF, no open burning.",
+   "years": "1750-2023 (CH4 and N2O main series from 1970)",
+   "gwp": "none (mass per species)",
+   "lulucf": "not covered",
+   "iea_derived": "Yes (energy activity data)",
+   "headline_checks": [
+    {
+     "value": "Species, years, files confirmed",
+     "query": "GET https://zenodo.org/api/records/15059443 metadata.description and files"
+    }
+   ],
+   "caveats": [
+    "Not all-GHG.",
+    "Already sits under Climate TRACE's other-chemicals, other-metals, wood, other-mining and textiles."
+   ],
+   "recommendation": "Reject."
+  },
+  {
+   "rank": 5,
+   "name": "Minx et al. 2021/2022 ESSD dataset, used for IPCC AR6 WGIII Chapter 2 and Lamb et al. 2021 ('A review of trends and drivers of greenhouse gas emissions by sector from 1990 to 2018')",
+   "producer": "MCC Berlin (Minx, Lamb et al.), from EDGAR v6",
+   "landing_url": "https://doi.org/10.5281/zenodo.6483002 (concept 5053055; latest 2022-04-25). Lamb et al. 2021 Zenodo record 7153045 holds only the article PDF.",
+   "file_urls": [
+    "https://zenodo.org/api/records/6483002/files/essd_ghg_data_gwp100.xlsx/content (14,122,767 bytes, md5 22d93ae3ea9719de07421a910c8cfe8d, sha256 0edf359648054eb6a75dc42e01aa2c7c18b274666b7bda01ccfb6a72e7aa0ca5)",
+    "https://zenodo.org/api/records/6483002/files/essd_lulucf_data.xlsx/content"
+   ],
+   "licence_name": "CC BY 4.0 (Zenodo licence field)",
+   "licence_terms_url": "https://zenodo.org/records/6483002",
+   "licence_quote": "Zenodo license 'cc-by-4.0'. Description: 'We build the dataset from recent releases from the “Emissions Database for Global Atmospheric Research” (EDGAR) for CO 2 emissions from fossil fuel combustion and industry (FFI), CH 4 emissions, N 2 O emissions, and fluorinated gases'",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "no-derivatives under the IEA rule (fossil CO2 is EDGAR v6, IEA-based)",
+   "exclusions": "n/a",
+   "granularity": "AR6 sectors Energy systems, Industry, Buildings, Transport, AFOLU with 27 subsectors, mapped from EDGAR codes in the sector_classification sheet (e.g. waste and F-gas refrigeration under Industry, fugitive under Energy systems).",
+   "years": "1970-2019",
+   "gwp": "AR6 GWP100",
+   "lulucf": "Separate file, IPCC regions only",
+   "iea_derived": "Yes",
+   "headline_checks": [
+    {
+     "value": "World 2019 excl. LULUCF = 52.49 Gt CO2e; Electricity & heat 13.84; Road 6.13; Residential 2.36; Non-residential 0.90; Cement 1.55; Oil and gas fugitive 2.62; Coal mining fugitive 1.28; Waste 2.33",
+     "query": "essd_ghg_data_gwp100.xlsx sheet 'data', rows year=2019, sum of column GHG by sector_title/subsector_title"
+    }
+   ],
+   "caveats": [
+    "Ends 2019; not updated since 2022."
+   ],
+   "recommendation": "Reject as data; use its sector_classification sheet as a published, citable precedent for grouping EDGAR/IPCC codes into end-use sectors."
+  },
+  {
+   "rank": 6,
+   "name": "EDGAR 2026 GHG booklet (already registered as edgar-2026-ghg)",
+   "producer": "European Commission JRC with IEA",
+   "landing_url": "https://edgar.jrc.ec.europa.eu/report_2026",
+   "file_urls": [
+    "see pipeline/sources/edgar-2026-ghg.yaml"
+   ],
+   "licence_name": "CC BY 4.0, with IEA-EDGAR CO2 under CC BY-NC-ND 4.0",
+   "licence_terms_url": "https://edgar.jrc.ec.europa.eu/report_2026",
+   "licence_quote": "See pipeline/sources/edgar-2026-ghg.yaml (checked 2026-10-04); not re-fetched.",
+   "fetched_on": "2026-10-04 (registry)",
+   "proposed_licence_class": "no-derivatives (already)",
+   "granularity": "Sector x gas by country (Power Industry, Transport, Buildings, Industrial Combustion, Processes, Fuel Exploitation, Agriculture, Waste)",
+   "years": "1970-2025",
+   "gwp": "AR5",
+   "lulucf": "separate",
+   "iea_derived": "Yes (CO2)",
+   "headline_checks": [],
+   "caveats": [
+    "Regrouping into Gates's five is a derivative; not allowed."
+   ],
+   "recommendation": "Reject for this use; it can show EDGAR's own published sector values verbatim beside the five activities."
+  }
+ ],
+ "gates_mapping": {
+  "rhodium_method_found": [
+   {
+    "source": "Breakthrough Energy, 'The Data' page, Data Documentation (archived copy https://web.archive.org/web/20231218175141/https://breakthroughenergy.org/our-approach/the-data/; the live URL now redirects to the home page)",
+    "quotes": [
+     "'These data are provided by the Rhodium Group.'",
+     "'Data are shown in percentage of gross emissions.'",
+     "LULUCF 'is part of the Agriculture Grand Challenge and is the only sector that measures negative emissions.'",
+     "'Each missing data point is imputed to 0.'"
+    ]
+   },
+   {
+    "source": "Rhodium Group, 'Global Greenhouse Gas Emissions: 1990-2022 and Preliminary 2023 Estimates' PDF, https://rhg.com/wp-content/uploads/2024/11/Global-Greenhouse-Gas-Emissions-1990-2022-and-2023-Estimates.pdf (sha256 e42a287825a36ec26998cd43e2b4953ff25e9faa8880743d6b1f99e20323291f), Figure 6 'Percent share of 2022 net GHG emissions'",
+    "quotes": [
+     "Industry 30%: oil & gas production 6%, iron & steel 5%, cement 5%, chemicals 3%, coal mining 2%, refining 2%, other industries 7%.",
+     "Electricity 28%: coal 20%, natural gas 6%, oil 1%.",
+     "Agriculture, land use and landfills 19%: livestock 6%, crops 6%, landfills & waste 4%, land use & forests 3%, agriculture fuel combustion <1%.",
+     "Transport 16%: road 12%, ships 2%, aviation 1%.",
+     "Buildings 7%: residential 4%, commercial 1%, refrigerants 2%.",
+     "Text: 'These estimates do not account for emissions from forest fires.'",
+     "Text: 'we incorporate data from IEA's energy consumption flows and BP's 2023 Statistical Review for fossil fuel CO 2.'"
+    ]
+   },
+   {
+    "source": "Rhodium Group, 'Global Greenhouse Gas Emissions: 2024' (https://rhg.com/research/global-greenhouse-gas-emissions-2024/, fetched 2026-10-08)",
+    "quotes": [
+     "'Agriculture, land use, and waste contributed 19% and transport made up 16%, while emissions from buildings remained comparatively small at 7%.'",
+     "Uses AR5 GWPs for non-CO2 gases."
+    ]
+   },
+   {
+    "source": "Gates, book excerpt on TED Ideas (https://ideas.ted.com/5-questions-to-ask-about-any-climate-change-solution-from-bill-gates/)",
+    "quotes": [
+     "Gives the five shares and says '51 billion tons is based on the latest available data', without naming Rhodium or explaining allocations."
+    ]
+   }
+  ],
+  "rhodium_method_conclusion": "No published table maps Rhodium subsectors to the five activities, but Rhodium's own five-sector grouping is the same as Gates's (and Breakthrough Energy's), and its Figure 6 shows the allocation: fossil-fuel production, coal mining and refining go to industry ('making things'), landfills and waste go with agriculture and land use ('growing things'), refrigerant F-gases go to buildings ('keeping warm and cool'), electricity is generation-based (not reallocated to end users), and forest fires are excluded. Shares are of gross emissions with net LULUCF inside agriculture. Rhodium's data are 'All rights reserved' ('No part of the content may be copied ... or redistributed without the prior written consent of Rhodium Group', 2019 and 2024 PDFs) and IEA-based, so they are not usable.",
+  "variants": {
+   "strict": "Fuel supply, waste, F-gases, wildfires, natural land fluxes and residual categories are 'not one of the five'. This matches the brief.",
+   "rhodium_compatible": "Fuel supply -> making things; waste -> growing things; F-gases -> keeping warm and cool; EDGAR residuals other-energy-use -> plugging in, other-onsite-fuel-usage -> keeping warm and cool. Reproduces Gates's split to within about 2 points from Climate TRACE v5.11.0 2025 data (30.1/25.7/20.0/15.3/8.9 against 31/27/19/16/7)."
+  },
+  "shares_api_v5_11_0": {
+   "2024|strict": {
+    "getting_around": 9371.2,
+    "growing_things": 10969.9,
+    "keeping_warm_and_cool": 3565.6,
+    "making_things": 10438.9,
+    "not_one_of_five": 11670.6,
+    "plugging_in": 13895.9
+   },
+   "2024|strict|shares_of_five_pct": {
+    "making_things": 21.6,
+    "growing_things": 22.7,
+    "getting_around": 19.4,
+    "plugging_in": 28.8,
+    "keeping_warm_and_cool": 7.4
+   },
+   "2024|rhodium_compatible": {
+    "getting_around": 9371.2,
+    "growing_things": 13048.6,
+    "keeping_warm_and_cool": 5478.2,
+    "making_things": 18767.7,
+    "not_one_of_five": -2689.3,
+    "plugging_in": 15935.7
+   },
+   "2024|rhodium_compatible|shares_of_five_pct": {
+    "making_things": 30.0,
+    "growing_things": 20.8,
+    "getting_around": 15.0,
+    "plugging_in": 25.5,
+    "keeping_warm_and_cool": 8.8
+   },
+   "2025|strict": {
+    "getting_around": 9524.4,
+    "growing_things": 10315.9,
+    "keeping_warm_and_cool": 3606.9,
+    "making_things": 10353.2,
+    "not_one_of_five": 6661.6,
+    "plugging_in": 13956.4
+   },
+   "2025|strict|shares_of_five_pct": {
+    "making_things": 21.7,
+    "growing_things": 21.6,
+    "getting_around": 19.9,
+    "plugging_in": 29.2,
+    "keeping_warm_and_cool": 7.6
+   },
+   "2025|rhodium_compatible": {
+    "getting_around": 9524.4,
+    "growing_things": 12404.1,
+    "keeping_warm_and_cool": 5519.5,
+    "making_things": 18706.5,
+    "not_one_of_five": -7732.2,
+    "plugging_in": 15996.2
+   },
+   "2025|rhodium_compatible|shares_of_five_pct": {
+    "making_things": 30.1,
+    "growing_things": 20.0,
+    "getting_around": 15.3,
+    "plugging_in": 25.7,
+    "keeping_warm_and_cool": 8.9
+   }
+  },
+  "shares_zenodo_v5_10_0": {
+   "2024|strict": {
+    "getting_around": 9324.0,
+    "growing_things": 13764.2,
+    "keeping_warm_and_cool": 3822.7,
+    "making_things": 11254.2,
+    "not_one_of_five": 15130.1,
+    "plugging_in": 13922.8
+   },
+   "2024|strict|shares_of_five_pct": {
+    "growing_things": 26.4,
+    "keeping_warm_and_cool": 7.3,
+    "making_things": 21.6,
+    "plugging_in": 26.7,
+    "getting_around": 17.9
+   },
+   "2024|rhodium_compatible": {
+    "getting_around": 9324.0,
+    "growing_things": 15846.3,
+    "keeping_warm_and_cool": 5735.3,
+    "making_things": 20552.4,
+    "not_one_of_five": -197.3,
+    "plugging_in": 15957.5
+   },
+   "2024|rhodium_compatible|shares_of_five_pct": {
+    "growing_things": 23.5,
+    "keeping_warm_and_cool": 8.5,
+    "making_things": 30.5,
+    "plugging_in": 23.7,
+    "getting_around": 13.8
+   },
+   "2025|strict": {
+    "getting_around": 9456.6,
+    "growing_things": 12874.8,
+    "keeping_warm_and_cool": 3866.6,
+    "making_things": 11258.5,
+    "not_one_of_five": 21658.8,
+    "plugging_in": 13923.8
+   },
+   "2025|strict|shares_of_five_pct": {
+    "growing_things": 25.1,
+    "keeping_warm_and_cool": 7.5,
+    "making_things": 21.9,
+    "plugging_in": 27.1,
+    "getting_around": 18.4
+   },
+   "2025|rhodium_compatible": {
+    "getting_around": 9456.6,
+    "growing_things": 14966.4,
+    "keeping_warm_and_cool": 5779.2,
+    "making_things": 20538.3,
+    "not_one_of_five": 6340.2,
+    "plugging_in": 15958.4
+   },
+   "2025|rhodium_compatible|shares_of_five_pct": {
+    "growing_things": 22.4,
+    "keeping_warm_and_cool": 8.7,
+    "making_things": 30.8,
+    "plugging_in": 23.9,
+    "getting_around": 14.2
+   }
+  },
+  "shares_note": "Shares are of the sum of the five activities, not of the world total. Values are Mt CO2e (AR6 GWP100) and include the IEA-lineage subsectors, so they are research checks, not publishable numbers under the current registry rules. Zenodo V5.10.0 2025 land values are distorted by the zero rows noted above.",
+  "table": [
+   {
+    "subsector": "crop-residues",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_crop-residues.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Crop residues left on fields.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 114.5,
+    "world_2025_Mt_api_v5_11_0": 121.7
+   },
+   {
+    "subsector": "cropland-fires",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_cropland-fires.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Burning crop residues.",
+    "provenance": "edgar_ceds_listed_in_guide",
+    "world_2024_Mt_zenodo_v5_10_0": 43.1,
+    "world_2025_Mt_api_v5_11_0": 47.9,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   },
+   {
+    "subsector": "enteric-fermentation-cattle-operation",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_enteric-fermentation-cattle-operation.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Cattle burps (feedlots).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 866.2,
+    "world_2025_Mt_api_v5_11_0": 895.8
+   },
+   {
+    "subsector": "enteric-fermentation-cattle-pasture",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_enteric-fermentation-cattle-pasture.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Cattle burps (grazing).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 591.0,
+    "world_2025_Mt_api_v5_11_0": 584.6
+   },
+   {
+    "subsector": "enteric-fermentation-other",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_enteric-fermentation-other.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Other livestock burps (FAOSTAT).",
+    "provenance": "faostat_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 792.1,
+    "world_2025_Mt_api_v5_11_0": 792.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   },
+   {
+    "subsector": "manure-applied-to-soils",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_manure-applied-to-soils.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Manure spread on fields.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 148.7,
+    "world_2025_Mt_api_v5_11_0": 149.4
+   },
+   {
+    "subsector": "manure-left-on-pasture-cattle",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_manure-left-on-pasture-cattle.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Cattle dung on pasture.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 184.7,
+    "world_2025_Mt_api_v5_11_0": 183.0
+   },
+   {
+    "subsector": "manure-management-cattle-operation",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_manure-management-cattle-operation.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Cattle manure stored at feedlots.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 218.0,
+    "world_2025_Mt_api_v5_11_0": 239.0
+   },
+   {
+    "subsector": "manure-management-other",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_manure-management-other.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Other livestock manure (FAOSTAT).",
+    "provenance": "faostat_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 544.1,
+    "world_2025_Mt_api_v5_11_0": 544.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   },
+   {
+    "subsector": "other-agricultural-soil-emissions",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_other-agricultural-soil-emissions.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "FAOSTAT soils: includes drained organic soils CO2.",
+    "provenance": "faostat_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 1067.1,
+    "world_2025_Mt_api_v5_11_0": 1067.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 971.9
+   },
+   {
+    "subsector": "rice-cultivation",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_rice-cultivation.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Methane from flooded rice paddies.",
+    "provenance": "faostat_listed_partial",
+    "world_2024_Mt_zenodo_v5_10_0": 712.9,
+    "world_2025_Mt_api_v5_11_0": 782.3,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   },
+   {
+    "subsector": "synthetic-fertilizer-application",
+    "climate_trace_sector": "agriculture",
+    "zenodo_zip": "agriculture_synthetic-fertilizer-application.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Nitrous oxide from fertiliser.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 542.9,
+    "world_2025_Mt_api_v5_11_0": 551.9
+   },
+   {
+    "subsector": "non-residential-onsite-fuel-usage",
+    "climate_trace_sector": "buildings",
+    "zenodo_zip": "buildings_non-residential-onsite-fuel-usage.zip",
+    "activity_strict": "keeping_warm_and_cool",
+    "activity_rhodium_compatible": "keeping_warm_and_cool",
+    "reason": "Fuel burned in offices, shops and public buildings.",
+    "provenance": "edgar_derived_country",
+    "world_2024_Mt_zenodo_v5_10_0": 457.0,
+    "world_2025_Mt_api_v5_11_0": 735.8,
+    "world_2025_co2_only_Mt_api_v5_11_0": 703.5
+   },
+   {
+    "subsector": "other-onsite-fuel-usage",
+    "climate_trace_sector": "buildings",
+    "zenodo_zip": "buildings_other-onsite-fuel-usage.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "keeping_warm_and_cool",
+    "reason": "EDGAR 'Non-Specified' fuel use (also listed as FAOSTAT-sourced); not attributable to buildings.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 172.6,
+    "world_2025_Mt_api_v5_11_0": 172.6,
+    "world_2025_co2_only_Mt_api_v5_11_0": 163.3
+   },
+   {
+    "subsector": "residential-onsite-fuel-usage",
+    "climate_trace_sector": "buildings",
+    "zenodo_zip": "buildings_residential-onsite-fuel-usage.zip",
+    "activity_strict": "keeping_warm_and_cool",
+    "activity_rhodium_compatible": "keeping_warm_and_cool",
+    "reason": "Fuel burned in homes for heating, hot water and cooking.",
+    "provenance": "edgar_derived_country",
+    "world_2024_Mt_zenodo_v5_10_0": 3365.7,
+    "world_2025_Mt_api_v5_11_0": 2871.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 2585.1
+   },
+   {
+    "subsector": "fluorinated-gases",
+    "climate_trace_sector": "fluorinated-gases",
+    "zenodo_zip": "fluorinated_gases.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "keeping_warm_and_cool",
+    "reason": "All F-gas uses in one EDGAR lump (refrigeration and air conditioning, but also electrical switchgear, semiconductors, aluminium smelting PFCs); Rhodium puts refrigerants under Buildings.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 1740.0,
+    "world_2025_Mt_api_v5_11_0": 1740.0,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   },
+   {
+    "subsector": "forest-land-clearing",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_forest-land-clearing.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Deforestation: Gates puts land clearing for farming in 'growing things'.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 5796.3,
+    "world_2025_Mt_api_v5_11_0": 2689.3
+   },
+   {
+    "subsector": "forest-land-degradation",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_forest-land-degradation.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Forest degradation (logging, thinning).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 571.7,
+    "world_2025_Mt_api_v5_11_0": 154.7
+   },
+   {
+    "subsector": "forest-land-fires",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_forest-land-fires.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Wildfires: Rhodium's estimates leave forest fires out, and they are not a human activity in Gates's sense.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 5951.5,
+    "world_2025_Mt_api_v5_11_0": 6681.0
+   },
+   {
+    "subsector": "net-forest-land",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_net-forest-land.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Net change of forests remaining forest (can be negative).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 3729.3,
+    "world_2025_Mt_api_v5_11_0": -694.4
+   },
+   {
+    "subsector": "net-shrubgrass",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_net-shrubgrass.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Net change of shrub and grassland (negative).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 373.7,
+    "world_2025_Mt_api_v5_11_0": -1543.9
+   },
+   {
+    "subsector": "net-soil-organic-carbon",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_net-soil-organic-carbon.zip",
+    "activity_strict": "growing_things",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Carbon gained or lost by cropland soils.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 1571.0,
+    "world_2025_Mt_api_v5_11_0": 1513.0
+   },
+   {
+    "subsector": "net-wetland",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_net-wetland.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Net change of wetlands (negative).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": -109.2,
+    "world_2025_Mt_api_v5_11_0": -257.6
+   },
+   {
+    "subsector": "removals",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_removals.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Carbon taken up by standing forests (negative); a sink, not an activity.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": -12286.8,
+    "world_2025_Mt_api_v5_11_0": -15747.8
+   },
+   {
+    "subsector": "shrubgrass-fires",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_shrubgrass-fires.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Grassland and savanna fires; as above.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 1973.4,
+    "world_2025_Mt_api_v5_11_0": 3665.9
+   },
+   {
+    "subsector": "water-reservoirs",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_water-reservoirs.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Methane from dam reservoirs (hydropower, irrigation, water supply mixed).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 106.0,
+    "world_2025_Mt_api_v5_11_0": 103.6
+   },
+   {
+    "subsector": "wetland-fires",
+    "climate_trace_sector": "forestry-and-land-use",
+    "zenodo_zip": "forestry_and_land_use_wetland-fires.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "not_one_of_five",
+    "reason": "Wetland fires; as above.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 64.6,
+    "world_2025_Mt_api_v5_11_0": 61.0
+   },
+   {
+    "subsector": "coal-mining",
+    "climate_trace_sector": "fossil-fuel-operations",
+    "zenodo_zip": "fossil_fuel_operations_coal-mining.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Fuel supply: methane from coal mines. Rhodium counts it under Industry.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 2465.1,
+    "world_2025_Mt_api_v5_11_0": 2380.8
+   },
+   {
+    "subsector": "oil-and-gas-production",
+    "climate_trace_sector": "fossil-fuel-operations",
+    "zenodo_zip": "fossil_fuel_operations_oil-and-gas-production.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Fuel supply: venting, flaring, leaks and fuel use at oil and gas fields. Rhodium counts it under Industry.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 3966.0,
+    "world_2025_Mt_api_v5_11_0": 3389.4
+   },
+   {
+    "subsector": "oil-and-gas-refining",
+    "climate_trace_sector": "fossil-fuel-operations",
+    "zenodo_zip": "fossil_fuel_operations_oil-and-gas-refining.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Fuel supply: refineries. Rhodium counts refining under Industry.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 975.9,
+    "world_2025_Mt_api_v5_11_0": 987.5
+   },
+   {
+    "subsector": "oil-and-gas-transport",
+    "climate_trace_sector": "fossil-fuel-operations",
+    "zenodo_zip": "fossil_fuel_operations_oil-and-gas-transport.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Fuel supply: pipelines and LNG. Rhodium counts it under Industry.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 1105.9,
+    "world_2025_Mt_api_v5_11_0": 811.6
+   },
+   {
+    "subsector": "other-fossil-fuel-operations",
+    "climate_trace_sector": "fossil-fuel-operations",
+    "zenodo_zip": "fossil_fuel_operations_other-fossil-fuel-operations.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Fuel supply residual (EDGAR); in Zenodo v5.10.0 only, absent from the v5.11.0 API.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 1.3,
+    "world_2025_Mt_api_v5_11_0": null
+   },
+   {
+    "subsector": "other-solid-fuels",
+    "climate_trace_sector": "fossil-fuel-operations",
+    "zenodo_zip": "fossil_fuel_operations_other-solid-fuels.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Fuel supply: coke ovens, charcoal and other solid-fuel transformation (EDGAR).",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 784.0,
+    "world_2025_Mt_api_v5_11_0": 784.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 439.6
+   },
+   {
+    "subsector": "aluminum",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_aluminum.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Aluminium smelting.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 812.0,
+    "world_2025_Mt_api_v5_11_0": 332.4
+   },
+   {
+    "subsector": "cement",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_cement.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Cement (clinker).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 2701.6,
+    "world_2025_Mt_api_v5_11_0": 2472.7,
+    "world_2025_co2_only_Mt_api_v5_11_0": 2472.7
+   },
+   {
+    "subsector": "chemicals",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_chemicals.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Ammonia, methanol, soda ash plants.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 609.4,
+    "world_2025_Mt_api_v5_11_0": 633.5
+   },
+   {
+    "subsector": "food-beverage-tobacco",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_food-beverage-tobacco.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Food and drink factories; country totals from EDGAR, CEDS, UNIDO.",
+    "provenance": "edgar_ceds_disaggregated",
+    "world_2024_Mt_zenodo_v5_10_0": 276.1,
+    "world_2025_Mt_api_v5_11_0": 259.3,
+    "world_2025_co2_only_Mt_api_v5_11_0": 252.5
+   },
+   {
+    "subsector": "glass",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_glass.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Glass; country totals from EDGAR and CEDS.",
+    "provenance": "edgar_ceds_disaggregated",
+    "world_2024_Mt_zenodo_v5_10_0": 41.5,
+    "world_2025_Mt_api_v5_11_0": 31.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 28.4
+   },
+   {
+    "subsector": "iron-and-steel",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_iron-and-steel.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Steel.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 2781.7,
+    "world_2025_Mt_api_v5_11_0": 2713.3,
+    "world_2025_co2_only_Mt_api_v5_11_0": 2713.3
+   },
+   {
+    "subsector": "lime",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_lime.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Lime; country totals from EDGAR and CEDS.",
+    "provenance": "edgar_ceds_disaggregated",
+    "world_2024_Mt_zenodo_v5_10_0": 540.7,
+    "world_2025_Mt_api_v5_11_0": 527.5,
+    "world_2025_co2_only_Mt_api_v5_11_0": 524.9
+   },
+   {
+    "subsector": "other-chemicals",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_other-chemicals.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Other chemical industry; CEDS country totals spread by night lights.",
+    "provenance": "ceds_derived",
+    "world_2024_Mt_zenodo_v5_10_0": 795.8,
+    "world_2025_Mt_api_v5_11_0": 795.8,
+    "world_2025_co2_only_Mt_api_v5_11_0": 689.8
+   },
+   {
+    "subsector": "other-manufacturing",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_other-manufacturing.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "EDGAR manufacturing minus Climate TRACE's modelled industries (a residual), plus reported plants.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 1914.8,
+    "world_2025_Mt_api_v5_11_0": 1914.8,
+    "world_2025_co2_only_Mt_api_v5_11_0": 1876.0
+   },
+   {
+    "subsector": "other-metals",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_other-metals.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Non-ferrous metals other than aluminium; CEDS country totals.",
+    "provenance": "ceds_derived",
+    "world_2024_Mt_zenodo_v5_10_0": 78.1,
+    "world_2025_Mt_api_v5_11_0": 82.0,
+    "world_2025_co2_only_Mt_api_v5_11_0": 75.4
+   },
+   {
+    "subsector": "petrochemical-steam-cracking",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_petrochemical-steam-cracking.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Ethylene and other plastic feedstocks.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 301.6,
+    "world_2025_Mt_api_v5_11_0": 304.4
+   },
+   {
+    "subsector": "pulp-and-paper",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_pulp-and-paper.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Paper.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 132.2,
+    "world_2025_Mt_api_v5_11_0": 19.6
+   },
+   {
+    "subsector": "textiles-leather-apparel",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_textiles-leather-apparel.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Textiles and clothing; country totals from CEDS.",
+    "provenance": "edgar_ceds_disaggregated",
+    "world_2024_Mt_zenodo_v5_10_0": 51.9,
+    "world_2025_Mt_api_v5_11_0": 50.2,
+    "world_2025_co2_only_Mt_api_v5_11_0": 49.5
+   },
+   {
+    "subsector": "wood-and-wood-products",
+    "climate_trace_sector": "manufacturing",
+    "zenodo_zip": "manufacturing_wood-and-wood-products.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Sawmills and wood products; CEDS country totals.",
+    "provenance": "ceds_derived",
+    "world_2024_Mt_zenodo_v5_10_0": 14.6,
+    "world_2025_Mt_api_v5_11_0": 14.6,
+    "world_2025_co2_only_Mt_api_v5_11_0": 13.5
+   },
+   {
+    "subsector": "bauxite-mining",
+    "climate_trace_sector": "mineral-extraction",
+    "zenodo_zip": "mineral_extraction_bauxite-mining.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Mining raw material for aluminium.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 7.1,
+    "world_2025_Mt_api_v5_11_0": 7.1
+   },
+   {
+    "subsector": "copper-mining",
+    "climate_trace_sector": "mineral-extraction",
+    "zenodo_zip": "mineral_extraction_copper-mining.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Mining copper ore.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 87.1,
+    "world_2025_Mt_api_v5_11_0": 87.1
+   },
+   {
+    "subsector": "iron-mining",
+    "climate_trace_sector": "mineral-extraction",
+    "zenodo_zip": "mineral_extraction_iron-mining.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Mining iron ore for steel.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 63.5,
+    "world_2025_Mt_api_v5_11_0": 63.5
+   },
+   {
+    "subsector": "other-mining-quarrying",
+    "climate_trace_sector": "mineral-extraction",
+    "zenodo_zip": "mineral_extraction_other-mining-quarrying.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Other mining; CEDS country totals.",
+    "provenance": "ceds_derived",
+    "world_2024_Mt_zenodo_v5_10_0": 42.6,
+    "world_2025_Mt_api_v5_11_0": 42.6,
+    "world_2025_co2_only_Mt_api_v5_11_0": 41.8
+   },
+   {
+    "subsector": "rock-quarrying",
+    "climate_trace_sector": "mineral-extraction",
+    "zenodo_zip": "mineral_extraction_rock-quarrying.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Quarrying stone for construction.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 1.3,
+    "world_2025_Mt_api_v5_11_0": 1.3
+   },
+   {
+    "subsector": "sand-quarrying",
+    "climate_trace_sector": "mineral-extraction",
+    "zenodo_zip": "mineral_extraction_sand-quarrying.zip",
+    "activity_strict": "making_things",
+    "activity_rhodium_compatible": "making_things",
+    "reason": "Quarrying sand for concrete and glass.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 0.6,
+    "world_2025_Mt_api_v5_11_0": 0.6
+   },
+   {
+    "subsector": "electricity-generation",
+    "climate_trace_sector": "power",
+    "zenodo_zip": "power_electricity-generation.zip",
+    "activity_strict": "plugging_in",
+    "activity_rhodium_compatible": "plugging_in",
+    "reason": "Power plants generating electricity: Gates's 'plugging in'.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 13829.8,
+    "world_2025_Mt_api_v5_11_0": 13899.7,
+    "world_2025_co2_only_Mt_api_v5_11_0": 13899.7
+   },
+   {
+    "subsector": "heat-plants",
+    "climate_trace_sector": "power",
+    "zenodo_zip": "power_heat-plants.zip",
+    "activity_strict": "plugging_in",
+    "activity_rhodium_compatible": "plugging_in",
+    "reason": "District heat plants; IPCC 1.A.1.a and AR6 'Electricity & heat' group heat with power. Built on IEA World Energy Balances.",
+    "provenance": "iea_derived",
+    "world_2024_Mt_zenodo_v5_10_0": 93.0,
+    "world_2025_Mt_api_v5_11_0": 56.7,
+    "world_2025_co2_only_Mt_api_v5_11_0": 56.7
+   },
+   {
+    "subsector": "other-energy-use",
+    "climate_trace_sector": "power",
+    "zenodo_zip": "power_other-energy-use.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "plugging_in",
+    "reason": "Residual: EDGAR energy subsectors minus Climate TRACE electricity, forward-filled; not a defined activity.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 2034.6,
+    "world_2025_Mt_api_v5_11_0": 2039.8,
+    "world_2025_co2_only_Mt_api_v5_11_0": 1897.5
+   },
+   {
+    "subsector": "domestic-aviation",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_domestic-aviation.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Flights within a country.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 322.1,
+    "world_2025_Mt_api_v5_11_0": 322.2
+   },
+   {
+    "subsector": "domestic-shipping",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_domestic-shipping.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Ships within a country.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 483.8,
+    "world_2025_Mt_api_v5_11_0": 551.1
+   },
+   {
+    "subsector": "international-aviation",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_international-aviation.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Flights between countries (bunker fuel; outside national inventories but inside Gates's world total).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 579.4,
+    "world_2025_Mt_api_v5_11_0": 601.2
+   },
+   {
+    "subsector": "international-shipping",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_international-shipping.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Ships between countries (bunker fuel).",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 605.3,
+    "world_2025_Mt_api_v5_11_0": 571.1
+   },
+   {
+    "subsector": "non-broadcasting-vessels",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_non-broadcasting-vessels.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Ships without AIS transponders, detected by radar satellites.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 346.2,
+    "world_2025_Mt_api_v5_11_0": 402.6
+   },
+   {
+    "subsector": "other-transport",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_other-transport.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Pipelines and off-road transport in EDGAR's other-transport category; still moving goods and people.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 189.6,
+    "world_2025_Mt_api_v5_11_0": 189.6,
+    "world_2025_co2_only_Mt_api_v5_11_0": 189.4
+   },
+   {
+    "subsector": "railways",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_railways.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Trains.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 101.3,
+    "world_2025_Mt_api_v5_11_0": 101.3,
+    "world_2025_co2_only_Mt_api_v5_11_0": 91.6
+   },
+   {
+    "subsector": "road-transportation",
+    "climate_trace_sector": "transportation",
+    "zenodo_zip": "transportation_road-transportation.zip",
+    "activity_strict": "getting_around",
+    "activity_rhodium_compatible": "getting_around",
+    "reason": "Cars, trucks and buses.",
+    "provenance": "edgar_derived_country",
+    "world_2024_Mt_zenodo_v5_10_0": 6696.2,
+    "world_2025_Mt_api_v5_11_0": 6785.1,
+    "world_2025_co2_only_Mt_api_v5_11_0": 6752.8
+   },
+   {
+    "subsector": "biological-treatment-of-solid-waste-and-biogenic",
+    "climate_trace_sector": "waste",
+    "zenodo_zip": "waste_biological-treatment-of-solid-waste-and-biogenic.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Composting and digestion.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 22.3,
+    "world_2025_Mt_api_v5_11_0": 22.3,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   },
+   {
+    "subsector": "domestic-wastewater-treatment-and-discharge",
+    "climate_trace_sector": "waste",
+    "zenodo_zip": "waste_domestic-wastewater-treatment-and-discharge.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Sewage treatment. Rhodium groups waste with agriculture.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 793.0,
+    "world_2025_Mt_api_v5_11_0": 795.2
+   },
+   {
+    "subsector": "incineration-and-open-burning-of-waste",
+    "climate_trace_sector": "waste",
+    "zenodo_zip": "waste_incineration-and-open-burning-of-waste.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Burning waste.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 19.3,
+    "world_2025_Mt_api_v5_11_0": 19.3,
+    "world_2025_co2_only_Mt_api_v5_11_0": 13.4
+   },
+   {
+    "subsector": "industrial-wastewater-treatment-and-discharge",
+    "climate_trace_sector": "waste",
+    "zenodo_zip": "waste_industrial-wastewater-treatment-and-discharge.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Industrial wastewater. Rhodium groups waste with agriculture.",
+    "provenance": "ct_model",
+    "world_2024_Mt_zenodo_v5_10_0": 167.2,
+    "world_2025_Mt_api_v5_11_0": 167.3
+   },
+   {
+    "subsector": "solid-waste-disposal",
+    "climate_trace_sector": "waste",
+    "zenodo_zip": "waste_solid-waste-disposal.zip",
+    "activity_strict": "not_one_of_five",
+    "activity_rhodium_compatible": "growing_things",
+    "reason": "Landfill methane. Rhodium groups 'landfills & waste' with agriculture and land use.",
+    "provenance": "edgar_listed",
+    "world_2024_Mt_zenodo_v5_10_0": 1080.3,
+    "world_2025_Mt_api_v5_11_0": 1083.9,
+    "world_2025_co2_only_Mt_api_v5_11_0": 0.0
+   }
+  ]
+ },
+ "open_questions": [
+  "1. Owner decision: Climate TRACE says road-transportation, residential- and non-residential-onsite-fuel-usage, glass, lime, food-beverage-tobacco, textiles, other-chemicals, other-metals, wood, other-mining-quarrying and heat-plants are CC BY, but its own methodology builds their country totals from EDGAR v8 (IEA-EDGAR CO2), CEDS (purchased IEA statistics) or IEA World Energy Balances (11.8 Gt CO2 in 2025). Under AGENTS.md they are no-derivatives. Without them, 'getting around' keeps only aviation and shipping, and 'keeping warm and cool' only non-CO2. Ask Climate TRACE (https://climatetrace.org/contact or coalition@climatetrace.org) in writing whether these values may be redistributed and regrouped under CC BY, and whether IEA agreed; and/or ask IEA (compliance@iea.org). Nothing has been sent.",
+  "2. Whether the licence class can be set per gas within one subsector (EDGAR CH4/N2O/F-gas parts open, CO2 part no-derivatives) in pipeline/sources, and how the UI shows the 4.7 Gt gap ('IEA-licensed values not shown').",
+  "3. The web terms and the V5.10.0 data guide disagree: the guide adds 'Solid fuel transformation', 'Cropland fires (country and source level)' and CEDS; the methodology lists still more EDGAR/FAOSTAT-based subsectors. Which list governs? Ask Climate TRACE.",
+  "4. Rice cultivation: which countries are FAOSTAT-sourced ('25 countries' satellite-modelled)? Asset-level and country totals do not reconcile (749 vs 713 Mt, 2024, V5.10.0), so the FAOSTAT part cannot be isolated from the files. FAOSTAT is CC BY, so this affects credit lines only.",
+  "5. Version pinning: v5.11.0 is live but not on Zenodo; V5.10.0 is on Zenodo with 2025 land-sink rows written as 0. Pin V5.10.0 and use 2024 as the latest complete year, or wait for the next Zenodo deposit (releases come in the last week of each month).",
+  "6. Whether 'getting around' should include international aviation and shipping (1.2 Gt in 2025), which national inventories exclude but Gates's world total includes.",
+  "7. Whether to show forestry-and-land-use at all beside the five: Climate TRACE's gross fires (10.4 Gt) and removals (-15.7 Gt) dwarf Rhodium's net 3% and swing the world total by 5.5 Gt between 2024 and 2025.",
+  "8. The book's own endnotes were not read (no open copy was used); the allocation above is inferred from Rhodium's and Breakthrough Energy's published grouping."
+ ]
+}

@@ -1,0 +1,825 @@
+{
+ "date": "2026-10-08",
+ "question": "Bill Gates's 'five questions' (How to Avoid a Climate Disaster): (a) 'How much space do you need?' (power density / land-use intensity of each way of making electricity) and (b) 'How much power are we talking about?' (the kilowatt-gigawatt-terawatt scale ladder). Gates's book itself is copyrighted (no data taken from it); its power-density table is drawn from Smil, which is not usable (see candidates).",
+ "need": [
+  {
+   "question": "a",
+   "need": "Power density (W/m2) or land-use intensity (ha/TWh/y or m2/MWh) per electricity source: coal, gas, nuclear, hydro, onshore wind (footprint and spacing), offshore wind, ground PV, rooftop PV, CSP, biomass, geothermal. Median and range from an open-licence producer, with scope stated (direct only, or incl. fuel supply/mining)."
+  },
+  {
+   "question": "b",
+   "need": "Open, producer-published reference values for the scale ladder: one home (kW), one large power station (GW), one city (GW), the world's electricity demand and total primary energy as average power (TW)."
+  }
+ ],
+ "candidates": [
+  {
+   "question": "a",
+   "rank": 1,
+   "name": "Lovering, Swain, Blomqvist & Hernandez (2022), Land-use intensity of electricity production and tomorrow's energy landscape, PLOS ONE 17(7): e0270155",
+   "producer": "Authors (Univ. of Michigan, Breakthrough Institute, UC Davis); published by PLOS",
+   "landing_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0270155",
+   "file_urls": [
+    "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript (JATS XML, 159,635 bytes, sha256 363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0; holds Table 1)",
+    "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0270155.s003 (S1 File, xlsx, 67,193 bytes, sha256 a078b7b48541d870b64b6bfc5cb50fb947371f1662c5e5ecc39f28cdefe451f5; 1,430 site rows: Fuel, Site_Name, Country, Type_LUIE, LUIE, Source)",
+    "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0270155.s001 (S1 Text, docx, 689,289 bytes, sha256 a4bb3b40e28e668c32a16fc396bbccfdd8a7afac7ef6fec3d15af43b062ae4f6; footprint vs spacing definitions)",
+    "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0270155.s002 (S1 Table, docx, 25,169 bytes, sha256 56c19a44ec554b71ae3dd1be1d129979378cf772a06fcbdf1a01367c1a095e96; data sourcing per technology)"
+   ],
+   "licence_name": "CC BY 4.0",
+   "licence_terms_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0270155&type=manuscript (the article's own <license> element; Crossref agrees: vor licence http://creativecommons.org/licenses/by/4.0/ from 2022-07-06)",
+   "licence_quote": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open (Table 1 aggregates); S1 File per-site rows need care, see third_party_flags",
+   "values": [
+    {
+     "item": "Nuclear (total: plant + uranium fuel cycle)",
+     "value": 7.1,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR width 4.8, mean 15, SE 4.4, n 59)",
+     "year": "2022 publication; US plants",
+     "location_in_file": "article XML, Table 1 (t001), row Nuclear"
+    },
+    {
+     "item": "Geothermal",
+     "value": 45,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 150, mean 140, n 26)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Wind, footprint only (turbines + roads)",
+     "value": 130,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 120, mean 170, n 57)",
+     "year": "2022; US wind farms",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Residue biomass",
+     "value": 130,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 71, mean 150, n 4)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Natural gas, footprint (pads, roads, pipelines + plant)",
+     "value": 410,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 210, mean 410, n 17)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Hydroelectric (single-purpose dams; reservoir area)",
+     "value": 650,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 2,300, mean 15,000, n 952)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Coal (plant + mining, processing, transport)",
+     "value": 1000,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 1,200, mean 1,100, n 30)",
+     "year": "2022; US and Canada",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Solar CSP",
+     "value": 1300,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 650, mean 2,000, n 101)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Natural gas, spacing (whole production field)",
+     "value": 1900,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 2,800, mean 1,900, n 4)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Ground-mounted PV",
+     "value": 2000,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 860, mean 2,100, n 94)",
+     "year": "2022; US plants",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Wind, spacing (whole area inside farm perimeter)",
+     "value": 12000,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 12,000, mean 15,000, n 57)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Dedicated biomass (energy crops)",
+     "value": 58000,
+     "unit": "ha/TWh/y",
+     "statistic": "median (IQR 59,000, mean 160,000, n 14)",
+     "year": "2022",
+     "location_in_file": "Table 1"
+    },
+    {
+     "item": "Rooftop ('integrated') PV",
+     "value": 0,
+     "unit": "ha/TWh/y",
+     "statistic": "assigned by assumption, not measured",
+     "year": "2022",
+     "location_in_file": "article text, methods: 'Integrated Solar PV, i.e. rooftop solar, is assigned an LUIE of zero in this study.'"
+    }
+   ],
+   "third_party_flags": [
+    "S1 File hydro rows (951) are each credited 'International Commission on Large Dams (ICOLD)'; the paper says the dataset 'is compiled from International Commission on Large Dam's (ICOLD) World Register of Dams database'. The World Register of Dams is a subscription database; its terms were not checked. Per-dam rows (with dam names) should not be mirrored or published; the Table 1 aggregate is the authors' own statistic.",
+    "Geothermal rows credited 'Bertani (2005) & Global Energy Observatory'; coal, gas, biomass, CSP rows are values taken from other papers (Fthenakis & Kim 2009, NETL 2014, Lilliestam et al. 2021, Ong et al. 2013, Smil 2010/2015 etc.). Facts compiled under the article's CC BY; flag in attribution.",
+    "Nuclear and wind direct areas are the authors' own polygons drawn in Google Earth Pro, with EIA generation (public domain)."
+   ],
+   "headline_checks": [
+    "Table 1 read from the article XML on 2026-10-08: nuclear 7.1, dedicated biomass 58,000 ha/TWh/y; the abstract states the same two numbers ('from nuclear with 7.1 ha/TWh/y to dedicated biomass at 58,000 ha/TWh/y').",
+    "Recomputed from S1 File for checking only: Solar PV Total median 1,974.3 (n 94) ~ Table 1 2,000; Wind- (footprint) 129.62 (n 57) ~ 130; Wind+ (spacing) 11,907 ~ 12,000; Geothermal 45.005 (n 26) = 45; Hydro 647 (n 951 vs Table 1 n 952) ~ 650; Solar CSP Direct 1,291.87 (n 101) ~ 1,300; Biomass Total 58,405.5 (n 14) ~ 58,000; NG- Indirect 357.2 (n 18 vs 17) vs 410; NG+ 1,854 (n 4) ~ 1,900; Nuclear Direct 6.53 (n 65) + Indirect 0.06 vs 7.1; Coal Total 1,309 (n 20) vs 1,000 (n 30). Coal, gas and nuclear in Table 1 combine direct and indirect rows in ways the file does not show, and residue biomass (n 4) is not in the file, so only Table 1 is publishable as is.",
+    "For comparison only (not to publish without a recorded transformation): 1 ha/TWh/y corresponds to 11,408 W/m2, so ground PV 2,000 ha/TWh/y = 5.7 W/m2, wind spacing 12,000 = 0.95 W/m2, wind footprint 130 = 88 W/m2, nuclear 7.1 = 1,607 W/m2, coal 1,000 = 11.4 W/m2, dedicated biomass 58,000 = 0.20 W/m2."
+   ],
+   "caveats": [
+    "Unit is hectares occupied per terawatt-hour generated in a year (ha/TWh/y); Table 1 'IQR' is the width (Q3 minus Q1), not the two quartiles. Quartile bounds exist only by recomputing from S1 File, which the tree may not do.",
+    "Scope: includes fuel-supply land (mining, processing, transport) for coal, gas, nuclear and dedicated biomass; excludes land to mine materials for panels, turbines and plants, transmission corridors, offshore areas and underground impacts. No offshore wind value. Rooftop PV is zero by assumption.",
+    "Nuclear, wind and ground PV use US facilities only; coal US and Canada; hydro 80 countries. Hydro excludes run-of-river (paper cites about 10 ha/TWh/y from Fthenakis & Kim, not in Table 1).",
+    "Wind and gas each have two values (footprint vs spacing) that differ ~90-fold for wind; both must be shown with the definition."
+   ],
+   "recommendation": "Register as the primary source for question (a): new source lovering-2022 (open, CC BY 4.0), artifact = article JATS XML (Table 1 parsed strictly, with a check that the abstract still says 7.1 and 58,000). Publish median and IQR width per source in the producer's unit (ha/TWh/y); any W/m2 view must be a pipeline transformation recorded as a processing step. Register S1 File only as a checking artifact with mirror_raw: false because of the ICOLD-derived per-dam rows. Pair with Nøland 2022 for offshore wind and rooftop PV."
+  },
+  {
+   "question": "a",
+   "rank": 2,
+   "name": "Nøland, Auxepaules, Rousset, Perney & Falletti (2022), Spatial energy density of large-scale electricity generation from power sources worldwide, Scientific Reports 12: 21280",
+   "producer": "Authors (NTNU Trondheim; Grenoble INP); published by Springer Nature",
+   "landing_url": "https://doi.org/10.1038/s41598-022-25341-9",
+   "file_urls": [
+    "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9732281/fullTextXML (full text JATS, 316,479 bytes; www.nature.com answered 303 to an idp.nature.com login redirect for scripts, so the PMC copy was read)",
+    "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-022-25341-9/MediaObjects/41598_2022_25341_MOESM1_ESM.xlsx (SI 1, natural gas plants, 15,924 bytes, sha256 5cb4ba270471c994ff710d6310fc39f3b777b33bd9ec78277e772f5d352bd44c)",
+    "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-022-25341-9/MediaObjects/41598_2022_25341_MOESM2_ESM.xlsx (SI 2, nuclear plants by region, 80,550 bytes, sha256 5ae44be0629e57a905ed9a535006c6e7758129302eb95bea1bd917d44574fd01)",
+    "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-022-25341-9/MediaObjects/41598_2022_25341_MOESM3_ESM.xlsx (SI 3, geothermal plants, 14,810 bytes, sha256 ec0ddd5aea18ff06472791010f5c80305904d52822722d2e865eb983c9f023fe)"
+   ],
+   "licence_name": "CC BY 4.0",
+   "licence_terms_url": "Article licence statement in the full text (Europe PMC JATS of PMC9732281); a person should confirm on the nature.com article page",
+   "licence_quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open",
+   "values": [
+    {
+     "item": "Nuclear (incl. safety exclusion area)",
+     "value": 587.17,
+     "unit": "W/m2",
+     "statistic": "median (mean 764.69 +/- 549.69, n 159); excl. safety area median 1,790.55",
+     "year": "2022",
+     "location_in_file": "Table 16 and Table 7"
+    },
+    {
+     "item": "Natural gas (approx. incl. pipelines and production pads)",
+     "value": 350.37,
+     "unit": "W/m2",
+     "statistic": "median (mean 374.14 +/- 247.38, n 26); plant only median 2,246.57 (Table 4)",
+     "year": "2022",
+     "location_in_file": "Table 16"
+    },
+    {
+     "item": "Hydro (reservoir surface)",
+     "value": 4.26,
+     "unit": "W/m2",
+     "statistic": "median (mean 33.73 +/- 157.28, n 451)",
+     "year": "2022",
+     "location_in_file": "Table 16; regional medians Table 8"
+    },
+    {
+     "item": "Solar CSP",
+     "value": 14.45,
+     "unit": "W/m2",
+     "statistic": "median (mean 20.33 +/- 12.74, n 27)",
+     "year": "2022",
+     "location_in_file": "Table 16"
+    },
+    {
+     "item": "Solar PV (ground)",
+     "value": 9.13,
+     "unit": "W/m2",
+     "statistic": "median (mean 9.91 +/- 3.28, n 17)",
+     "year": "2022",
+     "location_in_file": "Table 16"
+    },
+    {
+     "item": "Geothermal (incl. area between wells)",
+     "value": 5.56,
+     "unit": "W/m2",
+     "statistic": "median (mean 4.88 +/- 3.39, n 8)",
+     "year": "2022",
+     "location_in_file": "Table 16"
+    },
+    {
+     "item": "Solar rooftop (power per unit of roof surface, cumulative per country)",
+     "value": 4.17,
+     "unit": "W/m2",
+     "statistic": "median (mean 4.58 +/- 2.25, n 39)",
+     "year": "2022",
+     "location_in_file": "Table 16; Table 9 by region"
+    },
+    {
+     "item": "Wind offshore",
+     "value": 3.84,
+     "unit": "W/m2",
+     "statistic": "median (mean 3.89 +/- 1.61, n 11)",
+     "year": "2022",
+     "location_in_file": "Table 16 / Table 11"
+    },
+    {
+     "item": "Wind onshore (whole regulated area)",
+     "value": 1.49,
+     "unit": "W/m2",
+     "statistic": "median (mean 2.12 +/- 2.06, n 148); single-string farms median 12.61 (n 14)",
+     "year": "2022",
+     "location_in_file": "Table 16 / Table 11"
+    },
+    {
+     "item": "Biomass",
+     "value": 0.08,
+     "unit": "W/m2",
+     "statistic": "median (taken from van Zalk & Behrens 2018, n 63)",
+     "year": "2018 source",
+     "location_in_file": "Table 16, footnote 3"
+    },
+    {
+     "item": "World electricity-system land and sea use, 2020 vs 2050 (IEA NZE)",
+     "value": "0.519% -> 3.010%",
+     "unit": "share of world land area",
+     "statistic": "scenario estimate",
+     "year": "2020, 2050",
+     "location_in_file": "Table 20 (do not use; IEA-derived)"
+    }
+   ],
+   "third_party_flags": [
+    "Biomass value is van Zalk & Behrens 2018's (CC BY 4.0) — credit both.",
+    "Table 10 capacity factors use 'the Our World in Data database' (aggregator) and Tables 2, 15, 19, 20 use IEA World Energy Outlook / NZE data (IEA terms, not CC): do not use those tables.",
+    "Per-plant data in SI files: plant areas measured from Google Earth / satellite imagery; generation from public sources. SI 1 has country errors (Higashi-Niigata listed under United Arab Emirates, Futtsu Power Station under Russia; both are in Japan)."
+   ],
+   "headline_checks": [
+    "Table 16 read from the Europe PMC full text on 2026-10-08 (values above). Table 7 nuclear median 587.17 W/m2 incl. safety area equals Table 16. Table 11 offshore 3.84 and onshore 1.49 equal Table 16.",
+    "SI 1 first row: West County (US) 3,750 MW, 21,486 GWh, 0.89 km2, mean power density 2,754.06 W/m2 (plant only)."
+   ],
+   "caveats": [
+    "No coal value. Boundaries differ from Lovering: nuclear includes the safety exclusion area but not uranium mining; gas includes pipelines and pads (approximated in Table 6 from global pipeline length); geothermal includes the area between wells (hence 5.56 W/m2 vs Lovering's footprint-based 45 ha/TWh/y = 254 W/m2).",
+    "Rooftop solar value is power per square metre of roof (land use is near zero); it is not comparable to ground land use.",
+    "Small n for geothermal (8), offshore (11), PV (17)."
+   ],
+   "recommendation": "Register as the second, independent source (twin, never blended) for question (a), mainly for offshore wind, rooftop PV per roof area and the onshore wind whole-area value in W/m2. Use Table 16 only; flag the IEA- and OWID-derived tables as excluded. A person should confirm the licence on the nature.com page because nature.com redirects scripts to a login."
+  },
+  {
+   "question": "a",
+   "rank": 3,
+   "name": "van Zalk & Behrens (2018), The spatial extent of renewable and non-renewable power generation: A review and meta-analysis of power densities and their application in the U.S., Energy Policy 123: 83-91",
+   "producer": "Authors (Leiden University, CML); published by Elsevier",
+   "landing_url": "https://www.sciencedirect.com/science/article/pii/S0301421518305512 (doi:10.1016/j.enpol.2018.08.023)",
+   "file_urls": [
+    "https://ars.els-cdn.com/content/image/1-s2.0-S0301421518305512-mmc2.xlsx (data workbook, 1,030,254 bytes, sha256 6b124500537cc2f8426586b217b7b3180917552f90fdb98e3f9341d7c8a87ea6; sheets Search terms, Summary, Assumptions, References, Figures A1-A3, Results summary)",
+    "https://ars.els-cdn.com/content/image/1-s2.0-S0301421518305512-mmc1.docx (supplementary text, 621,841 bytes, sha256 eddaa71918037a24b22caee6072b9f1c990e789238ebc58492a8d4331ff69327)"
+   ],
+   "licence_name": "CC BY 4.0 (per Elsevier's own article API metadata; article page not readable)",
+   "licence_terms_url": "https://api.elsevier.com/content/article/PII:S0301421518305512?httpAccept=text/xml",
+   "licence_quote": "<openaccessUserLicense>http://creativecommons.org/licenses/by/4.0/</openaccessUserLicense> (openaccessType Full, sponsor VSNU). The human-readable licence sentence on the article page could not be read: www.sciencedirect.com returned HTTP 403 with a challenge page, and the Leiden repository copy (hdl.handle.net/1887/64883) returned 'Access Blocked'.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open (pending a person reading the article page)",
+   "values": [
+    {
+     "item": "Natural gas",
+     "value": 482.1,
+     "unit": "W/m2",
+     "statistic": "median (mean 1,283.87, SEM 701.97, n 7)",
+     "year": "2018",
+     "location_in_file": "mmc2.xlsx, sheet 'Results summary', row 12"
+    },
+    {
+     "item": "Nuclear",
+     "value": 240.81,
+     "unit": "W/m2",
+     "statistic": "median (mean 288.92, SEM 74.59, n 11)",
+     "year": "2018",
+     "location_in_file": "Results summary row 11"
+    },
+    {
+     "item": "Oil",
+     "value": 194.61,
+     "unit": "W/m2",
+     "statistic": "median (n 4)",
+     "year": "2018",
+     "location_in_file": "Results summary row 10"
+    },
+    {
+     "item": "Coal",
+     "value": 135.1,
+     "unit": "W/m2",
+     "statistic": "median (mean 126.57, n 34)",
+     "year": "2018",
+     "location_in_file": "Results summary row 9"
+    },
+    {
+     "item": "Solar (all)",
+     "value": 6.63,
+     "unit": "W/m2",
+     "statistic": "median (mean 7.29, n 20); utility-scale PV 5.84 (n 3), residential PV 6.62 (n 4), CSP 9.70 (n 2)",
+     "year": "2018",
+     "location_in_file": "Results summary rows 8, 20-23"
+    },
+    {
+     "item": "Geothermal",
+     "value": 2.24,
+     "unit": "W/m2",
+     "statistic": "median (n 11)",
+     "year": "2018",
+     "location_in_file": "Results summary row 7"
+    },
+    {
+     "item": "Wind (all)",
+     "value": 1.84,
+     "unit": "W/m2",
+     "statistic": "median (n 19); onshore 2.02 (n 8), offshore 2.63 (n 3)",
+     "year": "2018",
+     "location_in_file": "Results summary rows 6, 16, 18"
+    },
+    {
+     "item": "Hydro",
+     "value": 0.135,
+     "unit": "W/m2",
+     "statistic": "median (n 8); large hydro 0.505 (n 2)",
+     "year": "2018",
+     "location_in_file": "Results summary rows 5, 23"
+    },
+    {
+     "item": "Biomass",
+     "value": 0.081,
+     "unit": "W/m2",
+     "statistic": "median (mean 0.132, n 63)",
+     "year": "2018",
+     "location_in_file": "Results summary row 4"
+    }
+   ],
+   "third_party_flags": [
+    "Every value is taken from a third-party publication (177 densities from the literature, including Smil 1983/2010, NREL, EIA, IRENA, Pimentel), then normalised with US capacity factors and efficiencies (sheet 'Assumptions', Hankey et al. 2017 = EIA). Facts, but the compilation credit must name the authors."
+   ],
+   "headline_checks": [
+    "Results summary read on 2026-10-08: gas 482.10 > nuclear 240.81 > oil 194.61 > coal 135.10 > solar 6.63 > geothermal 2.24 > wind 1.84 > hydro 0.135 > biomass 0.081 W/m2 — matches the abstract claim that gas and solar have the highest median density among non-renewable and renewable systems."
+   ],
+   "caveats": [
+    "Method weakness: many fossil rows are computed from a fuel's calorific value (MJ/kg, Mcal/m3) with factors 'Infrastructure: N', not from occupied land, e.g. 24 of 34 coal rows. Those are not land-use measurements; coal's 135 W/m2 is far above Lovering's 11 W/m2 incl. mining.",
+    "US-centric, small n per sub-type (offshore 3, CSP 2), several values more than 40 years old.",
+    "The supplementary file URLs were found on Elsevier's CDN (ars.els-cdn.com answered 200) while the article page itself was blocked; a person should confirm on the article page that mmc1/mmc2 are the article's supplementary files and record them with envdash snapshot add."
+   ],
+   "recommendation": "Do not use as the headline source because of the calorific-value method for fossil fuels. Keep as a reference only; its biomass value reaches the site through Nøland 2022 anyway."
+  },
+  {
+   "question": "a",
+   "rank": 4,
+   "name": "MacKay (2009), Sustainable Energy – without the hot air, Table 18.10 / Table 25.1 'Power per unit land or water area'",
+   "producer": "David J C MacKay (UIT Cambridge)",
+   "landing_url": "https://www.withouthotair.com/",
+   "file_urls": [
+    "http://www.inference.org.uk/sustainable/book/tex/cft.pdf (10,279,991 bytes, sha256 33d5f2897df90c426569f022263b5552d0acab44f14f96db70e5449277b271b7, version 3.5.2)"
+   ],
+   "licence_name": "Conflicting: CC BY-NC-SA 2.0 UK in the preface; 'All rights reserved' on the imprint; 'for personal use only' in the PDF footer",
+   "licence_terms_url": "http://www.inference.org.uk/sustainable/book/tex/cft.pdf (preface page viii and imprint page)",
+   "licence_quote": "you are free to use all the material in this book, except for the cartoons and the photos with a named photographer, under the Creative Commons Attribution-Non-Commercial-ShareAlike 2.0 UK: England & Wales Licence.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "share-alike + noncommercial (CC BY-NC-SA) if used; conflicting statements need resolving",
+   "values": [
+    {
+     "item": "Wind farm",
+     "value": 2,
+     "unit": "W/m2",
+     "statistic": "single estimate (UK)",
+     "year": "2009",
+     "location_in_file": "Table 18.10 (p112) and Table 25.1"
+    },
+    {
+     "item": "Offshore wind",
+     "value": 3,
+     "unit": "W/m2",
+     "statistic": "single estimate",
+     "year": "2009",
+     "location_in_file": "Table 18.10"
+    },
+    {
+     "item": "Solar PV panels",
+     "value": "5-20",
+     "unit": "W/m2",
+     "statistic": "range",
+     "year": "2009",
+     "location_in_file": "Table 18.10"
+    },
+    {
+     "item": "Plants (energy crops)",
+     "value": 0.5,
+     "unit": "W/m2",
+     "statistic": "single estimate (NW Europe)",
+     "year": "2009",
+     "location_in_file": "Table 18.10"
+    },
+    {
+     "item": "Hydroelectric facility",
+     "value": 11,
+     "unit": "W/m2",
+     "statistic": "single estimate",
+     "year": "2009",
+     "location_in_file": "Table 18.10"
+    },
+    {
+     "item": "Concentrating solar power (desert)",
+     "value": 15,
+     "unit": "W/m2",
+     "statistic": "single estimate",
+     "year": "2009",
+     "location_in_file": "Table 25.1"
+    }
+   ],
+   "third_party_flags": [
+    "Cartoons and named photos excluded from the CC licence."
+   ],
+   "headline_checks": [
+    "Read from the PDF text on 2026-10-08."
+   ],
+   "caveats": [
+    "Back-of-envelope estimates for Britain, not a dataset; no fossil or nuclear land use in these tables; 2009 vintage; licence statements conflict."
+   ],
+   "recommendation": "Not recommended for data. At most a quoted context line."
+  },
+  {
+   "question": "a",
+   "rank": 5,
+   "name": "NREL land-use reports: Ong et al. (2013) Land-Use Requirements for Solar Power Plants in the United States (NREL/TP-6A20-56290, OSTI 1086349); Denholm et al. (2009) Land Use Requirements of Modern Wind Power Plants in the United States (NREL/TP-6A2-45834, OSTI 964608)",
+   "producer": "National Renewable Energy Laboratory (renamed National Laboratory of the Rockies on 1 Dec 2025), for US DOE",
+   "landing_url": "https://www.osti.gov/biblio/1086349 ; https://www.osti.gov/biblio/964608",
+   "file_urls": [
+    "https://www.osti.gov/servlets/purl/1086349",
+    "https://www.osti.gov/servlets/purl/964608"
+   ],
+   "licence_name": "Not established",
+   "licence_terms_url": null,
+   "licence_quote": null,
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "unknown",
+   "values": [],
+   "third_party_flags": [],
+   "headline_checks": [
+    "Not read: www.nrel.gov and docs.nrel.gov did not resolve (DNS) on 2026-10-08; OSTI full text returned HTTP 429 to scripts. Values (e.g. solar acres per GWh/yr) were not read from the file and are not recorded."
+   ],
+   "caveats": [
+    "Reports by a DOE contractor lab (Alliance for Sustainable Energy, contract DE-AC36-08GO28308) are not automatically US-government works (17 USC 105); their terms must be read on the report itself. Both are already inputs to Lovering 2022 (Ong et al. 2013 is credited in S1 File)."
+   ],
+   "recommendation": "Not needed: Lovering 2022 already incorporates Ong et al. 2013. A person could download the PDFs from OSTI to read their notice page if a US-only solar or wind value is ever wanted."
+  },
+  {
+   "question": "a",
+   "rank": 6,
+   "name": "Bolinger & Bolinger (2022), Land Requirements for Utility-Scale PV: An Empirical Update on Power and Energy Density, IEEE Journal of Photovoltaics 12(2): 589-594 (doi:10.1109/JPHOTOV.2021.3136805)",
+   "producer": "Lawrence Berkeley National Laboratory authors; IEEE",
+   "landing_url": "https://doi.org/10.1109/JPHOTOV.2021.3136805",
+   "file_urls": [
+    "https://ieeexplore.ieee.org/ielam/5503869/9718347/9676427-aam.pdf (HTTP 418 to scripts)",
+    "https://emp.lbl.gov/publications/land-requirements-utility-scale-pv (HTTP 403 Cloudflare)"
+   ],
+   "licence_name": "CC BY 4.0 per Crossref (vor and am, from 2022-03-01); not confirmed on the producer's page",
+   "licence_terms_url": "https://api.crossref.org/works/10.1109/JPHOTOV.2021.3136805 (metadata only)",
+   "licence_quote": null,
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open (pending confirmation)",
+   "values": [],
+   "third_party_flags": [],
+   "headline_checks": [
+    "Not read: both hosts block scripts. A person must download the PDF."
+   ],
+   "caveats": [
+    "US utility-scale PV only (power and energy density per acre, 2011-2019 plants); would refine ground PV but not cover other sources."
+   ],
+   "recommendation": "Optional later twin for ground PV; manual acquisition."
+  },
+  {
+   "question": "a",
+   "rank": 7,
+   "name": "UNECE (2021), Life Cycle Assessment of Electricity Generation Options (land occupation per MWh incl. supply chain)",
+   "producer": "United Nations Economic Commission for Europe",
+   "landing_url": "https://unece.org/sites/default/files/2021-10/LCA-2.pdf",
+   "file_urls": [
+    "https://unece.org/sites/default/files/2021-10/LCA-2.pdf (HTTP 403 to scripts)"
+   ],
+   "licence_name": "Not established",
+   "licence_terms_url": null,
+   "licence_quote": null,
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "unknown",
+   "values": [],
+   "third_party_flags": [
+    "Our World in Data republishes these land-use values; OWID is an aggregator and may not be the licence source."
+   ],
+   "headline_checks": [
+    "Not read: unece.org returned 403."
+   ],
+   "caveats": [
+    "Would be the only candidate counting full life-cycle land (mining of materials for panels and turbines). UN publications are often 'all rights reserved'; must be read by a person."
+   ],
+   "recommendation": "A person should download the PDF and read its copyright page; if open, it would complement Lovering on life-cycle scope."
+  },
+  {
+   "question": "a",
+   "rank": 8,
+   "name": "Smil (2015), Power Density: A Key to Understanding Energy Sources and Uses (MIT Press); also the source of the power-density table in Gates (2021)",
+   "producer": "Vaclav Smil / MIT Press",
+   "landing_url": "https://direct.mit.edu/books/monograph/4023/Power-DensityA-Key-to-Understanding-Energy-Sources",
+   "file_urls": [],
+   "licence_name": "No open licence found (Crossref lists none for doi:10.7551/mitpress/10046.001.0001)",
+   "licence_terms_url": null,
+   "licence_quote": null,
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "display-only at best; not usable (values would go into public JSON)",
+   "values": [],
+   "third_party_flags": [],
+   "headline_checks": [
+    "direct.mit.edu returned 403 (Cloudflare 'Just a moment...')."
+   ],
+   "caveats": [
+    "Gates's book (Knopf, 2021) is copyrighted; its table should not be reproduced."
+   ],
+   "recommendation": "Reject for data; record under Rejected with the reason."
+  },
+  {
+   "question": "b",
+   "rank": 1,
+   "name": "Ember Yearly Electricity Data — World 'Demand' (TWh) (already registered as ember-yearly)",
+   "producer": "Ember",
+   "landing_url": "https://ember-energy.org/data/yearly-electricity-data/",
+   "file_urls": [
+    "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv (16,123,048 bytes on 2026-10-08, Last-Modified Tue 06 Oct 2026 18:04:43 GMT, sha256 b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1 — newer than the 22 Sep file in the registry)"
+   ],
+   "licence_name": "CC BY 4.0",
+   "licence_terms_url": "https://ember-energy.org/creative-commons/",
+   "licence_quote": "Ember content is released under a Creative Commons Attribution Licence (CC-BY-4.0) This means you’re free to share and adapt our work – as long as you credit us.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open",
+   "values": [
+    {
+     "item": "World electricity demand",
+     "value": 31919.868,
+     "unit": "TWh",
+     "statistic": "annual total (partly Ember estimate)",
+     "year": 2025,
+     "location_in_file": "Area=World, Electricity source=Demand, column 'Generation (TWh)'"
+    },
+    {
+     "item": "World electricity demand",
+     "value": 31069.945,
+     "unit": "TWh",
+     "statistic": "annual total",
+     "year": 2024,
+     "location_in_file": "same row type"
+    },
+    {
+     "item": "World nuclear capacity",
+     "value": 406.91,
+     "unit": "GW",
+     "statistic": "year-end capacity (compiled from IRENA/GEM)",
+     "year": 2025,
+     "location_in_file": "Area=World, Electricity source=Nuclear, 'Capacity (GW)'"
+    },
+    {
+     "item": "World electricity demand per person",
+     "value": 3.86,
+     "unit": "MWh per person",
+     "statistic": "annual",
+     "year": 2025,
+     "location_in_file": "legacy long file yearly_full_release_long_format.csv (Last-Modified 23 Jun 2026), Category 'Electricity demand', Variable 'Demand per capita' — not in the release_generation file"
+    }
+   ],
+   "third_party_flags": [
+    "Ember compiles from EIA, UN, Eurostat, Energy Institute data; already handled in the ember-yearly entry."
+   ],
+   "headline_checks": [
+    "World Demand 2025 = Total generation 2025 = 31,919.868 TWh in the 6 Oct file (world net imports zero). As average power: 31,919.868 TWh / 8,760 h = 3.64 TW (a unit conversion the pipeline would have to record).",
+    "Per-capita demand is published by Ember only in the legacy long file (2025 World 3.86 MWh, demand there 31,734.49 TWh, an older vintage) and in the API /v1/electricity-demand/yearly field demand_mwh_per_capita, which returned 403 'No API key set' without a key."
+   ],
+   "caveats": [
+    "2025 is partly Ember's estimate (see registry note). Demand per capita must come from Ember's own field (API key needed, to be stored in the Keychain), never by dividing by population on our side."
+   ],
+   "recommendation": "Use the already registered ember-yearly artifact for the terawatt rung (world demand) and country rungs. For per-person electricity, add an Ember API artifact (needs a free API key in the Keychain and a GitHub secret) rather than the stale legacy file."
+  },
+  {
+   "question": "b",
+   "rank": 2,
+   "name": "EIA International Energy Statistics — world total primary energy (already registered as eia-international, indicator energy.eia.primary-total)",
+   "producer": "U.S. Energy Information Administration",
+   "landing_url": "https://www.eia.gov/international/data/world",
+   "file_urls": [
+    "https://www.eia.gov/opendata/bulk/INTL.zip"
+   ],
+   "licence_name": "Public domain (US government work)",
+   "licence_terms_url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open",
+   "values": [
+    {
+     "item": "World total primary energy consumption",
+     "value": 606.037,
+     "unit": "quad Btu",
+     "statistic": "annual total",
+     "year": 2024,
+     "location_in_file": "data/v1/indicators/energy.eia.primary-total.csv, WLD 2024 (vintage Sep 2026)"
+    }
+   ],
+   "third_party_flags": [],
+   "headline_checks": [
+    "606.037 quad Btu x 1,055.056 J/Btu / (366 x 86,400 s) = 20.2 TW average (conversion for checking; captured-energy accounting for wind/solar/hydro)."
+   ],
+   "caveats": [
+    "Primary energy depends on the accounting method (EIA uses captured energy for non-combustible renewables); the TW figure must say so."
+   ],
+   "recommendation": "Already published; the scale ladder only needs a recorded unit conversion to TW."
+  },
+  {
+   "question": "b",
+   "rank": 3,
+   "name": "EIA Residential Energy Consumption Survey 2020, Table CE2.1 (average household electricity use)",
+   "producer": "U.S. Energy Information Administration",
+   "landing_url": "https://www.eia.gov/consumption/residential/data/2020/index.php?view=consumption",
+   "file_urls": [
+    "https://www.eia.gov/consumption/residential/data/2020/c&e/xls/ce2.1.xlsx (37,081 bytes, Last-Modified Mon 25 Mar 2024, sha256 14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff)"
+   ],
+   "licence_name": "Public domain (US government work)",
+   "licence_terms_url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open",
+   "values": [
+    {
+     "item": "Average site electricity consumption per US household (all homes)",
+     "value": 10566,
+     "unit": "kWh per household per year",
+     "statistic": "survey mean (RSE 0.38%)",
+     "year": 2020,
+     "location_in_file": "sheet 'physical units', row 5 'All homes', column 'Electricity (kWh)' (G)"
+    },
+    {
+     "item": "Number of US housing units",
+     "value": 123.53,
+     "unit": "million",
+     "statistic": "estimate",
+     "year": 2020,
+     "location_in_file": "same sheet, row 5, column B"
+    },
+    {
+     "item": "Average electricity sold per US residential customer (EIA FAQ)",
+     "value": 10791,
+     "unit": "kWh per year",
+     "statistic": "mean",
+     "year": 2022,
+     "location_in_file": "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3"
+    }
+   ],
+   "third_party_flags": [],
+   "headline_checks": [
+    "10,566 kWh / 8,784 h (2020) = 1.20 kW average for one US home (conversion for checking)."
+   ],
+   "caveats": [
+    "US homes are large users; a world or European home is several times smaller. RECS 2024 consumption tables are due spring 2027 (EIA RECS page, 2026-10-08)."
+   ],
+   "recommendation": "Register (new source eia-recs-2020, public domain) for the kilowatt rung, labelled 'an average US home'; pair with the GB value below so the ladder does not imply a world average."
+  },
+  {
+   "question": "b",
+   "rank": 4,
+   "name": "DESNZ Subnational electricity consumption statistics, Great Britain, 2005-2024 (London and city totals; mean domestic consumption per household)",
+   "producer": "UK Department for Energy Security and Net Zero (Accredited Official Statistics)",
+   "landing_url": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics",
+   "file_urls": [
+    "https://assets.publishing.service.gov.uk/media/69426e905431f4f94d7f0b5e/Subnational_electricity_consumption_statistics_2005-2024.xlsx (2,103,254 bytes, sha256 9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429; published 18 Dec 2025, next update Dec 2026)"
+   ],
+   "licence_name": "Open Government Licence v3.0",
+   "licence_terms_url": "https://www.gov.uk/government/statistics/regional-and-local-authority-electricity-consumption-statistics",
+   "licence_quote": "All content is available under the Open Government Licence v3.0, except where otherwise stated",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open",
+   "values": [
+    {
+     "item": "London, total electricity consumption (all meters)",
+     "value": 34800.72,
+     "unit": "GWh",
+     "statistic": "annual total (NHH electricity year Feb 2024-Jan 2025; HH calendar 2024)",
+     "year": 2024,
+     "location_in_file": "sheet '2024', row 15 (E12000007 London, All local authorities), column 'Total consumption (GWh): All meters'"
+    },
+    {
+     "item": "Great Britain, mean domestic consumption per household",
+     "value": 3463.41,
+     "unit": "kWh per household",
+     "statistic": "mean",
+     "year": 2024,
+     "location_in_file": "sheet '2024', row 6 (K03000001), last column 'Mean domestic consumption (kWh per household)'"
+    },
+    {
+     "item": "Great Britain, median domestic consumption per meter",
+     "value": 2471.1,
+     "unit": "kWh per meter",
+     "statistic": "median",
+     "year": 2024,
+     "location_in_file": "sheet '2024', row 6, 'Median consumption (kWh per meter): All Domestic'"
+    },
+    {
+     "item": "Birmingham, total consumption",
+     "value": 3743.42,
+     "unit": "GWh",
+     "statistic": "annual total",
+     "year": 2024,
+     "location_in_file": "sheet '2024', E08000025"
+    },
+    {
+     "item": "Great Britain, total consumption",
+     "value": 249247.68,
+     "unit": "GWh",
+     "statistic": "annual total",
+     "year": 2024,
+     "location_in_file": "sheet '2024', row 6"
+    }
+   ],
+   "third_party_flags": [
+    "Household counts come from ONS/Welsh Government/NRS household estimates (Crown copyright, OGL); Wales 2024 households are DESNZ projections (cover sheet)."
+   ],
+   "headline_checks": [
+    "London 34,800.72 GWh / 8,760 h = 3.97 GW average (a city rung). GB household 3,463 kWh = 0.40 kW average."
+   ],
+   "caveats": [
+    "Metered consumption only (no on-site solar); electricity year differs for NHH and HH meters; Northern Ireland not included."
+   ],
+   "recommendation": "Register (new source desnz-subnational-electricity, OGL) for the city rung (London) and a second home value (GB household mean)."
+  },
+  {
+   "question": "b",
+   "rank": 5,
+   "name": "EIA FAQ 'How many nuclear power plants are in the United States, and where are they located?' (largest US plant)",
+   "producer": "U.S. Energy Information Administration",
+   "landing_url": "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3",
+   "file_urls": [
+    "https://www.eia.gov/tools/faqs/faq.php?id=207&t=3"
+   ],
+   "licence_name": "Public domain (US government work)",
+   "licence_terms_url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "licence_quote": "U.S. government publications are in the public domain and are not subject to copyright protection.",
+   "fetched_on": "2026-10-08",
+   "proposed_licence_class": "open",
+   "values": [
+    {
+     "item": "Vogtle Electric Generating Plant (Georgia), net summer capacity",
+     "value": 4530,
+     "unit": "MW",
+     "statistic": "capacity (4 reactors; nameplate about 4,658 MW)",
+     "year": "as of March 2026",
+     "location_in_file": "FAQ 207 text"
+    },
+    {
+     "item": "US operating commercial reactors / plants",
+     "value": "94 / 54",
+     "unit": "count",
+     "statistic": "count",
+     "year": "March 2026",
+     "location_in_file": "FAQ 207 text"
+    }
+   ],
+   "third_party_flags": [],
+   "headline_checks": [
+    "Read on 2026-10-08 (FAQ text). The underlying EIA-860 generator file would be the machine-readable artifact for a plant's capacity."
+   ],
+   "caveats": [
+    "FAQ prose is not a stable data file; for the pipeline, use EIA-860 (Form EIA-860 annual generator data, public domain) to select a named plant. A 'typical' plant size would be a computed statistic, so select one named plant instead."
+   ],
+   "recommendation": "For the gigawatt 'power station' rung, select a named plant from EIA-860 (public domain) or from the already registered GEM Coal Plant Tracker (CC BY 4.0, unit capacities, manual workbook). IAEA PRIS was not checked: iaea.org returned 403 (Cloudflare)."
+  }
+ ],
+ "already_registered": {
+  "a": "Nothing in the registry gives land per unit of electricity. Ember yearly and IRENA capacity give generation and capacity only; FAOSTAT land-use gives agricultural land, not energy land.",
+  "b": [
+   "ember-yearly: World and country 'Demand' and 'Total generation' (TWh) and capacity (GW) by source, e.g. World demand 2025 31,919.868 TWh, World nuclear capacity 406.91 GW (file of 6 Oct 2026). Per-capita demand is not in the registered file.",
+   "eia-international: world and country total primary energy (energy.eia.primary-total, World 2024 606.037 quad Btu, about 20.2 TW).",
+   "irena-capacity-2026: renewable capacity by technology (World renewable 5,149 GW end-2025).",
+   "gem-coal-plant-tracker: unit-level coal unit capacities (manual workbook) — a source for a named coal power station.",
+   "un-wpp-2024 / wb-wdi: population (not to be used to compute per-person electricity on our side)."
+  ]
+ },
+ "open_questions": [
+  "Owner: accept Lovering 2022 Table 1 as the headline (ha/TWh/y, incl. fuel supply for fossil and nuclear) and show W/m2 only as a recorded pipeline conversion? Or show the producer's unit only?",
+  "ICOLD World Register of Dams terms: may Lovering's per-dam S1 rows be mirrored? Until known, mirror_raw: false and use Table 1 aggregates only.",
+  "van Zalk & Behrens 2018 and Bolinger 2022: a person must read the licence on the article pages (ScienceDirect, IEEE Xplore, LBNL all block scripts) and record files with envdash snapshot add if wanted.",
+  "UNECE LCA 2021 (life-cycle land occupation incl. material mining): a person must download the PDF (unece.org 403) and read its copyright page.",
+  "Ember API key: per-capita electricity demand is only in the API (demand_mwh_per_capita); needs a Keychain entry and GitHub secret mapping in docs/runbook.md.",
+  "Nøland 2022: confirm the CC BY statement on nature.com (scripts are redirected to a login); SI 1 has country errors (Higashi-Niigata, Futtsu) to report to the authors.",
+  "Which home to show on the kilowatt rung: US (EIA RECS 10,566 kWh, 1.2 kW) and/or GB (DESNZ 3,463 kWh, 0.40 kW)? No open producer publishes a world-average household value.",
+  "EIA RECS 2024 consumption tables are due spring 2027; register 2020 now and swap on release."
+ ]
+}
