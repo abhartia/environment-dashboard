@@ -1,0 +1,15 @@
+{
+  "artifact_id": "petrochemical-steam-cracking",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact petrochemical-steam-cracking --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 5963,
+  "fixture_sha256": "c3bc8ba555de63787a203807a5928a9712dc37b0d2e829e445fa4f178794b865",
+  "full_bytes": 502039,
+  "full_sha256": "0ebcc51519cdef357a4597777cac6d06cb4e98a63def13fd4812065a803c7c34",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/manufacturing_petrochemical-steam-cracking.zip/content"
+}

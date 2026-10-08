@@ -4,7 +4,8 @@
 - Manifest: pipeline/manifests/snapshots/<sha256>.json (models.Snapshot), written once. `date_accessed` is the day
   those bytes were first fetched and never changes; only the archive fields (r2_*, wayback) are filled in later. For
   a discovered artifact the manifest's url is the resolved URL and `discovery` names the listing it was found on; for
-  an artifact with a content_key, `content_sha256` is the content fingerprint next to the raw sha256.
+  an artifact with a content_key, `content_sha256` is the content fingerprint next to the raw sha256; for an
+  artifact with a zip_member, the bytes are that member's and `zip_member` names it inside the zip at `url`.
 - Pointers: pipeline/manifests/current.json maps "<source>/<artifact>" to the sha256 the build reads. A source's
   pointers move together, and only when every artifact of that source fetched cleanly.
 """
@@ -76,6 +77,7 @@ def record(
     discovery: SnapshotDiscovery | None = None,
     content_key: str | None = None,
     content_sha256: str | None = None,
+    zip_member: str | None = None,
 ) -> tuple[Snapshot, bool]:
     """Cache the bytes and write their manifest if this sha256 is new. Returns (manifest, is_new)."""
     sha = store_bytes(paths, data)
@@ -101,6 +103,7 @@ def record(
         discovery=discovery,
         content_key=content_key,
         content_sha256=content_sha256,
+        zip_member=zip_member,
     )
     write_manifest(paths, snap)
     return snap, True

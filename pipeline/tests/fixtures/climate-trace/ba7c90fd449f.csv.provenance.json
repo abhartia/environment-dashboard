@@ -1,0 +1,15 @@
+{
+  "artifact_id": "domestic-wastewater-treatment-and-discharge",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact domestic-wastewater-treatment-and-discharge --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6777,
+  "fixture_sha256": "b4cddbe0f640e64ea6f141d9127c652827fc6062cd9c3c6fa498a1a75f201ff7",
+  "full_bytes": 555899,
+  "full_sha256": "ba7c90fd449f02378b21c48a4c4aac21090c300e52254664c0b696f3fe1f34ba",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/waste_domestic-wastewater-treatment-and-discharge.zip/content"
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_id": "net-wetland",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact net-wetland --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6307,
+  "fixture_sha256": "d3545613987206fc1b59bb10e6ed11b900d465d0b6e68f134d5fced5c994cb8c",
+  "full_bytes": 511439,
+  "full_sha256": "1840d8e0dd9b2fa554c0a3095fdba48bac003f6adc3fac9ccc243968dc6545f1",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/forestry_and_land_use_net-wetland.zip/content"
+}

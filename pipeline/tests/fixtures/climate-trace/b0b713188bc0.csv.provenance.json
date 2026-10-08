@@ -1,0 +1,15 @@
+{
+  "artifact_id": "manure-management-cattle-operation",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact manure-management-cattle-operation --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6476,
+  "fixture_sha256": "89c7494d65a0a773ea103224263eed8b231e47c2eb60278230f57b1d2a47439f",
+  "full_bytes": 535269,
+  "full_sha256": "b0b713188bc04de719de03b2dd9a7a71788ebd13b26f8f8fb739aac8a7eafcee",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/agriculture_manure-management-cattle-operation.zip/content"
+}

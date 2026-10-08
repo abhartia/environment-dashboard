@@ -1,0 +1,15 @@
+{
+  "artifact_id": "manure-left-on-pasture-cattle",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact manure-left-on-pasture-cattle --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6299,
+  "fixture_sha256": "fd49f64bb5dc9d5237b7af2fb77a350de865f33199d8fde65c9447de4869d50c",
+  "full_bytes": 520598,
+  "full_sha256": "acce87454b2907483e2c8eaca9d84203d7466fcd78f9375e7cd8fc0a002b0a18",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/agriculture_manure-left-on-pasture-cattle.zip/content"
+}

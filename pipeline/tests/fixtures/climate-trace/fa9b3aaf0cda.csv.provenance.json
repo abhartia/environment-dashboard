@@ -1,0 +1,15 @@
+{
+  "artifact_id": "enteric-fermentation-other",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact enteric-fermentation-other --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6449,
+  "fixture_sha256": "982eeb01e5b3c4acf210073dd8685c40739319e32a1356b1f0e9b6ca20fc2619",
+  "full_bytes": 534480,
+  "full_sha256": "fa9b3aaf0cda0d6df513e7c1d798f2e5912159b77faf36b25e4caad721cd7740",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/agriculture_enteric-fermentation-other.zip/content"
+}

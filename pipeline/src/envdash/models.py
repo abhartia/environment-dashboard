@@ -288,6 +288,12 @@ class Artifact(Strict):
         description="content_key zip-members: a regex whose matches are removed from member names before "
         "fingerprinting, for producers that stamp the download date into every member name.",
     )
+    zip_member: str | None = Field(
+        default=None,
+        description="Read only this member of the zip at `url`, by HTTP Range requests (envdash/zipmember.py), "
+        "for zips far larger than the one file needed. `format` and `max_bytes` are the member's. The snapshot is the "
+        "member's bytes (CRC-32 checked); its manifest records the zip's URL and this member name.",
+    )
 
     @model_validator(mode="after")
     def _consistent(self) -> Artifact:
@@ -295,6 +301,13 @@ class Artifact(Strict):
             raise ValueError(f"artifact {self.id}: set url or discover, not both")
         if self.content_key == "zip-members" and self.format != "zip":
             raise ValueError(f"artifact {self.id}: content_key zip-members needs format zip")
+        if self.zip_member is not None:
+            if self.url is None:
+                raise ValueError(f"artifact {self.id}: zip_member needs the zip's url")
+            if self.content_key is not None or self.format == "zip":
+                raise ValueError(
+                    f"artifact {self.id}: zip_member reads one member; format is the member's, no content_key"
+                )
         if self.member_name_ignore is not None:
             if self.content_key is None:
                 raise ValueError(f"artifact {self.id}: member_name_ignore applies only with a content_key")
@@ -389,6 +402,11 @@ class Snapshot(Strict):
     )
     content_sha256: Sha256 | None = Field(
         default=None, description="Fingerprint of the content under content_key (sha256 stays the raw bytes')."
+    )
+    zip_member: str | None = Field(
+        default=None,
+        description="For artifacts with zip_member: the member these bytes are, read by range requests from the zip at "
+        "url (etag and last_modified are the zip's).",
     )
 
 

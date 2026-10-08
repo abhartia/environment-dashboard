@@ -1,0 +1,15 @@
+{
+  "artifact_id": "removals",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact removals --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6187,
+  "fixture_sha256": "f8f05346e9e457e72d3f67dd776439082eee3455e413276e22d09ffd7452d6a6",
+  "full_bytes": 504679,
+  "full_sha256": "42f9057672947e8a5bb95872095e38232db0864e60c744461b976622f3760f79",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/forestry_and_land_use_removals.zip/content"
+}

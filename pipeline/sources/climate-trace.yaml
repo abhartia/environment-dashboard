@@ -1,0 +1,786 @@
+# Climate TRACE Emissions Inventory, V5.10.0 (Zenodo record 22919723, published 27 August 2026), country level.
+# Evidence: docs/research/sources-zero-sectors-2026-10-08.json, candidates[0] (rank 1) and gates_mapping.
+#
+# Terms (https://climatetrace.org/terms, read 2026-10-08, HTTP 200; the quote below is matched on every fetch): CC BY
+# 4.0 "with the exception of external datasets listed below". The page lists, as "Country-level emissions estimates"
+# with "Source: EDGAR": Other energy use, Railways, Other transportation, Other onsite fuel usage, Other Solid fuels,
+# Other fossil fuel operations, Other manufacturing, Solid waste disposal, Biological treatment of solid waste,
+# Incineration and open burning of waste, Fluorinated gases; with "Source: FAOSTAT": Rice cultivation (in some
+# geographies), Other Agricultural Soil Emissions, Enteric Fermentation - Other, Manure Management - Other, Other
+# onsite fuel usage; and plant-level estimates in Other manufacturing (European PRTR, US EPA FLIGHT, Israel PRTR) and
+# in Solid waste disposal (US EPA FLIGHT, US EPA LMOP, Canada GHGRP, European PRTR). The data guide inside every
+# V5.10.0 zip (ABOUT_THE_DATA/about_the_data_v5_10_0.pdf) names the EDGAR source as "comprising IEA-EDGAR CO2, EDGAR
+# CH4, EDGAR N2O, EDGAR F-GASES version 8.0" plus CEDS v_2024_07_08, and adds Solid fuel transformation and Cropland
+# fires (country and source level) to that list. The Zenodo record's licence field is cc-by-4.0.
+#
+# How each part is classed (the transform envdash/transforms/emissions/climate_trace.py applies it):
+# - Climate TRACE's own subsectors: open, CC BY 4.0. Owner decision 2026-10-08: this includes the subsectors that
+#   the terms do not list as external datasets but whose country totals Climate TRACE's methodology builds from
+#   IEA-based inputs: road-transportation ("Country level data derived from EDGAR", and a scale factor to EDGAR
+#   v2025 road CO2 in the JHU APL road methodology), residential- and non-residential-onsite-fuel-usage (EDGAR v8
+#   super-resolved, Duke buildings methodology), heat-plants (IEA World Energy Balances), glass, lime,
+#   food-beverage-tobacco, textiles-leather-apparel (EDGAR, CEDS, USGS or UNIDO), other-chemicals, other-metals,
+#   wood-and-wood-products and other-mining-quarrying (CEDS country totals; CEDS uses IEA energy statistics). The same
+#   reasoning as for FAO's own calculations from IEA inputs (docs/sources.md): the producer that publishes the
+#   values licenses them CC BY 4.0. Whether IEA agreed is an open question for Climate TRACE and the IEA (not yet
+#   asked).
+# - Listed EDGAR subsectors: their carbon dioxide is IEA-EDGAR CO2 (CC BY-NC-ND 4.0, see edgar-2026-ghg.yaml), so their
+#   co2 and co2e files are never fetched. Their ch4 and n2o files (EDGAR CH4 and N2O, CC BY 4.0, "© European Union")
+#   are, and the transform converts them to CO2-equivalent. Fluorinated gases (EDGAR F-gases, CC BY 4.0) exist only as
+#   CO2-equivalent and their co2e file is fetched. Cropland fires is in the data guide's EDGAR list and is treated
+#   the same way. Other onsite fuel usage is on both lists; its carbon dioxide cannot be assigned to one of them, so
+#   it is treated as EDGAR.
+# - Listed FAOSTAT subsectors: FAO's CC BY 4.0 (FAO Statistical Database Terms of Use); the farm items Climate TRACE
+#   reproduces are FAO's own Tier 1 estimates. Rice cultivation mixes Climate TRACE's satellite model and FAOSTAT,
+#   both CC BY 4.0.
+# - Other manufacturing is not fetched: IEA-EDGAR CO2, and non-CO2 values mixed with Israel PRTR plant reports whose
+#   terms have not been read.
+# - Solid waste disposal: EDGAR CH4 plus plant reports from US EPA FLIGHT and LMOP (US federal works), Canada's GHGRP
+#   (Open Government Licence - Canada) and the European PRTR (EEA, CC BY 4.0), all attribution-only; credited in the
+#   notice. Its carbon dioxide is 0 in every V5.10.0 row; only ch4 and n2o are read.
+#
+# Artifacts. Each subsector zip on Zenodo is up to 4.9 GB (71 files, 39.6 GB in all), so only the country-level CSV is
+# read from each, by HTTP Range requests (Artifact.zip_member; envdash/zipmember.py): about 0.5 MB per member, three or
+# four requests per zip, every member's CRC-32 checked. Zenodo answers Range with 206 (checked 2026-10-08) and allows
+# 133 requests a minute to anonymous clients. Zenodo gives each zip's md5 only; the snapshot sha256 is the member's.
+# The same country files are on downloads.climatetrace.org/v5.10.0/sector_packages/co2e_100yr/<sector>.zip (3.5 GB in
+# all for co2e_100yr), which is not DOI-pinned; Zenodo is the producer's own stable copy.
+#
+# Open questions (not yet asked): (1) Climate TRACE: may the IEA-lineage subsectors above be redistributed and
+# regrouped under CC BY 4.0, and did the IEA agree; (2) IEA (compliance@iea.org): the same, from the IEA's side;
+# (3) Climate TRACE: the terms page and the data guide list different external datasets (Solid fuel transformation,
+# Cropland fires, CEDS) - which governs; (4) Israel PRTR terms, for other manufacturing; (5) whether EDGAR's CH4 and
+# N2O from fuel combustion, which EDGAR computes from IEA activity data, are as open as JRC's CC BY label says (this
+# entry follows JRC's label, as edgar-2026-ghg.yaml does).
+id: climate-trace
+title: Climate TRACE Emissions Inventory (country level)
+publisher: Climate TRACE coalition
+landing_url: https://zenodo.org/records/22919723
+description: >-
+  Climate TRACE's estimates of greenhouse gas emissions for every country, 2015 to the latest month, in about 70
+  subsectors under ten sectors (power, manufacturing, mineral extraction, fossil fuel operations, transportation,
+  buildings, agriculture, waste, fluorinated gases, forestry and land use), by gas (carbon dioxide, methane, nitrous
+  oxide) and as CO2-equivalent at IPCC AR6 100-year and 20-year global warming potentials, in tonnes. The estimates are
+  modelled from satellite and other remote sensing, facility data and other inputs by a coalition of organisations,
+  and revised every month; some subsectors are reproduced from EDGAR and FAOSTAT. International aviation and shipping
+  are assigned to countries. Only the annual country-level files of the pinned Zenodo version are read.
+citation:
+  type: dataset
+  title: Climate TRACE Emissions Inventory
+  author:
+    - {literal: Climate TRACE}
+  issued: "2026-08-27"
+  publisher: Zenodo
+  version: "{version}"
+  DOI: 10.5281/zenodo.22919723
+  URL: https://climatetrace.org
+  # The data guide's "Suggested citation format" (about_the_data_v5_10_0.pdf, page 1).
+  text: >-
+    Climate TRACE (2026), Climate TRACE Emissions Inventory v{version}, https://climatetrace.org [{date_accessed}].
+    doi:10.5281/zenodo.22919723.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://climatetrace.org/terms
+  licence_quote: >-
+    The emissions data and associated metadata has been made available via Climate TRACE under the Creative Commons
+    Attribution 4.0 International License (CC BY 4.0), with the exception of external datasets listed below.
+  checked_on: 2026-10-08
+  terms_check: page
+obligations:
+  attribution: >-
+    Climate TRACE (2026), Climate TRACE Emissions Inventory v{version}, https://climatetrace.org [{date_accessed}],
+    doi:10.5281/zenodo.22919723, licensed CC BY 4.0. Includes EDGAR CH4, N2O and F-gases v8.0 (© European Union,
+    European Commission Joint Research Centre, CC BY 4.0) and FAOSTAT emissions totals (FAO, CC BY 4.0) as reproduced
+    by Climate TRACE.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Climate TRACE (2026), Climate TRACE Emissions Inventory v{version},
+    https://climatetrace.org [{date_accessed}], doi:10.5281/zenodo.22919723, licensed CC BY 4.0. Includes EDGAR CH4,
+    N2O and F-gases v8.0 (© European Union, European Commission Joint Research Centre, CC BY 4.0) and FAOSTAT emissions
+    totals (FAO, CC BY 4.0) as reproduced by Climate TRACE.
+  notice: >-
+    Solid waste disposal includes landfill reports from the US EPA (FLIGHT and the Landfill Methane Outreach Program),
+    the European Pollutant Release and Transfer Register (European Environment Agency) and Canada's Greenhouse Gas
+    Reporting Program, and contains information licensed under the Open Government Licence - Canada. Carbon dioxide
+    that Climate TRACE takes from IEA-EDGAR CO2 is not included.
+  mirror_raw: true
+  no_endorsement: true
+acquisition: automatic
+artifacts:
+  - id: electricity-generation
+    url: https://zenodo.org/api/records/22919723/files/power_electricity-generation.zip/content
+    zip_member: co2e_100yr/DATA/electricity-generation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Electricity generation (power/electricity-generation): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: heat-plants
+    url: https://zenodo.org/api/records/22919723/files/power_heat-plants.zip/content
+    zip_member: co2e_100yr/DATA/heat-plants_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Heat plants (power/heat-plants): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year,
+      2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its methodology builds from EDGAR, CEDS
+      or IEA inputs.
+  - id: other-energy-use-ch4
+    url: https://zenodo.org/api/records/22919723/files/power_other-energy-use.zip/content
+    zip_member: ch4/DATA/other-energy-use_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other energy use (power/other-energy-use): country-level methane emissions, tonnes per year, 2015-2026, 252
+      codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never
+      fetched.
+  - id: other-energy-use-n2o
+    url: https://zenodo.org/api/records/22919723/files/power_other-energy-use.zip/content
+    zip_member: n2o/DATA/other-energy-use_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other energy use (power/other-energy-use): country-level nitrous oxide emissions, tonnes per year, 2015-2026,
+      252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is
+      never fetched.
+  - id: aluminum
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_aluminum.zip/content
+    zip_member: co2e_100yr/DATA/aluminum_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Aluminium (manufacturing/aluminum): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year,
+      2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: cement
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_cement.zip/content
+    zip_member: co2e_100yr/DATA/cement_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Cement (manufacturing/cement): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026,
+      252 codes. Climate TRACE's own estimates.
+  - id: chemicals
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_chemicals.zip/content
+    zip_member: co2e_100yr/DATA/chemicals_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Chemicals (manufacturing/chemicals): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year,
+      2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: food-beverage-tobacco
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_food-beverage-tobacco.zip/content
+    zip_member: co2e_100yr/DATA/food-beverage-tobacco_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Food, beverage and tobacco (manufacturing/food-beverage-tobacco): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its
+      methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: glass
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_glass.zip/content
+    zip_member: co2e_100yr/DATA/glass_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Glass (manufacturing/glass): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026,
+      252 codes. Climate TRACE's estimates, whose country totals its methodology builds from EDGAR, CEDS or IEA
+      inputs.
+  - id: iron-and-steel
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_iron-and-steel.zip/content
+    zip_member: co2e_100yr/DATA/iron-and-steel_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Iron and steel (manufacturing/iron-and-steel): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per
+      year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: lime
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_lime.zip/content
+    zip_member: co2e_100yr/DATA/lime_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Lime (manufacturing/lime): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252
+      codes. Climate TRACE's estimates, whose country totals its methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: other-chemicals
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_other-chemicals.zip/content
+    zip_member: co2e_100yr/DATA/other-chemicals_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other chemicals (manufacturing/other-chemicals): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its methodology builds from
+      EDGAR, CEDS or IEA inputs.
+  - id: other-metals
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_other-metals.zip/content
+    zip_member: co2e_100yr/DATA/other-metals_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other metals (manufacturing/other-metals): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per
+      year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its methodology builds from EDGAR,
+      CEDS or IEA inputs.
+  - id: petrochemical-steam-cracking
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_petrochemical-steam-cracking.zip/content
+    zip_member: co2e_100yr/DATA/petrochemical-steam-cracking_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Petrochemical steam cracking (manufacturing/petrochemical-steam-cracking): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: pulp-and-paper
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_pulp-and-paper.zip/content
+    zip_member: co2e_100yr/DATA/pulp-and-paper_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Pulp and paper (manufacturing/pulp-and-paper): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per
+      year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: textiles-leather-apparel
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_textiles-leather-apparel.zip/content
+    zip_member: co2e_100yr/DATA/textiles-leather-apparel_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Textiles, leather and apparel (manufacturing/textiles-leather-apparel): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its
+      methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: wood-and-wood-products
+    url: https://zenodo.org/api/records/22919723/files/manufacturing_wood-and-wood-products.zip/content
+    zip_member: co2e_100yr/DATA/wood-and-wood-products_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Wood and wood products (manufacturing/wood-and-wood-products): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its
+      methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: bauxite-mining
+    url: https://zenodo.org/api/records/22919723/files/mineral_extraction_bauxite-mining.zip/content
+    zip_member: co2e_100yr/DATA/bauxite-mining_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Bauxite mining (mineral-extraction/bauxite-mining): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: copper-mining
+    url: https://zenodo.org/api/records/22919723/files/mineral_extraction_copper-mining.zip/content
+    zip_member: co2e_100yr/DATA/copper-mining_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Copper mining (mineral-extraction/copper-mining): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: iron-mining
+    url: https://zenodo.org/api/records/22919723/files/mineral_extraction_iron-mining.zip/content
+    zip_member: co2e_100yr/DATA/iron-mining_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Iron mining (mineral-extraction/iron-mining): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per
+      year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: other-mining-quarrying
+    url: https://zenodo.org/api/records/22919723/files/mineral_extraction_other-mining-quarrying.zip/content
+    zip_member: co2e_100yr/DATA/other-mining-quarrying_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other mining and quarrying (mineral-extraction/other-mining-quarrying): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its
+      methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: rock-quarrying
+    url: https://zenodo.org/api/records/22919723/files/mineral_extraction_rock-quarrying.zip/content
+    zip_member: co2e_100yr/DATA/rock-quarrying_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Rock quarrying (mineral-extraction/rock-quarrying): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: sand-quarrying
+    url: https://zenodo.org/api/records/22919723/files/mineral_extraction_sand-quarrying.zip/content
+    zip_member: co2e_100yr/DATA/sand-quarrying_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Sand quarrying (mineral-extraction/sand-quarrying): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: coal-mining
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_coal-mining.zip/content
+    zip_member: co2e_100yr/DATA/coal-mining_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Coal mining (fossil-fuel-operations/coal-mining): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: oil-and-gas-production
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_oil-and-gas-production.zip/content
+    zip_member: co2e_100yr/DATA/oil-and-gas-production_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Oil and gas production (fossil-fuel-operations/oil-and-gas-production): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: oil-and-gas-refining
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_oil-and-gas-refining.zip/content
+    zip_member: co2e_100yr/DATA/oil-and-gas-refining_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Oil and gas refining (fossil-fuel-operations/oil-and-gas-refining): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: oil-and-gas-transport
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_oil-and-gas-transport.zip/content
+    zip_member: co2e_100yr/DATA/oil-and-gas-transport_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Oil and gas transport (fossil-fuel-operations/oil-and-gas-transport): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: other-fossil-fuel-operations-ch4
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_other-fossil-fuel-operations.zip/content
+    zip_member: ch4/DATA/other-fossil-fuel-operations_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other fossil fuel operations (fossil-fuel-operations/other-fossil-fuel-operations): country-level methane
+      emissions, tonnes per year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide
+      (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: other-fossil-fuel-operations-n2o
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_other-fossil-fuel-operations.zip/content
+    zip_member: n2o/DATA/other-fossil-fuel-operations_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other fossil fuel operations (fossil-fuel-operations/other-fossil-fuel-operations): country-level nitrous oxide
+      emissions, tonnes per year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide
+      (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: other-solid-fuels-ch4
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_other-solid-fuels.zip/content
+    zip_member: ch4/DATA/other-solid-fuels_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other solid fuels (fossil-fuel-operations/other-solid-fuels): country-level methane emissions, tonnes per year,
+      2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND
+      4.0) is never fetched.
+  - id: other-solid-fuels-n2o
+    url: https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_other-solid-fuels.zip/content
+    zip_member: n2o/DATA/other-solid-fuels_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other solid fuels (fossil-fuel-operations/other-solid-fuels): country-level nitrous oxide emissions, tonnes per
+      year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC
+      BY-NC-ND 4.0) is never fetched.
+  - id: domestic-aviation
+    url: https://zenodo.org/api/records/22919723/files/transportation_domestic-aviation.zip/content
+    zip_member: co2e_100yr/DATA/domestic-aviation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Domestic aviation (transportation/domestic-aviation): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: domestic-shipping
+    url: https://zenodo.org/api/records/22919723/files/transportation_domestic-shipping.zip/content
+    zip_member: co2e_100yr/DATA/domestic-shipping_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Domestic shipping (transportation/domestic-shipping): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: international-aviation
+    url: https://zenodo.org/api/records/22919723/files/transportation_international-aviation.zip/content
+    zip_member: co2e_100yr/DATA/international-aviation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      International aviation (transportation/international-aviation): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: international-shipping
+    url: https://zenodo.org/api/records/22919723/files/transportation_international-shipping.zip/content
+    zip_member: co2e_100yr/DATA/international-shipping_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      International shipping (transportation/international-shipping): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: non-broadcasting-vessels
+    url: https://zenodo.org/api/records/22919723/files/transportation_non-broadcasting-vessels.zip/content
+    zip_member: co2e_100yr/DATA/non-broadcasting-vessels_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Non-broadcasting vessels (transportation/non-broadcasting-vessels): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: other-transport-ch4
+    url: https://zenodo.org/api/records/22919723/files/transportation_other-transport.zip/content
+    zip_member: ch4/DATA/other-transport_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other transport (transportation/other-transport): country-level methane emissions, tonnes per year, 2015-2026,
+      252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is
+      never fetched.
+  - id: other-transport-n2o
+    url: https://zenodo.org/api/records/22919723/files/transportation_other-transport.zip/content
+    zip_member: n2o/DATA/other-transport_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other transport (transportation/other-transport): country-level nitrous oxide emissions, tonnes per year,
+      2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND
+      4.0) is never fetched.
+  - id: railways-ch4
+    url: https://zenodo.org/api/records/22919723/files/transportation_railways.zip/content
+    zip_member: ch4/DATA/railways_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Railways (transportation/railways): country-level methane emissions, tonnes per year, 2015-2026, 252 codes.
+      EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: railways-n2o
+    url: https://zenodo.org/api/records/22919723/files/transportation_railways.zip/content
+    zip_member: n2o/DATA/railways_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Railways (transportation/railways): country-level nitrous oxide emissions, tonnes per year, 2015-2026, 252
+      codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never
+      fetched.
+  - id: road-transportation
+    url: https://zenodo.org/api/records/22919723/files/transportation_road-transportation.zip/content
+    zip_member: co2e_100yr/DATA/road-transportation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Road transportation (transportation/road-transportation): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its methodology builds
+      from EDGAR, CEDS or IEA inputs.
+  - id: non-residential-onsite-fuel-usage
+    url: https://zenodo.org/api/records/22919723/files/buildings_non-residential-onsite-fuel-usage.zip/content
+    zip_member: co2e_100yr/DATA/non-residential-onsite-fuel-usage_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Non-residential onsite fuel usage (buildings/non-residential-onsite-fuel-usage): country-level CO2-equivalent
+      (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals
+      its methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: other-onsite-fuel-usage-ch4
+    url: https://zenodo.org/api/records/22919723/files/buildings_other-onsite-fuel-usage.zip/content
+    zip_member: ch4/DATA/other-onsite-fuel-usage_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other onsite fuel usage (buildings/other-onsite-fuel-usage): country-level methane emissions, tonnes per year,
+      2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND
+      4.0) is never fetched.
+  - id: other-onsite-fuel-usage-n2o
+    url: https://zenodo.org/api/records/22919723/files/buildings_other-onsite-fuel-usage.zip/content
+    zip_member: n2o/DATA/other-onsite-fuel-usage_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other onsite fuel usage (buildings/other-onsite-fuel-usage): country-level nitrous oxide emissions, tonnes per
+      year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC
+      BY-NC-ND 4.0) is never fetched.
+  - id: residential-onsite-fuel-usage
+    url: https://zenodo.org/api/records/22919723/files/buildings_residential-onsite-fuel-usage.zip/content
+    zip_member: co2e_100yr/DATA/residential-onsite-fuel-usage_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Residential onsite fuel usage (buildings/residential-onsite-fuel-usage): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's estimates, whose country totals its
+      methodology builds from EDGAR, CEDS or IEA inputs.
+  - id: fluorinated-gases
+    url: https://zenodo.org/api/records/22919723/files/fluorinated_gases.zip/content
+    zip_member: co2e_100yr/DATA/fluorinated-gases_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Fluorinated gases (fluorinated-gases/fluorinated-gases): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. EDGAR F-gases v8.0 values reproduced by Climate TRACE.
+  - id: crop-residues
+    url: https://zenodo.org/api/records/22919723/files/agriculture_crop-residues.zip/content
+    zip_member: co2e_100yr/DATA/crop-residues_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Crop residues (agriculture/crop-residues): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per
+      year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: cropland-fires-ch4
+    url: https://zenodo.org/api/records/22919723/files/agriculture_cropland-fires.zip/content
+    zip_member: ch4/DATA/cropland-fires_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Cropland fires (agriculture/cropland-fires): country-level methane emissions, tonnes per year, 2015-2026, 252
+      codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never
+      fetched.
+  - id: cropland-fires-n2o
+    url: https://zenodo.org/api/records/22919723/files/agriculture_cropland-fires.zip/content
+    zip_member: n2o/DATA/cropland-fires_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Cropland fires (agriculture/cropland-fires): country-level nitrous oxide emissions, tonnes per year, 2015-2026,
+      252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is
+      never fetched.
+  - id: enteric-fermentation-cattle-operation
+    url: https://zenodo.org/api/records/22919723/files/agriculture_enteric-fermentation-cattle-operation.zip/content
+    zip_member: co2e_100yr/DATA/enteric-fermentation-cattle-operation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Enteric fermentation, cattle operations (agriculture/enteric-fermentation-cattle-operation): country-level
+      CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: enteric-fermentation-cattle-pasture
+    url: https://zenodo.org/api/records/22919723/files/agriculture_enteric-fermentation-cattle-pasture.zip/content
+    zip_member: co2e_100yr/DATA/enteric-fermentation-cattle-pasture_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Enteric fermentation, cattle pasture (agriculture/enteric-fermentation-cattle-pasture): country-level
+      CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: enteric-fermentation-other
+    url: https://zenodo.org/api/records/22919723/files/agriculture_enteric-fermentation-other.zip/content
+    zip_member: co2e_100yr/DATA/enteric-fermentation-other_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Enteric fermentation, other animals (agriculture/enteric-fermentation-other): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. FAOSTAT values reproduced by Climate TRACE.
+  - id: manure-applied-to-soils
+    url: https://zenodo.org/api/records/22919723/files/agriculture_manure-applied-to-soils.zip/content
+    zip_member: co2e_100yr/DATA/manure-applied-to-soils_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Manure applied to soils (agriculture/manure-applied-to-soils): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: manure-left-on-pasture-cattle
+    url: https://zenodo.org/api/records/22919723/files/agriculture_manure-left-on-pasture-cattle.zip/content
+    zip_member: co2e_100yr/DATA/manure-left-on-pasture-cattle_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Manure left on pasture, cattle (agriculture/manure-left-on-pasture-cattle): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: manure-management-cattle-operation
+    url: https://zenodo.org/api/records/22919723/files/agriculture_manure-management-cattle-operation.zip/content
+    zip_member: co2e_100yr/DATA/manure-management-cattle-operation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Manure management, cattle operations (agriculture/manure-management-cattle-operation): country-level
+      CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: manure-management-other
+    url: https://zenodo.org/api/records/22919723/files/agriculture_manure-management-other.zip/content
+    zip_member: co2e_100yr/DATA/manure-management-other_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Manure management, other animals (agriculture/manure-management-other): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. FAOSTAT values reproduced by Climate TRACE.
+  - id: other-agricultural-soil-emissions
+    url: https://zenodo.org/api/records/22919723/files/agriculture_other-agricultural-soil-emissions.zip/content
+    zip_member: co2e_100yr/DATA/other-agricultural-soil-emissions_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Other agricultural soil emissions (agriculture/other-agricultural-soil-emissions): country-level CO2-equivalent
+      (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. FAOSTAT values reproduced by Climate TRACE.
+  - id: rice-cultivation
+    url: https://zenodo.org/api/records/22919723/files/agriculture_rice-cultivation.zip/content
+    zip_member: co2e_100yr/DATA/rice-cultivation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Rice cultivation (agriculture/rice-cultivation): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's estimates, with FAOSTAT values for some countries.
+  - id: synthetic-fertilizer-application
+    url: https://zenodo.org/api/records/22919723/files/agriculture_synthetic-fertilizer-application.zip/content
+    zip_member: co2e_100yr/DATA/synthetic-fertilizer-application_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Synthetic fertilizer application (agriculture/synthetic-fertilizer-application): country-level CO2-equivalent
+      (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: biological-treatment-of-solid-waste-and-biogenic-ch4
+    url: https://zenodo.org/api/records/22919723/files/waste_biological-treatment-of-solid-waste-and-biogenic.zip/content
+    zip_member: ch4/DATA/biological-treatment-of-solid-waste-and-biogenic_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Biological treatment of solid waste (waste/biological-treatment-of-solid-waste-and-biogenic): country-level
+      methane emissions, tonnes per year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon
+      dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: biological-treatment-of-solid-waste-and-biogenic-n2o
+    url: https://zenodo.org/api/records/22919723/files/waste_biological-treatment-of-solid-waste-and-biogenic.zip/content
+    zip_member: n2o/DATA/biological-treatment-of-solid-waste-and-biogenic_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Biological treatment of solid waste (waste/biological-treatment-of-solid-waste-and-biogenic): country-level
+      nitrous oxide emissions, tonnes per year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its
+      carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: domestic-wastewater-treatment-and-discharge
+    url: https://zenodo.org/api/records/22919723/files/waste_domestic-wastewater-treatment-and-discharge.zip/content
+    zip_member: co2e_100yr/DATA/domestic-wastewater-treatment-and-discharge_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Domestic wastewater treatment and discharge (waste/domestic-wastewater-treatment-and-discharge): country-level
+      CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: incineration-and-open-burning-of-waste-ch4
+    url: https://zenodo.org/api/records/22919723/files/waste_incineration-and-open-burning-of-waste.zip/content
+    zip_member: ch4/DATA/incineration-and-open-burning-of-waste_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Incineration and open burning of waste (waste/incineration-and-open-burning-of-waste): country-level methane
+      emissions, tonnes per year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide
+      (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: incineration-and-open-burning-of-waste-n2o
+    url: https://zenodo.org/api/records/22919723/files/waste_incineration-and-open-burning-of-waste.zip/content
+    zip_member: n2o/DATA/incineration-and-open-burning-of-waste_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Incineration and open burning of waste (waste/incineration-and-open-burning-of-waste): country-level nitrous
+      oxide emissions, tonnes per year, 2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon
+      dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is never fetched.
+  - id: industrial-wastewater-treatment-and-discharge
+    url: https://zenodo.org/api/records/22919723/files/waste_industrial-wastewater-treatment-and-discharge.zip/content
+    zip_member: co2e_100yr/DATA/industrial-wastewater-treatment-and-discharge_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Industrial wastewater treatment and discharge (waste/industrial-wastewater-treatment-and-discharge):
+      country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own
+      estimates.
+  - id: solid-waste-disposal-ch4
+    url: https://zenodo.org/api/records/22919723/files/waste_solid-waste-disposal.zip/content
+    zip_member: ch4/DATA/solid-waste-disposal_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Solid waste disposal (waste/solid-waste-disposal): country-level methane emissions, tonnes per year, 2015-2026,
+      252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND 4.0) is
+      never fetched.
+  - id: solid-waste-disposal-n2o
+    url: https://zenodo.org/api/records/22919723/files/waste_solid-waste-disposal.zip/content
+    zip_member: n2o/DATA/solid-waste-disposal_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Solid waste disposal (waste/solid-waste-disposal): country-level nitrous oxide emissions, tonnes per year,
+      2015-2026, 252 codes. EDGAR values reproduced by Climate TRACE. Its carbon dioxide (IEA-EDGAR CO2, CC BY-NC-ND
+      4.0) is never fetched.
+  - id: forest-land-clearing
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_forest-land-clearing.zip/content
+    zip_member: co2e_100yr/DATA/forest-land-clearing_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Forest land clearing (forestry-and-land-use/forest-land-clearing): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: forest-land-degradation
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_forest-land-degradation.zip/content
+    zip_member: co2e_100yr/DATA/forest-land-degradation_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Forest land degradation (forestry-and-land-use/forest-land-degradation): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: net-soil-organic-carbon
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_net-soil-organic-carbon.zip/content
+    zip_member: co2e_100yr/DATA/net-soil-organic-carbon_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Net soil organic carbon (forestry-and-land-use/net-soil-organic-carbon): country-level CO2-equivalent (AR6
+      GWP100) emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: forest-land-fires
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_forest-land-fires.zip/content
+    zip_member: co2e_100yr/DATA/forest-land-fires_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Forest land fires (forestry-and-land-use/forest-land-fires): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: shrubgrass-fires
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_shrubgrass-fires.zip/content
+    zip_member: co2e_100yr/DATA/shrubgrass-fires_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Shrub and grass fires (forestry-and-land-use/shrubgrass-fires): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: wetland-fires
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_wetland-fires.zip/content
+    zip_member: co2e_100yr/DATA/wetland-fires_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Wetland fires (forestry-and-land-use/wetland-fires): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: removals
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_removals.zip/content
+    zip_member: co2e_100yr/DATA/removals_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Removals (forestry-and-land-use/removals): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes per
+      year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: net-forest-land
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_net-forest-land.zip/content
+    zip_member: co2e_100yr/DATA/net-forest-land_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Net forest land (forestry-and-land-use/net-forest-land): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: net-shrubgrass
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_net-shrubgrass.zip/content
+    zip_member: co2e_100yr/DATA/net-shrubgrass_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Net shrub and grass land (forestry-and-land-use/net-shrubgrass): country-level CO2-equivalent (AR6 GWP100)
+      emissions, tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: net-wetland
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_net-wetland.zip/content
+    zip_member: co2e_100yr/DATA/net-wetland_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Net wetland (forestry-and-land-use/net-wetland): country-level CO2-equivalent (AR6 GWP100) emissions, tonnes
+      per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+  - id: water-reservoirs
+    url: https://zenodo.org/api/records/22919723/files/forestry_and_land_use_water-reservoirs.zip/content
+    zip_member: co2e_100yr/DATA/water-reservoirs_country_emissions_v5_10_0.csv
+    format: csv
+    max_bytes: 5000000
+    description: >-
+      Water reservoirs (forestry-and-land-use/water-reservoirs): country-level CO2-equivalent (AR6 GWP100) emissions,
+      tonnes per year, 2015-2026, 252 codes. Climate TRACE's own estimates.
+status:
+  state: active
+  note: >-
+    Climate TRACE releases a new version in the last week of each month with a 60-day lag and deposits each on Zenodo
+    (concept record 15014790). V5.11.0 is live on climatetrace.org but was not yet on Zenodo on 2026-10-08, so V5.10.0
+    is pinned. Moving to a new version means changing the record number in every artifact URL and the version in the
+    member names, and re-reading the terms and the data guide's list of external datasets. Not a US federal product.
+  us_federal: false
+update_cadence: Monthly, in the last week of each month (data to two months earlier)
+next_release:
+  expected: 2026-10-31
+  note: >-
+    The next Zenodo deposit (V5.11.0 or later) is expected in the last week of October 2026. It is not picked up
+    automatically: the artifact URLs pin record 22919723.
+  url: https://zenodo.org/records/15014790
+twins: []
+research_ref: >-
+  docs/research/sources-zero-sectors-2026-10-08.json#candidates[0] Climate TRACE Emissions Inventory (Zenodo V5.10.0;
+  live API v5.11.0); #gates_mapping
