@@ -1,10 +1,10 @@
 {
   "export": "data/v1/indicators/burned-area.effis.europe-annual.json",
-  "export_sha256": "afbfcba5d413ca733c9baa6447d4923789e77586a79ede383e90594f07cdf45a",
+  "export_sha256": "549e75fd2b893ed84d17b2b1e78b26f3b4b6c6497108175535adad4f383c810c",
   "indicator_id": "burned-area.effis.europe-annual",
-  "key": "750065949af99e4673273c851cc2940549de7825b08e1dfe409ce7fb226d4d9e",
+  "key": "1fe375b901ba7d7c6e0b485d2a9cd050434549281f9d2d3a85436d4d98b23b59",
   "key_parts": {
-    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
       "effis/areas-of-interest": {
         "manifest_sha256": "dd9c688c8cf0006768dc732365480ea03194a8d940793b362909b2e69b7da3aa",
@@ -15,7 +15,7 @@
         "sha256": "f930f2f3163f05c296e43240c843f0cf1c4b5157842f56cf6362aa5e78350d87"
       },
       "effis/estimates-ucpm": {
-        "manifest_sha256": "f426e87b62b12b3018a30cad1dacaeac278adbc8fb1dab5210c16d60a8ef7d49",
+        "manifest_sha256": "beedc92155af869a29eb03775a60365e2ed59522d03b69842d2bb124143911cc",
         "sha256": "cdf8e7ba3bf07bd79e9c53650816628eeb84faf1aaa3492f3fd204f5ce649106"
       }
     },

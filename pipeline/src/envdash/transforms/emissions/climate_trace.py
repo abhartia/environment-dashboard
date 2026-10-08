@@ -915,10 +915,13 @@ def _entity_order(keys: Iterable[tuple[str, int]]) -> list[str]:
 def by_subsector(series: tuple[SubSeries, ...]) -> tuple[list[Observation], list[str]]:
     obs: list[Observation] = []
     per = [(s, tonnes_by_entity(s)) for s in series]
-    entities = _entity_order(per[0][1])
-    for e in entities:
+    # The world only: every country's subsectors make a file too large to serve (over 20 MiB as CSV); countries'
+    # activity totals are published in by-activity.
+    for e in [WORLD]:
         for s, vals in per:
-            dims = {"sector": s.sub.sector, "subsector": s.sub.slug}
+            # The activity each subsector is grouped into for ghg.climate-trace.by-activity, so that grouping is
+            # published with the values and nothing downstream has to repeat it.
+            dims = {"sector": s.sub.sector, "subsector": s.sub.slug, "activity": s.sub.group}
             for y in YEARS:
                 v, why = vals[(e, y)]
                 note = REPEATED_NOTE if y in s.repeated else None
@@ -941,6 +944,28 @@ def by_activity(series: tuple[SubSeries, ...]) -> tuple[list[Observation], list[
     ]
     return obs, _common_steps(series) + _group_steps() + [
         "Converted tonnes to million tonnes by dividing by 1,000,000 (exact decimal arithmetic)."
+    ]
+
+
+def five_total(series: tuple[SubSeries, ...]) -> tuple[list[Observation], list[str]]:
+    """The five activities together: the total each share in by-activity-share is a percentage of."""
+    groups = group_tonnes(series)
+    entities = _entity_order(groups["making-things"])
+    obs: list[Observation] = []
+    for e in entities:
+        for y in YEARS:
+            parts = [(a, groups[a][(e, y)][0]) for a in ACTIVITIES]
+            gaps = [ACTIVITIES[a].lower() for a, v in parts if v is None]
+            if gaps:
+                why = f"no value for {', '.join(gaps)} in this year, and a partial sum is never published"
+                obs.append(_obs(e, y, None, why, {}))
+            else:
+                obs.append(_obs(e, y, sum((v for _, v in parts), Decimal(0)) / MILLION, None, {}))  # type: ignore[misc]
+    return obs, _common_steps(series) + _group_steps() + [
+        "Added the five activities (making things, plugging in, growing things, getting around, keeping warm and "
+        "cool) in the same place and year; missing where any of the five is missing. Wildfires, land taking up carbon "
+        "and reservoirs are not included. Converted tonnes to million tonnes by dividing by 1,000,000 (exact decimal "
+        "arithmetic)."
     ]
 
 
@@ -1118,10 +1143,13 @@ def transforms(paths: Paths) -> list[Transform]:
         Transform(
             spec=Spec(
                 id="ghg.climate-trace.by-subsector",
-                title="Greenhouse gas emissions by subsector, Climate TRACE",
+                title="World greenhouse gas emissions by subsector, Climate TRACE",
                 description="Each year's emissions of all greenhouse gases, in carbon dioxide equivalent, from each of "
-                f"{len(MAPPING)} subsectors that Climate TRACE estimates, for the world and each country, 2015–2025. "
-                "Subsectors do not overlap. Land use is split into its parts, some of them below zero where land "
+                f"{len(MAPPING)} subsectors that Climate TRACE estimates, for the world (the sum of every country), "
+                "2015–2025, each with the activity it is grouped into in ghg.climate-trace.by-activity. Countries' "
+                "activity totals are in ghg.climate-trace.by-activity; their subsectors are not republished here, to "
+                "keep the file small enough to serve. Subsectors do not overlap. Land use is split into its parts, "
+                "some of them below zero where land "
                 "takes up carbon. For ten subsectors that Climate TRACE takes from EDGAR only methane and nitrous "
                 "oxide are shown, because their carbon dioxide comes from the International Energy Agency under terms "
                 "that do not allow regrouping; other manufacturing is not shown for the same reason.",
@@ -1129,15 +1157,19 @@ def transforms(paths: Paths) -> list[Transform]:
                 unit=MT_CO2E,
                 display=Display(decimals=2),
                 scope=scope,
-                geo_coverage="mixed",
+                geo_coverage="global-only",
                 headline_entity=WORLD,
-                dimensions=(SECTOR_DIM, SUBSECTOR_DIM),
-                headline_dims=(("sector", "power"), ("subsector", "electricity-generation")),
+                dimensions=(SECTOR_DIM, SUBSECTOR_DIM, ACTIVITY_DIM),
+                headline_dims=(
+                    ("sector", "power"),
+                    ("subsector", "electricity-generation"),
+                    ("activity", "plugging-in"),
+                ),
             ),
             inputs=INPUTS,
             run=_runner(by_subsector, SUM_CHANGES),
             module_file=here,
-            validation=Validation(min_rows=150_000, value_range=(-30_000.0, 30_000.0)),
+            validation=Validation(min_rows=700, value_range=(-30_000.0, 30_000.0)),
         ),
         Transform(
             spec=Spec(
@@ -1169,6 +1201,28 @@ def transforms(paths: Paths) -> list[Transform]:
             run=_runner(by_activity, SUM_CHANGES + " Subsectors grouped into activities and summed."),
             module_file=here,
             validation=Validation(min_rows=20_000, value_range=(-40_000.0, 40_000.0)),
+        ),
+        Transform(
+            spec=Spec(
+                id="ghg.climate-trace.five-activities-total",
+                title="Greenhouse gas emissions from Gates's five activities together",
+                description="Climate TRACE's emissions of all greenhouse gases from the five activities Bill Gates "
+                "uses in How to Avoid a Climate Disaster, added together, for the world and each country, 2016–2025: "
+                "the total that each share in ghg.climate-trace.by-activity-share is a percentage of. Like Gates's "
+                "total (Rhodium Group's), it counts emissions from human activity before what land takes up and "
+                "without wildfires. Carbon dioxide from the subsectors Climate TRACE takes from EDGAR, and other "
+                "manufacturing, are not included, so it is somewhat smaller than all emissions.",
+                kind="derived",
+                unit=MT_CO2E,
+                display=Display(decimals=0),
+                scope=scope,
+                geo_coverage="mixed",
+                headline_entity=WORLD,
+            ),
+            inputs=INPUTS,
+            run=_runner(five_total, SUM_CHANGES + " Subsectors grouped into activities; the five added."),
+            module_file=here,
+            validation=Validation(min_rows=2_000, value_range=(-40_000.0, 100_000.0)),
         ),
         Transform(
             spec=Spec(

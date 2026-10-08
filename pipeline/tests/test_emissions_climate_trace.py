@@ -22,7 +22,12 @@ from envdash.transforms.emissions import climate_trace as ct
 
 from support import fixture
 
-IDS = {"ghg.climate-trace.by-subsector", "ghg.climate-trace.by-activity", "ghg.climate-trace.by-activity-share"}
+IDS = {
+    "ghg.climate-trace.by-subsector",
+    "ghg.climate-trace.by-activity",
+    "ghg.climate-trace.by-activity-share",
+    "ghg.climate-trace.five-activities-total",
+}
 EDGAR = {
     "other-energy-use",
     "railways",
@@ -253,6 +258,11 @@ def test_world_by_activity_golden(built):
     assert abs(sum(v for k, v in share.items() if k in ct.ACTIVITIES) - 100) < 1e-9
     w25 = _world(built["ghg.climate-trace.by-activity"], "2025", "activity")
     assert w25["land-uptake"] is None and w25["making-things"] is not None
+    total = next(
+        o.value for o in built["ghg.climate-trace.five-activities-total"] if o.entity == "WLD" and o.period == "2024"
+    )
+    assert abs(total - sum(v for k, v in w.items() if k in ct.ACTIVITIES)) < 1e-6
+    assert round(total) == 62711
 
 
 @pytest.mark.snapshot
@@ -264,10 +274,19 @@ def test_world_by_subsector_golden(built):
     assert round(w["removals"], 1) == -12286.8
     assert round(w["fluorinated-gases"], 1) == 1740.0
     assert _world(built["ghg.climate-trace.by-subsector"], "2025", "subsector")["removals"] is None
-    entities = {o.entity for o in built["ghg.climate-trace.by-subsector"]}
+    assert {o.entity for o in built["ghg.climate-trace.by-subsector"]} == {"WLD"}
+    entities = {o.entity for o in built["ghg.climate-trace.by-activity"]}
     assert len(entities) == 252 and "WLD" in entities and "KOS" in entities and "CYN" in entities
     heat = [o for o in built["ghg.climate-trace.by-subsector"] if o.dims["subsector"] == "heat-plants"]
     assert {o.period for o in heat if o.note} == {"2024", "2025"}
+    # Each subsector carries the activity it is grouped into, and its world values add up to that activity's.
+    groups = {s.slug: s.group for s in ct.MAPPING}
+    assert all(o.dims["activity"] == groups[o.dims["subsector"]] for o in built["ghg.climate-trace.by-subsector"])
+    by_group: dict[str, float] = {}
+    for sub, v in w.items():
+        by_group[groups[sub]] = by_group.get(groups[sub], 0.0) + v
+    activity = _world(built["ghg.climate-trace.by-activity"], "2024", "activity")
+    assert all(abs(by_group[g] - activity[g]) < 1e-6 for g in activity)
 
 
 WORLD_2024_ACTIVITY_MT = {

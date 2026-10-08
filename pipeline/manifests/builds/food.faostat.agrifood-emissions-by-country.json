@@ -1,17 +1,17 @@
 {
   "export": "data/v1/indicators/food.faostat.agrifood-emissions-by-country.json",
-  "export_sha256": "d011f1aece1480eb188b0d6e0525f23e28722a98827024b456a263d879e576dd",
+  "export_sha256": "632548b524d4f3a7899af6bec640352b8df6386547ef71849e1c6b2b13467117",
   "indicator_id": "food.faostat.agrifood-emissions-by-country",
-  "key": "20a9c4f797f77624630883f54ced619258cdb9296335fe2babf775d3480fc786",
+  "key": "ff26e50c3d55ac3653f2ad75cfc3b6100ef8afcb9032d807fc027d9d42378a25",
   "key_parts": {
-    "contract_sha256": "7957f3cb035bd92604ec088808672465864c2e2a149958ccd5fef0a7a4af4474",
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
       "faostat/datasets-catalogue": {
         "manifest_sha256": "eba47f01bcc0a5491911464569a82f33bbed01098863755ed333c00f6eea8dce",
         "sha256": "008f475c971a7770c69b1bc48f1c3a5fa8bf3873e762d6e1e9516bb0a700ebda"
       },
       "faostat/emissions-totals": {
-        "manifest_sha256": "5a1a16cd614770a28270a2e199a878166501cd5c90fb489e5bbbb77f6dc8641e",
+        "manifest_sha256": "dfcc8128d40cbcbcaa0119fff804a4ebdde98de890faf5bd6f157cc11cbbffe6",
         "sha256": "d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9"
       }
     },

@@ -97,6 +97,12 @@ export type Artifact = {
      * Direct download URL; null for manual-only files and for files found through `discover`.
      */
     url: string | null;
+    /**
+     * Zip Member
+     *
+     * Read only this member of the zip at `url`, by HTTP Range requests (envdash/zipmember.py), for zips far larger than the one file needed. `format` and `max_bytes` are the member's. The snapshot is the member's bytes (CRC-32 checked); its manifest records the zip's URL and this member name.
+     */
+    zip_member: string | null;
 };
 
 /**

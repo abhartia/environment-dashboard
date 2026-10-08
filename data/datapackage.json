@@ -3236,6 +3236,163 @@
       "title": "Tree cover lost each year, by what drove it"
     },
     {
+      "bytes": 1853541,
+      "description": "Climate TRACE's emissions of all greenhouse gases grouped into the five activities Bill Gates uses in How to Avoid a Climate Disaster, for the world and each country, 2015–2025, plus three bands that are not one of the five: wildfires, land taking up carbon (below zero), and reservoirs. The grouping follows Rhodium Group's, which Gates's numbers come from: fuel production and refining count as making things, landfills and waste as growing things, fluorinated gases as keeping warm and cool, electricity where it is generated, and forest fires are left out. Making things: aluminium, cement, chemicals, food, beverage and tobacco, glass, iron and steel, lime, other chemicals, other metals, petrochemical steam cracking, pulp and paper, textiles, leather and apparel, wood and wood products, bauxite mining, copper mining, iron mining, other mining and quarrying, rock quarrying, sand quarrying, coal mining, oil and gas production, oil and gas refining, oil and gas transport, other fossil fuel operations (methane and nitrous oxide only), other solid fuels (methane and nitrous oxide only). Plugging in: electricity generation, heat plants, other energy use (methane and nitrous oxide only). Growing things: crop residues, cropland fires (methane and nitrous oxide only), enteric fermentation, cattle operations, enteric fermentation, cattle pasture, enteric fermentation, other animals, manure applied to soils, manure left on pasture, cattle, manure management, cattle operations, manure management, other animals, other agricultural soil emissions, rice cultivation, synthetic fertilizer application, biological treatment of solid waste (methane and nitrous oxide only), domestic wastewater treatment and discharge, incineration and open burning of waste (methane and nitrous oxide only), industrial wastewater treatment and discharge, solid waste disposal (methane and nitrous oxide only), forest land clearing, forest land degradation, net soil organic carbon. Getting around: domestic aviation, domestic shipping, international aviation, international shipping, non-broadcasting vessels, other transport (methane and nitrous oxide only), railways (methane and nitrous oxide only), road transportation. Keeping warm and cool: non-residential onsite fuel usage, other onsite fuel usage (methane and nitrous oxide only), residential onsite fuel usage, fluorinated gases. Not one of the five: wildfires: forest land fires, shrub and grass fires, wetland fires. Not one of the five: land taking up carbon: removals, net forest land, net shrub and grass land, net wetland. Not one of the five: reservoirs: water reservoirs. A group is missing in a year in which any of its subsectors is missing: growing things starts in 2016, because V5.10.0 has no 2015 estimate of cropland soil carbon, and land taking up carbon ends in 2024, because its 2025 values are not yet estimated. Carbon dioxide from the subsectors Climate TRACE takes from EDGAR, and other manufacturing, are not included, so making things, plugging in, getting around and keeping warm and cool are somewhat smaller than their full emissions.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:a8f908ff353308bc5aebf2155aaa1764c77b425d62eba0189560f5ea44368578",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.climate-trace.by-activity",
+      "path": "v1/indicators/ghg.climate-trace.by-activity.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "activity", "title": "Activity (Gates's five, and what is not one of them)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/22919723", "title": "Climate TRACE coalition: Climate TRACE Emissions Inventory (country level)"}
+      ],
+      "title": "Greenhouse gas emissions by activity: making things, plugging in, growing things, getting around, keeping warm and cool"
+    },
+    {
+      "bytes": 2041510,
+      "description": "Each of Gates's five activities as a percentage of the five together, for the world and each country, 2015–2025, from Climate TRACE's emissions grouped as in ghg.climate-trace.by-activity; the five add up to 100. Wildfires, land taking up carbon and reservoirs, which are not one of the five, are given as a percentage of the same total and are outside the 100. Shares start in 2016, the first year with all five. Like Gates's shares (Rhodium Group's), these are shares of emissions from human activity, before what land takes up and without wildfires. Carbon dioxide from the subsectors Climate TRACE takes from EDGAR, and other manufacturing, are not included.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:810d1b65475baddae87b993d530051ba0514da5e487ca1a0d3f10e0e8348136a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.climate-trace.by-activity-share",
+      "path": "v1/indicators/ghg.climate-trace.by-activity-share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of the five activities' total (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "activity", "title": "Activity (Gates's five, and what is not one of them)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/22919723", "title": "Climate TRACE coalition: Climate TRACE Emissions Inventory (country level)"}
+      ],
+      "title": "Share of greenhouse gas emissions by activity: Gates's five"
+    },
+    {
+      "bytes": 93320,
+      "description": "Each year's emissions of all greenhouse gases, in carbon dioxide equivalent, from each of 68 subsectors that Climate TRACE estimates, for the world (the sum of every country), 2015–2025, each with the activity it is grouped into in ghg.climate-trace.by-activity. Countries' activity totals are in ghg.climate-trace.by-activity; their subsectors are not republished here, to keep the file small enough to serve. Subsectors do not overlap. Land use is split into its parts, some of them below zero where land takes up carbon. For ten subsectors that Climate TRACE takes from EDGAR only methane and nitrous oxide are shown, because their carbon dioxide comes from the International Energy Agency under terms that do not allow regrouping; other manufacturing is not shown for the same reason.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:016779d39fa683db4342df298b62ef4bab9aa2d6e660bc5a64009aeba2074879",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.climate-trace.by-subsector",
+      "path": "v1/indicators/ghg.climate-trace.by-subsector.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "Climate TRACE sector", "type": "string"},
+          {"name": "subsector", "title": "Climate TRACE subsector", "type": "string"},
+          {"name": "activity", "title": "Activity (Gates's five, and what is not one of them)", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/22919723", "title": "Climate TRACE coalition: Climate TRACE Emissions Inventory (country level)"}
+      ],
+      "title": "World greenhouse gas emissions by subsector, Climate TRACE"
+    },
+    {
+      "bytes": 237870,
+      "description": "Climate TRACE's emissions of all greenhouse gases from the five activities Bill Gates uses in How to Avoid a Climate Disaster, added together, for the world and each country, 2016–2025: the total that each share in ghg.climate-trace.by-activity-share is a percentage of. Like Gates's total (Rhodium Group's), it counts emissions from human activity before what land takes up and without wildfires. Carbon dioxide from the subsectors Climate TRACE takes from EDGAR, and other manufacturing, are not included, so it is somewhat smaller than all emissions.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:dff6ab0de6e1bb0dd1a0eec0fcb099417c0e56b9fbe0a737829a163d0e1f6cf9",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "ghg.climate-trace.five-activities-total",
+      "path": "v1/indicators/ghg.climate-trace.five-activities-total.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million tonnes of carbon dioxide equivalent (MtCO2e)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://zenodo.org/records/22919723", "title": "Climate TRACE coalition: Climate TRACE Emissions Inventory (country level)"}
+      ],
+      "title": "Greenhouse gas emissions from Gates's five activities together"
+    },
+    {
       "bytes": 1632196,
       "description": "Each year's emissions from all sectors, including net land use and excluding international aviation and shipping, split by gas: carbon dioxide, methane, nitrous oxide and fluorinated gases, each in carbon dioxide equivalent (carbon dioxide counts as itself), as published by FAO for the world and each country since 1990. The four gases add up to the all-gas total. Carbon dioxide includes the net carbon dioxide of land use, land-use change and forestry, so it can be below zero for a country whose forests take up more carbon than it emits. Where FAO publishes no fluorinated-gas row (67 countries and territories in the October 2025 release) the gas is left missing, never set to zero.",
       "dialect": {

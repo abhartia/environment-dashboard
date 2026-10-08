@@ -1,0 +1,330 @@
+{
+  "export": "data/v1/indicators/ghg.climate-trace.by-subsector.json",
+  "export_sha256": "0273076a102ff911c450e1ee8b7317c31a29d36820c2c475063b3f0ead4ec1f6",
+  "indicator_id": "ghg.climate-trace.by-subsector",
+  "key": "4220c94c89a1fbb6354138ab8ea21e3af7166b099f9987d8e3254d269a1fcc19",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "climate-trace/aluminum": {
+        "manifest_sha256": "d85e84006c39a5b5c27b7f0365b745c0e93272dd2021a6d266022899f49cbcc0",
+        "sha256": "3520d92151f064daae45cef102428cc65582e44550e2c7e8a1c7ca8494ef2095"
+      },
+      "climate-trace/bauxite-mining": {
+        "manifest_sha256": "48e611dcf9dc7bde44929a2b85f0e2f1e3692c158320a2e53e44317ccd53d5e9",
+        "sha256": "520ec6a83f96f02c2d2e91851168783ab065c0ac35a64ee95a02b8b6d85c37ff"
+      },
+      "climate-trace/biological-treatment-of-solid-waste-and-biogenic-ch4": {
+        "manifest_sha256": "b058653344b5d2fc30bc772210b10381acfd847755158d667775d78ed62c9b21",
+        "sha256": "e449d5a9ff0551cddadd894f02983517c05982d3015ec65d13be36bdfb98eb9d"
+      },
+      "climate-trace/biological-treatment-of-solid-waste-and-biogenic-n2o": {
+        "manifest_sha256": "567fa85048873744fde71d6ec1feaf35e7286c33020e3546ce77826dfef59e9f",
+        "sha256": "737af72e1048448eaf7545b8b3cca3356c436a750f5385083de479dd2c9bb54c"
+      },
+      "climate-trace/cement": {
+        "manifest_sha256": "9d7996f29e1ef8341b168d8ff92c23d5b09e23f4da8a3b9356ec618118047da9",
+        "sha256": "2f5be87d1cd22eddc5080f68e97f8a9191ae80746d6d533df0edca94fa35f368"
+      },
+      "climate-trace/chemicals": {
+        "manifest_sha256": "1eaba7ab881903fbabdb33ddb33da73b955b8958f94fb87fc24b16db2864b0fd",
+        "sha256": "f6bfbc8a3c488197d24d86385914cfb0aa5e982646434735dbb574b484e40376"
+      },
+      "climate-trace/coal-mining": {
+        "manifest_sha256": "163502442222bf6c55df91bbfb290fe8162db74df15adbf213318c032c87f70c",
+        "sha256": "dce39b6ed138e44f39924fd2d8071423de4ee7933ac30adb08d071bcfab558ad"
+      },
+      "climate-trace/copper-mining": {
+        "manifest_sha256": "7545570764073fc5c813f43d7b50ef3bbda7774af7cab0e29611ee74511f53e5",
+        "sha256": "2bbfe2790b6c08980c75a4f79cde1045b1c091607e11431abc4e4a1454316b9d"
+      },
+      "climate-trace/crop-residues": {
+        "manifest_sha256": "2683b7547a32fecfb4a754994e12d98344c88631c5cf6d9828a6ddeb17624fe5",
+        "sha256": "2268cf0b416066ff9e334c51ccc7401b684815c28ce10526d5466e4e2d4d2d81"
+      },
+      "climate-trace/cropland-fires-ch4": {
+        "manifest_sha256": "717ad82b9216673132069794bea156ff9bb2dfdd394d91a8090234b9ba774b2b",
+        "sha256": "904f74ea85d63ad640affff1d93e7d4cc9eef2b19f1bcd895322d710ee8a44da"
+      },
+      "climate-trace/cropland-fires-n2o": {
+        "manifest_sha256": "79dd7bd2ffbd39ea36e9564851c29b023e648c3000e05cabcb2253326bbb51bb",
+        "sha256": "b506e0f94b11b6e903be66a4727eb571676f4acca8e8a926410fc6e40e0c223d"
+      },
+      "climate-trace/domestic-aviation": {
+        "manifest_sha256": "90e9059a23844f6e1b9c1569d0751cb816d47451dd002cd117611165c773ed3f",
+        "sha256": "fae165671e9de0b293580e0af0a314ece2359646a4bd2c343f7fe6ff23036d8e"
+      },
+      "climate-trace/domestic-shipping": {
+        "manifest_sha256": "4c81fa66e8fb4683f6f41a9ff5bafbb83a6f18b81562fbde83ca38f62405255b",
+        "sha256": "9128453a71f5a198e8b31aa9f42e60cc969a838e583afe6e8523feea3d11f484"
+      },
+      "climate-trace/domestic-wastewater-treatment-and-discharge": {
+        "manifest_sha256": "eeba5480d1aa809856c6e9ed564f3fed96bc99ff48b158ca6d4cc9b922072963",
+        "sha256": "ba7c90fd449f02378b21c48a4c4aac21090c300e52254664c0b696f3fe1f34ba"
+      },
+      "climate-trace/electricity-generation": {
+        "manifest_sha256": "0d793594e3ff484d286000abfc5b8d0a7dcc5fc951913096005648c491836e75",
+        "sha256": "e88bd1350c1d0a3b8f4386f26b5efe7fa05790f8245a231d1ee4345a24828281"
+      },
+      "climate-trace/enteric-fermentation-cattle-operation": {
+        "manifest_sha256": "0caca17a87733eacf176d68ae40b3cb8f3ac370ab8a266c2561d2fc0c86b8d19",
+        "sha256": "fd0692c2a6e056405fd06b1b74686c2a7f8cbb27baa46a212608abcaec1b7fc1"
+      },
+      "climate-trace/enteric-fermentation-cattle-pasture": {
+        "manifest_sha256": "d7264762d04db4a34c8a6b440d611839ca005fede0e442fde421ee14f216bcd4",
+        "sha256": "23cd3dd099311a058a40c7a6251f6fb673141a68f23962e914d2b0f12141df98"
+      },
+      "climate-trace/enteric-fermentation-other": {
+        "manifest_sha256": "3b26ca5e1bcdd4c1f8651c0d070e169e74cffd78d4bcc7e17deecf7e984390c2",
+        "sha256": "fa9b3aaf0cda0d6df513e7c1d798f2e5912159b77faf36b25e4caad721cd7740"
+      },
+      "climate-trace/fluorinated-gases": {
+        "manifest_sha256": "16ace696d09ce46bda887fb5e9883eae7cc30e3ae23792413e5dda293bc79198",
+        "sha256": "33158f22814e47105815df1bb224d2dfe01c451f98aa2050de1775bbd6e612c4"
+      },
+      "climate-trace/food-beverage-tobacco": {
+        "manifest_sha256": "82506548c0e612c728783d66f098a66df708c5adbd36b0c88d463e9f9cf13648",
+        "sha256": "8c222b17821caa2c2d9381bc7eb1e1055cac9ba718dfa1f0bba52c64fcdedaf3"
+      },
+      "climate-trace/forest-land-clearing": {
+        "manifest_sha256": "6237a2eb3af231c02e9c4aff9fec0b7c96c4aca797b7e997cd3297246de731b7",
+        "sha256": "179aeba13c742b2a4aead413da37f3c8e0365412a4830ea1402b923d12a4635e"
+      },
+      "climate-trace/forest-land-degradation": {
+        "manifest_sha256": "c19b1a80f8497d04940a526503c4efb792bc8069d056d2f19bdef0d139002a9a",
+        "sha256": "c41f9a3d6c968b737e721586dddee25fcd76326830c1eab2fa861fe35c5bcc18"
+      },
+      "climate-trace/forest-land-fires": {
+        "manifest_sha256": "8dfbad0734611ac43da9d2df601a0d808a7c930c2029b66991b2deacf3234c4b",
+        "sha256": "0cb4a982c6e8c6c0806de15024e1b29e4234cb14463a02a01153297fdacd916a"
+      },
+      "climate-trace/glass": {
+        "manifest_sha256": "c81ccef2d20895447cf1a831300384c6c173ff44236f04b6b2f37a875ea5bb33",
+        "sha256": "255c6261f03329c93e706dfee3b5b2236e00780c4f8588a3e3d79f6a7fe3d460"
+      },
+      "climate-trace/heat-plants": {
+        "manifest_sha256": "c6ebe306ddf54720c1bda74a9f4d4e20c50f59b8bdab3de694ce17b4da60674f",
+        "sha256": "82ec025df354271b60cb1b1542e5148c46483a490e5dad582ca26475b5082ea0"
+      },
+      "climate-trace/incineration-and-open-burning-of-waste-ch4": {
+        "manifest_sha256": "3a9f1b756bf6adc6e4eb98dddb8a59576f03e1d580d06c4edb0639e05762ddee",
+        "sha256": "24ad29ced442bc876af01e38606a8fa68d63bc4ae6035858fa6c1c45c6f36fa4"
+      },
+      "climate-trace/incineration-and-open-burning-of-waste-n2o": {
+        "manifest_sha256": "283c333e3e82b5fb241dffce5f3554f23a83dd7ce779773d5f75a1282743904e",
+        "sha256": "3496b7644d7097faa6e5fad030be90807a693cccfd3974a12d62ab7def868c31"
+      },
+      "climate-trace/industrial-wastewater-treatment-and-discharge": {
+        "manifest_sha256": "78db68eb8a902d3f01018f9002e382c8d00b4e7824ed59f14a0c4b6538be8626",
+        "sha256": "c61b5a52424091bb04ade03188265c79c290ea9718bc70ac94a66d723ebda2a9"
+      },
+      "climate-trace/international-aviation": {
+        "manifest_sha256": "bda255863a563a06ab2be5e090b5ff97e32a72cad438f740b738bb7819ff1c97",
+        "sha256": "2981782093c16fbbbd08c3cda85cd2be0b8a8f2ee6c68b2fe5b3afa4dc14169c"
+      },
+      "climate-trace/international-shipping": {
+        "manifest_sha256": "79d7c28688cb4b608526c81fcf70dd676f5f939c2d409683a93ad0ce7cc0d449",
+        "sha256": "01ee5360f2b9dc6782d7e7c098c46ec398cac72f1e501ed142c796cce922e656"
+      },
+      "climate-trace/iron-and-steel": {
+        "manifest_sha256": "160166024d8887738d115bc1cbcff6e08b05dbdbf96ab21a2ef5ac082ad48bc5",
+        "sha256": "8e9df3df6c1ea5c05e13ab0bd61a294e1f86b5e5aa41765ffe558363d3190790"
+      },
+      "climate-trace/iron-mining": {
+        "manifest_sha256": "336d6cb5b18b77b2e8ff1b2ecdb3ae31c12bf4312b4ece4b1854385ec01256d6",
+        "sha256": "4435ee1e80ff342ab08c2d90f5dfddfd7f9db7aec9e73b5847acc9abf3f6f36c"
+      },
+      "climate-trace/lime": {
+        "manifest_sha256": "e95d9d298d50fbbd273ed7bfcac1fb0568e000a2f543e8f70f8ec82dc59f8823",
+        "sha256": "6504a53c8afddbf9cee5fca281c7dfe42d62165cecccb55a22612cfc8f86ba7d"
+      },
+      "climate-trace/manure-applied-to-soils": {
+        "manifest_sha256": "ad36a23d3add335100c206c29c9203b0e00d5fcbfb444dc4ab9d07ce096c9ad7",
+        "sha256": "d2f8e8906d1168cb98b89dc54af467deb9798b27f88de9b4513c2bdd70b9088c"
+      },
+      "climate-trace/manure-left-on-pasture-cattle": {
+        "manifest_sha256": "637921276f72fefe46c4cd57aadefd502d6f031ae589c4893281a36efc165686",
+        "sha256": "acce87454b2907483e2c8eaca9d84203d7466fcd78f9375e7cd8fc0a002b0a18"
+      },
+      "climate-trace/manure-management-cattle-operation": {
+        "manifest_sha256": "75323650738b20b7d88de957ec2ab97f7518478aff8f53adb0ae573178b5facc",
+        "sha256": "b0b713188bc04de719de03b2dd9a7a71788ebd13b26f8f8fb739aac8a7eafcee"
+      },
+      "climate-trace/manure-management-other": {
+        "manifest_sha256": "11b7b5ea3fb75ac504d3f1d0dad7c7bbcb064ce0c9a22828b75acd4670941e45",
+        "sha256": "a8e846b15c545254461e03a5b397e9e38f4e827c0b473a0aa51478c7d99280f3"
+      },
+      "climate-trace/net-forest-land": {
+        "manifest_sha256": "ff539b4f892cd9b60d8b940d9dd6214e9b657d99228e0dd5f836fe98f3f55c23",
+        "sha256": "02ebc566a59784e1a484cf2a3b689deab535dec5d158a516537dfcdba583f9f9"
+      },
+      "climate-trace/net-shrubgrass": {
+        "manifest_sha256": "c1ec34987af4ce7428d8f7e42e3b2f59e8c5fbac697fe4210d8928ec8574e3ef",
+        "sha256": "195b78ec09363bc3bc9b113204b90636d45e3dc5b27547b8251c26947db6ca61"
+      },
+      "climate-trace/net-soil-organic-carbon": {
+        "manifest_sha256": "da04cf74d9d070bfce52f8f65d6807d95c2c9e198668366d5a3c127984ab6082",
+        "sha256": "7055b38528058ce0b7317f738710cfa8f9b57d949ae57fb0a1e5b0d253efe79c"
+      },
+      "climate-trace/net-wetland": {
+        "manifest_sha256": "15f62b5100e403bebda4d6a0a8ee2d47f431a53393855b645abb0ecd6d9dfa19",
+        "sha256": "1840d8e0dd9b2fa554c0a3095fdba48bac003f6adc3fac9ccc243968dc6545f1"
+      },
+      "climate-trace/non-broadcasting-vessels": {
+        "manifest_sha256": "dc28c86426461b69b341ec04ada271cc310359481e16bd761b16f789d51d13fa",
+        "sha256": "a96cf7087fcb62dcfccd376df6ced58e1e3522dc40535557c93865f48d7c8053"
+      },
+      "climate-trace/non-residential-onsite-fuel-usage": {
+        "manifest_sha256": "80afcee6c0cd832cff95c1bfd10735411f975765839900f3a37878883b6b1a7d",
+        "sha256": "7a3527c48d3972ae5fcb66d3043ce5714c49192676ebf090a5e0ec8ead7fecc0"
+      },
+      "climate-trace/oil-and-gas-production": {
+        "manifest_sha256": "44d688a00f283a607b391657a9784575311caf6ed57e56a2664c2f35bc501716",
+        "sha256": "3d62b978fe7318ac43631eeb032fe114e846727d8e1c7e226342050925133208"
+      },
+      "climate-trace/oil-and-gas-refining": {
+        "manifest_sha256": "20881f675ea0d8c568d29194eead4127b96eb54cd85d4d7828c3ff4788f923ee",
+        "sha256": "c8397e1a42518f31aa1a30bd22895024b6878f464d7437bb93eed5abe3fade12"
+      },
+      "climate-trace/oil-and-gas-transport": {
+        "manifest_sha256": "47027bdefd334a2b56539f21a8fb331b89949a66f4c22412b4ff5e7ff6495d84",
+        "sha256": "f4e9e09e43cdcca50232eae3371d1705def683cdfef00a7e7a67acf1034701ee"
+      },
+      "climate-trace/other-agricultural-soil-emissions": {
+        "manifest_sha256": "c6ccf637bf89e249436c9a040f94618fd747828134d1d6427f662062a85fac89",
+        "sha256": "b8266dd3c74480fc48918ffcdc71ddf570a41bd741533e639023ccf8cfca74e7"
+      },
+      "climate-trace/other-chemicals": {
+        "manifest_sha256": "07f41752294c668059020aebafc254626608ce063b729d2548b8bfe6d2530935",
+        "sha256": "a3e44e6c37414e26d464b75d00223ebe2fdf298c3ca6616522185ce0c4fcfe96"
+      },
+      "climate-trace/other-energy-use-ch4": {
+        "manifest_sha256": "9ceee72eaa8ed0e244176d950e0ed320cf8f780dcfdccdf1eb87b41aa6af1217",
+        "sha256": "d9e06dfdba385566a1c49ee4aefea7289c7a3d5fa57b5a126deedfca9e338989"
+      },
+      "climate-trace/other-energy-use-n2o": {
+        "manifest_sha256": "9e7aa30399d679f94cea5207f2f653e756f1b1be4eae35402486520c94317cc3",
+        "sha256": "63f146632c9e70ca670f1d4052bd82354fcf9b58ed4e5a2390f93dc0c8b5982d"
+      },
+      "climate-trace/other-fossil-fuel-operations-ch4": {
+        "manifest_sha256": "1a7bb62516e2d3b5d005c343ab715268915d7dae1436f247828cc444d02427d1",
+        "sha256": "ce0b8b4f993c57d0e6eacfb7da48de5a42e6d4a844f7bae33b0dee1f3bb2fc5a"
+      },
+      "climate-trace/other-fossil-fuel-operations-n2o": {
+        "manifest_sha256": "2ec1cf72a869f10cb15b8441e8f3dbd1a054abf9d8812a8af79fd44cab726a98",
+        "sha256": "0d7c334eccd03dcb494325ad261d2a4ea9c206b874f8ef03a04216a3fdcb306a"
+      },
+      "climate-trace/other-metals": {
+        "manifest_sha256": "d051f78acaabee8861f59f26f732235d1a740dd361047c6e15c9f57fb532c649",
+        "sha256": "45d7857d9c6ac4568e0c17c2a79589af0f99eb2ed6925ed8679a8b755aac734a"
+      },
+      "climate-trace/other-mining-quarrying": {
+        "manifest_sha256": "b30a11d2c1b94852adcdc1d582d3e7cf9d0c71122f8c7ddc8424fc18a46ab752",
+        "sha256": "f30a479038f72837caa372dd3e463915d5a0dc7c2ddcd6cfc2e671fbb3d72cbf"
+      },
+      "climate-trace/other-onsite-fuel-usage-ch4": {
+        "manifest_sha256": "b45fbda499c3433c8a9b2cfb3271955dc40eb7909eddfd50c56a11143c572818",
+        "sha256": "a1c622c775c9934f449b76375f67111ce8d4133d4945297a354822188e59fe87"
+      },
+      "climate-trace/other-onsite-fuel-usage-n2o": {
+        "manifest_sha256": "ddd3298ea57f6e37d28b04f382a8eb86a46eca7e343b5edcebc0183754a27068",
+        "sha256": "b8788938dbd9d38639ca7543b4492c1edb59ef8872e2a1fde6dfce6ac678f7f1"
+      },
+      "climate-trace/other-solid-fuels-ch4": {
+        "manifest_sha256": "7608f56108e62a3108da7cfed36813cd23a0d867cf5da0d602620de0c90ff150",
+        "sha256": "acfaedbfd6388070d233b1189b6f3fe0ff0988d7e7664a0b9df6e8c72172a772"
+      },
+      "climate-trace/other-solid-fuels-n2o": {
+        "manifest_sha256": "85a0bfb8e8d12a08a4a9cb86f2f949adbf752a59dce9768d3844d965b2db0608",
+        "sha256": "edd90797ebdcfe0a7d863b7825ae5fc0c8c01f132076a555df8003ad4aa76e0b"
+      },
+      "climate-trace/other-transport-ch4": {
+        "manifest_sha256": "4f9af258fade9412d4a95aef450eca90d7227311c1ae9b4b71fa7c096d40f889",
+        "sha256": "94547540b23045cb9af7bbb39cdc3f2dcee23979f8554d91a35fd9be5f04a475"
+      },
+      "climate-trace/other-transport-n2o": {
+        "manifest_sha256": "fd9999104d24780bf27eb8bb5158c94500a88554481aac3e7f8756f65bcb060f",
+        "sha256": "1ed4aca4b761797e9620cc3a054187694619aab4c5a2878db4d036fb3060f6e8"
+      },
+      "climate-trace/petrochemical-steam-cracking": {
+        "manifest_sha256": "0ec3e34eb848485c68b899c594978c300e87f1dfdbebf8e91f6d8145c17a33b5",
+        "sha256": "0ebcc51519cdef357a4597777cac6d06cb4e98a63def13fd4812065a803c7c34"
+      },
+      "climate-trace/pulp-and-paper": {
+        "manifest_sha256": "cc6aa1d5e3a249089de5f3fdab09f8bfacc256d6ba1aa22129640f976b76de13",
+        "sha256": "0bfcab6449603a91c5aa5bad3c79af1df01f23dd7610dae2db2491d55eccf131"
+      },
+      "climate-trace/railways-ch4": {
+        "manifest_sha256": "8c8ea541722c75ab25dac6566b6d89dd8eed0d704b67a74c554a516031a4d419",
+        "sha256": "28335c1f23306ad1cbad08266f409a6f2dfbbe01bd0cc783dcbfcde962d7733b"
+      },
+      "climate-trace/railways-n2o": {
+        "manifest_sha256": "56ff81c9bf5819044ca85c1c5fb4ff21fa5684b93c95e6ee9a70de3750983dda",
+        "sha256": "04e18b2ed07b6da45d6537e26d3609028d4ed477c506c31aa786f8bb47eb4c80"
+      },
+      "climate-trace/removals": {
+        "manifest_sha256": "1bd807b259eb3dc5b232a261cdb305cfef89529da74d701de0b256d3d0a11f7f",
+        "sha256": "42f9057672947e8a5bb95872095e38232db0864e60c744461b976622f3760f79"
+      },
+      "climate-trace/residential-onsite-fuel-usage": {
+        "manifest_sha256": "bd9583c4cabce65d8943d36620cf5d77b22d1542c7e414602fb51acf7bf1ae7d",
+        "sha256": "077a0ec371d13ae8c2df7a3908a8dab5015bec9f3e683d9536b71f6f5d0dae35"
+      },
+      "climate-trace/rice-cultivation": {
+        "manifest_sha256": "4e3513d80d5554797ce3487e10580513903eb9e59120c43f049fccad18920914",
+        "sha256": "d2ff5c70a3a87c76bcf6ac1d42f11286c242ef3849a8da9ab21c7ecc926147fd"
+      },
+      "climate-trace/road-transportation": {
+        "manifest_sha256": "40388858539b231c7394612d6340d69937d54f42a8c88e2c3f061ef2264fadc7",
+        "sha256": "23f6c75da158920b57b9623768f2303532539ed4d01482c2d24495ba45877793"
+      },
+      "climate-trace/rock-quarrying": {
+        "manifest_sha256": "b79ef918e3ce697d13345d89a41c2c904a8d209f6775d00fcafb2637801e38ae",
+        "sha256": "dbf6fb0eb101998a3e160f993a5e05e1df4fbae025ee1cc15d8c89fc5ac0387d"
+      },
+      "climate-trace/sand-quarrying": {
+        "manifest_sha256": "94eb24671f5e35f375e7c5a9443b09276d6bf45e9182ba98934f96055ffc3aad",
+        "sha256": "cc3dec2e52377c6b57210dfa91c873f31ab53252590e480e8e3c4040851e2f8d"
+      },
+      "climate-trace/shrubgrass-fires": {
+        "manifest_sha256": "c4dae36a10074d3e3eacaab29df08cd644f79e35c5da5861a54119ef62b4e669",
+        "sha256": "760c46004ccbf940fdacc86dcfa471b406fedb8050df1e8b4e2bfef854b481ab"
+      },
+      "climate-trace/solid-waste-disposal-ch4": {
+        "manifest_sha256": "8337a384220e33c8d05f72d8f43328e1ccaed7617ff086ddd6e3bb3f0889fc3e",
+        "sha256": "3fbed10ec9b06c67b4c91fb0d6cf5a3b1c3a7318a26e98d145c2f4b1f51a2968"
+      },
+      "climate-trace/solid-waste-disposal-n2o": {
+        "manifest_sha256": "d19ddccd4da2e824925a0304d764c653b2975e21985ce9f785b68015e1ebefaa",
+        "sha256": "f83505d21071392e25a7d459655756511f89cf4f84a74a8b8f12b51f9e5fb8c7"
+      },
+      "climate-trace/synthetic-fertilizer-application": {
+        "manifest_sha256": "02d0df97e7baa4974b9ac882698b8cd3719d0848aa510b29135225f7a3bc2956",
+        "sha256": "9efd62dee4c25d747ed7a08aa4c7c7d503f9ad56ebe4881bd3aa46b3f1acd62e"
+      },
+      "climate-trace/textiles-leather-apparel": {
+        "manifest_sha256": "4ae3e9b7bba51b9d1dcd2b9d7e4ea43a027262399e0b70415683affd3adbe55a",
+        "sha256": "3a4430d20b0d4c15c171ed33059f506b3f22fe6301b1abbe81a27376c5f348cf"
+      },
+      "climate-trace/water-reservoirs": {
+        "manifest_sha256": "f1fda42f8c2ed2d2a69f060c9dfe3bb42087fe04c4a08625258ff2f84c0c6971",
+        "sha256": "c49610fb587df3d97485ceb6618d385cba999536028a5bf0b59f1f0159b661d3"
+      },
+      "climate-trace/wetland-fires": {
+        "manifest_sha256": "e5cc5b3cccb054ef6433175ad5a5cb338d7a8b982e4e6f3a752c6252efd40cb4",
+        "sha256": "d20606bc687ff6bc29d109e2744193bb4953aa4e116d2d2bc54bb4aefd92e98b"
+      },
+      "climate-trace/wood-and-wood-products": {
+        "manifest_sha256": "0ca92c1bd66070a8b46d6371ea3fe51e1bc625b713526c6d6671893aa6591fc5",
+        "sha256": "3196c5cd473ec38385377f9907a83262a8e5ed861d364c37eb1320f4af2111bb"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "climate-trace": "408662013c29a3950ec5dd4292b5b664f00a5f3edbdee7ecd79d03d5a2594cfa"
+    },
+    "transform_sha256": "6933e7b0e108b6822bffab3dceff086d902111b7be53a4987aae75b8ee9a2afd"
+  },
+  "publisher_checks": []
+}
