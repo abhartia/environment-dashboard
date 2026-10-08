@@ -1,0 +1,15 @@
+{
+  "artifact_id": "chemicals",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact chemicals --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 5616,
+  "fixture_sha256": "ef34e45aae50b928f709e74d21f72bfa0c5056680ce5701afc3437866c2ab997",
+  "full_bytes": 458306,
+  "full_sha256": "f6bfbc8a3c488197d24d86385914cfb0aa5e982646434735dbb574b484e40376",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/manufacturing_chemicals.zip/content"
+}

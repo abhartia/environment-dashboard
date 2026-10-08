@@ -1,0 +1,15 @@
+{
+  "artifact_id": "other-fossil-fuel-operations-n2o",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact other-fossil-fuel-operations-n2o --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6380,
+  "fixture_sha256": "f8998c511942649d670a04be8d9120519669a34520978f88336a7c2fb1e7ac9c",
+  "full_bytes": 536238,
+  "full_sha256": "0d7c334eccd03dcb494325ad261d2a4ea9c206b874f8ef03a04216a3fdcb306a",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_other-fossil-fuel-operations.zip/content"
+}

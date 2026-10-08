@@ -1,0 +1,15 @@
+{
+  "artifact_id": "heat-plants",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact heat-plants --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 5042,
+  "fixture_sha256": "9ca02f659f655ee756156644d9907df49246837a615328716ae54eeeecf22135",
+  "full_bytes": 416511,
+  "full_sha256": "82ec025df354271b60cb1b1542e5148c46483a490e5dad582ca26475b5082ea0",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/power_heat-plants.zip/content"
+}

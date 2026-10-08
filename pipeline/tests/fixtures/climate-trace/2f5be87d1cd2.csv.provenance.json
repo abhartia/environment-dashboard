@@ -1,0 +1,15 @@
+{
+  "artifact_id": "cement",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact cement --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 5534,
+  "fixture_sha256": "64b714ec3a1e68cc48b8c2fc3ac2bfeaaeeca96cb4f5dd549fae0a2ef99be0a6",
+  "full_bytes": 451392,
+  "full_sha256": "2f5be87d1cd22eddc5080f68e97f8a9191ae80746d6d533df0edca94fa35f368",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/manufacturing_cement.zip/content"
+}

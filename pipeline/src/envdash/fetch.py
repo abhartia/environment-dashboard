@@ -2,7 +2,9 @@
 
 An artifact with `discover` has its URL resolved from a listing at every fetch (envdash/discovery.py); the snapshot
 manifest records the resolved URL and the listing. An artifact with a `content_key` keeps its current snapshot when
-the new download's content fingerprint is unchanged (envdash/contentkey.py). Credentials (auth earthdata, api-key)
+the new download's content fingerprint is unchanged (envdash/contentkey.py). An artifact with a `zip_member` reads
+only that member of its zip, by HTTP Range requests (envdash/zipmember.py); the zip's directory is read once per URL
+within a source's fetch, however many of its members are registered. Credentials (auth earthdata, api-key)
 come from the environment variable the artifact names and are never written to a manifest, a status file or a
 message; a request carrying an api key does not follow redirects.
 
@@ -16,6 +18,7 @@ from __future__ import annotations
 
 import os
 import time
+import zipfile
 from collections.abc import Iterable
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
@@ -23,7 +26,7 @@ from urllib.parse import urlencode
 
 import httpx
 
-from envdash import canonical, contentkey, discovery, snapshots, textmatch
+from envdash import canonical, contentkey, discovery, snapshots, textmatch, zipmember
 from envdash.models import Artifact, SnapshotDiscovery, Source, SourceState
 from envdash.paths import Paths
 from envdash.registry import Registry
@@ -216,6 +219,53 @@ def resolve_url(client: httpx.Client, art: Artifact) -> tuple[str, SnapshotDisco
     return r.url, r.record
 
 
+def _fetch_zip_member(
+    client: httpx.Client,
+    paths: Paths,
+    src: Source,
+    art: Artifact,
+    today: date,
+    cur_sha: str | None,
+    remote_zips: dict[str, tuple[zipmember.RemoteZip, zipfile.ZipFile]],
+) -> tuple[ArtifactFetch, str | None]:
+    """Read one member of a remote zip (Artifact.zip_member) and record its bytes. Returns (result, new pointer)."""
+    assert art.url is not None and art.zip_member is not None
+    url = str(art.url)
+    try:
+        if art.access.auth != "none" or art.access.cookie_accept_url:
+            raise PermanentFetchError(f"artifact {art.id}: zip_member reads support only access without credentials")
+        if url not in remote_zips:
+            remote = zipmember.RemoteZip(client, url)
+            remote_zips[url] = (remote, zipmember.open_zip(remote))
+        remote, z = remote_zips[url]
+        m = zipmember.read_member(remote, z, art.zip_member, max_bytes=art.max_bytes)
+        snap, _ = snapshots.record(
+            paths,
+            data=m.data,
+            source_id=src.id,
+            artifact_id=art.id,
+            url=url,
+            acquisition="automatic",
+            today=today,
+            etag=m.etag,
+            last_modified=m.last_modified,
+            content_type=None,
+            zip_member=art.zip_member,
+        )
+    except zipmember.ZipMemberError as e:
+        return ArtifactFetch(art.id, "failed", reason=f"zip member {art.zip_member}: {e}"), None
+    except Exception as e:  # isolation, as in fetch_source
+        return ArtifactFetch(art.id, "failed", reason=f"{type(e).__name__}: {e}"), None
+    if snap.zip_member != art.zip_member or str(snap.url) != url:
+        return ArtifactFetch(
+            art.id,
+            "failed",
+            reason=f"these bytes were first recorded as {snap.url} member {snap.zip_member}, not {url} member "
+            f"{art.zip_member}; the same file registered twice",
+        ), None
+    return ArtifactFetch(art.id, "same" if snap.sha256 == cur_sha else "new", snap.sha256), snap.sha256
+
+
 def manual_fetch(src: Source, checked_at: str) -> SourceFetch:
     """The fetch result of a manual source. Nothing is requested: a person downloads its files and records them with
     envdash snapshot add, so the result is known from the registry entry alone, whenever it is asked for."""
@@ -238,9 +288,16 @@ def fetch_source(
     results: list[ArtifactFetch] = []
     new_pointers: dict[str, str] = {}
     visited_cookie_urls: set[str] = set()
+    remote_zips: dict[str, tuple[zipmember.RemoteZip, zipfile.ZipFile]] = {}
     for art in src.artifacts:
         k = snapshots.key(src.id, art.id)
         resolved: str | None = None
+        if art.zip_member is not None:
+            r, pointer = _fetch_zip_member(client, paths, src, art, today, current.get(k), remote_zips)
+            results.append(r)
+            if pointer:
+                new_pointers[k] = pointer
+            continue
         try:
             headers, params = _auth(art)
             if art.access.cookie_accept_url and str(art.access.cookie_accept_url) not in visited_cookie_urls:

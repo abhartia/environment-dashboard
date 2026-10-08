@@ -1,0 +1,15 @@
+{
+  "artifact_id": "other-solid-fuels-n2o",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact other-solid-fuels-n2o --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6099,
+  "fixture_sha256": "71139da2fe19fc8870e8d1dfab8441124a5aa1d91ffe2d00c169a38e131cfff3",
+  "full_bytes": 486884,
+  "full_sha256": "edd90797ebdcfe0a7d863b7825ae5fc0c8c01f132076a555df8003ad4aa76e0b",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_other-solid-fuels.zip/content"
+}

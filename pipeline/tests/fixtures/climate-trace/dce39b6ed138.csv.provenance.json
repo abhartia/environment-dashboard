@@ -1,0 +1,15 @@
+{
+  "artifact_id": "coal-mining",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact coal-mining --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6246,
+  "fixture_sha256": "4f1916e5feb5e8b256fac770418770d7ead10eeb6733e16d08e142ddf8c8405b",
+  "full_bytes": 494797,
+  "full_sha256": "dce39b6ed138e44f39924fd2d8071423de4ee7933ac30adb08d071bcfab558ad",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/fossil_fuel_operations_coal-mining.zip/content"
+}

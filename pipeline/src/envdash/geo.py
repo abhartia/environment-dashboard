@@ -145,6 +145,15 @@ SOURCE_SCHEMES: dict[str, SourceScheme] = {
         },
         note="mtco2-flat column 'ISO 3166-1 alpha-3' (Country for rows without a code), sha256 20650c19b394…",
     ),
+    "climate-trace": SourceScheme(
+        base="iso3",
+        # Climate TRACE's own codes for areas without an ISO 3166-1 code (its data guide: "Kosovo has been assigned
+        # the ISO3 code 'XKX'"; "ZNC name changed to 'Turkish Republic of Northern Cyprus'"). UNK ("unknown"
+        # countries, mostly non-broadcasting vessels whose port is not known) has no entity: the transform counts it
+        # in the world total only (climate_trace.WORLD_ONLY), so it raises if met anywhere else.
+        aliases={"XKX": "KOS", "ZNC": "CYN"},
+        note="V5.10.0 country files, column iso3_country (252 codes), e.g. electricity-generation co2e_100yr",
+    ),
     "gfw-tree-cover-loss": SourceScheme(
         base="iso3",
         # GADM's own codes for areas without an ISO 3166-1 code. XAD, Z01, Z06 and Z07 have no entity here: the

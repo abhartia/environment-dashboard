@@ -113,7 +113,8 @@ def wayback_targets(paths: Paths, sources: dict[str, Source]) -> list[WaybackTar
         if snap is None or snap.url is None or snap.source_id not in sources:
             continue
         src = sources[snap.source_id]
-        if src.obligations.mirror_raw and snap.bytes < WAYBACK_DATA_LIMIT:
+        # A zip-member snapshot's url is the whole zip (gigabytes), not the bytes recorded: no data capture.
+        if src.obligations.mirror_raw and snap.bytes < WAYBACK_DATA_LIMIT and snap.zip_member is None:
             targets.append(WaybackTarget(str(snap.url), "data", sha))
     seen: set[str] = set()
     return [t for t in targets if not (t.url in seen or seen.add(t.url))]

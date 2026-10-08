@@ -1,0 +1,15 @@
+{
+  "artifact_id": "other-metals",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact other-metals --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6003,
+  "fixture_sha256": "6efa449f136119b9229728fc9e016ad69543edbeca6f9c1be0f877838075617a",
+  "full_bytes": 481307,
+  "full_sha256": "45d7857d9c6ac4568e0c17c2a79589af0f99eb2ed6925ed8679a8b755aac734a",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/manufacturing_other-metals.zip/content"
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_id": "electricity-generation",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact electricity-generation --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 5931,
+  "fixture_sha256": "3189f70757358d52c173003f26988ada9f655a7413755738b16a7a9c145b3024",
+  "full_bytes": 476567,
+  "full_sha256": "e88bd1350c1d0a3b8f4386f26b5efe7fa05790f8245a231d1ee4345a24828281",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/power_electricity-generation.zip/content"
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_id": "forest-land-fires",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact forest-land-fires --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6392,
+  "fixture_sha256": "0f6f594e2173c42d360593578ba3ee266dda144a4d503fa34926e05e508e8ae0",
+  "full_bytes": 523681,
+  "full_sha256": "0cb4a982c6e8c6c0806de15024e1b29e4234cb14463a02a01153297fdacd916a",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/forestry_and_land_use_forest-land-fires.zip/content"
+}

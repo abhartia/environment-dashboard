@@ -1,0 +1,15 @@
+{
+  "artifact_id": "forest-land-clearing",
+  "command": "uv run python tests/fixtures/make_fixture.py --source climate-trace --artifact forest-land-clearing --first 24 --last 12",
+  "data_rows_total": 3024,
+  "date_accessed": "2026-10-08",
+  "fixture_bytes": 6546,
+  "fixture_sha256": "9e7793f38393e0c4ce36cb41e6025b666c139f4d60c572aedc0c031881a2af35",
+  "full_bytes": 536598,
+  "full_sha256": "179aeba13c742b2a4aead413da37f3c8e0365412a4830ea1402b923d12a4635e",
+  "header_lines": 1,
+  "licence": "CC BY 4.0",
+  "rows_kept": "data rows 1-24 and 3013-3024 of 3024",
+  "source_id": "climate-trace",
+  "url": "https://zenodo.org/api/records/22919723/files/forestry_and_land_use_forest-land-clearing.zip/content"
+}
