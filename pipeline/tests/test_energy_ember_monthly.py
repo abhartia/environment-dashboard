@@ -105,9 +105,9 @@ def test_full_transform_run():
     files = {em.MONTHLY.key: InputFile(snapshots.cache_path(p, sha), snap)}
     ts = {t.spec.id: t for t in discover(p)}
     res = ts["electricity.ember.monthly-clean-share-world"].run(files)
-    assert res.vintage == "2026-09-18"
+    assert res.vintage == "2026-10-06"
     by = {o.period: o for o in res.observations}
     # Ukraine's monthly series stops in September 2022.
     assert by["2022-09"].status == "final" and by["2022-10"].status == "preliminary"
-    assert "Total generation for 56 countries" in (by["2026-07"].note or "")
-    assert "Preliminary months in this vintage: 46, the first 2022-10 and the last 2026-07." in res.steps[2]
+    assert "Total generation for 62 countries" in (by["2026-07"].note or "")
+    assert "Preliminary months in this vintage: 47, the first 2022-10 and the last 2026-08." in res.steps[2]

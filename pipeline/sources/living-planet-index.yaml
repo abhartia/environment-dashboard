@@ -47,11 +47,16 @@ licence:
   spdx: CC-BY-SA-4.0
   url: https://creativecommons.org/licenses/by-sa/4.0/
 evidence:
-  terms_url: https://www.livingplanetindex.org/documents/data_agreement.pdf
+  # On 2026-10-11 data_agreement.pdf returned 404; the home page now links the 2026 Data Use Policy (508,402 bytes),
+  # whose clause 3 still puts the published trends under CC BY-SA 4.0. Its new first sentence ("Reproduction of the
+  # Data or products derived from it ... for financial gain is strictly prohibited") is about the Living Planet
+  # Database records, which we never ingest. Clause 2's citation now reads "ZSL/WWF 2026. Living Planet Database
+  # 2026.1"; update the citation when the LPR 2026 trends are recorded.
+  terms_url: https://www.livingplanetindex.org/documents/LPI_Data_Use_Policy_2026.pdf
   licence_quote: >-
-    However, reproduction of the published Living Planet Index trends (e.g. the global, regional or system trends) is
-    permitted under creative commons CC BY-SA 4.0 license
-  checked_on: 2026-10-04
+    However, reproduction of the published LPI trends (e.g. the global, regional or system trends) is permitted under
+    creative commons CC BY-SA 4.0 license
+  checked_on: 2026-10-11
   terms_check: pdf
 obligations:
   attribution: >-

@@ -1,7 +1,7 @@
 # Northern Hemisphere snow cover extent by month
-# Indicator: snow-cover.rutgers-snow-cdr.nh-monthly (vintage v01r01 to 2026-08-31); unit: million square kilometres (million-km2)
+# Indicator: snow-cover.rutgers-snow-cdr.nh-monthly (vintage v01r01 to 2026-10-05); unit: million square kilometres (million-km2)
 # Source: NOAA National Centers for Environmental Information (data by the Rutgers University Global Snow Lab) <https://www.ncei.noaa.gov/products/climate-data-records/snow-cover-extent>
-# Credit: Calculated by Environment Dashboard from Robinson, Estilow and NOAA CDR Program (2012), NOAA Climate Data Record of Northern Hemisphere Snow Cover Extent, Version 1 (v01r01), NOAA National Centers for Environmental Information, doi:10.7289/V5N014G9, accessed 2026-10-04. This CDR was originally developed by David Robinson and colleagues for NOAA's CDR Program. Changes: weekly snow maps summed to areas and averaged by month (weighted by days), in million km².
+# Credit: Calculated by Environment Dashboard from Robinson, Estilow and NOAA CDR Program (2012), NOAA Climate Data Record of Northern Hemisphere Snow Cover Extent, Version 1 (v01r01), NOAA National Centers for Environmental Information, doi:10.7289/V5N014G9, accessed 2026-10-11. This CDR was originally developed by David Robinson and colleagues for NOAA's CDR Program. Changes: weekly snow maps summed to areas and averaged by month (weighted by days), in million km².
 # Licence: No restrictions on access or use (NOAA CDR Program Open Data Policy) <https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Snow_Cover_Extent_Northern_Hemisphere/UseAgreement_01B-12.pdf>
 # Provenance and processing: https://environmentdashboard.org/data/snow-cover/rutgers-snow-cdr/nh-monthly
 indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
@@ -723,3 +723,4 @@ snow-cover.rutgers-snow-cdr.nh-monthly,NH,2026-05,17.902216851612902,,,,final,,,
 snow-cover.rutgers-snow-cdr.nh-monthly,NH,2026-06,6.2316404033333335,,,,final,,,
 snow-cover.rutgers-snow-cdr.nh-monthly,NH,2026-07,3.068536741935484,,,,final,,,
 snow-cover.rutgers-snow-cdr.nh-monthly,NH,2026-08,2.6745705806451614,,,,final,,,
+snow-cover.rutgers-snow-cdr.nh-monthly,NH,2026-09,5.019768953333333,,,,final,,,

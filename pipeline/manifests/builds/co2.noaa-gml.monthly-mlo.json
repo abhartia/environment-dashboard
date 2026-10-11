@@ -1,14 +1,14 @@
 {
   "export": "data/v1/indicators/co2.noaa-gml.monthly-mlo.json",
-  "export_sha256": "041f80cb5cd858d7842639ea63f74d6ab33c1a78ee45c2cae560ce7f62a7d750",
+  "export_sha256": "2e12a4513fe70cd6134dc939c1afecbc187566b7a0e9e7326b5fd3eca336d256",
   "indicator_id": "co2.noaa-gml.monthly-mlo",
-  "key": "8b69d7671396bb6a9994546df8f99c1fa50fc685d5c757edc0bc8b3c232bf639",
+  "key": "1a5aad7ce06b2634958e8a3bf13365221891126dfaaa2042ebd6ac4318616693",
   "key_parts": {
     "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
       "noaa-gml-trends/co2-mm-mlo": {
-        "manifest_sha256": "51de5ef77941246754ae127372e0b064b59195c3620a0c889e4d5b7a3fb7faee",
-        "sha256": "dcf0198658c87ebb5e3b2ce807fe3a52e1d5f000aa0479fb1bf334afb7adde4d"
+        "manifest_sha256": "a118d2f90f97e8bed8f83cb8bfde2b73fe8f6c32141df486c6c56360d81f38de",
+        "sha256": "d895fb5b4a59fb5e4cd98e69b7667fe5bef595c6581f630852b12cb41c07f675"
       }
     },
     "key_files": {},
@@ -19,6 +19,6 @@
     "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
   },
   "publisher_checks": [
-    {"detail": "ours 427.55 vs stated 427.55 (tolerance ±0.005, difference 0)", "entity": "MLO", "period": "2026-08", "quote": "Monthly Average Mauna Loa CO₂ August 2026: 427.55 ppm", "source_id": "noaa-gml-trends", "stated": "427.55", "status": "pass", "url": "https://gml.noaa.gov/ccgg/trends/", "vintage": "2026-09"}
+    {"detail": "check is for vintage 2026-09; built 2026-10", "entity": "MLO", "period": "2026-08", "quote": "Monthly Average Mauna Loa CO₂ August 2026: 427.55 ppm", "source_id": "noaa-gml-trends", "stated": "427.55", "status": "not-applicable", "url": "https://gml.noaa.gov/ccgg/trends/", "vintage": "2026-09"}
   ]
 }

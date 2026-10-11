@@ -88,7 +88,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `wb-cckp` | World Bank Group | CC BY 4.0 with the World Bank Dataset Terms | open | yes | automatic | 2026-10-04 (page) |
 | `wgms-amce` | World Glacier Monitoring Service (WGMS), University of Zurich | CC BY 4.0 (WGMS data policy, open access on condition of correct citation) | open | yes | automatic | 2026-10-04 (page) |
 | `icct-lca-2025` | International Council on Clean Transportation (ICCT) | CC BY-SA 4.0 (ICCT terms of use, "except as otherwise noted") | share-alike | no | automatic | 2026-10-04 (page) |
-| `living-planet-index` | Zoological Society of London (Indicators & Assessments Unit) and WWF International | CC BY-SA 4.0 (published LPI trends) | share-alike | yes | manual | 2026-10-04 (pdf) |
+| `living-planet-index` | Zoological Society of London (Indicators & Assessments Unit) and WWF International | CC BY-SA 4.0 (published LPI trends) | share-alike | yes | manual | 2026-10-11 (pdf) |
 | `faostat-all-sectors` | Food and Agriculture Organization of the United Nations (FAO), Statistics Division | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0) | noncommercial | yes | automatic | 2026-10-05 (page) |
 | `idmc-gidd` | Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council | CC BY-NC-SA 3.0 IGO (IDMC API documentation; the export's own README states CC BY-NC) | noncommercial | yes | manual | 2026-10-04 (page) |
 | `jones-2025-national-contributions` | Jones et al. (University of East Anglia, CICERO and others) | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (page) |

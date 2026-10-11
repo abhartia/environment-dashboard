@@ -71,7 +71,7 @@ def test_countries_counted_once_each():
     assert by[("submitted", "yes")] == 151 and by[("submitted", "no")] == 1
     # 139 entries code a 2035 GHG target yes, the EU's among them.
     assert by[("ghg-target-2035", "yes")] == 138
-    assert all(o.entity == "WLD" and o.period == "2026-10-05" for o in result.observations)
+    assert all(o.entity == "WLD" and o.period == "2026-10-11" for o in result.observations)
 
 
 @pytest.mark.snapshot

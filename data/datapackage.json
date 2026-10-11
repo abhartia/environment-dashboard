@@ -5,7 +5,7 @@
   "name": "environment-dashboard",
   "resources": [
     {
-      "bytes": 361748,
+      "bytes": 361747,
       "description": "The part of each country's and the world's population that has access to electricity, each year since 1990, from the World Bank's World Development Indicators.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -13,7 +13,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:8fb635549f27aaf167b30389e16455cbc57d3dde1dbc4aee80d14989bce58b74",
+      "hash": "sha256:b29ed0ebbf8186e8d85a7ac2e972782800e0098f33a59d8db74f4e22f2335ed2",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (World Bank dataset terms, with their additional terms)"}
       ],
@@ -285,7 +285,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:e95095e3d6d029aa16f67de8b8a0da8b3123abeb5d4e1de1491450384d3d8da4",
+      "hash": "sha256:a00c615aeb125cf89beee71b982b0de55398078fde6d4716a70afe514493e1a4",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (European Commission reuse policy)"}
       ],
@@ -854,7 +854,7 @@
       "title": "Carbon dioxide removed by novel methods, by method"
     },
     {
-      "bytes": 3998,
+      "bytes": 4001,
       "description": "Annual mean methane in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 1984.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -862,7 +862,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:6d9f1ced76986499c008bee3a1ecece3d4974042b52aefb99a04b6197fbfafb9",
+      "hash": "sha256:e3e9fd1f4dd4a447224f5f224130dc0173123df0e2d54f5ae9eb5687f91c7502",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -1084,7 +1084,7 @@
       "title": "Carbon dioxide over the last 2,000 years (Law Dome ice cores)"
     },
     {
-      "bytes": 4372,
+      "bytes": 4371,
       "description": "Annual mean carbon dioxide in dry air averaged over NOAA's global network of marine surface sites, since 1979.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1092,7 +1092,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:be077ccd66b943793a14281d226b76df9d8101c68de6564f61838fe0e768dcbf",
+      "hash": "sha256:9bda5bbe4ae1dcd792695f5fe6930cba64f5d21accffc0c9b9239d81b57867ad",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -1122,7 +1122,7 @@
       "title": "Carbon dioxide, global annual mean"
     },
     {
-      "bytes": 81380,
+      "bytes": 81436,
       "description": "Monthly mean carbon dioxide in dry air measured at Mauna Loa Observatory, Hawaii, since March 1958: the Keeling Curve. Values before May 1974 were measured by the Scripps Institution of Oceanography.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1130,7 +1130,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:b3c28be234e945c383c4893f0a7cfdfe32770e6b98d2a0de1540c244f8662ca8",
+      "hash": "sha256:1adb336f586f336454f4a771de27fdf34c5a774ff8c81d7b8c2bbd80ffc2b2bd",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -1198,7 +1198,7 @@
       "title": "Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event"
     },
     {
-      "bytes": 2939,
+      "bytes": 2938,
       "description": "Electricity the world used each year since 2000, in terawatt-hours, as published by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1206,7 +1206,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:6799127361dafbc3a02ebb3c701b3921ddec62b104818de593167e02013cbd5a",
+      "hash": "sha256:44e762da9852e8402c71cfd2c3bd0ad915e97c95c101bcc816bae961e59926d4",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1350,7 +1350,7 @@
       "title": "Electricity used by the average US home in a year"
     },
     {
-      "bytes": 382048,
+      "bytes": 382407,
       "description": "Share of each country's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember, with the world for comparison.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1358,7 +1358,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:4f63bf6e7d48c5d7ca419d4c5d250108073670498f3c3cd03b259e1545e209ea",
+      "hash": "sha256:873e861d323440fec9f66aa77d0e06e2452c29c97a46657897182d96a2e758fb",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1388,7 +1388,7 @@
       "title": "Share of electricity from clean sources, by country"
     },
     {
-      "bytes": 3059,
+      "bytes": 3060,
       "description": "Share of the world's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1396,7 +1396,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:f1da34ad267f7d306e0ea10a72dbff25b25706397e4864ebd39beff0671b31fe",
+      "hash": "sha256:6cd67ae81981748cbfcee8bfcfc2af2fec6b0f5661b450b34824f7f3ee2ad0de",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1426,7 +1426,7 @@
       "title": "Share of world electricity from clean sources"
     },
     {
-      "bytes": 432707,
+      "bytes": 433070,
       "description": "Greenhouse gas emissions per kilowatt-hour of electricity generated in each country, counting the whole lifecycle of each power source (fuel extraction, methane leaks, building the plants), each year since 2000, as estimated by Ember, with the world for comparison.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1434,7 +1434,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:8052fc892e8c9a383f37cc857da2071d0e4eb054dc3f88739bb1610d340040ea",
+      "hash": "sha256:e40c5af4cebf6f19fbadde88e15e2660dbbe3f314859f1ff0e391cf7f38916fb",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1464,7 +1464,7 @@
       "title": "Carbon intensity of electricity (lifecycle), by country"
     },
     {
-      "bytes": 3267136,
+      "bytes": 3270914,
       "description": "Share of each country's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels), each year since 2000, as published by Ember, with the world for comparison.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1472,7 +1472,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:4e96c84278c16fba5ea7c3aa4a2c3e372fafb8c5a4327a02efd06065ec7bbf86",
+      "hash": "sha256:d31f76a386c5caa29e4a7921b8b6f76b7eebde98828f862313e4d1ba61f543cc",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1503,7 +1503,7 @@
       "title": "Electricity generation by source, by country"
     },
     {
-      "bytes": 22830,
+      "bytes": 22825,
       "description": "Share of the world's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels), each year since 2000, as published by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1511,7 +1511,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:b0c2749d77bbe749fa696230a322a15df9b8b107dcd5a49f7c584314c9adb14b",
+      "hash": "sha256:bf485a5bd20a83c7b6a59e61192537e694791e76c7154cbafcd8a352883290fe",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1542,7 +1542,7 @@
       "title": "World electricity generation by source"
     },
     {
-      "bytes": 22504,
+      "bytes": 22801,
       "description": "Share of the world's electricity generation from renewables and nuclear power together in each month since January 2019, as estimated by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1550,7 +1550,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:8da0b6d55e2544b9b58568c3561a93bfca5ee314240b568a21f6f75bf5245058",
+      "hash": "sha256:2adecfae3cfd7afff120f389c764014212b680df860a045ad2465229cf5b4993",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1580,7 +1580,7 @@
       "title": "Share of world electricity from clean sources, monthly"
     },
     {
-      "bytes": 20546,
+      "bytes": 20862,
       "description": "How much more or less electricity the world generated from coal, gas and other fossil fuels in each month than in the same month a year earlier, in percent, since January 2020, as estimated by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1588,7 +1588,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:903f19d681da7a8e59c4b452e24cf78a1c970015d6610cc8aaa4d80634a1ab90",
+      "hash": "sha256:fcec720b0e00881e9c0e73e73aef9021a3c04ba5de9026d703cf771ae7f064ce",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1618,7 +1618,7 @@
       "title": "Change in world fossil-fuel electricity from a year earlier, monthly"
     },
     {
-      "bytes": 197363,
+      "bytes": 200088,
       "description": "Share of the world's electricity generation from each source (solar, wind, hydro, bioenergy, other renewables, nuclear, coal, gas and other fossil fuels) in each month since January 2019, as estimated by Ember.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -1626,7 +1626,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:53b3059044a9ca1328f785a18c04e57a20b0d1d1e4ab0d43ad8746c2a3fa4e5f",
+      "hash": "sha256:7f351d3c90364dc86a185fc001afa2829ef82bcfe54550f2a58271869272afa0",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1665,7 +1665,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:4c6b7daf94e3b44eadb1a8bf97eb64f111cfcd976e9c3b20f854963b1297eaaf",
+      "hash": "sha256:b3470aa91f98c4b6905e5a3908caab7c59704d9cc30f94ce5438927fb40a4b00",
       "licenses": [
         {"path": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice", "title": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required"}
       ],
@@ -2308,7 +2308,7 @@
       "title": "Electric share of new vehicle sales"
     },
     {
-      "bytes": 707360,
+      "bytes": 707361,
       "description": "How much land the agricultural holdings in each of FAO's land-size classes held, in hectares, as counted in each country's census of agriculture, for every census FAO has compiled since the 1930 round.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2316,7 +2316,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:9eaeaaa7c2c611c16a63d173c76ea998bf8077b829bf1aa9d2f278100a884b3a",
+      "hash": "sha256:59b0a5d0ab4010a4208504f4f237011f138719c4d36f853f4405d426ac6827ad",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2347,7 +2347,7 @@
       "title": "Farmland by land size of the farm, by country and census"
     },
     {
-      "bytes": 217250,
+      "bytes": 217251,
       "description": "How many agricultural holdings (farms) each country counted in its census of agriculture, for every census FAO has compiled since the 1930 World Census of Agriculture round. Each country's census year is its own, so the values are not added into a world total.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2355,7 +2355,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:80541438453a3b610daaf2923c58f161d527515d1abd85d01818fb61d707345c",
+      "hash": "sha256:34712638f7919b269c446168af1e5ab52d4af9986e89c6f7c1ca317fb495b71b",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2385,7 +2385,7 @@
       "title": "Number of farms, by country and census"
     },
     {
-      "bytes": 772091,
+      "bytes": 772092,
       "description": "How many agricultural holdings each country counted in its census of agriculture in each of FAO's land-size classes, for every census FAO has compiled since the 1930 round.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2393,7 +2393,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:f84333da608393d373b4a81992ea67f67f0457ff3d5a49aec9e27b8c9df81461",
+      "hash": "sha256:cfae091022b26c49317ba007030526a4b7aec28ec8b49340c0fa84bfd46ce3d6",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2424,7 +2424,7 @@
       "title": "Number of farms by land size, by country and census"
     },
     {
-      "bytes": 4583,
+      "bytes": 4584,
       "description": "The share of the world's food, by economic value, lost after harvest on the farm, in storage, transport and processing, before it reaches shops, each year since 2015, in total and for four commodity groups, as estimated by FAO for SDG indicator 12.3.1a.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2432,7 +2432,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:45b996cfad7561ec8febdd1f1a05b7626ac88302b3d13ea31deda58504d06c7a",
+      "hash": "sha256:7468f127a247f73b5326e9df30ea410cd65bc19b4e1fc8d24c05554b1e46bc2f",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2541,7 +2541,7 @@
       "title": "Food wasted by households, food service and retail, world"
     },
     {
-      "bytes": 586080,
+      "bytes": 586081,
       "description": "Greenhouse gas emissions from each country's food and farming system each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO with the same method for every country.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2549,7 +2549,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:54bf055a19ace9e7973e0a9cb9d8572a47bfde736b163521003a639f7a72e605",
+      "hash": "sha256:ec11c5f668fd8535c7581ee3b4d65161d801323f435d1109026187bfcc23279b",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2579,7 +2579,7 @@
       "title": "Greenhouse gas emissions from agrifood systems, by country"
     },
     {
-      "bytes": 15264405,
+      "bytes": 15264406,
       "description": "Greenhouse gas emissions from food and farming each year since 1990, for the world and each country, in carbon dioxide equivalent, split into the 22 processes FAO estimates, within its three stages. Farm gate (11): enteric fermentation, manure management, manure left on pasture, manure applied to soils, synthetic fertilizers, rice cultivation, crop residues, burning crop residues, drained organic soils, on-farm energy use and savanna fires. Land-use change (3): net forest conversion, fires in humid tropical forests and fires in organic soils. Pre- and post-production (8): fertilizers manufacturing, pesticides manufacturing, food processing, food packaging, food transport, food retail, food household consumption and agrifood systems waste disposal. Within each stage the processes add up exactly to FAO's stage total. Where FAO gives no value for a process in a country and year, it is absent, not zero.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2587,7 +2587,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:66d09ab32d0917331fde2600d5702fbc3e8c10ae03eb317c36859b716977206b",
+      "hash": "sha256:d37db66df8fec9e3504492749d42c259e1db8150c0484a5466550162cef7918e",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2619,7 +2619,7 @@
       "title": "Greenhouse gas emissions from agrifood systems, by process"
     },
     {
-      "bytes": 2023589,
+      "bytes": 2023590,
       "description": "Greenhouse gas emissions from food and farming each year since 1990, for the world and each country, in carbon dioxide equivalent, split into FAO's three stages: within the farm gate (animals, manure, fertilisers, rice fields, crop residues, drained peat soils, savanna fires and energy used on farms), land-use change (clearing forests for farming, fires in humid tropical forests and fires in peat soils), and pre- and post-production (making fertilisers and pesticides, processing, packaging, transport, retail, household food consumption and waste disposal). The three stages add up exactly to FAO's agrifood systems total. The forest carbon sink is not part of that total and is not shown.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2627,7 +2627,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:39c1aeea22f876e1534ecb043b23bfaa1d245292dc700692a439ffd2d7772c28",
+      "hash": "sha256:caaf3694a0a440f3f2e93309d485491916c4ac6451af66935bb02d2b34bac591",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2658,7 +2658,7 @@
       "title": "Greenhouse gas emissions from agrifood systems, by stage: within the farm gate (including savanna fires and drained peat soils), land-use change, and before and after the farm"
     },
     {
-      "bytes": 3321,
+      "bytes": 3322,
       "description": "Greenhouse gas emissions from the world's food and farming systems each year since 1990, in carbon dioxide equivalent: on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food, as estimated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2666,7 +2666,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:131065de039ad7dc93967e4fc78b3d4b965461f3ab32b3c1362f6e793abc98ba",
+      "hash": "sha256:f51b0a332961ada11e59e3d630f4a665740c6a5cd36d5fdaedc57f66d996d589",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2696,7 +2696,7 @@
       "title": "Greenhouse gas emissions from agrifood systems, world"
     },
     {
-      "bytes": 3974,
+      "bytes": 3975,
       "description": "The part of FAO's all-sector greenhouse gas total that comes from food and farming systems each year since 1990, as published by FAO: FAO's agrifood-systems emissions (on farms, from clearing land for agriculture, and from making, moving, selling, cooking and throwing away food) as a percentage of FAO's own total of all sectors, which includes net land use, land-use change and forestry and excludes international aviation and shipping. The agrifood figure counts clearing land for farming without subtracting what forests take up, while the total's land use is net of that uptake, so this is not a share of gross global emissions. Food's emissions run across the agriculture, land-use, energy, industry and waste sectors; they are not a sector of their own.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2704,7 +2704,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:9e656cd88a6f9cbe6a5fac2fec808ad7d0e2bb15a2b46a7574d1f05e1276428f",
+      "hash": "sha256:d58ab58aacaa22c3da2cf37071e04eefdb52bad92e7bf94732e87842cb9ec38d",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
@@ -2734,7 +2734,7 @@
       "title": "Agrifood systems' share of FAO's all-sector greenhouse gas total (net land use, no international transport)"
     },
     {
-      "bytes": 8464486,
+      "bytes": 8464487,
       "description": "Methane and nitrous oxide emitted on farms each year since 1961 in producing each of 14 farm products, for the world and each country, in carbon dioxide equivalent, as allocated by FAO. Counts only emissions on the farm from: methane from animals' digestion (enteric fermentation) and from manure management; nitrous oxide from manure management, from manure applied to soils and from manure left on pasture; and, for rice and other cereals, nitrous oxide from crop residues and from synthetic fertiliser, methane and nitrous oxide from burning crop residues, plus methane from flooded rice paddies. Not counted: energy used on farms, drained organic (peat) soils, savanna fires, clearing land (land-use change), and everything before and after the farm (making fertiliser and feed, processing, packaging, transport, retail, cooking and waste). Only 14 products: meat of cattle, buffalo, sheep, goats, pigs and chickens; raw milk of cattle, buffalo, sheep, goats and camels; hen eggs; rice; and other cereals together. Soy, palm oil, fruit, vegetables, sugar, pulses, fish and other farm animals are not covered, so the products do not add up to food's emissions. These are farm-gate values, not life-cycle footprints: FAO says they should not be compared with life-cycle assessment figures. FAO's split of sheep, goat, buffalo and camel emissions between meat and milk makes 75 meat values negative in the February 2026 release, all goat, buffalo or sheep meat and most of them in Mali and Bhutan, down to about -6.3 million tonnes for goat meat in Mali in 2011. They are published as printed.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2742,7 +2742,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:5b27ad8f00e4ee7890dcf840e9d1588b85d29c14dfd07394e6a12775d3cde672",
+      "hash": "sha256:f837c5a491506a556378a1fb9b9a05cf9231a7423c1de3734a9c8875bb54dea6",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2773,7 +2773,7 @@
       "title": "On-farm methane and nitrous oxide from animals, manure, fertiliser and rice fields, by farm product (14 products)"
     },
     {
-      "bytes": 7788634,
+      "bytes": 7788635,
       "description": "Methane and nitrous oxide emitted on farms per kilogram of each of 14 farm products, each year since 1961, for the world and each country, in kilograms of carbon dioxide equivalent, as published by FAO (the product's farm emissions divided by its production). The kilogram is FAO's production weight: carcass weight for meat (FAO's items are meat 'with the bone'), raw whole milk, eggs in shell and harvested cereals. It is not a kilogram of boneless meat or of food as bought, so these values are not comparable with retail or life-cycle figures per kilogram of food. Counts only emissions on the farm from: methane from animals' digestion (enteric fermentation) and from manure management; nitrous oxide from manure management, from manure applied to soils and from manure left on pasture; and, for rice and other cereals, nitrous oxide from crop residues and from synthetic fertiliser, methane and nitrous oxide from burning crop residues, plus methane from flooded rice paddies. Not counted: energy used on farms, drained organic (peat) soils, savanna fires, clearing land (land-use change), and everything before and after the farm (making fertiliser and feed, processing, packaging, transport, retail, cooking and waste). Only 14 products: meat of cattle, buffalo, sheep, goats, pigs and chickens; raw milk of cattle, buffalo, sheep, goats and camels; hen eggs; rice; and other cereals together. Soy, palm oil, fruit, vegetables, sugar, pulses, fish and other farm animals are not covered, so the products do not add up to food's emissions. These are farm-gate values, not life-cycle footprints: FAO says they should not be compared with life-cycle assessment figures. Where a country produces little of a product the value can be very large, and where FAO gives no production figure there is no value. FAO's split of sheep, goat, buffalo and camel emissions between meat and milk makes 72 meat values negative in the February 2026 release, most of them in Mali and Bhutan, down to about -854 kilograms per kilogram for goat meat in Mali in 2010. They are published as printed.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2781,7 +2781,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:5436097a992ffa0cec3d0611d46f8c7f773cf86af8bc2025642db43a949b64fe",
+      "hash": "sha256:6a8d1eac5983958d3751cf01b46e0cae2865d34ebc6c04c2478513c2c7047175",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2812,7 +2812,7 @@
       "title": "On-farm methane and nitrous oxide per kilogram of farm product, from animals, manure, fertiliser and rice fields (14 products)"
     },
     {
-      "bytes": 9719299,
+      "bytes": 9719300,
       "description": "Methane released each year since 1961 by farm animals, for the world and each country, from their digestion (enteric fermentation) and from manure management, for each of the 16 kinds of animal FAO estimates separately: dairy and non-dairy cattle, buffalo, sheep, goats, market and breeding pigs, broiler and laying chickens, ducks, turkeys, horses, asses, mules and hinnies, camels and llamas. They add up exactly to FAO's total for all animals. Manure here is only the methane from managing manure (storing and handling it); nitrous oxide from manure, and manure left on pasture or spread on fields (which emit nitrous oxide, not methane), are not included. In tonnes of methane, not carbon dioxide equivalent, so these values cannot be added to or compared with values in carbon dioxide equivalent.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2820,7 +2820,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:d05f37e0378b9265db712b91321aa81c9d4277db6dead5ce4f5b6c818653a83a",
+      "hash": "sha256:7fc69dd042195be58e8250b7bc99079e8d01903788a7a5c512fecbe63e54eb10",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -2851,7 +2851,7 @@
       "title": "Methane from farm animals' digestion and manure, by animal"
     },
     {
-      "bytes": 4892,
+      "bytes": 4893,
       "description": "Methane released each year since 1961 by the world's farm animals, from digestion (enteric fermentation) and from manure management, as estimated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -2859,7 +2859,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:c435f43a23571c1a22050ae1c80a0d1b97446c3f886d9c4d3d93907c27fff266",
+      "hash": "sha256:01a0ff9d8803ce787927e5824ea4dfb79cfc2a53d412f92159bef4cab2c7ad5c",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -3168,7 +3168,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:38f56e3043695320b8f18996c0b008c9ef23063fee1a90c0328d3bed258495dd",
+      "hash": "sha256:06a511ad3ccfc9d03bf0fbe585ca58b45b81bcdad4930d263cf1a834d99c14d4",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use; report CC BY 4.0)"}
       ],
@@ -3206,7 +3206,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:e3afb253688102806513b08972ceae28e666127fc8674dbd1e2e045fc9be409b",
+      "hash": "sha256:146de4b7ccb9165f9176ad9a3ed58253f06bb0941ae9868e5f3d9a5f42107e88",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use; report CC BY 4.0)"}
       ],
@@ -3509,7 +3509,7 @@
       "title": "Greenhouse gas emissions from Gates's five activities together"
     },
     {
-      "bytes": 1632196,
+      "bytes": 1632197,
       "description": "Each year's emissions from all sectors, including net land use and excluding international aviation and shipping, split by gas: carbon dioxide, methane, nitrous oxide and fluorinated gases, each in carbon dioxide equivalent (carbon dioxide counts as itself), as published by FAO for the world and each country since 1990. The four gases add up to the all-gas total. Carbon dioxide includes the net carbon dioxide of land use, land-use change and forestry, so it can be below zero for a country whose forests take up more carbon than it emits. Where FAO publishes no fluorinated-gas row (67 countries and territories in the October 2025 release) the gas is left missing, never set to zero.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -3517,7 +3517,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:d1a0ae510777614cec5d838ec386b666a2984e2399b3de8fc2654cdb92dff5b3",
+      "hash": "sha256:c03828f825cbbf9824ab6b358d5371607a74d9100adffe5e37e5c4a3bb364eb4",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
@@ -3548,7 +3548,7 @@
       "title": "Greenhouse gas emissions by gas, all sectors including land use"
     },
     {
-      "bytes": 2704788,
+      "bytes": 2704789,
       "description": "Each year's emissions of all greenhouse gases, in carbon dioxide equivalent, split into six sectors that do not overlap and add up to the total: energy, industrial processes and product use, agriculture, land use (net, which can be below zero where forests take up more carbon than land clearing releases), waste and other, as published by FAO for the world and each country since 1990. Food is not a seventh sector: its emissions run across agriculture, land use, energy, industry and waste. Where FAO publishes no row for a sector (28 territories in the October 2025 release, whose energy, industry and waste are counted in their parent country; Tokelau, Nauru and Tuvalu in part) the sector is left missing, never set to zero, so for those 28 territories the total is agriculture plus land use only. For 10 of them (American Samoa, the Channel Islands, Gibraltar, Greenland, Guam, the Northern Mariana Islands, Norfolk Island, Pitcairn, Svalbard and Jan Mayen, and Saint Pierre and Miquelon) FAO prints agriculture, land use and the total as exactly 0 in some or all years, where it has no estimate. These territories' values are not comparable with countries'. International aviation and shipping are not included.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -3556,7 +3556,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:ec2431f3c2d0986dcc2401e1d4ab046d5ef84508e1725290fb15b4411e402622",
+      "hash": "sha256:0b5b151d6fad05e4bd58e6c39a3ec55b82a58f7214c5a23e92abcef2af944191",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
@@ -3587,7 +3587,7 @@
       "title": "Greenhouse gas emissions by sector, all gases including land use"
     },
     {
-      "bytes": 2165738,
+      "bytes": 2165739,
       "description": "Each sector's methane emissions as a percentage of all methane emitted by the world or a country in a year, since 1990, as published by FAO, for the six sectors that make up FAO's total: energy (fossil fuel production and use), industrial processes and product use, agriculture (livestock, rice, manure), land use (fires), waste and other. Where FAO publishes all six, they add up to 100. Food systems' methane runs across several of these sectors.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -3595,7 +3595,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:a4219c81043efd6e866cfbb7a6c2aab10f959a91183f1a1a387865d3b5f0c711",
+      "hash": "sha256:fe7c0dd1d521da59c46a5f5377f9bd94d26d391306242882c0a26bb4c4e113f0",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
@@ -3626,7 +3626,7 @@
       "title": "Where methane comes from: each sector's share of all methane emissions"
     },
     {
-      "bytes": 334091,
+      "bytes": 334092,
       "description": "Each country's emissions of all greenhouse gases from all sectors on its territory, including net land use and excluding international aviation and shipping, divided by its population, in tonnes of carbon dioxide equivalent per person per year, as published by FAO since 1990. This is a national average where emissions happen, not one person's footprint: it does not follow what people buy (emissions in imported goods count where they are made) and says nothing about how emissions differ between people in a country. FAO has no row for some sectors of four territories (October 2025 release), so their values leave those sectors out: Mayotte has no energy, industry, waste or other emissions, Tokelau no energy or other, and Nauru and Tuvalu no other. Values can be below zero where forests take up more carbon than the country emits: 94 of the values in the October 2025 release are.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -3634,7 +3634,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:4eb8f3eee7d3f666d041260f71e7894268fd80341c53340a43c111d46296ae4c",
+      "hash": "sha256:5fc7bdf31a05fe749330ebfd3db869c677e69f4570c2b08e54fac14771b645f5",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
@@ -3664,7 +3664,7 @@
       "title": "Greenhouse gas emissions per person: each country's emissions divided by its population"
     },
     {
-      "bytes": 405903,
+      "bytes": 405904,
       "description": "Each year's emissions of all greenhouse gases (carbon dioxide, methane, nitrous oxide and fluorinated gases) from all sectors, in carbon dioxide equivalent, including net land use, land-use change and forestry and excluding international aviation and shipping, as published by FAO for the world and each country since 1990. For 28 territories in the October 2025 release, whose energy, industry and waste emissions are counted in their parent country, the total is agriculture plus land use only, and for 10 of them (American Samoa, the Channel Islands, Gibraltar, Greenland, Guam, the Northern Mariana Islands, Norfolk Island, Pitcairn, Svalbard and Jan Mayen, and Saint Pierre and Miquelon) FAO prints a total of exactly 0 in some or all years, where it has no estimate. These territories' values are not comparable with countries'.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -3672,7 +3672,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:5b5bc49dca20d30f32aa0e86f233060d6659be94a6f0e80482a2a4beb8d99a38",
+      "hash": "sha256:28cb11452eb379131e2265f73f7c0701545edd00f4f73f9c9e1d110069bff9a5",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0)"}
       ],
@@ -4883,7 +4883,7 @@
       "title": "Land used per unit of electricity, by way of making it (Lovering et al. 2022)"
     },
     {
-      "bytes": 5209574,
+      "bytes": 5209575,
       "description": "How much land each country, the European Union and the world use as cropland and as permanent meadows and pastures (together, agricultural land), and how much is forest, each year since 1961 (forest since 1990), in thousands of hectares, as reported to and estimated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -4891,7 +4891,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:d4df73f96d3bba27eb67036aaa594f819bdee9766899e92f08a8536b5d7b867f",
+      "hash": "sha256:c74c76af33e1cf2049fe4acc9ccaa8b402ef7f7342ae7c6d6b4a7711f3f50a8a",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -4922,7 +4922,7 @@
       "title": "Agricultural land, cropland, pasture and forest area"
     },
     {
-      "bytes": 3784704,
+      "bytes": 3784705,
       "description": "The part of each country's land area, and of the world's, that is cropland, permanent meadows and pastures (together, agricultural land) or forest, each year since 1961 (forest since 1990), as calculated by FAO.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -4930,7 +4930,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:44d52a0ee563f862f6568c7e2249e82fc2f5b08e21bf3e6dac8240f8c797873d",
+      "hash": "sha256:6009625983465e79b3dbd7a933ece7170289c2f9d045ce3181b9a138e15d5359",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (FAO Statistical Database Terms of Use)"}
       ],
@@ -5082,7 +5082,7 @@
       "title": "Cost of electricity from new renewable power plants"
     },
     {
-      "bytes": 2644,
+      "bytes": 2643,
       "description": "Annual mean nitrous oxide in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 2001.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -5090,7 +5090,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:cffe98a181ddd365a74f92da6946e45dbfb52122fb680685cec37b043e1453d2",
+      "hash": "sha256:14afacacfc42933012119e03afe9b74907d78810621f8da46dfbaea314629e35",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
@@ -5128,7 +5128,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:0e75a70db1cf2118ed0239226918aa278fca8ba2a11cf69ec180253c725508fa",
+      "hash": "sha256:beebabd215e77ec3e440f1a0003eac9c663e978f64f1e38a10a43cc701428b67",
       "licenses": [
         {"name": "CC-BY-NC-4.0", "path": "https://creativecommons.org/licenses/by-nc/4.0/", "title": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)"}
       ],
@@ -5167,7 +5167,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:553f0f8c0a86ddcdab493d44fee2adc07bcb0807abbba4dda25782529754e51a",
+      "hash": "sha256:4c76b259b34df5ca1c056bc25839a6d593fc8f40cef88bb17ae3d7641557883f",
       "licenses": [
         {"name": "CC-BY-NC-4.0", "path": "https://creativecommons.org/licenses/by-nc/4.0/", "title": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)"}
       ],
@@ -5707,7 +5707,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:1c0a7ebd460dc0dd73368cc33344a957f279f90a0b877c896d7c7e159f75a9e2",
+      "hash": "sha256:9e2ce15daac8eb1adc017bcc05367e66fc38172647bd2e34708a8bf7992b5dea",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -5745,7 +5745,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:29ce6d6f48f1c8adc108179793602708bd6bca6421a9780d713769fd8c3b2b83",
+      "hash": "sha256:8e8168f0157e6bcd183331de9eba044d7ee883d7a928aeedb8b74308cba2e91e",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (Systems Change Lab's own data; third-party data keep their licences, IEA data excluded)"}
       ],
@@ -5784,7 +5784,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:36fbe5b07a30456b7021162e8802addee6760113d554f0128d5a6d9e513b1907",
+      "hash": "sha256:b01b0d1aeb31a2046f2ed17f918604a03687c08e0bcf4dfb9303b396b15a5883",
       "licenses": [
         {"path": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice", "title": "Eurostat reuse policy (Commission Decision 2011/833/EU), attribution required"}
       ],
@@ -5852,7 +5852,7 @@
       "title": "Government R&D budgets for energy"
     },
     {
-      "bytes": 4506,
+      "bytes": 4507,
       "description": "The lowest Arctic sea ice extent of each year since 1987, on the 5-day trailing mean NSIDC uses for its minimum announcements, and the day it was reached. Earlier years are not shown: the satellite record then has a value only every other day.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -5860,7 +5860,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:bf4ad26b4b26d94b998f690dff0170358247696f1af8e7bfc4fd204f5c90fad1",
+      "hash": "sha256:e3329129bc0413469c765efbb42d59030ea2e18e6fc7dac86f92763f8de117ef",
       "licenses": [
         {"path": "https://nsidc.org/about/data-use-and-copyright", "title": "No licence stated; free use with citation as a condition of use (NSIDC)"}
       ],
@@ -5936,7 +5936,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:6a9bc64a0c19db2f0bee385fcf3fe92aaa6a86f886c8b0960b2a07dd043f6d77",
+      "hash": "sha256:918a618009bdbd4d15ccf2f32513b03819cd73a7fcb2bca2a1089b5f77eb68d5",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -6080,7 +6080,7 @@
       "title": "Sea level rise from glaciers since 1975 (WGMS)"
     },
     {
-      "bytes": 59723,
+      "bytes": 59803,
       "description": "Area of Northern Hemisphere land covered by snow, as a monthly mean since November 1966, computed from the weekly snow maps of the NOAA climate data record made at Rutgers University. Before June 1999 the maps were drawn by NOAA analysts from satellite images; since then they come from the US National Ice Center's daily snow and ice analysis. Nine months in 1968-1971 have no maps.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -6088,7 +6088,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:0e91eb4322de7b9570d54240820d05d6de095f00c9adfee354a27f68e2daf350",
+      "hash": "sha256:10198fe09142fa49bdc25838a6005fbaa9868d578f0c785c70da2565f240f967",
       "licenses": [
         {"path": "https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Snow_Cover_Extent_Northern_Hemisphere/UseAgreement_01B-12.pdf", "title": "No restrictions on access or use (NOAA CDR Program Open Data Policy)"}
       ],
@@ -6237,7 +6237,7 @@
       "title": "Share of assessed species that are threatened with extinction"
     },
     {
-      "bytes": 1386977,
+      "bytes": 1387451,
       "description": "Daily mean sea-surface temperature over the ocean between 60° S and 60° N since 1 January 1979 from the ERA5 reanalysis, as the difference from the 1991–2020 average for the same day of the year. The newest days can be preliminary.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -6245,7 +6245,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:9527600a391686c06b17ab1aa039d39b33289d87de2a038496304d8bbc1fb620",
+      "hash": "sha256:bf26dc5346200779d1d09363b9d46752fb0156ce0065e1b0a03c0cdf90b2f7c2",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)"}
       ],
@@ -6313,7 +6313,7 @@
       "title": "Global sea-surface temperature against 1961–1990 (HadSST4)"
     },
     {
-      "bytes": 2303111,
+      "bytes": 2303543,
       "description": "Daily global mean air temperature at 2 metres since 1 January 1940 from the ERA5 reanalysis, as the difference from the 1991–2020 average for the same day of the year. The newest days are preliminary.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -6321,7 +6321,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:38922736b98ca8490a39581e01b4fe97182c72b7763114c14d815a81dd443004",
+      "hash": "sha256:9bd10e4626fc0f1ba1ad8b231f0ee90e6756a71cf86f5d0d1301024e41478e55",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0 (ERA5, as licensed on the C3S Climate Data Store)"}
       ],
@@ -6389,7 +6389,7 @@
       "title": "Global surface air temperature above 1850–1900, monthly (ERA5, C3S)"
     },
     {
-      "bytes": 9761,
+      "bytes": 9762,
       "description": "Global mean surface temperature for each complete year since 1880, as the difference from the 1880–1899 average of the same dataset. NASA GISS has no observations before 1880, so this series is not relative to 1850–1900.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -6397,7 +6397,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:f2eec98bed6a39d0a269facadba2148709cc930b2439d1ed8f42ba37a4f8827a",
+      "hash": "sha256:941a188d9e355e5eaf8579d5feb2d60c8a518d717c538052c6073bf45ab2036e",
       "licenses": [
         {"path": "https://www.copyright.gov/title17/92chap1.html#105", "title": "Public domain (work of the US federal government)"}
       ],
