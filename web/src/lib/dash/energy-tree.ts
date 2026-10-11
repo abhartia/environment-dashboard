@@ -10,7 +10,8 @@ import { formatPeriod } from "@/lib/format";
  * The energy chapter: how fast the switch away from fossil fuels is going. Clean electricity → what makes it → by
  * country (its mix, its grid's carbon) → month by month (each source, then fossil power against a year earlier); then
  * all energy, not just electricity (by fuel; in total, then by country), renewable power built (its share of all
- * plants; what electricity from new plants costs), electric cars, and who has electricity at all (then where the
+ * plants; what electricity from new plants costs), electric cars (where their share is highest, then each of those
+ * countries over time), and who has electricity at all (then where the
  * fewest do).
  */
 
@@ -466,7 +467,70 @@ function ev(): Built {
     kicker: "Electric cars as a share of new cars",
     headline: headline(EV, "WLD", { mode: "cars" }),
     sentence: `of new cars sold worldwide in ${headline(EV, "WLD", { mode: "cars" }).period} were electric (battery or plug-in hybrid), by the IEA.`,
-    chart: area([{ key: "cars", label: "Electric share of new car sales", colour: CLEAN_COLOUR, points: points(EV, "WLD", { mode: "cars" }) }], short, decimals, false),
+    chart: area(
+      [{ key: "cars", label: "Electric share of new car sales", colour: CLEAN_COLOUR, points: points(EV, "WLD", { mode: "cars" }), drill: "ev-countries" }],
+      short,
+      decimals,
+      false,
+    ),
+    drills: [{ label: "Where the share is highest", to: "ev-countries" }],
+    credit: credit(EV),
+    indicators: [EV],
+  };
+}
+
+/** Countries ranked by the electric share of their new cars in the world's latest year, highest first (ties by code). */
+function evRanking(): { year: string; rows: { entity: string; value: number }[] } {
+  const year = headline(EV, "WLD", { mode: "cars" }).period;
+  const rows = ranking(EV, year, { mode: "cars" });
+  if (rows.length === 0) throw new Error(`${EV}: no country has a ${year} value for cars`);
+  return { year, rows };
+}
+
+function evCountries(): Built {
+  const { short, decimals } = u(EV);
+  const { year, rows } = evRanking();
+  const top = rows.slice(0, TOP);
+  const name = entityName(top[0].entity);
+  return {
+    id: "ev-countries",
+    parent: "ev",
+    crumb: "Where it is highest",
+    kicker: "Where electric cars are the largest share of new cars",
+    headline: headline(EV, top[0].entity, { mode: "cars" }, year),
+    sentence: `of new cars sold in ${name} in ${year} were electric, the highest share of any country the IEA reports. Select a country.`,
+    chart: bars(
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: CLEAN_COLOUR, drill: `ev-${r.entity}` })),
+      short,
+      decimals,
+      year,
+      `The ${top.length} highest of ${rows.length} countries with a value for ${year}.`,
+    ),
+    drills: [],
+    credit: credit(EV),
+    indicators: [EV],
+  };
+}
+
+function evCountry(iso: string): Built {
+  const { short, decimals } = u(EV);
+  const name = entityName(iso);
+  const h = headline(EV, iso, { mode: "cars" });
+  return {
+    id: `ev-${iso}`,
+    parent: "ev-countries",
+    crumb: name,
+    kicker: `${name}: electric cars as a share of new cars`,
+    headline: h,
+    sentence: `of new cars sold in ${name} in ${h.period} were electric (battery or plug-in hybrid), by the IEA. The grey line is the world.`,
+    chart: line(
+      [
+        { key: iso, label: name, colour: CLEAN_COLOUR, points: points(EV, iso, { mode: "cars" }) },
+        { key: "WLD", label: "World", colour: GREY, points: points(EV, "WLD", { mode: "cars" }) },
+      ],
+      short,
+      decimals,
+    ),
     drills: [],
     credit: credit(EV),
     indicators: [EV],
@@ -532,10 +596,12 @@ function ids(): string[] {
     "capacity-share",
     "capacity-cost",
     "ev",
+    "ev-countries",
     "access",
     "access-countries",
   ];
   for (const iso of countryCodes()) out.push(`c-${iso}`, `c-${iso}-mix`, `c-${iso}-intensity`);
+  for (const r of evRanking().rows.slice(0, TOP)) out.push(`ev-${r.entity}`);
   return out;
 }
 
@@ -554,8 +620,11 @@ function build(id: string): Built {
   if (id === "capacity-share") return capacityShare();
   if (id === "capacity-cost") return capacityCost();
   if (id === "ev") return ev();
+  if (id === "ev-countries") return evCountries();
   if (id === "access") return access();
   if (id === "access-countries") return accessCountries();
+  const e = id.match(/^ev-([A-Z0-9_]+)$/);
+  if (e) return evCountry(e[1]);
   const c = id.match(/^c-([A-Z0-9_]+)(-mix|-intensity)?$/);
   if (c) return c[2] === "-mix" ? countryMix(c[1]) : c[2] === "-intensity" ? countryIntensity(c[1]) : country(c[1]);
   throw new Error(`unknown energy node ${id}`);
