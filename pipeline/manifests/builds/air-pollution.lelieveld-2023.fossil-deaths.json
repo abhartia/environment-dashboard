@@ -1,0 +1,28 @@
+{
+  "export": "data/v1/indicators/air-pollution.lelieveld-2023.fossil-deaths.json",
+  "export_sha256": "8239d03aadc371e088b039efb9fd98eb986221f0d62c5fb0d9a86f270989f2fd",
+  "indicator_id": "air-pollution.lelieveld-2023.fossil-deaths",
+  "key": "be87a3c2979748cc952bf97f01bf6cf7da67870863bab8ddc09b5ecaab483c7f",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "lelieveld-2023/mortality-region-2019-no-fossil": {
+        "manifest_sha256": "3fc294eb5dfb13b3ce19889ada9ea586735e01b7738e2cdfcdc2b67ee1b3568d",
+        "sha256": "5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010"
+      },
+      "lelieveld-2023/mortality-region-2019-ref": {
+        "manifest_sha256": "b374694530393398e21b80f954afda0dac38e689e7a4c1b07e0711bade093814",
+        "sha256": "37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "lelieveld-2023": "1b0cc01def34c400b9a90fc51220fcfe7e8f7039570f70229cffa298540db5d4"
+    },
+    "transform_sha256": "81c07c7da3da14543f6d3ca3876442d6508822080ca60165e4bb8d2762d9932a"
+  },
+  "publisher_checks": [
+    {"detail": "ours 5126627.0 vs stated 5.13E6 (tolerance ±5000, difference 3373)", "entity": "WLD", "period": "2019", "quote": "An estimated 5.13 million (3.63 to 6.32) excess deaths per year globally are attributable to ambient air pollution from fossil fuel use and therefore could potentially be avoided by phasing out fossil fuels.", "source_id": "lelieveld-2023", "stated": "5.13E6", "status": "pass", "url": "https://doi.org/10.1136/bmj-2023-077784", "vintage": "Edmond dataset version 2 (2023-11-23)"}
+  ]
+}

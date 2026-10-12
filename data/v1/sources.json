@@ -4498,7 +4498,7 @@
         "us_federal": false
       },
       "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution",
-      "twins": [],
+      "twins": ["lelieveld-2023"],
       "update_cadence": "Annual global report in late October, with the indicator workbooks posted the same week"
     },
     {
@@ -4570,6 +4570,66 @@
       "title": "Law Dome ice core 2000-year CO2, CH4, N2O and delta-13C-CO2",
       "twins": [],
       "update_cadence": "Static (occasional recalibration versions)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "mortality_region_2019_ref.xlsx (Dataverse file 236841), the reference run: for the world, the 7 GBD super-regions and their regions in 2019, population (millions) and excess deaths from outdoor fine particles and ozone by cause (lower respiratory infections in children and adults, ischaemic heart disease, stroke, diabetes, lung cancer, COPD, ozone COPD, others) and in total, each with its 95% confidence limits. 17,085 bytes.", "discover": null, "format": "xlsx", "id": "mortality-region-2019-ref", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://edmond.mpg.de/api/access/datafile/236841", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "mortality_region_2019_noFF.xlsx (Dataverse file 236835): the same table for the run with all fossil-fuel emissions removed. 17,118 bytes.", "discover": null, "format": "xlsx", "id": "mortality-region-2019-no-fossil", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://edmond.mpg.de/api/access/datafile/236835", "zip_member": null}
+      ],
+      "citation": {
+        "DOI": "10.17617/3.T7XAXH",
+        "URL": "https://doi.org/10.17617/3.T7XAXH",
+        "author": [
+          {"family": "Pozzer", "given": "Andrea", "literal": null}
+        ],
+        "container-title": null,
+        "issued": "2023",
+        "page": null,
+        "publisher": "Edmond (Max Planck Society)",
+        "text": "Pozzer, Andrea, 2023, \"Fossil fuel-attributable air pollution deaths\", https://doi.org/10.17617/3.T7XAXH, Edmond, V2",
+        "title": "Fossil fuel-attributable air pollution deaths",
+        "type": "dataset",
+        "version": "V2",
+        "volume": null
+      },
+      "description": "The data behind Lelieveld et al. 2023 (BMJ): modelled excess deaths from all causes due to outdoor fine particles (PM2.5) and ozone in 2019, for the world, 27 Global Burden of Disease regions and 200 countries, in a reference run and in runs with all fossil-fuel emissions removed, half or a quarter of them removed, and all human-made emissions removed. Exposure comes from the EMAC atmospheric chemistry model with 2019 emissions and NASA satellite-based fine particles; deaths come from the FUSION relative-risk model applied to Global Burden of Disease 2019 baseline mortality. Deaths are modelled, not counted.",
+      "evidence": {
+        "checked_on": "2026-10-12",
+        "licence_quote": "\"license\":{\"name\":\"CC0 1.0\",\"uri\":\"http://creativecommons.org/publicdomain/zero/1.0\"",
+        "terms_check": "api",
+        "terms_url": "https://edmond.mpg.de/api/datasets/:persistentId/?persistentId=doi:10.17617/3.T7XAXH"
+      },
+      "id": "lelieveld-2023",
+      "landing_url": "https://doi.org/10.17617/3.T7XAXH",
+      "licence": {
+        "name": "CC0 1.0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Pozzer, A. (2023). Fossil fuel-attributable air pollution deaths, version 2. Edmond, Max Planck Society. doi:10.17617/3.T7XAXH. CC0 1.0. Data for Lelieveld, J., Haines, A., Burnett, R., Tonne, C., Klingmüller, K., Münzel, T. & Pozzer, A. (2023). Air pollution deaths attributable to fossil fuels: observational and modelling study. BMJ 383, e077784. doi:10.1136/bmj-2023-077784.",
+        "attribution_modified": "Calculated by Environment Dashboard from Pozzer, A. (2023). Fossil fuel-attributable air pollution deaths, version 2. Edmond, Max Planck Society. doi:10.17617/3.T7XAXH. CC0 1.0. Data for Lelieveld, J., Haines, A., Burnett, R., Tonne, C., Klingmüller, K., Münzel, T. & Pozzer, A. (2023). Air pollution deaths attributable to fossil fuels: observational and modelling study. BMJ 383, e077784. doi:10.1136/bmj-2023-077784.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Max Planck Institute for Chemistry (J. Lelieveld, A. Haines, R. Burnett, C. Tonne, K. Klingmüller, T. Münzel and A. Pozzer); deposited by A. Pozzer in Edmond, the Max Planck Society's research data repository",
+      "research_ref": "docs/research/sources-consequences-2026-10-11.json#Lelieveld et al. 2023 (BMJ): fossil-fuel-attributable air pollution deaths, country and region files (EDMOND deposit)",
+      "status": {
+        "note": "Deposited on 17 November 2023 with the article (BMJ, published 29 November 2023); version 2 released on 23 November 2023. A one-off study for the year 2019; no update is planned. Not a US federal product.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Deaths from outdoor air pollution with and without fossil fuels, 2019 (Lelieveld et al. 2023, data deposit)",
+      "twins": ["lancet-countdown-2025"],
+      "update_cadence": "One-off (deposited 2023)"
     },
     {
       "acquisition": "manual",

@@ -13,10 +13,11 @@ import { formatReadable } from "@/lib/format";
  * drought and what has been observed since the 1950s below it. Then what the changes do to people: heatwave days
  * caused by the warming (and for babies and people over 65), deaths from heat of any cause and work lost, children's
  * lifetimes, people forced from home by weather disasters, people living below high tide, early deaths from the smoke
- * of burning coal, oil and gas, and fires and their smoke. Each says what its producer measured, and links back to the
- * change it follows. Below the heatwave days, what they mean where you live: each country's heatwave days caused by
- * the warming, its work lost to heat and its people below high tide (heat's country views open them). The Lancet
- * Countdown's ids live only here, so a new report year changes one file.
+ * of burning coal, oil and gas (with a second model's estimate beside it, never blended), and fires and their smoke.
+ * Each says what its producer measured, and links back to the change it follows. Below the heatwave days, what they
+ * mean where you live: each country's heatwave days caused by the warming, its work lost to heat and its people below
+ * high tide (heat's country views open them). The Lancet Countdown's ids live only here, so a new report year changes
+ * one file.
  */
 
 const EXTREMES = "extremes.ipcc-ar6.frequency-by-warming-level";
@@ -39,6 +40,8 @@ const BELOW_TIDE_HERE = "coastal.kulp-strauss-2019.below-high-tide-by-country";
 const BELOW_FLOOD_HERE = "coastal.kulp-strauss-2019.annual-flood-by-country";
 const FOSSIL_DEATHS = "air-pollution.lancet-2025.fossil-deaths";
 const BY_SECTOR = "air-pollution.lancet-2025.deaths-by-sector-fuel";
+/** The twin of FOSSIL_DEATHS: Lelieveld and others' model (BMJ, 2023), fine particles and ozone, one year. */
+const FOSSIL_DEATHS_LELIEVELD = "air-pollution.lelieveld-2023.fossil-deaths";
 const FIRE_SMOKE = "smoke.lancet-2025.wildfire-deaths";
 const BURNED = "burned-area.gwis.annual-by-land-cover";
 const EFFIS = "burned-area.effis.europe-annual";
@@ -485,9 +488,43 @@ function smoke(): Built {
       decimals,
       true,
     ),
-    drills: [{ label: "Coal power stations", to: "smoke-power" }, crossTo("Which fuels we burn", "emissions:fuels")],
+    drills: [{ label: "Coal power stations", to: "smoke-power" }, { label: "Another model", to: "smoke-models" }, crossTo("Which fuels we burn", "emissions:fuels")],
     credit: credit(FOSSIL_DEATHS),
     indicators: [FOSSIL_DEATHS],
+  };
+}
+
+/**
+ * Two respected estimates of the same harm that disagree, shown side by side and never blended (docs/style.md): the
+ * Lancet Countdown's and Lelieveld and others', each for its own year, each from its own model.
+ */
+function smokeModels(): Built {
+  const { short, decimals } = u(FOSSIL_DEATHS_LELIEVELD);
+  const lelieveld = headline(FOSSIL_DEATHS_LELIEVELD, "WLD");
+  const lancet = headline(FOSSIL_DEATHS, "WLD", { fuel: "total" });
+  if (indicator(FOSSIL_DEATHS).unit.code !== indicator(FOSSIL_DEATHS_LELIEVELD).unit.code) throw new Error("people/smoke-models: the two estimates are not in the same unit");
+  // The kicker says the second model finds more deaths: a refresh that made that false must fail the build.
+  if (lelieveld.value <= lancet.value) throw new Error("people/smoke-models: Lelieveld and others' estimate is no longer the higher one");
+  return {
+    id: "smoke-models",
+    parent: "smoke",
+    crumb: "Another model",
+    kicker: "Another model finds more deaths",
+    headline: lelieveld,
+    sentence: `early deaths in ${lelieveld.period} from the fine particles and ozone of burning coal, oil and gas, by Lelieveld and others: the deaths in a modelled world with fossil fuels less those in one without. The Lancet Countdown (the grey bar, ${lancet.period}) counts fine particles alone and shares them out by fuel and sector, with another model.`,
+    chart: bars(
+      [
+        { key: "lelieveld", label: `Lelieveld and others, ${lelieveld.period}`, value: lelieveld.value, colour: INK },
+        { key: "lancet", label: `Lancet Countdown, ${lancet.period}`, value: lancet.value, colour: GREY },
+      ],
+      short,
+      decimals,
+      lelieveld.period,
+      "Two models' estimates, each for its own year, never added or averaged. Lelieveld and others' is calculated from the authors' runs with and without fossil fuels; the paper's 95% confidence interval is quoted on its data page.",
+    ),
+    drills: [{ label: "Coal power stations", to: "smoke-power" }],
+    credit: credit(FOSSIL_DEATHS_LELIEVELD, FOSSIL_DEATHS),
+    indicators: [FOSSIL_DEATHS_LELIEVELD, FOSSIL_DEATHS],
   };
 }
 
@@ -761,6 +798,7 @@ const NODES: Record<string, () => Built> = {
   coasts,
   smoke,
   "smoke-power": smokePower,
+  "smoke-models": smokeModels,
   fires,
   "fire-smoke": fireSmoke,
   "fires-continents": firesContinents,

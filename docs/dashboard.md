@@ -72,13 +72,14 @@ chart shape).
   children's lifetimes (Grant and others, 2025, projected), times people were forced from home by weather disasters
   (IDMC, labelled as movements and not a trend, since monitoring grew), people living below high tide (Kulp and
   Strauss, exposure, not flooding), early deaths from the smoke of burning coal, oil and gas (a harm of the burning
-  itself, not of the warming), and fires and their smoke. Each links back to the change it follows. Below the world's
-  heatwave days, **where you live** ranks countries by heatwave days caused by the warming and opens each country's
-  own view (every country the Lancet Countdown gives): its heatwave days with and without the warming, its work hours
-  lost per worker (heat of any cause) and its people below high tide (Kulp and Strauss's country rows, in people). A
-  value a source does not give is said in words ("No data for Andorra in the Lancet Countdown's work hours"), never
-  filled. Each heat country view (`heat:c-<ISO3>`) opens on that country's heatwave days caused by the warming as its
-  "so what" card.
+  itself, not of the warming; one level down, Lelieveld and others' higher estimate from another model sits beside the
+  Lancet Countdown's, never blended, with the sentence saying how the two models differ), and fires and their smoke.
+  Each links back to the change it follows. Below the world's heatwave days, **where you live** ranks countries by
+  heatwave days caused by the warming and opens each country's own view (every country the Lancet Countdown gives):
+  its heatwave days with and without the warming, its work hours lost per worker (heat of any cause) and its people
+  below high tide (Kulp and Strauss's country rows, in people). A value a source does not give is said in words ("No
+  data for Andorra in the Lancet Countdown's work hours"), never filled. Each heat country view (`heat:c-<ISO3>`)
+  opens on that country's heatwave days caused by the warming as its "so what" card.
 
 ## How a node is made
 
