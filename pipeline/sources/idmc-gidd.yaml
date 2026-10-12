@@ -1,19 +1,40 @@
 # IDMC Global Internal Displacement Database (GIDD): disaster displacement by country and year, and by disaster event.
 # Evidence: docs/research/sources-impacts.json ("IDMC Global Internal Displacement Database (GIDD) ..."; verdict
 # "corrected": the producer's own terms are non-commercial, not the CC BY-IGO shown in HDX metadata; do not reuse the
-# HDX client_id; request a key from ch.datainfo@idmc.ch).
-# Licence, checked 2026-10-04. IDMC states three different terms; the strictest that covers the data is used:
-#   - The API's own OpenAPI document (terms_url below, HTTP 200) gives info.license "Creative Commons
-#     Attribution-Non-Commercial-Share Alike 3.0 IGO" and the text quoted below, with "Derived Works: Must be shared
-#     under the same license terms." The same text is on internal-displacement.org/database/api-documentation/ (a
-#     client-rendered page; its text is in /page-data/database/api-documentation/page-data.json).
-#   - The verifier read the GIDD export's README sheet on 2026-10-04: "USE LICENSE: This content is licensed under CC
-#     BY-NC." (https://creativecommons.org/licenses/by-nc/4.0/). Not re-read here: the export needs a client_id.
+# HDX client_id; request a key from ch.datainfo@idmc.ch). For the hazard split:
+# docs/research/sources-consequences-2026-10-11.json (verification[1].verdicts[0], which found the GIDD page's Excel
+# link for the event export) and docs/research/sources-extremes-2026-10-12.json (verification[2].verdicts[1]:
+# movements not people, pre-emptive evacuations included, monitoring grew, weather-related and not attributed, never
+# mixed with GRID's printed totals).
+# Licence, checked 2026-10-04, re-read 2026-10-12. IDMC states three different terms; the strictest that covers the
+# data is used:
+#   - The API's own OpenAPI document (terms_url below) gives info.license "Creative Commons
+#     Attribution-Non-Commercial-Share Alike 3.0 IGO" (creativecommons.org/licenses/by-nc-sa/3.0/igo/legalcode.en) and,
+#     under "Copyrights and citation of the data", the text quoted below, with "Attribution: Proper attribution to IDMC
+#     is required when using the data." and "Derived Works: Must be shared under the same license terms."
+#     Re-read 2026-10-12: HTTP 200, application/vnd.oai.openapi+json, 260,259 bytes, sha256 e9971794cd64…, quote
+#     unchanged. The same text is on internal-displacement.org/database/api-documentation/ (a client-rendered page;
+#     its text is in /page-data/database/api-documentation/page-data.json).
+#   - The event export's own README sheet, read in the owner's download of 2026-10-12 (artifact gidd-disaster-events,
+#     below): "USE LICENSE: This content is licensed under CC BY-NC. Detailed licensing information is available at
+#     Creative Commons License (See: https://creativecommons.org/licenses/by-nc/4.0/)." It is looser than the API's
+#     NC-SA (no share-alike), so NC-SA governs.
 #   - internal-displacement.org/terms-of-use/ (website content generally) says CC BY 3.0 IGO "unless specified
 #     otherwise in particular terms of use", and: "Adaptations/translations/derivatives should not carry any IDMC
 #     official emblem or logo, and the user may not implicitly or explicitly imply any sponsorship or endorsement by
-#     IDMC" (no_logo, no_endorsement).
+#     IDMC" (no_logo, no_endorsement). Read 2026-10-04; the page renders no text to scripts, so not re-read since.
 #   HDX lists the IDMC datasets as CC BY-IGO; that aggregator label is not used.
+# The owner's download, 2026-10-12: on the GIDD page (landing_url) with the Cause filter set to Disaster, the "Excel"
+# button under "Annual displacement data" downloads the disaster event export (IDMC's website bundle builds that link
+# as gidd/disasters/disaster-export/ with IDMC's own client_id, which we do not reuse). The file
+# IDMC_GIDD_Disasters_Internal_Displacement_Data.xlsx, 2,968,931 bytes, sha256 25c78f150cff…d0d2d3 (a browser
+# download, so no ETag or Last-Modified), has a README sheet and the sheet 1_Disaster_Displacement_data, 44,335 event
+# rows for 2008-2025. Its README says "TITLE: Global Internal Displacement Database (GIDD) - Disasters", "DATE
+# EXTRACTED: October 05, 2026" and "LAST UPDATE: August 31, 2026", and lists figures reviewed up to September 2026.
+# Its coverage text lags its own rows: "The GIDD database documents ... disaster-induced displacement from 2008 to
+# 2023" and "COVERAGE: ... dating back to 2008 and running through 2024", while the sheet has 7,657 rows for 2025.
+# The README's citation names "Global Internal Displacement Database - Disasters"; citation.text keeps the API
+# documentation's wording.
 # Access, checked 2026-10-04: every helix-tools-api export needs client_id as a query parameter. Without it the
 # endpoints return 403 {"detail":"Client is not registered."}. The key is requested by email (ch.datainfo@idmc.ch,
 # stating the use case, e.g. "Data sharing on external platforms"); see docs/runbook.md. The source stays manual until
@@ -52,7 +73,7 @@ evidence:
   terms_url: https://helix-tools-api.idmcdb.org/external-api/api-schema/?format=json
   licence_quote: >-
     Data is available under the Creative Commons Attribution-Non-Commercial-Share Alike 3.0 IGO license.
-  checked_on: 2026-10-04
+  checked_on: 2026-10-12
   terms_check: page
 obligations:
   attribution: >-
@@ -90,10 +111,16 @@ artifacts:
     url: https://helix-tools-api.idmcdb.org/external-api/gidd/disasters/disaster-export/?release_environment=RELEASE&start_year=2008&end_year=2025
     format: xlsx
     description: >-
-      GIDD disaster export, one row per disaster event, 2008-2025: ISO3, country, year, event name, start date, Disaster
-      Internal Displacements (rounded and raw), hazard category, type and sub-type, event codes (e.g. GLIDE), event ID
-      and whether displacement occurred or only pre-emptive evacuations were reported. HTTP 403 without client_id on
-      2026-10-04. The GIDD web page has no button for this export, so it is acquired only once IDMC issues our key.
+      GIDD disaster export, one row per disaster event in a country and year, 2008-2025: ISO3, country, year, event
+      name, start date, Disaster Internal Displacements (rounded and raw), hazard category, type and sub-type, event
+      codes (e.g. GLIDE), event ID and whether pre-emptive evacuations were reported, plus a README sheet with the
+      release dates and IDMC's definitions. HTTP 403 without client_id on 2026-10-04. Until the API key arrives, a person opens the GIDD page
+      (https://www.internal-displacement.org/database/displacement-data/), sets Cause to Disaster, presses "Excel"
+      under "Annual displacement data", and records the file with
+      `uv run envdash snapshot add --source idmc-gidd --artifact gidd-disaster-events --file <path> --note "<who>
+      downloaded it from the GIDD page (Cause: Disaster, Excel)"`. The owner did so on 2026-10-12 (2,968,931 bytes,
+      sha256 25c78f150cff…; README "LAST UPDATE: August 31, 2026"). The README's coverage text says "running through
+      2024", although the sheet has 2025 rows.
     access:
       auth: api-key
       auth_env: IDMC_CLIENT_ID
@@ -103,8 +130,9 @@ status:
   state: active
   note: >-
     The GIDD covering 2008-2025 was released with the Global Report on Internal Displacement 2026 (12 May 2026,
-    doi:10.55363/IDMC.ETWG8973); the verifier found the export README dated 31 August 2026, so figures change between
-    annual releases and each snapshot is kept. IDMC is part of the Norwegian Refugee Council; not a US federal product.
+    doi:10.55363/IDMC.ETWG8973); the event export the owner downloaded on 2026-10-12 says "LAST UPDATE: August 31,
+    2026", so figures change between annual releases and each snapshot is kept. IDMC is part of the Norwegian
+    Refugee Council; not a US federal product.
   us_federal: false
 update_cadence: Annual, with the Global Report on Internal Displacement in May, plus revisions during the year
 research_ref: >-
