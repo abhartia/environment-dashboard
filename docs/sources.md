@@ -217,6 +217,32 @@ the book is typed into the site.
   obtained through the IEA and that historical data may come from the IEA World Energy Statistics Database. The
   existing `unsd-energy` views stay as they are until UNSD answers (owner, 2026-10-08); no new view uses UNSD.
 
+## Decisions on IDMC disaster displacement (2026-10-12)
+
+Evidence: docs/research/sources-consequences-2026-10-11.json (verification[1]) and
+docs/research/sources-extremes-2026-10-12.json (verification[2]).
+
+- **The GIDD event export is downloaded by hand from the GIDD page** (`idmc-gidd`, artifact `gidd-disaster-events`,
+  noncommercial). The registry used to say the GIDD page had no button for it; it has one: with Cause set to Disaster,
+  "Excel" under "Annual displacement data" downloads the event file. The API still answers 403 without our own
+  client_id, so the source stays manual until IDMC issues the key. The owner downloaded the file on 2026-10-12
+  (2,968,931 bytes, sha256 25c78f15…d0d2d3). Its README says "LAST UPDATE: August 31, 2026", "DATE EXTRACTED: October
+  05, 2026" and "USE LICENSE: This content is licensed under CC BY-NC", which is looser than the API documentation's
+  CC BY-NC-SA 3.0 IGO, so the share-alike terms, the credit, and the website's no-logo and no-endorsement clauses
+  still apply. The README's coverage text ("running through 2024") lags its own 2025 rows.
+- **Weather-related displacement by hazard is a sum inside this one file**
+  (`displacement.idmc-gidd.weather-by-hazard`, kind derived, credited as calculated from IDMC event data). It keeps
+  IDMC's own Hazard Category "Weather related", which leaves out geophysical events (earthquakes, volcanic activity,
+  dry mass movement) and IDMC's "Mixed disasters" without a judgement of ours, and adds up the raw figures by year
+  and IDMC's Hazard Type. Events with no reported figure are left out, never counted as zero, and the description
+  says how many. For 2008 and 2010-2016, IDMC files China's displacement as one "Mixed disasters" row a year, not
+  split by hazard (26,822,000 in 2008), so China is not in those years' weather-related sums, nothing is estimated in
+  its place, and the description says those years are not comparable with later ones. IDMC's Global Report on Internal Displacement prints weather-related and per-hazard totals built
+  another way, so there is no publisher check against it and its figures are never mixed in. What it can say: how
+  many times people had to move because of weather-related disasters in the events IDMC recorded. What it cannot
+  say: that disasters or displacement are becoming more frequent (IDMC records many more events than it did), that
+  climate change caused them, or a number of people (one person can be displaced more than once).
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be
