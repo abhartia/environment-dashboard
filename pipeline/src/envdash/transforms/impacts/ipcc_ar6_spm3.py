@@ -25,7 +25,8 @@ mixed, not that nothing changed; confidence in a human contribution is a confide
 contribution.
 
 Period. The files say "years 1950 to 2021" and the IPCC assessed each region "for the 1950s to the present"; every
-count is dated 1950/2021.
+count is dated 1950/2021. The description and the publisher checks name that span (SPAN_STATED), and the build stops
+if the files state any other.
 
 Checks. The published figure (SPM, p. 10) prints the count of each type of change beside its legend, e.g. "Increase
 (41)". Each is a publisher cross-check. The split of increases by confidence is not printed; it is counted from the
@@ -52,6 +53,8 @@ SPM_URL = "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.
 SPM_PAGE = 10
 """Figure SPM.3 is on page 10 of the SPM PDF (printed page 10)."""
 REGION_COUNT = 45
+SPAN_STATED = ("1950", "2021")
+"""The span all three files state ("years 1950 to 2021"); the words below use it, and the build checks the files."""
 
 
 @dataclass(frozen=True)
@@ -151,7 +154,7 @@ ASSESSMENT_DIM = Dimension(
     label="Type of observed change since the 1950s, and confidence in a human contribution",
     values=[DimensionValue(id=d, label=label) for d, label, _ in ASSESSMENTS],
 )
-REGIONS = Unit(code="regions", label="of the 45 inhabited IPCC AR6 regions", short="regions")
+REGIONS = Unit(code="regions", label=f"of the {REGION_COUNT} inhabited IPCC AR6 regions", short="regions")
 
 
 class Spm3FormatError(ValueError):
@@ -257,6 +260,8 @@ def read_panels(files: dict[str, InputFile]) -> tuple[str, tuple[str, str], dict
         raise Spm3FormatError(f"the panels differ in span {sorted(spans)} or in their regions")
     (version,) = versions
     (span,) = spans
+    if span != SPAN_STATED:
+        raise Spm3FormatError(f"the files say years {span[0]} to {span[1]}, but the words say {SPAN_STATED}")
     return version, span, out
 
 
@@ -275,7 +280,7 @@ def _checks() -> tuple[PublisherCheck, ...]:
             source_id=SOURCE,
             vintage="v20221116",
             entity="WLD",
-            period="1950/2021",
+            period="/".join(SPAN_STATED),
             stated=str(n),
             quote=p.printed,
             url=SPM_URL,
@@ -347,24 +352,26 @@ def transforms(paths: Paths) -> list[Transform]:
                 id="extremes.ipcc-ar6.observed-regions",
                 title="Regions where hot extremes, heavy rain and drought have increased since the 1950s, with the "
                 "IPCC's confidence in a human contribution (IPCC AR6)",
-                description="Of the 45 inhabited regions the IPCC uses, how many have seen an increase, a decrease, "
-                "low agreement in the type of change, or too little data and literature to say, in hot extremes, "
-                "heavy precipitation and agricultural and ecological drought from the 1950s to 2021, as assessed in "
-                "the IPCC Sixth Assessment Report (2021, Figure SPM.3). Increases are split by the IPCC's confidence "
-                "that human influence contributed: high, medium, or low because studies disagree. Calculated by "
-                "counting the regions in the IPCC data; the totals of each type of change match the counts printed "
-                "on the published figure, and the split by confidence is counted from the same data. Regions differ "
-                "in size and population, and each is assessed as a whole. 'Limited data' and 'low agreement' mean "
-                "the evidence is missing or mixed, not that nothing changed, and a confidence level says how sure "
-                "the IPCC is that people contributed, not how large the contribution was.",
+                description=f"Of the {REGION_COUNT} inhabited regions the IPCC uses, how many have seen an increase, "
+                "a decrease, low agreement in the type of change, or too little data and literature to say, in hot "
+                "extremes, heavy precipitation and agricultural and ecological drought from the 1950s to "
+                f"{SPAN_STATED[1]}, as assessed in the IPCC Sixth Assessment Report (2021, Figure SPM.3). Increases "
+                "are split by the IPCC's confidence that human influence contributed: high, medium, or low because "
+                "studies disagree. Calculated by counting the regions in the IPCC data; the totals of each type of "
+                "change match the counts printed on the published figure, and the split by confidence is counted "
+                "from the same data. Regions differ in size and population, and each is assessed as a whole. "
+                "'Limited data' and 'low agreement' mean the evidence is missing or mixed, not that nothing changed, "
+                "and a confidence level says how sure the IPCC is that people contributed, not how large the "
+                "contribution was.",
                 kind="derived",
                 unit=REGIONS,
                 display=Display(decimals=0),
                 scope=Scope(
-                    geography="World: counts of the 45 inhabited IPCC AR6 WGI reference regions (no regional values "
-                    "published)",
-                    basis="Expert assessment of observed change since the 1950s (files: years 1950 to 2021), each "
-                    "region as a whole. Categories and labels are the IPCC's; only counts are computed.",
+                    geography=f"{REGION_COUNT} inhabited IPCC AR6 regions",
+                    basis="Counts of the IPCC AR6 WGI reference regions in each assessed category, for the world; no "
+                    "regional values are published. Expert assessment of observed change since the 1950s (files: "
+                    f"years {SPAN_STATED[0]} to {SPAN_STATED[1]}), each region as a whole. Categories and labels are "
+                    "the IPCC's; only counts are computed.",
                 ),
                 geo_coverage="global-only",
                 headline_entity="WLD",

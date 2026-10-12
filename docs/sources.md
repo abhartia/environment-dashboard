@@ -231,7 +231,8 @@ not be used to say).
   results at a warming level, not observed counts and not years: they are dated 2021 (the assessment) and never
   placed on a time axis or interpolated, and the 1 °C level is not "today". Drought covers the 16 drying regions the
   figure computes (17 listed, the Caribbean left out), not the world. The 3 °C level is in the data but not in the
-  figure, and says so. The intensity files are registered but not published this round.
+  figure, and its label says so (the build checks the caption's list of levels). The intensity files are registered
+  but not published this round.
 - **IPCC AR6 WGI Figure SPM.3 data** (`ipcc-ar6-wg1-spm3`, CEDA, CC BY 4.0): the IPCC's assessed type of observed
   change since the 1950s in hot extremes, heavy precipitation and agricultural and ecological drought for each of the
   45 inhabited AR6 regions, with its confidence in a human contribution. Only world counts of regions per category
@@ -243,7 +244,10 @@ not be used to say).
   offset to 1850–1900 is not applied). The file's Berkeley column is left out because Berkeley Earth's own terms are
   CC BY-NC 4.0, which IGCC's CC BY grant cannot lift; the HadEX3 column (Crown Copyright, OGL v2, ending in 2018) is
   left out too, as one series comes from one dataset and the three are not coverage-matched. TXx is intensity, not
-  frequency, and the file attributes nothing; attribution comes only from SPM.3 and SPM.6.
+  frequency, and the file attributes nothing; attribution comes only from SPM.3 and SPM.6. ERA5 on the C3S Climate
+  Data Store is CC BY 4.0, and the CDS asks for a Copernicus attribution and the EC/ECMWF disclaimer besides, so
+  `igcc-2025` now carries them as a notice naming the TXx series, as `lancet-countdown-2025` does for its
+  ERA5-derived indicators. A notice is per source, so it also shows on the other IGCC indicators.
 
 ## Rejected
 

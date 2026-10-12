@@ -91,6 +91,17 @@ def test_spm6_metadata_lists_17_drying_regions_and_leaves_out_the_caribbean():
         spm6.check_metadata(raw.replace(b"1851-1900 for hot extremes", b"1850-1900 for hot extremes"))
 
 
+def test_spm6_caption_must_leave_out_3c_for_the_label_to_say_so():
+    raw = _raw(spm6.METADATA)
+    shown = "global warming levels of 1°C, 1.5°C, 2°C, and 4°C".encode()
+    assert shown in raw
+    with pytest.raises(spm6.Spm6FormatError, match="no longer shows exactly the levels"):
+        spm6.check_metadata(raw.replace(shown, "global warming levels of 1°C, 1.5°C, 2°C, 3°C, and 4°C".encode()))
+    with pytest.raises(spm6.Spm6FormatError, match="no longer shows exactly the levels"):
+        spm6.check_metadata(raw.replace(shown, "global warming levels of 1°C, 2°C, and 4°C".encode()))
+    assert "not in the published figure" in dict(spm6.LEVELS)[spm6.NOT_IN_FIGURE]
+
+
 def test_spm6_printed_ranges_are_the_5th_and_95th_percentiles():
     rows = _rows()
     spm6.check_printed_ranges(rows)
@@ -123,7 +134,8 @@ def test_spm6_transform_on_the_files_and_its_publisher_checks():
         "projection",
     )
     assert obs[("drought-10yr", "4.0")].value == 4.08
-    assert {k for k, o in obs.items() if o.note} == {(e.dim, "3.0") for e in spm6.EXTREMES}
+    # No note of ours on any value: the 3.0 °C label says it is not in the figure, grounded in the caption.
+    assert not any(o.note for o in obs.values())
     assert "17 drying regions" in result.steps[2] and "cover 16" in result.steps[2]
     outcomes = run_checks(t, {spm6.SOURCE: result.vintage}, result.observations)
     assert len(outcomes) == 16
@@ -147,6 +159,9 @@ def test_spm6_spec_says_modelled_and_not_today():
     assert "not today's warming" in s.description and "not counts of observed events" in s.description
     assert "3 °C level is in the data but not in the published figure" in s.description
     assert "lists 17" in s.scope.geography and "so 16" in s.scope.geography
+    # web/src/lib/dash/people-tree.ts writes "Times as often as in <baseline>, by level of warming".
+    assert s.scope.baseline == "1851–1900 (heat and rain) or 1850–1900 (drought)"
+    assert s.unit.label == "times as often as in the second half of the 19th century"
     assert s.headline_dims == (("extreme", "hot-10yr"), ("level", "1.0"))
     assert [v.id for v in spm6.LEVEL_DIM.values] == ["1.0", "1.5", "2.0", "3.0", "4.0"]
     # Intensity files are registered but not read this round.
@@ -220,6 +235,14 @@ def test_spm3_unexpected_pairings_labels_and_spans_stop_the_build(tmp_path):
     files[b] = InputFile(path, files[b].snapshot)
     with pytest.raises(spm3.Spm3FormatError, match="differ in span"):
         spm3.read_panels(files)
+    # All three changed alike: they agree, but no longer with the span the words state.
+    for p in spm3.PANELS:
+        k = p.input.key
+        path = tmp_path / f"all-{p.file}"
+        path.write_bytes(_raw(p.input).replace(b"years 1950 to 2021", b"years 1950 to 2023"))
+        files[k] = InputFile(path, files[k].snapshot)
+    with pytest.raises(spm3.Spm3FormatError, match="but the words say"):
+        spm3.read_panels(files)
 
 
 def test_spm3_printed_tallies_parse():
@@ -239,6 +262,11 @@ def test_spm3_spec_is_derived_counts_of_regions():
     assert s.unit.code == "regions" and s.display.decimals == 0
     assert "Calculated by counting" in s.description and "not that nothing changed" in s.description
     assert s.headline_dims == (("extreme", "hot"), ("assessment", "increase"))
+    # web/src/lib/dash/people-tree.ts writes "of the world's <geography> saw ... increase".
+    assert s.scope.geography == "45 inhabited IPCC AR6 regions"
+    assert s.unit.label == "of the 45 inhabited IPCC AR6 regions"
+    assert "1950s to 2021" in s.description and "years 1950 to 2021" in (s.scope.basis or "")
+    assert {c.period for c in _transform(spm3).checks} == {"1950/2021"}
 
 
 # --- registry ------------------------------------------------------------------------------------------------------

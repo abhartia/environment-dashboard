@@ -16,7 +16,8 @@ every line of code that decides them:
 
 Dates and DOIs per origin. The data files (the zip and the CSVs) carry the release date of IGCC-2025a (22 July 2026)
 and the data DOI; the paper PDF carries the paper's publication date (11 June 2026) and its own DOI
-(Result.origin_meta), so no origin is dated by the other's release.
+(Result.origin_meta), so no origin is dated by the other's release. The release year fills the {year} of the
+source's Copernicus notice (for the ERA5 TXx series), on every indicator, since a notice is per source.
 
 Release. The DOI-pinned deposit is the Zenodo zip (artifact data-igcc-2025a). The transforms read single CSVs from
 raw.githubusercontent.com at the commit that tag IGCC-2025a points to, so tests can use byte-exact slices of real
@@ -356,6 +357,7 @@ def _warming(files: dict[str, InputFile]) -> Result:
         observations=obs,
         vintage=label,
         date_published=release.published.isoformat(),
+        year=str(release.published.year),
         steps=[
             _zip_step(label, files[ZIP.key], [files[i.key] for i in csvs]),
             "Read the annual 5th, 50th and 95th percentiles of human-induced (anthropogenic) warming relative to "
@@ -521,6 +523,7 @@ def _erf(files: dict[str, InputFile]) -> Result:
         observations=obs,
         vintage=label,
         date_published=release.published.isoformat(),
+        year=str(release.published.year),
         steps=[
             _zip_step(label, files[ZIP.key], [files[i.key] for i in csvs]),
             "Read the best estimate, 5th and 95th percentile of effective radiative forcing for each year from "
@@ -694,6 +697,7 @@ def _budget(files: dict[str, InputFile]) -> Result:
         observations=[Observation(entity=o.entity, period=o.period, value=o.value, status=o.status)],
         vintage=label,
         date_published=release.published.isoformat(),
+        year=str(release.published.year),
         origin_meta=_origin_meta(),
         steps=[
             f"Quoted from {BUDGET.locator} of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found in "
@@ -783,6 +787,7 @@ def _headline(files: dict[str, InputFile]) -> Result:
         ],
         vintage=label,
         date_published=release.published.isoformat(),
+        year=str(release.published.year),
         origin_meta=_origin_meta(),
         steps=[
             f"Quoted from {HEADLINE_LOCATOR} of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found "
@@ -901,6 +906,7 @@ def _txx(files: dict[str, InputFile]) -> Result:
         observations=obs,
         vintage=label,
         date_published=release.published.isoformat(),
+        year=str(release.published.year),
         origin_meta=_origin_meta(),
         steps=[
             _zip_step(label, files[ZIP.key], [files[TXX.key]]),
@@ -1076,7 +1082,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 display=Display(decimals=2),
                 scope=Scope(
                     geography="Land, excluding Antarctica (average over all ERA5 land grid points)",
-                    baseline="1961–1990",
+                    baseline=f"{TXX_BASE[0]}–{TXX_BASE[1]} mean of this series, as published by IGCC",
                     basis="Annual maximum of the daily maximum temperature (TXx) in each grid cell, averaged over "
                     "land. ERA5 reanalysis (Copernicus Climate Change Service, ECMWF), processed by IGCC (M. "
                     "Hauser, D. Schumacher and S. Seneviratne, ETH Zürich). Anomalies relative to 1961–1990 as "

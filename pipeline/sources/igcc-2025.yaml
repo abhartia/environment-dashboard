@@ -14,7 +14,12 @@
 # from Berkeley Earth, whose own data page says "In general, Berkeley Earth's data is licensed under Creative Commons
 # BY-NC 4.0 International for non-commercial use only." (IGCC's CC BY grant cannot lift that upstream term), and
 # HadEX3 carries the Crown Copyright and OGL v2 terms above. ERA5 is produced by the Copernicus Climate Change Service
-# (ECMWF) under the Copernicus licence, whose condition is attribution; the indicator names ERA5 and C3S in its scope.
+# (ECMWF); its C3S Climate Data Store catalogue entries are licensed CC BY 4.0 (recorded in c3s-climate-pulse and
+# c3s-era5-bulletin), and the CDS "Citation and attribution" text adds a Copernicus attribution and the EC/ECMWF
+# disclaimer "in addition to the requirements of the applicable license(s)". As lancet-countdown-2025 does for its
+# ERA5-derived indicators, both are in the notice below, which names the TXx series (a notice is per source, so it
+# shows on every IGCC indicator). {year} in the notice is the year of the IGCC data release, filled by the transforms
+# (2026 for IGCC-2025a, published 22 July 2026). The indicator also names ERA5 and C3S in its scope.
 # Checked 2026-10-12: raw.githubusercontent.com at the release commit, HTTP 200, 2,431 bytes, an ETag (which differs
 # with the response encoding) and no Last-Modified, sha256 c93fc6f4fff8...,
 # byte-identical to ClimateIndicator-data-0f2765d/data/base/extreme_temperatures/txx_timeseries.csv in the Zenodo zip
@@ -110,6 +115,10 @@ obligations:
     Calculated by Environment Dashboard from Indicators of Global Climate Change 2025: Forster et al. (2026), Earth
     Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a,
     doi:10.5281/zenodo.21494229. CC BY 4.0.
+  notice: >-
+    IGCC's hottest day of the year over land (TXx) is computed from ERA5 and contains modified Copernicus Climate
+    Change Service information {year}; neither the European Commission nor ECMWF is responsible for any use that may
+    be made of the Copernicus information or data it contains.
   mirror_raw: true
 acquisition: automatic
 artifacts:

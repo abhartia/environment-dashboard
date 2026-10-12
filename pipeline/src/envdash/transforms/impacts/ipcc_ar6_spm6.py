@@ -25,9 +25,10 @@ percentiles must be in order.
 
 Levels and dates. A warming level is not a year. Every value is dated 2021, the year of the assessment (dataset
 version v20210809, published with the report on 9 August 2021), and is status projection: the IPCC calls all of them
-"projected changes", including at 1 °C. The 3.0 °C level is in the files but not in the published figure (1, 1.5, 2
-and 4 °C); its observations carry a note saying so. The published figure labels the 1 °C level "Present"; the world
-has warmed further since, so the 1 °C values are not "today", and no value between levels is ever interpolated.
+"projected changes", including at 1 °C. The 3.0 °C level is in the files but not in the published figure, whose
+caption lists 1, 1.5, 2 and 4 °C; the level's label says so, and the build stops if the caption's list changes. The
+published figure labels the 1 °C level "Present"; the world has warmed further since, so the 1 °C values are not
+"today", and no value between levels is ever interpolated.
 
 Checks against the published figure. The figure (SPM, p. 18) prints each median and range to one decimal, for
 example "Once now likely occurs 2.8 times (1.8–3.2)". Each printed median is a publisher cross-check (tolerance half
@@ -109,7 +110,10 @@ LEVELS: tuple[tuple[str, str], ...] = (
     ("4.0", "4 °C of warming"),
 )
 NOT_IN_FIGURE = "3.0"
-NOT_IN_FIGURE_NOTE = "In the data file but not shown in the published Figure SPM.6, which shows 1, 1.5, 2 and 4 °C."
+SHOWN_LEVELS = re.compile(
+    r"Projected changes are shown at global warming levels of (?P<levels>(?:[\d.]+°C, )+and [\d.]+°C)"
+)
+"""The caption's list of the levels the figure shows, which grounds the 3.0 °C label."""
 
 URL = re.compile(r"^https://dap\.ceda\.ac\.uk/badc/ar6_wg1/data/spm/spm_06/(v(\d{4})\d{4})/(.+)$")
 DRYING_REGIONS = re.compile(
@@ -130,7 +134,8 @@ EXTREME_DIM = Dimension(
 LEVEL_DIM = Dimension(
     id="level", label="Global warming level", values=[DimensionValue(id=v, label=label) for v, label in LEVELS]
 )
-TIMES = Unit(code="times", label="times as often as in 1850–1900", short="×")
+TIMES = Unit(code="times", label="times as often as in the second half of the 19th century", short="×")
+"""The caption's "2nd-half of the 19th century": 1851–1900 for heat and rain, 1850–1900 for drought (scope.baseline)."""
 
 
 class Spm6FormatError(ValueError):
@@ -186,6 +191,13 @@ def check_metadata(raw: bytes) -> list[str]:
     files: str = meta["description"]
     if BASE_PERIODS not in caption:
         raise Spm6FormatError("metadata.yaml: the caption no longer states the base periods this module labels")
+    shown = SHOWN_LEVELS.search(caption)
+    in_figure = {Decimal(v) for v, _ in LEVELS if v != NOT_IN_FIGURE}
+    if not shown or {Decimal(x) for x in re.findall(r"([\d.]+)°C", shown["levels"])} != in_figure:
+        raise Spm6FormatError(
+            f"metadata.yaml: the caption no longer shows exactly the levels {sorted(in_figure)} °C, which the "
+            f"{NOT_IN_FIGURE} °C label relies on"
+        )
     if RANGE_SHOWN not in files:
         raise Spm6FormatError("metadata.yaml: no longer says the figure shows the 50th, 5th and 95th percentiles")
     for e in EXTREMES:
@@ -284,7 +296,6 @@ def observations(rows: dict[str, dict[str, Row]], year: str) -> list[Observation
             upper=float(r.p95),
             interval="very-likely",
             status="projection",
-            note=NOT_IN_FIGURE_NOTE if level == NOT_IN_FIGURE else None,
             dims={"extreme": e.dim, "level": level},
         )
         for e in EXTREMES
@@ -323,7 +334,8 @@ def _run(files: dict[str, InputFile]) -> Result:
             "Published the median as the value and the 5th to 95th percentile as the range (very likely range), as "
             "the published figure shows them; the 17th–83rd percentiles are not published. Values are as printed in "
             f"the files. Each is dated {year}, the year of the assessment: the warming level, not the date, is what "
-            f"varies. The {NOT_IN_FIGURE} °C level is in the files but not in the published figure, and is noted.",
+            f"varies. The {NOT_IN_FIGURE} °C level is in the files but not in the published figure, whose caption "
+            "lists 1, 1.5, 2 and 4 °C; its label says so.",
             "Checked against metadata.yaml: each file is listed under its figure panel (the Readme's panel letters "
             "for precipitation and drought are out of date); the caption gives the base periods used in the labels "
             f"(1851–1900 for heat and rain, 1850–1900 for drought); and it lists {len(regions)} drying regions for "
@@ -343,18 +355,18 @@ def transforms(paths: Paths) -> list[Transform]:
                 id="extremes.ipcc-ar6.frequency-by-warming-level",
                 title="How many times as often heat, rain and drought extremes occur at each level of global "
                 "warming, modelled (IPCC AR6)",
-                description="How many times as often an extreme that came once in 10 years (or once in 50) in "
-                "1850–1900, a climate without human influence, occurs at global warming levels of 1, 1.5, 2, 3 and 4 "
-                "°C: the hottest day of the year over land (once-in-10 and once-in-50-year events), the wettest day "
-                "of the year over land, and agricultural and ecological drought in the regions projected to dry. "
-                "Modelled: the median of the CMIP6 climate models assessed for Figure SPM.6 of the IPCC Sixth "
-                "Assessment Report (2021), with the 5–95% range the figure shows (a range reaching below 1 "
-                "includes no increase at all). These are model estimates for "
-                "each level of warming, not counts of observed events, and a warming level is not a year: every "
-                "value is dated 2021, the year of the assessment. The published figure labels the 1 °C level "
-                "'Present'; the world has warmed further since, so 1 °C is not today's warming, and nothing between "
-                "levels is interpolated. The 3 °C level is in the data but not in the published figure. Drought "
-                "covers 16 drying regions, not the whole world.",
+                description="How many times as often an extreme that came once in 10 years (or once in 50) in the "
+                "second half of the 19th century (1851–1900 for heat and rain, 1850–1900 for drought), a climate "
+                "without human influence, occurs at global warming levels of 1, 1.5, 2, 3 and 4 °C: the hottest day "
+                "of the year over land (once-in-10 and once-in-50-year events), the wettest day of the year over "
+                "land, and agricultural and ecological drought in the regions projected to dry. Modelled: the median "
+                "of the CMIP6 climate models assessed for Figure SPM.6 of the IPCC Sixth Assessment Report (2021), "
+                "with the 5–95% range the figure shows (a range reaching below 1 includes no increase at all). These "
+                "are model estimates for each level of warming, not counts of observed events, and a warming level "
+                "is not a year: every value is dated 2021, the year of the assessment. The published figure labels "
+                "the 1 °C level 'Present'; the world has warmed further since, so 1 °C is not today's warming, and "
+                "nothing between levels is interpolated. The 3 °C level is in the data but not in the published "
+                "figure. Drought covers 16 drying regions, not the whole world.",
                 kind="series",
                 unit=TIMES,
                 display=Display(decimals=2),
@@ -364,8 +376,7 @@ def transforms(paths: Paths) -> list[Transform]:
                     "America, the Caribbean, N., N.E., S.W. and S. South America, the South American Monsoon, West "
                     "and Central Europe, the Mediterranean, W. and E. Southern Africa, Madagascar, E. and S. "
                     "Australia) and the Caribbean is not included in the calculation, so 16.",
-                    baseline="A once-in-10 or once-in-50-year event in 1851–1900 (heat and rain) or 1850–1900 "
-                    "(drought), which the IPCC treats as a climate without human influence",
+                    baseline="1851–1900 (heat and rain) or 1850–1900 (drought)",
                     basis="CMIP6 multi-model ensemble under several SSP scenarios, at global warming levels "
                     "relative to 1850–1900; extremes defined at model grid-box scale. Value: the ensemble median; "
                     "range: its 5th to 95th percentile (very likely range), as in the published figure. Projected "

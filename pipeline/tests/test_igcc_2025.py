@@ -287,7 +287,8 @@ def test_txx_publisher_check_passes_and_spec_is_intensity_not_frequency():
     (outcome,) = run_checks(t, {igcc.SOURCE: "IGCC-2025a"}, obs)
     assert outcome.status == "pass"
     s = t.spec
-    assert s.kind == "series" and s.scope.baseline == "1961–1990"
+    # The home page reads "<span> mean ..." as "above <span>" (web/src/lib/dash/story.ts).
+    assert s.kind == "series" and s.scope.baseline == "1961–1990 mean of this series, as published by IGCC"
     assert "excluding Antarctica" in s.scope.geography
     assert "not how often extremes happen" in s.description and "without attributing it" in s.description
     assert "Berkeley Earth and HadEX3 versions are not included" in s.description
@@ -321,6 +322,16 @@ def test_every_input_is_a_registered_artifact():
     ids = {a.id for a in _registry_artifacts()}
     for t in igcc.transforms(Paths.default()):
         assert {i.artifact_id for i in t.inputs} <= ids, t.spec.id
+
+
+def test_copernicus_notice_names_txx_and_takes_the_release_year():
+    from envdash.registry import load_registry, render
+
+    notice = load_registry(Paths.default()).sources[igcc.SOURCE].obligations.notice or ""
+    text = render(notice, version="IGCC-2025a", date_accessed=None, year=str(RELEASE.published.year))
+    assert "(TXx) is computed from ERA5" in text
+    assert "contains modified Copernicus Climate Change Service information 2026;" in text
+    assert "neither the European Commission nor ECMWF is responsible" in text
 
 
 # --- full files (local snapshot cache) -----------------------------------------------------------------------------
@@ -358,7 +369,7 @@ def test_full_transforms_on_the_snapshots():
     files = _current_files()
     for t in igcc.transforms(Paths.default()):
         result = t.run({i.key: files[i.key] for i in t.inputs})
-        assert result.vintage == "IGCC-2025a"
+        assert result.vintage == "IGCC-2025a" and result.year == "2026"
         if t.spec.id == "warming.igcc-2025.human-induced":
             assert len(result.observations) == 176
         if t.spec.id == "forcing.igcc-2025.erf-by-agent":
