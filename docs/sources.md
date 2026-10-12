@@ -245,6 +245,39 @@ Lancet 1.2.1, 1.2.2, 1.2.3 and 3.2.1 entries). Workbooks 3.2.1, 1.2.1 (mortality
 - **Upstream credits.** 1.2.2 names SPEI without a version (SPEIbase is ODbL), so the notice credits SPEI. The Copernicus
   notice now names only the indicators computed from ERA5 or ERA5-Land (1.1.1, 1.1.3, 1.1.5 and 1.2.3).
 
+## Decisions on what the measurements mean for people (2026-10-12)
+
+Evidence: docs/research/sources-consequences-2026-10-11.json (coasts, and the critic's section 4).
+
+- **People on land below high tide and below the yearly flood level: Kulp & Strauss 2019** (`kulp-strauss-2019`,
+  CC BY 4.0, Nature Communications 10: 4844). Open on the article's own licence paragraph (publisher's PDF, page
+  12); its Supplementary Data carry no licence of their own and the data availability statement puts the national
+  exposure tables "within this article and its supplementary information files". The CoastalDEM elevation grid
+  itself is a separate Climate Central product "available at no cost ... for non-commercial research use"; it is
+  not fetched or re-hosted, so the article's files may be mirrored. Only the World rows and the CoastalDEM columns
+  of Supplementary Data 1 are published, as printed (millions of people; median with the 5th to 95th percentiles as
+  a 90% interval). The SRTM, JAXA and MERIT columns are not used (the paper's finding is that they understate
+  exposure), nor yet the country rows (country names need a crosswalk).
+  - **Which projections.** The abstract's lead figure (190 million below high tide by 2100 under low emissions,
+    150–250 million) is K14 (Kopp et al. 2014), the set the paper calls probabilistic and closely aligned with IPCC
+    findings; its high end ("up to 630 M" below the annual flood level by 2100) is the 95th percentile of K17 (Kopp
+    et al. 2017, unstable Antarctic ice, not probabilistic). Both sets are therefore published as values of a
+    `projection` dimension, never mixed; the build checks that the abstract's figures are those cells. Both predate
+    the IPCC's AR6, and the indicators say so.
+  - **Time.** Every row counts the people of LandScan 2010, so the present day is dated 2010 (its sea level is that
+    of 2000, the projections' zero) and 2050 and 2100 are projections with the population held as it was in 2010:
+    they show where today's people live relative to future seas, not future populations.
+  - **Exposure, not flooding.** It is a bathtub model: sea walls and levees are not counted (the paper says levee
+    locations are not available globally), so protected coasts such as the Netherlands are included.
+  - **Author Correction** (doi:10.1038/s41467-019-13552-0, 12 December 2019). A code error fixed in peer review had
+    left superseded numbers in the text: 230 M (not 250 M) below 1 m, 94 M (not 95 M), and one cell of Table 1
+    (K17, RCP8.5, annual flood, 2100: 480 (380–630), not 500 (390–640)). The Supplementary Data were not affected.
+    The registered PDF is the corrected one; the transform checks all 24 CoastalDEM totals of its Table 1 against
+    the file, so a PDF still printing the superseded cell stops the build, and the publisher cross-checks quote only
+    the corrected text.
+  - Lancet Countdown indicator 2.3.3 uses the same CoastalDEM method with 2024 population (people below 1 m of
+    future rise, noncommercial); it is not combined with these values.
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be
