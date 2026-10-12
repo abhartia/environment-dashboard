@@ -18,7 +18,7 @@ const RDBU = ["#053061", "#2166ac", "#4393c3", "#92c5de", "#d1e5f0", "#f7f7f7", 
 const SWEEP_SECONDS = 7;
 const EASE_SWEEP = [0.45, 0, 0.25, 1] as const;
 /** The story's two columns (words, charts), shared by the grid, the list and each row so they line up exactly. */
-const COLUMNS = "grid-cols-[8.5rem_minmax(0,1fr)] sm:grid-cols-[15rem_minmax(0,1fr)] lg:grid-cols-[19rem_minmax(0,1fr)]";
+const COLUMNS = "grid-cols-[8.5rem_minmax(0,1fr)] sm:grid-cols-[17rem_minmax(0,1fr)] lg:grid-cols-[19rem_minmax(0,1fr)]";
 /** The landing beat: bands settle into ink one after another, this far apart. */
 const STAGGER_MS = 80;
 
@@ -268,11 +268,10 @@ function Reading({ row, t, atRest }: { row: StoryRow; t: number; atRest: boolean
       />
       <span className="line-clamp-2 text-[10px] leading-tight text-muted-foreground sm:text-xs sm:[@media(max-height:760px)]:line-clamp-1">
         {unit}
-        {row.note ? <span className="hidden sm:inline">; {row.note}</span> : null}
         {v.status === "preliminary" ? (
           <span className="ml-1 font-semibold tracking-wide uppercase">
-            <span className="sm:hidden">prelim.</span>
-            <span className="hidden sm:inline">preliminary</span>
+            <span className="lg:hidden">prelim.</span>
+            <span className="hidden lg:inline">preliminary</span>
           </span>
         ) : null}
       </span>
@@ -458,7 +457,22 @@ function RowChart({ row, from, to, cursor }: { row: StoryRow; from: number; to: 
     // Every row starts at zero (or below, for a value that goes negative), so no change looks bigger than it is.
     const ys = row.series.flatMap((s) => s.points.flatMap((p) => (p[1] === null ? [] : [p[1]])));
     const y = scaleLinear().domain([Math.min(0, ...ys), Math.max(0, ...ys)]).range([h, pad]);
-    body = row.series.map((s) => {
+    const context = row.series.filter((s) => s.context);
+    const contextFrom = Math.min(...context.flatMap((s) => s.points.filter((p) => p[1] !== null).map((p) => p[0])));
+    const label =
+      row.contextLabel && context.length > 0 ? (
+        <text
+          key="context-label"
+          x={x(contextFrom) - 6}
+          y={y(0) + 4}
+          textAnchor="end"
+          dominantBaseline="hanging"
+          className="hidden fill-muted-foreground text-[10px] font-medium sm:inline lg:text-[11px]"
+        >
+          {row.contextLabel}
+        </text>
+      ) : null;
+    const lines = row.series.map((s) => {
       const line = d3line<[number, number | null]>()
         .defined((p) => p[1] !== null)
         .x((p) => x(p[0]))
@@ -482,6 +496,7 @@ function RowChart({ row, from, to, cursor }: { row: StoryRow; from: number; to: 
         </g>
       );
     });
+    body = [label, ...lines];
   }
 
   return (

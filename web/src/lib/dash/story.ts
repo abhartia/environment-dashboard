@@ -68,8 +68,8 @@ export type StoryRow = {
   unitLabel: string;
   /** What the number is measured against, from the producer's own baseline ("above 1850–1900"), or empty. */
   context: string;
-  /** Names the grey context lines, where a wider screen has room (from their own labels). */
-  note?: string;
+  /** Names the grey context lines inside the chart, just before they begin, where a wider screen has room. */
+  contextLabel?: string;
   kind: "stacked" | "line" | "stripes";
   /** `context` series are drawn grey behind the one the number reads, so colour marks only that one. */
   series: { key: string; label: string; colour: string; points: SeriesPoint[]; context?: boolean }[];
@@ -217,7 +217,7 @@ export function storyRows(): StoryRow[] {
       phrase: "Ice on land melts",
       unitLabel: indicator(GLACIERS).unit.label,
       context: `of glacier ice ${baseline(GLACIERS)}`,
-      note: "grey lines: the Greenland and Antarctic ice sheets",
+      contextLabel: "Greenland and Antarctic ice sheets",
       kind: "line",
       series: [
         { key: "greenland", label: "Greenland Ice Sheet", colour: "#4393c3", points: points(GREENLAND, "GRL"), context: true },
