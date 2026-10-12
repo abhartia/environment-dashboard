@@ -1,7 +1,7 @@
 import "server-only";
 
 import { indicator } from "@/lib/data";
-import { area, type Built, chapter, credit, headline, line, points } from "@/lib/dash/kit";
+import { area, type Built, chapter, credit, crossTo, headline, line, points, soWhat } from "@/lib/dash/kit";
 import type { Series, SeriesPoint } from "@/lib/dash/types";
 import { formatWhen } from "@/lib/format";
 
@@ -58,6 +58,7 @@ function root(): Built {
     sentence: `at Mauna Loa, Hawaii, the monthly mean for the latest month measured. The yearly wave is plants breathing in and out with the seasons.`,
     chart: line([{ key: "mlo", label: "Mauna Loa, monthly mean", colour: CO2_COLOUR, points: points(MLO, "MLO") }], u.short, u.decimals),
     drills: [
+      soWhat("Heatwave days caused by the warming", "people:heatwaves", "caused"),
       { label: "Over 2,000 years", to: "co2-2k" },
       { label: "Over 800,000 years", to: "co2-800k" },
       { label: "Other gases", to: "methane" },
@@ -135,7 +136,7 @@ function co2IceMax(): Built {
     id: "co2-800k-max",
     parent: "co2-800k",
     crumb: "Before industry",
-    kicker: "The highest level before industry",
+    kicker: "The highest in Antarctic ice before industry",
     headline: h,
     sentence: `in air trapped in Antarctic ice ${formatWhen(o)}: the most in any ice-core sample from before ${before} (Bereiter and others).`,
     chart: line([{ key: "ice", label: `Antarctic ice cores, before ${before}`, colour: ICE_COLOUR, points: ice }], u.short, u.decimals),
@@ -210,7 +211,7 @@ function forcing(): Built {
       u.short,
       u.decimals,
     ),
-    drills: [],
+    drills: [crossTo("How much of the warming people caused", "heat:human")],
     credit: credit(FORCING),
     indicators: [FORCING],
   };

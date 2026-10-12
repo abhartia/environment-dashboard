@@ -19,6 +19,19 @@ it came from, without feeling lectured.
   period.
 - Show ranges where the producer gives them, and name the kind of range ("likely range", "95% interval").
 - If two respected sources disagree, show both and say why. Never pick the convenient one.
+- Say exactly what a consequence measures. "Caused by the warming" only for values the producer attributes to it (Lancet
+  Countdown's attributable heatwave days; IPCC's change per level of warming). Heat deaths count heat of any cause:
+  "deaths from heat". Deaths from fossil-fuel smoke are a harm of the burning itself, not of the warming. People
+  living below high tide are at risk, not flooded.
+
+## Extremes and disasters
+- The data can say: hot extremes have become more frequent and more intense over most land, and the IPCC attributes
+  this mainly to human-caused warming; heavy downpours have become more frequent over most land with enough data;
+  drought has increased in some regions; and how much more often each extreme comes at each level of warming.
+- The data cannot say: that storms or hurricanes are more frequent (the IPCC has low confidence in a trend in their
+  number); that floods are increasing worldwide; or that disasters are increasing because counts of recorded disasters
+  or displacements rose. Those counts track reporting and monitoring, which grew; say so beside them.
+- Never turn a level of warming into a year, or a model's change into a count of events that happened.
 
 ## Options, not instructions
 - Describe each option by its measured effect and its range: "living without a car cut emissions by about 2 tonnes a

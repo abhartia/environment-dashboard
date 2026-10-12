@@ -3,7 +3,7 @@ import "server-only";
 import type { Observation } from "@/gen/hey-api/types.gen";
 import { catalogEntry, indicator } from "@/lib/data";
 import { isPlace } from "@/lib/dash/entities";
-import type { Bar, Chart, Credit, Drill, DrillNode, Headline, Preview, Series, SeriesPoint } from "@/lib/dash/types";
+import type { Bar, Chart, Credit, Drill, DrillNode, Headline, Preview, Relation, Series, SeriesPoint } from "@/lib/dash/types";
 
 /**
  * Building blocks for a chapter's drill-down tree (lib/dash/<chapter>-tree.ts). They only select, order and label
@@ -82,7 +82,24 @@ export function headline(id: string, entity: string, dims: Dims = {}, period?: s
     unit: ind.unit.short,
     unitLabel: ind.unit.label,
     status: o.status,
+    ...(Object.keys(dims).length > 0 ? { dims } : {}),
   };
+}
+
+/**
+ * The producer's stated baseline as a few words: "1850–1900 mean of this dataset" -> "above 1850–1900", "1993 mean of
+ * this series" -> "above the 1993 average", "Zero at the start of hydrological year 1976" -> "since 1976". A baseline
+ * phrased any other way throws, so no screen ever guesses at one.
+ */
+export function baseline(id: string): string {
+  const b = indicator(id).scope.baseline ?? "";
+  const span = b.match(/^(\d{4}–\d{4}) mean\b/);
+  if (span) return `above ${span[1]}`;
+  const year = b.match(/^(\d{4}) mean\b/);
+  if (year) return `above the ${year[1]} average`;
+  const since = b.match(/^Zero at the start of hydrological year (\d{4})\b/);
+  if (since) return `since ${since[1]}`;
+  throw new Error(`${id}: its baseline "${b}" is not one the dashboard knows how to say`);
 }
 
 /** The producer's label for one value of a dimension, as published in the indicator (never our own wording). */
@@ -178,6 +195,19 @@ export function crossDrill(label: string, chapterSlug: string, target: DrillNode
 }
 
 /**
+ * A drill into another chapter's node named only by its address ("heat:root"), filled in when the node is resolved
+ * (lib/dash/chapters.ts resolvedNode). Two chapters can point at each other this way without building each other.
+ */
+export function crossTo(label: string, to: `${string}:${string}`): Drill {
+  return { label, to };
+}
+
+/** What a measurement means for people: a card showing the target node's own headline, copied when resolved. */
+export function soWhat(label: string, to: `${string}:${string}`, relation: Relation): Drill {
+  return { label, to, soWhat: { relation } };
+}
+
+/**
  * A chapter: its node ids (for the static files) and a node builder that attaches the breadcrumb trail by walking
  * the parent chain, so a deep link shows where it sits, and gives each choice the idea and the chart shape it leads to.
  */
@@ -193,9 +223,10 @@ export function chapter(ids: () => string[], build: (id: string) => Built): { id
         p = parent.parent;
       }
       const drills = node.drills.map((d) => {
-        // A target in another chapter ("food:stages") brings its own crumb, kicker and preview (see crossDrill).
+        // A target in another chapter ("food:stages") brings its own crumb, kicker and preview (crossDrill), or is
+        // filled when the node is resolved (crossTo, soWhat); a half-filled one is a mistake.
         if (d.to.includes(":")) {
-          if (!d.kicker || !d.preview) throw new Error(`${id}: the cross-chapter drill to ${d.to} needs its kicker and preview`);
+          if (Boolean(d.kicker) !== Boolean(d.preview)) throw new Error(`${id}: the cross-chapter drill to ${d.to} is half filled`);
           return d;
         }
         const next = build(d.to);

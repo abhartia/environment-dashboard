@@ -15,6 +15,8 @@ export type Headline = {
   unit: string;
   unitLabel: string;
   status: "final" | "preliminary" | "projection";
+  /** The dimension slice the value was read from (absent when the indicator has none), so a copy can be matched. */
+  dims?: Record<string, string>;
 };
 
 export type SeriesPoint = [year: number, value: number | null];
@@ -45,6 +47,12 @@ export type Preview =
   | { kind: "lines"; stacked: boolean; series: { colour: string; points: SeriesPoint[] }[] }
   | { kind: "bars"; bars: { key: string; value: number; colour: string }[] };
 
+/**
+ * How a consequence relates to the measurement it follows, shown over its "so what" card (docs/style.md): caused by
+ * the warming (the producer attributes it), heat of any cause, a harm of the burning itself, or people at risk.
+ */
+export type Relation = "caused" | "linked" | "burning" | "exposed";
+
 export type Drill = {
   label: string;
   to: string;
@@ -52,6 +60,11 @@ export type Drill = {
   crumb?: string;
   kicker?: string;
   preview?: Preview;
+  /**
+   * What this measurement means for people: the target node's own traced headline, copied when the node is resolved
+   * (lib/dash/chapters.ts), never computed. At most one per node, shown first.
+   */
+  soWhat?: { relation: Relation; headline?: Headline };
 };
 
 /** One data credit: the producers and licence in short, linking to the data page that carries the full attribution. */

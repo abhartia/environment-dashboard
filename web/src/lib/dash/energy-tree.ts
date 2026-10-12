@@ -2,7 +2,7 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
-import { area, bars, type Built, chapter, credit, headline, latestPeriod, line, points, ranking } from "@/lib/dash/kit";
+import { area, bars, type Built, chapter, credit, headline, latestPeriod, line, points, ranking, soWhat } from "@/lib/dash/kit";
 import type { Series } from "@/lib/dash/types";
 import { formatPeriod } from "@/lib/format";
 
@@ -101,6 +101,7 @@ function root(): Built {
     sentence: `of the world's electricity came from renewables and nuclear in ${latestPeriod(CLEAN)}, by Ember.`,
     chart: area([{ key: "clean", label: "Clean share of electricity", colour: CLEAN_COLOUR, points: points(CLEAN, "WLD"), drill: "mix" }], short, decimals, false),
     drills: [
+      soWhat("The smoke of coal power stations", "people:smoke-power", "burning"),
       { label: "What makes our electricity", to: "mix" },
       { label: "By country", to: "countries" },
       { label: "Month by month", to: "monthly" },

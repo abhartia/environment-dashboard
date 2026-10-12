@@ -8,7 +8,7 @@ export const CHAPTER_META = [
   { slug: "air", title: "Greenhouse gases", question: "How much has built up in the air?" },
   { slug: "heat", title: "Heat", question: "How much warmer is it, and who caused it?" },
   { slug: "oceans", title: "Seas and ice", question: "How much has the sea risen and the ice melted?" },
-  { slug: "people", title: "People", question: "What is heat doing to people?" },
+  { slug: "people", title: "People", question: "What do these changes mean for people?" },
   { slug: "food", title: "Food and land", question: "What does feeding ourselves do to the climate and the land?" },
   { slug: "action", title: "What can be done", question: "Which choices cut emissions most, and how much carbon is left?" },
   { slug: "zero", title: "Getting to zero", question: "What would it take to go from today's emissions to zero?" },

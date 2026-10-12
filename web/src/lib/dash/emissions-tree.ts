@@ -2,7 +2,7 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
-import { area, bars, type Built, chapter, credit, headline, latestPeriod, line, points as allPoints, ranking } from "@/lib/dash/kit";
+import { area, bars, type Built, chapter, credit, headline, latestPeriod, line, points as allPoints, ranking, soWhat } from "@/lib/dash/kit";
 import type { Dims } from "@/lib/dash/kit";
 import { buildGhg, ghgIds } from "@/lib/dash/ghg-nodes";
 import type { Drill, Series } from "@/lib/dash/types";
@@ -226,7 +226,7 @@ function fuels(): Built {
     headline: headline(BY_FUEL, "WLD", { fuel: largest.id }, year),
     sentence: `from ${largest.label.toLowerCase()}, in ${year}. Select a fuel to follow it.`,
     chart: area(s, ind.unit.short, ind.display.decimals, true),
-    drills: FUELS.map((f) => ({ label: f.label, to: `fuel-${f.id}` })),
+    drills: [soWhat("Early deaths from the smoke of coal, oil and gas", "people:smoke", "burning"), ...FUELS.map((f) => ({ label: f.label, to: `fuel-${f.id}` }))],
     credit: credit(BY_FUEL),
     indicators: [BY_FUEL],
   };

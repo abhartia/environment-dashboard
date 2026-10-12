@@ -5,6 +5,7 @@
 //  - "live"/"real-time" claims, fabricated social proof, or imperative advice ("you should") in visible text
 //  - implementation vocabulary in story copy (format names are fine on /data, /sources, /methods, /status)
 //  - a [data-indicator] that doesn't resolve in the catalogue, or whose indicator has no /data page
+//  - a link or button nested in another, or a home "so what" band without exactly one traced number
 //  - any file from a no-derivatives or display-only indicator under out/ (those values are shown, never served)
 //  - a data file in out/ that doesn't match data/SHA256SUMS (proves sync-data copied exactly)
 //  - a published (redistributable) indicator that no dashboard view shows
@@ -184,6 +185,28 @@ for (const f of files.filter((f) => f.endsWith(".html"))) {
   for (const [, id] of markup.matchAll(/\sdata-indicator="([^"]+)"/g)) {
     if (!indicators.has(id)) fail(`${page}: data-indicator="${id}" is not in data/v1/catalog.json`);
     else if (!existsSync(join(OUT, "data", `${id.split(".").join("/")}.html`))) fail(`${page}: ${id} has no data page`);
+  }
+
+  // A link or button inside another is invalid HTML: a tap's target is ambiguous and hydration rebuilds the tree.
+  const open = { a: 0, button: 0 };
+  for (const m of markup.matchAll(/<(\/?)(a|button)\b[^>]*>/g)) {
+    const [, closing, tag] = m;
+    if (closing) {
+      open[tag] = Math.max(0, open[tag] - 1);
+      continue;
+    }
+    if (open.a + open.button > 0) {
+      fail(`${page}: a <${tag}> inside another link or button near "${textOf(markup.slice(m.index, m.index + 200)).slice(0, 60)}"`);
+      break;
+    }
+    open[tag] += 1;
+  }
+
+  // Each home "so what" band shows exactly one traced number (data-sowhat-of names its band), so it has a source.
+  for (const [, key] of markup.matchAll(/\sdata-sowhat="([^"]+)"/g)) {
+    const numbers = [...markup.matchAll(new RegExp(`<a\\b[^>]*\\sdata-sowhat-of="${key}"[^>]*>`, "g"))];
+    if (numbers.length !== 1) fail(`${page}: the "${key}" band has ${numbers.length} traced numbers, expected 1`);
+    else if (!/\sdata-indicator="[^"]+"/.test(numbers[0][0])) fail(`${page}: the "${key}" band's number has no data-indicator`);
   }
 }
 

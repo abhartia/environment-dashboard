@@ -7,17 +7,27 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
 
 ## Shape
 
-- **Home** (`/`): the climate story on one screen. Six published series share one time axis in causal order: we burn
-  coal, oil and gas; carbon dioxide builds up in the air; the world warms (the stripes); the seas rise; the Arctic ice
-  shrinks; and the switch to clean power. On arrival a cursor sweeps from 1850 to today, each row drawing behind it
-  and each number reading the latest published value at that moment (never interpolated; before a record begins the
-  row says when it starts). Moving across the rows travels in time; selecting a row opens its chapter
-  (`lib/dash/story.ts`, `components/dash/story-timeline.tsx`).
+- **Home** (`/`): the climate story on one screen. Seven published series share one time axis in causal order: we
+  burn coal, oil and gas; carbon dioxide builds up in the air; the world warms (the stripes); its hottest days get
+  hotter; ice on land melts; the seas rise; and the switch to clean power. Each number says what it is measured against
+  (read from the producer's stated baseline: "above 1850–1900", "above the 1993 average"). Under each chart a **band**
+  says what that change means for people (for carbon dioxide, how unusual it is): the headline of the view it opens,
+  with that view's series drawn faintly on the same axis. On arrival a cursor sweeps from 1850 to today, each row
+  drawing behind it and each number reading the latest published value at that moment (never interpolated; before a
+  record begins the row says when it starts); a band appears once its own record begins, or once its claim became
+  true (the air passing the highest level in Antarctic ice); a value that belongs to a level of warming rather than a
+  year (the extremes band) appears only when the story comes to rest, since a level of warming is never turned into a
+  year. So the change is drawn first and what it means lands at the end. Moving across a chart travels in time;
+  selecting a row opens its chapter and a band opens the view it quotes (`lib/dash/story.ts`,
+  `components/dash/story-timeline.tsx`).
 - **Chapter** (`/emissions`, `/energy`, `/air`, `/heat`, `/oceans`, `/people`, `/food`, `/action`, `/zero`): a drill-down tree on
   one screen. Each **node** is one idea: a kicker (the page's `h1`), one big traced number, one sentence and one chart.
   The path so far reads across the top. There are no text buttons: a band, a line or a bar opens the next idea when
   it has one, and the other directions show as small cards carrying the next idea's kicker and the shape of its chart.
-  The open node is in the URL (`?v=<node>`), so the back button walks back up and any view can be shared.
+  A view whose change matters to people shows that first, as an ink **"so what" card**: the consequence view's own
+  traced number and its idea, under a few words saying how the two relate ("Caused by the warming", "Heat of any
+  cause", "From the burning itself", "People at risk"). The open node is in the URL (`?v=<node>`), so the back button
+  walks back up and any view can be shared.
 - **Data and sources** (`/data/...`, `/sources/...`) stay as they are: every number links to its data page and the
   Trace panel. The one-line credit under each view names the producers and licences and links to the data pages,
   which carry each licence's full attribution.
@@ -54,6 +64,16 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
 A drill target written `chapter:node` opens another chapter's view (`crossDrill` in `kit.ts` carries its title and
 chart shape).
 
+- **People** opens on hot extremes becoming more frequent: how many times as often a once-a-decade hottest day
+  comes at each level of warming (IPCC AR6 Figure SPM.6 data, modelled), with the hottest day of each year, heavy
+  downpours and drought one level down and, below each, the observed series (Lancet Countdown), plus where the IPCC found these extremes increasing
+  since the 1950s and its confidence in a human role (SPM.3). Its other views are what the changes mean for people:
+  heatwave days caused by the warming (and for babies and people over 65), deaths from heat of any cause and work lost,
+  children's lifetimes (Grant and others, 2025, projected), times people were forced from home by weather disasters
+  (IDMC, labelled as movements and not a trend, since monitoring grew), people living below high tide (Kulp and
+  Strauss, exposure, not flooding), early deaths from the smoke of burning coal, oil and gas (a harm of the burning
+  itself, not of the warming), and fires and their smoke. Each links back to the change it follows.
+
 ## How a node is made
 
 `web/src/lib/dash/<chapter>-tree.ts` builds every node at build time from `data/` through `web/src/lib/dash/kit.ts`
@@ -67,7 +87,14 @@ orders and labels published observations:
 - Node files are public (`/dash-data/<chapter>/<node>.json`), so the kit throws on any `no-derivatives` or
   `display-only` indicator.
 - Every indicator we may redistribute is shown by at least one node: check-build fails on a published dataset that
-  no node draws. A new dataset goes one level below the node it explains, never onto an existing screen.
+  no node draws. A new dataset goes one level below the node it explains, never onto an existing screen. The one
+  exception is a "so what" (a home band or a chapter card): it shows another view's own headline and kicker, copied
+  when the node is resolved and never computed, so a change and what it means are on one screen.
+- `crossTo` and `soWhat` name a node in another chapter (`people:coasts`) without building it; `resolvedNode`
+  (`lib/dash/chapters.ts`) fills it in one level deep when the node file is written, so two chapters can point at each
+  other. It throws on a node with more than one "so what", and on a "caused by the warming" card whose value the
+  producer does not attribute to the warming. The home bands check the same way that their latest value is the target
+  view's headline, and their words carry no digit.
 
 `chapter()` also gives each choice the next node's crumb, kicker and a thumbnail of its chart (every k-th point, or
 the first few bars), so the cards can show where they lead before anything is fetched.

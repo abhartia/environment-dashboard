@@ -3,7 +3,7 @@ import "server-only";
 import { indicator } from "@/lib/data";
 import { entityName } from "@/lib/dash/entities";
 import { food } from "@/lib/dash/food-tree";
-import { area, bars, type Built, credit, crossDrill, dimLabel, headline, latestPeriod, line, points, ranking } from "@/lib/dash/kit";
+import { area, bars, type Built, credit, crossDrill, dimLabel, headline, latestPeriod, line, points, ranking, soWhat } from "@/lib/dash/kit";
 import type { Drill } from "@/lib/dash/types";
 
 /**
@@ -73,6 +73,7 @@ export function ghgRoot(): Built {
   const { short, decimals } = u(GHG_SECTOR);
   const h = headline(GHG_TOTAL, "WLD");
   const drills: Drill[] = [
+    soWhat("Early deaths from the smoke of coal, oil and gas", "people:smoke", "burning"),
     { label: "Food and farming", to: "food-system" },
     { label: "Which gases", to: "gases" },
     { label: "Carbon dioxide from fuel and land", to: "co2" },

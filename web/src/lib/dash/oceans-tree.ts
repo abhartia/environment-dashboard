@@ -2,7 +2,7 @@ import "server-only";
 
 import { indicator } from "@/lib/data";
 import { formatPeriod } from "@/lib/format";
-import { bars, type Built, chapter, credit, headline, line, periodToX, points } from "@/lib/dash/kit";
+import { baseline, bars, type Built, chapter, credit, headline, line, periodToX, points, soWhat } from "@/lib/dash/kit";
 import type { Series, SeriesPoint } from "@/lib/dash/types";
 
 /**
@@ -80,6 +80,7 @@ function root(): Built {
     sentence: "higher than the 1993 average, measured from space by satellite altimetry (AVISO), in the latest month.",
     chart: line([{ key: "gmsl", label: "Global mean sea level, from 1993", colour: SEA, points: points(GMSL, "WLD"), drill: "sources" }], short, decimals),
     drills: [
+      soWhat("People living below high tide", "people:coasts", "exposed"),
       { label: "Where the water comes from", to: "sources" },
       { label: "How fast it is rising", to: "rate" },
       { label: "Heat stored in the ocean", to: "heat" },
@@ -111,19 +112,20 @@ function rate(): Built {
 }
 
 function sources(): Built {
-  const { short, decimals } = u(SLR_GRL);
+  const { short, decimals } = u(SLR_GLACIERS);
+  const h = headline(SLR_GLACIERS, "WLD");
   const s: Series[] = [
     { key: "greenland", label: "Greenland Ice Sheet (from 1971)", colour: GREENLAND, points: points(SLR_GRL, "GRL"), drill: "greenland" },
     { key: "antarctica", label: "Antarctic Ice Sheet (from 1979)", colour: ANTARCTICA, points: points(SLR_ATA, "ATA"), drill: "antarctica" },
-    { key: "glaciers", label: "Mountain glaciers (from 1975)", colour: GLACIERS, points: points(SLR_GLACIERS, "WLD"), drill: "glaciers" },
+    { key: "glaciers", label: `Mountain glaciers (${baseline(SLR_GLACIERS)})`, colour: GLACIERS, points: points(SLR_GLACIERS, "WLD"), drill: "glaciers" },
   ];
   return {
     id: "sources",
     parent: "root",
     crumb: "Melting ice",
     kicker: "Melting ice adds to the sea",
-    headline: headline(SLR_GRL, "GRL"),
-    sentence: "of sea level rise from Greenland's melting ice sheet alone. Warmer water also takes up more room. Select an ice source.",
+    headline: h,
+    sentence: `of sea level rise from the world's mountain glaciers alone ${baseline(SLR_GLACIERS)}, by the World Glacier Monitoring Service, to ${h.period}. Greenland's and Antarctica's ice sheets add their own; warmer water also takes up more room. Select an ice source.`,
     chart: line(s, short, decimals),
     drills: [
       { label: "Greenland", to: "greenland" },
@@ -278,7 +280,8 @@ function seaIce(): Built {
     crumb: "Arctic sea ice",
     kicker: "Arctic sea ice at its yearly low",
     headline: headline(SEA_ICE, "NH"),
-    sentence: "of Arctic Ocean covered by ice in September, by NSIDC's Sea Ice Index. The second line is Europe's independent OSI SAF record.",
+    sentence:
+      "of Arctic Ocean covered by ice in September, by NSIDC's Sea Ice Index. The second line is Europe's independent OSI SAF record. Sea ice floats, so its melting barely changes sea level.",
     chart: line(
       [
         { key: "nsidc", label: "NSIDC (US)", colour: SEA, points: points(SEA_ICE, "NH"), drill: "sea-ice-low" },

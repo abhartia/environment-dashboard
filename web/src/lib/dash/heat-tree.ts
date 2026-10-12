@@ -3,7 +3,7 @@ import "server-only";
 import { indicator } from "@/lib/data";
 import { calendarPeriod, formatPeriod } from "@/lib/format";
 import { entityName } from "@/lib/dash/entities";
-import { bars, type Built, chapter, credit, headline, latestPeriod, line, periodToX, points, ranking } from "@/lib/dash/kit";
+import { bars, type Built, chapter, credit, headline, latestPeriod, line, periodToX, points, ranking, soWhat } from "@/lib/dash/kit";
 import type { Bar, Drill, Series, SeriesPoint } from "@/lib/dash/types";
 
 /**
@@ -60,6 +60,7 @@ function root(): Built {
     sentence: `above the 1850–1900 average, by the Met Office Hadley Centre and University of East Anglia record, in ${latestPeriod(HADCRUT)}.`,
     chart: line([{ key: "hadcrut", label: "HadCRUT5, above 1850–1900", colour: WARM, points: points(HADCRUT, "WLD"), drill: "agree" }], short, decimals),
     drills: [
+      soWhat("Hot extremes, more often", "people:root", "caused"),
       { label: "Do other records agree?", to: "agree" },
       { label: "How much did people cause?", to: "human" },
       { label: "This year, month by month", to: "monthly" },
@@ -110,6 +111,7 @@ function human(): Built {
     sentence: `of warming caused by human activity in ${latestPeriod(HUMAN)}, by the Indicators of Global Climate Change assessment. The grey line is what thermometers measured.`,
     chart: line(s, short, decimals),
     drills: [
+      soWhat("Heatwave days caused by the warming", "people:heatwaves", "caused"),
       { label: "IGCC's figure for the latest year", to: "human-year" },
       { label: "Which countries caused it?", to: "causers" },
     ],

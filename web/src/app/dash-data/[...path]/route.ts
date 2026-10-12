@@ -1,4 +1,4 @@
-import { CHAPTERS } from "@/lib/dash/chapters";
+import { CHAPTERS, resolvedNode } from "@/lib/dash/chapters";
 
 /**
  * Each dashboard node as a small static JSON file: /dash-data/<chapter>/<node>.json. The browser fetches the next
@@ -15,5 +15,5 @@ export async function GET(_req: Request, { params }: { params: Promise<{ path: s
   const [chapter, file] = (await params).path;
   const c = CHAPTERS[chapter];
   if (!c || !file?.endsWith(".json")) return new Response("Not found", { status: 404 });
-  return Response.json(c.node(file.slice(0, -".json".length)));
+  return Response.json(resolvedNode(chapter, file.slice(0, -".json".length)));
 }

@@ -47,7 +47,9 @@ exact file, fetch date, sha256, the transformation applied, and the licence. Tha
     observations through `lib/dash/kit.ts`; it never computes a value. Its sentence carries no typed data number, and
     a kicker that asserts something ("X is the largest source") is derived from the data or checked by the tree so
     a refresh that falsifies it fails the build. Node files are public downloads, so the kit refuses `no-derivatives`
-    and `display-only` indicators.
+    and `display-only` indicators. A "so what" (a home band or a chapter card saying what a change
+    means for people) shows another view's own headline, copied when the node is resolved and checked against it;
+    "caused by the warming" only where the producer attributes the value to it.
 12. **Voice** follows `docs/style.md`: plain words, units spelled out, options described by their measured effect
     and range, never in the imperative. No "live" or "real-time" claims. **No financial advice**: no savings,
     payback, tariff or investment guidance.
