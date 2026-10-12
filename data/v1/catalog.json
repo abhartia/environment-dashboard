@@ -515,6 +515,74 @@
     },
     {
       "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["WLD"],
+      "export_sha256": "8239d03aadc371e088b039efb9fd98eb986221f0d62c5fb0d9a86f270989f2fd",
+      "geo_coverage": "global-only",
+      "id": "air-pollution.lelieveld-2023.fossil-deaths",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2019",
+        "status": "final",
+        "value": 5126627.0
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Calculated by Environment Dashboard from Pozzer, A. (2023). Fossil fuel-attributable air pollution deaths, version 2. Edmond, Max Planck Society. doi:10.17617/3.T7XAXH. CC0 1.0. Data for Lelieveld, J., Haines, A., Burnett, R., Tonne, C., Klingmüller, K., Münzel, T. & Pozzer, A. (2023). Air pollution deaths attributable to fossil fuels: observational and modelling study. BMJ 383, e077784. doi:10.1136/bmj-2023-077784. Changes: the deaths in the run without fossil fuels subtracted from those in the reference run (world, all causes, fine particles and ozone).",
+        "description": "Excess deaths worldwide in 2019 from breathing outdoor fine particles (PM2.5) and ozone from burning coal, oil and gas, as modelled by Lelieveld and colleagues (BMJ, 2023): a harm of the burning itself, not of the warming. Calculated from the authors' deposited model runs as the deaths in the reference run less those in a run with all fossil-fuel emissions removed, as the paper defines them. The paper's 95% confidence interval is quoted with the value; a range cannot be calculated by subtracting two ranges, so none is calculated here. A twin of the Lancet Countdown's estimate (indicator 3.2.1), from a different model; the two are never combined.",
+        "kind": "derived",
+        "licence": {
+          "name": "CC0 1.0",
+          "spdx": "CC0-1.0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "mortality-region-2019-ref", "bytes": 17085, "citation_full": "Pozzer, Andrea, 2023, \"Fossil fuel-attributable air pollution deaths\", https://doi.org/10.17617/3.T7XAXH, Edmond, V2", "date_accessed": "2026-10-12", "date_published": "2023-11-23", "doi": "10.17617/3.T7XAXH", "etag": "\"d7a8158da797fd01950a313f52144f72\"", "last_modified": "Sat, 17 May 2025 16:49:20 GMT", "licence": {"name": "CC0 1.0", "spdx": "CC0-1.0", "url": "https://creativecommons.org/publicdomain/zero/1.0/"}, "producer": "Max Planck Institute for Chemistry (J. Lelieveld, A. Haines, R. Burnett, C. Tonne, K. Klingmüller, T. Münzel and A. Pozzer); deposited by A. Pozzer in Edmond, the Max Planck Society's research data repository", "r2_url": "https://files.environmentdashboard.org/raw/37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb.zst", "sha256": "37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb", "source_id": "lelieveld-2023", "title": "Deaths from outdoor air pollution with and without fossil fuels, 2019 (Lelieveld et al. 2023, data deposit)", "url_download": "https://edmond.mpg.de/api/access/datafile/236841", "url_main": "https://doi.org/10.17617/3.T7XAXH", "version_producer": "Edmond dataset version 2 (2023-11-23)", "wayback_url": null},
+          {"acquisition": "automatic", "artifact_id": "mortality-region-2019-no-fossil", "bytes": 17118, "citation_full": "Pozzer, Andrea, 2023, \"Fossil fuel-attributable air pollution deaths\", https://doi.org/10.17617/3.T7XAXH, Edmond, V2", "date_accessed": "2026-10-12", "date_published": "2023-11-23", "doi": "10.17617/3.T7XAXH", "etag": "\"3be16ab53e3f0f223a66ea4eb22919a5\"", "last_modified": "Sat, 17 May 2025 16:49:20 GMT", "licence": {"name": "CC0 1.0", "spdx": "CC0-1.0", "url": "https://creativecommons.org/publicdomain/zero/1.0/"}, "producer": "Max Planck Institute for Chemistry (J. Lelieveld, A. Haines, R. Burnett, C. Tonne, K. Klingmüller, T. Münzel and A. Pozzer); deposited by A. Pozzer in Edmond, the Max Planck Society's research data repository", "r2_url": "https://files.environmentdashboard.org/raw/5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010.zst", "sha256": "5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010", "source_id": "lelieveld-2023", "title": "Deaths from outdoor air pollution with and without fossil fuels, 2019 (Lelieveld et al. 2023, data deposit)", "url_download": "https://edmond.mpg.de/api/access/datafile/236835", "url_main": "https://doi.org/10.17617/3.T7XAXH", "version_producer": "Edmond dataset version 2 (2023-11-23)", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the WORLD row of mortality_region_2019_ref.xlsx (the reference model run) and of mortality_region_2019_noFF.xlsx (the run with all fossil-fuel emissions removed) from the Edmond deposit of Lelieveld et al. 2023: column 'NCD+LRI+LRI5-+CPO3', excess deaths in 2019 from all causes due to outdoor fine particles and ozone. Checked that both files list the same regions with the same population, and that the reference total and its 95% confidence limits round to the paper's printed 8.34 million (5.63, 11.19 million).",
+            "inputs": ["37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb", "5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lelieveld_2023.py",
+            "transform_sha256": "81c07c7da3da14543f6d3ca3876442d6508822080ca60165e4bb8d2762d9932a"
+          },
+          {
+            "description": "Subtracted the deaths without fossil fuels from those of the reference run, in exact decimal arithmetic on the stored values: the deaths the paper attributes to fossil-fuel emissions. Confidence limits cannot be subtracted, so no range is calculated; the observation quotes the paper's own 95% confidence interval.",
+            "inputs": ["37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb", "5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lelieveld_2023.py",
+            "transform_sha256": "81c07c7da3da14543f6d3ca3876442d6508822080ca60165e4bb8d2762d9932a"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Modelled excess deaths from all causes due to long-term exposure to outdoor fine particles (PM2.5) and ozone in 2019: exposure from the EMAC atmospheric chemistry model (2019 emissions and meteorology) combined with NASA satellite-based fine particles and population, and deaths from Burnett and colleagues' FUSION relative-risk model applied to Global Burden of Disease 2019 baseline mortality. Deaths from fossil fuels are the reference run less a run with every fossil-fuel emission removed at once. The authors give three reasons their estimate is higher than most earlier ones: the new relative-risk model, counting deaths from all causes as well as from specific diseases, and the large fall in exposure when fossil fuels are removed entirely.",
+          "bunkers": null,
+          "geography": "World",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["lelieveld-2023"],
+      "time_basis": "calendar",
+      "title": "Deaths from fossil-fuel air pollution (fine particles and ozone), world (Lelieveld et al. 2023)",
+      "unit": {
+        "code": "deaths",
+        "label": "deaths",
+        "short": "deaths"
+      },
+      "vintage": "Edmond dataset version 2 (2023-11-23)"
+    },
+    {
+      "display": {
         "decimals": 1
       },
       "downloadable": true,

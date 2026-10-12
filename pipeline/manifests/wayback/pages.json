@@ -725,6 +725,12 @@
     "status": "refused",
     "url": null
   },
+  "https://doi.org/10.17617/3.T7XAXH": {
+    "captured_at": null,
+    "reason": "The target server cannot find https://doi.org/10.17617/3.T7XAXH. (HTTP status=404)",
+    "status": "refused",
+    "url": null
+  },
   "https://doi.org/10.3390/en12030542": {
     "captured_at": null,
     "reason": "The target server cannot find https://doi.org/10.3390/en12030542. (HTTP status=404)",
@@ -824,6 +830,24 @@
   "https://edgar.jrc.ec.europa.eu/report_2026": {
     "captured_at": null,
     "reason": "job spn2-baf207a9ae5d5b82aa6301727daa1f498697768b still running after 6 polls",
+    "status": "pending",
+    "url": null
+  },
+  "https://edmond.mpg.de/api/access/datafile/236835": {
+    "captured_at": null,
+    "reason": "job spn2-578ca8e84a3ccf80bf1eabcea6c443cbaf32863f still running after 6 polls",
+    "status": "pending",
+    "url": null
+  },
+  "https://edmond.mpg.de/api/access/datafile/236841": {
+    "captured_at": null,
+    "reason": "job spn2-4582ac0c270523b6b4635adb207f65f4d07c2d25 still running after 6 polls",
+    "status": "pending",
+    "url": null
+  },
+  "https://edmond.mpg.de/api/datasets/:persistentId/?persistentId=doi:10.17617/3.T7XAXH": {
+    "captured_at": null,
+    "reason": "job spn2-cbab5ce6b3b0fb18aa7d6c8f75a4b88f6928e688 still running after 6 polls",
     "status": "pending",
     "url": null
   },

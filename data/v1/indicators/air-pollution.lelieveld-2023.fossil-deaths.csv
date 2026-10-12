@@ -1,0 +1,8 @@
+# Deaths from fossil-fuel air pollution (fine particles and ozone), world (Lelieveld et al. 2023)
+# Indicator: air-pollution.lelieveld-2023.fossil-deaths (vintage Edmond dataset version 2 (2023-11-23)); unit: deaths (deaths)
+# Source: Max Planck Institute for Chemistry (J. Lelieveld, A. Haines, R. Burnett, C. Tonne, K. Klingmüller, T. Münzel and A. Pozzer); deposited by A. Pozzer in Edmond, the Max Planck Society's research data repository <https://doi.org/10.17617/3.T7XAXH>
+# Credit: Calculated by Environment Dashboard from Pozzer, A. (2023). Fossil fuel-attributable air pollution deaths, version 2. Edmond, Max Planck Society. doi:10.17617/3.T7XAXH. CC0 1.0. Data for Lelieveld, J., Haines, A., Burnett, R., Tonne, C., Klingmüller, K., Münzel, T. & Pozzer, A. (2023). Air pollution deaths attributable to fossil fuels: observational and modelling study. BMJ 383, e077784. doi:10.1136/bmj-2023-077784. Changes: the deaths in the run without fossil fuels subtracted from those in the reference run (world, all causes, fine particles and ozone).
+# Licence: CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0/>
+# Provenance and processing: https://environmentdashboard.org/data/air-pollution/lelieveld-2023/fossil-deaths
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
+air-pollution.lelieveld-2023.fossil-deaths,WLD,2019,5126627.0,,,,final,"Lelieveld et al. 2023 (BMJ 383: e077784), abstract: ""An estimated 5.13 million (3.63 to 6.32) excess deaths per year globally are attributable to ambient air pollution from fossil fuel use and therefore could potentially be avoided by phasing out fossil fuels."" The range in brackets is the paper's 95% confidence interval.",,

@@ -1,0 +1,123 @@
+# Lelieveld, Haines, Burnett, Tonne, Klingmüller, Münzel & Pozzer (2023), BMJ 383: e077784: deaths from outdoor
+# fine-particle (PM2.5) and ozone air pollution in 2019, in a reference model run and in runs with emissions removed
+# (no fossil fuels, half or a quarter of them, no human-made emissions), deposited by the authors as the data behind
+# the article.
+# Evidence: docs/research/sources-consequences-2026-10-11.json (research[5] candidate 1 and verification[5] verdict 1,
+# "confirmed", class open). Registered as the twin of the Lancet Countdown's indicator 3.2.1 (docs/style.md: "If two
+# respected sources disagree, show both and say why").
+# Checked 2026-10-12:
+#   - The deposit, not the article, is the source. The Dataverse API dataset record (terms_url) returned HTTP 200,
+#     application/json, 12,732 bytes: versionState RELEASED, version 2.0, releaseTime 2023-11-23T13:04:44Z, licence
+#     {"name":"CC0 1.0","uri":"http://creativecommons.org/publicdomain/zero/1.0","rightsIdentifier":"CC0-1.0"}. There
+#     are no termsOfUse or termsOfAccess fields and every file is restricted: false. Its only author is A. Pozzer (the
+#     depositor, Max Planck Institute for Chemistry); its software field names EMAC (www.messy-interface.org).
+#   - The article (doi:10.1136/bmj-2023-077784; Europe PMC PMC10686100, full-text XML HTTP 200, 130,936 bytes, sha256
+#     9bf18359c8a6fa9bee9f3ee9c11ba78c7b80f45b9b93a38c4ebad2160b921039) is under a different licence: "This is an Open
+#     Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0)
+#     license". It is not fetched or re-hosted. Its abstract sentence with the printed 5.13 million and its 95%
+#     confidence interval, and the 8.34 million (95% confidence interval 5.63 to 11.19) for all outdoor air pollution,
+#     were read in that XML; the first is quoted once, with its citation, as the publisher check and on the
+#     observation, and the transform checks the second against the reference file. Its "Web extra" list names these
+#     region and country files as its web appendix.
+#   - Files, through the official Dataverse API (/api/access/datafile/<id> answers 303 with a signed GWDG S3 URL that
+#     expires after a day, so conditional requests are off). Both are the "tables" folder of version 2, created
+#     2023-11-17; the md5 in the dataset record matched the bytes:
+#       236841 mortality_region_2019_ref.xlsx   17,085 bytes  md5 d7a8158da797fd01950a313f52144f72
+#              sha256 37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb
+#       236835 mortality_region_2019_noFF.xlsx  17,118 bytes  md5 3be16ab53e3f0f223a66ea4eb22919a5
+#              sha256 5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010
+#     Each has one sheet of 27 rows: the 7 GBD super-regions, their regions and WORLD, with population and, for every
+#     cause of death and the all-cause totals, the value and the 95% confidence limits. The WORLD row of the
+#     'NCD+LRI+LRI5-+CPO3' column (all causes, fine particles and ozone) is 8,341,770 in the reference run (the
+#     paper's 8.34 million, 95% confidence interval 5.63 to 11.19) and 3,215,143 without fossil fuels; the difference,
+#     5,126,627, is the paper's 5.13 million.
+#   - citation.text is the deposit's citation from the Dataverse API (/versions/2.0/citation), with its link markup
+#     removed. The repository page adds a community norm, not a licence condition: "Our Community Norms as well as good
+#     scientific practices expect that proper credit is given via citation", so the credit names the deposit and the
+#     article.
+# Not used: the country files (236836 ref, 236837 noFF and the others; country names carry trailing tabs and need a
+# crosswalk to ISO codes, and a single year is a map, not a time series), the half and quarter phase-out and
+# no-anthropogenic scenarios, the cause-specific columns, and code.tar.gz (1.27 GB of model code).
+# The model takes Global Burden of Disease 2019 baseline mortality (IHME) as an input; the deposited outputs are the
+# authors' modelled deaths, licensed CC0 by them, as the Lancet Countdown's 1.1.5 publishes its own deaths built on GBD
+# inputs.
+id: lelieveld-2023
+title: Deaths from outdoor air pollution with and without fossil fuels, 2019 (Lelieveld et al. 2023, data deposit)
+publisher: >-
+  Max Planck Institute for Chemistry (J. Lelieveld, A. Haines, R. Burnett, C. Tonne, K. Klingmüller, T. Münzel and A.
+  Pozzer); deposited by A. Pozzer in Edmond, the Max Planck Society's research data repository
+landing_url: https://doi.org/10.17617/3.T7XAXH
+description: >-
+  The data behind Lelieveld et al. 2023 (BMJ): modelled excess deaths from all causes due to outdoor fine particles
+  (PM2.5) and ozone in 2019, for the world, 27 Global Burden of Disease regions and 200 countries, in a reference run
+  and in runs with all fossil-fuel emissions removed, half or a quarter of them removed, and all human-made emissions
+  removed. Exposure comes from the EMAC atmospheric chemistry model with 2019 emissions and NASA satellite-based fine
+  particles; deaths come from the FUSION relative-risk model applied to Global Burden of Disease 2019 baseline
+  mortality. Deaths are modelled, not counted.
+citation:
+  type: dataset
+  title: Fossil fuel-attributable air pollution deaths
+  author:
+    - {family: Pozzer, given: Andrea}
+  issued: "2023"
+  publisher: Edmond (Max Planck Society)
+  version: V2
+  DOI: 10.17617/3.T7XAXH
+  URL: https://doi.org/10.17617/3.T7XAXH
+  text: >-
+    Pozzer, Andrea, 2023, "Fossil fuel-attributable air pollution deaths", https://doi.org/10.17617/3.T7XAXH, Edmond,
+    V2
+licence_class: open
+licence:
+  name: CC0 1.0
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+evidence:
+  # The licence field of the repository's own dataset record (Dataverse API), as served.
+  terms_url: https://edmond.mpg.de/api/datasets/:persistentId/?persistentId=doi:10.17617/3.T7XAXH
+  licence_quote: >-
+    "license":{"name":"CC0 1.0","uri":"http://creativecommons.org/publicdomain/zero/1.0"
+  checked_on: 2026-10-12
+  terms_check: api
+obligations:
+  # CC0 asks for nothing; the credit follows the repository's community norm and cites the article the files belong to.
+  attribution: >-
+    Pozzer, A. (2023). Fossil fuel-attributable air pollution deaths, version 2. Edmond, Max Planck Society.
+    doi:10.17617/3.T7XAXH. CC0 1.0. Data for Lelieveld, J., Haines, A., Burnett, R., Tonne, C., Klingmüller, K.,
+    Münzel, T. & Pozzer, A. (2023). Air pollution deaths attributable to fossil fuels: observational and modelling
+    study. BMJ 383, e077784. doi:10.1136/bmj-2023-077784.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Pozzer, A. (2023). Fossil fuel-attributable air pollution deaths, version
+    2. Edmond, Max Planck Society. doi:10.17617/3.T7XAXH. CC0 1.0. Data for Lelieveld, J., Haines, A., Burnett, R.,
+    Tonne, C., Klingmüller, K., Münzel, T. & Pozzer, A. (2023). Air pollution deaths attributable to fossil fuels:
+    observational and modelling study. BMJ 383, e077784. doi:10.1136/bmj-2023-077784.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: mortality-region-2019-ref
+    url: https://edmond.mpg.de/api/access/datafile/236841
+    format: xlsx
+    description: >-
+      mortality_region_2019_ref.xlsx (Dataverse file 236841), the reference run: for the world, the 7 GBD
+      super-regions and their regions in 2019, population (millions) and excess deaths from outdoor fine particles and
+      ozone by cause (lower respiratory infections in children and adults, ischaemic heart disease, stroke, diabetes,
+      lung cancer, COPD, ozone COPD, others) and in total, each with its 95% confidence limits. 17,085 bytes.
+    access: {conditional: false}
+  - id: mortality-region-2019-no-fossil
+    url: https://edmond.mpg.de/api/access/datafile/236835
+    format: xlsx
+    description: >-
+      mortality_region_2019_noFF.xlsx (Dataverse file 236835): the same table for the run with all fossil-fuel
+      emissions removed. 17,118 bytes.
+    access: {conditional: false}
+status:
+  state: archived
+  note: >-
+    Deposited on 17 November 2023 with the article (BMJ, published 29 November 2023); version 2 released on 23
+    November 2023. A one-off study for the year 2019; no update is planned. Not a US federal product.
+  us_federal: false
+update_cadence: One-off (deposited 2023)
+twins: [lancet-countdown-2025]
+research_ref: >-
+  docs/research/sources-consequences-2026-10-11.json#Lelieveld et al. 2023 (BMJ): fossil-fuel-attributable air
+  pollution deaths, country and region files (EDMOND deposit)

@@ -245,6 +245,37 @@ Lancet 1.2.1, 1.2.2, 1.2.3 and 3.2.1 entries). Workbooks 3.2.1, 1.2.1 (mortality
 - **Upstream credits.** 1.2.2 names SPEI without a version (SPEIbase is ODbL), so the notice credits SPEI. The Copernicus
   notice now names only the indicators computed from ERA5 or ERA5-Land (1.1.1, 1.1.3, 1.1.5 and 1.2.3).
 
+## Decision on a second estimate of deaths from fossil-fuel air pollution: Lelieveld et al. 2023 (2026-10-12)
+
+Evidence: docs/research/sources-consequences-2026-10-11.json (research[5] candidate 1 and verification[5] verdict 1).
+The Lancet Countdown's 3.2.1 gives 2.52 million deaths in 2022; Lelieveld et al. (BMJ 383: e077784) give about 5.13
+million in 2019. Respected sources that disagree are shown side by side (docs/style.md), so Lelieveld is registered as
+a twin of `lancet-countdown-2025`.
+
+- **The data deposit, not the article** (`lelieveld-2023`, CC0 1.0, open). The authors deposited the model output in
+  Edmond, the Max Planck Society's repository (doi:10.17617/3.T7XAXH, version 2, 23 November 2023); the licence is read
+  from the repository's Dataverse API record, which also serves the files. The BMJ article is CC BY-NC 4.0 and is not
+  fetched or re-hosted: only its abstract sentence with the printed figure and its 95% confidence interval is quoted,
+  with its citation, as the publisher check and on the observation. The repository's community norm asks for a
+  citation, so the credit names the deposit and the article.
+- **One subtraction inside one source.** `air-pollution.lelieveld-2023.fossil-deaths` is the WORLD row of the
+  all-cause, fine-particle-plus-ozone column ('NCD+LRI+LRI5-+CPO3') in the reference run (mortality_region_2019_ref)
+  less the same cell in the run without fossil fuels (mortality_region_2019_noFF), which is how the paper defines
+  fossil-fuel deaths: 5,126,627, checked against the abstract's 5.13 million. It is kind `derived`, credited
+  "Calculated by Environment Dashboard from …". The reference total and its confidence limits must round to the
+  abstract's 8.34 million (5.63 to 11.19), which confirms the column read. Confidence limits cannot be subtracted, so no
+  range is calculated; the note quotes the paper's own interval (3.63 to 6.32 million).
+- **Why they differ, as the producers describe their methods.** Lelieveld counts ozone as well as fine particles and
+  removes every fossil-fuel emission at once in a second run of the EMAC model (2019, with NASA satellite-based fine
+  particles); the authors attribute their higher estimate to the new FUSION relative-risk model, counting deaths from
+  all causes as well as from specific diseases, and the large fall in exposure when fossil fuels are removed entirely.
+  The Lancet Countdown counts fine particles alone and shares deaths out by sector and fuel with IIASA's GAINS model
+  (meteorology fixed at 2015). The years differ too. The two are never added, averaged or drawn as one series.
+- **Not used yet.** The country files (names with trailing tabs, which need a crosswalk to ISO codes), the half and
+  quarter phase-out and no-anthropogenic runs, the cause-specific columns, and the 1.27 GB model code. In the country
+  files the model leaves almost no deaths in some high-income countries without fossil fuels (Germany 0), a property of
+  the model that a country view would have to explain.
+
 ## Decisions on what the measurements mean for people (2026-10-12)
 
 Evidence: docs/research/sources-consequences-2026-10-11.json (coasts, and the critic's section 4).

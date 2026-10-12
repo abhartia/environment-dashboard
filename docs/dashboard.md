@@ -72,7 +72,9 @@ chart shape).
   children's lifetimes (Grant and others, 2025, projected), times people were forced from home by weather disasters
   (IDMC, labelled as movements and not a trend, since monitoring grew), people living below high tide (Kulp and
   Strauss, exposure, not flooding), early deaths from the smoke of burning coal, oil and gas (a harm of the burning
-  itself, not of the warming), and fires and their smoke. Each links back to the change it follows.
+  itself, not of the warming; one level down, Lelieveld and others' higher estimate from another model sits beside the
+  Lancet Countdown's, never blended, with the sentence saying how the two models differ), and fires and their smoke.
+  Each links back to the change it follows.
 
 ## How a node is made
 

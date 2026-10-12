@@ -51,6 +51,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `rosenow-2025` | Jan Rosenow, Jacob Barnes, Ray Galvin, Samuel O'Mara and Richard Lowes (University of Oxford, University of Cambridge, Gemserv, University of Exeter); published in iScience (Cell Press) | CC BY 4.0 | open | yes | automatic | 2026-10-08 (api) |
 | `lovering-2022` | Lovering, Swain, Blomqvist and Hernandez (University of Michigan, Breakthrough Institute, University of California Davis); published in PLOS ONE (Public Library of Science) | CC BY 4.0 | open | yes | automatic | 2026-10-08 (api) |
 | `grant-2025` | Luke Grant, Inne Vanderkelen, Lukas Gudmundsson, Erich Fischer, Sonia I. Seneviratne and Wim Thiery (Vrije Universiteit Brussel, Environment and Climate Change Canada, KU Leuven, Royal Meteorological Institute of Belgium and ETH Zurich); published in Nature (Springer Nature) | CC BY 4.0 | open | yes | automatic | 2026-10-12 (api) |
+| `lelieveld-2023` | Max Planck Institute for Chemistry (J. Lelieveld, A. Haines, R. Burnett, C. Tonne, K. Klingmüller, T. Münzel and A. Pozzer); deposited by A. Pozzer in Edmond, the Max Planck Society's research data repository | CC0 1.0 | open | yes | automatic | 2026-10-12 (api) |
 | `hadsst4` | Met Office Hadley Centre | Open Government Licence v3.0 (Crown copyright) | open | yes | automatic | 2026-10-04 (page) |
 | `hadcrut5` | Met Office Hadley Centre and University of East Anglia Climatic Research Unit | Open Government Licence v3.0 (Crown copyright) | open | yes | automatic | 2026-10-04 (page) |
 | `gistemp-v4` | NASA Goddard Institute for Space Studies | Public domain (work of the US federal government) | open | yes | automatic | 2026-10-04 (page) |
@@ -112,4 +113,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-107 sources: 87 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
+108 sources: 88 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
