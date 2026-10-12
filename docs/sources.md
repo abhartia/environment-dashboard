@@ -217,6 +217,34 @@ the book is typed into the site.
   obtained through the IEA and that historical data may come from the IEA World Energy Statistics Database. The
   existing `unsd-energy` views stay as they are until UNSD answers (owner, 2026-10-08); no new view uses UNSD.
 
+## Decisions on the Lancet Countdown 2025 additions (2026-10-12)
+
+Evidence: docs/research/sources-consequences-2026-10-11.json and docs/research/sources-extremes-2026-10-12.json (the
+Lancet 1.2.1, 1.2.2, 1.2.3 and 3.2.1 entries). Workbooks 3.2.1, 1.2.1 (mortality), 1.2.2 and 1.2.3 became artifacts of
+`lancet-countdown-2025` (CC BY-NC-SA 4.0, noncommercial), and the 1.1.1 vulnerable-populations workbook, registered on
+2026-10-04, got its transform. Only the Global sheets are read.
+
+- **3.2.1 is used although IEA World Energy Balances are among its inputs.** Those balances are rejected below for
+  redistribution. Here they are one input to IIASA's GAINS model: the workbook publishes the authors' modelled deaths,
+  death rates and PM2.5 concentrations and no IEA values, and only the deaths are used. Its third-party clause ("subject
+  to the license terms from the original third-party authors") is recorded in the registry. The owner is to confirm
+  this reading.
+- **One sum, inside one file.** `air-pollution.lancet-2025.fossil-deaths` adds the coal and the liquids-and-gas deaths
+  over the seven sectors of the 3.2.1 Global sheet, as the report's own key finding does, and is checked against it
+  (2.68 million in 2010 and 2.52 million in 2022; the sums are 2,677,081 and 2,522,076). It is kind `derived`, credited
+  "Calculated by Environment Dashboard from …". Nothing is added across workbooks or sources.
+- **What each may say.** Wildfire-smoke deaths count all fire smoke and are not attributed to climate change. Deaths
+  from fossil-fuel air pollution are a harm of the burning itself, not of the warming. The drought share is a
+  meteorological index (SPEI-6, against 1986–2005) that warmer air itself pushes towards drought; it is not drought
+  caused by climate change, nor water or crop shortage. Extreme-rainfall days come from the ERA5-Land reanalysis, which
+  does not directly assimilate rain-gauge data, and are not floods. Heatwave days of over-65s and infants are heat of any cause.
+- **Left out, as published gaps.** The 12-month drought share (NA in 15 of its 74 years); 1.2.3's land-share sheet
+  (irregular nine- or ten-year windows, fractions under a "%" heading); and the over-75 columns of 1.1.1 vulnerable
+  (not described by the guidance sheet, and 0 in every year before 2000). 1.2.3 has no values for 1991–1994, and that
+  gap stays a gap.
+- **Upstream credits.** 1.2.2 names SPEI without a version (SPEIbase is ODbL), so the notice credits SPEI. The Copernicus
+  notice now names only the indicators computed from ERA5 or ERA5-Land (1.1.1, 1.1.3, 1.1.5 and 1.2.3).
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be
