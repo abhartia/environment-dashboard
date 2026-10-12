@@ -1,0 +1,139 @@
+{
+  "title": "Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.6",
+  "description": "Data for Figure SPM.6 from the Summary for Policymakers (SPM) of the Working Group I (WGI) Contribution to the Intergovernmental Panel on Climate Change (IPCC) Sixth Assessment Report (AR6).\n\n
+
+Figure SPM.6 shows projected changes in the intensity and frequency of extreme temperature, extreme precipitation and droughts.\n\n
+
+  ---------------------------------------------------\n
+  How to cite this dataset\n
+  ---------------------------------------------------\n
+  When citing this dataset, please include both the data citation below (under 'Citable as') and the following citation for the report component from which the figure originates:\n
+IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M. I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T. K. Maycock, T. Waterfield, O. Yelekçi, R. Yu and B. Zhou (eds.)]. In Press.\n\n
+
+  ---------------------------------------------------\n
+  License\n
+  ---------------------------------------------------\n
+  The data is made available under a Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/).\n\n
+
+  ---------------------------------------------------\n
+  Sources of additional information\n
+  ---------------------------------------------------\n
+  The following weblink is provided in the Related Documents section of this catalogue record:\n
+  - Link to the report webpage, which includes the report component containing the figure (Summary for Policymakers) and the Supplementary Material for Chapter 11, which contains details on the input data used in Table 11.SM.9.\n\n
+
+  ---------------------------------------------------\n
+  Figure subpanels\n
+  ---------------------------------------------------\n
+ The figure has four panels, with data provided for all panels in subdirectories named panel_a, panel_b, panel_c and panel_d.\n\n
+
+  ---------------------------------------------------\n
+  List of data provided\n
+  ---------------------------------------------------\n
+  This dataset contains:\n\n
+
+- Changes in annual maximum temperature (TXx) extremes for intensity (°C) and frequency (-) for 1 in 10 year event and 1 in 50 year events (relative to 1850-1900)\n
+- Changes in annual maximum 1-day precipitation (Rx1day) extremes for intensity (%) and frequency (-) for 1 in 10 year events (relative to 1850-1900)\n
+- Changes in soil moisture based drought events for intensity (standard deviation) and frequency (-) for 1 in 10 year events (relative to 1850-1900)\n\n
+
+  ---------------------------------------------------\n
+  Data provided in relation to figure\n
+  ---------------------------------------------------\n
+  Panel a:\n\n
+- Data file: panel_a/TXx_freq_change_10_year_event.csv ['Hot temperature extremes', column 2 dark dots, columns 5 and 6 light dots]\n
+- Data file: panel_a/TXx_intens_change_10_year_event.csv ['Hot temperature extremes', column 2 dark bars, columns 5 and 6 light bars]\n\n
+Panel b:\n\n
+- Data file: panel_b/TXx_freq_change_50_year_event.csv ['Hot temperature extremes', column 2 dark dots, columns 5 and 6 light dots]\n
+- Data file: panel_b/TXx_intens_change_50_year_event.csv ['Hot temperature extremes', column 2 dark bars, columns 5 and 6 light bars]\n\n
+
+Panel c:\n\n
+
+- Data file: panel_c/Rx1day_freq_change_10_year_event.csv ['Extreme precipitation over land', column 2 dark dots, columns 5 and 6 light dots]\n
+- Data file: panel_c/Rx1day_intens_change_10_year_event.csv ['Extreme precipitation over land', column 2 dark bars, columns 5 and 6 light bars]\n\n
+
+Panel d:\n\n
+
+- Data file: panel_d/drought_freq_change_10_year_event.csv ['Drought', column 2 dark dots, columns 5 and 6 light dots]\n
+- Data file: panel_d/drought_intens_change_10_year_event.csv ['Drought', column 2 dark bars, columns 5 and 6 light bars]\n\n
+
+  Auxiliary material:\n\n
+  - Data file: auxiliary_material/plot_figure_SPM6.xlsx: Spreadsheet created by the figure design team to generate Figure SPM.6\n\n
+
+  ---------------------------------------------------\n
+  Notes on reproducing the figure from the provided data\n
+  ---------------------------------------------------\n
+- The 50th, 5th, and 95th percentiles are shown on the figure (lines on the bars).\n
+- The drought intensity shows 'drying' while the data file shows the change in soil moisture (i.e., a negative soil moisture change corresponds to a positive drying signal).",
+  "authors": [
+    {
+      "firstname": "Chao",
+      "surname": "Li"
+    },
+    {
+      "firstname": "Mathias",
+      "surname": "Hauser"
+    }
+  ],
+  "bbox": {
+    "north": "90",
+    "south": "-90",
+    "east": "-180",
+    "west": "180"
+  },
+  "vertical_extent":{
+    "highest_level_bound": "0",
+    "lowest_level_bound": "0",
+    "units": "Kilometers"
+   },
+  "resolution":"None",
+  "time_range": {
+    "start": "1850-01-01T00:00:00",
+    "end": "2100-12-31T23:59:59"
+  },
+  "lineage": "Data produced by Intergovernmental Panel on Climate Change (IPCC) authors and supplied for archiving at the Centre for Environmental Data Analysis (CEDA) by the Technical Support Unit (TSU) for IPCC Working Group I (WGI).\n
+Data curated on behalf of the IPCC Data Distribution Centre (IPCC-DDC).",
+  "quality": "Data as provided by the IPCC",
+  "docs": [
+    {
+      "title": "ORIGIN OF FIGURE (IPCC REPORT SPM): [AUTHOR NAMES] (2021). [TITLE]. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change.",
+      "url": ""
+    },
+    {
+      "title": "SUPPLEMENTARY MATERIAL FOR REPORT CHAPTER: (2021). [TITLE].",
+      "url": ""
+    },
+    {
+      "title": "CODE FOR FIGURE (archived at Zenodo)",
+      "url": ""
+    },
+    {
+      "title": "INPUT DATASET 1: [CITATION FOR INPUT DATASET]",
+      "url": ""
+    },
+    {
+      "title": "RELATED PUBLICATION FOR INPUT DATASET 1: [CITATION FOR RELATED PUBLICATION]",
+      "url": ""
+    }
+    ],
+  "project": {
+    "catalogue_url": "https://catalogue.ceda.ac.uk/uuid/3234e9111d4f4354af00c3aaecd879b7%E2%80%99",
+    "title": "",
+    "description": "",
+    "PI": {
+      "firstname": "",
+      "lastname": ""
+    },
+    "funder": "",
+    "grant_number": ""
+  },
+  "instrument": {
+    "catalogue_url": "",
+    "title": "",
+    "description": ""
+  },
+  "computation": {
+    "catalogue_url": "",
+    "title": "Caption for Figure SPM.6 from the Summary for Policymakers of the Working Group I (WGI) Contribution to the Intergovernmental Panel on Climate Change (IPCC) Sixth Assessment Report (AR6)",
+    "description": "Projected changes in the intensity and frequency of hot temperature extremes over land, extreme precipitation over land, and agricultural and ecological droughts in drying regions. Projected changes are shown at global warming levels of 1°C, 1.5°C, 2°C, and 4°C and are relative to conditions in the 2nd-half of the 19th century (1850-1900 for agricultural and ecological droughts, and 1851-1900 for hot extremes and precipitation extremes). Hot temperature extremes are defined as the daily maximum temperatures over land that were exceeded on average once in a decade (10-year event) or once in 50 years (50-year event) during the 1851–1900 reference period. Extreme precipitation events are defined as the daily precipitation amount over land that was exceeded on average once in a decade during the 1851–1900 reference period. Agricultural and ecological drought events are defined as the annual average of total column soil moisture below the 10th percentile of the the 1850–1900 base period. These extremes are defined on model grid box scale. For hot temperature extremes and extreme precipitation, results are shown for the global land. For agricultural and ecological drought, results are shown for drying regions only, which correspond to the AR6 regions in which there is at least medium confidence in a projected increase in agricultural/ecological drought at the 2°C warming level compared to the 1850–1900 base period. These regions include W. North-America, C. North-America, N. Central-America, S. Central-America, Caribbean, N. South-America, N.E. South-America, South-American-Monsoon, S.W.South-America, S.South-America, West & Central-Europe, Mediterranean, W. Southern-Africa, E. Southern-Africa, Madagascar, E. Australia, S. Australia (Caribbean is not included in the calculation of the figure because of the too small number of full land grid cells). The non-drying regions do not show an overall increase or decrease in drought severity. In the ‘frequency’ section, each year is represented by a dot. The dark dots indicate years in which the extreme threshold is exceeded, while light dots are years when the threshold is not exceeded. Values correspond to the medians (in bold) and their respective 5%-95% range based on the multi-model ensemble from simulations of CMIP6 under different SSP scenarios. For consistency, the number of dark dots is based on the rounded-up median. In the ‘intensity’ section, medians and their 5%-95% range, also based on the multi-model ensemble from simulations of CMIP6, are displayed as dark and light bars, respectively. Changes in the intensity of hot temperature extremes and extreme precipitations are expressed as degree celsius and percentage. As for agricultural and ecological drought, intensity changes are expressed as fractions of standard deviation of annual soil moisture. {11.1, 11.3, 11.4, 11.6, Figure 11.12, Figure 11.15, Figure 11.6, Figure 11.7, Figure 11.18}
+"
+  }
+}

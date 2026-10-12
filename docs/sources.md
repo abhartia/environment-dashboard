@@ -278,6 +278,38 @@ Evidence: docs/research/sources-consequences-2026-10-11.json (coasts, and the cr
   - Lancet Countdown indicator 2.3.3 uses the same CoastalDEM method with 2024 population (people below 1 m of
     future rise, noncommercial); it is not combined with these values.
 
+## Decisions on extreme weather: IPCC figure data and land TXx (2026-10-12)
+
+The owner asked to show extremes becoming more frequent because of climate change. Evidence:
+docs/research/sources-extremes-2026-10-12.json, with its verifiers' `honest_wording` (what each dataset may and may
+not be used to say).
+
+- **IPCC AR6 WGI Figure SPM.6 data** (`ipcc-ar6-wg1-spm6`, CEDA, CC BY 4.0 on the catalogue record and in the
+  directory's License.txt and metadata.yaml): how many times as often a once-in-10 (or once-in-50) year hot day,
+  wettest day or drought of 1850–1900 occurs at 1, 1.5, 2, 3 and 4 °C of global warming. Open because the data files
+  carry their own CC BY grant; the IPCC's figure artwork and SPM text stay display-only under `ipcc-ar6-wg1-spm`, so
+  the figure is redrawn from the CSVs and its printed labels are used only as cross-checks. These are CMIP6 model
+  results at a warming level, not observed counts and not years: they are dated 2021 (the assessment) and never
+  placed on a time axis or interpolated, and the 1 °C level is not "today". Drought covers the 16 drying regions the
+  figure computes (17 listed, the Caribbean left out), not the world. The 3 °C level is in the data but not in the
+  figure, and its label says so (the build checks the caption's list of levels). The intensity files are registered
+  but not published this round.
+- **IPCC AR6 WGI Figure SPM.3 data** (`ipcc-ar6-wg1-spm3`, CEDA, CC BY 4.0): the IPCC's assessed type of observed
+  change since the 1950s in hot extremes, heavy precipitation and agricultural and ecological drought for each of the
+  45 inhabited AR6 regions, with its confidence in a human contribution. Only world counts of regions per category
+  are published (kind `derived`, checked against the tallies printed on the figure); regions are not countries, so
+  no regional map or value is shown. "Limited data" and "low agreement" mean missing or mixed evidence, not no
+  change, and a confidence level is not the size of the human contribution.
+- **IGCC 2025 land TXx** (artifact `txx-timeseries` of `igcc-2025`, CC BY 4.0): the hottest day of the year averaged
+  over land excluding Antarctica, ERA5 column only, relative to 1961–1990 as the file gives it (IGCC's single 0.51 °C
+  offset to 1850–1900 is not applied). The file's Berkeley column is left out because Berkeley Earth's own terms are
+  CC BY-NC 4.0, which IGCC's CC BY grant cannot lift; the HadEX3 column (Crown Copyright, OGL v2, ending in 2018) is
+  left out too, as one series comes from one dataset and the three are not coverage-matched. TXx is intensity, not
+  frequency, and the file attributes nothing; attribution comes only from SPM.3 and SPM.6. ERA5 on the C3S Climate
+  Data Store is CC BY 4.0, and the CDS asks for a Copernicus attribution and the EC/ECMWF disclaimer besides, so
+  `igcc-2025` now carries them as a notice naming the TXx series, as `lancet-countdown-2025` does for its
+  ERA5-derived indicators. A notice is per source, so it also shows on the other IGCC indicators.
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be

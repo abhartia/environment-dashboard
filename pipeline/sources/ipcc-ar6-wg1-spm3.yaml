@@ -1,0 +1,112 @@
+# IPCC AR6 Working Group I Figure SPM.3 data, archived at CEDA: the IPCC's assessment, for each of the 45 inhabited
+# AR6 reference regions, of the type of observed change since the 1950s in hot extremes, heavy precipitation and
+# agricultural and ecological drought, and of its confidence in a human contribution to that change.
+# Evidence: docs/research/sources-extremes-2026-10-12.json (research[0] candidates[1], verification[0] verdicts[1];
+# verdict "confirmed": row counts reproduce every tally printed on the published figure, SPM p. 10).
+# Licence evidence checked 2026-10-12: the CEDA catalogue record (HTTP 200) states the licence quoted below, and
+# 00README_catalogue_and_licence.txt in the data directory repeats it. The directory's License.txt reads "This work is
+# licensed under a Creative Commons Attribution 4.0 International License." No file restricts redistribution or
+# derivatives. The IPCC's hexagon figure itself stays display-only under ipcc.ch/copyright (ipcc-ar6-wg1-spm); only
+# counts of these rows are published, never the artwork or a regional map.
+# Artifacts checked 2026-10-12 (all HTTP 200 from dap.ceda.ac.uk with an ETag; version directory v20221116, the
+# newest of v20210809, v20220104 and v20221116; catalogue status "Completed", DOI published 2023-07-03):
+#   SPM3_panel_a.csv 3,747 bytes, ETag "6374ff57-ea3", Last-Modified 16 Nov 2022
+#   SPM3_panel_b.csv 5,125 bytes, ETag "6374ff58-1405"
+#   SPM3_panel_c.csv 5,404 bytes, ETag "6374ff58-151c"
+# Each is BADC-CSV with CRLF line endings: metadata rows ("comments,G,years 1950 to 2021", "last_revised_date,G,
+# 2021-08-09"), then a data block of 45 rows with the region code, the type of observed change and the confidence in
+# human contribution. Quirks: panel a writes "Low agreement in type of change" where panels b and c (and the printed
+# figure) write "Low agreement in the type of change"; each file declares coordinate_variable 2 twice (the second is
+# column 3, whose long_name is numbered 3); panel c's long_name 2 reads "agricultural and ecological change" for
+# drought; the region list in the comments names MED under Europe and Africa and CAR under Central America and Small
+# Islands (45 distinct codes, one row each).
+# citation.text: CEDA's "Citable as" text, then the report citation CEDA asks to include, both as printed on the
+# catalogue record.
+id: ipcc-ar6-wg1-spm3
+title: IPCC AR6 WGI Figure SPM.3 data
+publisher: IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis
+landing_url: https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/
+description: >-
+  The data behind Figure SPM.3 of the IPCC Sixth Assessment Report (Working Group I): the synthesis of assessed
+  observed and attributable regional changes. For each of the 45 inhabited AR6 reference regions, assessed for the
+  region as a whole from the 1950s to the present (the files say "years 1950 to 2021"): the type of observed change
+  (Increase, Decrease, Low agreement in the type of change, or Limited data and/or literature) and the confidence in
+  a human contribution to it (High, Medium, Low due to limited agreement, or Low due to limited evidence). Panel a:
+  hot extremes; panel b: heavy precipitation; panel c: agricultural and ecological drought. Expert assessment
+  categories, not measured magnitudes.
+citation:
+  type: dataset
+  title: >-
+    Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure
+    SPM.3 (v20221116)
+  author:
+    - {family: Otto, given: F. E. L.}
+    - {family: Zhang, given: X.}
+    - {family: Seneviratne, given: S. I.}
+  issued: "2023-07-03"
+  publisher: NERC EDS Centre for Environmental Data Analysis
+  version: v20221116
+  DOI: 10.5285/dc6c126c95b1445d8e66d6b9f62054d4
+  URL: https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/
+  text: >-
+    Otto, F.E.L.; Zhang, X.; Seneviratne, S.I. (2023): Summary for Policymakers of the Working Group I Contribution to
+    the IPCC Sixth Assessment Report - data for Figure SPM.3 (v20221116). NERC EDS Centre for Environmental Data
+    Analysis, 03 July 2023. doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4. IPCC, 2021: Summary for Policymakers. In:
+    Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of
+    the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S.
+    Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K.
+    Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United
+    Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/
+  licence_quote: >-
+    Use of these data is covered by the following licence(s): http://creativecommons.org/licenses/by/4.0/ When using
+    these data you must cite them correctly using the citation given on the CEDA Data Catalogue record.
+  checked_on: 2026-10-12
+  terms_check: page
+obligations:
+  attribution: >-
+    Otto, Zhang & Seneviratne (2023), data for IPCC AR6 WGI Figure SPM.3 (v20221116), NERC EDS Centre for
+    Environmental Data Analysis, doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4; IPCC, 2021: Summary for Policymakers,
+    in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Otto, Zhang & Seneviratne (2023), data for IPCC AR6 WGI Figure SPM.3
+    (v20221116), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4; IPCC,
+    2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis,
+    doi:10.1017/9781009157896.001. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: panel-a-hot
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_a.csv
+    format: csv
+    description: >-
+      Panel a, hot extremes: for each of the 45 inhabited AR6 regions, the type of observed change since the 1950s and
+      the confidence in human contribution (BADC-CSV).
+  - id: panel-b-heavy-precipitation
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_b.csv
+    format: csv
+    description: >-
+      Panel b, heavy precipitation: the same assessment for each of the 45 regions (BADC-CSV).
+  - id: panel-c-drought
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_c.csv
+    format: csv
+    description: >-
+      Panel c, agricultural and ecological drought: the same assessment for each of the 45 regions (BADC-CSV).
+status:
+  state: archived
+  note: >-
+    Final archive of a published assessment figure (CEDA status "Completed", update frequency "Not Planned"). The
+    IPCC Seventh Assessment Report will supersede it.
+  us_federal: false
+update_cadence: Static (final; superseded only by the next IPCC assessment)
+twins: []
+research_ref: >-
+  docs/research/sources-extremes-2026-10-12.json#IPCC AR6 WGI Figure SPM.3 data: observed change in hot extremes,
+  heavy precipitation and agricultural/ecological drought since the 1950s, with confidence in human contribution, for
+  45 inhabited regions

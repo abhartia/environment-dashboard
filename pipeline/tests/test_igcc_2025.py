@@ -239,6 +239,62 @@ def test_paper_origin_has_its_own_date_and_doi():
     assert RELEASE.published.isoformat() == "2026-07-22"
 
 
+# --- hottest day of the year over land (TXx) -----------------------------------------------------------------------
+
+
+def test_txx_series_is_the_era5_column_as_printed():
+    series = igcc.txx_series(raw(igcc.TXX.artifact_id))
+    assert list(series) == [str(y) for y in range(1950, 2026)]
+    assert all(v is not None for v in series.values())
+    # txx_timeseries.csv rows "1950.5,1950,1951,-0.89,,", "2024.5,2024,2025,1.84,,", "2025.5,2025,2026,1.3,,"; the
+    # 2018 row's Berkeley (0.83) and HadEX3 (1.29) cells are not read.
+    assert (series["1950"], series["2024"], series["2025"]) == (Decimal("-0.89"), Decimal("1.84"), Decimal("1.3"))
+    assert series["2018"] == Decimal("1.19")
+
+
+def test_txx_empty_era5_cell_stays_missing_and_columns_are_checked():
+    lines = raw(igcc.TXX.artifact_id).splitlines(keepends=True)
+    blank = [ln.replace(b"1.84,,", b",,") if ln.startswith(b"2024.5,") else ln for ln in lines]
+    assert igcc.txx_series(b"".join(blank))["2024"] is None
+    swapped = [lines[0].replace(b"ERA5,Berkeley", b"Berkeley,ERA5"), *lines[1:]]
+    with pytest.raises(igcc.IgccFormatError, match="columns"):
+        igcc.txx_series(b"".join(swapped))
+
+
+def test_txx_base_period_is_1961_1990():
+    series = igcc.txx_series(raw(igcc.TXX.artifact_id))
+    mean = igcc.txx_base_mean(series)
+    assert abs(mean) < Decimal("0.005")
+    # The same values with IGCC's 0.51 °C offset added (relative to 1850-1900) would fail the base check.
+    rebased = {y: None if v is None else v + Decimal("0.51") for y, v in series.items()}
+    with pytest.raises(igcc.IgccFormatError, match="not zero"):
+        igcc.txx_base_mean(rebased)
+
+
+def test_txx_paper_statements_tie_to_the_file():
+    series = igcc.txx_series(raw(igcc.TXX.artifact_id))
+    assert igcc.txx_paper_check(series, igcc.TXX_OFFSET_QUOTE, igcc.TXX_YEAR_QUOTE) == (Decimal("0.51"), "2025")
+    with pytest.raises(igcc.IgccFormatError, match=r"the paper gives 1\.82"):
+        igcc.txx_paper_check(series, igcc.TXX_OFFSET_QUOTE, igcc.TXX_YEAR_QUOTE.replace("1.81", "1.82"))
+    with pytest.raises(igcc.IgccFormatError, match=r"a decrease of 0\.55"):
+        igcc.txx_paper_check(series, igcc.TXX_OFFSET_QUOTE, igcc.TXX_YEAR_QUOTE.replace("0.54", "0.55"))
+
+
+def test_txx_publisher_check_passes_and_spec_is_intensity_not_frequency():
+    t = transform("extremes.igcc-2025.txx-land")
+    series = igcc.txx_series(raw(igcc.TXX.artifact_id))
+    obs = [Observation(entity="WLD", period=p, value=float(v)) for p, v in series.items() if v is not None]
+    (outcome,) = run_checks(t, {igcc.SOURCE: "IGCC-2025a"}, obs)
+    assert outcome.status == "pass"
+    s = t.spec
+    # The home page reads "<span> mean ..." as "above <span>" (web/src/lib/dash/story.ts).
+    assert s.kind == "series" and s.scope.baseline == "1961–1990 mean of this series, as published by IGCC"
+    assert "excluding Antarctica" in s.scope.geography
+    assert "not how often extremes happen" in s.description and "without attributing it" in s.description
+    assert "Berkeley Earth and HadEX3 versions are not included" in s.description
+    assert {i.artifact_id for i in t.inputs} == {igcc.ZIP.artifact_id, igcc.PAPER.artifact_id, "txx-timeseries"}
+
+
 # --- release -------------------------------------------------------------------------------------------------------
 
 
@@ -268,6 +324,16 @@ def test_every_input_is_a_registered_artifact():
         assert {i.artifact_id for i in t.inputs} <= ids, t.spec.id
 
 
+def test_copernicus_notice_names_txx_and_takes_the_release_year():
+    from envdash.registry import load_registry, render
+
+    notice = load_registry(Paths.default()).sources[igcc.SOURCE].obligations.notice or ""
+    text = render(notice, version="IGCC-2025a", date_accessed=None, year=str(RELEASE.published.year))
+    assert "(TXx) is computed from ERA5" in text
+    assert "contains modified Copernicus Climate Change Service information 2026;" in text
+    assert "neither the European Commission nor ECMWF is responsible" in text
+
+
 # --- full files (local snapshot cache) -----------------------------------------------------------------------------
 
 
@@ -292,6 +358,8 @@ def test_quotes_are_in_the_paper():
         verify_quote(pdf, 11, c.quote)
     verify_quote(pdf, igcc.HEADLINE_PAGE, igcc.HEADLINE_QUOTE)
     verify_quote(pdf, igcc.PRIORITY_PAGE, igcc.PRIORITY_QUOTE)
+    for q in (igcc.TXX_METHOD_QUOTE, igcc.TXX_OFFSET_QUOTE, igcc.TXX_YEAR_QUOTE):
+        verify_quote(pdf, igcc.TXX_PAGE, q)
     with pytest.raises(Exception, match="quote not found"):
         verify_quote(pdf, igcc.HEADLINE_PAGE, igcc.HEADLINE_QUOTE.replace("1.37", "1.38"))
 
@@ -301,7 +369,7 @@ def test_full_transforms_on_the_snapshots():
     files = _current_files()
     for t in igcc.transforms(Paths.default()):
         result = t.run({i.key: files[i.key] for i in t.inputs})
-        assert result.vintage == "IGCC-2025a"
+        assert result.vintage == "IGCC-2025a" and result.year == "2026"
         if t.spec.id == "warming.igcc-2025.human-induced":
             assert len(result.observations) == 176
         if t.spec.id == "forcing.igcc-2025.erf-by-agent":
@@ -312,3 +380,16 @@ def test_full_transforms_on_the_snapshots():
         if t.spec.id == "warming.igcc-2025.human-induced-2025":
             (o,) = result.observations
             assert (o.period, o.value, o.lower, o.upper, o.interval) == ("2025", 1.37, 1.1, 1.7, "likely")
+        if t.spec.id == "extremes.igcc-2025.txx-land":
+            assert len(result.observations) == 76 and result.origin_meta[igcc.PAPER.key].date_published == "2026-06-11"
+
+
+@pytest.mark.snapshot
+def test_txx_publisher_check_quotes_the_cds_row_of_the_same_release():
+    import zipfile
+
+    (check,) = transform("extremes.igcc-2025.txx-land").checks
+    member = check.url.split("/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/")[1]
+    with zipfile.ZipFile(_current_files()[igcc.ZIP.key].path) as zf:
+        cds = zf.read(f"ClimateIndicator-data-0f2765d/{member}")
+    assert check.quote.encode() + b"\n" in cds

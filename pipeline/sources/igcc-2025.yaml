@@ -7,7 +7,26 @@
 # "Creative Commons Attribution 4.0 International" (rightsIdentifier cc-by-4.0); the Zenodo API gives license cc-by-4.0;
 # the GitHub repo ClimateIndicator/data reports spdx CC-BY-4.0; the ESSD paper's Section 13 says "Data are provided
 # under the CC-BY 4.0 License." Exception inside the repo: HadEX3 extremes inputs are Crown Copyright under the Open
-# Government Licence v2 (ESSD Section 13); we do not use the extremes files.
+# Government Licence v2 (ESSD Section 13).
+# Extremes file (added 2026-10-12; evidence docs/research/sources-extremes-2026-10-12.json, research[1] candidates[2],
+# verification[1] verdicts[2], verdict "corrected"): of the extremes files only the ERA5 column of
+# data/base/extreme_temperatures/txx_timeseries.csv is used. Its other two columns are excluded: Berkeley is derived
+# from Berkeley Earth, whose own data page says "In general, Berkeley Earth's data is licensed under Creative Commons
+# BY-NC 4.0 International for non-commercial use only." (IGCC's CC BY grant cannot lift that upstream term), and
+# HadEX3 carries the Crown Copyright and OGL v2 terms above. ERA5 is produced by the Copernicus Climate Change Service
+# (ECMWF); its C3S Climate Data Store catalogue entries are licensed CC BY 4.0 (recorded in c3s-climate-pulse and
+# c3s-era5-bulletin), and the CDS "Citation and attribution" text adds a Copernicus attribution and the EC/ECMWF
+# disclaimer "in addition to the requirements of the applicable license(s)". As lancet-countdown-2025 does for its
+# ERA5-derived indicators, both are in the notice below, which names the TXx series (a notice is per source, so it
+# shows on every IGCC indicator). {year} in the notice is the year of the IGCC data release, filled by the transforms
+# (2026 for IGCC-2025a, published 22 July 2026). The indicator also names ERA5 and C3S in its scope.
+# Checked 2026-10-12: raw.githubusercontent.com at the release commit, HTTP 200, 2,431 bytes, an ETag (which differs
+# with the response encoding) and no Last-Modified, sha256 c93fc6f4fff8...,
+# byte-identical to ClimateIndicator-data-0f2765d/data/base/extreme_temperatures/txx_timeseries.csv in the Zenodo zip
+# (re-checked on every build). Columns time, timebound_lower, timebound_upper, ERA5, Berkeley, HadEX3; ERA5 runs
+# 1950-2025 with no gaps, Berkeley 1955-2023, HadEX3 1961-2018. The ESSD paper (Sect. 10.1, printed p. 3911, PDF
+# page 23) gives the anomalies "relative to 1961–1990" and adds "an offset of 0.51 °C" only to express them relative
+# to 1850-1900; the file holds the 1961-1990 anomalies.
 # Artifact checked 2026-10-04: Zenodo API file URL HTTP 200, 1,495,354 bytes, md5 0ad608c0adb5aed35136d7f1f318c80a
 # (matches the record), no ETag or Last-Modified (so conditional: false). IGCC-2025a (record 21494229, 22 Jul 2026)
 # is the latest version of concept doi:10.5281/zenodo.7883757. The zip unpacks to ClimateIndicator-data-0f2765d/.
@@ -32,7 +51,8 @@ description: >-
   split into greenhouse gases, other human forcings and natural forcings; effective radiative forcing by agent from
   1750 to 2025 (W/m2, best estimate with 5th and 95th percentiles); greenhouse gas concentrations 1750-2025; observed
   global mean surface temperature (multi-dataset mean); global GHG emissions by gas (GtCO2e, AR6 GWP100, including
-  LULUCF); Earth's energy imbalance; and remaining carbon budgets in 0.1 degree steps. Pinned to data release
+  LULUCF); Earth's energy imbalance; remaining carbon budgets in 0.1 degree steps; and the land average of the
+  hottest day of the year (TXx, excluding Antarctica) relative to 1961-1990, per dataset. Pinned to data release
   IGCC-2025a. The headline warming file has two rows per period; the paper's headline uses the row noted "SR15
   definition".
 citation:
@@ -95,6 +115,10 @@ obligations:
     Calculated by Environment Dashboard from Indicators of Global Climate Change 2025: Forster et al. (2026), Earth
     Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a,
     doi:10.5281/zenodo.21494229. CC BY 4.0.
+  notice: >-
+    IGCC's hottest day of the year over land (TXx) is computed from ERA5 and contains modified Copernicus Climate
+    Change Service information {year}; neither the European Commission nor ECMWF is responsible for any use that may
+    be made of the Copernicus information or data it contains.
   mirror_raw: true
 acquisition: automatic
 artifacts:
@@ -107,8 +131,8 @@ artifacts:
       (attributable warming, 5th/50th/95th percentiles), effective_radiative_forcing/ERF_best.csv and
       ERF_best_aggregates.csv with ERF_p05*/ERF_p95* (W/m2 by agent, 1750-2025),
       greenhouse_gas_concentrations/ghg_concentrations.csv, global_mean_temperatures/annual_averages.csv,
-      greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv (sic) and carbon_budget/*.csv (file names encode
-      the assumptions, e.g. hdT_1.24).
+      greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv (sic), carbon_budget/*.csv (file names encode
+      the assumptions, e.g. hdT_1.24) and extreme_temperatures/txx_timeseries.csv (land TXx; ERA5 column only).
     access:
       conditional: false
   - id: warming-assessment-headlines
@@ -160,13 +184,22 @@ artifacts:
       IGCC-2025a: remaining carbon budgets (GtCO2) from the start of 2026 for warming levels in 0.1 degree steps and
       seven likelihoods, using MAGICC for non-CO2 warming, 1.24 degrees of historical human-induced warming
       (2016-2025) and 213 GtCO2 emitted since the middle of that period: the assumptions of the paper's Table 8.
+  - id: txx-timeseries
+    url: https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/extreme_temperatures/txx_timeseries.csv
+    format: csv
+    description: >-
+      data/base/extreme_temperatures/txx_timeseries.csv at IGCC-2025a: the land average (excluding Antarctica) of each
+      grid cell's highest daily maximum temperature of the year (TXx), as anomalies relative to 1961-1990 in degrees
+      C, one column per dataset: ERA5 (1950-2025), Berkeley (1955-2023) and HadEX3 (1961-2018). Only the ERA5 column
+      is used.
   - id: essd-paper-pdf
     url: https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf
     format: pdf
     description: >-
       The ESSD article (Forster et al. 2026, Earth Syst. Sci. Data 18, 3889-3933, 45 pages, published 11 June
-      2026), for statements quoted with their page: the remaining carbon budget (Sect. 9 and Table 8, p. 3910) and
-      the figures the producers state for effective radiative forcing (Sect. 5, p. 3899) and attributable warming.
+      2026), for statements quoted with their page: the remaining carbon budget (Sect. 9 and Table 8, p. 3910), the
+      figures the producers state for effective radiative forcing (Sect. 5, p. 3899) and attributable warming, and
+      the land TXx statements (Sect. 10.1 and Table 9, p. 3911).
 status:
   state: active
   note: >-
