@@ -1,0 +1,111 @@
+# Grant, Vanderkelen, Gudmundsson, Fischer, Seneviratne & Thiery (2025), Nature 641, 374-379: the share of each birth
+# cohort (1960-2020) projected to face unprecedented lifetime exposure to heatwaves and five other climate extremes,
+# along warming pathways reaching 1.5 to 3.5 °C by 2100.
+# Evidence: docs/research/sources-consequences-2026-10-11.json ("Grant et al. 2025 ..."; verdicts "corrected" and
+# "confirmed"), and the extremes critic in docs/research/sources-extremes-2026-10-12.json. "So what" work of
+# 2026-10-12 (children born today).
+# Checked 2026-10-12:
+#   - The article is read from its JATS XML on Europe PMC (PMC12058528, the publisher's own deposit in PMC's
+#     "npgopen" domain): HTTP 200 application/xml, 112,126 bytes, sha256
+#     4224ab518159b19d8ca09c2cdc673d6e34ccb24d674c8df6bcca0a53c341ad3c; two downloads gave the same bytes; Europe PMC
+#     sends no Last-Modified or ETag. Its <license> element carries the licence quoted below (ali:license_ref
+#     https://creativecommons.org/licenses/by/4.0/), and its <article-id pub-id-type="doi"> is
+#     10.1038/s41586-025-08907-1. Crossref lists CC BY 4.0 for the version of record ("vor") from 2025-05-07 and no
+#     correction (no update-to).
+#   - nature.com answers scripts with a cookie handshake (HTTP 303 to idp.nature.com), so it is not the terms_url. With
+#     cookies it serves the same text: its "Rights and permissions" section repeats the licence below, and its abstract
+#     and Results sentences are those the transform checks.
+#   - Third-party clause, from the same licence text: "The images or other third party material in this article are
+#     included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material."
+#     Only sentences of the text are used, no figure or map.
+#   - The values are the authors' own results (stated in the Results text and the abstract), computed from ISIMIP2b
+#     simulations, Wittgenstein Centre cohort sizes, UN World Population Prospects life expectancy and AR6 Scenario
+#     Explorer warming trajectories, all listed under Data availability; none is restricted.
+#   - Not registered: the Supplementary Information PDF (41586_2025_8907_MOESM1_ESM.pdf on static-content.springer.com:
+#     HTTP 200 application/pdf, 40,335,469 bytes, sha256
+#     85c029406384526b7ddda7a4d6614b20d38501b18abd2c069865f6aa2014a3ca, Last-Modified Mon, 28 Apr 2025 09:19:11 GMT).
+#     It has no licence line of its own and inherits the article's. Its Supplementary Tables 1-18 give each country's
+#     cohort in thousands and as a share, per birth year (every ten years) and pathway (1.5, 2.5 and 3.5 °C), with no
+#     world row. They are not used in this round: per-country views are not planned, and some cells need the authors'
+#     reading first (Comoros, Cape Verde and Hong Kong print "0 (0)" for 2010 and 2020 after non-zero shares).
+#   - Not used: the code (github.com/VUB-HYDR/2025_Grant_etal_Nature; the GitHub API reports no licence although the
+#     README says MIT) and the Zenodo deposit 10.5281/zenodo.15097896 (cc-by-4.0, data.zip of 225,631,133 bytes, the
+#     inputs of a heatwave-only re-run, which bundles third-party files).
+id: grant-2025
+title: Unprecedented lifetime exposure to climate extremes by birth year (Grant et al. 2025)
+publisher: >-
+  Luke Grant, Inne Vanderkelen, Lukas Gudmundsson, Erich Fischer, Sonia I. Seneviratne and Wim Thiery (Vrije Universiteit
+  Brussel, Environment and Climate Change Canada, KU Leuven, Royal Meteorological Institute of Belgium and ETH Zurich);
+  published in Nature (Springer Nature)
+landing_url: https://doi.org/10.1038/s41586-025-08907-1
+description: >-
+  A modelled projection of how many people born each year from 1960 to 2020 will live through more heatwaves, crop
+  failures, river floods, droughts, wildfires and tropical cyclones in their lifetime than the 99.99th percentile of
+  lifetimes simulated in a pre-industrial climate ("unprecedented lifetime exposure"), along warming pathways that
+  reach 1.5 to 3.5 °C above 1850-1900 by 2100. Extremes come from the ISIMIP2b simulations (four CMIP5 climate models
+  and, for every extreme except heatwaves, impact models), combined with population, cohort sizes and country-average
+  life expectancy. It is a statistical definition of an unusual lifetime, not a count of deaths or of harm.
+citation:
+  type: article-journal
+  title: Global emergence of unprecedented lifetime exposure to climate extremes
+  author:
+    - {family: Grant, given: Luke}
+    - {family: Vanderkelen, given: Inne}
+    - {family: Gudmundsson, given: Lukas}
+    - {family: Fischer, given: Erich}
+    - {family: Seneviratne, given: Sonia I.}
+    - {family: Thiery, given: Wim}
+  issued: "2025-05-07"
+  publisher: Springer Nature
+  container-title: Nature
+  volume: "641"
+  page: 374-379
+  DOI: 10.1038/s41586-025-08907-1
+  URL: https://doi.org/10.1038/s41586-025-08907-1
+  # "Cite this article" on nature.com.
+  text: >-
+    Grant, L., Vanderkelen, I., Gudmundsson, L. et al. Global emergence of unprecedented lifetime exposure to climate
+    extremes. Nature 641, 374–379 (2025). https://doi.org/10.1038/s41586-025-08907-1
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12058528/fullTextXML
+  licence_quote: >-
+    Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits
+    use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate
+    credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if
+    changes were made.
+  checked_on: 2026-10-12
+  terms_check: api
+obligations:
+  attribution: >-
+    Grant, L., Vanderkelen, I., Gudmundsson, L., Fischer, E., Seneviratne, S. I. & Thiery, W. (2025). Global emergence
+    of unprecedented lifetime exposure to climate extremes. Nature 641, 374–379. doi:10.1038/s41586-025-08907-1.
+    CC BY 4.0.
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Grant, L., Vanderkelen, I., Gudmundsson, L., Fischer, E., Seneviratne, S. I.
+    & Thiery, W. (2025). Global emergence of unprecedented lifetime exposure to climate extremes. Nature 641, 374–379.
+    doi:10.1038/s41586-025-08907-1. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: article-xml
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12058528/fullTextXML
+    format: xml
+    description: >-
+      The article's full text as JATS XML from Europe PMC (PMC12058528). The abstract and the Results section
+      "Unprecedented exposure to heatwaves" state the world share of the 1960 and 2020 birth cohorts facing
+      unprecedented lifetime exposure to heatwaves under the 1.5 °C and 3.5 °C pathways.
+    access: {conditional: false}
+status:
+  state: archived
+  note: Published once (online 7 May 2025; volume 641, issue 8062); no update is planned.
+  us_federal: false
+update_cadence: One-off (published 2025)
+twins: []
+research_ref: >-
+  docs/research/sources-consequences-2026-10-11.json#Grant et al. 2025, Global emergence of unprecedented lifetime
+  exposure to climate extremes (share of children born in 2020 facing unprecedented lifetime heatwave exposure)

@@ -217,6 +217,24 @@ the book is typed into the site.
   obtained through the IEA and that historical data may come from the IEA World Energy Statistics Database. The
   existing `unsd-energy` views stay as they are until UNSD answers (owner, 2026-10-08); no new view uses UNSD.
 
+## Decisions for the "so what" pairings (2026-10-12)
+
+The owner asked for each climate measurement to be paired with what it means for people. Evidence:
+docs/research/sources-consequences-2026-10-11.json and docs/research/sources-extremes-2026-10-12.json.
+
+- **Children born today: Grant et al. 2025** (`grant-2025`, CC BY 4.0, Nature 641:374-379, read from the publisher's
+  JATS XML on Europe PMC). Only the world shares the article's text states are published: of people born in 1960,
+  about 16% face unprecedented lifetime exposure to heatwaves "regardless of the scenario"; of people born in 2020, 52%
+  on the 1.5 °C pathway and 92% on the 3.5 °C pathway (the Results text, with the abstract as a cross-check). The text
+  gives no world share for the 2020 cohort on the 2.5 °C pathway, so that cell is published as missing; nothing is read
+  from Fig. 2 and nothing is computed. "Unprecedented" is the authors' statistical threshold (more heatwaves in a
+  lifetime than the 99.99th percentile of lifetimes simulated in a pre-industrial climate); it is modelled from
+  ISIMIP2b, not a count of deaths, and it assumes country-average life expectancy, no migration and no adaptation. The
+  2.7 °C current-policies pathway has no world heatwave share in the text (only shares of the most and least deprived
+  fifths), so it is not shown. The Supplementary Information's per-country tables are not used in this round (no
+  per-country views; some small states print "0 (0)" for 2010 and 2020 after non-zero shares, which needs the authors'
+  reading). The analysis code on GitHub has no licence file and is not used.
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be
