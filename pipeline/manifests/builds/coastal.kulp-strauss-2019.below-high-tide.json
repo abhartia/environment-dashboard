@@ -1,8 +1,8 @@
 {
   "export": "data/v1/indicators/coastal.kulp-strauss-2019.below-high-tide.json",
-  "export_sha256": "91d263c453211a130e3955cdbc8606eab11a47f756f3b5dc4b7c3cd610100b9d",
+  "export_sha256": "7091aa8e109c8dca9fd96c5f4aebd0b9db9c80d625923824cfa041ca2d0e36fd",
   "indicator_id": "coastal.kulp-strauss-2019.below-high-tide",
-  "key": "7458d0d53b6a6c85bc7638b6fa7c185a74cdb94cf25d0c4dcb041ee5df9730d2",
+  "key": "de5f6b603b4ed107f3ee9e80ef5854d22c0874283a5b11cf854f375ef82319b7",
   "key_parts": {
     "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
@@ -22,9 +22,9 @@
     "key_files": {},
     "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
-      "kulp-strauss-2019": "2216d4145857d52e86b69ccd8980df7db78eb38c701a9ec74e767336e29204f3"
+      "kulp-strauss-2019": "3881bc902bdf6b5c7f23bdd47e837ce1d69011d90f7366334e380a9ca8e10692"
     },
-    "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+    "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
   },
   "publisher_checks": [
     {"detail": "ours 110.0 vs stated 110 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2010", "quote": "For the present day, CoastalDEM estimates a global total of 110 M people on land below the current high tide line and 250 M on land below annual flood levels,", "source_id": "kulp-strauss-2019", "stated": "110", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"},

@@ -30,8 +30,9 @@
 # annual flood, 2100: 480 (380-630), not 500 (390-640)), and says "The Supplementary Data were generated
 # automatically during analysis and so were not affected." The publisher's PDF registered here is the corrected one;
 # the transform refuses a PDF that still prints the superseded Table 1 cell.
-# Not used: the SRTM, JAXA (AW3D30) and MERIT columns (the paper's point is that they understate exposure), the
-# country and SIDS rows (a crosswalk from country names is a later step), and Supplementary Data 2-5.
+# Not used: the SRTM, JAXA (AW3D30) and MERIT columns (the paper's point is that they understate exposure), the SIDS
+# rows (the authors' own group, not a country), and Supplementary Data 2-5. The 134 country rows are used from
+# 2026-10-12, their Place names mapped to entities by the alias table in envdash/geo.py (SOURCE_SCHEMES).
 id: kulp-strauss-2019
 title: People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)
 publisher: >-

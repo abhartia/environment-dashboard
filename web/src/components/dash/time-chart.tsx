@@ -14,7 +14,8 @@ import { useEffect, useRef, useState } from "react";
 import type { Chart, Series } from "@/lib/dash/types";
 import { formatReadable, formatTick, formatValue } from "@/lib/format";
 
-const M = { top: 16, right: 12, bottom: 32, left: 36 };
+// The right margin fits half a year label, so a tick on the last year (a five-year series) is not clipped.
+const M = { top: 16, right: 20, bottom: 32, left: 36 };
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 type TimeChartSpec = Extract<Chart, { kind: "area" } | { kind: "line" }>;

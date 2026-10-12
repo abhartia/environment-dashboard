@@ -1,11 +1,14 @@
 """Lancet Countdown 2025 report, world values: heat-related deaths (1.1.5), potential work hours lost to heat
 (1.1.3), heatwave days per person observed and attributable to climate change (1.1.1), heatwave days of infants and
 adults over 65 (1.1.1), deaths from wildfire smoke (1.2.1), the share of land in extreme drought (1.2.2), extreme
-precipitation events over land (1.2.3) and deaths from outdoor air pollution by sector and fuel (3.2.1).
+precipitation events over land (1.2.3) and deaths from outdoor air pollution by sector and fuel (3.2.1). And by
+country: heatwave days observed and attributable to climate change (1.1.1) and work hours lost per worker (1.1.3).
 
 Inputs: the indicator workbooks of source lancet-countdown-2025. Each has a DATA GUIDANCE sheet (report, indicator,
-the report's key finding, column units, licence and suggested citation) and one sheet per geography; only the
-Global sheet is read here (1.2.3 has two global sheets; only its event counts are read).
+the report's key finding, column units, licence and suggested citation) and one sheet per geography; the Global sheet
+is read (1.2.3 has two global sheets; only its event counts are read), and for 1.1.1 attributable and 1.1.3 also the
+country sheet. Country rows carry ISO3 codes, each resolved through the entity crosswalk; the producer's country
+names, WHO regions and HDI levels are not read.
 
 Vintage. The guidance sheet names the report ("The 2025 report of the Lancet Countdown on health and climate
 change"). The vintage is "<year> report". A report year other than REPORT_YEAR stops the build: each report is its
@@ -27,6 +30,10 @@ adds them. Identities of the files are checked rather than assumed: TotalSunAgCo
 columns; Observed equals Counterfactual plus Attributable_to_CC; and the land share with at least one month of
 extreme drought is never below the share with three months, nor that below six.
 
+Country gaps. The 1.1.1 country sheet must be complete (every country, every year of the Global sheet, each row's
+identity). In the 1.1.3 country sheet a value per worker may be a "#DIV/0!" (no one employed in the four sectors) or
+blank (no data); both are published as missing with that reason, never filled.
+
 Left out, with the reason. 1.2.2's 12-month drought share reads NA in 15 of its 74 years, so it is not published.
 The 1.1.1 vulnerable-populations Global sheet's over-75 columns are not described in the guidance column table and
 read 0 in 1980–1999, when the over-65 columns do not; the guidance says a 0 is a value, so they cannot be read as
@@ -46,6 +53,7 @@ from pathlib import Path
 
 import openpyxl
 
+from envdash import geo
 from envdash.models import Dimension, DimensionValue, Display, Observation, Scope, Unit
 from envdash.paths import Paths
 from envdash.transform import Input, InputFile, PublisherCheck, Result, Spec, Transform, Validation
@@ -337,6 +345,216 @@ def _heatwave(files: dict[str, InputFile]) -> Result:
             "without climate change (Counterfactual) and attributable to climate change (Attributable_to_CC), "
             "published as in the workbook.",
             "Checked that observed days equal expected days plus attributable days in every year.",
+        ],
+    )
+
+
+# --- the country sheets -------------------------------------------------------------------------------------------
+
+COUNTRY_KEYS = ("Country", "ISO3", "WHO Region", "HDI Level", "Year")
+"""The five columns before the values in each country sheet (the guidance column table's spelling; 1.1.1's sheet
+writes 'WHO region' and 'HDI level'). Only ISO3 and Year are read: the producer's names, regions and HDI levels are
+not published."""
+MISSING = {
+    None: "The producer's sheet leaves this cell blank, which its guidance says means no data was available.",
+    "#DIV/0!": "The producer's sheet holds a division by zero here: it gives no one employed in the four sectors, so "
+    "there is no value per worker.",
+}
+"""The empty cells a country sheet may hold, with what each means; any other text stops the build. The guidance's
+"N/A" (could not be calculated) does not occur in the value columns read here."""
+
+
+def read_countries(wb: openpyxl.Workbook, sheet: str, columns: tuple, name: str) -> list[tuple[str, int, tuple]]:
+    """(our entity code, year, the row's cells after Year) for each row of a country sheet. ISO3 must be in the entity
+    crosswalk (resolved, never guessed); each country appears in one block of rows, years unique and increasing."""
+    if sheet not in wb.sheetnames:
+        raise LancetFormatError(f"{name}: no sheet {sheet!r} in {wb.sheetnames}")
+    rows = list(wb[sheet].iter_rows(values_only=True))
+    if not rows or tuple(rows[0]) != columns:
+        raise LancetFormatError(f"{name}: {sheet!r} columns {rows[0] if rows else None} != expected {columns}")
+    out: list[tuple[str, int, tuple]] = []
+    codes: dict[str, str] = {}
+    last: tuple[str, int] | None = None
+    for r in rows[1:]:
+        iso, year = r[1], r[4]
+        if not isinstance(iso, str) or not isinstance(year, int) or isinstance(year, bool):
+            raise LancetFormatError(f"{name}: {sheet!r} row {r} has no ISO3 code or whole-number Year")
+        if last is None or iso != last[0]:
+            if iso in codes:
+                raise LancetFormatError(f"{name}: {sheet!r} rows of {iso} are not together")
+            codes[iso] = geo.resolve(iso, "iso3")
+        elif year <= last[1]:
+            raise LancetFormatError(f"{name}: {sheet!r} {iso} years are not unique and increasing at {year}")
+        last = (iso, year)
+        out.append((codes[iso], year, tuple(r[5:])))
+    if len(set(codes.values())) != len(codes):
+        raise LancetFormatError(f"{name}: two ISO3 codes of {sheet!r} name the same entity")
+    return out
+
+
+def _number(v, name: str, where: str) -> Decimal | None:
+    """A value cell as an exact decimal, or None for one of the MISSING cells (never filled)."""
+    if isinstance(v, int | float) and not isinstance(v, bool):
+        return dec(v)
+    if v in MISSING:
+        return None
+    raise LancetFormatError(f"{name}: {where} holds {v!r}, neither a number nor one of {list(MISSING)}")
+
+
+# --- 1.1.1 heatwave days attributable to climate change, by country -----------------------------------------------
+
+HEATWAVE_COUNTRY_SHEET = "2025_Report_Data_Country"
+HEATWAVE_COUNTRY_COLUMNS = ("Country", "ISO3", "WHO region", "HDI level", "Year", *HEATWAVE_COLUMNS[1:])
+
+
+def parse_heatwave_countries(raw: bytes) -> tuple[list[Observation], Guidance]:
+    """The World (Global sheet) and each country's heatwave days, observed, expected without climate change and
+    attributable to it. Every country must have exactly the Global sheet's years and every value; a negative
+    attributable value (a country with fewer heatwave days than its modelled counterfactual) is published as it is."""
+    world, g = parse_heatwave(raw)
+    wb = _open(raw)
+    rows = read_countries(wb, HEATWAVE_COUNTRY_SHEET, HEATWAVE_COUNTRY_COLUMNS, "1.1.1 countries")
+    global_years = sorted({int(o.period) for o in world if o.period})
+    by: dict[str, list[Observation]] = {s: [o for o in world if o.dims["scenario"] == s] for s, *_ in SCENARIOS}
+    seen: dict[str, list[int]] = {}
+    for entity, year, cells in rows:
+        where = f"{entity} {year}"
+        o, c, a = (_number(v, "1.1.1 countries", where) for v in cells)
+        if o is None or c is None or a is None:
+            raise LancetFormatError(f"1.1.1 countries: {where} has an empty value; the sheet is expected complete")
+        if abs(o - c - a) > Decimal("1e-9"):
+            raise LancetFormatError(f"1.1.1 countries: {where} Observed {o} != Counterfactual {c} + Attributable {a}")
+        seen.setdefault(entity, []).append(year)
+        for scenario, value in (("observed", o), ("counterfactual", c), ("attributable", a)):
+            by[scenario].append(
+                Observation(entity=entity, period=f"{year:04d}", value=float(value), dims={"scenario": scenario})
+            )
+    short = {e: ys for e, ys in seen.items() if ys != global_years}
+    if short:
+        raise LancetFormatError(f"1.1.1 countries: years differ from the Global sheet's {global_years}: {short}")
+    return [o for s, *_ in SCENARIOS for o in by[s]], g
+
+
+def _heatwave_countries(files: dict[str, InputFile]) -> Result:
+    obs, g = parse_heatwave_countries(files[HEATWAVE.key].path.read_bytes())
+    years = sorted({o.period for o in obs})
+    countries = sorted({o.entity for o in obs} - {"WLD"})
+    return Result(
+        observations=obs,
+        vintage=VINTAGE,
+        year=str(g.report_year),
+        date_published=g.published.isoformat(),
+        steps=[
+            f"Read the sheets {HEATWAVE_SHEET!r} (the world) and {HEATWAVE_COUNTRY_SHEET!r} ({len(countries)} "
+            "countries and territories by ISO3 code) of the indicator 1.1.1 (attributable heatwave days) workbook of "
+            f"the Lancet Countdown {g.report_year} report, {years[0]}–{years[-1]}: heatwave days observed, expected "
+            "without climate change (Counterfactual) and attributable to climate change (Attributable_to_CC), "
+            "published as in the workbook. The producer's country names, WHO regions and HDI levels are not "
+            "published.",
+            "Mapped each ISO3 code to the site's entity of that code (pipeline/geo/entities.csv); every code is in it.",
+            "Checked that observed days equal expected days plus attributable days in every row, and that every "
+            "country has a value for each year of the world sheet. A country with fewer heatwave days than its "
+            "modelled counterfactual has a negative attributable value, published as it is.",
+        ],
+    )
+
+
+# --- 1.1.3 potential work hours lost per worker, world and by country ---------------------------------------------
+
+WORK_COUNTRY_SHEET = "2025 Report Data_Country"
+WORK_COUNTRY_COLUMNS = (
+    *COUNTRY_KEYS,
+    "TotPopn",
+    "Pop 15+",
+    " EmplServ",
+    " EmplManuf",
+    " EmplAgr",
+    " EmplConstr",
+    "EmplPop 15+",
+    "WHLpp200",
+    "WHLpp300",
+    "WHLpp400shade",
+    "WHLpp400sun",
+    "WHL200Serv",
+    "WHL300Manuf",
+    "WHL400sunAgr",
+    "WHL400sunConstr",
+    "TotalsunAgCon",
+    "TotalSunWHLpp",
+)
+PER_WORKER = "TotalSunWHLpp"
+"""Mean potential work hours lost per worker (services and manufacturing in shade, agriculture and construction in
+the sun), in hours: the total hours lost over the people employed in the four sectors."""
+
+
+def _per_worker(employed: Decimal | None, thousands: Decimal | None, per: Decimal | None, where: str) -> None:
+    """The per-worker value is the total over the employed: checked where all three are given; a division by zero
+    must come from no one employed."""
+    if per is None:
+        return
+    if employed is None or thousands is None or employed == 0:
+        raise LancetFormatError(f"1.1.3: {where} has hours lost per worker {per} without total hours and employment")
+    if abs(thousands * 1000 / employed - per) > per * Decimal("1e-9"):
+        raise LancetFormatError(f"1.1.3: {where} hours per worker {per} != {thousands} thousand / {employed} employed")
+
+
+def parse_work_per_worker(raw: bytes) -> tuple[list[Observation], Guidance, dict[str, list[str]]]:
+    """Hours lost per worker for the World (Global sheet) and each country, and the country-years left out, by why."""
+    wb = _open(raw)
+    g = read_guidance(wb)
+    _check_guidance(
+        g,
+        "Indicator 1.1.3: Change in Labour Capacity",
+        {"TotalSunWHLpp": "Hours", "TotalsunAgCon": "Hours in 1000s", "EmplPop 15+": "Persons"},
+        "1.1.3",
+    )
+    idx = {c: i for i, c in enumerate(WORK_COLUMNS)}
+    world = []
+    for r in read_table(wb, WORK_SHEET, WORK_COLUMNS, "1.1.3"):
+        per = dec(r[idx[PER_WORKER]])
+        _per_worker(dec(r[idx["EmplPop15+"]]), dec(r[idx["TotalSunAgCon"]]), per, f"WLD {r[0]}")
+        world.append(Observation(entity="WLD", period=f"{r[0]:04d}", value=float(per)))
+    cols = {c: i - len(COUNTRY_KEYS) for i, c in enumerate(WORK_COUNTRY_COLUMNS)}
+    obs: list[Observation] = []
+    left_out: dict[str, list[str]] = {}
+    for entity, year, cells in read_countries(wb, WORK_COUNTRY_SHEET, WORK_COUNTRY_COLUMNS, "1.1.3 countries"):
+        where = f"{entity} {year}"
+        employed, thousands, per = (
+            _number(cells[cols[c]], "1.1.3 countries", f"{where} {c}")
+            for c in ("EmplPop 15+", "TotalsunAgCon", PER_WORKER)
+        )
+        _per_worker(employed, thousands, per, where)
+        if per is None:
+            cell = cells[cols[PER_WORKER]]
+            if cell == "#DIV/0!" and employed != 0:
+                raise LancetFormatError(f"1.1.3 countries: {where} divides by zero with {employed} people employed")
+            left_out.setdefault(str(cell), []).append(where)
+            obs.append(Observation(entity=entity, period=f"{year:04d}", value=None, missing_reason=MISSING[cell]))
+            continue
+        obs.append(Observation(entity=entity, period=f"{year:04d}", value=float(per)))
+    return world + obs, g, left_out
+
+
+def _work_per_worker(files: dict[str, InputFile]) -> Result:
+    obs, g, left_out = parse_work_per_worker(files[WORK_HOURS.key].path.read_bytes())
+    years = sorted({o.period for o in obs})
+    countries = sorted({o.entity for o in obs} - {"WLD"})
+    gaps = "; ".join(f"{len(v)} {'blank' if why == 'None' else why!r}" for why, v in sorted(left_out.items()))
+    return Result(
+        observations=obs,
+        vintage=VINTAGE,
+        year=str(g.report_year),
+        date_published=g.published.isoformat(),
+        steps=[
+            f"Read the column {PER_WORKER} (mean potential work hours lost per worker, in hours as the guidance sheet "
+            f"states) of the sheets {WORK_SHEET!r} (the world) and {WORK_COUNTRY_SHEET!r} ({len(countries)} countries "
+            f"and territories by ISO3 code) of the indicator 1.1.3 workbook of the Lancet Countdown {g.report_year} "
+            f"report, {years[0]}–{years[-1]}, published as in the workbook.",
+            "Mapped each ISO3 code to the site's entity of that code (pipeline/geo/entities.csv); every code is in it.",
+            "Checked in every row that the value equals the total hours lost (TotalsunAgCon, thousands of hours) over "
+            "the people employed in the four sectors (EmplPop 15+).",
+            f"Published the country-years with no value per worker as missing, with the reason, never filled: {gaps} "
+            "cells. A division by zero is accepted only where the sheet gives no one employed in the four sectors.",
         ],
     )
 
@@ -806,6 +1024,35 @@ def transforms(paths: Paths) -> list[Transform]:
         ),
         Transform(
             spec=Spec(
+                id="heat.lancet-2025.labour-hours-per-worker",
+                title="Potential work hours lost to heat per worker, world and by country",
+                description="Working hours that heat stress could have cost each worker on average each year, "
+                "1990–2024, in the world and in each of 219 countries and territories, across services, manufacturing, "
+                "agriculture and construction, as estimated by the Lancet Countdown (indicator 1.1.3). Heat of any "
+                "cause: the hours are not attributed to climate change. Where the producer's sheet has no one "
+                "employed in the four sectors, or no value, the year is published as missing.",
+                kind="series",
+                unit=Unit(code="hours", label="hours per worker", short="hours"),
+                display=Display(decimals=1),
+                scope=Scope(
+                    geography="World, and countries and territories as the producer draws them (UN territories)",
+                    basis="Potential hours lost: wet bulb globe temperature from ERA5 linked to the metabolic rate "
+                    "of typical work (services 200 W and manufacturing 300 W in shade, agriculture and construction "
+                    "400 W in the sun), applied to employed people aged 15 and over in each sector, and divided by the "
+                    "people employed in the four sectors. Formal employment only. The producer notes that from 2020 "
+                    "grid cells shared between countries are handled differently, which may show as a step between "
+                    "2019 and 2020.",
+                ),
+                geo_coverage="mixed",
+                headline_entity="WLD",
+            ),
+            inputs=(WORK_HOURS,),
+            run=_work_per_worker,
+            module_file=here,
+            validation=Validation(min_rows=35 * 200, value_range=(0.0, 3000.0)),
+        ),
+        Transform(
+            spec=Spec(
                 id="heat.lancet-2025.heatwave-days-global",
                 title="Heatwave days per person, observed and attributable to climate change, world",
                 description="Heatwave days that people were exposed to on average each year, 2020–2024, as "
@@ -835,6 +1082,42 @@ def transforms(paths: Paths) -> list[Transform]:
             run=_heatwave,
             module_file=here,
             validation=Validation(min_rows=3 * 5, value_range=(0.0, 366.0)),
+        ),
+        Transform(
+            spec=Spec(
+                id="heat.lancet-2025.heatwave-days-countries",
+                title="Heatwave days per person, observed and attributable to climate change, world and by country",
+                description="Heatwave days that people were exposed to on average each year, 2020–2024, in the world "
+                "and in each of 220 countries and territories: as observed, as expected in a modelled climate without "
+                "human-caused warming, and the difference attributable to climate change, from the Lancet Countdown "
+                "(indicator 1.1.1). Estimates for small countries are more uncertain, as the producer notes; where a "
+                "country had fewer heatwave days than its modelled counterfactual, the attributable value is "
+                "negative.",
+                kind="series",
+                unit=Unit(code="days", label="days per person", short="days"),
+                display=Display(decimals=1),
+                dimensions=(
+                    Dimension(
+                        id="scenario",
+                        label="Scenario",
+                        values=[DimensionValue(id=s, label=label) for s, label, _ in SCENARIOS],
+                    ),
+                ),
+                scope=Scope(
+                    geography="World, and countries and territories as the producer draws them (UN territories)",
+                    basis="A heatwave is at least two consecutive days when both minimum and maximum temperature "
+                    "exceed the local 1986–2005 95th percentile. Observed days from ERA5; days expected without "
+                    "human-caused warming from 24 paired CMIP6 climate model simulations. Each country's value is its "
+                    "people's average.",
+                ),
+                geo_coverage="mixed",
+                headline_entity="WLD",
+                headline_dims=(("scenario", "attributable"),),
+            ),
+            inputs=(HEATWAVE,),
+            run=_heatwave_countries,
+            module_file=here,
+            validation=Validation(min_rows=3 * 5 * 200, value_range=(-366.0, 366.0)),
         ),
         Transform(
             spec=Spec(

@@ -16,7 +16,7 @@ from decimal import ROUND_HALF_UP, Decimal
 import openpyxl
 import pytest
 
-from envdash import snapshots
+from envdash import geo, snapshots
 from envdash.paths import Paths
 from envdash.registry import load_registry
 from envdash.transforms.impacts import lancet_countdown as lc
@@ -29,6 +29,8 @@ IDS = {
     "heat.lancet-2025.deaths-global",
     "heat.lancet-2025.labour-hours-global",
     "heat.lancet-2025.heatwave-days-global",
+    "heat.lancet-2025.heatwave-days-countries",
+    "heat.lancet-2025.labour-hours-per-worker",
     "heat.lancet-2025.heatwave-days-vulnerable",
     "smoke.lancet-2025.wildfire-deaths",
     "drought.lancet-2025.land-share",
@@ -234,6 +236,94 @@ def test_heatwave_days_and_the_key_finding():
     years = [str(y) for y in range(2020, 2025)]
     share = sum(by[("attributable", y)] for y in years) / sum(by[("observed", y)] for y in years)
     assert _round(share * 100, "1") == Decimal("84")
+
+
+def test_country_sheets_are_declared():
+    ts = {t.spec.id: t for t in lc.transforms(Paths.default())}
+    hw, work = ts["heat.lancet-2025.heatwave-days-countries"], ts["heat.lancet-2025.labour-hours-per-worker"]
+    assert hw.inputs == (lc.HEATWAVE,) and work.inputs == (lc.WORK_HOURS,)
+    assert hw.spec.geo_coverage == work.spec.geo_coverage == "mixed"
+    assert hw.spec.headline_entity == work.spec.headline_entity == "WLD"
+    # The headline is the part the producer attributes to climate change; negatives are allowed through validation.
+    assert dict(hw.spec.headline_dims) == {"scenario": "attributable"} and hw.validation.value_range[0] < 0
+    assert "negative" in hw.spec.description and "not attributed to climate change" in work.spec.description
+    # The value columns follow the producer's five key columns (1.1.1 spells two of them in lower case).
+    assert lc.HEATWAVE_COUNTRY_COLUMNS[5:] == lc.HEATWAVE_COLUMNS[1:]
+    assert (
+        lc.WORK_COUNTRY_COLUMNS[: len(lc.COUNTRY_KEYS)] == lc.COUNTRY_KEYS and lc.PER_WORKER in lc.WORK_COUNTRY_COLUMNS
+    )
+    assert set(lc.MISSING) == {None, "#DIV/0!"}
+
+
+@pytest.mark.snapshot
+def test_heatwave_days_by_country():
+    raw = _current_bytes(SOURCE, lc.HEATWAVE.artifact_id)
+    obs, _ = lc.parse_heatwave_countries(raw)
+    world, _ = lc.parse_heatwave(raw)
+    assert [o for o in obs if o.entity == "WLD"] == world
+    assert len({o.entity for o in obs}) == 221 and len(obs) == 221 * 3 * 5
+    by = {(o.entity, o.dims["scenario"], o.period): Decimal(repr(o.value)) for o in obs}
+    # The 2025_Report_Data_Country row United Kingdom, GBR, 2024.
+    assert by[("GBR", "attributable", "2024")] == Decimal("5.81840417198212")
+    assert by[("GBR", "observed", "2024")] == Decimal("6.62396931964666")
+    # Fewer heatwave days than the modelled world without the warming: published as negative, not dropped.
+    assert by[("PAK", "attributable", "2021")] == Decimal("-0.652866793187558")
+    assert sorted(k for k, v in by.items() if k[1] == "attributable" and v < 0) == [
+        ("PAK", "attributable", "2021"),
+        ("PAK", "attributable", "2023"),
+    ]
+
+
+@pytest.mark.snapshot
+def test_a_changed_country_row_is_refused():
+    raw = _current_bytes(SOURCE, lc.HEATWAVE.artifact_id)
+    sheet = lc.HEATWAVE_COUNTRY_SHEET
+    # One more observed day breaks Observed = Counterfactual + Attributable_to_CC.
+    with pytest.raises(lc.LancetFormatError, match="GBR 2024 Observed"):
+        lc.parse_heatwave_countries(
+            _with_cell(raw, sheet, ("United Kingdom", "GBR", "Europe", "Very high", 2024), 5, 7.62396931964666)
+        )
+    # A code outside the crosswalk is never guessed.
+    with pytest.raises(geo.UnknownEntity, match="XGB"):
+        lc.parse_heatwave_countries(
+            _with_cell(raw, sheet, ("United Kingdom", "GBR", "Europe", "Very high", 2024), 1, "XGB")
+        )
+    # A blank value stops the build rather than leaving a hole in a sheet that is complete.
+    with pytest.raises(lc.LancetFormatError, match="empty value"):
+        lc.parse_heatwave_countries(
+            _with_cell(raw, sheet, ("United Kingdom", "GBR", "Europe", "Very high", 2024), 6, None)
+        )
+
+
+@pytest.mark.snapshot
+def test_work_hours_per_worker_by_country():
+    raw = _current_bytes(SOURCE, lc.WORK_HOURS.artifact_id)
+    obs, _, left_out = lc.parse_work_per_worker(raw)
+    by = {(o.entity, o.period): o for o in obs}
+    # The Global sheet's TotalSunWHLpp for 2024, and the United Kingdom's.
+    assert Decimal(repr(by[("WLD", "2024")].value)) == Decimal("178.05728508386184")
+    assert by[("GBR", "2024")].value == pytest.approx(0.15226597195484218, rel=1e-15)
+    assert len({o.entity for o in obs}) == 220
+    # No one employed in the four sectors: a division by zero in the sheet, published as missing with that reason.
+    assert {k for k, v in left_out.items()} == {"#DIV/0!", "None"} and len(left_out["#DIV/0!"]) == 204
+    andorra = [o for o in obs if o.entity == "AND"]
+    assert andorra and all(o.value is None and "division by zero" in (o.missing_reason or "") for o in andorra)
+    assert by[("ZWE", "2022")].value is None and "blank" in (by[("ZWE", "2022")].missing_reason or "")
+    assert by[("ZWE", "2021")].value is not None
+
+
+@pytest.mark.snapshot
+def test_a_per_worker_value_that_is_not_the_total_over_the_employed_is_refused():
+    raw = _current_bytes(SOURCE, lc.WORK_HOURS.artifact_id)
+    zw = ("Zimbabwe", "ZWE", "Africa", "Medium", 2024)
+    with pytest.raises(lc.LancetFormatError, match="ZWE 2024 hours per worker"):
+        lc.parse_work_per_worker(
+            _with_cell(raw, lc.WORK_COUNTRY_SHEET, zw, lc.WORK_COUNTRY_COLUMNS.index(lc.PER_WORKER), 70.0)
+        )
+    with pytest.raises(lc.LancetFormatError, match="divides by zero with 5781000"):
+        lc.parse_work_per_worker(
+            _with_cell(raw, lc.WORK_COUNTRY_SHEET, zw, lc.WORK_COUNTRY_COLUMNS.index(lc.PER_WORKER), "#DIV/0!")
+        )
 
 
 @pytest.mark.snapshot

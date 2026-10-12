@@ -1,10 +1,10 @@
 import "server-only";
 
 import { indicator } from "@/lib/data";
-import { entityName } from "@/lib/dash/entities";
+import { entityName, isPlace } from "@/lib/dash/entities";
 import { dimValues } from "@/lib/dash/food-nodes";
-import { area, bars, type Built, chapter, credit, crossTo, dimLabel, headline, latestPeriod, line, points } from "@/lib/dash/kit";
-import type { Bar, SeriesPoint } from "@/lib/dash/types";
+import { area, bars, type Built, chapter, credit, crossTo, dimLabel, entitiesWithData, headline, latestPeriod, line, points, ranking, soWhat } from "@/lib/dash/kit";
+import type { Bar, Drill, SeriesPoint } from "@/lib/dash/types";
 import { formatReadable } from "@/lib/format";
 
 /**
@@ -14,7 +14,9 @@ import { formatReadable } from "@/lib/format";
  * caused by the warming (and for babies and people over 65), deaths from heat of any cause and work lost, children's
  * lifetimes, people forced from home by weather disasters, people living below high tide, early deaths from the smoke
  * of burning coal, oil and gas, and fires and their smoke. Each says what its producer measured, and links back to the
- * change it follows. The Lancet Countdown's ids live only here, so a new report year changes one file.
+ * change it follows. Below the heatwave days, what they mean where you live: each country's heatwave days caused by
+ * the warming, its work lost to heat and its people below high tide (heat's country views open them). The Lancet
+ * Countdown's ids live only here, so a new report year changes one file.
  */
 
 const EXTREMES = "extremes.ipcc-ar6.frequency-by-warming-level";
@@ -31,6 +33,10 @@ const CHILDREN = "lifetime.grant-2025.unprecedented-heatwaves";
 const DISPLACED = "displacement.idmc-gidd.weather-by-hazard";
 const BELOW_TIDE = "coastal.kulp-strauss-2019.below-high-tide";
 const BELOW_FLOOD = "coastal.kulp-strauss-2019.annual-flood";
+const HEATWAVE_HERE = "heat.lancet-2025.heatwave-days-countries";
+const WORK_HERE = "heat.lancet-2025.labour-hours-per-worker";
+const BELOW_TIDE_HERE = "coastal.kulp-strauss-2019.below-high-tide-by-country";
+const BELOW_FLOOD_HERE = "coastal.kulp-strauss-2019.annual-flood-by-country";
 const FOSSIL_DEATHS = "air-pollution.lancet-2025.fossil-deaths";
 const BY_SECTOR = "air-pollution.lancet-2025.deaths-by-sector-fuel";
 const FIRE_SMOKE = "smoke.lancet-2025.wildfire-deaths";
@@ -43,12 +49,19 @@ const EFFIS = "burned-area.effis.europe-annual";
  * without the warming would also have had and the rest; the IPCC gives how much more often extremes come at each level
  * of warming.
  */
-export const ATTRIBUTED: { indicator: string; dims?: Record<string, string> }[] = [{ indicator: HEATWAVE, dims: { scenario: "attributable" } }, { indicator: EXTREMES }];
+export const ATTRIBUTED: { indicator: string; dims?: Record<string, string> }[] = [
+  { indicator: HEATWAVE, dims: { scenario: "attributable" } },
+  { indicator: HEATWAVE_HERE, dims: { scenario: "attributable" } },
+  { indicator: EXTREMES },
+];
 
 /** The level of warming the opening view reads at: the lowest the IPCC gives, which the world has already passed. */
 const NOW_LEVEL = "1.0";
 
+const TOP = 15;
+
 const WARM = "#b2182b";
+const WORK_COLOUR = "#c75400";
 const RAIN_COLOUR = "#2166ac";
 const DRY = "#b8860b";
 const GREY = "#9aa0a6";
@@ -263,7 +276,12 @@ function heatwaves(): Built {
       year,
       "Average heatwave days per person in the year, as observed and as modelled for a world without human-caused warming.",
     ),
-    drills: [{ label: "Babies and people over 65", to: "vulnerable" }, { label: "Work lost to heat", to: "labour" }, crossTo("How much of the warming people caused", "heat:human")],
+    drills: [
+      { label: "Where you live", to: "countries" },
+      { label: "Babies and people over 65", to: "vulnerable" },
+      { label: "Work lost to heat", to: "labour" },
+      crossTo("How much of the warming people caused", "heat:human"),
+    ],
     credit: credit(HEATWAVE),
     indicators: [HEATWAVE],
   };
@@ -408,16 +426,34 @@ function displaced(): Built {
 /** Kulp and Strauss's lead projections: K14 (Kopp and others, 2014), probabilistic and closely aligned with the IPCC. */
 const LEAD_PROJECTION = "k14";
 
+/**
+ * Today's people under today's and future sea levels in one place: one bar per year and scenario, as published, the
+ * yearly flood line as the bar and high tide inside it (lead projections only).
+ */
+function coastBars(tide: string, flood: string, entity: string): Bar[] {
+  const scenarios = dimValues(tide, "scenario");
+  const rows = indicator(tide)
+    .observations.filter((o) => o.entity === entity && o.value !== null && (o.dims.projection === "none" || o.dims.projection === LEAD_PROJECTION))
+    .sort((a, b) => (a.period ?? "").localeCompare(b.period ?? "") || scenarios.findIndex((x) => x.id === a.dims.scenario) - scenarios.findIndex((x) => x.id === b.dims.scenario));
+  return rows.map((o) => {
+    const f = indicator(flood).observations.find((x) => x.entity === entity && x.period === o.period && x.dims.scenario === o.dims.scenario && x.dims.projection === o.dims.projection)?.value ?? null;
+    if (f === null || f === undefined) throw new Error(`${flood}: no value for ${entity} ${o.period} ${o.dims.scenario} ${o.dims.projection}`);
+    return { key: `${o.period}-${o.dims.scenario}`, label: o.dims.scenario === "present" ? `${o.period}` : `${o.period}, ${dimLabel(tide, "scenario", o.dims.scenario)}`, value: f, inner: o.value as number, colour: RAIN_COLOUR };
+  });
+}
+
+const COAST_LEGEND = [
+  { label: "Below the yearly flood line", colour: pale(RAIN_COLOUR) },
+  { label: "Below high tide", colour: RAIN_COLOUR },
+];
+
+function coastNote(tide: string): string {
+  return `People on land below the yearly coastal flood line (bar) and below high tide (inside), at today's sea level and under projected seas (${dimLabel(tide, "projection", LEAD_PROJECTION)}), with population held as it was. Not a forecast of floods.`;
+}
+
 function coasts(): Built {
   const ind = indicator(BELOW_TIDE);
-  const scenarios = dimValues(BELOW_TIDE, "scenario");
   const h = headline(BELOW_TIDE, "WLD", { scenario: "present", projection: "none" });
-  // Today's people under today's and future sea levels: one bar per year and scenario, as published.
-  const rows = ind.observations
-    .filter((o) => o.entity === "WLD" && o.value !== null && (o.dims.projection === "none" || o.dims.projection === LEAD_PROJECTION))
-    .sort((a, b) => (a.period ?? "").localeCompare(b.period ?? "") || scenarios.findIndex((x) => x.id === a.dims.scenario) - scenarios.findIndex((x) => x.id === b.dims.scenario));
-  const flood = (o: (typeof rows)[number]) =>
-    indicator(BELOW_FLOOD).observations.find((x) => x.entity === "WLD" && x.period === o.period && x.dims.scenario === o.dims.scenario && x.dims.projection === o.dims.projection)?.value ?? null;
   return {
     id: "coasts",
     parent: "root",
@@ -425,21 +461,7 @@ function coasts(): Built {
     kicker: "People living below high tide",
     headline: h,
     sentence: `lived on land below the high-tide line in ${h.period}, by Kulp and Strauss's elevation model. It ignores sea walls and other defences, so it counts people at risk, not people flooded. The paler bars are land below the yearly flood line; later years put the same people under projected seas.`,
-    chart: bars(
-      rows.map((o) => {
-        const f = flood(o);
-        if (f === null) throw new Error(`${BELOW_FLOOD}: no value for ${o.period} ${o.dims.scenario} ${o.dims.projection}`);
-        return { key: `${o.period}-${o.dims.scenario}`, label: o.dims.scenario === "present" ? `${o.period}` : `${o.period}, ${dimLabel(BELOW_TIDE, "scenario", o.dims.scenario)}`, value: f, inner: o.value as number, colour: RAIN_COLOUR };
-      }),
-      ind.unit.short,
-      ind.display.decimals,
-      h.period,
-      `People on land below the yearly coastal flood line (bar) and below high tide (inside), at today's sea level and under projected seas (${dimLabel(BELOW_TIDE, "projection", LEAD_PROJECTION)}), with population held as it was. Not a forecast of floods.`,
-      [
-        { label: "Below the yearly flood line", colour: pale(RAIN_COLOUR) },
-        { label: "Below high tide", colour: RAIN_COLOUR },
-      ],
-    ),
+    chart: bars(coastBars(BELOW_TIDE, BELOW_FLOOD, "WLD"), ind.unit.short, ind.display.decimals, h.period, coastNote(BELOW_TIDE), COAST_LEGEND),
     drills: [crossTo("How much the sea has risen", "oceans:root"), crossTo("Money for adapting", "zero:adapt-finance")],
     credit: credit(BELOW_TIDE, BELOW_FLOOD),
     indicators: [BELOW_TIDE, BELOW_FLOOD],
@@ -602,6 +624,126 @@ function firesEurope(): Built {
   };
 }
 
+// --- Where you live ------------------------------------------------------------------------------------------------
+
+const ATTRIBUTABLE = { scenario: "attributable" };
+
+const has = (id: string, iso: string, dims: Record<string, string> = {}) =>
+  indicator(id).observations.some((o) => o.entity === iso && o.value !== null && Object.entries(dims).every(([k, v]) => o.dims[k] === v));
+const hasHeatwaves = (iso: string) => has(HEATWAVE_HERE, iso, ATTRIBUTABLE);
+const hasWork = (iso: string) => has(WORK_HERE, iso);
+const hasCoast = (iso: string) => has(BELOW_TIDE_HERE, iso) && has(BELOW_FLOOD_HERE, iso);
+
+/** Countries and territories with their own heatwave view: every one the Lancet Countdown gives. */
+function places(): string[] {
+  return entitiesWithData(HEATWAVE_HERE, ATTRIBUTABLE).filter(isPlace);
+}
+
+/**
+ * What a country's warming means for its people: its heatwave days caused by the warming, as a "so what" card for
+ * heat's country views. Without Lancet Countdown values for the country there is no card, and `noHeatwaves` says so.
+ */
+export function heatwavesIn(iso: string): Drill | null {
+  return hasHeatwaves(iso) ? soWhat(`Heatwave days caused by the warming in ${entityName(iso)}`, `people:hw-${iso}`, "caused") : null;
+}
+
+export function noHeatwaves(iso: string): string {
+  return `No data for ${entityName(iso)} in the Lancet Countdown's heatwave days.`;
+}
+
+function countries(): Built {
+  const ind = indicator(HEATWAVE_HERE);
+  const year = latestPeriod(HEATWAVE_HERE);
+  const ranked = ranking(HEATWAVE_HERE, year, ATTRIBUTABLE);
+  const top = ranked.slice(0, TOP);
+  return {
+    id: "countries",
+    parent: "heatwaves",
+    crumb: "Where you live",
+    kicker: "Where the warming added the most heatwave days",
+    headline: headline(HEATWAVE_HERE, top[0].entity, ATTRIBUTABLE, year),
+    sentence: `of heatwave per person in ${entityName(top[0].entity)} in ${year} that would not have happened without human-caused warming, the most of any country or territory, by the Lancet Countdown's models. Select a country.`,
+    chart: bars(
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: WARM, drill: `hw-${r.entity}` })),
+      ind.unit.short,
+      ind.display.decimals,
+      year,
+      `The ${top.length} largest of ${ranked.length} countries and territories: heatwave days per person in ${year} beyond those expected without human-caused warming. The producer notes that estimates for small places are more uncertain.`,
+    ),
+    drills: [crossTo("Where it is warming", "heat:countries")],
+    credit: credit(HEATWAVE_HERE),
+    indicators: [HEATWAVE_HERE],
+  };
+}
+
+function heatwavesHere(iso: string): Built {
+  const { short, decimals } = u(HEATWAVE_HERE);
+  const name = entityName(iso);
+  const year = latestPeriod(HEATWAVE_HERE);
+  const h = headline(HEATWAVE_HERE, iso, ATTRIBUTABLE, year);
+  const scenario = (id: string, colour: string) => ({ key: id, label: dimLabel(HEATWAVE_HERE, "scenario", id), colour, points: points(HEATWAVE_HERE, iso, { scenario: id }) });
+  const drills: Drill[] = [];
+  if (hasWork(iso)) drills.push({ label: `Work lost to heat in ${name}`, to: `work-${iso}` });
+  if (hasCoast(iso)) drills.push({ label: `People below high tide in ${name}`, to: `coast-${iso}` });
+  drills.push({ label: "Heatwave days caused by the warming, world", to: "heatwaves" }, crossTo("Where it is warming", "heat:countries"));
+  // A country the producer's models give fewer heatwave days than a world without the warming has a negative value.
+  const what =
+    h.value >= 0
+      ? `of heatwave per person in ${name} in ${year} that would not have happened without human-caused warming, by the Lancet Countdown's models.`
+      : `of heatwave per person in ${name} in ${year}: fewer than the Lancet Countdown's models expect without human-caused warming.`;
+  const gaps = [hasWork(iso) ? null : `No data for ${name} in the Lancet Countdown's work hours.`, hasCoast(iso) ? null : `No data for ${name} in Kulp and Strauss's coastal estimates.`];
+  return {
+    id: `hw-${iso}`,
+    parent: "countries",
+    crumb: name,
+    kicker: h.value >= 0 ? `Heatwave days caused by climate change in ${name}` : `Heatwave days in ${name}, with and without climate change`,
+    headline: h,
+    sentence: [what, "The grey line is the days expected without the warming.", ...gaps].filter(Boolean).join(" "),
+    chart: line([scenario("observed", WARM), scenario("counterfactual", GREY)], short, decimals),
+    drills,
+    credit: credit(HEATWAVE_HERE),
+    indicators: [HEATWAVE_HERE],
+  };
+}
+
+function workHere(iso: string): Built {
+  const { short, decimals } = u(WORK_HERE);
+  const name = entityName(iso);
+  const h = headline(WORK_HERE, iso);
+  // The country alone: on the world's scale a cool country's hours lie flat on zero. The world is one card away.
+  const pts = points(WORK_HERE, iso);
+  return {
+    id: `work-${iso}`,
+    parent: `hw-${iso}`,
+    crumb: "Work lost",
+    kicker: `Working hours lost to heat in ${name}`,
+    headline: h,
+    sentence: `of potential work lost to heat stress per worker in ${name} in ${h.period}, by the Lancet Countdown. Heat of any cause, not only the warming people caused.${pts.some((p) => p[1] === null) ? " A gap is a year the producer gives no value." : ""}`,
+    chart: line([{ key: iso, label: `${name}, per worker`, colour: WORK_COLOUR, points: pts }], short, decimals),
+    drills: [{ label: "Working hours lost to heat, world", to: "labour" }],
+    credit: credit(WORK_HERE),
+    indicators: [WORK_HERE],
+  };
+}
+
+function coastHere(iso: string): Built {
+  const ind = indicator(BELOW_TIDE_HERE);
+  const name = entityName(iso);
+  const h = headline(BELOW_TIDE_HERE, iso, { scenario: "present", projection: "none" });
+  return {
+    id: `coast-${iso}`,
+    parent: `hw-${iso}`,
+    crumb: "Below high tide",
+    kicker: `People living below high tide in ${name}`,
+    headline: h,
+    sentence: `lived on land below the high-tide line in ${name} in ${h.period}, by Kulp and Strauss's elevation model${h.value === 0 ? " (their file, which counts in millions, rounds this to zero)" : ""}. It ignores sea walls and other defences, so it counts people at risk, not people flooded. The paler bars are land below the yearly flood line; later years put the same people under projected seas.`,
+    chart: bars(coastBars(BELOW_TIDE_HERE, BELOW_FLOOD_HERE, iso), ind.unit.short, ind.display.decimals, h.period, coastNote(BELOW_TIDE_HERE), COAST_LEGEND),
+    drills: [{ label: "People below high tide, world", to: "coasts" }, crossTo("How much the sea has risen", "oceans:root")],
+    credit: credit(BELOW_TIDE_HERE, BELOW_FLOOD_HERE),
+    indicators: [BELOW_TIDE_HERE, BELOW_FLOOD_HERE],
+  };
+}
+
 const NODES: Record<string, () => Built> = {
   root,
   "hottest-day": hottestDay,
@@ -623,16 +765,27 @@ const NODES: Record<string, () => Built> = {
   "fire-smoke": fireSmoke,
   "fires-continents": firesContinents,
   "fires-europe": firesEurope,
+  countries,
 };
 
 function ids(): string[] {
-  return Object.keys(NODES);
+  const out = Object.keys(NODES);
+  for (const iso of places()) {
+    out.push(`hw-${iso}`);
+    if (hasWork(iso)) out.push(`work-${iso}`);
+    if (hasCoast(iso)) out.push(`coast-${iso}`);
+  }
+  return out;
 }
 
 function build(id: string): Built {
   const make = NODES[id];
-  if (!make) throw new Error(`unknown people node ${id}`);
-  return make();
+  if (make) return make();
+  const m = id.match(/^(hw|work|coast)-([A-Z0-9_]+)$/);
+  if (m && m[1] === "hw") return heatwavesHere(m[2]);
+  if (m && m[1] === "work") return workHere(m[2]);
+  if (m && m[1] === "coast") return coastHere(m[2]);
+  throw new Error(`unknown people node ${id}`);
 }
 
 export const people = chapter(ids, build);

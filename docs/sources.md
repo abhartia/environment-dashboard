@@ -222,7 +222,8 @@ the book is typed into the site.
 Evidence: docs/research/sources-consequences-2026-10-11.json and docs/research/sources-extremes-2026-10-12.json (the
 Lancet 1.2.1, 1.2.2, 1.2.3 and 3.2.1 entries). Workbooks 3.2.1, 1.2.1 (mortality), 1.2.2 and 1.2.3 became artifacts of
 `lancet-countdown-2025` (CC BY-NC-SA 4.0, noncommercial), and the 1.1.1 vulnerable-populations workbook, registered on
-2026-10-04, got its transform. Only the Global sheets are read.
+2026-10-04, got its transform. Only the Global sheets are read (the 1.1.1 and 1.1.3 country sheets were added later
+the same day; see "what the changes mean where you live").
 
 - **3.2.1 is used although IEA World Energy Balances are among its inputs.** Those balances are rejected below for
   redistribution. Here they are one input to IIASA's GAINS model: the workbook publishes the authors' modelled deaths,
@@ -257,7 +258,7 @@ Evidence: docs/research/sources-consequences-2026-10-11.json (coasts, and the cr
   not fetched or re-hosted, so the article's files may be mirrored. Only the World rows and the CoastalDEM columns
   of Supplementary Data 1 are published, as printed (millions of people; median with the 5th to 95th percentiles as
   a 90% interval). The SRTM, JAXA and MERIT columns are not used (the paper's finding is that they understate
-  exposure), nor yet the country rows (country names need a crosswalk).
+  exposure). The country rows are published separately, in people (see "what the changes mean where you live").
   - **Which projections.** The abstract's lead figure (190 million below high tide by 2100 under low emissions,
     150–250 million) is K14 (Kopp et al. 2014), the set the paper calls probabilistic and closely aligned with IPCC
     findings; its high end ("up to 630 M" below the annual flood level by 2100) is the 95th percentile of K17 (Kopp
@@ -277,6 +278,35 @@ Evidence: docs/research/sources-consequences-2026-10-11.json (coasts, and the cr
     the corrected text.
   - Lancet Countdown indicator 2.3.3 uses the same CoastalDEM method with 2024 population (people below 1 m of
     future rise, noncommercial); it is not combined with these values.
+
+## Decisions on what the changes mean where you live (2026-10-12)
+
+The owner had deferred per-country "so what" views; this round adds them from files already registered and
+downloaded, so no new source and no new licence. Evidence: docs/research/sources-consequences-2026-10-11.json.
+
+- **Lancet Countdown 1.1.1 and 1.1.3 country sheets** (`lancet-countdown-2025`, CC BY-NC-SA 4.0). The attributable
+  heatwave workbook's country sheet gives 220 countries and territories, 2020–2024, by ISO3 code; it is published with
+  the World row as `heat.lancet-2025.heatwave-days-countries` (each row checked: observed = counterfactual +
+  attributable; every country has every year of the Global sheet). Two rows have a negative attributable value
+  (Pakistan 2021 and 2023: fewer heatwave days than the modelled world without the warming); they are published as
+  they are. The work-hours workbook's country sheet gives 219; only hours lost per worker (`TotalSunWHLpp`, checked to
+  equal total hours over the people employed) is published, with the World, as
+  `heat.lancet-2025.labour-hours-per-worker`, since a country's total hours mostly measure its size. Its 204
+  `#DIV/0!` cells (no one employed in the four sectors in the producer's sheet: every year of Andorra, French Guiana,
+  Liechtenstein, Monaco, San Marino and the Seychelles) and one blank (Zimbabwe 2022) are published as missing with
+  that reason, never filled. Every ISO3 code is in the entity crosswalk.
+- **Kulp & Strauss country rows** (`kulp-strauss-2019`, CC BY 4.0). The 134 country and territory rows of
+  Supplementary Data 1 are published with the World rows as `coastal.kulp-strauss-2019.below-high-tide-by-country`
+  and `…annual-flood-by-country`, in people (the printed millions times one million, exact; two significant figures
+  as printed), because country values down to 0.01 million cannot be read in whole millions. Place names map to
+  entities through an explicit alias table (`envdash/geo.py`, ten names such as "Côte d'Ivoire" and "United
+  States"); the authors' SIDS group is left out by name. The file leaves out places whose largest exposure is under
+  0.01 million, so a country missing from it has no value (the view says "No data for … in Kulp and Strauss's
+  coastal estimates"), never zero.
+- **On the dashboard.** Each heat country view opens with a "caused by the warming" card for that country's heatwave
+  days (the producer attributes them); without Lancet values the view says "No data for … in the Lancet Countdown's
+  heatwave days". The work hours are heat of any cause and say so.
+- **Not used yet:** World Bank CCKP heat-index and tropical-night indicators (registered as `wb-cckp`, open).
 
 ## Decisions on extreme weather: IPCC figure data and land TXx (2026-10-12)
 

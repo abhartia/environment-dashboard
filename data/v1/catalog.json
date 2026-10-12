@@ -380,7 +380,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "9e03ab76fb925c512a73d6ecf2aa8038e566a57e5a28742e926b1547f3a9ebb0",
+      "export_sha256": "4aea49859c12adfe832d11eeb203c810242e016c55779eb404dab1d78c27a082",
       "geo_coverage": "global-only",
       "id": "air-pollution.lancet-2025.deaths-by-sector-fuel",
       "latest": {
@@ -414,14 +414,14 @@
             "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Published every sector and fuel as in the workbook, zeros included (the guidance sheet says a 0 is a value). Death rates, PM2.5 concentrations and the regional sheets are not published.",
             "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -450,7 +450,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "b7f1f0f41d69815cc098c143cd994b8c22c7ae2fc600f60db37f2b612823721f",
+      "export_sha256": "c9d5864a306a7f1735ea787d451940c86e1ba0616017fc01df15176f9d9bc624",
       "geo_coverage": "global-only",
       "id": "air-pollution.lancet-2025.fossil-deaths",
       "latest": {
@@ -483,14 +483,14 @@
             "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Added the coal deaths of the seven sectors, and separately their liquids-and-gas deaths, for each year (whole deaths, exact), and added the two for deaths from fossil fuels, as the report's key finding does. Biomass and other sources are left out.",
             "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -2550,7 +2550,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "3346941d673574ee7d51114764a639276542227cdee3877cf185cc7dd446e3f0",
+      "export_sha256": "c5899e5d6fd64f74ce8e99fefcac2a1f763ba359c34066b3ce5e7cfe258b59d8",
       "geo_coverage": "global-only",
       "id": "coastal.kulp-strauss-2019.annual-flood",
       "latest": {
@@ -2582,39 +2582,39 @@
         ],
         "processing": [
           {
-            "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the 13 rows of Place 'World' (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the three CoastalDEM columns of RL1: land below the future local high tide line plus the local 1-year coastal flood level. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows are not used.",
+            "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the 13 rows of Place 'World' (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the three CoastalDEM columns of RL1: land below the future local high tide line plus the local 1-year coastal flood level. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows are not used here (the country rows are published, in people, by the indicators ending '-by-country').",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends of a 90% interval, exactly as printed in millions of people (nothing rounded or recalculated). The present-day row prints '--' for both percentiles, so it has no range.",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the years of their sea levels; the population stays as it was in 2010.",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Published both projection sets as values of the 'projection' dimension, side by side and never mixed, because the abstract uses both: its 190 M (150–250 M) below high tide by 2100 under low emissions is K14 (K17 gives another range), and its 'up to 630 M' and 'up to 340 M' below the annual flood level by 2100 and mid-century are K17's 95th percentiles under RCP8.5. Checked both, and the present day's 110 M and 250 M, against these cells.",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Checked the file against Table 1 of the corrected article (sha256 912692e7c7a3…, page 3): each of its 24 CoastalDEM totals, median and 90% interval, equals the file's three numbers. Found the 20 sentences that the scope and the cross-checks rely on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the 2 on units, exposures and percentiles in the description of the supplementary files (sha256 2b98673da602…).",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           }
         ],
         "published_value": null,
@@ -2642,8 +2642,101 @@
         "decimals": 0
       },
       "downloadable": true,
+      "entities": ["AGO", "ALB", "ARE", "ARG", "AUS", "BEL", "BEN", "BGD", "BHR", "BHS", "BLZ", "BRA", "BRN", "CAN", "CHL", "CHN", "CIV", "CMR", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "DEU", "DJI", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESH", "ESP", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GGY", "GHA", "GIN", "GMB", "GNB", "GRC", "GTM", "GUF", "GUY", "HKG", "HND", "HRV", "HTI", "IDN", "IND", "IRL", "IRN", "IRQ", "ITA", "JAM", "JEY", "JPN", "KEN", "KHM", "KIR", "KOR", "LBN", "LBR", "LBY", "LCA", "LKA", "LTU", "LVA", "MAC", "MAR", "MDG", "MDV", "MEX", "MHL", "MMR", "MNP", "MOZ", "MRT", "MTQ", "MUS", "MYS", "MYT", "NCL", "NGA", "NIC", "NLD", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PNG", "POL", "PRK", "PRT", "PYF", "QAT", "REU", "ROU", "RUS", "SAU", "SDN", "SEN", "SLB", "SLE", "SLV", "SOM", "STP", "SUR", "SWE", "SYC", "TGO", "THA", "TLS", "TON", "TTO", "TUN", "TUR", "TWN", "TZA", "UKR", "USA", "VEN", "VNM", "VUT", "WLD", "WSM", "ZAF"],
+      "export_sha256": "5fc98d3658eef6dfa0dd4a29d99305569a7308a1ea5d960cf610fb8df245e8df",
+      "geo_coverage": "mixed",
+      "id": "coastal.kulp-strauss-2019.annual-flood-by-country",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "projection": "none",
+          "scenario": "present"
+        },
+        "entity": "WLD",
+        "period": "2010",
+        "status": "final",
+        "value": 250000000.0
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Adapted by Environment Dashboard from Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nature Communications 10, 4844. doi:10.1038/s41467-019-12808-z. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Changes: millions of people converted to people.",
+        "description": "Estimated number of people living on land below the local once-a-year coastal flood level (the high-tide line plus the local 1-year flood height), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, in the world and in 134 countries and territories, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. The file prints each value in millions to two significant figures; it is published here in people. The file leaves out places where the most people exposed is under 0.01 million. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "supplementary-data-1", "bytes": 253535, "citation_full": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z", "date_accessed": "2026-10-12", "date_published": "2019-10-29", "doi": "10.1038/s41467-019-12808-z", "etag": "\"8bda3a8ece191add7cff689b5d2893be\"", "last_modified": "Mon, 04 Dec 2023 17:29:34 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)", "r2_url": "https://files.environmentdashboard.org/raw/37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81.zst", "sha256": "37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "source_id": "kulp-strauss-2019", "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)", "url_download": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM4_ESM.csv", "url_main": "https://doi.org/10.1038/s41467-019-12808-z", "version_producer": "Nature Communications 10: 4844 (2019), corrected 12 December 2019", "wayback_url": "https://web.archive.org/web/20261012142235/https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM4_ESM.csv"},
+          {"acquisition": "automatic", "artifact_id": "supplementary-descriptions", "bytes": 65044, "citation_full": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z", "date_accessed": "2026-10-12", "date_published": "2019-10-29", "doi": "10.1038/s41467-019-12808-z", "etag": "\"1c83dd29e8d99b1d5ff6a6c73406ac0b\"", "last_modified": "Mon, 04 Dec 2023 17:29:34 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)", "r2_url": "https://files.environmentdashboard.org/raw/2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771.zst", "sha256": "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "source_id": "kulp-strauss-2019", "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)", "url_download": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM3_ESM.pdf", "url_main": "https://doi.org/10.1038/s41467-019-12808-z", "version_producer": "Nature Communications 10: 4844 (2019), corrected 12 December 2019", "wayback_url": "https://web.archive.org/web/20261012142033/https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM3_ESM.pdf"},
+          {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 3903782, "citation_full": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z", "date_accessed": "2026-10-12", "date_published": "2019-10-29", "doi": "10.1038/s41467-019-12808-z", "etag": "\"1745469cbb491e63418a5c0bd7b7bac7\"", "last_modified": "Mon, 04 Dec 2023 17:29:36 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)", "r2_url": "https://files.environmentdashboard.org/raw/912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f.zst", "sha256": "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f", "source_id": "kulp-strauss-2019", "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)", "url_download": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "url_main": "https://doi.org/10.1038/s41467-019-12808-z", "version_producer": "Nature Communications 10: 4844 (2019), corrected 12 December 2019", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the rows of Place 'World' and of the 134 countries and territories, each with the same 13 sea levels in the same order (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), and from each only the three CoastalDEM columns of RL1: land below the future local high tide line plus the local 1-year coastal flood level. The authors' group of small island developing states (SIDS), the Total column and the SRTM, JAXA and MERITDEM columns are not used. The file description says places where the most people exposed is under 0.01 million are left out of the file, so a country absent here has no value, never zero.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Mapped each Place name to the site's entity: 10 names through the explicit alias table for this source (envdash/geo.py), the rest by their exact name in pipeline/geo/entities.csv.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends of a 90% interval, each multiplied by one million to give people (exact decimal arithmetic on the printed digits, so the values keep the file's two significant figures). The present-day row prints '--' for both percentiles, so it has no range.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the years of their sea levels; the population stays as it was in 2010.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Checked the file against Table 1 of the corrected article (sha256 912692e7c7a3…, page 3): each of its 24 CoastalDEM totals, median and 90% interval, equals the file's three numbers. Found the 20 sentences that the scope and the cross-checks rely on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the 2 on units, exposures and percentiles in the description of the supplementary files (sha256 2b98673da602…).",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Below the local mean higher-high water line plus the local once-a-year coastal flood height (Global Tides and Surge Reanalysis), after the given sea-level rise. People are counted where they lived in 2010 (LandScan 2010); population growth and migration are not modelled. Land cut off from the sea is left out. Present day is the sea level of 2000, the zero of both projection sets. 2050 and 2100 add the median and the 5th to 95th percentiles of the sea-level rise projected by Kopp et al. 2014 (K14) or Kopp et al. 2017 (K17, unstable Antarctic ice) under RCP2.6, 4.5 and 8.5, projections made before the IPCC's Sixth Assessment Report. A bathtub model: sea walls, levees and other defences are not counted (levee locations are not available globally), so protected coasts such as the Netherlands are included. It measures exposure, not flooding.",
+          "bunkers": null,
+          "geography": "World: land between 56° south and 60° north, where CoastalDEM is defined, home to 99.7% of the world's population in 2010; countries and territories as the authors name them",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["kulp-strauss-2019"],
+      "time_basis": "calendar",
+      "title": "People living on land below the yearly coastal flood level: estimated at today's sea level, projected for 2050 and 2100, world and by country (Kulp & Strauss 2019)",
+      "unit": {
+        "code": "people",
+        "label": "people",
+        "short": "people"
+      },
+      "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "91d263c453211a130e3955cdbc8606eab11a47f756f3b5dc4b7c3cd610100b9d",
+      "export_sha256": "7091aa8e109c8dca9fd96c5f4aebd0b9db9c80d625923824cfa041ca2d0e36fd",
       "geo_coverage": "global-only",
       "id": "coastal.kulp-strauss-2019.below-high-tide",
       "latest": {
@@ -2675,39 +2768,39 @@
         ],
         "processing": [
           {
-            "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the 13 rows of Place 'World' (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the three CoastalDEM columns of Perm: land below the future local high tide line. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows are not used.",
+            "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the 13 rows of Place 'World' (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the three CoastalDEM columns of Perm: land below the future local high tide line. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows are not used here (the country rows are published, in people, by the indicators ending '-by-country').",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends of a 90% interval, exactly as printed in millions of people (nothing rounded or recalculated). The present-day row prints '--' for both percentiles, so it has no range.",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the years of their sea levels; the population stays as it was in 2010.",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Published both projection sets as values of the 'projection' dimension, side by side and never mixed, because the abstract uses both: its 190 M (150–250 M) below high tide by 2100 under low emissions is K14 (K17 gives another range), and its 'up to 630 M' and 'up to 340 M' below the annual flood level by 2100 and mid-century are K17's 95th percentiles under RCP8.5. Checked both, and the present day's 110 M and 250 M, against these cells.",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           },
           {
             "description": "Checked the file against Table 1 of the corrected article (sha256 912692e7c7a3…, page 3): each of its 24 CoastalDEM totals, median and 90% interval, equals the file's three numbers. Found the 20 sentences that the scope and the cross-checks rely on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the 2 on units, exposures and percentiles in the description of the supplementary files (sha256 2b98673da602…).",
             "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-            "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
           }
         ],
         "published_value": null,
@@ -2727,6 +2820,99 @@
         "code": "million-people",
         "label": "million people",
         "short": "million people"
+      },
+      "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"
+    },
+    {
+      "display": {
+        "decimals": 0
+      },
+      "downloadable": true,
+      "entities": ["AGO", "ALB", "ARE", "ARG", "AUS", "BEL", "BEN", "BGD", "BHR", "BHS", "BLZ", "BRA", "BRN", "CAN", "CHL", "CHN", "CIV", "CMR", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "DEU", "DJI", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESH", "ESP", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GGY", "GHA", "GIN", "GMB", "GNB", "GRC", "GTM", "GUF", "GUY", "HKG", "HND", "HRV", "HTI", "IDN", "IND", "IRL", "IRN", "IRQ", "ITA", "JAM", "JEY", "JPN", "KEN", "KHM", "KIR", "KOR", "LBN", "LBR", "LBY", "LCA", "LKA", "LTU", "LVA", "MAC", "MAR", "MDG", "MDV", "MEX", "MHL", "MMR", "MNP", "MOZ", "MRT", "MTQ", "MUS", "MYS", "MYT", "NCL", "NGA", "NIC", "NLD", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PNG", "POL", "PRK", "PRT", "PYF", "QAT", "REU", "ROU", "RUS", "SAU", "SDN", "SEN", "SLB", "SLE", "SLV", "SOM", "STP", "SUR", "SWE", "SYC", "TGO", "THA", "TLS", "TON", "TTO", "TUN", "TUR", "TWN", "TZA", "UKR", "USA", "VEN", "VNM", "VUT", "WLD", "WSM", "ZAF"],
+      "export_sha256": "9914ac35cf202b6a1bb9d5fa5e43f51d92f733cd915e5e8d03a55f536a474a0c",
+      "geo_coverage": "mixed",
+      "id": "coastal.kulp-strauss-2019.below-high-tide-by-country",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "projection": "none",
+          "scenario": "present"
+        },
+        "entity": "WLD",
+        "period": "2010",
+        "status": "final",
+        "value": 110000000.0
+      },
+      "licence_class": "open",
+      "provenance": {
+        "attribution": "Adapted by Environment Dashboard from Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nature Communications 10, 4844. doi:10.1038/s41467-019-12808-z. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Changes: millions of people converted to people.",
+        "description": "Estimated number of people living on land below the local high-tide line (mean higher-high water), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, in the world and in 134 countries and territories, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. The file prints each value in millions to two significant figures; it is published here in people. The file leaves out places where the most people exposed is under 0.01 million. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY 4.0",
+          "spdx": "CC-BY-4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "notice": null,
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "supplementary-data-1", "bytes": 253535, "citation_full": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z", "date_accessed": "2026-10-12", "date_published": "2019-10-29", "doi": "10.1038/s41467-019-12808-z", "etag": "\"8bda3a8ece191add7cff689b5d2893be\"", "last_modified": "Mon, 04 Dec 2023 17:29:34 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)", "r2_url": "https://files.environmentdashboard.org/raw/37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81.zst", "sha256": "37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "source_id": "kulp-strauss-2019", "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)", "url_download": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM4_ESM.csv", "url_main": "https://doi.org/10.1038/s41467-019-12808-z", "version_producer": "Nature Communications 10: 4844 (2019), corrected 12 December 2019", "wayback_url": "https://web.archive.org/web/20261012142235/https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM4_ESM.csv"},
+          {"acquisition": "automatic", "artifact_id": "supplementary-descriptions", "bytes": 65044, "citation_full": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z", "date_accessed": "2026-10-12", "date_published": "2019-10-29", "doi": "10.1038/s41467-019-12808-z", "etag": "\"1c83dd29e8d99b1d5ff6a6c73406ac0b\"", "last_modified": "Mon, 04 Dec 2023 17:29:34 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)", "r2_url": "https://files.environmentdashboard.org/raw/2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771.zst", "sha256": "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "source_id": "kulp-strauss-2019", "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)", "url_download": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM3_ESM.pdf", "url_main": "https://doi.org/10.1038/s41467-019-12808-z", "version_producer": "Nature Communications 10: 4844 (2019), corrected 12 December 2019", "wayback_url": "https://web.archive.org/web/20261012142033/https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM3_ESM.pdf"},
+          {"acquisition": "automatic", "artifact_id": "article-pdf", "bytes": 3903782, "citation_full": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z", "date_accessed": "2026-10-12", "date_published": "2019-10-29", "doi": "10.1038/s41467-019-12808-z", "etag": "\"1745469cbb491e63418a5c0bd7b7bac7\"", "last_modified": "Mon, 04 Dec 2023 17:29:36 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)", "r2_url": "https://files.environmentdashboard.org/raw/912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f.zst", "sha256": "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f", "source_id": "kulp-strauss-2019", "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)", "url_download": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "url_main": "https://doi.org/10.1038/s41467-019-12808-z", "version_producer": "Nature Communications 10: 4844 (2019), corrected 12 December 2019", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the rows of Place 'World' and of the 134 countries and territories, each with the same 13 sea levels in the same order (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), and from each only the three CoastalDEM columns of Perm: land below the future local high tide line. The authors' group of small island developing states (SIDS), the Total column and the SRTM, JAXA and MERITDEM columns are not used. The file description says places where the most people exposed is under 0.01 million are left out of the file, so a country absent here has no value, never zero.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Mapped each Place name to the site's entity: 10 names through the explicit alias table for this source (envdash/geo.py), the rest by their exact name in pipeline/geo/entities.csv.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends of a 90% interval, each multiplied by one million to give people (exact decimal arithmetic on the printed digits, so the values keep the file's two significant figures). The present-day row prints '--' for both percentiles, so it has no range.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the years of their sea levels; the population stays as it was in 2010.",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          },
+          {
+            "description": "Checked the file against Table 1 of the corrected article (sha256 912692e7c7a3…, page 3): each of its 24 CoastalDEM totals, median and 90% interval, equals the file's three numbers. Found the 20 sentences that the scope and the cross-checks rely on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the 2 on units, exposures and percentiles in the description of the supplementary files (sha256 2b98673da602…).",
+            "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
+            "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Below the local mean higher-high water line (roughly the high-tide line) after the given sea-level rise. People are counted where they lived in 2010 (LandScan 2010); population growth and migration are not modelled. Land cut off from the sea is left out. Present day is the sea level of 2000, the zero of both projection sets. 2050 and 2100 add the median and the 5th to 95th percentiles of the sea-level rise projected by Kopp et al. 2014 (K14) or Kopp et al. 2017 (K17, unstable Antarctic ice) under RCP2.6, 4.5 and 8.5, projections made before the IPCC's Sixth Assessment Report. A bathtub model: sea walls, levees and other defences are not counted (levee locations are not available globally), so protected coasts such as the Netherlands are included. It measures exposure, not flooding.",
+          "bunkers": null,
+          "geography": "World: land between 56° south and 60° north, where CoastalDEM is defined, home to 99.7% of the world's population in 2010; countries and territories as the authors name them",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["kulp-strauss-2019"],
+      "time_basis": "calendar",
+      "title": "People living on land below the high-tide line: estimated at today's sea level, projected for 2050 and 2100, world and by country (Kulp & Strauss 2019)",
+      "unit": {
+        "code": "people",
+        "label": "people",
+        "short": "people"
       },
       "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"
     },
@@ -2897,7 +3083,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "5d3bbde9a76920d24a9604d301b03c4054952d16ea5b73fd78f9525d37e7dad0",
+      "export_sha256": "9a8df187d2357fe25c94c73e89fc352b23f4dbe1d4657c6d2d0ee0337f2b8c85",
       "geo_coverage": "global-only",
       "id": "drought.lancet-2025.land-share",
       "latest": {
@@ -2930,14 +3116,14 @@
             "inputs": ["3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Checked that every year has each duration once and that the share falls (or stays level) as the duration lengthens. The 12-month share is not published: it reads NA in 15 of the 74 years.",
             "inputs": ["3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -11753,7 +11939,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "3275ba03a5a1f92c506d6111ab8ab255910f6d46ac60632096114dbcecacd5d2",
+      "export_sha256": "c39360bee429ca64bb7b5d1f15fca612f69b9f1765f9aef6a0d6262cfab3de83",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.deaths-global",
       "latest": {
@@ -11784,14 +11970,14 @@
             "inputs": ["f6a18bdec8434973269c095727a13a0375e78b0e674124cf8c9827ec267131e0"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "The workbook's guidance sheet gives the unit of AN as deaths. The share of all deaths (AF) and the regional sheets are not published here.",
             "inputs": ["f6a18bdec8434973269c095727a13a0375e78b0e674124cf8c9827ec267131e0"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -11819,8 +12005,84 @@
         "decimals": 1
       },
       "downloadable": true,
+      "entities": ["ABW", "AFG", "AGO", "AIA", "ALB", "AND", "ARE", "ARG", "ARM", "ASM", "ATG", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BFA", "BGD", "BGR", "BHR", "BHS", "BIH", "BLR", "BLZ", "BMU", "BOL", "BRA", "BRB", "BRN", "BTN", "BWA", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COD", "COG", "COK", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "CYP", "CZE", "DEU", "DJI", "DMA", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESP", "EST", "ETH", "FIN", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GHA", "GIN", "GLP", "GMB", "GNB", "GNQ", "GRC", "GRD", "GTM", "GUF", "GUM", "GUY", "HKG", "HND", "HRV", "HTI", "HUN", "IDN", "IND", "IRL", "IRN", "IRQ", "ISL", "ISR", "ITA", "JAM", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KIR", "KNA", "KOR", "KWT", "LAO", "LBN", "LBR", "LBY", "LCA", "LIE", "LKA", "LSO", "LTU", "LUX", "LVA", "MAC", "MAR", "MCO", "MDA", "MDG", "MDV", "MEX", "MHL", "MKD", "MLI", "MLT", "MMR", "MNE", "MNG", "MNP", "MOZ", "MRT", "MSR", "MTQ", "MUS", "MWI", "MYS", "NAM", "NCL", "NER", "NGA", "NIC", "NIU", "NLD", "NOR", "NPL", "NRU", "NZL", "OMN", "PAK", "PAN", "PCN", "PER", "PHL", "PLW", "PNG", "POL", "PRI", "PRK", "PRT", "PRY", "PSE", "PYF", "QAT", "ROU", "RUS", "RWA", "SAU", "SDN", "SEN", "SGP", "SLB", "SLE", "SLV", "SMR", "SOM", "SRB", "SSD", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SXM", "SYC", "SYR", "TCA", "TCD", "TGO", "THA", "TJK", "TKL", "TKM", "TLS", "TON", "TTO", "TUN", "TUR", "TUV", "TZA", "UGA", "UKR", "URY", "USA", "UZB", "VCT", "VEN", "VGB", "VIR", "VNM", "VUT", "WLD", "WLF", "WSM", "YEM", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "92e065b8a4c7dd2342454e78fc2fa52bea1010fd1bb3e3a38e4657d3fd733434",
+      "geo_coverage": "mixed",
+      "id": "heat.lancet-2025.heatwave-days-countries",
+      "latest": {
+        "age_bp": null,
+        "dims": {
+          "scenario": "attributable"
+        },
+        "entity": "WLD",
+        "period": "2024",
+        "status": "final",
+        "value": 25.751287959286
+      },
+      "licence_class": "noncommercial",
+      "provenance": {
+        "attribution": "Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
+        "description": "Heatwave days that people were exposed to on average each year, 2020–2024, in the world and in each of 220 countries and territories: as observed, as expected in a modelled climate without human-caused warming, and the difference attributable to climate change, from the Lancet Countdown (indicator 1.1.1). Estimates for small countries are more uncertain, as the producer notes; where a country had fewer heatwave days than its modelled counterfactual, the attributable value is negative.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY-NC-SA 4.0",
+          "spdx": "CC-BY-NC-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        },
+        "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3 are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information 2025; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration Index (SPEI, Consejo Superior de Investigaciones Científicas).",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "heatwave-days-attributable-1-1-1", "bytes": 205138, "citation_full": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.", "date_accessed": "2026-10-04", "date_published": "2025-10-29", "doi": "10.1016/S0140-6736(25)01919-1", "etag": "\"32152-6425ae06a502f\"", "last_modified": "Thu, 30 Oct 2025 07:05:39 GMT", "licence": {"name": "CC BY-NC-SA 4.0", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Lancet Countdown on Health and Climate Change (led by University College London)", "r2_url": "https://files.environmentdashboard.org/raw/53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632.zst", "sha256": "53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632", "source_id": "lancet-countdown-2025", "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution", "url_download": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Attributable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "url_main": "https://lancetcountdown.org/explore-our-data/", "version_producer": "2025 report", "wayback_url": null}
+        ],
+        "processing": [
+          {
+            "description": "Read the sheets '2025_Report _Data_Global' (the world) and '2025_Report_Data_Country' (220 countries and territories by ISO3 code) of the indicator 1.1.1 (attributable heatwave days) workbook of the Lancet Countdown 2025 report, 2020–2024: heatwave days observed, expected without climate change (Counterfactual) and attributable to climate change (Attributable_to_CC), published as in the workbook. The producer's country names, WHO regions and HDI levels are not published.",
+            "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          },
+          {
+            "description": "Mapped each ISO3 code to the site's entity of that code (pipeline/geo/entities.csv); every code is in it.",
+            "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          },
+          {
+            "description": "Checked that observed days equal expected days plus attributable days in every row, and that every country has a value for each year of the world sheet. A country with fewer heatwave days than its modelled counterfactual has a negative attributable value, published as it is.",
+            "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "A heatwave is at least two consecutive days when both minimum and maximum temperature exceed the local 1986–2005 95th percentile. Observed days from ERA5; days expected without human-caused warming from 24 paired CMIP6 climate model simulations. Each country's value is its people's average.",
+          "bunkers": null,
+          "geography": "World, and countries and territories as the producer draws them (UN territories)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["lancet-countdown-2025"],
+      "time_basis": "calendar",
+      "title": "Heatwave days per person, observed and attributable to climate change, world and by country",
+      "unit": {
+        "code": "days",
+        "label": "days per person",
+        "short": "days"
+      },
+      "vintage": "2025 report"
+    },
+    {
+      "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "d6f0c685118a394dbc2eaf636a2faae42bb8d3e74bc1bc364efe7c68c596d6dc",
+      "export_sha256": "a7caaf4c6c137b4ebf1db216cee65d79e4ade30ab30fd16fa0ae22a3de258290",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.heatwave-days-global",
       "latest": {
@@ -11853,14 +12115,14 @@
             "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Checked that observed days equal expected days plus attributable days in every year.",
             "inputs": ["53a22362f5b35c8cf91aa9d6c9f8ce0e7c97ce36f198f0b793ad70437989f632"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -11889,7 +12151,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "929856c6d529661ad08ca4294a4de9625ee1f26db2e60b7bb2d8ee02a93bfcc5",
+      "export_sha256": "93abb58586b4d8ce93f80a3c684e9cd62ed23bf760a844ffe1fa85c96f7fc520",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.heatwave-days-vulnerable",
       "latest": {
@@ -11922,14 +12184,14 @@
             "inputs": ["a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Total person-days are not published. The over-75 columns are not published either: the guidance sheet's column table does not describe them, and they read 0 in every year before 2000, when the over-65 values do not.",
             "inputs": ["a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -11958,7 +12220,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "0ad5ae9796f8aa4d74e1fac4fbdba0b7cb4375ee8c516f13853dd1530bd3e0c4",
+      "export_sha256": "d8ea5f7250bec6da5c60195ab800e9f03c519837c8457b1807ea257baf889641",
       "geo_coverage": "global-only",
       "id": "heat.lancet-2025.labour-hours-global",
       "latest": {
@@ -11991,21 +12253,21 @@
             "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Checked that the total equals the sum of the four sectors in every year (to one part in a billion).",
             "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "Divided every value by one million to give billions of hours (exact decimal arithmetic on the values as stored in the workbook). Employment and hours lost per worker are not published here.",
             "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -12025,6 +12287,87 @@
         "code": "bn-hours",
         "label": "billion hours",
         "short": "bn hours"
+      },
+      "vintage": "2025 report"
+    },
+    {
+      "display": {
+        "decimals": 1
+      },
+      "downloadable": true,
+      "entities": ["ABW", "AFG", "AGO", "AIA", "ALB", "AND", "ARE", "ARG", "ARM", "ASM", "ATG", "AUS", "AUT", "AZE", "BDI", "BEL", "BEN", "BFA", "BGD", "BGR", "BHR", "BHS", "BIH", "BLR", "BLZ", "BMU", "BOL", "BRA", "BRB", "BRN", "BTN", "BWA", "CAF", "CAN", "CHE", "CHL", "CHN", "CIV", "CMR", "COD", "COG", "COK", "COL", "COM", "CPV", "CRI", "CUB", "CUW", "CYM", "CYP", "CZE", "DEU", "DJI", "DMA", "DNK", "DOM", "DZA", "ECU", "EGY", "ERI", "ESP", "EST", "ETH", "FIN", "FJI", "FRA", "FSM", "GAB", "GBR", "GEO", "GHA", "GIN", "GLP", "GMB", "GNB", "GNQ", "GRC", "GRD", "GTM", "GUF", "GUM", "GUY", "HKG", "HND", "HRV", "HTI", "HUN", "IDN", "IND", "IRL", "IRN", "IRQ", "ISL", "ISR", "ITA", "JAM", "JOR", "JPN", "KAZ", "KEN", "KGZ", "KHM", "KIR", "KNA", "KOR", "KWT", "LAO", "LBN", "LBR", "LBY", "LCA", "LIE", "LKA", "LSO", "LTU", "LUX", "LVA", "MAC", "MAR", "MCO", "MDA", "MDG", "MDV", "MEX", "MHL", "MKD", "MLI", "MLT", "MMR", "MNE", "MNG", "MNP", "MOZ", "MRT", "MSR", "MTQ", "MUS", "MWI", "MYS", "NAM", "NCL", "NER", "NGA", "NIC", "NIU", "NLD", "NOR", "NPL", "NRU", "NZL", "OMN", "PAK", "PAN", "PER", "PHL", "PLW", "PNG", "POL", "PRI", "PRK", "PRT", "PRY", "PSE", "PYF", "QAT", "ROU", "RUS", "RWA", "SAU", "SDN", "SEN", "SGP", "SLB", "SLE", "SLV", "SMR", "SOM", "SRB", "SSD", "STP", "SUR", "SVK", "SVN", "SWE", "SWZ", "SXM", "SYC", "SYR", "TCA", "TCD", "TGO", "THA", "TJK", "TKL", "TKM", "TLS", "TON", "TTO", "TUN", "TUR", "TUV", "TZA", "UGA", "UKR", "URY", "USA", "UZB", "VCT", "VEN", "VGB", "VIR", "VNM", "VUT", "WLD", "WLF", "WSM", "YEM", "ZAF", "ZMB", "ZWE"],
+      "export_sha256": "54e9fd408d0d35a211e99fc5886f3992d6a9f067be2447921d0a0e14274267a8",
+      "geo_coverage": "mixed",
+      "id": "heat.lancet-2025.labour-hours-per-worker",
+      "latest": {
+        "age_bp": null,
+        "dims": {},
+        "entity": "WLD",
+        "period": "2024",
+        "status": "final",
+        "value": 178.05728508386184
+      },
+      "licence_class": "noncommercial",
+      "provenance": {
+        "attribution": "Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
+        "description": "Working hours that heat stress could have cost each worker on average each year, 1990–2024, in the world and in each of 219 countries and territories, across services, manufacturing, agriculture and construction, as estimated by the Lancet Countdown (indicator 1.1.3). Heat of any cause: the hours are not attributed to climate change. Where the producer's sheet has no one employed in the four sectors, or no value, the year is published as missing.",
+        "kind": "series",
+        "licence": {
+          "name": "CC BY-NC-SA 4.0",
+          "spdx": "CC-BY-NC-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        },
+        "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3 are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information 2025; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration Index (SPEI, Consejo Superior de Investigaciones Científicas).",
+        "origins": [
+          {"acquisition": "automatic", "artifact_id": "work-hours-lost-1-1-3", "bytes": 1510290, "citation_full": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.", "date_accessed": "2026-10-04", "date_published": "2025-10-29", "doi": "10.1016/S0140-6736(25)01919-1", "etag": "\"170b92-6425ae0fd29e4\"", "last_modified": "Thu, 30 Oct 2025 07:05:49 GMT", "licence": {"name": "CC BY-NC-SA 4.0", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Lancet Countdown on Health and Climate Change (led by University College London)", "r2_url": "https://files.environmentdashboard.org/raw/36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb.zst", "sha256": "36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb", "source_id": "lancet-countdown-2025", "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution", "url_download": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx", "url_main": "https://lancetcountdown.org/explore-our-data/", "version_producer": "2025 report", "wayback_url": "https://web.archive.org/web/20261012142126/https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx"}
+        ],
+        "processing": [
+          {
+            "description": "Read the column TotalSunWHLpp (mean potential work hours lost per worker, in hours as the guidance sheet states) of the sheets '2025 Report Data_Global' (the world) and '2025 Report Data_Country' (219 countries and territories by ISO3 code) of the indicator 1.1.3 workbook of the Lancet Countdown 2025 report, 1990–2024, published as in the workbook.",
+            "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          },
+          {
+            "description": "Mapped each ISO3 code to the site's entity of that code (pipeline/geo/entities.csv); every code is in it.",
+            "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          },
+          {
+            "description": "Checked in every row that the value equals the total hours lost (TotalsunAgCon, thousands of hours) over the people employed in the four sectors (EmplPop 15+).",
+            "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          },
+          {
+            "description": "Published the country-years with no value per worker as missing, with the reason, never filled: 204 '#DIV/0!'; 1 'blank' cells. A division by zero is accepted only where the sheet gives no one employed in the four sectors.",
+            "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
+            "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+            "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
+          }
+        ],
+        "published_value": null,
+        "scope": {
+          "baseline": null,
+          "basis": "Potential hours lost: wet bulb globe temperature from ERA5 linked to the metabolic rate of typical work (services 200 W and manufacturing 300 W in shade, agriculture and construction 400 W in the sun), applied to employed people aged 15 and over in each sector, and divided by the people employed in the four sectors. Formal employment only. The producer notes that from 2020 grid cells shared between countries are handled differently, which may show as a step between 2019 and 2020.",
+          "bunkers": null,
+          "geography": "World, and countries and territories as the producer draws them (UN territories)",
+          "gwp": null,
+          "lulucf": null
+        }
+      },
+      "source_ids": ["lancet-countdown-2025"],
+      "time_basis": "calendar",
+      "title": "Potential work hours lost to heat per worker, world and by country",
+      "unit": {
+        "code": "hours",
+        "label": "hours per worker",
+        "short": "hours"
       },
       "vintage": "2025 report"
     },
@@ -14286,7 +14629,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "998c7d4829b1533b53dc1b6b13de9fbe23ecfdbfb8c42372deb774fa1219d4a0",
+      "export_sha256": "ac89ab3980fc0d7245b8f8c261453274276f1b6ea97be8723c45e47df8876541",
       "geo_coverage": "global-only",
       "id": "rain.lancet-2025.extreme-events",
       "latest": {
@@ -14317,14 +14660,14 @@
             "inputs": ["279a4c3c331e29808fbadd715ab276ec9f7da624d2538e302b2444dc638e6f3b"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           },
           {
             "description": "The workbook has no values for 1991–1994, and none are published. The sheet of land shares with more or fewer events is not published (irregular nine- or ten-year windows, values stored as fractions under a '%' heading).",
             "inputs": ["279a4c3c331e29808fbadd715ab276ec9f7da624d2538e302b2444dc638e6f3b"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,
@@ -14948,7 +15291,7 @@
       },
       "downloadable": true,
       "entities": ["WLD"],
-      "export_sha256": "113a0c97ab4947b8d3913d00797aac3d8519114700e2f51591488d301751f1f1",
+      "export_sha256": "01c01b1017bbd1fcb8cad3df2caf94064be334c6204bbf3582c5c7872ae8bbd2",
       "geo_coverage": "global-only",
       "id": "smoke.lancet-2025.wildfire-deaths",
       "latest": {
@@ -14979,7 +15322,7 @@
             "inputs": ["1cf07d2a285a07cea1b1bfc3d5545a99ba83dcbf362e50377a6a9f48e7d21e7d"],
             "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
             "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-            "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+            "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
           }
         ],
         "published_value": null,

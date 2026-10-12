@@ -48,21 +48,21 @@
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+      "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Checked that the total equals the sum of the four sectors in every year (to one part in a billion).",
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+      "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Divided every value by one million to give billions of hours (exact decimal arithmetic on the values as stored in the workbook). Employment and hours lost per worker are not published here.",
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
-      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+      "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     }
   ],
   "published_value": null,

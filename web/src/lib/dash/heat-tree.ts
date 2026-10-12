@@ -4,13 +4,15 @@ import { indicator } from "@/lib/data";
 import { calendarPeriod, formatPeriod } from "@/lib/format";
 import { entityName } from "@/lib/dash/entities";
 import { bars, type Built, chapter, credit, headline, latestPeriod, line, periodToX, points, ranking, soWhat } from "@/lib/dash/kit";
+import { heatwavesIn, noHeatwaves } from "@/lib/dash/people-tree";
 import type { Bar, Drill, Series, SeriesPoint } from "@/lib/dash/types";
 
 /**
  * The heat chapter: how much warmer the world is. The global record → do independent records agree → how much of it
  * people caused (and IGCC's own figure for the latest year) → month by month → day by day → the sea surface (day by
  * day) → which countries' emissions caused it → where it is warming → each country in degrees → hot days ahead. Each
- * record keeps its producer's own baseline, named in its label.
+ * record keeps its producer's own baseline, named in its label. A country's view shows first what its warming means
+ * for its people: its heatwave days caused by the warming (the people chapter's view of that country).
  */
 
 const HADCRUT = "temp.hadcrut5.annual-1850-1900";
@@ -289,7 +291,8 @@ function countries(): Built {
 function country(iso: string): Built {
   const { short, decimals } = u(CCKP);
   const name = entityName(iso);
-  const drills: Drill[] = [];
+  const here = heatwavesIn(iso);
+  const drills: Drill[] = here ? [here] : [];
   if (hasAbsolute(iso)) drills.push({ label: "In degrees Celsius", to: `t-${iso}` });
   if (hasHotDays(iso)) drills.push({ label: "Hot days ahead", to: `c-${iso}-hot-days` });
   return {
@@ -298,7 +301,7 @@ function country(iso: string): Built {
     crumb: name,
     kicker: `How much ${name} has warmed`,
     headline: headline(CCKP, iso),
-    sentence: `above ${name}'s 1991–2020 average in ${latestPeriod(CCKP)}. The grey line is the world on the same measure.`,
+    sentence: `above ${name}'s 1991–2020 average in ${latestPeriod(CCKP)}. The grey line is the world on the same measure.${here ? "" : ` ${noHeatwaves(iso)}`}`,
     chart: line(
       [
         { key: iso, label: name, colour: WARM, points: points(CCKP, iso), ...(hasAbsolute(iso) ? { drill: `t-${iso}` } : {}) },

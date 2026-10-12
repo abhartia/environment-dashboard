@@ -190,6 +190,25 @@ SOURCE_SCHEMES: dict[str, SourceScheme] = {
         # entities here, so they raise.
         note="emissions-annual-1830 column ISO3, sha256 c718f698de72…",
     ),
+    "kulp-strauss-2019": SourceScheme(
+        base="name",
+        # Supplementary Data 1's Place names that differ from the crosswalk's. "World" and "SIDS" (small island
+        # developing states, the authors' own group) are not countries: the transform reads World on its own and
+        # leaves SIDS out by name (kulp_strauss.NOT_PLACES), so they raise if met anywhere else.
+        aliases={
+            "Bahamas": "BHS",
+            "Cape Verde": "CPV",
+            "Côte d'Ivoire": "CIV",
+            "Hong Kong": "HKG",
+            "Macao": "MAC",
+            "Micronesia": "FSM",
+            "Reunion": "REU",
+            "Sao Tome and Principe": "STP",
+            "Tanzania": "TZA",
+            "United States": "USA",
+        },
+        note="Supplementary Data 1 column Place (134 places besides World and SIDS), sha256 37a6ab2fc25e…",
+    ),
 }
 
 

@@ -1,6 +1,6 @@
 """Kulp & Strauss (2019): people living on land below the local high-tide line, and below the local once-a-year
-coastal flood level, world, from the CoastalDEM elevation model: at today's sea level and with the sea levels
-projected for 2050 and 2100.
+coastal flood level, world and by country, from the CoastalDEM elevation model: at today's sea level and with the sea
+levels projected for 2050 and 2100.
 
 Inputs: Supplementary Data 1 (kulp-strauss-2019/supplementary-data-1, a CSV in millions of people), the description
 of the supplementary files (kulp-strauss-2019/supplementary-descriptions, one page) and the corrected article
@@ -35,7 +35,13 @@ population, the 2000 baseline, what K14 and K17 are, the intervals, the CoastalD
 the article, and the file description's sentences on units, exposures and percentiles in the description PDF. The
 publisher cross-checks quote the corrected text.
 
-Not read: the SRTM, JAXA and MERITDEM columns, the SIDS and country rows, and Supplementary Data 2-5 (see
+Countries. The `-by-country` indicators publish the World rows and the 134 country and territory rows, each place
+with the World's 13 sea levels in the same order, in people (the printed millions times one million, exact), since
+country values as small as 0.01 million cannot be shown in whole millions. Place names resolve to entities through
+the source's alias table in envdash/geo.py; the SIDS rows (the authors' group of small island developing states) are
+left out by name. The file omits places whose largest exposure is under 0.01 million: such a country has no value.
+
+Not read: the SRTM, JAXA and MERITDEM columns, the SIDS rows, and Supplementary Data 2-5 (see
 pipeline/sources/kulp-strauss-2019.yaml).
 """
 
@@ -49,7 +55,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from pathlib import Path
 
-from envdash import textmatch
+from envdash import geo, textmatch
 from envdash.models import Dimension, DimensionValue, Display, Observation, Scope, Unit
 from envdash.paths import Paths
 from envdash.transform import Input, InputFile, PublisherCheck, Result, Spec, Transform, Validation
@@ -166,26 +172,56 @@ def _cell(row: dict[str, str], exposure: str, present: bool, where: str) -> Cell
     return Cell(p5, p50, p95)
 
 
-def read_world(raw: bytes) -> list[WorldRow]:
-    """The 13 World rows' CoastalDEM cells, checked against the expected headings, sea levels and total."""
+def _rows(raw: bytes) -> list[dict[str, str]]:
     rows = list(csv.reader(io.StringIO(raw.decode("utf-8"), newline="")))
     if not rows or rows[0] != HEADER:
         raise KulpStraussFormatError(f"column headings {rows[0] if rows else None} != {HEADER}")
     for i, r in enumerate(rows[1:], start=2):
         if len(r) != len(HEADER):
             raise KulpStraussFormatError(f"line {i} has {len(r)} cells, not {len(HEADER)}")
-    world = [dict(zip(HEADER, r, strict=True)) for r in rows[1:] if r[0] == PLACE]
-    labels = [r["SeaLevel"] for r in world]
+    return [dict(zip(HEADER, r, strict=True)) for r in rows[1:]]
+
+
+def _place(rows: list[dict[str, str]], place: str) -> list[WorldRow]:
+    """One place's 13 rows, in the World rows' order of sea levels, as CoastalDEM cells."""
+    labels = [r["SeaLevel"] for r in rows]
     if labels != [s.label for s in SEA_LEVELS]:
-        raise KulpStraussFormatError(f"World sea levels {labels} != {[s.label for s in SEA_LEVELS]}")
-    out = []
-    for r, s in zip(world, SEA_LEVELS, strict=True):
-        where = f"World {s.label!r}"
+        raise KulpStraussFormatError(f"{place} sea levels {labels} != {[s.label for s in SEA_LEVELS]}")
+    return [
+        WorldRow(s, {e.column: _cell(r, e.column, s is PRESENT, f"{place} {s.label!r}") for e in EXPOSURES})
+        for r, s in zip(rows, SEA_LEVELS, strict=True)
+    ]
+
+
+def read_world(raw: bytes) -> list[WorldRow]:
+    """The 13 World rows' CoastalDEM cells, checked against the expected headings, sea levels and total."""
+    world = [r for r in _rows(raw) if r["Place"] == PLACE]
+    for r in world:
         if r["Total"] != WORLD_TOTAL:
-            raise KulpStraussFormatError(f"{where}: Total {r['Total']!r}, not {WORLD_TOTAL} (million, 2010)")
-        cells = {e.column: _cell(r, e.column, s is PRESENT, where) for e in EXPOSURES}
-        out.append(WorldRow(s, cells))
-    return out
+            raise KulpStraussFormatError(
+                f"World {r['SeaLevel']!r}: Total {r['Total']!r}, not {WORLD_TOTAL} (million, 2010)"
+            )
+    return _place(world, PLACE)
+
+
+NOT_PLACES = ("SIDS",)
+"""Rows that are no country: the authors' group of small island developing states, left out (World is read apart)."""
+
+
+def read_places(raw: bytes) -> dict[str, list[WorldRow]]:
+    """Each country's or territory's 13 rows, by our entity code: its Place name resolved through the source's alias
+    table and the entity crosswalk (never guessed), its rows together and in the World rows' order."""
+    rows = [r for r in _rows(raw) if r["Place"] not in (PLACE, *NOT_PLACES)]
+    names: list[str] = []
+    for r in rows:
+        if not names or names[-1] != r["Place"]:
+            if r["Place"] in names:
+                raise KulpStraussFormatError(f"the rows of {r['Place']!r} are not together")
+            names.append(r["Place"])
+    codes = {name: geo.resolve(name, SOURCE) for name in names}
+    if len(set(codes.values())) != len(codes):
+        raise KulpStraussFormatError("two of the file's places resolve to the same entity")
+    return {codes[n]: _place([r for r in rows if r["Place"] == n], n) for n in names}
 
 
 def cell(rows: list[WorldRow], exposure: Exposure, projection: str, scenario: str, period: str) -> Cell:
@@ -432,22 +468,32 @@ def verify_abstract(rows: list[WorldRow]) -> None:
 # --- observations -------------------------------------------------------------------------------------------------
 
 
-def observations(rows: list[WorldRow], exposure: Exposure) -> list[Observation]:
+PEOPLE_PER_MILLION = Decimal(1_000_000)
+
+
+def observations(
+    rows: list[WorldRow], exposure: Exposure, entity: str = ENTITY, scale: Decimal = Decimal(1)
+) -> list[Observation]:
+    """One place's observations of one exposure; `scale` multiplies the printed millions (exact decimal arithmetic)."""
+
+    def v(x: str) -> float:
+        return float(Decimal(x) * scale)
+
     obs = []
     for r in rows:
         s, c = r.sea_level, r.cells[exposure.column]
         dims = {"scenario": s.scenario, "projection": s.projection}
         if s is PRESENT:
-            obs.append(Observation(entity=ENTITY, period=s.period, value=float(Decimal(c.p50)), dims=dims))
+            obs.append(Observation(entity=entity, period=s.period, value=v(c.p50), dims=dims))
             continue
         assert c.p5 is not None and c.p95 is not None
         obs.append(
             Observation(
-                entity=ENTITY,
+                entity=entity,
                 period=s.period,
-                value=float(Decimal(c.p50)),
-                lower=float(Decimal(c.p5)),
-                upper=float(Decimal(c.p95)),
+                value=v(c.p50),
+                lower=v(c.p5),
+                upper=v(c.p95),
                 interval="90ci",
                 status="projection",
                 dims=dims,
@@ -463,8 +509,14 @@ def _runner(exposure: Exposure) -> Callable[[dict[str, InputFile]], Result]:
     return run
 
 
-def _run(exposure: Exposure, files: dict[str, InputFile]) -> Result:
-    """Both indicators read the same three files and run the same checks; only the exposure's columns differ."""
+MEANING = {
+    PERM.column: "Perm: land below the future local high tide line",
+    RL1.column: "RL1: land below the future local high tide line plus the local 1-year coastal flood level",
+}
+
+
+def _verified(files: dict[str, InputFile]) -> tuple[list[WorldRow], str]:
+    """The World rows, checked against the corrected article and the file description, and the step saying so."""
     data, desc, art = files[CSV.key], files[DESCRIPTIONS.key], files[ARTICLE.key]
     rows = read_world(data.path.read_bytes())
     pages = textmatch.pdf_pages_text(art.path.read_bytes())
@@ -474,10 +526,28 @@ def _run(exposure: Exposure, files: dict[str, InputFile]) -> Result:
         raise KulpStraussFormatError(f"the article has {len(pages)} pages; Table 1 is expected on page {TABLE_PAGE}")
     n_cells = verify_table_1(pages[TABLE_PAGE - 1], rows)
     verify_abstract(rows)
-    meaning = {
-        PERM.column: "Perm: land below the future local high tide line",
-        RL1.column: "RL1: land below the future local high tide line plus the local 1-year coastal flood level",
-    }[exposure.column]
+    step = (
+        f"Checked the file against Table 1 of the corrected article (sha256 {art.snapshot.sha256[:12]}…, page "
+        f"{TABLE_PAGE}): each of its {n_cells} CoastalDEM totals, median and 90% interval, equals the file's "
+        f"three numbers. Found the {len(ARTICLE_STATEMENTS)} sentences that the scope and the cross-checks rely "
+        "on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the "
+        f"{len(DESCRIPTION_STATEMENTS)} on units, exposures and percentiles in the description of the "
+        f"supplementary files (sha256 {desc.snapshot.sha256[:12]}…)."
+    )
+    return rows, step
+
+
+DATING = (
+    "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea "
+    "level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the "
+    "years of their sea levels; the population stays as it was in 2010."
+)
+
+
+def _run(exposure: Exposure, files: dict[str, InputFile]) -> Result:
+    """Both indicators read the same three files and run the same checks; only the exposure's columns differ."""
+    data = files[CSV.key]
+    rows, checked = _verified(files)
     return Result(
         observations=observations(rows, exposure),
         vintage=VINTAGE,
@@ -486,26 +556,62 @@ def _run(exposure: Exposure, files: dict[str, InputFile]) -> Result:
             f"Read Supplementary Data 1 (sha256 {data.snapshot.sha256[:12]}…): its {len(HEADER)} column headings had "
             f"to be exactly as expected. Kept the {len(rows)} rows of Place 'World' (present day, then K14 and K17 "
             "under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the "
-            f"three CoastalDEM columns of {meaning}. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows "
-            "are not used.",
+            f"three CoastalDEM columns of {MEANING[exposure.column]}. The SRTM, JAXA and MERITDEM columns and the SIDS "
+            "and country rows are not used here (the country rows are published, in people, by the indicators ending "
+            "'-by-country').",
             "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends "
             "of a 90% interval, exactly as printed in millions of people (nothing rounded or recalculated). The "
             "present-day row prints '--' for both percentiles, so it has no range.",
-            "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea "
-            "level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the "
-            "years of their sea levels; the population stays as it was in 2010.",
+            DATING,
             "Published both projection sets as values of the 'projection' dimension, side by side and never mixed, "
             "because the abstract uses both: its 190 M (150–250 M) below high tide by 2100 under low emissions is "
             "K14 (K17 gives another range), and its 'up to 630 M' and 'up to 340 M' below the annual flood level by "
             "2100 and mid-century are K17's 95th percentiles under RCP8.5. Checked both, and the present day's 110 M "
             "and 250 M, against these cells.",
-            f"Checked the file against Table 1 of the corrected article (sha256 {art.snapshot.sha256[:12]}…, page "
-            f"{TABLE_PAGE}): each of its {n_cells} CoastalDEM totals, median and 90% interval, equals the file's "
-            f"three numbers. Found the {len(ARTICLE_STATEMENTS)} sentences that the scope and the cross-checks rely "
-            "on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the "
-            f"{len(DESCRIPTION_STATEMENTS)} on units, exposures and percentiles in the description of the "
-            f"supplementary files (sha256 {desc.snapshot.sha256[:12]}…).",
+            checked,
         ],
+    )
+
+
+def _countries_runner(exposure: Exposure) -> Callable[[dict[str, InputFile]], Result]:
+    def run(files: dict[str, InputFile]) -> Result:
+        return _run_countries(exposure, files)
+
+    return run
+
+
+def _run_countries(exposure: Exposure, files: dict[str, InputFile]) -> Result:
+    """The World and each country's rows of one exposure, in people: the same file and checks as the world indicator."""
+    data = files[CSV.key]
+    rows, checked = _verified(files)
+    places = read_places(data.path.read_bytes())
+    obs = observations(rows, exposure, ENTITY, PEOPLE_PER_MILLION)
+    for entity, place_rows in places.items():
+        obs += observations(place_rows, exposure, entity, PEOPLE_PER_MILLION)
+    return Result(
+        observations=obs,
+        vintage=VINTAGE,
+        date_published=PUBLISHED,
+        steps=[
+            f"Read Supplementary Data 1 (sha256 {data.snapshot.sha256[:12]}…): its {len(HEADER)} column headings had "
+            f"to be exactly as expected. Kept the rows of Place 'World' and of the {len(places)} countries and "
+            "territories, each with the same 13 sea levels in the same order (present day, then K14 and K17 under "
+            "RCP2.6, 4.5 and 8.5 for 2050 and 2100), and from each only the three CoastalDEM columns of "
+            f"{MEANING[exposure.column]}. The authors' group of small island developing states (SIDS), the Total "
+            "column and the SRTM, JAXA and MERITDEM columns are not used. The file description says places where "
+            "the most people exposed is under 0.01 million are left out of the file, so a country absent here has no "
+            "value, never zero.",
+            f"Mapped each Place name to the site's entity: {len(geo.SOURCE_SCHEMES[SOURCE].aliases)} names through "
+            "the explicit alias table for this source (envdash/geo.py), the rest by their exact name in "
+            "pipeline/geo/entities.csv.",
+            "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends "
+            "of a 90% interval, each multiplied by one million to give people (exact decimal arithmetic on the "
+            "printed digits, so the values keep the file's two significant figures). The present-day row prints '--' "
+            "for both percentiles, so it has no range.",
+            DATING,
+            checked,
+        ],
+        changes="millions of people converted to people.",
     )
 
 
@@ -536,13 +642,20 @@ DESCRIPTION = (
 )
 
 
+WHAT = {
+    PERM.column: "below the local high-tide line (mean higher-high water)",
+    RL1.column: "below the local once-a-year coastal flood level (the high-tide line plus the local 1-year flood "
+    "height)",
+}
+
+
 def _spec(exposure: Exposure) -> Spec:
     if exposure is PERM:
         title = (
             "People living on land below the high-tide line: estimated at today's sea level, projected for 2050 and "
             "2100, world (Kulp & Strauss 2019)"
         )
-        what = "below the local high-tide line (mean higher-high water)"
+        what = WHAT[PERM.column]
         line = (
             "Below the local mean higher-high water line (roughly the high-tide line) after the given sea-level rise."
         )
@@ -551,7 +664,7 @@ def _spec(exposure: Exposure) -> Spec:
             "People living on land below the yearly coastal flood level: estimated at today's sea level, projected for "
             "2050 and 2100, world (Kulp & Strauss 2019)"
         )
-        what = "below the local once-a-year coastal flood level (the high-tide line plus the local 1-year flood height)"
+        what = WHAT[RL1.column]
         line = (
             "Below the local mean higher-high water line plus the local once-a-year coastal flood height (Global Tides "
             "and Surge Reanalysis), after the given sea-level rise."
@@ -584,6 +697,34 @@ def _spec(exposure: Exposure) -> Spec:
             ),
         ),
         headline_dims=(("scenario", "present"), ("projection", "none")),
+    )
+
+
+def _country_spec(exposure: Exposure) -> Spec:
+    world = _spec(exposure)
+    where = "below the high-tide line" if exposure is PERM else "below the yearly coastal flood level"
+    return Spec(
+        id=f"{exposure.indicator}-by-country",
+        title=f"People living on land {where}: estimated at today's sea level, projected for 2050 and 2100, world and "
+        "by country (Kulp & Strauss 2019)",
+        description=f"Estimated number of people living on land {WHAT[exposure.column]}, at today's sea level and with "
+        "the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) "
+        "emissions, in the world and in 134 countries and territories, from Supplementary Data 1 of Kulp & Strauss "
+        "(2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th "
+        "percentile range of the sea-level projections. The file prints each value in millions to two significant "
+        "figures; it is published here in people. The file leaves out places where the most people exposed is under "
+        "0.01 million. " + DESCRIPTION,
+        kind="series",
+        unit=Unit(code="people", label="people", short="people"),
+        display=Display(decimals=0),
+        scope=Scope(
+            geography=f"{GEOGRAPHY}; countries and territories as the authors name them",
+            basis=world.scope.basis,
+        ),
+        geo_coverage="mixed",
+        headline_entity=ENTITY,
+        dimensions=world.dimensions,
+        headline_dims=world.headline_dims,
     )
 
 
@@ -624,6 +765,15 @@ def transforms(paths: Paths) -> list[Transform]:
             module_file=Path(__file__),
             validation=Validation(min_rows=len(SEA_LEVELS), value_range=(1.0, 1000.0)),
             checks=CHECKS[e.column],
+        )
+        for e in EXPOSURES
+    ] + [
+        Transform(
+            spec=_country_spec(e),
+            inputs=(CSV, DESCRIPTIONS, ARTICLE),
+            run=_countries_runner(e),
+            module_file=Path(__file__),
+            validation=Validation(min_rows=len(SEA_LEVELS) * 130, value_range=(0.0, 1e9)),
         )
         for e in EXPOSURES
     ]

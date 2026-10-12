@@ -1279,6 +1279,46 @@
       "title": "People living on land below the yearly coastal flood level: estimated at today's sea level, projected for 2050 and 2100, world (Kulp & Strauss 2019)"
     },
     {
+      "bytes": 197313,
+      "description": "Estimated number of people living on land below the local once-a-year coastal flood level (the high-tide line plus the local 1-year flood height), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, in the world and in 134 countries and territories, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. The file prints each value in millions to two significant figures; it is published here in people. The file leaves out places where the most people exposed is under 0.01 million. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:284c5317947c6691766ebcd1580e1619f0bd6e0d5cfbe39582306e6d0ea111a5",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "coastal.kulp-strauss-2019.annual-flood-by-country",
+      "path": "v1/indicators/coastal.kulp-strauss-2019.annual-flood-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "people (people)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Sea level: today's, or projected under an emissions scenario", "type": "string"},
+          {"name": "projection", "title": "Sea-level projection", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41467-019-12808-z", "title": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature): People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)"}
+      ],
+      "title": "People living on land below the yearly coastal flood level: estimated at today's sea level, projected for 2050 and 2100, world and by country (Kulp & Strauss 2019)"
+    },
+    {
       "bytes": 2286,
       "description": "Estimated number of people, in millions, living on land below the local high-tide line (mean higher-high water), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
       "dialect": {
@@ -1317,6 +1357,46 @@
         {"path": "https://doi.org/10.1038/s41467-019-12808-z", "title": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature): People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)"}
       ],
       "title": "People living on land below the high-tide line: estimated at today's sea level, projected for 2050 and 2100, world (Kulp & Strauss 2019)"
+    },
+    {
+      "bytes": 201213,
+      "description": "Estimated number of people living on land below the local high-tide line (mean higher-high water), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, in the world and in 134 countries and territories, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. The file prints each value in millions to two significant figures; it is published here in people. The file leaves out places where the most people exposed is under 0.01 million. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:1c4ea014f7e7d2f3edca08ef9cb166f2d8d5be408ef031c14eb3aca12135f87a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "coastal.kulp-strauss-2019.below-high-tide-by-country",
+      "path": "v1/indicators/coastal.kulp-strauss-2019.below-high-tide-by-country.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "people (people)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Sea level: today's, or projected under an emissions scenario", "type": "string"},
+          {"name": "projection", "title": "Sea-level projection", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41467-019-12808-z", "title": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature): People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)"}
+      ],
+      "title": "People living on land below the high-tide line: estimated at today's sea level, projected for 2050 and 2100, world and by country (Kulp & Strauss 2019)"
     },
     {
       "bytes": 994,
@@ -5004,6 +5084,45 @@
       "title": "Heat-related deaths, world"
     },
     {
+      "bytes": 300802,
+      "description": "Heatwave days that people were exposed to on average each year, 2020–2024, in the world and in each of 220 countries and territories: as observed, as expected in a modelled climate without human-caused warming, and the difference attributable to climate change, from the Lancet Countdown (indicator 1.1.1). Estimates for small countries are more uncertain, as the producer notes; where a country had fewer heatwave days than its modelled counterfactual, the attributable value is negative.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2b8b5f9de75705486b74bbb6ee2674af569a254eaf6271e811d970488ae5a668",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "heat.lancet-2025.heatwave-days-countries",
+      "path": "v1/indicators/heat.lancet-2025.heatwave-days-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days per person (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Heatwave days per person, observed and attributable to climate change, world and by country"
+    },
+    {
       "bytes": 3179,
       "description": "Heatwave days that people were exposed to on average each year, 2020–2024, as observed, as expected in a modelled climate without human-caused warming, and the difference attributable to climate change, from the Lancet Countdown (indicator 1.1.1).",
       "dialect": {
@@ -5119,6 +5238,44 @@
         {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
       ],
       "title": "Potential work hours lost to heat, world"
+    },
+    {
+      "bytes": 644217,
+      "description": "Working hours that heat stress could have cost each worker on average each year, 1990–2024, in the world and in each of 219 countries and territories, across services, manufacturing, agriculture and construction, as estimated by the Lancet Countdown (indicator 1.1.3). Heat of any cause: the hours are not attributed to climate change. Where the producer's sheet has no one employed in the four sectors, or no value, the year is published as missing.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:04259ff70942b9a7d0f6ea9dd80c5c5a608384ca8791141a2334c235e052f244",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "heat.lancet-2025.labour-hours-per-worker",
+      "path": "v1/indicators/heat.lancet-2025.labour-hours-per-worker.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "hours per worker (hours)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Potential work hours lost to heat per worker, world and by country"
     },
     {
       "bytes": 82740,

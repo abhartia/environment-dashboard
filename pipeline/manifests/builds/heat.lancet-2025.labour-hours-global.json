@@ -1,8 +1,8 @@
 {
   "export": "data/v1/indicators/heat.lancet-2025.labour-hours-global.json",
-  "export_sha256": "0ad5ae9796f8aa4d74e1fac4fbdba0b7cb4375ee8c516f13853dd1530bd3e0c4",
+  "export_sha256": "d8ea5f7250bec6da5c60195ab800e9f03c519837c8457b1807ea257baf889641",
   "indicator_id": "heat.lancet-2025.labour-hours-global",
-  "key": "15f992e68d4850b31c51f695c4355bdb5fce032fcb8ff572a68345ab95fe1dbe",
+  "key": "db8095eab4cef706a6160a5d748083ce8184468f8fea4f100319486e660353c8",
   "key_parts": {
     "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
@@ -16,7 +16,7 @@
     "sources": {
       "lancet-countdown-2025": "cee6389345dfa826afe987862a0766e589beeeef2087e3dc7f9a66a900e0e964"
     },
-    "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
   },
   "publisher_checks": [
     {"detail": "ours 639.85500565 vs stated 640 (tolerance ±0.5, difference 0.144994)", "entity": "WLD", "period": "2024", "quote": "A record-high 640 billion potential work hours were lost in 2024", "source_id": "lancet-countdown-2025", "stated": "640", "status": "pass", "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx", "vintage": "2025 report"}

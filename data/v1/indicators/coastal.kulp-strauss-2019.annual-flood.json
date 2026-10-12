@@ -55,39 +55,39 @@
   ],
   "processing": [
     {
-      "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the 13 rows of Place 'World' (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the three CoastalDEM columns of RL1: land below the future local high tide line plus the local 1-year coastal flood level. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows are not used.",
+      "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the 13 rows of Place 'World' (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), whose Total is 6800 million people, and from each only the three CoastalDEM columns of RL1: land below the future local high tide line plus the local 1-year coastal flood level. The SRTM, JAXA and MERITDEM columns and the SIDS and country rows are not used here (the country rows are published, in people, by the indicators ending '-by-country').",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-      "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+      "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends of a 90% interval, exactly as printed in millions of people (nothing rounded or recalculated). The present-day row prints '--' for both percentiles, so it has no range.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-      "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+      "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the years of their sea levels; the population stays as it was in 2010.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-      "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+      "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Published both projection sets as values of the 'projection' dimension, side by side and never mixed, because the abstract uses both: its 190 M (150–250 M) below high tide by 2100 under low emissions is K14 (K17 gives another range), and its 'up to 630 M' and 'up to 340 M' below the annual flood level by 2100 and mid-century are K17's 95th percentiles under RCP8.5. Checked both, and the present day's 110 M and 250 M, against these cells.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-      "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+      "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Checked the file against Table 1 of the corrected article (sha256 912692e7c7a3…, page 3): each of its 24 CoastalDEM totals, median and 90% interval, equals the file's three numbers. Found the 20 sentences that the scope and the cross-checks rely on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the 2 on units, exposures and percentiles in the description of the supplementary files (sha256 2b98673da602…).",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
       "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
-      "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+      "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     }
   ],
   "published_value": null,

@@ -1,8 +1,8 @@
 {
   "export": "data/v1/indicators/drought.lancet-2025.land-share.json",
-  "export_sha256": "5d3bbde9a76920d24a9604d301b03c4054952d16ea5b73fd78f9525d37e7dad0",
+  "export_sha256": "9a8df187d2357fe25c94c73e89fc352b23f4dbe1d4657c6d2d0ee0337f2b8c85",
   "indicator_id": "drought.lancet-2025.land-share",
-  "key": "0d03050736d3bfb2886ec1fb57296165311502f22ef1b84ec4dd8941e2ad5a77",
+  "key": "10c6040ea7c8e86a6fab0a194eb9cc94d3862dda2c207b3fca5ff33ce23de213",
   "key_parts": {
     "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
@@ -16,7 +16,7 @@
     "sources": {
       "lancet-countdown-2025": "cee6389345dfa826afe987862a0766e589beeeef2087e3dc7f9a66a900e0e964"
     },
-    "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
   },
   "publisher_checks": [
     {"detail": "ours 60.6941829279543 vs stated 60.7 (tolerance ±0.05, difference 0.00581707)", "entity": "WLD", "period": "2024", "quote": "The percentage of the global land area affected by at least one month of extreme drought reached a record-breaking 60.7% in 2024, 299% above the 1951-1960 average", "source_id": "lancet-countdown-2025", "stated": "60.7", "status": "pass", "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.2_Data-Download_2025-Lancet-Countdown-Report.xlsx", "vintage": "2025 report"}

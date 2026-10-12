@@ -1,9 +1,10 @@
-"""Kulp & Strauss (2019): people on land below high tide and below the yearly flood level, world, CoastalDEM
-(envdash/transforms/impacts/kulp_strauss.py).
+"""Kulp & Strauss (2019): people on land below high tide and below the yearly flood level, world and by country,
+CoastalDEM (envdash/transforms/impacts/kulp_strauss.py).
 
 Fixtures (each with its .provenance.json sidecar, cut from the snapshots of 2026-10-12):
 - kulp-strauss-2019/supplementary-data-1: the header, data rows 1-26 (the 13 World rows, then the 13 SIDS rows) and
-  the last 13 (Western Sahara) of Supplementary Data 1, so the reader must pick the World rows out of others;
+  the last 13 (Western Sahara) of Supplementary Data 1, so the reader must pick the World rows out of others, and the
+  country reader must leave SIDS out and resolve Western Sahara;
 - kulp-strauss-2019/supplementary-descriptions: the whole one-page description of the supplementary files.
 
 The corrected article PDF (3,903,782 bytes) is not committed as a fixture. The tests that read it (Table 1, the
@@ -15,7 +16,7 @@ from __future__ import annotations
 
 import pytest
 
-from envdash import snapshots, textmatch
+from envdash import geo, snapshots, textmatch
 from envdash.paths import Paths
 from envdash.registry import load_registry
 from envdash.transform import InputFile, Transform, run_checks, validate
@@ -24,6 +25,7 @@ from envdash.transforms.impacts import kulp_strauss as ks
 from support import fixture
 
 IDS = {"coastal.kulp-strauss-2019.below-high-tide", "coastal.kulp-strauss-2019.annual-flood"}
+COUNTRY_IDS = {f"{i}-by-country" for i in IDS}
 
 
 def _csv() -> bytes:
@@ -66,8 +68,8 @@ def test_registry_entry_is_the_open_article_and_its_supplement():
 
 def test_specs():
     ts = _transforms()
-    assert set(ts) == IDS
-    for t in ts.values():
+    assert set(ts) == IDS | COUNTRY_IDS
+    for t in (ts[i] for i in IDS):
         s = t.spec
         assert s.kind == "series" and s.geo_coverage == "global-only" and s.headline_entity == "WLD"
         assert s.unit.code == "million-people" and s.display.decimals == 0
@@ -85,6 +87,20 @@ def test_specs():
             assert words in s.description, words
         assert "sea walls" in s.scope.basis and "Netherlands" in s.scope.basis
         assert all(c.quote and c.url == ks.ARTICLE_URL and c.vintage == ks.VINTAGE for c in t.checks)
+
+
+def test_country_specs():
+    ts = _transforms()
+    for i in IDS:
+        world, s = ts[i].spec, ts[f"{i}-by-country"].spec
+        assert s.kind == "series" and s.geo_coverage == "mixed" and s.headline_entity == "WLD"
+        # People, not millions: a country's 0.01 million would read as zero in whole millions.
+        assert s.unit.code == "people" and s.display.decimals == 0
+        assert s.dimensions == world.dimensions and s.headline_dims == world.headline_dims
+        assert s.scope.basis == world.scope.basis
+        for words in ("134 countries", "two significant figures", "0.01 million", "exposure, not flooding"):
+            assert words in s.description, words
+        assert ts[f"{i}-by-country"].inputs == ts[i].inputs and not ts[f"{i}-by-country"].checks
 
 
 def test_each_check_quotes_a_declared_sentence_of_the_corrected_article():
@@ -130,6 +146,28 @@ def test_observations_as_printed():
     assert (high.value, high.lower, high.upper) == (480.0, 380.0, 630.0)
     assert len(perm) == len(flood) == 13
     assert {o.status for o in perm if o.period != "2010"} == {"projection"}
+
+
+def test_reads_the_country_rows_through_the_alias_table():
+    places = ks.read_places(_csv())
+    # SIDS is the authors' group, left out by name; Western Sahara is the crosswalk's ESH by its exact name.
+    assert list(places) == ["ESH"]
+    assert ks.NOT_PLACES == ("SIDS",)
+    perm = ks.observations(places["ESH"], ks.PERM, "ESH", ks.PEOPLE_PER_MILLION)
+    # Printed "0.02 " million, as people (exact decimal arithmetic on the printed digits).
+    assert _by(perm, "2010", "present", "none").value == 20000.0
+    low = _by(perm, "2100", "rcp26", "k14")
+    assert (low.value, low.lower, low.upper, low.entity) == (20000.0, 20000.0, 30000.0, "ESH")
+
+
+def test_a_country_name_not_in_the_crosswalk_is_refused():
+    raw = _csv().decode("utf-8").replace("Western Sahara,", "Sahrawi Republic,").encode("utf-8")
+    with pytest.raises(geo.UnknownEntity, match="Sahrawi Republic"):
+        ks.read_places(raw)
+    # A place whose rows are split by another place's is refused, not merged.
+    split = _edited(_csv(), "Western Sahara,0.49,K14_rcp85_2050,", "Algeria,0.49,K14_rcp85_2050,")
+    with pytest.raises(ks.KulpStraussFormatError, match="not together"):
+        ks.read_places(split)
 
 
 def test_publisher_checks_pass_on_the_file():
@@ -208,6 +246,16 @@ def test_builds_from_the_snapshots():
         assert len(outcomes) == len(t.checks) and all(o.status == "pass" for o in outcomes), outcomes
         got[t.spec.id] = {(o.period, o.dims["scenario"], o.dims["projection"]): o.value for o in r.observations}
     perm, flood = got[ks.PERM.indicator], got[ks.RL1.indicator]
+    countries = {
+        t.spec.id: t.run({i.key: files[i.key] for i in t.inputs}).observations
+        for t in ks.transforms(Paths.default())
+        if t.spec.id.endswith("-by-country")
+    }
+    tide = countries[f"{ks.PERM.indicator}-by-country"]
+    assert len({o.entity for o in tide}) == 135 and len(tide) == 135 * 13
+    present = {o.entity: o.value for o in tide if o.dims["scenario"] == "present"}
+    # Printed "110 ", "9.3 " and "0.90 " million; "0.00 " (a place whose exposure rounds to zero today) stays zero.
+    assert (present["WLD"], present["BGD"], present["GBR"], present["AGO"]) == (110e6, 9.3e6, 0.9e6, 0.0)
     assert perm[("2010", "present", "none")] == 110.0 and flood[("2010", "present", "none")] == 250.0
     assert perm[("2100", "rcp45", "k14")] == 200.0 and perm[("2100", "rcp85", "k17")] == 340.0
     assert flood[("2050", "rcp85", "k17")] == 300.0 and flood[("2100", "rcp85", "k17")] == 480.0
