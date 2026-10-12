@@ -1,0 +1,22 @@
+{
+  "export": "data/v1/indicators/displacement.idmc-gidd.weather-by-hazard.json",
+  "export_sha256": "3d6f15cae82627ec2e4d36fc8f52854e77743cf4e49bb729c92dc76d171e64d4",
+  "indicator_id": "displacement.idmc-gidd.weather-by-hazard",
+  "key": "a301998ef75909ca945b18203d13c2e4f676b903a214b77ba9e4a2c3f183c1a9",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "idmc-gidd/gidd-disaster-events": {
+        "manifest_sha256": "196ea4a9ce9aa1d6a391af3f8a9e2727cffa446a464b995cc75b9bf9004992b9",
+        "sha256": "25c78f150cffef0fac7b2c860d07738cf4a52da9bfe1bb1cc6a976c41ad0d2d3"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "idmc-gidd": "eb4096271d869289cc5e68cef7bbba3ae3dc920bd69612f67f9d37b9f9862430"
+    },
+    "transform_sha256": "0e992bbeff94140ac9050c01db3f936100ffca09e369aced4049b1efc9905f3c"
+  },
+  "publisher_checks": []
+}

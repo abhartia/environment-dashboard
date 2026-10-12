@@ -1,0 +1,87 @@
+{
+  "attribution": "Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
+  "description": "Percent of the world's land with at least one, three or six months of extreme meteorological drought in each year, 1951–2024, estimated by the Lancet Countdown (indicator 1.2.2) from a drought index (SPEI-6, against 1986–2005). The index weighs precipitation against the evaporative demand of the air, so warmer air itself pushes it towards drought. It is not drought caused by climate change, and it does not measure water or crop shortages or the people affected.",
+  "dimensions": [
+    {
+      "id": "months",
+      "label": "Months of extreme drought in the year",
+      "values": [
+        {"id": "1m", "label": "At least 1 month"},
+        {"id": "3m", "label": "At least 3 months"},
+        {"id": "6m", "label": "At least 6 months"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "drought.lancet-2025.land-share",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "months": "1m"
+    },
+    "entity": "WLD",
+    "period": "2024",
+    "status": "final",
+    "value": 60.6941829279543
+  },
+  "licence": {
+    "name": "CC BY-NC-SA 4.0",
+    "spdx": "CC-BY-NC-SA-4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3 are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information 2025; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration Index (SPEI, Consejo Superior de Investigaciones Científicas).",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "drought-land-share-1-2-2", "bytes": 678499, "citation_full": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.", "date_accessed": "2026-10-12", "date_published": "2025-10-29", "doi": "10.1016/S0140-6736(25)01919-1", "etag": "\"a5a63-64240eaee98cf\"", "last_modified": "Wed, 29 Oct 2025 00:07:27 GMT", "licence": {"name": "CC BY-NC-SA 4.0", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Lancet Countdown on Health and Climate Change (led by University College London)", "r2_url": "https://files.environmentdashboard.org/raw/3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42.zst", "sha256": "3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42", "source_id": "lancet-countdown-2025", "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution", "url_download": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.2_Data-Download_2025-Lancet-Countdown-Report.xlsx", "url_main": "https://lancetcountdown.org/explore-our-data/", "version_producer": "2025 report", "wayback_url": null}
+  ],
+  "processing": [
+    {
+      "description": "Read the sheet '2025 Report Data_Global' of the indicator 1.2.2 (drought) workbook of the Lancet Countdown 2025 report, 1951–2024: the percent of the world's land area with at least 1, 3 and 6 months of extreme drought in each year (Percent_in_drought by Months), published as in the workbook.",
+      "inputs": ["3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    },
+    {
+      "description": "Checked that every year has each duration once and that the share falls (or stays level) as the duration lengthens. The 12-month share is not published: it reads NA in 15 of the 74 years.",
+      "inputs": ["3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Extreme meteorological drought by the 6-month Standardised Precipitation-Evapotranspiration Index (SPEI, CSIC; the workbook does not name the version), an estimated index from gridded station data, compared with its 1986–2005 baseline. Meteorological drought only: the producer notes that it does not capture hydrological or agricultural drought, nor the population living in, or depending on, drought-affected areas. The 12-month share is not published (NA in 15 of 74 years).",
+    "bunkers": null,
+    "geography": "World land",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "months": ["1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "1m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "3m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m", "6m"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [19.238488925986, 19.3198542964228, 17.221740669282, 16.8761972978198, 14.9461498254289, 10.7744828936785, 14.0719516162518, 15.692691279456, 12.384523502508, 11.6616714419908, 13.7719254778223, 12.1073980328794, 16.0661990681314, 13.1596934468017, 11.3407807892948, 11.3414598361839, 14.0581789144463, 10.7175615547048, 14.0563227217189, 10.5642474244436, 9.04507118533467, 13.9350458297743, 15.3920405888783, 9.57348184197511, 11.020133070482, 10.3840423788905, 15.309714096098, 9.12828357168103, 9.95287448843013, 12.2567720156347, 13.9066129946472, 13.3122332767436, 22.4541142881925, 15.720626404511, 12.9638833171934, 11.4352966717526, 20.2049942531723, 18.1548664226987, 15.000859615629, 14.5903423682547, 20.5111017637669, 19.7095007924838, 14.3156315111085, 18.5519426571791, 19.0149175551253, 15.7151044706848, 22.8107736237414, 40.1063828053897, 25.8645662378673, 21.20956389697, 28.4884076453412, 34.2532255984951, 31.2817664200015, 23.4728987992772, 30.9527566595228, 31.2040364024845, 28.1911368269974, 26.0389454955913, 31.6103442889251, 45.2246790595537, 31.4584158696114, 37.5276811541232, 33.7665041081071, 34.3195120522575, 45.9960889877747, 46.3492531485073, 41.2396545845416, 42.2760960227705, 48.1637368126332, 50.3270889608094, 44.8830589254758, 42.7888386142279, 52.3232312169713, 60.6941829279543, 7.6362209197213, 6.45070385649577, 5.99112171648939, 6.32046457392435, 3.61735360125998, 3.19326817206226, 4.26186056277555, 5.29921471859071, 4.11496348380693, 3.43956078326427, 4.47840852558487, 2.99687022155995, 5.8052690728851, 3.91250602741608, 3.3216949728134, 2.91196178037324, 3.63523392481136, 3.20527991446662, 4.11014549641493, 2.61587160833218, 2.45880554611059, 4.46176794517873, 5.43582235618011, 2.29863833539582, 3.51709934731712, 3.63341215090067, 4.25929428756838, 2.72691990851456, 2.75673828857927, 4.02567133969736, 3.07627083444971, 3.76993534871165, 9.59223668559149, 4.5655061386045, 3.23869170703417, 3.52048705486183, 7.30127608372997, 6.00782227865853, 5.19320398320015, 4.81296038029551, 5.98049142489828, 8.21975490215837, 4.44455309688151, 6.08840304607249, 6.61756385685711, 4.85799257917471, 9.34619985135525, 19.5253659811493, 9.64307150174581, 7.73370867982223, 11.808262881225, 14.2137287269717, 10.7370369381864, 6.51719079374221, 13.2375183820001, 10.4798169539469, 12.0380334117384, 9.2881568633189, 13.3928620336307, 25.5286653538906, 14.2746014240002, 18.4907234489627, 15.5869250761687, 15.3274421955725, 25.96129526796, 29.0171391524443, 22.6391415097087, 21.5505691816501, 28.9595985272269, 31.3797154311895, 28.0093580590608, 24.9170830009029, 35.1021116060985, 41.2974184052838, 1.36397072856808, 1.05584363742218, 1.22587461011207, 1.36281482027541, 0.624402932273425, 0.783085003048744, 0.752160904916217, 1.06364064081565, 1.09757876537182, 0.565116591773178, 0.7890134598447, 0.533116535382487, 1.12327694574879, 0.493766857211625, 0.613393841898503, 0.453280407457315, 0.595355654222256, 0.549784190750283, 0.988098211100425, 0.400237108527715, 0.300949629050003, 0.849177048464138, 1.05970424691076, 0.375596216893021, 1.07758866567459, 0.683445079112062, 0.531691054771418, 0.810345306241425, 0.637366048181841, 0.606239868555565, 0.315120576507818, 0.450745472512715, 3.10119203082121, 0.783286881255706, 0.653355614504877, 0.669257143810411, 1.22864273438261, 1.34472762466881, 1.08304874826283, 0.726280069101557, 1.53168839212233, 3.09883398665155, 1.00903618132406, 1.44886651518267, 1.66112480219104, 0.960469296798213, 2.70342984139409, 7.09268602328747, 2.2650817692417, 2.02077590199129, 2.97624952968585, 3.17260583805925, 2.49873031646909, 1.36962865952095, 3.45212539769654, 1.96784463441388, 3.83941387749078, 2.76861932071586, 4.46594984317371, 9.94995059812177, 4.18285434859266, 6.76686274140193, 4.9665217722906, 5.75250266198139, 10.0992651203488, 14.5813687072246, 9.15782567350325, 9.32754350234802, 14.9624504977837, 13.1595239909035, 15.0371781851492, 10.8215452993397, 16.85485737594, 22.8414971224506]
+  },
+  "time_basis": "calendar",
+  "title": "Share of land in extreme drought, world",
+  "unit": {
+    "code": "percent",
+    "label": "percent of land area",
+    "short": "%"
+  },
+  "vintage": "2025 report"
+}

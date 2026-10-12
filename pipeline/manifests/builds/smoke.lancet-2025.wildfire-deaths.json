@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/smoke.lancet-2025.wildfire-deaths.json",
+  "export_sha256": "113a0c97ab4947b8d3913d00797aac3d8519114700e2f51591488d301751f1f1",
+  "indicator_id": "smoke.lancet-2025.wildfire-deaths",
+  "key": "dbbb80e641efd41a7bcfd52a142668ae2980b25cd03c3f523db6e2d37902acbd",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "lancet-countdown-2025/wildfire-smoke-deaths-1-2-1": {
+        "manifest_sha256": "51ccd93c74cb0456146ed715b5616e3d0d4cbe1dcba2f67dabbb0c4801418b94",
+        "sha256": "1cf07d2a285a07cea1b1bfc3d5545a99ba83dcbf362e50377a6a9f48e7d21e7d"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "lancet-countdown-2025": "cee6389345dfa826afe987862a0766e589beeeef2087e3dc7f9a66a900e0e964"
+    },
+    "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+  },
+  "publisher_checks": [
+    {"detail": "ours 153718.63398755688 vs stated 154E3 (tolerance ±500, difference 281.366)", "entity": "WLD", "period": "2024", "quote": "Deaths from wildfire-derived PM2.5 air pollution reached a record-high 154,000 in 2024, up by 36% from the 2003-2012 average.", "source_id": "lancet-countdown-2025", "stated": "154E3", "status": "pass", "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.1_Mortality_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "vintage": "2025 report"}
+  ]
+}

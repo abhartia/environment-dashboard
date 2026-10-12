@@ -2702,6 +2702,70 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The article's full text as JATS XML from Europe PMC (PMC12058528). The abstract and the Results section \"Unprecedented exposure to heatwaves\" state the world share of the 1960 and 2020 birth cohorts facing unprecedented lifetime exposure to heatwaves under the 1.5 °C and 3.5 °C pathways.", "discover": null, "format": "xml", "id": "article-xml", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12058528/fullTextXML", "zip_member": null}
+      ],
+      "citation": {
+        "DOI": "10.1038/s41586-025-08907-1",
+        "URL": "https://doi.org/10.1038/s41586-025-08907-1",
+        "author": [
+          {"family": "Grant", "given": "Luke", "literal": null},
+          {"family": "Vanderkelen", "given": "Inne", "literal": null},
+          {"family": "Gudmundsson", "given": "Lukas", "literal": null},
+          {"family": "Fischer", "given": "Erich", "literal": null},
+          {"family": "Seneviratne", "given": "Sonia I.", "literal": null},
+          {"family": "Thiery", "given": "Wim", "literal": null}
+        ],
+        "container-title": "Nature",
+        "issued": "2025-05-07",
+        "page": "374-379",
+        "publisher": "Springer Nature",
+        "text": "Grant, L., Vanderkelen, I., Gudmundsson, L. et al. Global emergence of unprecedented lifetime exposure to climate extremes. Nature 641, 374–379 (2025). https://doi.org/10.1038/s41586-025-08907-1",
+        "title": "Global emergence of unprecedented lifetime exposure to climate extremes",
+        "type": "article-journal",
+        "version": null,
+        "volume": "641"
+      },
+      "description": "A modelled projection of how many people born each year from 1960 to 2020 will live through more heatwaves, crop failures, river floods, droughts, wildfires and tropical cyclones in their lifetime than the 99.99th percentile of lifetimes simulated in a pre-industrial climate (\"unprecedented lifetime exposure\"), along warming pathways that reach 1.5 to 3.5 °C above 1850-1900 by 2100. Extremes come from the ISIMIP2b simulations (four CMIP5 climate models and, for every extreme except heatwaves, impact models), combined with population, cohort sizes and country-average life expectancy. It is a statistical definition of an unusual lifetime, not a count of deaths or of harm.",
+      "evidence": {
+        "checked_on": "2026-10-12",
+        "licence_quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made.",
+        "terms_check": "api",
+        "terms_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12058528/fullTextXML"
+      },
+      "id": "grant-2025",
+      "landing_url": "https://doi.org/10.1038/s41586-025-08907-1",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Grant, L., Vanderkelen, I., Gudmundsson, L., Fischer, E., Seneviratne, S. I. & Thiery, W. (2025). Global emergence of unprecedented lifetime exposure to climate extremes. Nature 641, 374–379. doi:10.1038/s41586-025-08907-1. CC BY 4.0.",
+        "attribution_modified": "Adapted by Environment Dashboard from Grant, L., Vanderkelen, I., Gudmundsson, L., Fischer, E., Seneviratne, S. I. & Thiery, W. (2025). Global emergence of unprecedented lifetime exposure to climate extremes. Nature 641, 374–379. doi:10.1038/s41586-025-08907-1. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Luke Grant, Inne Vanderkelen, Lukas Gudmundsson, Erich Fischer, Sonia I. Seneviratne and Wim Thiery (Vrije Universiteit Brussel, Environment and Climate Change Canada, KU Leuven, Royal Meteorological Institute of Belgium and ETH Zurich); published in Nature (Springer Nature)",
+      "research_ref": "docs/research/sources-consequences-2026-10-11.json#Grant et al. 2025, Global emergence of unprecedented lifetime exposure to climate extremes (share of children born in 2020 facing unprecedented lifetime heatwave exposure)",
+      "status": {
+        "note": "Published once (online 7 May 2025; volume 641, issue 8062); no update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "Unprecedented lifetime exposure to climate extremes by birth year (Grant et al. 2025)",
+      "twins": [],
+      "update_cadence": "One-off (published 2025)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "World. banfyear holds one row per year 2002-2025 with lc1..lc5 and lc_tot (hectares burned by land cover, MCD64A1) and ba_area_ha, ba_count, firesize (GlobFire; 0.0 in 2025, not processed). Also banfmonth, banfmonthlyavg, monthlyburnedareavshistorical and fire-size distributions.", "discover": null, "format": "json", "id": "banf-world", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=WORLD&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Africa (UN continent UN_AFR), same structure as banf-world.", "discover": null, "format": "json", "id": "banf-africa", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_AFR&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Americas (UN continent UN_AME), same structure as banf-world.", "discover": null, "format": "json", "id": "banf-americas", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://cprof.effis.emergency.copernicus.eu/api/v3/banf?level=AOI&value=UN_AME&year=2025&yearFrom=2002&yearTo=2025&env=PROD", "zip_member": null},
@@ -3023,7 +3087,7 @@
       "acquisition": "manual",
       "artifacts": [
         {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": "client_id", "method": "GET"}, "content_key": null, "description": "GIDD annual export, one row per country and year, 2008-2025: Disaster Internal Displacements and Disaster Stock Displacement (rounded and raw), the same for conflict and violence, plus a README sheet and IDMC's notes on each figure. HTTP 403 without client_id on 2026-10-04. Until the API key arrives, a person opens the GIDD page (https://www.internal-displacement.org/database/displacement-data/), presses \"Excel\" under \"Annual displacement data\" (the same export, all years), and records the file with `uv run envdash snapshot add --source idmc-gidd --artifact gidd-displacements --file <path> --note \"<who> downloaded it from the GIDD page\"`.", "discover": null, "format": "xlsx", "id": "gidd-displacements", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/displacements/displacement-export/?release_environment=RELEASE&start_year=2008&end_year=2025", "zip_member": null},
-        {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": "client_id", "method": "GET"}, "content_key": null, "description": "GIDD disaster export, one row per disaster event, 2008-2025: ISO3, country, year, event name, start date, Disaster Internal Displacements (rounded and raw), hazard category, type and sub-type, event codes (e.g. GLIDE), event ID and whether displacement occurred or only pre-emptive evacuations were reported. HTTP 403 without client_id on 2026-10-04. The GIDD web page has no button for this export, so it is acquired only once IDMC issues our key.", "discover": null, "format": "xlsx", "id": "gidd-disaster-events", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/disasters/disaster-export/?release_environment=RELEASE&start_year=2008&end_year=2025", "zip_member": null}
+        {"access": {"auth": "api-key", "auth_env": "IDMC_CLIENT_ID", "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": "client_id", "method": "GET"}, "content_key": null, "description": "GIDD disaster export, one row per disaster event in a country and year, 2008-2025: ISO3, country, year, event name, start date, Disaster Internal Displacements (rounded and raw), hazard category, type and sub-type, event codes (e.g. GLIDE), event ID and whether pre-emptive evacuations were reported, plus a README sheet with the release dates and IDMC's definitions. HTTP 403 without client_id on 2026-10-04. Until the API key arrives, a person opens the GIDD page (https://www.internal-displacement.org/database/displacement-data/), sets Cause to Disaster, presses \"Excel\" under \"Annual displacement data\", and records the file with `uv run envdash snapshot add --source idmc-gidd --artifact gidd-disaster-events --file <path> --note \"<who> downloaded it from the GIDD page (Cause: Disaster, Excel)\"`. The owner did so on 2026-10-12 (2,968,931 bytes, sha256 25c78f150cff…; README \"LAST UPDATE: August 31, 2026\"). The README's coverage text says \"running through 2024\", although the sheet has 2025 rows.", "discover": null, "format": "xlsx", "id": "gidd-disaster-events", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://helix-tools-api.idmcdb.org/external-api/gidd/disasters/disaster-export/?release_environment=RELEASE&start_year=2008&end_year=2025", "zip_member": null}
       ],
       "citation": {
         "DOI": null,
@@ -3043,7 +3107,7 @@
       },
       "description": "Validated annual estimates of internal displacement from 2008 to 2025. Internal displacements are movements, not people: one person forced to move twice in a year is counted twice, and pre-emptive evacuations are included. The country file gives, for each country and year, internal displacements and the number of people still displaced at year end, separately for disasters and for conflict and violence. The event file lists each disaster with its hazard category, type and sub-type (CRED EM-DAT classification), start date and displacements. Figures are estimates that IDMC revises between releases.",
       "evidence": {
-        "checked_on": "2026-10-04",
+        "checked_on": "2026-10-12",
         "licence_quote": "Data is available under the Creative Commons Attribution-Non-Commercial-Share Alike 3.0 IGO license.",
         "terms_check": "page",
         "terms_url": "https://helix-tools-api.idmcdb.org/external-api/api-schema/?format=json"
@@ -3071,7 +3135,7 @@
       "publisher": "Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council",
       "research_ref": "docs/research/sources-impacts.json#IDMC Global Internal Displacement Database (GIDD): disaster displacement event data, and the Global Report on Internal Displacement (GRID 2026)",
       "status": {
-        "note": "The GIDD covering 2008-2025 was released with the Global Report on Internal Displacement 2026 (12 May 2026, doi:10.55363/IDMC.ETWG8973); the verifier found the export README dated 31 August 2026, so figures change between annual releases and each snapshot is kept. IDMC is part of the Norwegian Refugee Council; not a US federal product.",
+        "note": "The GIDD covering 2008-2025 was released with the Global Report on Internal Displacement 2026 (12 May 2026, doi:10.55363/IDMC.ETWG8973); the event export the owner downloaded on 2026-10-12 says \"LAST UPDATE: August 31, 2026\", so figures change between annual releases and each snapshot is kept. IDMC is part of the Norwegian Refugee Council; not a US federal product.",
         "state": "active",
         "us_federal": false
       },
@@ -3378,7 +3442,7 @@
     {
       "acquisition": "automatic",
       "artifacts": [
-        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Snapshot of the ClimateIndicator/data repository at tag IGCC-2025a. Files used, under ClimateIndicator-data-0f2765d/data/base/: anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv (attributable warming, 5th/50th/95th percentiles), effective_radiative_forcing/ERF_best.csv and ERF_best_aggregates.csv with ERF_p05*/ERF_p95* (W/m2 by agent, 1750-2025), greenhouse_gas_concentrations/ghg_concentrations.csv, global_mean_temperatures/annual_averages.csv, greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv (sic) and carbon_budget/*.csv (file names encode the assumptions, e.g. hdT_1.24).", "discover": null, "format": "zip", "id": "data-igcc-2025a", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Snapshot of the ClimateIndicator/data repository at tag IGCC-2025a. Files used, under ClimateIndicator-data-0f2765d/data/base/: anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv (attributable warming, 5th/50th/95th percentiles), effective_radiative_forcing/ERF_best.csv and ERF_best_aggregates.csv with ERF_p05*/ERF_p95* (W/m2 by agent, 1750-2025), greenhouse_gas_concentrations/ghg_concentrations.csv, global_mean_temperatures/annual_averages.csv, greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv (sic), carbon_budget/*.csv (file names encode the assumptions, e.g. hdT_1.24) and extreme_temperatures/txx_timeseries.csv (land TXx; ERA5 column only).", "discover": null, "format": "zip", "id": "data-igcc-2025a", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv at IGCC-2025a: the multi-method assessment of attributable warming (5th, 50th, 95th percentile columns) for 2010-2019, 2016-2025, 2017 and 2025; rows noted \"SR15 definition\" use the trend-based single-year definition, the others the annual mean.", "discover": null, "format": "csv", "id": "warming-assessment-headlines", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/anthropogenic_warming/Walsh_GMST_timeseries.csv at IGCC-2025a: annual attributable warming 1850-2025 by the Global Warming Index method (Walsh), percentiles 5, 17, 50, 83 and 95.", "discover": null, "format": "csv", "id": "warming-walsh-timeseries", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Walsh_GMST_timeseries.csv", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/anthropogenic_warming/Gillett_GMST_timeseries.csv at IGCC-2025a: annual attributable warming 1850-2025 by regularised optimal fingerprinting (Gillett), percentiles 5, 17, 50, 83 and 95.", "discover": null, "format": "csv", "id": "warming-gillett-timeseries", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Gillett_GMST_timeseries.csv", "zip_member": null},
@@ -3387,7 +3451,8 @@
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/effective_radiative_forcing/ERF_p05_aggregates.csv at IGCC-2025a: 5th percentile of the same.", "discover": null, "format": "csv", "id": "erf-p05-aggregates", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_p05_aggregates.csv", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/effective_radiative_forcing/ERF_p95_aggregates.csv at IGCC-2025a: 95th percentile of the same.", "discover": null, "format": "csv", "id": "erf-p95-aggregates", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/effective_radiative_forcing/ERF_p95_aggregates.csv", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/carbon_budget/budget_normal_magicc_True_fair_False_..._hdT_1.24NonlinNonCO2_all_None_recEm213.csv at IGCC-2025a: remaining carbon budgets (GtCO2) from the start of 2026 for warming levels in 0.1 degree steps and seven likelihoods, using MAGICC for non-CO2 warming, 1.24 degrees of historical human-induced warming (2016-2025) and 213 GtCO2 emitted since the middle of that period: the assumptions of the paper's Table 8.", "discover": null, "format": "csv", "id": "rcb-magicc-hdt-1p24", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv", "zip_member": null},
-        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The ESSD article (Forster et al. 2026, Earth Syst. Sci. Data 18, 3889-3933, 45 pages, published 11 June 2026), for statements quoted with their page: the remaining carbon budget (Sect. 9 and Table 8, p. 3910) and the figures the producers state for effective radiative forcing (Sect. 5, p. 3899) and attributable warming.", "discover": null, "format": "pdf", "id": "essd-paper-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf", "zip_member": null}
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "data/base/extreme_temperatures/txx_timeseries.csv at IGCC-2025a: the land average (excluding Antarctica) of each grid cell's highest daily maximum temperature of the year (TXx), as anomalies relative to 1961-1990 in degrees C, one column per dataset: ERA5 (1950-2025), Berkeley (1955-2023) and HadEX3 (1961-2018). Only the ERA5 column is used.", "discover": null, "format": "csv", "id": "txx-timeseries", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/extreme_temperatures/txx_timeseries.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The ESSD article (Forster et al. 2026, Earth Syst. Sci. Data 18, 3889-3933, 45 pages, published 11 June 2026), for statements quoted with their page: the remaining carbon budget (Sect. 9 and Table 8, p. 3910), the figures the producers state for effective radiative forcing (Sect. 5, p. 3899) and attributable warming, and the land TXx statements (Sect. 10.1 and Table 9, p. 3911).", "discover": null, "format": "pdf", "id": "essd-paper-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf", "zip_member": null}
       ],
       "citation": {
         "DOI": "10.5281/zenodo.21494229",
@@ -3420,7 +3485,7 @@
         "version": "IGCC-2025a",
         "volume": null
       },
-      "description": "Annual update of the IPCC AR6 assessment of key climate indicators. Human-induced warming relative to 1850-1900, split into greenhouse gases, other human forcings and natural forcings; effective radiative forcing by agent from 1750 to 2025 (W/m2, best estimate with 5th and 95th percentiles); greenhouse gas concentrations 1750-2025; observed global mean surface temperature (multi-dataset mean); global GHG emissions by gas (GtCO2e, AR6 GWP100, including LULUCF); Earth's energy imbalance; and remaining carbon budgets in 0.1 degree steps. Pinned to data release IGCC-2025a. The headline warming file has two rows per period; the paper's headline uses the row noted \"SR15 definition\".",
+      "description": "Annual update of the IPCC AR6 assessment of key climate indicators. Human-induced warming relative to 1850-1900, split into greenhouse gases, other human forcings and natural forcings; effective radiative forcing by agent from 1750 to 2025 (W/m2, best estimate with 5th and 95th percentiles); greenhouse gas concentrations 1750-2025; observed global mean surface temperature (multi-dataset mean); global GHG emissions by gas (GtCO2e, AR6 GWP100, including LULUCF); Earth's energy imbalance; remaining carbon budgets in 0.1 degree steps; and the land average of the hottest day of the year (TXx, excluding Antarctica) relative to 1961-1990, per dataset. Pinned to data release IGCC-2025a. The headline warming file has two rows per period; the paper's headline uses the row noted \"SR15 definition\".",
       "evidence": {
         "checked_on": "2026-10-04",
         "licence_quote": "Creative Commons Attribution 4.0 International",
@@ -3443,7 +3508,7 @@
         "mirror_raw": true,
         "no_endorsement": false,
         "no_logo": false,
-        "notice": null,
+        "notice": "IGCC's hottest day of the year over land (TXx) is computed from ERA5 and contains modified Copernicus Climate Change Service information {year}; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.",
         "on_motif": null,
         "rounding": null
       },
@@ -3787,6 +3852,139 @@
         "us_federal": false
       },
       "title": "IPCC AR6 WGI Figure SPM.1 data",
+      "twins": [],
+      "update_cadence": "Static (final; superseded only by the next IPCC assessment)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel a, hot extremes: for each of the 45 inhabited AR6 regions, the type of observed change since the 1950s and the confidence in human contribution (BADC-CSV).", "discover": null, "format": "csv", "id": "panel-a-hot", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_a.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel b, heavy precipitation: the same assessment for each of the 45 regions (BADC-CSV).", "discover": null, "format": "csv", "id": "panel-b-heavy-precipitation", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_b.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel c, agricultural and ecological drought: the same assessment for each of the 45 regions (BADC-CSV).", "discover": null, "format": "csv", "id": "panel-c-drought", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_c.csv", "zip_member": null}
+      ],
+      "citation": {
+        "DOI": "10.5285/dc6c126c95b1445d8e66d6b9f62054d4",
+        "URL": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/",
+        "author": [
+          {"family": "Otto", "given": "F. E. L.", "literal": null},
+          {"family": "Zhang", "given": "X.", "literal": null},
+          {"family": "Seneviratne", "given": "S. I.", "literal": null}
+        ],
+        "container-title": null,
+        "issued": "2023-07-03",
+        "page": null,
+        "publisher": "NERC EDS Centre for Environmental Data Analysis",
+        "text": "Otto, F.E.L.; Zhang, X.; Seneviratne, S.I. (2023): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.3 (v20221116). NERC EDS Centre for Environmental Data Analysis, 03 July 2023. doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4. IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.",
+        "title": "Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.3 (v20221116)",
+        "type": "dataset",
+        "version": "v20221116",
+        "volume": null
+      },
+      "description": "The data behind Figure SPM.3 of the IPCC Sixth Assessment Report (Working Group I): the synthesis of assessed observed and attributable regional changes. For each of the 45 inhabited AR6 reference regions, assessed for the region as a whole from the 1950s to the present (the files say \"years 1950 to 2021\"): the type of observed change (Increase, Decrease, Low agreement in the type of change, or Limited data and/or literature) and the confidence in a human contribution to it (High, Medium, Low due to limited agreement, or Low due to limited evidence). Panel a: hot extremes; panel b: heavy precipitation; panel c: agricultural and ecological drought. Expert assessment categories, not measured magnitudes.",
+      "evidence": {
+        "checked_on": "2026-10-12",
+        "licence_quote": "Use of these data is covered by the following licence(s): http://creativecommons.org/licenses/by/4.0/ When using these data you must cite them correctly using the citation given on the CEDA Data Catalogue record.",
+        "terms_check": "page",
+        "terms_url": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/"
+      },
+      "id": "ipcc-ar6-wg1-spm3",
+      "landing_url": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Otto, Zhang & Seneviratne (2023), data for IPCC AR6 WGI Figure SPM.3 (v20221116), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4; IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.",
+        "attribution_modified": "Calculated by Environment Dashboard from Otto, Zhang & Seneviratne (2023), data for IPCC AR6 WGI Figure SPM.3 (v20221116), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4; IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis",
+      "research_ref": "docs/research/sources-extremes-2026-10-12.json#IPCC AR6 WGI Figure SPM.3 data: observed change in hot extremes, heavy precipitation and agricultural/ecological drought since the 1950s, with confidence in human contribution, for 45 inhabited regions",
+      "status": {
+        "note": "Final archive of a published assessment figure (CEDA status \"Completed\", update frequency \"Not Planned\"). The IPCC Seventh Assessment Report will supersede it.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "IPCC AR6 WGI Figure SPM.3 data",
+      "twins": [],
+      "update_cadence": "Static (final; superseded only by the next IPCC assessment)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel a: frequency change (multiplier, relative to 1851-1900) of the 1-in-10-year hottest day of the year over global land (TXx) at each warming level; median, 17th, 83rd, 5th and 95th percentiles of the CMIP6 ensemble.", "discover": null, "format": "csv", "id": "txx-freq-10yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_a/TXx_freq_change_10_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel a: intensity change (degrees C) of the 1-in-10-year hottest day of the year over global land, same percentiles. Not published this round.", "discover": null, "format": "csv", "id": "txx-intens-10yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_a/TXx_intens_change_10_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel b: frequency change (multiplier, relative to 1851-1900) of the 1-in-50-year hottest day of the year over global land, same percentiles.", "discover": null, "format": "csv", "id": "txx-freq-50yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_b/TXx_freq_change_50_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel b: intensity change (degrees C) of the 1-in-50-year hottest day of the year over global land. Not published this round.", "discover": null, "format": "csv", "id": "txx-intens-50yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_b/TXx_intens_change_50_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel c: frequency change (multiplier, relative to 1851-1900) of the 1-in-10-year wettest day of the year over global land (Rx1day), same percentiles.", "discover": null, "format": "csv", "id": "rx1day-freq-10yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_c/Rx1day_freq_change_10_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel c: intensity change (percent) of the 1-in-10-year wettest day of the year over global land. Not published this round.", "discover": null, "format": "csv", "id": "rx1day-intens-10yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_c/Rx1day_intens_change_10_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel d: frequency change (multiplier, relative to 1850-1900) of the 1-in-10-year agricultural and ecological drought (annual mean total-column soil moisture below the 1850-1900 10th percentile) in the drying regions, same percentiles.", "discover": null, "format": "csv", "id": "drought-freq-10yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_d/drought_freq_change_10_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Panel d: change in soil moisture (standard deviations; negative means drier) during the 1-in-10-year drought in the drying regions. Not published this round.", "discover": null, "format": "csv", "id": "drought-intens-10yr", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_d/drought_intens_change_10_year_event.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "metadata.yaml (JSON text despite its name): the full figure caption, including the list of drying regions and the note that the Caribbean is not included in the calculation, and the mapping of each data file to its panel.", "discover": null, "format": "txt", "id": "metadata", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/metadata.yaml", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The data creators' Readme: column definitions and the paper each panel is based on (Li et al. 2021, Journal of Climate 34(9); AR6 Figure 11.18 for drought). Its panel letters for precipitation and drought predate the published layout.", "discover": null, "format": "txt", "id": "readme", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/Readme_for_figure_SPM6.txt", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The licence statement in the data directory (CC BY 4.0) and the citation the IPCC asks for.", "discover": null, "format": "txt", "id": "licence-txt", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/License.txt", "zip_member": null}
+      ],
+      "citation": {
+        "DOI": "10.5285/93d1b84fbb144901809eaf67b35eb5c4",
+        "URL": "https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/",
+        "author": [
+          {"family": "Li", "given": "C.", "literal": null},
+          {"family": "Hauser", "given": "M.", "literal": null}
+        ],
+        "container-title": null,
+        "issued": "2021-08-09",
+        "page": null,
+        "publisher": "NERC EDS Centre for Environmental Data Analysis",
+        "text": "Li, C.; Hauser, M. (2021): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.6 (v20210809). NERC EDS Centre for Environmental Data Analysis, {date_accessed}. doi:10.5285/93d1b84fbb144901809eaf67b35eb5c4. IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.",
+        "title": "Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.6 (v20210809)",
+        "type": "dataset",
+        "version": "v20210809",
+        "volume": null
+      },
+      "description": "The data behind Figure SPM.6 of the IPCC Sixth Assessment Report (Working Group I): projected changes, relative to 1850-1900 (1851-1900 for heat and rain), in how often and how intensely extremes occur at global warming levels of 1, 1.5, 2, 3 and 4 °C, from CMIP6 multi-model simulations under several scenarios. Panel a: the hottest day of the year over global land (TXx) that was a 1-in-10-year event; panel b: the same for a 1-in-50-year event; panel c: the wettest day of the year over global land (Rx1day), 1-in-10-year event; panel d: agricultural and ecological drought (annual mean total-column soil moisture below the 1850-1900 10th percentile) in the AR6 regions projected to dry. Each file gives the multi-model median and the 17th/83rd and 5th/95th percentiles. Frequency is a multiplier (how many times as often); intensity is in °C (heat), percent (rain) or standard deviations of soil moisture (drought). Model results, not observations.",
+      "evidence": {
+        "checked_on": "2026-10-12",
+        "licence_quote": "Use of these data is covered by the following licence(s): http://creativecommons.org/licenses/by/4.0/ When using these data you must cite them correctly using the citation given on the CEDA Data Catalogue record.",
+        "terms_check": "page",
+        "terms_url": "https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/"
+      },
+      "id": "ipcc-ar6-wg1-spm6",
+      "landing_url": "https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Li & Hauser (2021), data for IPCC AR6 WGI Figure SPM.6 (v20210809), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/93d1b84fbb144901809eaf67b35eb5c4; IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.",
+        "attribution_modified": "Calculated by Environment Dashboard from Li & Hauser (2021), data for IPCC AR6 WGI Figure SPM.6 (v20210809), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/93d1b84fbb144901809eaf67b35eb5c4; IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis",
+      "research_ref": "docs/research/sources-extremes-2026-10-12.json#IPCC AR6 WGI Figure SPM.6 data: how much more often and how much stronger hot, wet and dry extremes get at 1, 1.5, 2, 3 and 4 °C of warming",
+      "status": {
+        "note": "Final archive of a published assessment figure (CEDA: \"This dataset has been completed\", update frequency \"Not Planned\"). The IPCC Seventh Assessment Report will supersede it.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "IPCC AR6 WGI Figure SPM.6 data",
       "twins": [],
       "update_cadence": "Static (final; superseded only by the next IPCC assessment)"
     },
@@ -4172,10 +4370,76 @@
     {
       "acquisition": "automatic",
       "artifacts": [
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Supplementary Data 1: people (millions, 2010 population) on land below the future local high tide line (Perm) and below it plus the local 1-year coastal flood return level (RL1), at present-day sea level and for 2050 and 2100 under K14 and K17 with RCP2.6, 4.5 and 8.5, by CoastalDEM, SRTM, JAXA and MERITDEM, as 5th, 50th and 95th percentiles, for the World, the SIDS and 134 countries. 253,535 bytes.", "discover": null, "format": "csv", "id": "supplementary-data-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM4_ESM.csv", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "\"Description of Additional Supplementary Files\" (1 page): what Supplementary Data 1-5 contain, their units, the meaning of Perm and RL1 and of the percentiles for K14 and K17, and the 0.01 million cut-off. 65,044 bytes.", "discover": null, "format": "pdf", "id": "supplementary-descriptions", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM3_ESM.pdf", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": false, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "The corrected article (12 pages). Table 1 (page 3) prints the global CoastalDEM and SRTM totals as median and 90% interval for every projection, scenario and year, which the transform checks cell by cell against Supplementary Data 1; the sentences the scope and the cross-checks rely on are on pages 1 to 3, 5 and 9, and the licence on page 12. 3,903,782 bytes.", "discover": null, "format": "pdf", "id": "article-pdf", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "zip_member": null}
+      ],
+      "citation": {
+        "DOI": "10.1038/s41467-019-12808-z",
+        "URL": "https://doi.org/10.1038/s41467-019-12808-z",
+        "author": [
+          {"family": "Kulp", "given": "Scott A.", "literal": null},
+          {"family": "Strauss", "given": "Benjamin H.", "literal": null}
+        ],
+        "container-title": "Nature Communications",
+        "issued": "2019-10-29",
+        "page": "4844",
+        "publisher": "Springer Nature",
+        "text": "Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z",
+        "title": "New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding",
+        "type": "article-journal",
+        "version": null,
+        "volume": "10"
+      },
+      "description": "Estimates of how many people live on land below the local high-tide line (mean higher-high water) and below the local once-a-year coastal flood level, at today's sea level and with the sea levels projected for 2050 and 2100 under three emissions scenarios (RCP2.6, 4.5 and 8.5) by two sets of projections (Kopp et al. 2014 and 2017), for the world, the small island developing states and 134 countries. Elevations come from CoastalDEM, a correction of NASA's SRTM made with a neural network; people are counted where they lived in 2010 (LandScan). Coastal defences are not considered, so the figures measure exposure, not flooding.",
+      "evidence": {
+        "checked_on": "2026-10-12",
+        "licence_quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.",
+        "terms_check": "pdf",
+        "terms_url": "https://www.nature.com/articles/s41467-019-12808-z.pdf"
+      },
+      "id": "kulp-strauss-2019",
+      "landing_url": "https://doi.org/10.1038/s41467-019-12808-z",
+      "licence": {
+        "name": "CC BY 4.0",
+        "spdx": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "licence_class": "open",
+      "next_release": null,
+      "obligations": {
+        "attribution": "Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nature Communications 10, 4844. doi:10.1038/s41467-019-12808-z. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+        "attribution_modified": "Adapted by Environment Dashboard from Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nature Communications 10, 4844. doi:10.1038/s41467-019-12808-z. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+        "derived_disclaimer": null,
+        "mirror_raw": true,
+        "no_endorsement": false,
+        "no_logo": false,
+        "notice": null,
+        "on_motif": null,
+        "rounding": null
+      },
+      "publisher": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)",
+      "research_ref": "docs/research/sources-consequences-2026-10-11.json#Kulp & Strauss 2019, 'New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding' (Nature Communications 10:4844), Supplementary Data 1-4 CSVs",
+      "status": {
+        "note": "Published 29 October 2019 (volume 10) as a one-off study; Author Correction published 12 December 2019. No update is planned.",
+        "state": "archived",
+        "us_federal": false
+      },
+      "title": "People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)",
+      "twins": [],
+      "update_cadence": "One-off (published 2019, corrected 2019)"
+    },
+    {
+      "acquisition": "automatic",
+      "artifacts": [
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.1.5, heat-related mortality: sheets DATA GUIDANCE, Global, WHO, LC and HDI with Year, AF (percent of deaths attributable to heat) and AN (deaths attributable to heat), 1990-2021. No country sheet.", "discover": null, "format": "xlsx", "id": "heat-mortality-1-1-5", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.5_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.1.3, potential work hours lost: sheets Country, Global, WHO and HDI, 1990-2024. Hours lost by sector (WHL200Serv, WHL300Manuf, WHL400sunAgr, WHL400sunConstr) and in total (TotalSunAgCon), in thousands of hours, plus hours lost per worker (TotalSunWHLpp).", "discover": null, "format": "xlsx", "id": "work-hours-lost-1-1-3", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.3_PWHL_Data-Download_2025-Lancet-Countdown-Report_v2-1.xlsx", "zip_member": null},
         {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.1.1, heatwave days per person: Observed, Counterfactual (without human-caused warming) and Attributable_to_CC, for each year 2020-2024, on a country sheet and a global sheet.", "discover": null, "format": "xlsx", "id": "heatwave-days-attributable-1-1-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Attributable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null},
-        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.1.1, heatwave exposure of infants under 1 and adults over 65: total person-days and average days per person, 1980-2024, on Country, Global, WHO, LC and HDI sheets (the Global sheet also has over-75s).", "discover": null, "format": "xlsx", "id": "heatwave-exposure-vulnerable-1-1-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Vulnerable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null}
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.1.1, heatwave exposure of infants under 1 and adults over 65: total person-days and average days per person, 1980-2024, on Country, Global, WHO, LC and HDI sheets (the Global sheet also has over-75s).", "discover": null, "format": "xlsx", "id": "heatwave-exposure-vulnerable-1-1-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Vulnerable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 3.2.1, mortality from ambient air pollution by sector and fuel (IIASA GAINS model): sheets Global, HDI Level, Lancet Countdown Region and WHO Region, 2007-2022, one row per year and sector (power plants, industry, transport, households, waste, agriculture, other) with deaths attributable to PM2.5 from coal, liquids and gas, biomass and other sources. The Global sheet also has deaths per 100,000 people and PM2.5 concentrations. No country sheet.", "discover": null, "format": "xlsx", "id": "air-pollution-deaths-3-2-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-3.2.1_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.2.1, fire smoke (mortality workbook): deaths due to fire-originated PM2.5 (column Mortality), 2003-2024, on Country, Global, WHO, LC and HDI sheets.", "discover": null, "format": "xlsx", "id": "wildfire-smoke-deaths-1-2-1", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.1_Mortality_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.2.2, drought: percent of land area with at least 1, 3, 6 or 12 months of extreme drought (SPEI-6, against 1986-2005) in each year, on Country (1950-2024), Global (1951-2024, long format), WHO, LC and HDI sheets.", "discover": null, "format": "xlsx", "id": "drought-land-share-1-2-2", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.2_Data-Download_2025-Lancet-Countdown-Report.xlsx", "zip_member": null},
+        {"access": {"auth": "none", "auth_env": null, "conditional": true, "cookie_accept_url": null, "key_header": null, "key_query": null, "method": "GET"}, "content_key": null, "description": "Indicator 1.2.3, extreme precipitation (ERA5-Land): sheet Event_Global, the land-area-weighted average count of daily events above the 1961-1990 99th percentile in each year of 1961-1990 and 1995-2024; sheet Land_Global, the share of land with more or fewer such events than in 1961-1990 in rolling windows of nine or ten years.", "discover": null, "format": "xlsx", "id": "extreme-precipitation-1-2-3", "max_bytes": 200000000, "member_name_ignore": null, "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.3_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "zip_member": null}
       ],
       "citation": {
         "DOI": "10.1016/S0140-6736(25)01919-1",
@@ -4195,9 +4459,9 @@
         "version": null,
         "volume": "406"
       },
-      "description": "Indicator data behind the 2025 report of the Lancet Countdown on health and climate change. Indicator 1.1.5: deaths attributable to heat (number and share of all deaths), 1990 to 2021, for the world, WHO regions, Lancet Countdown regions and Human Development Index groups, with no country values. Indicator 1.1.3: potential work hours lost to heat, in total and for services, manufacturing, agriculture and construction, 1990 to 2024, for the world, regions, HDI groups and 219 countries. Indicator 1.1.1, two workbooks: heatwave days per person observed in 2020 to 2024 compared with a modelled climate without human-caused warming, for the world and 220 countries; and heatwave days experienced by infants and people over 65, 1980 to 2024. Heat mortality is modelled, not counted.",
+      "description": "Indicator data behind the 2025 report of the Lancet Countdown on health and climate change. Indicator 1.1.5: deaths attributable to heat (number and share of all deaths), 1990 to 2021, for the world, WHO regions, Lancet Countdown regions and Human Development Index groups, with no country values. Indicator 1.1.3: potential work hours lost to heat, in total and for services, manufacturing, agriculture and construction, 1990 to 2024, for the world, regions, HDI groups and 219 countries. Indicator 1.1.1, two workbooks: heatwave days per person observed in 2020 to 2024 compared with a modelled climate without human-caused warming, for the world and 220 countries; and heatwave days experienced by infants and people over 65, 1980 to 2024. Indicator 1.2.1: deaths from wildfire-smoke fine particles, 2003 to 2024. Indicator 1.2.2: share of land with extreme meteorological drought, 1951 to 2024. Indicator 1.2.3: extreme daily precipitation events over land, 1961 to 1990 and 1995 to 2024. Indicator 3.2.1: deaths from outdoor fine-particle air pollution by emitting sector and fuel, 2007 to 2022. Deaths are modelled, not counted.",
       "evidence": {
-        "checked_on": "2026-10-04",
+        "checked_on": "2026-10-12",
         "licence_quote": "Lancet Countdown data, and associated data visualisations, are provided at no-cost under a Creative Commons Attribution-Non Commercial-Share Alike Licence (CC BY-NC-SA 4.0).",
         "terms_check": "page",
         "terms_url": "https://lancetcountdown.org/use-our-data/"
@@ -4216,13 +4480,13 @@
         "url": "https://lancetcountdown.org/"
       },
       "obligations": {
-        "attribution": "Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
-        "attribution_modified": "Calculated by Environment Dashboard from Lancet Countdown on Health and Climate Change 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
+        "attribution": "Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
+        "attribution_modified": "Calculated by Environment Dashboard from Lancet Countdown on Health and Climate Change 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
         "derived_disclaimer": null,
         "mirror_raw": true,
         "no_endorsement": true,
         "no_logo": true,
-        "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. These indicators are computed from ERA5 and contain modified Copernicus Climate Change Service information {year}; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.",
+        "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3 are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information {year}; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration Index (SPEI, Consejo Superior de Investigaciones Científicas).",
         "on_motif": null,
         "rounding": null
       },
@@ -4233,7 +4497,7 @@
         "state": "active",
         "us_federal": false
       },
-      "title": "Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure",
+      "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution",
       "twins": [],
       "update_cadence": "Annual global report in late October, with the indicator workbooks posted the same week"
     },

@@ -1,0 +1,86 @@
+{
+  "attribution": "Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.",
+  "description": "Heatwave days that adults over 65 and infants under one year old were exposed to on average each year worldwide, 1980–2024, from the Lancet Countdown (indicator 1.1.1). These are heatwaves of any cause as observed in ERA5; the days are not attributed to climate change.",
+  "dimensions": [
+    {
+      "id": "group",
+      "label": "Group",
+      "values": [
+        {"id": "over-65", "label": "Adults over 65"},
+        {"id": "infants", "label": "Infants under 1 year old"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 1
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "heat.lancet-2025.heatwave-days-vulnerable",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "group": "over-65"
+    },
+    "entity": "WLD",
+    "period": "2024",
+    "status": "final",
+    "value": 20.76785436154853
+  },
+  "licence": {
+    "name": "CC BY-NC-SA 4.0",
+    "spdx": "CC-BY-NC-SA-4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3 are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information 2025; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration Index (SPEI, Consejo Superior de Investigaciones Científicas).",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "heatwave-exposure-vulnerable-1-1-1", "bytes": 710882, "citation_full": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.", "date_accessed": "2026-10-05", "date_published": "2025-10-29", "doi": "10.1016/S0140-6736(25)01919-1", "etag": "\"ad8e2-6425ae093736c\"", "last_modified": "Thu, 30 Oct 2025 07:05:42 GMT", "licence": {"name": "CC BY-NC-SA 4.0", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Lancet Countdown on Health and Climate Change (led by University College London)", "r2_url": "https://files.environmentdashboard.org/raw/a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7.zst", "sha256": "a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7", "source_id": "lancet-countdown-2025", "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution", "url_download": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Vulnerable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "url_main": "https://lancetcountdown.org/explore-our-data/", "version_producer": "2025 report", "wayback_url": "https://web.archive.org/web/20261012142652/https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.1.1_Vulnerable_Data-Download_2025-Lancet-Countdown-Report-1.xlsx"}
+  ],
+  "processing": [
+    {
+      "description": "Read the sheet '2025 Report Data_Global' of the indicator 1.1.1 (vulnerable populations) workbook of the Lancet Countdown 2025 report, 1980–2024: the average heatwave days per person of adults over 65 (exposure_average_65) and of infants under one year old (exposure_average_infants), in days as the guidance sheet states, published as in the workbook.",
+      "inputs": ["a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    },
+    {
+      "description": "Total person-days are not published. The over-75 columns are not published either: the guidance sheet's column table does not describe them, and they read 0 in every year before 2000, when the over-65 values do not.",
+      "inputs": ["a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "A heatwave is at least two consecutive days when both minimum and maximum temperature exceed the local 1986–2005 95th percentile; the report's key finding compares each year with the 1986–2005 average. Each value is the group's heatwave person-days over its population, from ERA5 temperatures, hybrid gridded demographic data and WorldPop age structure. The producer warns that the two population sources may make values before and after 2000 inconsistent.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "group": ["over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "over-65", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants", "infants"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [2.818277721614311, 3.624827074132654, 2.481209555917006, 5.382072094962274, 2.548282245663284, 2.158694871871831, 2.444596185065433, 3.565693321676882, 5.571045787525275, 3.069388740951248, 3.560231133743071, 4.012449404065591, 3.740989816746729, 2.407898078451951, 7.614892510764057, 6.683919426957984, 3.229927440901904, 4.618455673153417, 10.87821842855873, 4.994160462748149, 4.091446816568357, 6.325119002243828, 6.597369344559641, 8.061976091550344, 4.499914946177288, 6.793115996419931, 8.38055553536596, 6.515504962616963, 4.249290651352579, 5.044668901892378, 13.62329663419562, 6.296117085185285, 9.41247659710759, 9.52073670374538, 6.485499038380072, 9.610930048983283, 12.06110987893271, 10.37659984445802, 10.69791579940722, 11.56235197704573, 9.308334328669792, 8.509283206345158, 12.68779230970464, 14.39930992786246, 20.76785436154853, 2.698237119135923, 2.723172297088431, 1.806816841315491, 4.599283647923814, 2.584113290980449, 2.004682655350469, 2.259826984076986, 3.820879566369499, 4.868673465346858, 2.390852538975232, 2.785746809545363, 3.068482704593544, 3.021388653920642, 2.332322508077488, 5.271829638733217, 5.495112435375826, 2.57660550160477, 3.429095287888258, 10.69892673217845, 3.450043533337296, 2.983833356933754, 3.809575403328295, 4.734503762934705, 5.984450458654996, 3.730110545035792, 6.95824839868818, 5.223496649296183, 4.868583658001648, 2.760855971172009, 4.668596849021315, 11.57248803438784, 4.427905148432444, 7.463539817397785, 6.615230288848588, 5.819187033911152, 8.537019478266037, 12.32294439681404, 8.996497178526354, 7.671805244084039, 11.28152274873464, 8.798330033346794, 7.391545399848619, 8.645981292552047, 12.31260527439603, 20.45295544481495]
+  },
+  "time_basis": "calendar",
+  "title": "Heatwave days per person for adults over 65 and infants, world",
+  "unit": {
+    "code": "days",
+    "label": "days per person",
+    "short": "days"
+  },
+  "vintage": "2025 report"
+}

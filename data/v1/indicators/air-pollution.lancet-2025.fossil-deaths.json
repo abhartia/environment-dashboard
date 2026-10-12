@@ -1,0 +1,87 @@
+{
+  "attribution": "Calculated by Environment Dashboard from Lancet Countdown on Health and Climate Change 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0. Changes: deaths from coal and from liquids and gas added over the seven emitting sectors, and the two fuels added together.",
+  "description": "Deaths each year worldwide from breathing outdoor fine particles (PM2.5) from burning coal, oil and gas, 2007–2022: a harm of the burning itself, not of the warming. Calculated by adding the Lancet Countdown's deaths from coal and from liquids and gas over all seven emitting sectors (indicator 3.2.1), modelled with IIASA's GAINS model.",
+  "dimensions": [
+    {
+      "id": "fuel",
+      "label": "Fuel",
+      "values": [
+        {"id": "total", "label": "Coal, liquids and gas"},
+        {"id": "coal", "label": "Coal"},
+        {"id": "liquids-gas", "label": "Liquids and Gas"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "air-pollution.lancet-2025.fossil-deaths",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "fuel": "total"
+    },
+    "entity": "WLD",
+    "period": "2022",
+    "status": "final",
+    "value": 2522076.0
+  },
+  "licence": {
+    "name": "CC BY-NC-SA 4.0",
+    "spdx": "CC-BY-NC-SA-4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "licence_class": "noncommercial",
+  "notes": [],
+  "notice": "Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3 are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information 2025; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration Index (SPEI, Consejo Superior de Investigaciones Científicas).",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "air-pollution-deaths-3-2-1", "bytes": 223758, "citation_full": "Romanello M, Walawender M, Hsu S-C, et al. The 2025 report of the Lancet Countdown on health and climate change. Lancet 2025; published online Oct 29. https://doi.org/10.1016/S0140-6736(25)01919-1.", "date_accessed": "2026-10-12", "date_published": "2025-10-29", "doi": "10.1016/S0140-6736(25)01919-1", "etag": "\"36a0e-6425ae4c51e77\"", "last_modified": "Thu, 30 Oct 2025 07:06:52 GMT", "licence": {"name": "CC BY-NC-SA 4.0", "spdx": "CC-BY-NC-SA-4.0", "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}, "producer": "Lancet Countdown on Health and Climate Change (led by University College London)", "r2_url": "https://files.environmentdashboard.org/raw/bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f.zst", "sha256": "bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f", "source_id": "lancet-countdown-2025", "title": "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution", "url_download": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-3.2.1_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "url_main": "https://lancetcountdown.org/explore-our-data/", "version_producer": "2025 report", "wayback_url": "https://web.archive.org/web/20261012142827/https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-3.2.1_Data-Download_2025-Lancet-Countdown-Report-1.xlsx"}
+  ],
+  "processing": [
+    {
+      "description": "Read the sheet 'Global' of the indicator 3.2.1 (mortality from ambient air pollution by sector and fuel) workbook of the Lancet Countdown 2025 report, 2007–2022: for each year and each of the seven emitting sectors (power plants, industry, transport, households, waste, agriculture, other), the deaths attributable to PM2.5 from coal, liquids and gas, biomass and other sources, in deaths as the guidance sheet states.",
+      "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    },
+    {
+      "description": "Added the coal deaths of the seven sectors, and separately their liquids-and-gas deaths, for each year (whole deaths, exact), and added the two for deaths from fossil fuels, as the report's key finding does. Biomass and other sources are left out.",
+      "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
+      "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Modelled premature deaths: emissions by sector and fuel in IIASA's GAINS model, atmospheric chemistry and dispersion at about 7–10 km (meteorology fixed at 2015), population from UN World Population Prospects 2017 and exposure–response functions from a meta-analysis of cohort studies. 'Other' is other human-caused sources, as the producer puts it. Energy use comes from IEA World Energy Balances 2024 as a model input; no IEA values are published. The producer notes the model and the shape of the exposure–response relationship are uncertain, and that the grid may miss strong local pollution.",
+    "bunkers": null,
+    "geography": "World",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "fuel": ["total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "total", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "coal", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas", "liquids-gas"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [2719159.0, 2734344.0, 2675160.0, 2677081.0, 2722715.0, 2748962.0, 2729740.0, 2699674.0, 2636856.0, 2622991.0, 2636830.0, 2598072.0, 2527979.0, 2343269.0, 2480763.0, 2522076.0, 1390225.0, 1395309.0, 1343536.0, 1314293.0, 1333823.0, 1323743.0, 1285390.0, 1245983.0, 1188003.0, 1147855.0, 1142753.0, 1092195.0, 1043850.0, 963377.0, 994705.0, 995210.0, 1328934.0, 1339035.0, 1331624.0, 1362788.0, 1388892.0, 1425219.0, 1444350.0, 1453691.0, 1448853.0, 1475136.0, 1494077.0, 1505877.0, 1484129.0, 1379892.0, 1486058.0, 1526866.0]
+  },
+  "time_basis": "calendar",
+  "title": "Deaths from fossil-fuel air pollution, world",
+  "unit": {
+    "code": "deaths",
+    "label": "deaths",
+    "short": "deaths"
+  },
+  "vintage": "2025 report"
+}

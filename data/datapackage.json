@@ -200,6 +200,85 @@
       "title": "How many times adaptation needs exceed international public adaptation finance"
     },
     {
+      "bytes": 43568,
+      "description": "Deaths each year worldwide attributable to outdoor fine particles (PM2.5) from each emitting sector and fuel, 2007–2022, as modelled by the Lancet Countdown with IIASA's GAINS model (indicator 3.2.1). Deaths from burning coal, oil and gas are a harm of the burning itself, not of the warming.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e32cf41e7d995235047c17d930a2b38ce3a84a63acff9787e64d106e7ea07b26",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "air-pollution.lancet-2025.deaths-by-sector-fuel",
+      "path": "v1/indicators/air-pollution.lancet-2025.deaths-by-sector-fuel.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "deaths (deaths)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "sector", "title": "Emitting sector", "type": "string"},
+          {"name": "fuel", "title": "Fuel", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Deaths from outdoor air pollution by sector and fuel, world"
+    },
+    {
+      "bytes": 5754,
+      "description": "Deaths each year worldwide from breathing outdoor fine particles (PM2.5) from burning coal, oil and gas, 2007–2022: a harm of the burning itself, not of the warming. Calculated by adding the Lancet Countdown's deaths from coal and from liquids and gas over all seven emitting sectors (indicator 3.2.1), modelled with IIASA's GAINS model.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:5b8d3d6ce2a5e9b97c83d5cab88b8b0c678f0e55ac100e69a2c3a81596d5167b",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "air-pollution.lancet-2025.fossil-deaths",
+      "path": "v1/indicators/air-pollution.lancet-2025.fossil-deaths.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "deaths (deaths)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "fuel", "title": "Fuel", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Deaths from fossil-fuel air pollution, world"
+    },
+    {
       "bytes": 59324,
       "description": "From a survey of nearly 130,000 people in 125 countries (Gallup World Poll 2021–2022): the share willing to give 1% of their household income every month to fight global warming, the share who approve of pro-climate norms, the share who want their government to do more, and what people believe about their compatriots: the average believed share willing to contribute and the share who think a majority is willing. In almost every country, people underestimate how many of their compatriots are willing.",
       "dialect": {
@@ -239,7 +318,7 @@
       "title": "Actual and perceived support for climate action (Andre et al. 2024)"
     },
     {
-      "bytes": 879,
+      "bytes": 1169,
       "description": "How much more carbon dioxide could be emitted from the start of 2026 while keeping a 50% chance of limiting global warming to 1.5 °C, as estimated by Indicators of Global Climate Change 2025. The likelihood reflects only uncertainty in how much warming each tonne of carbon dioxide causes. The estimate assumes deep cuts in other greenhouse gases and aerosols; IGCC states it could be around 200 billion tonnes higher or lower depending on how far those cuts go.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -247,7 +326,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:7fe82f4ca800e8caf327ec7eb1154420b094feb4934aa5aacba514f11d485824",
+      "hash": "sha256:4aa307ff833734be34b0686fa8834ece7f74ed8512c270011f7bc8cf46b33e92",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -1160,6 +1239,86 @@
       "title": "Carbon dioxide at Mauna Loa, monthly mean"
     },
     {
+      "bytes": 2253,
+      "description": "Estimated number of people, in millions, living on land below the local once-a-year coastal flood level (the high-tide line plus the local 1-year flood height), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0641e3ffaa0ef89e72b20439a677ebcf3aab447d3d861b3de57316f2a9bf0c8c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "coastal.kulp-strauss-2019.annual-flood",
+      "path": "v1/indicators/coastal.kulp-strauss-2019.annual-flood.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million people (million-people)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Sea level: today's, or projected under an emissions scenario", "type": "string"},
+          {"name": "projection", "title": "Sea-level projection", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41467-019-12808-z", "title": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature): People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)"}
+      ],
+      "title": "People living on land below the yearly coastal flood level: estimated at today's sea level, projected for 2050 and 2100, world (Kulp & Strauss 2019)"
+    },
+    {
+      "bytes": 2286,
+      "description": "Estimated number of people, in millions, living on land below the local high-tide line (mean higher-high water), at today's sea level and with the sea levels projected for 2050 and 2100 under low (RCP2.6), moderate (RCP4.5) and high (RCP8.5) emissions, from Supplementary Data 1 of Kulp & Strauss (2019), using the CoastalDEM elevation model. Projected values give the median and the 5th to 95th percentile range of the sea-level projections. Two projection sets are published side by side, never mixed: K14 (Kopp et al. 2014), which the paper calls probabilistic and closely aligned with IPCC findings and which gives the abstract's lead figure (below high tide by 2100 under low emissions); and K17 (Kopp et al. 2017), which adds unstable Antarctic ice, is not probabilistic, and gives the abstract's high-end figures. Both predate the IPCC's Sixth Assessment Report. The population is held at its 2010 distribution (LandScan 2010), so future values show where today's people live relative to future seas, not projected populations. The method is a bathtub model that ignores sea walls and other defences, so it measures exposure, not flooding.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e17a73bb637379dc8a03f0ddf0efc60c341c439d6530779dae686550a4452dc2",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "coastal.kulp-strauss-2019.below-high-tide",
+      "path": "v1/indicators/coastal.kulp-strauss-2019.below-high-tide.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "million people (million-people)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Sea level: today's, or projected under an emissions scenario", "type": "string"},
+          {"name": "projection", "title": "Sea-level projection", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41467-019-12808-z", "title": "Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature): People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)"}
+      ],
+      "title": "People living on land below the high-tide line: estimated at today's sea level, projected for 2050 and 2100, world (Kulp & Strauss 2019)"
+    },
+    {
       "bytes": 994,
       "description": "The share of the world's coral reef area that experienced heat stress high enough to cause bleaching between 1 January 2023 and 30 September 2025, the fourth global coral bleaching event, as published by NOAA Coral Reef Watch. Heat stress measures the risk of bleaching, not observed bleaching or coral death.",
       "dialect": {
@@ -1196,6 +1355,84 @@
         {"path": "https://coralreefwatch.noaa.gov/", "title": "NOAA NESDIS Center for Satellite Applications and Research, Coral Reef Watch: NOAA Coral Reef Watch coral bleaching heat stress and global bleaching status"}
       ],
       "title": "Coral reef area hit by bleaching-level heat stress in the fourth global bleaching event"
+    },
+    {
+      "bytes": 22162,
+      "description": "How many times people were forced to leave their homes, staying within their own country, because of floods, storms, wildfires, landslides, droughts and other weather-related disasters, worldwide, each year since 2008, by hazard. Calculated from IDMC's event data by adding up IDMC's estimate for each event with a reported figure. These are movements, not people: one person displaced twice is counted twice, and pre-emptive evacuations are included. IDMC records far more events than it did as monitoring and reporting widened (its file has 1,044 weather-related event rows for 2008 and 7,064 for 2025), so a rise is not evidence that disasters are becoming more frequent. The figures are weather-related; they are not attributed to climate change. For 2008 and 2010–2016, IDMC gives China's displacement as one figure a year that is not split by hazard, so it is not in those years' sums and they are not comparable with later ones; each year's note gives the figures left out. 701 weather-related event rows in this release have no reported figure and are left out, not counted as zero. Totals printed in IDMC's Global Report on Internal Displacement are built differently and are not used.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:7380a760acbb605bb418acea4d7f20827f008ac6647269ae8d7f93e86a40dc9c",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-3.0-IGO", "path": "https://creativecommons.org/licenses/by-nc-sa/3.0/igo/legalcode.en", "title": "CC BY-NC-SA 3.0 IGO (IDMC API documentation; the export's own README states CC BY-NC)"}
+      ],
+      "mediatype": "text/csv",
+      "name": "displacement.idmc-gidd.weather-by-hazard",
+      "path": "v1/indicators/displacement.idmc-gidd.weather-by-hazard.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "internal displacements (movements, not people) (displacements)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "hazard", "title": "Hazard", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://www.internal-displacement.org/database/displacement-data/", "title": "Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council: Global Internal Displacement Database (GIDD)"}
+      ],
+      "title": "Times people were forced from home by weather-related disasters, by hazard (estimated)"
+    },
+    {
+      "bytes": 17799,
+      "description": "Percent of the world's land with at least one, three or six months of extreme meteorological drought in each year, 1951–2024, estimated by the Lancet Countdown (indicator 1.2.2) from a drought index (SPEI-6, against 1986–2005). The index weighs precipitation against the evaporative demand of the air, so warmer air itself pushes it towards drought. It is not drought caused by climate change, and it does not measure water or crop shortages or the people affected.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9a2e00abc08be394eec86687024fb03a620b094f22a23943eab27e9447c7a908",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "drought.lancet-2025.land-share",
+      "path": "v1/indicators/drought.lancet-2025.land-share.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of land area (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "months", "title": "Months of extreme drought in the year", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Share of land in extreme drought, world"
     },
     {
       "bytes": 2938,
@@ -2308,6 +2545,124 @@
       "title": "Electric share of new vehicle sales"
     },
     {
+      "bytes": 5206,
+      "description": "How hot the hottest day of the year gets over land: each place's highest daily maximum temperature of the year, averaged over all land except Antarctica, as the difference from its 1961–1990 average, each year from 1950. From the ERA5 reanalysis (a weather model constrained by observations, not a direct measurement; values before the satellite era rest on fewer observations), as calculated by Indicators of Global Climate Change 2025. It measures intensity, how hot the hottest day is, not how often extremes happen, and it shows the change without attributing it to a cause. IGCC adds a single 0.51 °C to express it relative to 1850–1900; that is not added here. IGCC's Berkeley Earth and HadEX3 versions are not included: they are not coverage-matched with ERA5, Berkeley Earth's terms are non-commercial, and HadEX3 ends in 2018.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b071beb9a753baba89971e09746ab8384c098d59028a95a6d8c575f7d63521a2",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "extremes.igcc-2025.txx-land",
+      "path": "v1/indicators/extremes.igcc-2025.txx-land.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.5281/zenodo.21494229", "title": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds: Indicators of Global Climate Change 2025"}
+      ],
+      "title": "Hottest day of the year over land, relative to 1961–1990 (ERA5, IGCC 2025)"
+    },
+    {
+      "bytes": 3232,
+      "description": "How many times as often an extreme that came once in 10 years (or once in 50) in the second half of the 19th century (1851–1900 for heat and rain, 1850–1900 for drought), a climate without human influence, occurs at global warming levels of 1, 1.5, 2, 3 and 4 °C: the hottest day of the year over land (once-in-10 and once-in-50-year events), the wettest day of the year over land, and agricultural and ecological drought in the regions projected to dry. Modelled: the median of the CMIP6 climate models assessed for Figure SPM.6 of the IPCC Sixth Assessment Report (2021), with the 5–95% range the figure shows (a range reaching below 1 includes no increase at all). These are model estimates for each level of warming, not counts of observed events, and a warming level is not a year: every value is dated 2021, the year of the assessment. The published figure labels the 1 °C level 'Present'; the world has warmed further since, so 1 °C is not today's warming, and nothing between levels is interpolated. The 3 °C level is in the data but not in the published figure. Drought covers 16 drying regions, not the whole world.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:9a12ca5d609e4cb231bce66db46c8bed804feb03eff6802e8bd8f82986dc48fc",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "extremes.ipcc-ar6.frequency-by-warming-level",
+      "path": "v1/indicators/extremes.ipcc-ar6.frequency-by-warming-level.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "times as often as in the second half of the 19th century (times)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "extreme", "title": "Extreme", "type": "string"},
+          {"name": "level", "title": "Global warming level", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/", "title": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis: IPCC AR6 WGI Figure SPM.6 data"}
+      ],
+      "title": "How many times as often heat, rain and drought extremes occur at each level of global warming, modelled (IPCC AR6)"
+    },
+    {
+      "bytes": 2966,
+      "description": "Of the 45 inhabited regions the IPCC uses, how many have seen an increase, a decrease, low agreement in the type of change, or too little data and literature to say, in hot extremes, heavy precipitation and agricultural and ecological drought from the 1950s to 2021, as assessed in the IPCC Sixth Assessment Report (2021, Figure SPM.3). Increases are split by the IPCC's confidence that human influence contributed: high, medium, or low because studies disagree. Calculated by counting the regions in the IPCC data; the totals of each type of change match the counts printed on the published figure, and the split by confidence is counted from the same data. Regions differ in size and population, and each is assessed as a whole. 'Limited data' and 'low agreement' mean the evidence is missing or mixed, not that nothing changed, and a confidence level says how sure the IPCC is that people contributed, not how large the contribution was.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:0d08d909773b862da3837ab5bcb8bf28a322a604be32dec9d8e9a48d2945f05f",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "extremes.ipcc-ar6.observed-regions",
+      "path": "v1/indicators/extremes.ipcc-ar6.observed-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "of the 45 inhabited IPCC AR6 regions (regions)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "extreme", "title": "Extreme", "type": "string"},
+          {"name": "assessment", "title": "Type of observed change since the 1950s, and confidence in a human contribution", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/", "title": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis: IPCC AR6 WGI Figure SPM.3 data"}
+      ],
+      "title": "Regions where hot extremes, heavy rain and drought have increased since the 1950s, with the IPCC's confidence in a human contribution (IPCC AR6)"
+    },
+    {
       "bytes": 707361,
       "description": "How much land the agricultural holdings in each of FAO's land-size classes held, in hectares, as counted in each country's census of agriculture, for every census FAO has compiled since the 1930 round.",
       "dialect": {
@@ -3121,7 +3476,7 @@
       "title": "Greenhouse gas footprint of an average person in Sweden (Naturvårdsverket)"
     },
     {
-      "bytes": 487851,
+      "bytes": 488141,
       "description": "Effective radiative forcing: the change in the energy balance at the top of the atmosphere caused by each agent, after the atmosphere has adjusted. Positive values warm the planet, negative values (most aerosols) cool it. Best estimate with the 5–95% range for each year from 1750 to 2025, by greenhouse gas, aerosol and other agents, from Indicators of Global Climate Change 2025. Human-caused agents are counted from zero in 1750; solar and volcanic forcing are IGCC's time series, which do not start from zero in 1750.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -3129,7 +3484,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:76fabe67f4583876e6dbc50df8d1eb4bc24009c4029405eafaa3feae95c7217e",
+      "hash": "sha256:d924de64dfdaa7adcc2979be5680d616074021473ce3d1c9b241660cd30a8fb7",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -4611,7 +4966,7 @@
       "title": "Price of meat substitutes compared with meat in Germany and Spain (Siegrist et al. 2024)"
     },
     {
-      "bytes": 3336,
+      "bytes": 3728,
       "description": "Deaths attributable to heat each year worldwide, 1990–2021, as estimated by the Lancet Countdown (indicator 1.1.5). The numbers are modelled from temperature–mortality relationships, not counted.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -4619,7 +4974,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:4d0e3f5fe96fd16d619be9b2c18a1bf84c9a4b2f933aebe975bbf5542ac99c83",
+      "hash": "sha256:39df9ab841c8f5afbc213c9aa5ceb8ae640273029eb9eabd5bce5b9cb176ad96",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
       ],
@@ -4644,12 +4999,12 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"}
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
       ],
       "title": "Heat-related deaths, world"
     },
     {
-      "bytes": 2787,
+      "bytes": 3179,
       "description": "Heatwave days that people were exposed to on average each year, 2020–2024, as observed, as expected in a modelled climate without human-caused warming, and the difference attributable to climate change, from the Lancet Countdown (indicator 1.1.1).",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -4657,7 +5012,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:edd5ad1ecfb8e5ab8ff9cdc787c8f3c97d28de59a6ba8e4da2f14f7bb140ead8",
+      "hash": "sha256:4ac84107a9ae894cc933934dc09a5df53c683bc53f8090a3885d5d746cdad927",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
       ],
@@ -4683,12 +5038,51 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"}
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
       ],
       "title": "Heatwave days per person, observed and attributable to climate change, world"
     },
     {
-      "bytes": 16616,
+      "bytes": 9852,
+      "description": "Heatwave days that adults over 65 and infants under one year old were exposed to on average each year worldwide, 1980–2024, from the Lancet Countdown (indicator 1.1.1). These are heatwaves of any cause as observed in ERA5; the days are not attributed to climate change.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:484af09629ed219d6a83e39a94fd75afc1ba1ac90d446594c56aeb2a29b6958e",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "heat.lancet-2025.heatwave-days-vulnerable",
+      "path": "v1/indicators/heat.lancet-2025.heatwave-days-vulnerable.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days per person (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "group", "title": "Group", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Heatwave days per person for adults over 65 and infants, world"
+    },
+    {
+      "bytes": 17008,
       "description": "Working hours that heat stress could have cost each year worldwide, 1990–2024, in services, manufacturing, agriculture and construction, as estimated by the Lancet Countdown (indicator 1.1.3).",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -4696,7 +5090,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:b02c237e435f4ca4195b57311331d92120318ad00dfd90c07a9d42e852335807",
+      "hash": "sha256:d948ed82ff5d12153ab698a2dd916d16b667e36d60504dac457764b79f83aace",
       "licenses": [
         {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
       ],
@@ -4722,7 +5116,7 @@
         "missingValues": [""]
       },
       "sources": [
-        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"}
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
       ],
       "title": "Potential work hours lost to heat, world"
     },
@@ -5080,6 +5474,46 @@
         {"path": "https://www.irena.org/Publications/2026/Jul/Renewable-Power-Generation-Costs-in-2025", "title": "International Renewable Energy Agency (IRENA): Renewable power generation costs in 2025"}
       ],
       "title": "Cost of electricity from new renewable power plants"
+    },
+    {
+      "bytes": 3306,
+      "description": "The share of the people born in 1960 and in 2020 who are projected to live through more heatwaves in their lifetime than all but 1 in 10,000 lifetimes in a pre-industrial climate, along warming pathways that reach 1.5, 2.5 or 3.5 °C by 2100, as Grant and colleagues (2025) state it for the world. It is modelled from the ISIMIP2b climate simulations, and 'unprecedented' is a statistical threshold (beyond the 99.99th percentile of pre-industrial lifetimes), not a count of deaths or of illness. The article gives one value for people born in 1960 whatever the pathway, and no world value for people born in 2020 on the 2.5 °C pathway.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:852a44d1dbbf279794be5070590a5086c3f8d3bef2d1b24f46faf109c130884c",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "lifetime.grant-2025.unprecedented-heatwaves",
+      "path": "v1/indicators/lifetime.grant-2025.unprecedented-heatwaves.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "percent of the people born that year (percent)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "cohort", "title": "Birth year", "type": "string"},
+          {"name": "pathway", "title": "Warming pathway", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://doi.org/10.1038/s41586-025-08907-1", "title": "Luke Grant, Inne Vanderkelen, Lukas Gudmundsson, Erich Fischer, Sonia I. Seneviratne and Wim Thiery (Vrije Universiteit Brussel, Environment and Climate Change Canada, KU Leuven, Royal Meteorological Institute of Belgium and ETH Zurich); published in Nature (Springer Nature): Unprecedented lifetime exposure to climate extremes by birth year (Grant et al. 2025)"}
+      ],
+      "title": "Share of people born in 1960 and 2020 projected to face unprecedented lifetime exposure to heatwaves (Grant et al. 2025)"
     },
     {
       "bytes": 2643,
@@ -5776,6 +6210,44 @@
       "title": "Progress of the shifts needed for 1.5 °C (Systems Change Lab)"
     },
     {
+      "bytes": 6090,
+      "description": "Average number of days a year on which daily precipitation at a place on land exceeded its local 1961–1990 99th percentile, for each year of 1961–1990 and 1995–2024, from the Lancet Countdown (indicator 1.2.3) using the ERA5-Land reanalysis. It counts days of heavy rainfall, not floods, and is not attributed to climate change. The workbook has no values for 1991–1994.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:b5e61d57a8d41095256bf7c0cbebf7ce4995705cbd881ba963885f39758c2b67",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "rain.lancet-2025.extreme-events",
+      "path": "v1/indicators/rain.lancet-2025.extreme-events.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days per year above the local 1961–1990 99th percentile of daily precipitation, average over land (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Days of extreme rainfall per year over land, world"
+    },
+    {
       "bytes": 44780,
       "description": "How much European governments plan to spend each year on research and development whose main aim is energy, in million euro at current prices, as reported to Eurostat. This is all energy research, including fossil fuels and nuclear power as well as renewables and efficiency, and it is a budget allocation, not money spent.",
       "dialect": {
@@ -6078,6 +6550,44 @@
         {"path": "https://wgms.ch/mass_change_estimates/", "title": "World Glacier Monitoring Service (WGMS), University of Zurich: Annual mass-change estimates for the world's glaciers (version 2026-02-10)"}
       ],
       "title": "Sea level rise from glaciers since 1975 (WGMS)"
+    },
+    {
+      "bytes": 3411,
+      "description": "Deaths each year worldwide from breathing fine particles (PM2.5) in the smoke of fires, 2003–2024, as modelled by the Lancet Countdown (indicator 1.2.1). It counts all fire smoke: the share caused by climate change is not attributed.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:780a1e4923d9dc4b4ae010df959568dadac92124952ad637ad7765d186a5787c",
+      "licenses": [
+        {"name": "CC-BY-NC-SA-4.0", "path": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "title": "CC BY-NC-SA 4.0"}
+      ],
+      "mediatype": "text/csv",
+      "name": "smoke.lancet-2025.wildfire-deaths",
+      "path": "v1/indicators/smoke.lancet-2025.wildfire-deaths.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "deaths (deaths)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://lancetcountdown.org/explore-our-data/", "title": "Lancet Countdown on Health and Climate Change (led by University College London): Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"}
+      ],
+      "title": "Deaths from wildfire smoke, world"
     },
     {
       "bytes": 59803,
@@ -6620,7 +7130,7 @@
       "title": "Flight emission factors by distance and seat class (UK Government 2026)"
     },
     {
-      "bytes": 13431,
+      "bytes": 13721,
       "description": "How much of the global surface warming in each year since 1850 was caused by human activity, relative to the 1850–1900 average, with the likely range, by the annual-mean definition. Indicators of Global Climate Change combines three attribution methods; this series applies its stated assessment rule to each year's annual-mean estimate. IGCC's headline figure for a single year uses the trend-based definition of the IPCC 1.5 °C report instead (published separately as human-induced warming in 2025) and can differ by a few hundredths of a degree.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -6628,7 +7138,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:fb70352ed6aae4c595e6b1f20166e6434a0ecf3a25253983db3d6c103074ec97",
+      "hash": "sha256:d14dddcc138a991c6e2385bec75e1822f47ca043487776302aec1081d17100c0",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],
@@ -6658,7 +7168,7 @@
       "title": "Human-induced warming since 1850–1900, each year, annual-mean definition (IGCC 2025)"
     },
     {
-      "bytes": 850,
+      "bytes": 1140,
       "description": "How much of the global surface warming in 2025 was caused by human activity, relative to the 1850–1900 average, with the likely range, as assessed by Indicators of Global Climate Change 2025. IGCC uses the trend-based single-year definition of the IPCC 1.5 °C report (SR1.5), which it prioritises where it differs from the annual mean because it reduces the effect of year-to-year natural variability.",
       "dialect": {
         "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
@@ -6666,7 +7176,7 @@
       },
       "encoding": "utf-8",
       "format": "csv",
-      "hash": "sha256:c6451b268bc888e01b949680d5c1e233849b022cf5253a4055c8ea24dc2ba2c6",
+      "hash": "sha256:364d6ede0bbfbd9c28d7c948178661248bf4837ca661777367d0fe5a0fa3094b",
       "licenses": [
         {"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "CC BY 4.0"}
       ],

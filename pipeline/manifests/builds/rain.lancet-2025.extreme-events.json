@@ -1,0 +1,24 @@
+{
+  "export": "data/v1/indicators/rain.lancet-2025.extreme-events.json",
+  "export_sha256": "998c7d4829b1533b53dc1b6b13de9fbe23ecfdbfb8c42372deb774fa1219d4a0",
+  "indicator_id": "rain.lancet-2025.extreme-events",
+  "key": "189a628ca6cfa896dd56f44d2042094f0c6e7a8a3e1ea2b201d3610a7bece20d",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "lancet-countdown-2025/extreme-precipitation-1-2-3": {
+        "manifest_sha256": "c5793a528ac4980a2307ce3e36ed4a4b7d99b33fabac5bac27146f8a6f4b43e5",
+        "sha256": "279a4c3c331e29808fbadd715ab276ec9f7da624d2538e302b2444dc638e6f3b"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "lancet-countdown-2025": "cee6389345dfa826afe987862a0766e589beeeef2087e3dc7f9a66a900e0e964"
+    },
+    "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+  },
+  "publisher_checks": [
+    {"detail": "ours 4.96840408088483 vs stated 5 (tolerance ±0.5, difference 0.0315959)", "entity": "WLD", "period": "2024", "quote": "in 2024 the average annual number of >99th-percentile events per 79 km² reached a record high of five", "source_id": "lancet-countdown-2025", "stated": "5", "status": "pass", "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.3_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "vintage": "2025 report"}
+  ]
+}

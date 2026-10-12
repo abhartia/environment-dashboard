@@ -1,0 +1,43 @@
+{
+  "export": "data/v1/indicators/extremes.ipcc-ar6.observed-regions.json",
+  "export_sha256": "d93ef6d695de452c15c68186f55a4a31003eedf75095c5d51e80e38b313076cf",
+  "indicator_id": "extremes.ipcc-ar6.observed-regions",
+  "key": "0d8136514dcdc3406cc4d168c443f38c29f46f72a1dd16bfa5b503ad047a0e6c",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "ipcc-ar6-wg1-spm3/panel-a-hot": {
+        "manifest_sha256": "b576c96f87fefee9b03d2ad5eadfdc1f52f227ccf6f33bdb8f038bdc2b29f023",
+        "sha256": "6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6"
+      },
+      "ipcc-ar6-wg1-spm3/panel-b-heavy-precipitation": {
+        "manifest_sha256": "b54adf05307e07cd6f00672452729ec0fb6683e2b2692a3373dbc1f205a834b0",
+        "sha256": "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d"
+      },
+      "ipcc-ar6-wg1-spm3/panel-c-drought": {
+        "manifest_sha256": "b738e5758cfcba860ce03ae83b671684dc0f48b170bbe98f0e2245d0bb5ccab0",
+        "sha256": "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "ipcc-ar6-wg1-spm3": "b968554301a13fb62fb74b8699e7cf73e4ff3742fb0692a51668ae00ce5b6530"
+    },
+    "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
+  },
+  "publisher_checks": [
+    {"detail": "ours 41.0 vs stated 41 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (41) Type of observed change in hot extremes Decrease (0) Low agreement in the type of change (2) Limited data and/or literature (2)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "41", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 0.0 vs stated 0 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (41) Type of observed change in hot extremes Decrease (0) Low agreement in the type of change (2) Limited data and/or literature (2)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "0", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 2.0 vs stated 2 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (41) Type of observed change in hot extremes Decrease (0) Low agreement in the type of change (2) Limited data and/or literature (2)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "2", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 2.0 vs stated 2 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (41) Type of observed change in hot extremes Decrease (0) Low agreement in the type of change (2) Limited data and/or literature (2)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "2", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 19.0 vs stated 19 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Type of observed change in heavy precipitation Increase (19) Decrease (0) Low agreement in the type of change (8) Limited data and/or literature (18)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "19", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 0.0 vs stated 0 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Type of observed change in heavy precipitation Increase (19) Decrease (0) Low agreement in the type of change (8) Limited data and/or literature (18)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "0", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 8.0 vs stated 8 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Type of observed change in heavy precipitation Increase (19) Decrease (0) Low agreement in the type of change (8) Limited data and/or literature (18)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "8", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 18.0 vs stated 18 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Type of observed change in heavy precipitation Increase (19) Decrease (0) Low agreement in the type of change (8) Limited data and/or literature (18)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "18", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 12.0 vs stated 12 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (12) Decrease (1) Low agreement in the type of change (28) Limited data and/or literature (4)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "12", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 1.0 vs stated 1 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (12) Decrease (1) Low agreement in the type of change (28) Limited data and/or literature (4)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "1", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 28.0 vs stated 28 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (12) Decrease (1) Low agreement in the type of change (28) Limited data and/or literature (4)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "28", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"},
+    {"detail": "ours 4.0 vs stated 4 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "1950/2021", "quote": "Increase (12) Decrease (1) Low agreement in the type of change (28) Limited data and/or literature (4)", "source_id": "ipcc-ar6-wg1-spm3", "stated": "4", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20221116"}
+  ]
+}

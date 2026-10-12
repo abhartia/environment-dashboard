@@ -1,0 +1,34 @@
+{
+  "export": "data/v1/indicators/coastal.kulp-strauss-2019.below-high-tide.json",
+  "export_sha256": "91d263c453211a130e3955cdbc8606eab11a47f756f3b5dc4b7c3cd610100b9d",
+  "indicator_id": "coastal.kulp-strauss-2019.below-high-tide",
+  "key": "7458d0d53b6a6c85bc7638b6fa7c185a74cdb94cf25d0c4dcb041ee5df9730d2",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "kulp-strauss-2019/article-pdf": {
+        "manifest_sha256": "8036bb53e81bd59b91b24aa6f83e84701ef9d0cf5faee5b333f6218853281b09",
+        "sha256": "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"
+      },
+      "kulp-strauss-2019/supplementary-data-1": {
+        "manifest_sha256": "3d3181d85a4d226b8d0a1592426685cb7cfc1e9b4a2783d5946b3561ce3b2a38",
+        "sha256": "37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81"
+      },
+      "kulp-strauss-2019/supplementary-descriptions": {
+        "manifest_sha256": "8aa0cdddf036bfef78751e7024b4e3e55050ecccfc3bad7caf64940f1dd87271",
+        "sha256": "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "kulp-strauss-2019": "2216d4145857d52e86b69ccd8980df7db78eb38c701a9ec74e767336e29204f3"
+    },
+    "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+  },
+  "publisher_checks": [
+    {"detail": "ours 110.0 vs stated 110 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2010", "quote": "For the present day, CoastalDEM estimates a global total of 110 M people on land below the current high tide line and 250 M on land below annual flood levels,", "source_id": "kulp-strauss-2019", "stated": "110", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"},
+    {"detail": "ours 150.0 vs stated 150 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2050", "quote": "For one moderate future scenario, sea levels projected by 2050 are high enough to threaten land currently home to a total of 150 (140–170) million people to a future permanently below the high tide line,", "source_id": "kulp-strauss-2019", "stated": "150", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"},
+    {"detail": "ours 190.0 vs stated 190 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2100", "quote": "the total median current population on land falling below the projected mean higher high water line in 2100 under low emissions and a fairly stable Antarctica (RCP 2.6 and K14) is 190 million.", "source_id": "kulp-strauss-2019", "stated": "190", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"}
+  ]
+}

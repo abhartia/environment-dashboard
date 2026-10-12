@@ -1,21 +1,21 @@
 {
   "export": "data/v1/indicators/warming.igcc-2025.human-induced.json",
-  "export_sha256": "0be318bbf2724dda8607b057a27b5c0460c293eb7a3125f030a61e88cc090f8e",
+  "export_sha256": "afa4878ada752d45854c998d17a6f8cd7352408f46dc55bae99549034e25acb9",
   "indicator_id": "warming.igcc-2025.human-induced",
-  "key": "1a3bfa31303baaa4ec94e9f11ae2a89933bc5e6d05283e0bddaddaa6f896e4ae",
+  "key": "da8c493393585558f73f4b7417400649597a43f17a7780abdc5c54a50153d046",
   "key_parts": {
     "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
       "igcc-2025/data-igcc-2025a": {
-        "manifest_sha256": "a4374672a87ba0e003c7018ee18a98cd91d31360ba4d5996cd7962066b0a6b7f",
+        "manifest_sha256": "00b6dafec016ef321515f4393f7e751a8b0c833ccc9b9c364ab5d3d9296898a9",
         "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd"
       },
       "igcc-2025/warming-assessment-headlines": {
-        "manifest_sha256": "3bc8bfd26351edec8e92df34ffcae2191b43c585a3547b8898c33d75cec94607",
+        "manifest_sha256": "a6739ee96be58ac9ed609ae331b2d2f07b8f6b2604886f78e23fab7fef97a889",
         "sha256": "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"
       },
       "igcc-2025/warming-gillett-timeseries": {
-        "manifest_sha256": "b7fe42567d812320c487cecfc3c9e3fdee4edfad17c86d6c7275eda4fba7da15",
+        "manifest_sha256": "3ab3da0a8988b99fed48eb767894e81901118880cc69a5f69dd5de3ccbc43ab0",
         "sha256": "e0abdbb899df3b4b241336fdfd5c07e2eee2a8057ad31e323bd137a2c687d2fe"
       },
       "igcc-2025/warming-ribes-timeseries": {
@@ -23,16 +23,16 @@
         "sha256": "5eb8a8883085cccce2330558ec6d0803a3638e40e6b799dd83c6ad67a4e835df"
       },
       "igcc-2025/warming-walsh-timeseries": {
-        "manifest_sha256": "02ffead19254166faf96be92a5672db0ab99593aa724267173031a2f4c2957e9",
+        "manifest_sha256": "d0668d99101ac521bd7e63a8547d6f0c34f3963eb97eb6de7bd4a71c068c70b1",
         "sha256": "ecf9da410624bb9959d38b916be9d6dde6c0a6613a640c2ef842c464f71d146a"
       }
     },
     "key_files": {},
     "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
-      "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
+      "igcc-2025": "b5096497551ae0704c289fc64b13da3b713b693a20600f50b262289d273ac03b"
     },
-    "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+    "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
   },
   "publisher_checks": [
     {"detail": "ours 1.38 vs stated 1.38 (tolerance ±0.005, difference 0)", "entity": "WLD", "period": "2025", "quote": "2025.5,2025,2026,1.1,1.38,1.7,1.1,1.63,2.1,-0.8,-0.26,0.2,-0.1,0.04,0.2,", "source_id": "igcc-2025", "stated": "1.38", "status": "pass", "url": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv", "vintage": "IGCC-2025a"}

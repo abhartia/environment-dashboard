@@ -1,0 +1,82 @@
+{
+  "attribution": "Indicators of Global Climate Change 2025: Forster et al. (2026), Earth Syst. Sci. Data 18, 3889–3933, doi:10.5194/essd-18-3889-2026; data: Smith et al. (2026), version IGCC-2025a, doi:10.5281/zenodo.21494229. CC BY 4.0.",
+  "description": "How hot the hottest day of the year gets over land: each place's highest daily maximum temperature of the year, averaged over all land except Antarctica, as the difference from its 1961–1990 average, each year from 1950. From the ERA5 reanalysis (a weather model constrained by observations, not a direct measurement; values before the satellite era rest on fewer observations), as calculated by Indicators of Global Climate Change 2025. It measures intensity, how hot the hottest day is, not how often extremes happen, and it shows the change without attributing it to a cause. IGCC adds a single 0.51 °C to express it relative to 1850–1900; that is not added here. IGCC's Berkeley Earth and HadEX3 versions are not included: they are not coverage-matched with ERA5, Berkeley Earth's terms are non-commercial, and HadEX3 ends in 2018.",
+  "dimensions": [],
+  "display": {
+    "decimals": 2
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "extremes.igcc-2025.txx-land",
+  "kind": "series",
+  "latest": {
+    "age_bp": null,
+    "dims": {},
+    "entity": "WLD",
+    "period": "2025",
+    "status": "final",
+    "value": 1.3
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": "IGCC's hottest day of the year over land (TXx) is computed from ERA5 and contains modified Copernicus Climate Change Service information 2026; neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.",
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "data-igcc-2025a", "bytes": 1495354, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-07-22", "doi": "10.5281/zenodo.21494229", "etag": null, "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": "https://files.environmentdashboard.org/raw/04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd.zst", "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": "https://web.archive.org/web/20261012141803/https://zenodo.org/api/records/21494229/files/ClimateIndicator/data-IGCC-2025a.zip/content"},
+    {"acquisition": "automatic", "artifact_id": "essd-paper-pdf", "bytes": 9736703, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-04", "date_published": "2026-06-11", "doi": "10.5194/essd-18-3889-2026", "etag": "\"9491ff-653ed6ee5a83f\"", "last_modified": "Wed, 10 Jun 2026 22:04:53 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": "https://files.environmentdashboard.org/raw/795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb.zst", "sha256": "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": "https://web.archive.org/web/20261012142459/https://essd.copernicus.org/articles/18/3889/2026/essd-18-3889-2026.pdf"},
+    {"acquisition": "automatic", "artifact_id": "txx-timeseries", "bytes": 2431, "citation_full": "Forster, P. M., Walsh, T., Smith, C., Lamb, W. F., Lamboll, R., Cassou, C., Hauser, M., Hausfather, Z., Lee, J.-Y., Palmer, M. D., von Schuckmann, K., Slangen, A. B. A., Szopa, S., Trewin, B., Yun, J., Gillett, N. P., Jenkins, S., Matthews, H. D., Raghavan, K., Ribes, A., Rogelj, J., Rosen, D., Zhang, X., Allen, M., Andrew, R. M., Atkinson, C., Betts, R. A., Bombelli, A., Burgess, S. N., Cheng, L., Claxton, H. E., Friedlingstein, P., Frölicher, T. L., Domingues, C. M., Gasser, T., Gregory, C. H., Hoesly, R. M., Huppmann, D., Ishii, M., Kadow, C., Karwat, A., Kennedy, J., Killick, R. E., Kovilakam, M. V. M., Krummel, P. B., Lan, X., Lamarque, J.-F., Liné, A., Martín-Míguez, B., Monselesan, D. P., Morice, C., Mühle, J., Mussak, P., Peters, G. P., Pirani, A., Pongratz, J., Rigby, M., Rohde, R., Savita, A., Seneviratne, S. I., Smith, S. J., Taha, G., Tassone, C., Thorne, P., Wells, C., Western, L. M., van der Werf, G. R., Wijffels, S. E., Zecchetto, M., Zhong, J., Zhang, X.-Y., Masson-Delmotte, V., and Zhai, P.: Indicators of Global Climate Change 2025: annual update of key indicators of the state of the climate system and human influence, Earth Syst. Sci. Data, 18, 3889–3933, https://doi.org/10.5194/essd-18-3889-2026, 2026. Smith, C., Walsh, T., Gillett, N., Hauser, M., Krummel, P., Lamb, W., Lamboll, R., Mühle, J., Palmer, M., Ribes, A., Schumacher, D., Seneviratne, S., Slangen, A., Trewin, B., von Schuckmann, K., & Forster, P. (2026). Indicators of Global Climate Change 2025 (Version IGCC-2025a) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21494229", "date_accessed": "2026-10-12", "date_published": "2026-07-22", "doi": "10.5281/zenodo.21494229", "etag": "W/\"043ff4ac6f40d70e27df66de4877b9ac5c72db34715f7afda7f5a3df91a43ad0\"", "last_modified": null, "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds", "r2_url": "https://files.environmentdashboard.org/raw/c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4.zst", "sha256": "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4", "source_id": "igcc-2025", "title": "Indicators of Global Climate Change 2025", "url_download": "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/extreme_temperatures/txx_timeseries.csv", "url_main": "https://doi.org/10.5281/zenodo.21494229", "version_producer": "IGCC-2025a", "wayback_url": "https://web.archive.org/web/20261012142851/https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/base/extreme_temperatures/txx_timeseries.csv"}
+  ],
+  "processing": [
+    {
+      "description": "Checked that each file read (txx_timeseries.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
+      "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+      "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
+    },
+    {
+      "description": "Read the ERA5 column of txx_timeseries.csv: the land average (excluding Antarctica) of each grid cell's highest daily maximum temperature of the year, as an anomaly relative to 1961–1990 (°C), 1950–2025, as printed. The Berkeley column (Berkeley Earth's non-commercial terms) and the HadEX3 column (ends in 2018) are not used; the three are not coverage-matched and are never combined.",
+      "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+      "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
+    },
+    {
+      "description": "Checked against the paper (Forster et al. 2026, Sect. 10.1, page 23 of the PDF snapshot, sha256 795eb30a2ed5…), whose statements were found in its text before publishing: the base period is 1961–1990, and the ERA5 mean over those years is 0.001 °C, zero to the file's two decimals; IGCC adds a single offset of 0.51 °C to express TXx relative to 1850–1900, which is not applied here; and its 2025 value relative to 1850–1900 and fall from the year before equal the file's values plus that offset and their difference, exactly.",
+      "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
+      "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": "1961–1990 mean of this series, as published by IGCC",
+    "basis": "Annual maximum of the daily maximum temperature (TXx) in each grid cell, averaged over land. ERA5 reanalysis (Copernicus Climate Change Service, ECMWF), processed by IGCC (M. Hauser, D. Schumacher and S. Seneviratne, ETH Zürich). Anomalies relative to 1961–1990 as published; IGCC's single offset to 1850–1900 is not applied.",
+    "bunkers": null,
+    "geography": "Land, excluding Antarctica (average over all ERA5 land grid points)",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {},
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [-0.89, -0.47, -0.18, -0.13, -0.37, -0.19, -0.5, -0.17, -0.1, -0.17, -0.17, 0.08, -0.3, -0.04, -0.19, -0.46, -0.21, -0.24, -0.16, 0.25, 0.09, -0.15, -0.05, 0.2, -0.4, 0.01, -0.41, -0.07, -0.2, 0.09, 0.16, 0.17, -0.16, 0.47, -0.01, -0.18, -0.07, 0.28, 0.74, 0.33, 0.45, 0.54, -0.04, -0.23, 0.44, 0.53, 0.11, 0.21, 0.99, 0.5, 0.42, 0.63, 0.85, 0.76, 0.44, 0.92, 0.85, 0.94, 0.58, 0.56, 1.33, 0.82, 1.02, 0.94, 0.93, 1.1, 1.18, 1.15, 1.19, 1.4, 1.43, 1.46, 1.31, 1.78, 1.84, 1.3]
+  },
+  "time_basis": "calendar",
+  "title": "Hottest day of the year over land, relative to 1961–1990 (ERA5, IGCC 2025)",
+  "unit": {
+    "code": "degC",
+    "label": "degrees Celsius",
+    "short": "°C"
+  },
+  "vintage": "IGCC-2025a"
+}

@@ -1,0 +1,55 @@
+{
+  "export": "data/v1/indicators/extremes.ipcc-ar6.frequency-by-warming-level.json",
+  "export_sha256": "5b211419ea869698a1f8e0890852561b3791b47d4cc5c4c9df74f7c4ae2edacb",
+  "indicator_id": "extremes.ipcc-ar6.frequency-by-warming-level",
+  "key": "897b6ddf390f50246eb12900669733f08ec3075f5bbd170f2c9ee1043623da7f",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "ipcc-ar6-wg1-spm6/drought-freq-10yr": {
+        "manifest_sha256": "e3ebddabc3bfcee30b03a9f88e9cfa2f93db94ec039f51c29107a74282cc5991",
+        "sha256": "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac"
+      },
+      "ipcc-ar6-wg1-spm6/metadata": {
+        "manifest_sha256": "c6c62e2f292069805f2b09953a51b184627019aa9ba31d89feb668ddc123e4bd",
+        "sha256": "a9a555f05c7b92d3bdd5e055469c8d8ebce68d00d4143b6b06eaa8c308a942ec"
+      },
+      "ipcc-ar6-wg1-spm6/rx1day-freq-10yr": {
+        "manifest_sha256": "7b9000e8a7df8a73856582e756501f52c44907f2fac38a0211f5fecc0ac56fd6",
+        "sha256": "295a667b35b198aa56a21e5bc99e635f36af35fc3a52badda0270e3771c2246c"
+      },
+      "ipcc-ar6-wg1-spm6/txx-freq-10yr": {
+        "manifest_sha256": "293ff82fa6a222a8e762a99e90375c11b7174b91c87899c0309b968266f57c94",
+        "sha256": "0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758"
+      },
+      "ipcc-ar6-wg1-spm6/txx-freq-50yr": {
+        "manifest_sha256": "610f86584727660e7373ffcbe1f2bad7fee82249166281d22a169fe7d84ca7cb",
+        "sha256": "fa0bae3d1795cc3cc2a7e3f3e931cab8e87b343a6569a82a2ab98f0085de41a6"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "ipcc-ar6-wg1-spm6": "254e4bae2383eccaa5c61ba95ebf257e3fcfd6d7d61e23b98c204bf5eae3e33f"
+    },
+    "transform_sha256": "59295a35370825239e2ca1bb48af85b2c95a2552f253a2344d80299585c830d3"
+  },
+  "publisher_checks": [
+    {"detail": "ours 2.78 vs stated 2.8 (tolerance ±0.05, difference 0.02)", "entity": "WLD", "period": "2021", "quote": "Once now likely occurs 2.8 times (1.8–3.2)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "2.8", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 4.11 vs stated 4.1 (tolerance ±0.05, difference 0.01)", "entity": "WLD", "period": "2021", "quote": "will likely occur 4.1 times (2.8–4.7)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "4.1", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 5.57 vs stated 5.6 (tolerance ±0.05, difference 0.03)", "entity": "WLD", "period": "2021", "quote": "will likely occur 5.6 times (3.8–6.0)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "5.6", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 9.39 vs stated 9.4 (tolerance ±0.05, difference 0.01)", "entity": "WLD", "period": "2021", "quote": "will likely occur 9.4 times (8.3–9.6)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "9.4", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 4.81 vs stated 4.8 (tolerance ±0.05, difference 0.01)", "entity": "WLD", "period": "2021", "quote": "Once now likely occurs 4.8 times (2.3–6.4)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "4.8", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 8.64 vs stated 8.6 (tolerance ±0.05, difference 0.04)", "entity": "WLD", "period": "2021", "quote": "will likely occur 8.6 times (4.3–10.7)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "8.6", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 13.92 vs stated 13.9 (tolerance ±0.05, difference 0.02)", "entity": "WLD", "period": "2021", "quote": "will likely occur 13.9 times (6.9–16.6)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "13.9", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 39.19 vs stated 39.2 (tolerance ±0.05, difference 0.01)", "entity": "WLD", "period": "2021", "quote": "will likely occur 39.2 times (27.0–41.4)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "39.2", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 1.32 vs stated 1.3 (tolerance ±0.05, difference 0.02)", "entity": "WLD", "period": "2021", "quote": "Once now likely occurs 1.3 times (1.2–1.4)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "1.3", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 1.53 vs stated 1.5 (tolerance ±0.05, difference 0.03)", "entity": "WLD", "period": "2021", "quote": "will likely occur 1.5 times (1.4–1.7)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "1.5", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 1.74 vs stated 1.7 (tolerance ±0.05, difference 0.04)", "entity": "WLD", "period": "2021", "quote": "will likely occur 1.7 times (1.6–2.0)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "1.7", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 2.71 vs stated 2.7 (tolerance ±0.05, difference 0.01)", "entity": "WLD", "period": "2021", "quote": "will likely occur 2.7 times (2.3–3.6)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "2.7", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 1.7 vs stated 1.7 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2021", "quote": "Once now likely occurs 1.7 times (0.7–4.1)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "1.7", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 2.04 vs stated 2.0 (tolerance ±0.05, difference 0.04)", "entity": "WLD", "period": "2021", "quote": "will likely occur 2.0 times (1.0–5.1)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "2.0", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 2.38 vs stated 2.4 (tolerance ±0.05, difference 0.02)", "entity": "WLD", "period": "2021", "quote": "will likely occur 2.4 times (1.3–5.8)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "2.4", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"},
+    {"detail": "ours 4.08 vs stated 4.1 (tolerance ±0.05, difference 0.02)", "entity": "WLD", "period": "2021", "quote": "will likely occur 4.1 times (1.7–7.2)", "source_id": "ipcc-ar6-wg1-spm6", "stated": "4.1", "status": "pass", "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf", "vintage": "v20210809"}
+  ]
+}

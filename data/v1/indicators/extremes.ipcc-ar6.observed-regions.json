@@ -1,0 +1,118 @@
+{
+  "attribution": "Calculated by Environment Dashboard from Otto, Zhang & Seneviratne (2023), data for IPCC AR6 WGI Figure SPM.3 (v20221116), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4; IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0. Changes: counted the regions in each of the IPCC's assessed categories.",
+  "description": "Of the 45 inhabited regions the IPCC uses, how many have seen an increase, a decrease, low agreement in the type of change, or too little data and literature to say, in hot extremes, heavy precipitation and agricultural and ecological drought from the 1950s to 2021, as assessed in the IPCC Sixth Assessment Report (2021, Figure SPM.3). Increases are split by the IPCC's confidence that human influence contributed: high, medium, or low because studies disagree. Calculated by counting the regions in the IPCC data; the totals of each type of change match the counts printed on the published figure, and the split by confidence is counted from the same data. Regions differ in size and population, and each is assessed as a whole. 'Limited data' and 'low agreement' mean the evidence is missing or mixed, not that nothing changed, and a confidence level says how sure the IPCC is that people contributed, not how large the contribution was.",
+  "dimensions": [
+    {
+      "id": "extreme",
+      "label": "Extreme",
+      "values": [
+        {"id": "hot", "label": "Hot extremes"},
+        {"id": "heavy-rain", "label": "Heavy precipitation"},
+        {"id": "drought", "label": "Agricultural and ecological drought"}
+      ]
+    },
+    {
+      "id": "assessment",
+      "label": "Type of observed change since the 1950s, and confidence in a human contribution",
+      "values": [
+        {"id": "increase", "label": "Increase"},
+        {"id": "increase-high", "label": "Increase, high confidence in a human contribution"},
+        {"id": "increase-medium", "label": "Increase, medium confidence in a human contribution"},
+        {"id": "increase-low", "label": "Increase, low confidence in a human contribution (due to limited agreement)"},
+        {"id": "decrease", "label": "Decrease"},
+        {"id": "low-agreement", "label": "Low agreement in the type of change"},
+        {"id": "limited-data", "label": "Limited data and/or literature"}
+      ]
+    }
+  ],
+  "display": {
+    "decimals": 0
+  },
+  "geo_coverage": "global-only",
+  "headline_entity": "WLD",
+  "id": "extremes.ipcc-ar6.observed-regions",
+  "kind": "derived",
+  "latest": {
+    "age_bp": null,
+    "dims": {
+      "assessment": "increase",
+      "extreme": "hot"
+    },
+    "entity": "WLD",
+    "period": "1950/2021",
+    "status": "final",
+    "value": 41.0
+  },
+  "licence": {
+    "name": "CC BY 4.0",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "licence_class": "open",
+  "notes": [],
+  "notice": null,
+  "origins": [
+    {"acquisition": "automatic", "artifact_id": "panel-a-hot", "bytes": 3747, "citation_full": "Otto, F.E.L.; Zhang, X.; Seneviratne, S.I. (2023): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.3 (v20221116). NERC EDS Centre for Environmental Data Analysis, 03 July 2023. doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4. IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.", "date_accessed": "2026-10-12", "date_published": "2023-07-03", "doi": "10.5285/dc6c126c95b1445d8e66d6b9f62054d4", "etag": "\"6374ff57-ea3\"", "last_modified": "Wed, 16 Nov 2022 15:18:47 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis", "r2_url": "https://files.environmentdashboard.org/raw/6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6.zst", "sha256": "6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "source_id": "ipcc-ar6-wg1-spm3", "title": "IPCC AR6 WGI Figure SPM.3 data", "url_download": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_a.csv", "url_main": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/", "version_producer": "v20221116", "wayback_url": "https://web.archive.org/web/20261012142436/https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_a.csv"},
+    {"acquisition": "automatic", "artifact_id": "panel-b-heavy-precipitation", "bytes": 5125, "citation_full": "Otto, F.E.L.; Zhang, X.; Seneviratne, S.I. (2023): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.3 (v20221116). NERC EDS Centre for Environmental Data Analysis, 03 July 2023. doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4. IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.", "date_accessed": "2026-10-12", "date_published": "2023-07-03", "doi": "10.5285/dc6c126c95b1445d8e66d6b9f62054d4", "etag": "\"6374ff58-1405\"", "last_modified": "Wed, 16 Nov 2022 15:18:48 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis", "r2_url": "https://files.environmentdashboard.org/raw/48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d.zst", "sha256": "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "source_id": "ipcc-ar6-wg1-spm3", "title": "IPCC AR6 WGI Figure SPM.3 data", "url_download": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_b.csv", "url_main": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/", "version_producer": "v20221116", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "panel-c-drought", "bytes": 5404, "citation_full": "Otto, F.E.L.; Zhang, X.; Seneviratne, S.I. (2023): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure SPM.3 (v20221116). NERC EDS Centre for Environmental Data Analysis, 03 July 2023. doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4. IPCC, 2021: Summary for Policymakers. In: Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.", "date_accessed": "2026-10-12", "date_published": "2023-07-03", "doi": "10.5285/dc6c126c95b1445d8e66d6b9f62054d4", "etag": "\"6374ff58-151c\"", "last_modified": "Wed, 16 Nov 2022 15:18:48 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis", "r2_url": "https://files.environmentdashboard.org/raw/ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb.zst", "sha256": "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb", "source_id": "ipcc-ar6-wg1-spm3", "title": "IPCC AR6 WGI Figure SPM.3 data", "url_download": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_c.csv", "url_main": "https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/", "version_producer": "v20221116", "wayback_url": "https://web.archive.org/web/20261012142917/https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_03/v20221116/SPM3_panel_c.csv"}
+  ],
+  "processing": [
+    {
+      "description": "Read the three panel files of Figure SPM.3 (CEDA version v20221116: SPM3_panel_a.csv, SPM3_panel_b.csv, SPM3_panel_c.csv), BADC-CSV, one row per region. Checked that each has the 45 inhabited AR6 regions listed in its comments, once each, the same in all three; that all three say 'years 1950 to 2021' and that each region is assessed as a whole for the 1950s to the present. Every count is dated 1950/2021.",
+      "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
+      "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
+    },
+    {
+      "description": "Counted the regions in each type of observed change (Increase, Decrease, Low agreement in the type of change, Limited data and/or literature), and split the increases by the confidence in a human contribution (High, Medium, Low due to limited agreement), using the producer's labels. The files word the low-agreement category as SPM3_panel_a.csv 'Low agreement in type of change'; SPM3_panel_b.csv 'Low agreement in the type of change'; SPM3_panel_c.csv 'Low agreement in the type of change'; each is read as the printed figure's 'Low agreement in the type of change'. Checked that the four types add up to the regions and the split adds up to the increases. No region is weighted by area or population.",
+      "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
+      "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
+    },
+    {
+      "description": "Checked the pairings the split relies on: every region with low agreement in the type of change has 'Low due to limited agreement' confidence, every region with limited data has 'Low due to limited evidence', and every increase has High, Medium or 'Low due to limited agreement'. Regions with a decrease, and their confidence: agricultural and ecological drought: NAU (Low due to limited agreement).",
+      "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
+      "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
+    },
+    {
+      "description": "Checked against the published figure (IPCC AR6 WGI SPM, p. 10): the count of each type of change printed beside its legend is a publisher cross-check. The split of increases by confidence is not printed there; it is counted from the IPCC data.",
+      "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
+      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
+      "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
+    }
+  ],
+  "published_value": null,
+  "schema_version": 1,
+  "scope": {
+    "baseline": null,
+    "basis": "Counts of the IPCC AR6 WGI reference regions in each assessed category, for the world; no regional values are published. Expert assessment of observed change since the 1950s (files: years 1950 to 2021), each region as a whole. Categories and labels are the IPCC's; only counts are computed.",
+    "bunkers": null,
+    "geography": "45 inhabited IPCC AR6 regions",
+    "gwp": null,
+    "lulucf": null
+  },
+  "superseded_by": null,
+  "table": {
+    "dims": {
+      "assessment": ["increase", "increase-high", "increase-medium", "increase-low", "decrease", "low-agreement", "limited-data", "increase", "increase-high", "increase-medium", "increase-low", "decrease", "low-agreement", "limited-data", "increase", "increase-high", "increase-medium", "increase-low", "decrease", "low-agreement", "limited-data"],
+      "extreme": ["hot", "hot", "hot", "hot", "hot", "hot", "hot", "heavy-rain", "heavy-rain", "heavy-rain", "heavy-rain", "heavy-rain", "heavy-rain", "heavy-rain", "drought", "drought", "drought", "drought", "drought", "drought", "drought"]
+    },
+    "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
+    "period": ["1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021", "1950/2021"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [41.0, 23.0, 16.0, 2.0, 0.0, 2.0, 2.0, 19.0, 1.0, 1.0, 17.0, 0.0, 8.0, 18.0, 12.0, 0.0, 2.0, 10.0, 1.0, 28.0, 4.0]
+  },
+  "time_basis": "calendar",
+  "title": "Regions where hot extremes, heavy rain and drought have increased since the 1950s, with the IPCC's confidence in a human contribution (IPCC AR6)",
+  "unit": {
+    "code": "regions",
+    "label": "of the 45 inhabited IPCC AR6 regions",
+    "short": "regions"
+  },
+  "vintage": "v20221116"
+}

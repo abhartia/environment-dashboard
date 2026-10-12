@@ -1,0 +1,25 @@
+{
+  "export": "data/v1/indicators/air-pollution.lancet-2025.fossil-deaths.json",
+  "export_sha256": "b7f1f0f41d69815cc098c143cd994b8c22c7ae2fc600f60db37f2b612823721f",
+  "indicator_id": "air-pollution.lancet-2025.fossil-deaths",
+  "key": "870d60c5fc20cbadaa4a36ab08cccb164a21ad4ec712385833bd86f320292b97",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "lancet-countdown-2025/air-pollution-deaths-3-2-1": {
+        "manifest_sha256": "0e749b46f4ff4348bacad36d4a52f922948402ebe978528c037947b632f82116",
+        "sha256": "bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "lancet-countdown-2025": "cee6389345dfa826afe987862a0766e589beeeef2087e3dc7f9a66a900e0e964"
+    },
+    "transform_sha256": "9385dbd98c8a7637b1b2d044fb824460174039c68650fc728054f9dd45278a2b"
+  },
+  "publisher_checks": [
+    {"detail": "ours 2677081.0 vs stated 2.68E6 (tolerance ±5000, difference 2919)", "entity": "WLD", "period": "2010", "quote": "Deaths attributable to ambient PM2.5 from fossil fuel combustion decreased by 5.8 % from 2.68 million in 2010 to 2.52 million in 2022.", "source_id": "lancet-countdown-2025", "stated": "2.68E6", "status": "pass", "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-3.2.1_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "vintage": "2025 report"},
+    {"detail": "ours 2522076.0 vs stated 2.52E6 (tolerance ±5000, difference 2076)", "entity": "WLD", "period": "2022", "quote": "Deaths attributable to ambient PM2.5 from fossil fuel combustion decreased by 5.8 % from 2.68 million in 2010 to 2.52 million in 2022.", "source_id": "lancet-countdown-2025", "stated": "2.52E6", "status": "pass", "url": "https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-3.2.1_Data-Download_2025-Lancet-Countdown-Report-1.xlsx", "vintage": "2025 report"}
+  ]
+}

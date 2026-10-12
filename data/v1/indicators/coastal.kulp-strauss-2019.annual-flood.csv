@@ -1,0 +1,20 @@
+# People living on land below the yearly coastal flood level: estimated at today's sea level, projected for 2050 and 2100, world (Kulp & Strauss 2019)
+# Indicator: coastal.kulp-strauss-2019.annual-flood (vintage Nature Communications 10: 4844 (2019), corrected 12 December 2019); unit: million people (million-people)
+# Source: Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature) <https://doi.org/10.1038/s41467-019-12808-z>
+# Credit: Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. Nature Communications 10, 4844. doi:10.1038/s41467-019-12808-z. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/coastal/kulp-strauss-2019/annual-flood
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,scenario,projection
+coastal.kulp-strauss-2019.annual-flood,WLD,2010,250.0,,,,final,,,,present,none
+coastal.kulp-strauss-2019.annual-flood,WLD,2050,300.0,270.0,320.0,90ci,projection,,,,rcp26,k14
+coastal.kulp-strauss-2019.annual-flood,WLD,2100,340.0,300.0,400.0,90ci,projection,,,,rcp26,k14
+coastal.kulp-strauss-2019.annual-flood,WLD,2050,300.0,280.0,320.0,90ci,projection,,,,rcp45,k14
+coastal.kulp-strauss-2019.annual-flood,WLD,2100,360.0,310.0,420.0,90ci,projection,,,,rcp45,k14
+coastal.kulp-strauss-2019.annual-flood,WLD,2050,300.0,280.0,330.0,90ci,projection,,,,rcp85,k14
+coastal.kulp-strauss-2019.annual-flood,WLD,2100,390.0,330.0,460.0,90ci,projection,,,,rcp85,k14
+coastal.kulp-strauss-2019.annual-flood,WLD,2050,290.0,260.0,330.0,90ci,projection,,,,rcp26,k17
+coastal.kulp-strauss-2019.annual-flood,WLD,2100,350.0,280.0,430.0,90ci,projection,,,,rcp26,k17
+coastal.kulp-strauss-2019.annual-flood,WLD,2050,300.0,260.0,330.0,90ci,projection,,,,rcp45,k17
+coastal.kulp-strauss-2019.annual-flood,WLD,2100,400.0,320.0,510.0,90ci,projection,,,,rcp45,k17
+coastal.kulp-strauss-2019.annual-flood,WLD,2050,300.0,270.0,340.0,90ci,projection,,,,rcp85,k17
+coastal.kulp-strauss-2019.annual-flood,WLD,2100,480.0,380.0,630.0,90ci,projection,,,,rcp85,k17

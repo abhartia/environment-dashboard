@@ -1,0 +1,35 @@
+{
+  "export": "data/v1/indicators/coastal.kulp-strauss-2019.annual-flood.json",
+  "export_sha256": "3346941d673574ee7d51114764a639276542227cdee3877cf185cc7dd446e3f0",
+  "indicator_id": "coastal.kulp-strauss-2019.annual-flood",
+  "key": "7458d0d53b6a6c85bc7638b6fa7c185a74cdb94cf25d0c4dcb041ee5df9730d2",
+  "key_parts": {
+    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "inputs": {
+      "kulp-strauss-2019/article-pdf": {
+        "manifest_sha256": "8036bb53e81bd59b91b24aa6f83e84701ef9d0cf5faee5b333f6218853281b09",
+        "sha256": "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"
+      },
+      "kulp-strauss-2019/supplementary-data-1": {
+        "manifest_sha256": "3d3181d85a4d226b8d0a1592426685cb7cfc1e9b4a2783d5946b3561ce3b2a38",
+        "sha256": "37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81"
+      },
+      "kulp-strauss-2019/supplementary-descriptions": {
+        "manifest_sha256": "8aa0cdddf036bfef78751e7024b4e3e55050ecccfc3bad7caf64940f1dd87271",
+        "sha256": "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "sources": {
+      "kulp-strauss-2019": "2216d4145857d52e86b69ccd8980df7db78eb38c701a9ec74e767336e29204f3"
+    },
+    "transform_sha256": "ccf6ea2b9418bf6cd8493576268bda726cd07b60fcb436b78de226291dc2f981"
+  },
+  "publisher_checks": [
+    {"detail": "ours 250.0 vs stated 250 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2010", "quote": "For the present day, CoastalDEM estimates a global total of 110 M people on land below the current high tide line and 250 M on land below annual flood levels,", "source_id": "kulp-strauss-2019", "stated": "250", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"},
+    {"detail": "ours 360.0 vs stated 360 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2100", "quote": "A total of 360 (310–420) million people are on land threatened by annual flood events in 2100, or an extra 110 (60–170) million beyond the contemporary baseline. This case reflects greenhouse gas emissions cuts roughly consistent with warming of 2 °C (emissions scenario RCP 4.5) and assumes a mostly stable Antarctic (sea-level model K14).", "source_id": "kulp-strauss-2019", "stated": "360", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"},
+    {"detail": "ours 300.0 vs stated 300 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2050", "quote": "In the case of Antarctic instability, a total of 300 (270–340) million people today live on land indicated as vulnerable to an annual flood event by mid-century, rising to as many as 480 (380–630) million by 2100.", "source_id": "kulp-strauss-2019", "stated": "300", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"},
+    {"detail": "ours 480.0 vs stated 480 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2100", "quote": "In the case of Antarctic instability, a total of 300 (270–340) million people today live on land indicated as vulnerable to an annual flood event by mid-century, rising to as many as 480 (380–630) million by 2100.", "source_id": "kulp-strauss-2019", "stated": "480", "status": "pass", "url": "https://www.nature.com/articles/s41467-019-12808-z.pdf", "vintage": "Nature Communications 10: 4844 (2019), corrected 12 December 2019"}
+  ]
+}

@@ -35,6 +35,8 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `imbie-2026` | IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre | Open Government Licence v3.0 | open | yes | automatic | 2026-10-04 (page) |
 | `ipcc-ar6-sea-level-projections` | IPCC AR6 Working Group I Chapter 9 authors (Garner, Kopp et al.), on Zenodo | CC BY 4.0 | open | no | manual | 2026-10-04 (page) |
 | `ipcc-ar6-wg1-spm1` | IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
+| `ipcc-ar6-wg1-spm3` | IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis | CC BY 4.0 | open | yes | automatic | 2026-10-12 (page) |
+| `ipcc-ar6-wg1-spm6` | IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis | CC BY 4.0 | open | yes | automatic | 2026-10-12 (page) |
 | `igcc-2025` | Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds | CC BY 4.0 | open | yes | automatic | 2026-10-04 (api) |
 | `iea-ccus-projects` | International Energy Agency | CC BY 4.0, subject to the IEA Notice for CC-licensed Content | open | yes | automatic | 2026-10-08 (manual) |
 | `iea-efuels-2023` | International Energy Agency | CC BY 4.0, subject to the IEA Notice for CC-licensed Content | open | no | automatic | 2026-10-08 (pdf) |
@@ -71,6 +73,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `andre-2024` | Peter Andre, Teodora Boneva, Felix Chopra and Armin Falk (SAFE and Goethe University Frankfurt, University of Bonn, University of Copenhagen); published in Nature Climate Change | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `drawdown-explorer` | Project Drawdown | CC BY 4.0 (Zenodo deposits by Project Drawdown) | open | no | automatic | 2026-10-04 (page) |
 | `sacchi-2023` | Romain Sacchi, Viola Becattini, Paolo Gabrielli, Brian Cox, Alois Dirnaichner, Christian Bauer and Marco Mazzotti (Paul Scherrer Institut, ETH Zurich, INFRAS and the Potsdam Institute for Climate Impact Research); published in Nature Communications | CC BY 4.0 | open | yes | automatic | 2026-10-08 (api) |
+| `kulp-strauss-2019` | Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature) | CC BY 4.0 | open | yes | automatic | 2026-10-12 (pdf) |
 | `scripps-co2` | Scripps Institution of Oceanography, UC San Diego (Scripps CO2 Program) | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `wynes-nicholas-2017` | Seth Wynes and Kimberly A. Nicholas (Lund University, University of British Columbia); published in Environmental Research Letters (IOP Publishing) | CC BY 3.0 | open | yes | manual | 2026-10-04 (manual) |
 | `stechemesser-2024` | Stechemesser, Koch, Mark, Dilger, Klösel, Menicacci, Nachtigall, Pretis, Ritter, Schwarz, Vossen and Wenzel (PIK, MCC Berlin, OECD and others); article in Science, data and code on Zenodo | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
@@ -93,7 +96,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `faostat-all-sectors` | Food and Agriculture Organization of the United Nations (FAO), Statistics Division | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; FAO labels FAOSTAT CC BY 4.0) | noncommercial | yes | automatic | 2026-10-05 (page) |
 | `idmc-gidd` | Internal Displacement Monitoring Centre (IDMC), Norwegian Refugee Council | CC BY-NC-SA 3.0 IGO (IDMC API documentation; the export's own README states CC BY-NC) | noncommercial | yes | manual | 2026-10-12 (page) |
 | `jones-2025-national-contributions` | Jones et al. (University of East Anglia, CICERO and others) | CC BY-NC-SA 4.0 (inherited from PRIMAP-hist v2.7; the Zenodo deposit itself is labelled CC BY 4.0) | noncommercial | yes | automatic | 2026-10-04 (page) |
-| `lancet-countdown-2025` | Lancet Countdown on Health and Climate Change (led by University College London) | CC BY-NC-SA 4.0 | noncommercial | yes | automatic | 2026-10-04 (page) |
+| `lancet-countdown-2025` | Lancet Countdown on Health and Climate Change (led by University College London) | CC BY-NC-SA 4.0 | noncommercial | yes | automatic | 2026-10-12 (page) |
 | `net-zero-tracker-2025` | Net Zero Tracker (Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero) | CC BY-NC 4.0 (Net Zero Tracker data terms; the Zenodo record says CC BY 4.0) | noncommercial | no | automatic | 2026-10-08 (page) |
 | `unep-agr-2025` | United Nations Environment Programme (UNEP) | UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use) | noncommercial | no | manual | 2026-10-08 (manual) |
 | `unep-egr-2025` | United Nations Environment Programme (UNEP) | UNEP publication notice (non-profit reproduction with acknowledgement; no commercial use) | noncommercial | no | manual | 2026-10-04 (manual) |
@@ -109,4 +112,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-104 sources: 84 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
+107 sources: 87 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.

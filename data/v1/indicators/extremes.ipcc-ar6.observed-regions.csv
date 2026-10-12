@@ -1,0 +1,28 @@
+# Regions where hot extremes, heavy rain and drought have increased since the 1950s, with the IPCC's confidence in a human contribution (IPCC AR6)
+# Indicator: extremes.ipcc-ar6.observed-regions (vintage v20221116); unit: of the 45 inhabited IPCC AR6 regions (regions)
+# Source: IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis <https://catalogue.ceda.ac.uk/uuid/dc6c126c95b1445d8e66d6b9f62054d4/>
+# Credit: Calculated by Environment Dashboard from Otto, Zhang & Seneviratne (2023), data for IPCC AR6 WGI Figure SPM.3 (v20221116), NERC EDS Centre for Environmental Data Analysis, doi:10.5285/dc6c126c95b1445d8e66d6b9f62054d4; IPCC, 2021: Summary for Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0. Changes: counted the regions in each of the IPCC's assessed categories.
+# Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+# Provenance and processing: https://environmentdashboard.org/data/extremes/ipcc-ar6/observed-regions
+indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,extreme,assessment
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,41.0,,,,final,,,,hot,increase
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,23.0,,,,final,,,,hot,increase-high
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,16.0,,,,final,,,,hot,increase-medium
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,2.0,,,,final,,,,hot,increase-low
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,0.0,,,,final,,,,hot,decrease
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,2.0,,,,final,,,,hot,low-agreement
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,2.0,,,,final,,,,hot,limited-data
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,19.0,,,,final,,,,heavy-rain,increase
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,1.0,,,,final,,,,heavy-rain,increase-high
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,1.0,,,,final,,,,heavy-rain,increase-medium
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,17.0,,,,final,,,,heavy-rain,increase-low
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,0.0,,,,final,,,,heavy-rain,decrease
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,8.0,,,,final,,,,heavy-rain,low-agreement
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,18.0,,,,final,,,,heavy-rain,limited-data
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,12.0,,,,final,,,,drought,increase
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,0.0,,,,final,,,,drought,increase-high
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,2.0,,,,final,,,,drought,increase-medium
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,10.0,,,,final,,,,drought,increase-low
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,1.0,,,,final,,,,drought,decrease
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,28.0,,,,final,,,,drought,low-agreement
+extremes.ipcc-ar6.observed-regions,WLD,1950/2021,4.0,,,,final,,,,drought,limited-data

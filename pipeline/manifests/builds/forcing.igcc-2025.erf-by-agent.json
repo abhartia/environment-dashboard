@@ -1,34 +1,34 @@
 {
   "export": "data/v1/indicators/forcing.igcc-2025.erf-by-agent.json",
-  "export_sha256": "1b8a348ddd195e8aad0e8edc60d3b4af1020b3803f1792bd4e4b2db54bbe3b1e",
+  "export_sha256": "374b3bb041434a22cd61eb18fa85808d75834d4b056ca8cea1111fc9ee417981",
   "indicator_id": "forcing.igcc-2025.erf-by-agent",
-  "key": "b7d125e2b86e08ad229ec4a803e9be99492222bd18c4cad653dc8cd54fb8fa09",
+  "key": "901b2338fab592d39cf559900a131669129995b33a43530ea6f618fe3273e097",
   "key_parts": {
     "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
     "inputs": {
       "igcc-2025/data-igcc-2025a": {
-        "manifest_sha256": "a4374672a87ba0e003c7018ee18a98cd91d31360ba4d5996cd7962066b0a6b7f",
+        "manifest_sha256": "00b6dafec016ef321515f4393f7e751a8b0c833ccc9b9c364ab5d3d9296898a9",
         "sha256": "04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd"
       },
       "igcc-2025/erf-best-aggregates": {
-        "manifest_sha256": "7bd1fdc080b3c2bf53bf5e01691f29cc7cb56c38eb199b29b5705d0f60f92d3f",
+        "manifest_sha256": "8e23f5efbe094fda7f2319e909e2befc09f7fe4cde7db5b0eb349334c86117b4",
         "sha256": "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9"
       },
       "igcc-2025/erf-p05-aggregates": {
-        "manifest_sha256": "453d7966d784dd3eda5b8a40e95fb8cb9e1b969110d13c67fa5dc8df6fb5faa2",
+        "manifest_sha256": "68719d600c331e7e50f73c5949e1c552fbe23ec0c87b352b3b3ae5329c40fb0a",
         "sha256": "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed"
       },
       "igcc-2025/erf-p95-aggregates": {
-        "manifest_sha256": "6c32fa4a928a0e2b621b93448feea75aaff3c63a72edc9b75a5a776a9a7ce9b8",
+        "manifest_sha256": "055bb8a7c3115b29ee272ed788fb7c3d273477305ede51752d5d5f6fb14bf131",
         "sha256": "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"
       }
     },
     "key_files": {},
     "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
     "sources": {
-      "igcc-2025": "4d4600e9544a89088c7302752be13c3f61a4d646ed40480f1fac8723349cc29b"
+      "igcc-2025": "b5096497551ae0704c289fc64b13da3b713b693a20600f50b262289d273ac03b"
     },
-    "transform_sha256": "5a1f11a945b695d391df82051a7702020d761923b52db1f49469838f1f9c172a"
+    "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
   },
   "publisher_checks": [
     {"detail": "ours 3.103548614 vs stated 3.10 (tolerance ±0.005, difference 0.00354861)", "entity": "WLD", "period": "2025", "quote": "Total anthropogenic ERF has increased to 3.10 [2.35 to 3.83] W m⁻² in 2025 relative to 1750", "source_id": "igcc-2025", "stated": "3.10", "status": "pass", "url": "https://doi.org/10.5194/essd-18-3889-2026", "vintage": "IGCC-2025a"},
