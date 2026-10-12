@@ -1,5 +1,7 @@
 # Lancet Countdown on Health and Climate Change, 2025 global report: indicator workbooks 1.1.5 (heat-related
-# mortality), 1.1.3 (potential work hours lost to heat) and 1.1.1 (heatwave exposure, two workbooks).
+# mortality), 1.1.3 (potential work hours lost to heat), 1.1.1 (heatwave exposure, two workbooks), 1.2.1 (deaths from
+# wildfire smoke), 1.2.2 (drought), 1.2.3 (extreme precipitation) and 3.2.1 (deaths from outdoor air pollution by
+# sector and fuel).
 # Evidence: docs/research/sources-impacts.json ("Lancet Countdown on Health and Climate Change: 2025 global indicator
 # data ..."; verdict "confirmed", final_redistribution noncommercial-only).
 # Checked 2026-10-04:
@@ -25,8 +27,41 @@
 #     "_v2" suffixes and will change with that vintage; indicator methods also change between report years, so
 #     vintages are never spliced.
 #   - {year} in the notice is the report year of the values shown (2025 for these files).
+# Checked 2026-10-12, adding 3.2.1, 1.2.1 Mortality, 1.2.2 and 1.2.3 (evidence: docs/research/
+# sources-consequences-2026-10-11.json, the Lancet 1.2.1 Mortality, 3.2.1 and 1.2.2 entries; docs/research/
+# sources-extremes-2026-10-12.json, the Lancet 1.2.2 and 1.2.3 entries):
+#   - lancetcountdown.org/use-our-data/ -> 200 (103,501 bytes), still carrying the licence text quoted below. Each new
+#     workbook's DATA GUIDANCE sheet repeats it ("2.2 Data Licence") and names the 2025 report and the same suggested
+#     citation.
+#   - Files (all HTTP 200, xlsx MIME type; HEAD and a full GET):
+#       3.2.1              223,758 bytes  sha256 bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f
+#                          Last-Modified Thu, 30 Oct 2025 07:06:52 GMT
+#       1.2.1 Mortality    294,227 bytes  sha256 1cf07d2a285a07cea1b1bfc3d5545a99ba83dcbf362e50377a6a9f48e7d21e7d
+#                          Last-Modified Thu, 30 Oct 2025 07:06:03 GMT
+#       1.2.2              678,499 bytes  sha256 3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42
+#                          Last-Modified Wed, 29 Oct 2025 00:07:27 GMT
+#       1.2.3              122,480 bytes  sha256 279a4c3c331e29808fbadd715ab276ec9f7da624d2538e302b2444dc638e6f3b
+#                          Last-Modified Thu, 30 Oct 2025 07:06:07 GMT
+#   - Third-party inputs. Each guidance sheet says (2.3) "The data produced by third parties and made available by
+#     Lancet Countdown is subject to the license terms from the original third-party authors." and lists:
+#       3.2.1  IEA World Energy Balances 2024 and World Energy Statistics 2024 (energy activity), FAO livestock
+#              statistics, International Fertilizer Association data, the WHO household energy database and UN World
+#              Population Prospects 2017. IEA World Energy Balances are rejected for redistribution in docs/sources.md;
+#              here they are inputs to the IIASA GAINS model only. The workbook holds no IEA values: it publishes the
+#              authors' modelled deaths, death rates and PM2.5 concentrations, and only the deaths are used.
+#       1.2.1  NASA FIRMS, EarthEnv cloud cover, ECOCLIMAP, GPWv4, the FMI SILAM fire PM2.5 fields, IHME Global Burden
+#              of Disease 2025 (baseline mortality; IHME's own terms are non-commercial) and A. Pozzer's EDMOND code.
+#              No ERA5 is listed.
+#       1.2.2  "SPEI, The Standardised Precipitation-Evapotranspiration Index. 2025.", version not named. SPEIbase is
+#              ODbL (docs/research/sources-impacts.json, SPEIbase v2.11). The published values are the authors' shares
+#              of land in extreme drought, and the notice credits SPEI.
+#       1.2.3  ERA5-Land (Copernicus Climate Change Service), covered by the Copernicus notice.
+#   - 1.2.3 has global sheets only; its event counts cover 1961-1990 and 1995-2024 (no 1991-1994 values).
+#   - The 1.1.1 vulnerable-populations workbook (registered 2026-10-04) gets its transform now. Its Global sheet also
+#     has over-75 columns that the guidance column table does not describe; they read 0 in 1980-1999, when the over-65
+#     columns do not, so they are not used.
 id: lancet-countdown-2025
-title: "Lancet Countdown 2025: heat-related deaths, work hours lost to heat and heatwave exposure"
+title: "Lancet Countdown 2025: heat, wildfire smoke, drought, extreme rain and deaths from air pollution"
 publisher: Lancet Countdown on Health and Climate Change (led by University College London)
 landing_url: https://lancetcountdown.org/explore-our-data/
 description: >-
@@ -36,7 +71,11 @@ description: >-
   lost to heat, in total and for services, manufacturing, agriculture and construction, 1990 to 2024, for the world,
   regions, HDI groups and 219 countries. Indicator 1.1.1, two workbooks: heatwave days per person observed in 2020 to
   2024 compared with a modelled climate without human-caused warming, for the world and 220 countries; and heatwave
-  days experienced by infants and people over 65, 1980 to 2024. Heat mortality is modelled, not counted.
+  days experienced by infants and people over 65, 1980 to 2024. Indicator 1.2.1: deaths from wildfire-smoke fine
+  particles, 2003 to 2024. Indicator 1.2.2: share of land with extreme meteorological drought, 1951 to 2024.
+  Indicator 1.2.3: extreme daily precipitation events over land, 1961 to 1990 and 1995 to 2024. Indicator 3.2.1:
+  deaths from outdoor fine-particle air pollution by emitting sector and fuel, 2007 to 2022. Deaths are modelled, not
+  counted.
 citation:
   type: article-journal
   title: "The 2025 report of the Lancet Countdown on health and climate change: climate change action offers a lifeline"
@@ -64,24 +103,30 @@ evidence:
   licence_quote: >-
     Lancet Countdown data, and associated data visualisations, are provided at no-cost under a Creative Commons
     Attribution-Non Commercial-Share Alike Licence (CC BY-NC-SA 4.0).
-  checked_on: 2026-10-04
+  checked_on: 2026-10-12
   terms_check: page
 obligations:
   attribution: >-
     Lancet Countdown on Health and Climate Change, 2025 report data: indicator 1.1.1 by A. J. Pershing and J. Giguere
     (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable populations); indicator 1.1.3 by C.
-    Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos. Romanello et
-    al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.
+    Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña and J. Ruiz-Cabrejos; indicator 1.2.1
+    by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello and M. Walawender; indicator 1.2.3 by
+    K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang. Romanello et al., The Lancet, 2025,
+    doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.
   attribution_modified: >-
     Calculated by Environment Dashboard from Lancet Countdown on Health and Climate Change 2025 report data: indicator
     1.1.1 by A. J. Pershing and J. Giguere (attributable heatwave days) and by F. Tartarini and O. Jay (vulnerable
     populations); indicator 1.1.3 by C. Freyberg, B. Lemke and M. Otto; indicator 1.1.5 by J. Ballester, X. Basagaña
-    and J. Ruiz-Cabrejos. Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.
+    and J. Ruiz-Cabrejos; indicator 1.2.1 by R. Hänninen, M. Sofiev and R. Kouznetsov; indicator 1.2.2 by M. Romanello
+    and M. Walawender; indicator 1.2.3 by K. Minor and N. Obradovich; indicator 3.2.1 by G. Kiesewetter and S. Zhang.
+    Romanello et al., The Lancet, 2025, doi:10.1016/S0140-6736(25)01919-1. CC BY-NC-SA 4.0.
   notice: >-
     Licensed CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/): non-commercial use only, and
-    anything built from these figures must be shared under the same licence. These indicators are computed from ERA5
-    and contain modified Copernicus Climate Change Service information {year}; neither the European Commission nor
-    ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.
+    anything built from these figures must be shared under the same licence. Indicators 1.1.1, 1.1.3, 1.1.5 and 1.2.3
+    are computed from ERA5 or ERA5-Land and contain modified Copernicus Climate Change Service information {year};
+    neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus
+    information or data it contains. Indicator 1.2.2 is computed from the Standardised Precipitation-Evapotranspiration
+    Index (SPEI, Consejo Superior de Investigaciones Científicas).
   mirror_raw: true
   no_logo: true
   no_endorsement: true
@@ -112,6 +157,34 @@ artifacts:
     description: >-
       Indicator 1.1.1, heatwave exposure of infants under 1 and adults over 65: total person-days and average days per
       person, 1980-2024, on Country, Global, WHO, LC and HDI sheets (the Global sheet also has over-75s).
+  - id: air-pollution-deaths-3-2-1
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-3.2.1_Data-Download_2025-Lancet-Countdown-Report-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 3.2.1, mortality from ambient air pollution by sector and fuel (IIASA GAINS model): sheets Global, HDI
+      Level, Lancet Countdown Region and WHO Region, 2007-2022, one row per year and sector (power plants, industry,
+      transport, households, waste, agriculture, other) with deaths attributable to PM2.5 from coal, liquids and gas,
+      biomass and other sources. The Global sheet also has deaths per 100,000 people and PM2.5 concentrations. No
+      country sheet.
+  - id: wildfire-smoke-deaths-1-2-1
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.1_Mortality_Data-Download_2025-Lancet-Countdown-Report-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.2.1, fire smoke (mortality workbook): deaths due to fire-originated PM2.5 (column Mortality),
+      2003-2024, on Country, Global, WHO, LC and HDI sheets.
+  - id: drought-land-share-1-2-2
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.2_Data-Download_2025-Lancet-Countdown-Report.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.2.2, drought: percent of land area with at least 1, 3, 6 or 12 months of extreme drought (SPEI-6,
+      against 1986-2005) in each year, on Country (1950-2024), Global (1951-2024, long format), WHO, LC and HDI sheets.
+  - id: extreme-precipitation-1-2-3
+    url: https://lancetcountdown.org/wp-content/uploads/2025/10/Indicator-1.2.3_Data-Download_2025-Lancet-Countdown-Report-1.xlsx
+    format: xlsx
+    description: >-
+      Indicator 1.2.3, extreme precipitation (ERA5-Land): sheet Event_Global, the land-area-weighted average count of
+      daily events above the 1961-1990 99th percentile in each year of 1961-1990 and 1995-2024; sheet Land_Global, the
+      share of land with more or fewer such events than in 1961-1990 in rolling windows of nine or ten years.
 status:
   state: active
   note: >-
