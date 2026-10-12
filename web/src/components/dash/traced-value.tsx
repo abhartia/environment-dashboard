@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
  * it is a link to the number's data page). When the reader drills, it counts from the old value to the new one; the
  * number it settles on is the published value, formatted by the same formatter as everywhere else. With `from`, it
  * counts up from that value once, `delay` seconds after it appears (the page itself still renders the published value).
+ * `suffix` is a short unit set beside the number ("deaths", "×") where the unit in words has no room; the link's label
+ * always carries the unit in words.
  */
 export function TracedValue({
   h,
@@ -20,12 +22,14 @@ export function TracedValue({
   from,
   delay = 0,
   statusClassName = "text-sm text-muted-foreground",
+  suffix,
 }: {
   h: Headline;
   className?: string;
   from?: number;
   delay?: number;
   statusClassName?: string;
+  suffix?: string;
 }) {
   const reduce = useReducedMotion();
   const mv = useMotionValue(h.value);
@@ -60,6 +64,7 @@ export function TracedValue({
     >
       <motion.span className="num decoration-[0.06em] underline-offset-[0.12em] group-hover:underline group-focus-visible:underline">{text}</motion.span>
       {word ? <span className="text-[0.4em] font-bold tracking-tight">{word}</span> : null}
+      {suffix ? <span className="text-[0.4em] font-bold tracking-tight">{suffix}</span> : null}
       {status ? <span className={cn("font-semibold tracking-wide uppercase", statusClassName)}>{status}</span> : null}
     </a>
   );

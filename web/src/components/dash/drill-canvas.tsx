@@ -227,24 +227,24 @@ function Canvas({ chapter, initial }: { chapter: string; initial: DrillNode }) {
                 {d.soWhat?.headline ? (
                   // What this means for people: the target view's own traced number (it opens its source), and its idea
                   // as a link stretched over the card. Two sibling links, never one inside the other.
-                  <div className="relative flex h-24 w-56 flex-col justify-between gap-1 rounded-xl bg-foreground p-2.5 text-background sm:h-28 sm:w-64">
-                    <span className="hidden text-[10px] font-semibold tracking-wide uppercase opacity-70 sm:block">{RELATION_EYEBROW[d.soWhat.relation]}</span>
-                    <span className="relative z-10 flex min-w-0 flex-col">
+                  // Three lines that always fit the card: how the two relate (from sm), the number with its short unit on
+                  // one line, and the target's idea in at most two lines.
+                  <div className="relative flex h-24 w-60 flex-col justify-between gap-1 rounded-xl bg-foreground p-2.5 text-background sm:h-28 sm:w-72">
+                    <span className="hidden shrink-0 text-[10px] leading-none font-semibold tracking-wide uppercase opacity-70 sm:block">{RELATION_EYEBROW[d.soWhat.relation]}</span>
+                    <span className="relative z-10 flex min-w-0 shrink-0 whitespace-nowrap">
                       <TracedValue
                         h={d.soWhat.headline}
                         from={0}
                         delay={reduce ? 0 : 0.5}
+                        suffix={d.soWhat.headline.unit}
                         className="gap-1.5 text-2xl leading-none font-black tracking-tighter sm:text-3xl"
                         statusClassName="text-[0.4em] text-background/70"
                       />
-                      <span className="truncate text-[11px] leading-tight font-semibold opacity-80" title={d.soWhat.headline.unitLabel}>
-                        {d.soWhat.headline.unitLabel}
-                      </span>
                     </span>
                     <a
                       href={hrefFor(d.to, initial.id)}
                       onClick={(e) => onLink(e, d.to)}
-                      className="line-clamp-2 text-xs leading-tight font-semibold after:absolute after:inset-0 after:rounded-xl hover:underline focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring sm:text-sm"
+                      className="line-clamp-2 shrink-0 text-xs leading-tight font-semibold after:absolute after:inset-0 after:rounded-xl hover:underline focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring sm:text-sm"
                     >
                       {d.kicker ?? d.label}
                     </a>
