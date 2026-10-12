@@ -70,6 +70,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `andre-2024` | Peter Andre, Teodora Boneva, Felix Chopra and Armin Falk (SAFE and Goethe University Frankfurt, University of Bonn, University of Copenhagen); published in Nature Climate Change | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `drawdown-explorer` | Project Drawdown | CC BY 4.0 (Zenodo deposits by Project Drawdown) | open | no | automatic | 2026-10-04 (page) |
 | `sacchi-2023` | Romain Sacchi, Viola Becattini, Paolo Gabrielli, Brian Cox, Alois Dirnaichner, Christian Bauer and Marco Mazzotti (Paul Scherrer Institut, ETH Zurich, INFRAS and the Potsdam Institute for Climate Impact Research); published in Nature Communications | CC BY 4.0 | open | yes | automatic | 2026-10-08 (api) |
+| `kulp-strauss-2019` | Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature) | CC BY 4.0 | open | yes | automatic | 2026-10-12 (pdf) |
 | `scripps-co2` | Scripps Institution of Oceanography, UC San Diego (Scripps CO2 Program) | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
 | `wynes-nicholas-2017` | Seth Wynes and Kimberly A. Nicholas (Lund University, University of British Columbia); published in Environmental Research Letters (IOP Publishing) | CC BY 3.0 | open | yes | manual | 2026-10-04 (manual) |
 | `stechemesser-2024` | Stechemesser, Koch, Mark, Dilger, Klösel, Menicacci, Nachtigall, Pretis, Ritter, Schwarz, Vossen and Wenzel (PIK, MCC Berlin, OECD and others); article in Science, data and code on Zenodo | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
@@ -108,4 +109,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-103 sources: 83 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
+104 sources: 84 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.

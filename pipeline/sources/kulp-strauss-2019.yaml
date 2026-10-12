@@ -1,0 +1,124 @@
+# Kulp & Strauss (2019), Nature Communications 10: 4844: people living on land below the local high-tide line and
+# below the local once-a-year coastal flood level, today and with the sea levels projected for 2050 and 2100, from the
+# CoastalDEM elevation model (Supplementary Data 1).
+# Evidence: docs/research/sources-consequences-2026-10-11.json (coasts, rank 1, verdict confirmed) and the critic's
+# note that the coastal pairing should lead with this source rather than Lancet 2.3.3.
+# Checked 2026-10-12:
+#   - The article PDF on nature.com answered a scripted GET (303 to idp.nature.com, which sets a cookie and returns to
+#     the PDF; final HTTP 200, application/pdf, 3,903,782 bytes, sha256
+#     912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f, ETag "1745469cbb491e63418a5c0bd7b7bac7",
+#     Last-Modified Mon, 04 Dec 2023 17:29:36 GMT), identical on two downloads. Page 1 is marked "Corrected: Author
+#     correction"; the licence quoted below is on page 12. Europe PMC's full text (PMC6820795) carries the same licence
+#     paragraph, and Crossref lists CC BY 4.0 for the version of record (vor and tdm, from 2019-10-29).
+#   - Supplementary Data 1 (MOESM4_ESM.csv), as linked from the article page: HTTP 200, 253,535 bytes, sha256
+#     37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81, ETag "8bda3a8ece191add7cff689b5d2893be",
+#     Last-Modified Mon, 04 Dec 2023 17:29:34 GMT; it answers If-None-Match and If-Modified-Since with 304. The copy on
+#     static-content.springer.com has the same bytes. 1,769 lines: a header and 13 sea levels (present day, then K14
+#     and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100) for each of 136 places (World, the small island developing
+#     states together, and 134 countries), each with the 5th, 50th and 95th percentile for four elevation models.
+#   - The descriptions of the supplementary files (MOESM3_ESM.pdf): HTTP 200, 65,044 bytes, sha256
+#     2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771, same Last-Modified.
+#   - citation.text is the article page's "Cite this article" line, verbatim.
+# The supplementary files carry no licence of their own, so the article's CC BY 4.0 covers them (Springer Nature
+# practice; the data availability statement says the national exposure analyses "are available within this article
+# and its supplementary information files"). The CoastalDEM elevation grid itself is a separate product: the same
+# statement says it "is available at no cost from Climate Central for non-commercial research use". The grid is not
+# registered, fetched or re-hosted here; only the article's own tables of people are used, so mirror_raw is true.
+# Author Correction (doi:10.1038/s41467-019-13552-0, 12 December 2019): a code error fixed during peer review had
+# left superseded numbers in the text. It changed text numbers (abstract: 230 M, not 250 M, below 1 m; 94 M, not 95 M;
+# China 18-32%, not 15-28%; 7-20 M, not 10-25 M; 19 other countries, not 20) and one cell of Table 1 (K17, RCP8.5,
+# annual flood, 2100: 480 (380-630), not 500 (390-640)), and says "The Supplementary Data were generated
+# automatically during analysis and so were not affected." The publisher's PDF registered here is the corrected one;
+# the transform refuses a PDF that still prints the superseded Table 1 cell.
+# Not used: the SRTM, JAXA (AW3D30) and MERIT columns (the paper's point is that they understate exposure), the
+# country and SIDS rows (a crosswalk from country names is a later step), and Supplementary Data 2-5.
+id: kulp-strauss-2019
+title: People on land exposed to sea-level rise and coastal flooding (Kulp & Strauss 2019)
+publisher: >-
+  Scott A. Kulp and Benjamin H. Strauss (Climate Central); published in Nature Communications (Springer Nature)
+landing_url: https://doi.org/10.1038/s41467-019-12808-z
+description: >-
+  Estimates of how many people live on land below the local high-tide line (mean higher-high water) and below the
+  local once-a-year coastal flood level, at today's sea level and with the sea levels projected for 2050 and 2100
+  under three emissions scenarios (RCP2.6, 4.5 and 8.5) by two sets of projections (Kopp et al. 2014 and 2017), for
+  the world, the small island developing states and 134 countries. Elevations come from CoastalDEM, a correction of
+  NASA's SRTM made with a neural network; people are counted where they lived in 2010 (LandScan). Coastal defences
+  are not considered, so the figures measure exposure, not flooding.
+citation:
+  type: article-journal
+  title: New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding
+  author:
+    - {family: Kulp, given: Scott A.}
+    - {family: Strauss, given: Benjamin H.}
+  issued: "2019-10-29"
+  publisher: Springer Nature
+  container-title: Nature Communications
+  volume: "10"
+  page: "4844"
+  DOI: 10.1038/s41467-019-12808-z
+  URL: https://doi.org/10.1038/s41467-019-12808-z
+  text: >-
+    Kulp, S.A., Strauss, B.H. New elevation data triple estimates of global vulnerability to sea-level rise and
+    coastal flooding. Nat Commun 10, 4844 (2019). https://doi.org/10.1038/s41467-019-12808-z
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://www.nature.com/articles/s41467-019-12808-z.pdf
+  licence_quote: >-
+    Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits
+    use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate
+    credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if
+    changes were made.
+  checked_on: 2026-10-12
+  terms_check: pdf
+obligations:
+  # The licence asks for credit, a link to the licence and an indication of changes.
+  attribution: >-
+    Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise
+    and coastal flooding. Nature Communications 10, 4844. doi:10.1038/s41467-019-12808-z. CC BY 4.0
+    (https://creativecommons.org/licenses/by/4.0/).
+  attribution_modified: >-
+    Adapted by Environment Dashboard from Kulp, S. A. & Strauss, B. H. (2019). New elevation data triple estimates of
+    global vulnerability to sea-level rise and coastal flooding. Nature Communications 10, 4844.
+    doi:10.1038/s41467-019-12808-z. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: supplementary-data-1
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM4_ESM.csv
+    format: csv
+    description: >-
+      Supplementary Data 1: people (millions, 2010 population) on land below the future local high tide line (Perm)
+      and below it plus the local 1-year coastal flood return level (RL1), at present-day sea level and for 2050 and
+      2100 under K14 and K17 with RCP2.6, 4.5 and 8.5, by CoastalDEM, SRTM, JAXA and MERITDEM, as 5th, 50th and 95th
+      percentiles, for the World, the SIDS and 134 countries. 253,535 bytes.
+  - id: supplementary-descriptions
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-019-12808-z/MediaObjects/41467_2019_12808_MOESM3_ESM.pdf
+    format: pdf
+    description: >-
+      "Description of Additional Supplementary Files" (1 page): what Supplementary Data 1-5 contain, their units,
+      the meaning of Perm and RL1 and of the percentiles for K14 and K17, and the 0.01 million cut-off. 65,044 bytes.
+  - id: article-pdf
+    url: https://www.nature.com/articles/s41467-019-12808-z.pdf
+    format: pdf
+    description: >-
+      The corrected article (12 pages). Table 1 (page 3) prints the global CoastalDEM and SRTM totals as median and
+      90% interval for every projection, scenario and year, which the transform checks cell by cell against
+      Supplementary Data 1; the sentences the scope and the cross-checks rely on are on pages 1 to 3, 5 and 9, and
+      the licence on page 12. 3,903,782 bytes.
+    access: {conditional: false}
+status:
+  state: archived
+  note: >-
+    Published 29 October 2019 (volume 10) as a one-off study; Author Correction published 12 December 2019. No update
+    is planned.
+  us_federal: false
+update_cadence: One-off (published 2019, corrected 2019)
+twins: []
+research_ref: >-
+  docs/research/sources-consequences-2026-10-11.json#Kulp & Strauss 2019, 'New elevation data triple estimates of
+  global vulnerability to sea-level rise and coastal flooding' (Nature Communications 10:4844), Supplementary Data 1-4
+  CSVs
