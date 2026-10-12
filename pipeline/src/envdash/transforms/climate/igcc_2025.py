@@ -1,6 +1,6 @@
 """Indicators of Global Climate Change 2025 (IGCC; Forster et al. 2026, data release IGCC-2025a).
 
-Four indicators, all in this one module so that its sha256 (recorded in every processing step and build key) covers
+Five indicators, all in this one module so that its sha256 (recorded in every processing step and build key) covers
 every line of code that decides them:
 
 - warming.igcc-2025.human-induced-2025: IGCC's headline, human-induced warming in 2025 (1.37 [1.1 to 1.7] °C) by the
@@ -10,7 +10,9 @@ every line of code that decides them:
   annual-mean definition;
 - forcing.igcc-2025.erf-by-agent: effective radiative forcing by agent, 1750–2025, with the 5–95% range;
 - budget.igcc-2025.remaining-1p5: the remaining carbon budget for 1.5 °C (50% likelihood) from the start of 2026,
-  quoted from the paper and cross-checked against the data file it was rounded from.
+  quoted from the paper and cross-checked against the data file it was rounded from;
+- extremes.igcc-2025.txx-land: the land average of the hottest day of the year (TXx) relative to 1961–1990, ERA5
+  column only, 1950–2025.
 
 Dates and DOIs per origin. The data files (the zip and the CSVs) carry the release date of IGCC-2025a (22 July 2026)
 and the data DOI; the paper PDF carries the paper's publication date (11 June 2026) and its own DOI
@@ -67,6 +69,20 @@ it ("Estimates are expressed relative to the start of 2026.") must both be found
 The data file with the paper's Table 8 assumptions (MAGICC, 1.24 °C historical warming, 213 GtCO2 already emitted)
 must give a 1.5 °C, 50% value within 5 GtCO2 of the quoted figure: the paper says its values are rounded to the
 nearest 10 GtCO2, so a larger difference means the file and the paper do not describe the same estimate.
+
+Hottest day of the year over land. extreme_temperatures/txx_timeseries.csv gives, per year, the land average
+(excluding Antarctica) of each grid cell's highest daily maximum temperature, as an anomaly relative to 1961–1990, in
+three columns: ERA5 (1950–2025), Berkeley (1955–2023) and HadEX3 (1961–2018). Only ERA5 is published: the Berkeley
+column inherits Berkeley Earth's non-commercial terms, HadEX3 is Crown Copyright under the OGL and ends in 2018, and
+the three are not coverage-matched, so they are never blended (pipeline/sources/igcc-2025.yaml). Values are as
+printed; an empty ERA5 cell would be published as missing, never filled. Three of the paper's statements (ESSD Sect.
+10.1, PDF page 23, printed p. 3911) are found in the PDF and tied to the file on every build: the method ("converted
+to anomalies with respect to a base period of 1961–1990"), checked by the ERA5 mean over 1961–1990 being zero to the
+file's two decimals (the paper: anomalies "align by construction over this period"); the single offset IGCC adds to
+express TXx relative to 1850–1900 (0.51 °C), which is not applied here; and the 2025 value relative to 1850–1900 and
+its fall from 2024 (1.81 °C, a decrease of 0.54 °C), which must equal the file's 2025 value plus the offset and the
+file's 2024 value minus its 2025 value, exactly. TXx measures how hot the hottest day gets, not how often extremes
+occur, and the file attributes nothing to a cause.
 """
 
 from __future__ import annotations
@@ -107,6 +123,7 @@ ERF_BEST = Input(SOURCE, "erf-best-aggregates")
 ERF_P05 = Input(SOURCE, "erf-p05-aggregates")
 ERF_P95 = Input(SOURCE, "erf-p95-aggregates")
 RCB = Input(SOURCE, "rcb-magicc-hdt-1p24")
+TXX = Input(SOURCE, "txx-timeseries")
 PAPER = Input(SOURCE, "essd-paper-pdf")
 
 PAPER_DOI = "10.5194/essd-18-3889-2026"
@@ -784,6 +801,124 @@ def _headline(files: dict[str, InputFile]) -> Result:
     )
 
 
+# --- hottest day of the year over land (TXx) ---------------------------------------------------------------------
+
+TXX_COLUMNS = ["time", "timebound_lower", "timebound_upper", "ERA5", "Berkeley", "HadEX3"]
+TXX_COLUMN = "ERA5"
+TXX_BASE = ("1961", "1990")
+TXX_PAGE = 23
+"""PDF page 23 = printed p. 3911 (ESSD Sect. 10.1)."""
+TXX_METHOD_QUOTE = (
+    "TXx is calculated by averaging the annual maximum temperature over all available land grid points (excluding "
+    "Antarctica) and then converted to anomalies with respect to a base period of 1961–1990."
+)
+TXX_OFFSET_QUOTE = (
+    "To express the TXx as anomalies with respect to 1850–1900, we add an offset of 0.51 °C to all three datasets."
+)
+TXX_YEAR_QUOTE = (
+    "The ERA5 based TXx warming estimate w.r.t. 1850–1900 for 2025 is at 1.81 °C; a decrease of 0.54 °C compared to "
+    "2024, on par with the anomaly in 2022."
+)
+TXX_OFFSET = re.compile(r"we add an offset of (?P<offset>\d+\.\d+) °C")
+TXX_YEAR = re.compile(
+    r"for (?P<year>\d{4}) is at (?P<value>\d+\.\d+) °C; a decrease of (?P<drop>\d+\.\d+) °C compared to (?P<prev>\d{4})"
+)
+TXX_MISSING = "txx_timeseries.csv has no ERA5 value for this year"
+TXX_CDS_URL = (
+    "https://raw.githubusercontent.com/ClimateIndicator/data/0f2765dc2e96c98aebceb78fb12cd28fcfb9ac6f/data/CDS/csv/"
+    "temperature-extremes-land_land_input-datasets_datasets-all_annual-mean-timeseries_IGCC-2025a.csv"
+)
+
+
+def txx_series(raw: bytes) -> dict[str, Decimal | None]:
+    """{year: ERA5 TXx anomaly relative to 1961–1990, or None where the cell is empty}, in file order."""
+    name = "txx_timeseries.csv"
+    cols, rows = read_rows(raw, name, tuple(TXX_COLUMNS))
+    if cols != TXX_COLUMNS:
+        raise IgccFormatError(f"{name}: columns {cols} != expected {TXX_COLUMNS}")
+    out: dict[str, Decimal | None] = {}
+    last = ""
+    for r in rows:
+        p = annual_period(r, name)
+        if p <= last:
+            raise IgccFormatError(f"{name}: year {p} does not follow {last}")
+        last = p
+        cell = (r[TXX_COLUMN] or "").strip()
+        out[p] = Decimal(cell) if cell else None
+    return out
+
+
+def txx_base_mean(series: dict[str, Decimal | None]) -> Decimal:
+    """The mean ERA5 anomaly over 1961–1990, which must be zero to the file's two decimals if that is the base."""
+    lo, hi = TXX_BASE
+    years = [str(y) for y in range(int(lo), int(hi) + 1)]
+    vals = [series.get(y) for y in years]
+    if any(v is None for v in vals):
+        raise IgccFormatError(f"txx_timeseries.csv: ERA5 does not cover every year of {lo}–{hi}")
+    mean = sum((v for v in vals if v is not None), Decimal(0)) / Decimal(len(vals))
+    if abs(mean) >= Decimal("0.005"):
+        raise IgccFormatError(f"the ERA5 mean over {lo}–{hi} is {mean}, not zero: the base period is not {lo}–{hi}")
+    return mean
+
+
+def txx_paper_check(series: dict[str, Decimal | None], offset_quote: str, year_quote: str) -> tuple[Decimal, str]:
+    """Tie the paper's stated year value and fall to the file. Returns (offset, year)."""
+    mo, my = TXX_OFFSET.search(offset_quote), TXX_YEAR.search(year_quote)
+    if not mo or not my:
+        raise IgccFormatError("the TXx quotes no longer state the offset, the year's value and its fall")
+    offset, year, prev = Decimal(mo["offset"]), my["year"], my["prev"]
+    now, before = series.get(year), series.get(prev)
+    if now is None or before is None:
+        raise IgccFormatError(f"txx_timeseries.csv has no ERA5 value for {year} or {prev}")
+    if now + offset != Decimal(my["value"]) or before - now != Decimal(my["drop"]):
+        raise IgccFormatError(
+            f"the paper gives {my['value']} °C for {year} (a decrease of {my['drop']} from {prev}) relative to "
+            f"1850–1900, but the file gives {now} + {offset} = {now + offset} and a decrease of {before - now}"
+        )
+    return offset, year
+
+
+def _txx(files: dict[str, InputFile]) -> Result:
+    label, release = verify_against_zip(files, (TXX,))
+    pdf = files[PAPER.key]
+    pdf_bytes = pdf.path.read_bytes()
+    for q in (TXX_METHOD_QUOTE, TXX_OFFSET_QUOTE, TXX_YEAR_QUOTE):
+        verify_quote(pdf_bytes, TXX_PAGE, q)
+    series = txx_series(files[TXX.key].path.read_bytes())
+    mean = txx_base_mean(series)
+    offset, year = txx_paper_check(series, TXX_OFFSET_QUOTE, TXX_YEAR_QUOTE)
+    obs = [
+        Observation(
+            entity="WLD",
+            period=p,
+            value=None if v is None else float(v),
+            missing_reason=TXX_MISSING if v is None else None,
+        )
+        for p, v in series.items()
+    ]
+    years = [p for p, v in series.items() if v is not None]
+    return Result(
+        observations=obs,
+        vintage=label,
+        date_published=release.published.isoformat(),
+        origin_meta=_origin_meta(),
+        steps=[
+            _zip_step(label, files[ZIP.key], [files[TXX.key]]),
+            f"Read the {TXX_COLUMN} column of txx_timeseries.csv: the land average (excluding Antarctica) of each "
+            "grid cell's highest daily maximum temperature of the year, as an anomaly relative to 1961–1990 (°C), "
+            f"{years[0]}–{years[-1]}, as printed. The Berkeley column (Berkeley Earth's non-commercial terms) and the "
+            "HadEX3 column (ends in 2018) are not used; the three are not coverage-matched and are never combined.",
+            f"Checked against the paper (Forster et al. 2026, Sect. 10.1, page {TXX_PAGE} of the PDF snapshot, sha256 "
+            f"{pdf.snapshot.sha256[:12]}…), whose statements were found in its text before publishing: the base "
+            f"period is 1961–1990, and the ERA5 mean over those years is {mean.quantize(Decimal('0.001'))} °C, zero "
+            "to the file's two decimals; IGCC adds a single offset of "
+            f"{offset} °C to express TXx relative to 1850–1900, which is not applied here; and its {year} value "
+            "relative to 1850–1900 and fall from the year before equal the file's values plus that offset and their "
+            "difference, exactly.",
+        ],
+    )
+
+
 # --- transforms --------------------------------------------------------------------------------------------------
 
 
@@ -922,5 +1057,51 @@ def transforms(paths: Paths) -> list[Transform]:
             run=_budget,
             module_file=here,
             validation=Validation(min_rows=1, value_range=(0.0, 5000.0)),
+        ),
+        Transform(
+            spec=Spec(
+                id="extremes.igcc-2025.txx-land",
+                title="Hottest day of the year over land, relative to 1961–1990 (ERA5, IGCC 2025)",
+                description="How hot the hottest day of the year gets over land: each place's highest daily maximum "
+                "temperature of the year, averaged over all land except Antarctica, as the difference from its "
+                "1961–1990 average, each year from 1950. From the ERA5 reanalysis (a weather model constrained by "
+                "observations, not a direct measurement; values before the satellite era rest on fewer "
+                "observations), as calculated by Indicators of Global Climate Change 2025. It measures intensity, "
+                "how hot the hottest day is, not how often extremes happen, and it shows the change without "
+                "attributing it to a cause. IGCC adds a single 0.51 °C to express it relative to 1850–1900; that is "
+                "not added here. IGCC's Berkeley Earth and HadEX3 versions are not included: they are not "
+                "coverage-matched with ERA5, Berkeley Earth's terms are non-commercial, and HadEX3 ends in 2018.",
+                kind="series",
+                unit=DEGC,
+                display=Display(decimals=2),
+                scope=Scope(
+                    geography="Land, excluding Antarctica (average over all ERA5 land grid points)",
+                    baseline="1961–1990",
+                    basis="Annual maximum of the daily maximum temperature (TXx) in each grid cell, averaged over "
+                    "land. ERA5 reanalysis (Copernicus Climate Change Service, ECMWF), processed by IGCC (M. "
+                    "Hauser, D. Schumacher and S. Seneviratne, ETH Zürich). Anomalies relative to 1961–1990 as "
+                    "published; IGCC's single offset to 1850–1900 is not applied.",
+                ),
+                geo_coverage="global-only",
+                headline_entity="WLD",
+            ),
+            inputs=(ZIP, PAPER, TXX),
+            run=_txx,
+            module_file=here,
+            validation=Validation(min_rows=70, value_range=(-3.0, 4.0)),
+            checks=(
+                # The paper states TXx only relative to 1850–1900 (tied to the file in _txx). The producer's own
+                # statement on this base, for this release, is the 2025 ERA5 row of its Copernicus Climate Data Store
+                # version of the series, in the same release.
+                PublisherCheck(
+                    source_id=SOURCE,
+                    vintage="IGCC-2025a",
+                    entity="WLD",
+                    period="2025",
+                    stated="1.3",
+                    quote="ERA5,2025,1.3",
+                    url=TXX_CDS_URL,
+                ),
+            ),
         ),
     ]

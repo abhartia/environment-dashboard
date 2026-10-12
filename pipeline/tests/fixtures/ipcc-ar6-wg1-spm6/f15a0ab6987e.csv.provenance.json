@@ -1,0 +1,13 @@
+{
+  "artifact_id": "drought-freq-10yr",
+  "command": "uv run python tests/fixtures/make_fixture.py --source ipcc-ar6-wg1-spm6 --artifact drought-freq-10yr --whole",
+  "date_accessed": "2026-10-12",
+  "fixture_bytes": 189,
+  "fixture_sha256": "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac",
+  "full_bytes": 189,
+  "full_sha256": "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac",
+  "licence": "CC BY 4.0",
+  "rows_kept": "the whole file (189 bytes)",
+  "source_id": "ipcc-ar6-wg1-spm6",
+  "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_d/drought_freq_change_10_year_event.csv"
+}

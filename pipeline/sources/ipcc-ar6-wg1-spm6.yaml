@@ -1,0 +1,171 @@
+# IPCC AR6 Working Group I Figure SPM.6 data, archived at CEDA: how much more often, and how much more intensely, hot,
+# wet and dry extremes that were once-in-10 (or once-in-50) years in 1850-1900 occur at 1, 1.5, 2, 3 and 4 °C of
+# global warming, from the CMIP6 multi-model ensemble.
+# Evidence: docs/research/sources-extremes-2026-10-12.json (research[0] candidates[0], verification[0] verdicts[0];
+# verdict "corrected": the panel directories match the catalogue abstract and metadata.yaml, only the Readme's panel
+# letters are out of date; drought is computed over 16 of the 17 listed drying regions; the 1 °C column is not "today").
+# Licence evidence checked 2026-10-12: the CEDA catalogue record (HTTP 200) states the licence quoted below, and
+# 00README_catalogue_and_licence.txt in the data directory repeats it ("This dataset has been completed"). The
+# directory's License.txt (from the WGI Technical Support Unit) reads "This work is licensed under a Creative Commons
+# Attribution 4.0 International License.", and metadata.yaml reads "The data is made available under a Creative
+# Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/)." No file in the
+# directory restricts redistribution or derivatives. Only the IPCC's figure artwork stays display-only under
+# ipcc.ch/copyright (registered as ipcc-ar6-wg1-spm); the figure is redrawn from these files, never reproduced.
+# Artifacts checked 2026-10-12 (all HTTP 200 from dap.ceda.ac.uk with an ETag; version directory v20210809; the JSON
+# listing ?json gives the same sizes):
+#   panel_a/TXx_freq_change_10_year_event.csv      195 bytes, ETag "610d7c4b-c3", Last-Modified 06 Aug 2021
+#   panel_a/TXx_intens_change_10_year_event.csv    195 bytes, ETag "610d7c4c-c3"
+#   panel_b/TXx_freq_change_50_year_event.csv      210 bytes, ETag "610d7c4d-d2"
+#   panel_b/TXx_intens_change_50_year_event.csv    195 bytes, ETag "610d7c4e-c3"
+#   panel_c/Rx1day_freq_change_10_year_event.csv   195 bytes, ETag "610d7c50-c3"
+#   panel_c/Rx1day_intens_change_10_year_event.csv 208 bytes, ETag "610d7c50-d0"
+#   panel_d/drought_freq_change_10_year_event.csv  189 bytes, ETag "610d7c51-bd"
+#   panel_d/drought_intens_change_10_year_event.csv 211 bytes, ETag "610d7c51-d3"
+#   Readme_for_figure_SPM6.txt 10,656 bytes; metadata.yaml 9,930 bytes; License.txt 1,038 bytes.
+# Every CSV has CRLF line endings and the header "warming_level,50th,17th,83th,5th,95th" (sic "83th"); the heat and
+# rain frequency files end each line with a comma, the Rx1day intensity and drought files do not. The 3.0 °C row is
+# in every file but not in the published figure, which shows 1, 1.5, 2 and 4 °C.
+# Panel layout: the catalogue abstract and metadata.yaml map panel a to the 10-year hot extreme, b to the 50-year hot
+# extreme, c to heavy precipitation and d to drought, matching the directories. The Readme (written 2021-07-04) still
+# calls precipitation "Panel b" and drought "Panel c", and lists the 83rd-percentile unit of drought intensity as "%"
+# (a typo for standard deviation). The directories and metadata.yaml are followed.
+# citation.text: CEDA's "Citable as" text, with its "date of citation" filled from the access date, then the report
+# citation CEDA asks to include, both as printed on the catalogue record. The report is published (Cambridge
+# University Press, 2021, pp. 3-32, doi:10.1017/9781009157896.001).
+id: ipcc-ar6-wg1-spm6
+title: IPCC AR6 WGI Figure SPM.6 data
+publisher: IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis
+landing_url: https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/
+description: >-
+  The data behind Figure SPM.6 of the IPCC Sixth Assessment Report (Working Group I): projected changes, relative to
+  1850-1900 (1851-1900 for heat and rain), in how often and how intensely extremes occur at global warming levels of
+  1, 1.5, 2, 3 and 4 °C, from CMIP6 multi-model simulations under several scenarios. Panel a: the hottest day of the
+  year over global land (TXx) that was a 1-in-10-year event; panel b: the same for a 1-in-50-year event; panel c: the
+  wettest day of the year over global land (Rx1day), 1-in-10-year event; panel d: agricultural and ecological drought
+  (annual mean total-column soil moisture below the 1850-1900 10th percentile) in the AR6 regions projected to dry.
+  Each file gives the multi-model median and the 17th/83rd and 5th/95th percentiles. Frequency is a multiplier (how
+  many times as often); intensity is in °C (heat), percent (rain) or standard deviations of soil moisture (drought).
+  Model results, not observations.
+citation:
+  type: dataset
+  title: >-
+    Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth Assessment Report - data for Figure
+    SPM.6 (v20210809)
+  author:
+    - {family: Li, given: C.}
+    - {family: Hauser, given: M.}
+  issued: "2021-08-09"
+  publisher: NERC EDS Centre for Environmental Data Analysis
+  version: v20210809
+  DOI: 10.5285/93d1b84fbb144901809eaf67b35eb5c4
+  URL: https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/
+  text: >-
+    Li, C.; Hauser, M. (2021): Summary for Policymakers of the Working Group I Contribution to the IPCC Sixth
+    Assessment Report - data for Figure SPM.6 (v20210809). NERC EDS Centre for Environmental Data Analysis,
+    {date_accessed}. doi:10.5285/93d1b84fbb144901809eaf67b35eb5c4. IPCC, 2021: Summary for Policymakers. In: Climate
+    Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the
+    Intergovernmental Panel on Climate Change [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S.
+    Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K.
+    Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)]. Cambridge University Press, Cambridge, United
+    Kingdom and New York, NY, USA, pp. 3−32, doi:10.1017/9781009157896.001.
+licence_class: open
+licence:
+  name: CC BY 4.0
+  spdx: CC-BY-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+evidence:
+  terms_url: https://catalogue.ceda.ac.uk/uuid/93d1b84fbb144901809eaf67b35eb5c4/
+  licence_quote: >-
+    Use of these data is covered by the following licence(s): http://creativecommons.org/licenses/by/4.0/ When using
+    these data you must cite them correctly using the citation given on the CEDA Data Catalogue record.
+  checked_on: 2026-10-12
+  terms_check: page
+obligations:
+  attribution: >-
+    Li & Hauser (2021), data for IPCC AR6 WGI Figure SPM.6 (v20210809), NERC EDS Centre for Environmental Data
+    Analysis, doi:10.5285/93d1b84fbb144901809eaf67b35eb5c4; IPCC, 2021: Summary for Policymakers, in Climate Change
+    2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.
+  attribution_modified: >-
+    Calculated by Environment Dashboard from Li & Hauser (2021), data for IPCC AR6 WGI Figure SPM.6 (v20210809), NERC
+    EDS Centre for Environmental Data Analysis, doi:10.5285/93d1b84fbb144901809eaf67b35eb5c4; IPCC, 2021: Summary for
+    Policymakers, in Climate Change 2021: The Physical Science Basis, doi:10.1017/9781009157896.001. CC BY 4.0.
+  mirror_raw: true
+acquisition: automatic
+artifacts:
+  - id: txx-freq-10yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_a/TXx_freq_change_10_year_event.csv
+    format: csv
+    description: >-
+      Panel a: frequency change (multiplier, relative to 1851-1900) of the 1-in-10-year hottest day of the year over
+      global land (TXx) at each warming level; median, 17th, 83rd, 5th and 95th percentiles of the CMIP6 ensemble.
+  - id: txx-intens-10yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_a/TXx_intens_change_10_year_event.csv
+    format: csv
+    description: >-
+      Panel a: intensity change (degrees C) of the 1-in-10-year hottest day of the year over global land, same
+      percentiles. Not published this round.
+  - id: txx-freq-50yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_b/TXx_freq_change_50_year_event.csv
+    format: csv
+    description: >-
+      Panel b: frequency change (multiplier, relative to 1851-1900) of the 1-in-50-year hottest day of the year over
+      global land, same percentiles.
+  - id: txx-intens-50yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_b/TXx_intens_change_50_year_event.csv
+    format: csv
+    description: >-
+      Panel b: intensity change (degrees C) of the 1-in-50-year hottest day of the year over global land. Not published
+      this round.
+  - id: rx1day-freq-10yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_c/Rx1day_freq_change_10_year_event.csv
+    format: csv
+    description: >-
+      Panel c: frequency change (multiplier, relative to 1851-1900) of the 1-in-10-year wettest day of the year over
+      global land (Rx1day), same percentiles.
+  - id: rx1day-intens-10yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_c/Rx1day_intens_change_10_year_event.csv
+    format: csv
+    description: >-
+      Panel c: intensity change (percent) of the 1-in-10-year wettest day of the year over global land. Not published
+      this round.
+  - id: drought-freq-10yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_d/drought_freq_change_10_year_event.csv
+    format: csv
+    description: >-
+      Panel d: frequency change (multiplier, relative to 1850-1900) of the 1-in-10-year agricultural and ecological
+      drought (annual mean total-column soil moisture below the 1850-1900 10th percentile) in the drying regions, same
+      percentiles.
+  - id: drought-intens-10yr
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_d/drought_intens_change_10_year_event.csv
+    format: csv
+    description: >-
+      Panel d: change in soil moisture (standard deviations; negative means drier) during the 1-in-10-year drought in
+      the drying regions. Not published this round.
+  - id: metadata
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/metadata.yaml
+    format: txt
+    description: >-
+      metadata.yaml (JSON text despite its name): the full figure caption, including the list of drying regions and
+      the note that the Caribbean is not included in the calculation, and the mapping of each data file to its panel.
+  - id: readme
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/Readme_for_figure_SPM6.txt
+    format: txt
+    description: >-
+      The data creators' Readme: column definitions and the paper each panel is based on (Li et al. 2021, Journal of
+      Climate 34(9); AR6 Figure 11.18 for drought). Its panel letters for precipitation and drought predate the
+      published layout.
+  - id: licence-txt
+    url: https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/License.txt
+    format: txt
+    description: The licence statement in the data directory (CC BY 4.0) and the citation the IPCC asks for.
+status:
+  state: archived
+  note: >-
+    Final archive of a published assessment figure (CEDA: "This dataset has been completed", update frequency "Not
+    Planned"). The IPCC Seventh Assessment Report will supersede it.
+  us_federal: false
+update_cadence: Static (final; superseded only by the next IPCC assessment)
+twins: []
+research_ref: >-
+  docs/research/sources-extremes-2026-10-12.json#IPCC AR6 WGI Figure SPM.6 data: how much more often and how much
+  stronger hot, wet and dry extremes get at 1, 1.5, 2, 3 and 4 °C of warming

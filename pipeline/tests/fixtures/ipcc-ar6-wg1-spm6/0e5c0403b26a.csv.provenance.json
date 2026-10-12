@@ -1,0 +1,13 @@
+{
+  "artifact_id": "txx-freq-10yr",
+  "command": "uv run python tests/fixtures/make_fixture.py --source ipcc-ar6-wg1-spm6 --artifact txx-freq-10yr --whole",
+  "date_accessed": "2026-10-12",
+  "fixture_bytes": 195,
+  "fixture_sha256": "0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758",
+  "full_bytes": 195,
+  "full_sha256": "0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758",
+  "licence": "CC BY 4.0",
+  "rows_kept": "the whole file (195 bytes)",
+  "source_id": "ipcc-ar6-wg1-spm6",
+  "url": "https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_06/v20210809/panel_a/TXx_freq_change_10_year_event.csv"
+}

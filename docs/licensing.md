@@ -35,6 +35,8 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `imbie-2026` | IMBIE Team (led from Northumbria University); archived by the NERC EDS UK Polar Data Centre | Open Government Licence v3.0 | open | yes | automatic | 2026-10-04 (page) |
 | `ipcc-ar6-sea-level-projections` | IPCC AR6 Working Group I Chapter 9 authors (Garner, Kopp et al.), on Zenodo | CC BY 4.0 | open | no | manual | 2026-10-04 (page) |
 | `ipcc-ar6-wg1-spm1` | IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis | CC BY 4.0 | open | yes | automatic | 2026-10-04 (page) |
+| `ipcc-ar6-wg1-spm3` | IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis | CC BY 4.0 | open | yes | automatic | 2026-10-12 (page) |
+| `ipcc-ar6-wg1-spm6` | IPCC Working Group I Technical Support Unit; archived by the NERC EDS Centre for Environmental Data Analysis | CC BY 4.0 | open | yes | automatic | 2026-10-12 (page) |
 | `igcc-2025` | Indicators of Global Climate Change (IGCC) consortium, led by the University of Leeds | CC BY 4.0 | open | yes | automatic | 2026-10-04 (api) |
 | `iea-ccus-projects` | International Energy Agency | CC BY 4.0, subject to the IEA Notice for CC-licensed Content | open | yes | automatic | 2026-10-08 (manual) |
 | `iea-efuels-2023` | International Energy Agency | CC BY 4.0, subject to the IEA Notice for CC-licensed Content | open | no | automatic | 2026-10-08 (pdf) |
@@ -108,4 +110,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-103 sources: 83 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
+105 sources: 85 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
