@@ -34,8 +34,9 @@ INDICATOR_ID = re.compile(r"^[a-z0-9-]+(\.[a-z0-9-]+){1,3}$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 # ISO 8601 calendar periods we publish: year, year-month, date. Ranges use "/" (e.g. "2012/2021").
 PERIOD = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?(/\d{4}(-\d{2}(-\d{2})?)?)?$")
-# ISO 3166-1 alpha-3 for countries, or our aggregate codes from geo/entities.csv (WLD, EU27, ...).
-ENTITY = re.compile(r"^[A-Z0-9_]{2,12}$")
+# ISO 3166-1 alpha-3 for countries, or our aggregate codes from geo/entities.csv (WLD, EU27, ...), or a CCKP region
+# code: its country's three letters, a dot and digits (IND.11510, Delhi; up to CHN.147295898), kept as CCKP writes it.
+ENTITY = re.compile(r"^(?:[A-Z0-9_]{2,12}|[A-Z]{3}\.\d{1,12})$")
 
 
 def _match(pattern: re.Pattern[str], what: str):
@@ -264,6 +265,7 @@ ArtifactFormat = Literal[
 ]
 """A shapefile's parts are separate artifacts: shp (geometry), shx (its index) and dbf (the attribute table); its .prj
 (coordinate system, WKT) and .cpg (code page) are plain text, so txt."""
+ContentKey = Literal["zip-members", "xlsx-members"]
 
 
 class Artifact(Strict):
@@ -280,12 +282,13 @@ class Artifact(Strict):
     discover: Discover | None = Field(
         default=None, description="Find the URL from a listing at each fetch, for files whose names change."
     )
-    content_key: Literal["zip-members"] | None = Field(
+    content_key: ContentKey | None = Field(
         default=None,
         description="For files rebuilt on every request (a zip generated per download): zip-members fingerprints the "
-        "sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. "
-        "A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest "
-        "records both the raw sha256 and this content_sha256.",
+        "sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression; "
+        "xlsx-members does the same for a workbook, leaving out docProps/core.xml (the creator and the time the "
+        "workbook was generated). A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new "
+        "vintage); the manifest records both the raw sha256 and this content_sha256.",
     )
     member_name_ignore: str | None = Field(
         default=None,
@@ -305,6 +308,8 @@ class Artifact(Strict):
             raise ValueError(f"artifact {self.id}: set url or discover, not both")
         if self.content_key == "zip-members" and self.format != "zip":
             raise ValueError(f"artifact {self.id}: content_key zip-members needs format zip")
+        if self.content_key == "xlsx-members" and self.format != "xlsx":
+            raise ValueError(f"artifact {self.id}: content_key xlsx-members needs format xlsx")
         if self.zip_member is not None:
             if self.url is None:
                 raise ValueError(f"artifact {self.id}: zip_member needs the zip's url")
@@ -401,7 +406,7 @@ class Snapshot(Strict):
     discovery: SnapshotDiscovery | None = Field(
         default=None, description="For artifacts with discover: the listing that url was resolved from."
     )
-    content_key: Literal["zip-members"] | None = Field(
+    content_key: ContentKey | None = Field(
         default=None, description="The artifact's content_key when these bytes were recorded."
     )
     content_sha256: Sha256 | None = Field(
@@ -454,6 +459,9 @@ class Dimension(Strict):
 
 
 Interval = Literal["1sigma", "2sigma", "90ci", "95ci", "likely", "very-likely", "range"]
+# What an indicator's entities are: the world only, countries (and territories), states or provinces within countries
+# (subnational: CCKP regions), or a mix of the world and countries.
+GeoCoverage = Literal["global-only", "country", "subnational", "mixed"]
 
 TimeBasis = Literal["calendar", "years-before-1950"]
 """How an indicator's observations are placed in time.
@@ -590,7 +598,7 @@ class IndicatorBase(Strict):
     unit: Unit
     display: Display
     scope: Scope
-    geo_coverage: Literal["global-only", "country", "mixed"]
+    geo_coverage: GeoCoverage
     headline_entity: EntityCode = Field(description="The entity whose latest value is the headline (usually WLD).")
     time_basis: TimeBasis = Field(
         default="calendar",
@@ -853,7 +861,7 @@ class CatalogEntry(Strict):
         description="The headline value. Null for no-derivatives and display-only indicators: their values never "
         "appear under data/, so the site reads them from the private export on the server."
     )
-    geo_coverage: Literal["global-only", "country", "mixed"]
+    geo_coverage: GeoCoverage
     entities: list[EntityCode]
     downloadable: bool = Field(description="True only for redistributable classes.")
     export_sha256: Sha256 = Field(description="sha256 of the canonical indicator JSON (public or private).")
@@ -986,7 +994,7 @@ class LiteratureValue(Strict):
     unit: Unit
     display: Display
     scope: Scope
-    geo_coverage: Literal["global-only", "country", "mixed"]
+    geo_coverage: GeoCoverage
     headline_entity: EntityCode
     vintage: str = Field(description='The edition of the document quoted, e.g. "AR6 WGIII (2022)".')
     locator: str = Field(description='Where in the document, as printed, e.g. "SPM statement C.12, p. 37".')

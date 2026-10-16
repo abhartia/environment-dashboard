@@ -9,6 +9,11 @@ zip-members: sha256 of the compact UTF-8 JSON array [[name, sha256 of the member
 every file member (directory entries skipped). Zip timestamps, member order, compression and comments do not enter
 it. With member_name_ignore, every match of that regex is removed from each name first (FAO stamps the download date
 into every member name); two members whose names become equal is an error.
+
+xlsx-members: the same fingerprint of a workbook (an xlsx is a zip), without its docProps/core.xml: the core document
+properties, where a workbook built per request records the time it was built (CCKP's API stamps dcterms:created and
+dcterms:modified with the request time; every other member of two downloads 80 s apart was byte-identical). The
+sheets, shared strings, styles and the other properties all enter it.
 """
 
 from __future__ import annotations
@@ -26,7 +31,13 @@ class ContentKeyError(ValueError):
     pass
 
 
-def zip_members_sha256(data: bytes, member_name_ignore: str | None = None) -> str:
+# The workbook member that records when it was built (Office Open XML core properties).
+XLSX_CORE_PROPERTIES = "docProps/core.xml"
+
+
+def zip_members_sha256(
+    data: bytes, member_name_ignore: str | None = None, *, leave_out: frozenset[str] = frozenset()
+) -> str:
     try:
         z = zipfile.ZipFile(io.BytesIO(data))
     except zipfile.BadZipFile as e:
@@ -34,8 +45,12 @@ def zip_members_sha256(data: bytes, member_name_ignore: str | None = None) -> st
     rx = re.compile(member_name_ignore) if member_name_ignore else None
     members: dict[str, str] = {}
     with z:
+        names = {info.filename for info in z.infolist()}
+        missing = sorted(leave_out - names)
+        if missing:
+            raise ContentKeyError(f"the zip has no member {missing}, which this content key leaves out by name")
         for info in z.infolist():
-            if info.is_dir():
+            if info.is_dir() or info.filename in leave_out:
                 continue
             name = rx.sub("", info.filename) if rx else info.filename
             if name in members:
@@ -53,4 +68,6 @@ def content_sha256(art: Artifact, data: bytes) -> str | None:
         return None
     if art.content_key == "zip-members":
         return zip_members_sha256(data, art.member_name_ignore)
+    if art.content_key == "xlsx-members":
+        return zip_members_sha256(data, art.member_name_ignore, leave_out=frozenset({XLSX_CORE_PROPERTIES}))
     raise ContentKeyError(f"unknown content_key {art.content_key!r}")

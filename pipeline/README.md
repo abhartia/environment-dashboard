@@ -22,7 +22,7 @@ Run everything from `pipeline/` with uv: `uv run envdash --help`, `uv run envdas
 | `envdash openapi [--stdout]` | Write `schema/openapi.json` from the models (the web generates its client from it with `npm run gen:api`); `--stdout` prints it for drift checks. |
 | `envdash private push` | After a build, upload every no-derivatives and display-only export the catalogue lists to the private R2 bucket. |
 | `envdash private pull` | Before a web build elsewhere, download those private exports, each checked against the catalogue's `export_sha256`. |
-| `envdash geo build` | Rebuild `geo/entities.csv` (the entity crosswalk) from the current Natural Earth snapshots and the stations, aggregates and territories declared in `envdash/geo.py`. |
+| `envdash geo build` | Rebuild `geo/entities.csv` (the entity crosswalk) from the current Natural Earth snapshots, CCKP's names of its states and provinces (`wb-cckp/subnational-names`), and the stations, aggregates and territories declared in `envdash/geo.py`. |
 | `envdash geo shapes [--force]` | Rebuild the map files in `data/v1/geo/` (`envdash/geo_shapes.py`): World Bank GAD V1 boundaries simplified into TopoJSON, CCKP's regions matched to them, the index and the crosswalk. `envdash build` runs it when its build key changed; it stops on any match it cannot make without a declaration in `geo/cckp-adm1-declared.csv`. |
 | `envdash docs licensing` | Regenerate `../docs/licensing.md` (every registered source, its licence, class, mirror rule and terms check) from `sources/*.yaml`. Run it after any registry change; a test fails if it is stale. |
 | `envdash report-issues` | In CI: open, update or close one GitHub issue per failed source, and file an issue when a source's next release is due. |
