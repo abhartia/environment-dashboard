@@ -10,6 +10,8 @@
 //  - a data file in out/ that doesn't match data/SHA256SUMS (proves sync-data copied exactly)
 //  - a published (redistributable) indicator that no dashboard view shows
 //  - any file over 20 MiB, or more than 15,000 files (Cloudflare Pages: 20,000 files, 25 MiB each)
+//  - a future-map value that differs from its published observation, a future map not served, a search place that
+//    opens no future view, a search index over 1 MiB, or map files whose licence forbids redistribution
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
@@ -82,6 +84,82 @@ for (const f of files.filter((f) => rel(f).startsWith("dash-data/") && f.endsWit
 }
 for (const e of indicators.values()) {
   if (e.downloadable && !shown.has(e.id)) fail(`${e.id} is published but no dashboard view shows it (add it to a node in web/src/lib/dash/)`);
+}
+
+// --- The future map: every value is the published one, every map and place is served ---------------------------
+// A future node (out/dash-data/future/<node>.json) carries every value a reader can choose (lib/dash/future-tree.ts).
+// Each cell [median, 10th, 90th percentile] must equal its observation in the indicator the panel traces it to (the
+// regions' file for a region, the countries' file otherwise), and a cell must be null exactly where no row exists.
+
+const SEARCH_MAX_BYTES = 1024 * 1024;
+const FUTURE_NODE_MAX_BYTES = 2 * 1024 * 1024;
+const tables = new Map();
+function rowsOf(id) {
+  if (tables.has(id)) return tables.get(id);
+  const path = join(DATA, "v1/indicators", `${id}.json`);
+  const out = new Map();
+  if (!existsSync(path)) fail(`future: ${id} is not in data/v1/indicators`);
+  else {
+    const t = JSON.parse(readFileSync(path, "utf8")).table;
+    for (let i = 0; i < t.entity.length; i++) {
+      out.set(`${t.entity[i]}|${t.period[i]}|${t.dims.scenario[i]}`, [t.value[i], t.lower?.[i] ?? null, t.upper?.[i] ?? null]);
+    }
+  }
+  tables.set(id, out);
+  return out;
+}
+// The map files are public downloads like any data file: shapes whose terms forbid redistribution are never served.
+{
+  const geoIndex = join(DATA, "v1/geo/index.json");
+  if (existsSync(geoIndex)) {
+    const cls = JSON.parse(readFileSync(geoIndex, "utf8")).licence_class;
+    if (!["open", "share-alike", "noncommercial"].includes(cls) && existsSync(join(OUT, "data/v1/geo"))) {
+      fail(`data/v1/geo is ${cls}: map files whose terms forbid redistribution are served`);
+    }
+  }
+}
+const futureDir = join(OUT, "dash-data/future");
+const futureNodes = new Map();
+for (const f of files.filter((f) => rel(f).startsWith("dash-data/future/"))) {
+  const r = rel(f);
+  if (statSync(f).size > FUTURE_NODE_MAX_BYTES) fail(`${r}: ${statSync(f).size} bytes, over ${FUTURE_NODE_MAX_BYTES}`);
+  const node = JSON.parse(readFileSync(f, "utf8"));
+  futureNodes.set(node.id, node);
+  const p = node.future;
+  if (!p) {
+    fail(`${r}: a future node without its payload`);
+    continue;
+  }
+  if (p.geo !== null && !existsSync(join(OUT, "data", p.geo))) fail(`${r}: its map ${p.geo} is not served`);
+  for (const m of p.measures) {
+    for (const [slice, cells] of Object.entries(p.values[m.key] ?? {})) {
+      const [period, scenario] = slice.split("|");
+      if (cells.length !== p.places.length) fail(`${r}: ${m.key} ${slice} has ${cells.length} cells for ${p.places.length} places`);
+      p.places.forEach((place, i) => {
+        const id = place.kind === "region" ? m.regions : m.countries;
+        const want = rowsOf(id).get(`${place.entity}|${period}|${scenario}`) ?? null;
+        const got = cells[i];
+        if (JSON.stringify(want) !== JSON.stringify(got)) {
+          fail(`${r}: ${m.key} ${place.entity} ${slice} is ${JSON.stringify(got)}, published ${JSON.stringify(want)} in ${id}`);
+        }
+      });
+    }
+  }
+}
+if (existsSync(futureDir) && !futureNodes.has("root")) fail("dash-data/future/root.json is missing");
+{
+  const index = join(OUT, "search-index.json");
+  if (!existsSync(index)) fail("search-index.json is missing");
+  else {
+    if (statSync(index).size > SEARCH_MAX_BYTES) fail(`search-index.json: ${statSync(index).size} bytes, over ${SEARCH_MAX_BYTES}`);
+    // Every place the search offers opens a future view that has it.
+    for (const item of JSON.parse(readFileSync(index, "utf8")).filter((i) => i.kind === "place")) {
+      const q = new URLSearchParams(item.href.replace(/^\/\?/, ""));
+      const node = futureNodes.get(`c-${q.get("c")}`);
+      if (q.get("mode") !== "future" || !node) fail(`search: ${item.title} opens ${item.href}, which has no future view`);
+      else if (q.get("r") && !node.future.places.some((p) => p.entity === q.get("r"))) fail(`search: ${item.title} names a region c-${q.get("c")} does not have`);
+    }
+  }
 }
 
 // --- Sitemap and canonicals -----------------------------------------------------------------

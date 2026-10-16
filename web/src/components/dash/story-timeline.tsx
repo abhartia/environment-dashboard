@@ -2,11 +2,10 @@
 
 import { area as d3area, line as d3line, stack as d3stack, stackOffsetNone, stackOrderNone } from "d3-shape";
 import { scaleLinear } from "d3-scale";
-import { RotateCcw } from "lucide-react";
-import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useTransform, type MotionValue } from "motion/react";
+import { motion, useTransform, type MotionValue } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment } from "react";
 
 import type { StoryBand, StoryRow, StoryValue } from "@/lib/dash/story";
 import type { SeriesPoint } from "@/lib/dash/types";
@@ -14,146 +13,28 @@ import { formatReadable } from "@/lib/format";
 import { dataPath } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
+import { STAGGER_MS, type Sweep } from "./story-sweep";
+import { useSize } from "./use-size";
+
 const RDBU = ["#053061", "#2166ac", "#4393c3", "#92c5de", "#d1e5f0", "#f7f7f7", "#fddbc7", "#f4a582", "#d6604d", "#b2182b", "#67001f"];
-const SWEEP_SECONDS = 7;
-const EASE_SWEEP = [0.45, 0, 0.25, 1] as const;
 /** The story's two columns (words, charts), shared by the grid, the list and each row so they line up exactly. */
 const COLUMNS = "grid-cols-[8.5rem_minmax(0,1fr)] sm:grid-cols-[17rem_minmax(0,1fr)] lg:grid-cols-[19rem_minmax(0,1fr)]";
-/** The landing beat: bands settle into ink one after another, this far apart. */
-const STAGGER_MS = 80;
 
 /**
- * The climate story on one screen: seven published series on one time axis, in causal order, each with a band under
- * its chart saying what that change means for people. On arrival a cursor sweeps from 1850 to today, each line drawing
- * behind it and each number reading the value at that moment; a band appears once its own record (or its claim)
- * begins, so the change is drawn first and what it means lands at the end. Moving across a chart travels in time;
- * selecting a row opens its chapter, and a band opens the view it quotes. Every number is a published value and links
- * to its source, whatever moment it shows.
+ * The climate story's body: seven published series on one time axis, in causal order, each with a band under its chart
+ * saying what that change means for people. Its clock (the sweep from 1850 to today, scrubbing, resting) is owned by the
+ * home canvas, which also draws the header; here each line draws behind the cursor and each number reads the value at
+ * that moment. A band appears once its own record (or its claim) begins, so the change is drawn first and what it means
+ * lands at the end. Moving across a chart travels in time; selecting a row opens its chapter, and a band opens the view
+ * it quotes. Every number is a published value and links to its source, whatever moment it shows.
  */
-export function StoryTimeline({ rows, from, to }: { rows: StoryRow[]; from: number; to: number }) {
-  const reduce = useReducedMotion();
+export function StoryTimeline({ rows, from, to, sweep }: { rows: StoryRow[]; from: number; to: number; sweep: Sweep }) {
   const router = useRouter();
-  const cursor = useMotionValue(to);
-  const [t, setT] = useState(to);
-  // Once the sweep lands on today the bands settle into ink; while it travels they are drawn in the muted colour. The
-  // settling is staggered once, on landing (beat); scrubbing shows and hides bands at once.
-  const [landed, setLanded] = useState(true);
-  const [beat, setBeat] = useState(false);
-  const sweep = useRef<ReturnType<typeof animate> | null>(null);
-  const restTimer = useRef<number | null>(null);
-  const beatTimer = useRef<number | null>(null);
-  useMotionValueEvent(cursor, "change", (v) => setT(v));
-
-  function run(delay: number) {
-    sweep.current?.stop();
-    cursor.set(from);
-    let started = false;
-    sweep.current = animate(cursor, to, {
-      duration: SWEEP_SECONDS,
-      ease: EASE_SWEEP,
-      delay,
-      onUpdate: () => {
-        if (started) return;
-        started = true;
-        setLanded(false);
-      },
-      onComplete: () => {
-        setLanded(true);
-        setBeat(true);
-        if (beatTimer.current !== null) window.clearTimeout(beatTimer.current);
-        beatTimer.current = window.setTimeout(() => setBeat(false), rows.length * STAGGER_MS + 300);
-      },
-    });
-  }
-
-  function play() {
-    if (reduce) {
-      sweep.current?.stop();
-      cursor.set(to);
-      setLanded(true);
-      return;
-    }
-    run(0);
-  }
-
-  useEffect(() => {
-    if (reduce) return;
-    run(0.4);
-    return () => {
-      sweep.current?.stop();
-      if (restTimer.current !== null) window.clearTimeout(restTimer.current);
-      if (beatTimer.current !== null) window.clearTimeout(beatTimer.current);
-    };
-    // The sweep runs once on arrival; replays go through play().
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cursor, from, to, reduce]);
-
-  function scrub(e: React.PointerEvent<HTMLElement>) {
-    if (restTimer.current !== null) {
-      window.clearTimeout(restTimer.current);
-      restTimer.current = null;
-    }
-    const rect = e.currentTarget.getBoundingClientRect();
-    const frac = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-    sweep.current?.stop();
-    setLanded(true);
-    cursor.set(from + frac * (to - from));
-  }
-
-  function rest() {
-    if (restTimer.current !== null) {
-      window.clearTimeout(restTimer.current);
-      restTimer.current = null;
-    }
-    sweep.current?.stop();
-    setLanded(true);
-    sweep.current = animate(cursor, to, { duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] });
-  }
-
-  /** Leaving one chart for the next is not leaving the story: rest only if no chart is entered again soon. */
-  function leave() {
-    restTimer.current = window.setTimeout(rest, 120);
-  }
-
-  /** Keyboard focus ends the sweep at once, so every number and band is there to read and reach. */
-  function settle(e: React.FocusEvent<HTMLElement>) {
-    if (atRest || !(e.target as HTMLElement).matches(":focus-visible")) return;
-    if (restTimer.current !== null) {
-      window.clearTimeout(restTimer.current);
-      restTimer.current = null;
-    }
-    sweep.current?.stop();
-    cursor.set(to);
-    setLanded(true);
-  }
-
-  const atRest = Math.abs(t - to) < 1e-6;
+  const { cursor, t, atRest, landed, beat, scrub, rest, leave, settle } = sweep;
   const ticks = scaleLinear().domain([from, to]).ticks(6).filter(Number.isInteger);
 
   return (
-    <div className="flex h-full flex-col py-3 sm:py-5" onFocus={settle}>
-      <div className="flex items-end justify-between gap-4 pb-2 sm:pb-4">
-        <div>
-          <h1 className="text-2xl sm:text-4xl">The climate, {from} to today</h1>
-          <p className="mt-1 hidden text-sm text-muted-foreground sm:block [@media(max-height:600px)]:hidden">
-            One story in seven measurements, and what they mean for people. Move across them to travel in time; select one to dig in.
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={play}
-            aria-label="Play the story again"
-            className="grid size-8 place-items-center rounded-full border border-border text-muted-foreground hover:border-foreground hover:text-foreground"
-          >
-            <RotateCcw aria-hidden className="size-4" />
-          </button>
-          <p className="text-4xl font-black tracking-tighter num sm:text-6xl" aria-live="off">
-            {Math.floor(t)}
-          </p>
-        </div>
-      </div>
-
+    <div className="flex h-full min-h-0 flex-col" onFocus={settle}>
       <div className={cn("grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto]", COLUMNS)}>
         {/*
           One list, a row per step: its words and number, then its chart and band, so keyboard order runs row by row.
@@ -355,7 +236,7 @@ function Band({
 
 /** The quoted view's own series as a faint line on the story's time axis, drawn behind the same cursor. */
 function BandLine({ id, points, from, to, cursor }: { id: string; points: SeriesPoint[]; from: number; to: number; cursor: MotionValue<number> }) {
-  const { ref, size } = useSize();
+  const { ref, size } = useSize<SVGSVGElement>();
   const w = size?.w ?? 0;
   const h = size?.h ?? 0;
   const x = scaleLinear().domain([from, to]).range([0, w]);
@@ -389,26 +270,13 @@ function BandLine({ id, points, from, to, cursor }: { id: string; points: Series
   );
 }
 
-function useSize() {
-  const ref = useRef<SVGSVGElement>(null);
-  const [size, setSize] = useState<{ w: number; h: number } | null>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const ro = new ResizeObserver(([e]) => setSize({ w: Math.max(50, Math.round(e.contentRect.width)), h: Math.max(16, Math.round(e.contentRect.height)) }));
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-  return { ref, size };
-}
-
 function stripeColour(v: number, lo: number, hi: number): string {
   const s = v < 0 ? -Math.min(1, v / lo) : Math.min(1, v / hi);
   return RDBU[Math.round(((s + 1) / 2) * (RDBU.length - 1))];
 }
 
 function RowChart({ row, from, to, cursor }: { row: StoryRow; from: number; to: number; cursor: MotionValue<number> }) {
-  const { ref, size } = useSize();
+  const { ref, size } = useSize<SVGSVGElement>();
   const w = size?.w ?? 0;
   const h = size?.h ?? 0;
   const pad = 6;

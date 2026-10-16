@@ -6,6 +6,7 @@ import path from "node:path";
 import type {
   Catalog,
   CatalogEntry,
+  GeoIndex,
   Indicator,
   IndicatorFile,
   Observation,
@@ -75,6 +76,17 @@ export function source(id: string): Source {
 
 export function status(): Status {
   return readJson<Status>("status.json");
+}
+
+/** The map shapes' index (data/v1/geo/index.json): each file, its origins, licence and credit. */
+export function geoIndex(): GeoIndex {
+  return readJson<GeoIndex>("geo/index.json");
+}
+
+/** The map files built from a source (its shapes are published, though it publishes no numbers). */
+export function geoFilesOfSource(sourceId: string): GeoIndex["files"] {
+  const g = geoIndex();
+  return g.origins.some((o) => o.source_id === sourceId) ? g.files : [];
 }
 
 /** Indicators that read from a source. */

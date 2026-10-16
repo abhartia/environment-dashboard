@@ -17,6 +17,8 @@ export type Headline = {
   status: "final" | "preliminary" | "projection";
   /** The dimension slice the value was read from (absent when the indicator has none), so a copy can be matched. */
   dims?: Record<string, string>;
+  /** That slice in the data's own words ("SSP2-4.5, middle emissions"), so the Trace panel can say which it is. */
+  sliceLabel?: string;
 };
 
 export type SeriesPoint = [year: number, value: number | null];
@@ -89,4 +91,66 @@ export type DrillNode = {
   credit: Credit[];
   /** Indicator ids shown on this node, for the source link. */
   indicators: string[];
+  /** A future-mode view (the home's world map and each country's map): every value the reader can choose between. */
+  future?: FuturePayload;
+};
+
+/** A 20-year projection window, as the data names it ("2040/2059") and as the URL and the dial name it ("2040-2059"). */
+export type FuturePeriod = { id: string; period: string; from: number; to: number };
+
+/** An emissions path, labelled from the data (e.g. "SSP2-4.5, middle emissions"); `tier` chooses the sketch of its emissions on the path picker. */
+export type FuturePath = { id: string; tier: "low" | "middle" | "very-high"; label: string };
+
+/**
+ * One measure a reader can colour the map by: its country and region indicators (each value traces to one of them),
+ * the words and unit from the data, and the largest published value over every place, window and path, so a colour means
+ * the same everywhere and a darker map between windows is a real change.
+ */
+export type FutureMeasure = {
+  key: string;
+  countries: string;
+  regions: string;
+  kicker: string;
+  unit: string;
+  unitLabel: string;
+  decimals: number;
+  ramp: "warm" | "wet" | "dry";
+  /**
+   * How colours spread over the values: a count of days from zero on a square-root scale (so a few days and a few dozen
+   * look different where most places have few), a temperature linearly between the smallest and largest value.
+   */
+  spread: "sqrt" | "linear";
+  /** The smallest and largest published median over every place, window and path (chosen, not computed). */
+  min: number;
+  max: number;
+  /** The model simulation of the baseline window exists for this measure (warming is itself a change from it). */
+  baseline: boolean;
+};
+
+export type FuturePlace = { entity: string; name: string; kind: "country" | "territory" | "region"; onMap: boolean };
+
+/** A published median with its model range (10th and 90th percentiles), or null where the source has no value. */
+export type FutureCell = [value: number, lower: number | null, upper: number | null] | null;
+
+export type FuturePayload = {
+  level: "world" | "country";
+  /** The country this view is about (null for the world). */
+  place: string | null;
+  periods: FuturePeriod[];
+  paths: FuturePath[];
+  measures: FutureMeasure[];
+  /** The model simulation of the past every window is compared with ("1995/2014"), and its scenario id. */
+  baseline: { period: string; scenario: string; label: string };
+  /** Which statistic of the climate models each of a cell's values is, in the indicator's own words ("median", and the
+   * percentiles its range runs between, "10th" and "90th"). */
+  statistics: { value: string; lower: string; upper: string };
+  places: FuturePlace[];
+  /** measure key -> "<period>|<scenario>" -> one cell per entry of `places`, in the same order. */
+  values: Record<string, Record<string, FutureCell[]>>;
+  /** The shapes for this view (a path under /data/v1/geo/), or null when there is no map for it. */
+  geo: string | null;
+  /** Regions with values but no shape on the map: listed beside it, never guessed onto one. */
+  unmatched: string[];
+  /** The shapes' producer and licence, crediting the source page (shapes are not an indicator). */
+  geoCredit: { source: string; producers: string; licence: string; attribution: string };
 };

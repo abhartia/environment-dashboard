@@ -21,8 +21,11 @@ export default function Page() {
       </p>
       <h2>Known gaps</h2>
       <p>
-        Maps are hard to use with a keyboard or screen reader, so every map has a table listing the same values, and
-        country pages can be reached by search.
+        Maps are hard to use with a keyboard or screen reader. The map of the future on the home page is one stop for
+        the Tab key: the arrow keys move to the nearest place in that direction, Enter opens a country or a state, and
+        Escape goes back up. The panel beside it reads the chosen place&apos;s values as text, and every country, and
+        every state and province the World Bank names, can be found by search. The map needs JavaScript, and it has no table listing every value yet;
+        each value is in its published data file, linked from every number.
       </p>
       <p>
         If something is hard to use, write to <span className="select-all">{BRAND.email}</span> and say which page.

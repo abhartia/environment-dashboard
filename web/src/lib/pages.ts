@@ -10,7 +10,7 @@ export type StaticPage = { path: string; title: string; summary: string; updated
 const SITE_START = "2026-10-04";
 
 export const STATIC_PAGES: StaticPage[] = [
-  { path: "/", title: "Home", summary: "The climate from 1850 to today in six measurements, each opening its chapter.", updated: "2026-10-05", priority: 1 },
+  { path: "/", title: "Home", summary: "The climate from 1850 to today in seven measurements, each opening its chapter, and what the climate models project for every country, state and province.", updated: "2026-10-16", priority: 1 },
   ...CHAPTER_META.map((c) => ({ path: `/${c.slug}`, title: c.title, summary: c.question, updated: "2026-10-05", priority: 0.9 })),
   { path: "/data", title: "Data", summary: "Every published number with its producer, version, licence and provenance.", updated: SITE_START, priority: 0.8 },
   { path: "/sources", title: "Sources", summary: "Every data source, its licence quoted from its own terms, and its status.", updated: SITE_START, priority: 0.7 },

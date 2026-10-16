@@ -9,7 +9,9 @@ import { Fragment, useCallback, useState, useSyncExternalStore } from "react";
 
 import { QueryProvider } from "@/components/query-provider";
 import { Button } from "@/components/ui/button";
+import { crossHref } from "@/lib/dash/href";
 import { RELATION_EYEBROW } from "@/lib/dash/relation";
+import { NAV_EVENT, subscribe } from "@/lib/dash/url-state";
 import type { DrillNode } from "@/lib/dash/types";
 import { dataPath } from "@/lib/routes";
 import { cn } from "@/lib/utils";
@@ -20,7 +22,6 @@ import { TimeChart } from "./time-chart";
 import { TracedValue } from "./traced-value";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const NAV_EVENT = "dash:navigate";
 
 /**
  * One chapter of the dashboard, on one screen: the idea (a few words, one big traced number, one line), its chart, and
@@ -46,15 +47,6 @@ async function fetchNode(chapter: string, id: string): Promise<DrillNode> {
   return (await res.json()) as DrillNode;
 }
 
-function subscribe(onChange: () => void): () => void {
-  window.addEventListener("popstate", onChange);
-  window.addEventListener(NAV_EVENT, onChange);
-  return () => {
-    window.removeEventListener("popstate", onChange);
-    window.removeEventListener(NAV_EVENT, onChange);
-  };
-}
-
 /** A target in another chapter is written "chapter:node" (e.g. "food:stages"); it opens that chapter's page. */
 function crossChapter(id: string): { chapter: string; node: string } | null {
   const m = id.match(/^([a-z]+):(.+)$/);
@@ -62,8 +54,8 @@ function crossChapter(id: string): { chapter: string; node: string } | null {
 }
 
 function hrefFor(id: string, rootId: string): string {
-  const cross = crossChapter(id);
-  if (cross) return cross.node === "root" ? `/${cross.chapter}` : `/${cross.chapter}?v=${encodeURIComponent(cross.node)}`;
+  const cross = crossHref(id);
+  if (cross) return cross;
   return id === rootId ? "?" : `?v=${encodeURIComponent(id)}`;
 }
 

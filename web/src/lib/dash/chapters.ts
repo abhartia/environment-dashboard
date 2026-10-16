@@ -5,6 +5,7 @@ import { air } from "@/lib/dash/air-tree";
 import { emissions } from "@/lib/dash/emissions-tree";
 import { energy } from "@/lib/dash/energy-tree";
 import { food } from "@/lib/dash/food-tree";
+import { future } from "@/lib/dash/future-tree";
 import { heat } from "@/lib/dash/heat-tree";
 import { credit, preview } from "@/lib/dash/kit";
 import { oceans } from "@/lib/dash/oceans-tree";
@@ -14,8 +15,19 @@ import { zero } from "@/lib/dash/zero-tree";
 
 export type Chapter = { ids: () => string[]; node: (id: string) => DrillNode };
 
-/** Every dashboard chapter, by its URL segment. Each is a drill-down tree of nodes (lib/dash/<chapter>-tree.ts). */
-export const CHAPTERS: Record<string, Chapter> = { emissions, air, heat, oceans, energy, people, food, action, zero };
+/**
+ * Every dashboard chapter, by its URL segment. Each is a drill-down tree of nodes (lib/dash/<chapter>-tree.ts). The
+ * future has no page of its own (it is the home page's future mode, lib/dash/href.ts), so it is not in CHAPTER_META.
+ */
+export const CHAPTERS: Record<string, Chapter> = { emissions, air, heat, oceans, energy, people, food, action, zero, future };
+
+const idsCache = new Map<string, Set<string>>();
+/** A chapter's published node ids, read once per build. */
+function idsOf(slug: string): Set<string> {
+  let ids = idsCache.get(slug);
+  if (!ids) idsCache.set(slug, (ids = new Set(CHAPTERS[slug].ids())));
+  return ids;
+}
 
 /** Whether the producer attributes this value to human-caused warming (the only values a "caused" card may show). */
 function attributed(h: Headline): boolean {
@@ -37,8 +49,11 @@ export function resolvedNode(slug: string, id: string): DrillNode {
     if (!m || (d.kicker && !d.soWhat)) return d;
     const c = CHAPTERS[m[1]];
     if (!c) throw new Error(`${slug}/${id}: the drill to ${d.to} names no chapter`);
+    if (!idsOf(m[1]).has(m[2])) throw new Error(`${slug}/${id}: the drill to ${d.to} names a view ${m[1]} does not publish`);
     const target = c.node(m[2]);
-    const filled = { ...d, crumb: target.crumb, kicker: target.kicker, preview: preview(target.chart) };
+    // A future target is the home page's map of a place, whose node kicker names only the measure it lands on: the
+    // drill's own label says what the card opens.
+    const filled = { ...d, crumb: target.crumb, kicker: m[1] === "future" ? d.label : target.kicker, preview: preview(target.chart) };
     if (!d.soWhat) return filled;
     const h = target.headline;
     if (d.soWhat.relation === "caused" && !attributed(h)) {

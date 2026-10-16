@@ -26,6 +26,15 @@ function publishable(id: string): void {
   if (!PUBLISHABLE.has(cls)) throw new Error(`${id} is ${cls}: its values cannot go into a dashboard data file`);
 }
 
+/**
+ * Every observation of an indicator, for a tree that selects among many at once (the future map carries every window,
+ * path and place a reader can choose). Refuses what may not go into a node file, as every other selector does.
+ */
+export function observations(id: string): Observation[] {
+  publishable(id);
+  return indicator(id).observations;
+}
+
 export function matches(o: Observation, entity: string, dims: Dims = {}): boolean {
   return o.entity === entity && Object.entries(dims).every(([k, v]) => o.dims[k] === v);
 }

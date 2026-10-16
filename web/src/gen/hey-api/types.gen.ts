@@ -60,9 +60,9 @@ export type Artifact = {
     /**
      * Content Key
      *
-     * For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.
+     * For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression; xlsx-members does the same for a workbook, leaving out docProps/core.xml (the creator and the time the workbook was generated). A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.
      */
-    content_key: 'zip-members' | null;
+    content_key: 'zip-members' | 'xlsx-members' | null;
     /**
      * Description
      */
@@ -74,7 +74,7 @@ export type Artifact = {
     /**
      * Format
      */
-    format: 'csv' | 'csv.gz' | 'txt' | 'tsv' | 'xlsx' | 'xls' | 'json' | 'xml' | 'zip' | 'nc' | 'pdf' | 'html' | 'rds';
+    format: 'csv' | 'csv.gz' | 'txt' | 'tsv' | 'xlsx' | 'xls' | 'json' | 'xml' | 'zip' | 'nc' | 'pdf' | 'html' | 'rds' | 'shp' | 'shx' | 'dbf';
     /**
      * Id
      */
@@ -146,7 +146,7 @@ export type CatalogEntry = {
     /**
      * Geo Coverage
      */
-    geo_coverage: 'global-only' | 'country' | 'mixed';
+    geo_coverage: 'global-only' | 'country' | 'subnational' | 'mixed';
     /**
      * Id
      */
@@ -334,6 +334,156 @@ export type Display = {
 };
 
 /**
+ * GeoCountry
+ *
+ * How one country's CCKP regions were matched to the World Bank's admin-1 shapes.
+ */
+export type GeoCountry = {
+    /**
+     * Cckp Regions
+     *
+     * CCKP's regions of this country (its DIS.* units are not countries).
+     */
+    cckp_regions: number;
+    /**
+     * Entity
+     */
+    entity: string;
+    /**
+     * File
+     *
+     * Its map file under data/, or null when no region was matched.
+     */
+    file: string | null;
+    /**
+     * Joined
+     *
+     * CCKP regions matched to shapes, by method.
+     */
+    joined: {
+        [key: string]: number;
+    };
+    /**
+     * Name Rule
+     *
+     * withheld when the two counts differ: a region split or merged between the two sets can share a name with a shape it does not match, so names alone join nothing there.
+     */
+    name_rule: 'applied' | 'withheld';
+    /**
+     * Shapeless
+     *
+     * CCKP region codes matched to a record that has no rings in the World Bank's file: matched, but listed, not drawn (sorted).
+     */
+    shapeless: Array<string>;
+    /**
+     * Shapes
+     *
+     * World Bank admin-1 records of this country.
+     */
+    shapes: number;
+    /**
+     * Unjoined
+     *
+     * CCKP region codes listed without a shape (sorted).
+     */
+    unjoined: Array<string>;
+    /**
+     * Unmatched
+     *
+     * Shapes drawn without a CCKP value, as "V1:<record>" (sorted).
+     */
+    unmatched: Array<string>;
+};
+
+/**
+ * GeoFile
+ *
+ * One published map file.
+ */
+export type GeoFile = {
+    /**
+     * Bytes
+     */
+    bytes: number;
+    /**
+     * Disputed
+     *
+     * Disputed areas (non-determined legal status areas) in the file.
+     */
+    disputed: number;
+    /**
+     * Drawn
+     *
+     * Of those, the ones with at least one ring at the file's scale; the others are a point (rp).
+     */
+    drawn: number;
+    /**
+     * Features
+     *
+     * Places in the file's main object (countries or regions); CSV rows.
+     */
+    features: number;
+    /**
+     * Path
+     *
+     * Path under data/, e.g. "v1/geo/adm1/IND.topo.json".
+     */
+    path: string;
+    /**
+     * Sha256
+     */
+    sha256: string;
+};
+
+/**
+ * GeoIndex
+ *
+ * data/v1/geo/index.json: what the map files are, where their shapes and codes came from, and how CCKP's
+ * regions were matched to them.
+ */
+export type GeoIndex = {
+    /**
+     * Attribution
+     *
+     * Credit line as rendered (the modified variant for the simplified shapes).
+     */
+    attribution: string;
+    /**
+     * Countries
+     */
+    countries: Array<GeoCountry>;
+    /**
+     * Description
+     */
+    description: string;
+    /**
+     * Files
+     */
+    files: Array<GeoFile>;
+    licence: Licence;
+    /**
+     * Licence Class
+     */
+    licence_class: 'open' | 'share-alike' | 'noncommercial' | 'no-derivatives' | 'display-only' | 'excluded';
+    /**
+     * Notice
+     */
+    notice: string | null;
+    /**
+     * Origins
+     */
+    origins: Array<Origin>;
+    /**
+     * Processing
+     */
+    processing: Array<ProcessingStep>;
+    /**
+     * Schema Version
+     */
+    schema_version: 1;
+};
+
+/**
  * Indicator
  *
  * An indicator with its observations as records: the pipeline's in-memory form, and the shape the site works
@@ -358,7 +508,7 @@ export type Indicator = {
     /**
      * Geo Coverage
      */
-    geo_coverage: 'global-only' | 'country' | 'mixed';
+    geo_coverage: 'global-only' | 'country' | 'subnational' | 'mixed';
     /**
      * Headline Entity
      *
@@ -451,7 +601,7 @@ export type IndicatorFile = {
     /**
      * Geo Coverage
      */
-    geo_coverage: 'global-only' | 'country' | 'mixed';
+    geo_coverage: 'global-only' | 'country' | 'subnational' | 'mixed';
     /**
      * Headline Entity
      *
@@ -1247,6 +1397,29 @@ export type Status = {
 };
 
 /**
+ * TopoJsonTopology
+ *
+ * A TopoJSON topology (https://github.com/topojson/topojson-specification): quantised, delta-encoded arcs and the objects drawn from them. world.topo.json has objects countries (id: entity code) and disputed; adm1/<entity>.topo.json has objects regions (id: CCKP region code, or V1:<record>) and disputed. Every geometry carries properties.rp, a representative point [longitude, latitude]; a null geometry is a place too small to draw at the file's scale. meta carries the credit line and licence.
+ */
+export type TopoJsonTopology = {
+    arcs: Array<Array<Array<number>>>;
+    bbox?: Array<number>;
+    meta: {
+        [key: string]: string;
+    };
+    objects: {
+        [key: string]: {
+            [key: string]: unknown;
+        };
+    };
+    transform: {
+        scale: Array<number>;
+        translate: Array<number>;
+    };
+    type: 'Topology';
+};
+
+/**
  * Unit
  */
 export type Unit = {
@@ -1285,6 +1458,82 @@ export type GetCatalogResponses = {
 };
 
 export type GetCatalogResponse = GetCatalogResponses[keyof GetCatalogResponses];
+
+export type GetRegionShapesData = {
+    body?: never;
+    path: {
+        /**
+         * Entity code of the country, e.g. IND; GeoIndex.countries[].file lists them
+         */
+        entity: string;
+    };
+    query?: never;
+    url: '/data/v1/geo/adm1/{entity}.topo.json';
+};
+
+export type GetRegionShapesErrors = {
+    /**
+     * No such file.
+     */
+    404: unknown;
+};
+
+export type GetRegionShapesResponses = {
+    /**
+     * The country's map.
+     */
+    200: TopoJsonTopology;
+};
+
+export type GetRegionShapesResponse = GetRegionShapesResponses[keyof GetRegionShapesResponses];
+
+export type GetCckpCrosswalkData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/data/v1/geo/cckp-adm1-crosswalk.csv';
+};
+
+export type GetCckpCrosswalkResponses = {
+    /**
+     * The crosswalk, with '#' comment lines first.
+     */
+    200: string;
+};
+
+export type GetCckpCrosswalkResponse = GetCckpCrosswalkResponses[keyof GetCckpCrosswalkResponses];
+
+export type GetGeoIndexData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/data/v1/geo/index.json';
+};
+
+export type GetGeoIndexResponses = {
+    /**
+     * The index of the map files.
+     */
+    200: GeoIndex;
+};
+
+export type GetGeoIndexResponse = GetGeoIndexResponses[keyof GetGeoIndexResponses];
+
+export type GetWorldShapesData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/data/v1/geo/world.topo.json';
+};
+
+export type GetWorldShapesResponses = {
+    /**
+     * The world map.
+     */
+    200: TopoJsonTopology;
+};
+
+export type GetWorldShapesResponse = GetWorldShapesResponses[keyof GetWorldShapesResponses];
 
 export type GetIndicatorData = {
     body?: never;

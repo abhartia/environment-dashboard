@@ -3,8 +3,8 @@
 import { type DefaultError, queryOptions } from '@tanstack/react-query';
 
 import { client } from '../client.gen';
-import { getCatalog, getIndicator, getSources, getStatus, type Options } from '../sdk.gen';
-import type { GetCatalogData, GetCatalogResponse, GetIndicatorData, GetIndicatorResponse, GetSourcesData, GetSourcesResponse, GetStatusData, GetStatusResponse } from '../types.gen';
+import { getCatalog, getCckpCrosswalk, getGeoIndex, getIndicator, getRegionShapes, getSources, getStatus, getWorldShapes, type Options } from '../sdk.gen';
+import type { GetCatalogData, GetCatalogResponse, GetCckpCrosswalkData, GetCckpCrosswalkResponse, GetGeoIndexData, GetGeoIndexResponse, GetIndicatorData, GetIndicatorResponse, GetRegionShapesData, GetRegionShapesResponse, GetSourcesData, GetSourcesResponse, GetStatusData, GetStatusResponse, GetWorldShapesData, GetWorldShapesResponse } from '../types.gen';
 
 export type QueryKey<TOptions extends Options> = [
     Pick<TOptions, 'baseUrl' | 'body' | 'headers' | 'path' | 'query'> & {
@@ -55,6 +55,78 @@ export const getCatalogOptions = (options?: Options<GetCatalogData>) => queryOpt
         return data;
     },
     queryKey: getCatalogQueryKey(options)
+});
+
+export const getRegionShapesQueryKey = (options: Options<GetRegionShapesData>) => createQueryKey('getRegionShapes', options);
+
+/**
+ * One country's states or provinces as CCKP's regions, with nearby disputed areas
+ */
+export const getRegionShapesOptions = (options: Options<GetRegionShapesData>) => queryOptions<GetRegionShapesResponse, DefaultError, GetRegionShapesResponse, ReturnType<typeof getRegionShapesQueryKey>>({
+    queryFn: async ({ queryKey, signal }) => {
+        const { data } = await getRegionShapes({
+            ...options,
+            ...queryKey[0],
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: getRegionShapesQueryKey(options)
+});
+
+export const getCckpCrosswalkQueryKey = (options?: Options<GetCckpCrosswalkData>) => createQueryKey('getCckpCrosswalk', options);
+
+/**
+ * Every CCKP region and World Bank admin-1 shape, with the pair made and how (CSV)
+ */
+export const getCckpCrosswalkOptions = (options?: Options<GetCckpCrosswalkData>) => queryOptions<GetCckpCrosswalkResponse, DefaultError, GetCckpCrosswalkResponse, ReturnType<typeof getCckpCrosswalkQueryKey>>({
+    queryFn: async ({ queryKey, signal }) => {
+        const { data } = await getCckpCrosswalk({
+            ...options,
+            ...queryKey[0],
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: getCckpCrosswalkQueryKey(options)
+});
+
+export const getGeoIndexQueryKey = (options?: Options<GetGeoIndexData>) => createQueryKey('getGeoIndex', options);
+
+/**
+ * The map files: their origins, processing, licence, and how CCKP's regions were matched
+ */
+export const getGeoIndexOptions = (options?: Options<GetGeoIndexData>) => queryOptions<GetGeoIndexResponse, DefaultError, GetGeoIndexResponse, ReturnType<typeof getGeoIndexQueryKey>>({
+    queryFn: async ({ queryKey, signal }) => {
+        const { data } = await getGeoIndex({
+            ...options,
+            ...queryKey[0],
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: getGeoIndexQueryKey(options)
+});
+
+export const getWorldShapesQueryKey = (options?: Options<GetWorldShapesData>) => createQueryKey('getWorldShapes', options);
+
+/**
+ * Countries and disputed areas of the world, simplified (TopoJSON)
+ */
+export const getWorldShapesOptions = (options?: Options<GetWorldShapesData>) => queryOptions<GetWorldShapesResponse, DefaultError, GetWorldShapesResponse, ReturnType<typeof getWorldShapesQueryKey>>({
+    queryFn: async ({ queryKey, signal }) => {
+        const { data } = await getWorldShapes({
+            ...options,
+            ...queryKey[0],
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: getWorldShapesQueryKey(options)
 });
 
 export const getIndicatorQueryKey = (options: Options<GetIndicatorData>) => createQueryKey('getIndicator', options);

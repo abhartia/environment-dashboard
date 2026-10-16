@@ -58,6 +58,7 @@ export function TracedValue({
       data-indicator={h.indicator}
       data-period={h.period}
       data-entity={h.entity}
+      data-slice={h.sliceLabel}
       aria-label={`${formatReadable(h.value, h.decimals)} ${h.unitLabel}${status ? ` (${status})` : ""}, show source`}
       aria-haspopup="dialog"
       className={cn("group inline-flex items-baseline gap-3 no-underline outline-none", className)}

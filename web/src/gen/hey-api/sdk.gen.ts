@@ -2,7 +2,7 @@
 
 import type { Client, ClientMeta, Options as Options2, RequestResult, TDataShape } from './client';
 import { client } from './client.gen';
-import type { GetCatalogData, GetCatalogResponses, GetIndicatorData, GetIndicatorErrors, GetIndicatorResponses, GetSourcesData, GetSourcesResponses, GetStatusData, GetStatusResponses } from './types.gen';
+import type { GetCatalogData, GetCatalogResponses, GetCckpCrosswalkData, GetCckpCrosswalkResponses, GetGeoIndexData, GetGeoIndexResponses, GetIndicatorData, GetIndicatorErrors, GetIndicatorResponses, GetRegionShapesData, GetRegionShapesErrors, GetRegionShapesResponses, GetSourcesData, GetSourcesResponses, GetStatusData, GetStatusResponses, GetWorldShapesData, GetWorldShapesResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean, TResponse = unknown> = Options2<TData, ThrowOnError, TResponse> & {
     /**
@@ -22,6 +22,26 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
  * Every published indicator, without its observations
  */
 export const getCatalog = <ThrowOnError extends boolean = false>(options?: Options<GetCatalogData, ThrowOnError>): RequestResult<GetCatalogResponses, unknown, ThrowOnError> => (options?.client ?? client).get<GetCatalogResponses, unknown, ThrowOnError>({ url: '/data/v1/catalog.json', ...options });
+
+/**
+ * One country's states or provinces as CCKP's regions, with nearby disputed areas
+ */
+export const getRegionShapes = <ThrowOnError extends boolean = false>(options: Options<GetRegionShapesData, ThrowOnError>): RequestResult<GetRegionShapesResponses, GetRegionShapesErrors, ThrowOnError> => (options.client ?? client).get<GetRegionShapesResponses, GetRegionShapesErrors, ThrowOnError>({ url: '/data/v1/geo/adm1/{entity}.topo.json', ...options });
+
+/**
+ * Every CCKP region and World Bank admin-1 shape, with the pair made and how (CSV)
+ */
+export const getCckpCrosswalk = <ThrowOnError extends boolean = false>(options?: Options<GetCckpCrosswalkData, ThrowOnError>): RequestResult<GetCckpCrosswalkResponses, unknown, ThrowOnError> => (options?.client ?? client).get<GetCckpCrosswalkResponses, unknown, ThrowOnError>({ url: '/data/v1/geo/cckp-adm1-crosswalk.csv', ...options });
+
+/**
+ * The map files: their origins, processing, licence, and how CCKP's regions were matched
+ */
+export const getGeoIndex = <ThrowOnError extends boolean = false>(options?: Options<GetGeoIndexData, ThrowOnError>): RequestResult<GetGeoIndexResponses, unknown, ThrowOnError> => (options?.client ?? client).get<GetGeoIndexResponses, unknown, ThrowOnError>({ url: '/data/v1/geo/index.json', ...options });
+
+/**
+ * Countries and disputed areas of the world, simplified (TopoJSON)
+ */
+export const getWorldShapes = <ThrowOnError extends boolean = false>(options?: Options<GetWorldShapesData, ThrowOnError>): RequestResult<GetWorldShapesResponses, unknown, ThrowOnError> => (options?.client ?? client).get<GetWorldShapesResponses, unknown, ThrowOnError>({ url: '/data/v1/geo/world.topo.json', ...options });
 
 /**
  * One indicator with its observations (as columns) and provenance

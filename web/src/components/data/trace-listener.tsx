@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 // first-load JavaScript (pattern from gigabiome's mobile nav).
 const TracePanel = dynamic(() => import("./trace-panel").then((m) => m.TracePanel), { ssr: false });
 
-export type TraceTarget = { id: string; period: string; entity: string; anchor: HTMLElement; seq: number };
+export type TraceTarget = { id: string; period: string; entity: string; slice: string; anchor: HTMLElement; seq: number };
 
 /**
  * Every <Num> is a link to its data page. With JavaScript, a plain click opens a short source panel instead; a
@@ -26,6 +26,7 @@ export function TraceListener() {
         id: a.dataset.indicator!,
         period: a.dataset.period ?? "",
         entity: a.dataset.entity ?? "",
+        slice: a.dataset.slice ?? "",
         anchor: a,
         seq: ++seq.current,
       });

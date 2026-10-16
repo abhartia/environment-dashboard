@@ -5,7 +5,7 @@ import { ExternalLink } from "lucide-react";
 import { Container } from "@/components/site/container";
 import { PageHeader } from "@/components/site/page-header";
 import { Badge } from "@/components/ui/badge";
-import { indicatorsOfSource, source, sources, status } from "@/lib/data";
+import { geoFilesOfSource, indicatorsOfSource, source, sources, status } from "@/lib/data";
 import { CLASS_LABEL } from "@/lib/provenance";
 import { dataPath, sourcePath } from "@/lib/routes";
 import { canonical } from "@/lib/site-url";
@@ -37,6 +37,7 @@ function Row({ term, children }: { term: string; children: React.ReactNode }) {
 export default async function Page({ params }: PageProps<"/sources/[id]">) {
   const s = source((await params).id);
   const used = indicatorsOfSource(s.id);
+  const shapes = geoFilesOfSource(s.id);
   const run = status().sources[s.id];
   const ob = s.obligations;
   return (
@@ -64,6 +65,15 @@ export default async function Page({ params }: PageProps<"/sources/[id]">) {
                 </li>
               ))}
             </ul>
+          ) : shapes.length ? (
+            <p className="text-sm">
+              None: it gives the map its shapes. They are simplified into {shapes.length.toLocaleString("en-GB")} map files, listed with their
+              origins, changes and credit in{" "}
+              <a href="/data/v1/geo/index.json" className="text-link underline">
+                the map files&apos; index
+              </a>
+              , and drawn on the home page&apos;s map of the future.
+            </p>
           ) : (
             <p className="text-sm text-muted-foreground">None yet: this source is registered and its licence checked, and its numbers are being prepared.</p>
           )}

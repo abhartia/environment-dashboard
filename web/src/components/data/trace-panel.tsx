@@ -100,7 +100,8 @@ function TraceBody({ entry, target }: { entry: CatalogEntry; target: TraceTarget
         <p className="font-medium text-foreground">{entry.title}</p>
         <p className="text-muted-foreground">
           {producers(entry).join(" and ")} · {p.scope.geography}
-          {target.period ? ` · ${formatPeriod(target.period)}` : ""} · version {entry.vintage} · {licenceSentence(entry)}
+          {target.period ? ` · ${formatPeriod(target.period)}` : ""}
+          {target.slice ? ` · ${target.slice}` : ""} · version {entry.vintage} · {licenceSentence(entry)}
         </p>
       </div>
       <div className="flex flex-wrap gap-2">

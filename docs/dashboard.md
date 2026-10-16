@@ -20,6 +20,24 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
   year. So the change is drawn first and what it means lands at the end. Moving across a chart travels in time;
   selecting a row opens its chapter and a band opens the view it quotes (`lib/dash/story.ts`,
   `components/dash/story-timeline.tsx`).
+- **Future mode** (`/?mode=future`): what the climate models project, place by place. When the story comes to rest
+  on today it holds for a moment (only while the tab is visible) and the year rolls on into the first window of the
+  future, where a world map takes over; any move by the reader cancels this, reduced motion never starts it, and a round
+  icon beside replay switches between the story and the map at any time. Each country is coloured by days at 35 °C or
+  more (any of six measures, one card away) in a **20-year window** on an **emissions path**: the big label in the
+  header is a dial that drags between 2020–2039, 2040–2059, 2060–2079 and 2080–2099, and three small sketches of each
+  path's emissions (falling, level then easing, rising) pick the low, middle or very high path; the reader lands on 2040–2059 on the middle path. Values are the World Bank
+  Climate Change Knowledge Portal's (CCKP) area averages, stated as "averaged over the land of" the place, not weighted
+  by where people live. Selecting a country (a click, Enter, or a second tap on a phone, the first tap reading it)
+  zooms into its own map of states and provinces, where the regions have shapes; a region the shapes do not match is
+  listed by name beside the map, never guessed onto a shape, and a country with one region has no region level. The
+  panel reads one place in full: the window's median (traced), the models' simulation of 1995–2014 it compares with,
+  the range across the models (10th to 90th percentile), one chart with a flat segment per window, the other measures
+  as cards, and cards into the other chapters' views of that country. Choices live in the URL (`mode`, `p`, `s`, `m`,
+  `c`, `r`), so the back button walks region → country → world, and on to the story when the map was opened with the
+  switch (the story's own carry-on replaces its place in the history rather than adding a step the reader never took). Built by `lib/dash/future-tree.ts`, drawn by
+  `components/dash/home-canvas.tsx` and `components/dash/future/`; the shapes are the World Bank's GAD V1 boundaries
+  (`data/v1/geo/`).
 - **Chapter** (`/emissions`, `/energy`, `/air`, `/heat`, `/oceans`, `/people`, `/food`, `/action`, `/zero`): a drill-down tree on
   one screen. Each **node** is one idea: a kicker (the page's `h1`), one big traced number, one sentence and one chart.
   The path so far reads across the top. There are no text buttons: a band, a line or a bar opens the next idea when
@@ -62,7 +80,8 @@ down "one idea/disaggregation at a time", that never need scrolling, with no "bo
   targets, electrifying, capturing what is left and removing carbon, research budgets, and adapting (farms by size).
 
 A drill target written `chapter:node` opens another chapter's view (`crossDrill` in `kit.ts` carries its title and
-chart shape).
+chart shape; `lib/dash/href.ts` gives its URL, and a `future:` target opens the home page's map). It must be one of
+that chapter's published views, or the build stops.
 
 - **People** opens on hot extremes becoming more frequent: how many times as often a once-a-decade hottest day
   comes at each level of warming (IPCC AR6 Figure SPM.6 data, modelled), with the hottest day of each year, heavy
@@ -102,6 +121,15 @@ orders and labels published observations:
   other. It throws on a node with more than one "so what", and on a "caused by the warming" card whose value the
   producer does not attribute to the warming. The home bands check the same way that their latest value is the target
   view's headline, and their words carry no digit.
+
+A **future node** (`future:root`, `future:c-<ISO3>`) carries every value a reader can choose between: each measure,
+window and path, with the model range, for every place on its map (`DrillNode.future`), so moving the dial or the
+path never fetches; the browser only selects (`lib/dash/future-select.ts`). The tree checks that every window is 20
+years, that every path has a curve shape, that a historical run is a simulation of the past and the rest projections,
+and that a threshold its kicker names is the one in the published unit; check-build checks that every cell equals its
+published observation, that every map file is served and that every place the search offers opens a view that has it.
+A colour means the same on every map and in every window: each measure's scale runs to the largest published median
+over every place, window and path.
 
 `chapter()` also gives each choice the next node's crumb, kicker and a thumbnail of its chart (every k-th point, or
 the first few bars), so the cards can show where they lead before anything is fetched.

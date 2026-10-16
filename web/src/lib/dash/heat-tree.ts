@@ -3,7 +3,7 @@ import "server-only";
 import { indicator } from "@/lib/data";
 import { calendarPeriod, formatPeriod } from "@/lib/format";
 import { entityName } from "@/lib/dash/entities";
-import { bars, type Built, chapter, credit, headline, latestPeriod, line, periodToX, points, ranking, soWhat } from "@/lib/dash/kit";
+import { bars, type Built, chapter, credit, crossTo, headline, latestPeriod, line, periodToX, points, ranking, soWhat } from "@/lib/dash/kit";
 import { heatwavesIn, noHeatwaves } from "@/lib/dash/people-tree";
 import type { Bar, Drill, Series, SeriesPoint } from "@/lib/dash/types";
 
@@ -358,11 +358,14 @@ function hotDays(iso: string): Built {
     return o;
   };
   const period = calendarPeriod(value("ssp245"));
+  // The kicker's threshold is the dataset's own (CCKP's hd35 counts 35 °C itself).
+  if (!ind.unit.label.includes("35 °C or more")) throw new Error(`${HOT_DAYS}: its unit "${ind.unit.label}" is not days at 35 °C or more`);
   return {
     id: `c-${iso}-hot-days`,
     parent: `c-${iso}`,
     crumb: "Hot days ahead",
-    kicker: `Days above 35 °C in ${name}`,
+    // CCKP counts days with a maximum of 35 °C or more (hd35, "Tmax >= 35°C"), so the kicker never says "above".
+    kicker: `Days at 35 °C or more in ${name}`,
     headline: headline(HOT_DAYS, iso, { scenario: "ssp245" }, period),
     sentence: "a year in 2040–2059 on a middle emissions path, the median of the climate models. The bars compare the paths.",
     chart: bars(
@@ -372,7 +375,7 @@ function hotDays(iso: string): Built {
       period,
       "Modelled (CMIP6 multi-model median) via the World Bank Climate Change Knowledge Portal; not a forecast of any one year.",
     ),
-    drills: [],
+    drills: [crossTo(`${name}'s future, region by region`, `future:c-${iso}`)],
     credit: credit(HOT_DAYS),
     indicators: [HOT_DAYS],
   };

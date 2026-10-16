@@ -24,6 +24,17 @@ it came from, without feeling lectured.
   "deaths from heat". Deaths from fossil-fuel smoke are a harm of the burning itself, not of the warming. People
   living below high tide are at risk, not flooded.
 
+## The future
+- A projection is a 20-year window, never a year: "2040–2059", not "2050". A window's value is an average of the
+  models' yearly figure over those 20 years, not a forecast of any one year; say "projected" beside it.
+- Name the emissions path every time, in the data's words ("SSP2-4.5, middle emissions"), and show the range across
+  the climate models (10th to 90th percentile) beside the median.
+- Say what the place is averaged over: "averaged over the land of India", not weighted by where people live. A
+  state or province is closer to a resident's experience than a whole country; say neither is a city.
+- Compare a projection with the models' own simulation of the past ("the model simulation of 1995–2014"), never with
+  an observed value: the two come from different methods.
+- A threshold is part of the measure: "days at 35 °C or more" (the source counts 35 itself), never "above 35 °C".
+
 ## Extremes and disasters
 - The data can say: hot extremes have become more frequent and more intense over most land, and the IPCC attributes
   this mainly to human-caused warming; heavy downpours have become more frequent over most land with enough data;

@@ -6,6 +6,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import type { SearchItem } from "@/app/search-index.json/route";
 import {
@@ -17,6 +18,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { setSearch } from "@/lib/dash/url-state";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: Number.POSITIVE_INFINITY } },
@@ -24,6 +26,7 @@ const queryClient = new QueryClient({
 
 const GROUPS: { kind: SearchItem["kind"]; heading: string }[] = [
   { kind: "chapter", heading: "Chapters" },
+  { kind: "place", heading: "Places: their future" },
   { kind: "data", heading: "Numbers" },
   { kind: "source", heading: "Sources" },
   { kind: "page", heading: "About the data" },
@@ -48,6 +51,7 @@ function Dialog({
   onOpenChange: (o: boolean) => void;
 }) {
   const router = useRouter();
+  const [query, setQuery] = useState("");
   const { data, isError } = useQuery({
     queryKey: ["search-index"],
     queryFn: async (): Promise<SearchItem[]> => {
@@ -61,10 +65,10 @@ function Dialog({
       open={open}
       onOpenChange={onOpenChange}
       title="Search"
-      description="Search stories, numbers and sources"
+      description="Search stories, places, numbers and sources"
     >
       <Command>
-        <CommandInput placeholder="Search stories, numbers and sources…" />
+        <CommandInput placeholder="Search stories, places, numbers and sources…" value={query} onValueChange={setQuery} />
         <CommandList>
           <CommandEmpty>
             {isError
@@ -75,6 +79,8 @@ function Dialog({
           </CommandEmpty>
           {data
             ? GROUPS.map((g) => {
+                // Places are thousands of names: they are listed once the reader has typed something to match.
+                if (g.kind === "place" && query.trim().length < 2) return null;
                 const items = data.filter((i) => i.kind === g.kind);
                 return items.length ? (
                   <CommandGroup key={g.kind} heading={g.heading}>
@@ -84,7 +90,11 @@ function Dialog({
                         value={`${i.title} ${i.detail}`}
                         onSelect={() => {
                           onOpenChange(false);
-                          router.push(i.href);
+                          // On the home page a place opens in place: the map reads its choices from the URL.
+                          if (i.kind === "place" && window.location.pathname === "/") {
+                            const q = new URLSearchParams(i.href.slice(2));
+                            setSearch({ mode: "future", c: q.get("c"), r: q.get("r") }, true);
+                          } else router.push(i.href);
                         }}
                       >
                         <span className="grid">
