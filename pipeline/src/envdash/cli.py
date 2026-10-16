@@ -378,7 +378,8 @@ def docs_licensing() -> None:
 
 @geo_app.command("build")
 def geo_build() -> None:
-    """Rebuild pipeline/geo/entities.csv from the current natural-earth snapshots and the declared rows."""
+    """Rebuild pipeline/geo/entities.csv from the current natural-earth snapshots, CCKP's names of its regions
+    (wb-cckp/subnational-names) and the declared rows."""
     paths = _paths()
     changed = geo.write(paths)
     typer.echo(f"{paths.rel(geo.entities_path(paths))} {'written' if changed else 'unchanged'}")

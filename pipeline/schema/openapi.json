@@ -82,11 +82,14 @@
           },
           "content_key": {
             "anyOf": [
-              {"const": "zip-members", "type": "string"},
+              {
+                "enum": ["zip-members", "xlsx-members"],
+                "type": "string"
+              },
               {"type": "null"}
             ],
             "default": null,
-            "description": "For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.",
+            "description": "For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression; xlsx-members does the same for a workbook, leaving out docProps/core.xml (the creator and the time the workbook was generated). A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.",
             "title": "Content Key"
           },
           "description": {
@@ -193,7 +196,7 @@
             "type": "string"
           },
           "geo_coverage": {
-            "enum": ["global-only", "country", "mixed"],
+            "enum": ["global-only", "country", "subnational", "mixed"],
             "title": "Geo Coverage",
             "type": "string"
           },
@@ -460,7 +463,7 @@
             "$ref": "#/components/schemas/Display"
           },
           "geo_coverage": {
-            "enum": ["global-only", "country", "mixed"],
+            "enum": ["global-only", "country", "subnational", "mixed"],
             "title": "Geo Coverage",
             "type": "string"
           },
@@ -593,7 +596,7 @@
             "$ref": "#/components/schemas/Display"
           },
           "geo_coverage": {
-            "enum": ["global-only", "country", "mixed"],
+            "enum": ["global-only", "country", "subnational", "mixed"],
             "title": "Geo Coverage",
             "type": "string"
           },

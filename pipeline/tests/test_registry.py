@@ -51,18 +51,19 @@ def test_hadcrut_credit_line_is_the_required_acknowledgement(tmp_paths):
 
 
 def test_cckp_grids_expand_into_ordinary_artifacts():
-    """wb-cckp's three grids become 270 artifacts after the 22 written out, which stay first and unchanged; the
-    validated source has no trace of the grids, so sources.json keeps its shape."""
+    """wb-cckp's three grids become 270 artifacts after the 23 written out (22 files of countries and the names
+    workbook), which stay first and unchanged; the validated source has no trace of the grids, so sources.json keeps
+    its shape."""
     paths = Paths.default()
     src = load_registry(paths).sources["wb-cckp"]
     raw = _coerce_nulls(_load_yaml(paths.sources / "wb-cckp.yaml"))
     assert isinstance(raw, dict) and len(raw["artifact_grids"]) == 3
     written = [Artifact.model_validate(a) for a in raw["artifacts"]]
-    assert src.artifacts[: len(written)] == written and len(written) == 22
+    assert src.artifacts[: len(written)] == written and len(written) == 23
     grid = src.artifacts[len(written) :]
     assert len(grid) == 6 * 3 + 6 * 4 * 3 * 3 + 4 * 3 * 3 == 270
-    assert len({a.id for a in src.artifacts}) == len(src.artifacts) == 292
-    assert len({str(a.url) for a in src.artifacts}) == 292
+    assert len({a.id for a in src.artifacts}) == len(src.artifacts) == 293
+    assert len({str(a.url) for a in src.artifacts}) == 293
     by = {a.id: a for a in grid}
     a = by["cmip6-hd35-2040-2059-ssp245-median-subnat"]
     assert str(a.url) == (
@@ -96,7 +97,10 @@ def test_a_grid_id_missing_a_placeholder_is_refused(tmp_paths, tmp_path):
 
 def test_a_grid_template_naming_an_undeclared_placeholder_is_refused(tmp_paths, tmp_path):
     err = _edit_cckp(
-        tmp_paths, tmp_path, "_ensemble_all_mean/all_countries_subnationals", "_{model}_mean/all_countries_subnationals"
+        tmp_paths,
+        tmp_path,
+        "_{scenario}_ensemble_all_mean/all_countries_subnationals",
+        "_{scenario}_{model}_mean/all_countries_subnationals",
     )
     assert err is not None and "unknown placeholders ['model']" in err
 

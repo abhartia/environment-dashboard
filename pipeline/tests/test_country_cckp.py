@@ -80,11 +80,13 @@ def test_transforms_read_only_registered_artifacts():
     src = load_registry(Paths.default()).sources[SOURCE]
     registered = {a.id for a in src.artifacts}
     ts = _transforms()
-    assert set(ts) == {
+    projections = {t for t in ts if t.startswith("future.wb-cckp.")}
+    assert set(ts) - projections == {
         "temp.wb-cckp.era5-annual-absolute",
         "temp.wb-cckp.era5-annual-1991-2020",
         "hot-days-35c.wb-cckp.cmip6",
     }
+    assert len(projections) == 14  # tests/test_future_cckp.py
     for t in ts.values():
         assert {i.artifact_id for i in t.inputs} <= registered
     assert len(ts["hot-days-35c.wb-cckp.cmip6"].inputs) == 12
@@ -272,7 +274,14 @@ def _subnational_artifacts():
 
 
 def test_every_registered_cckp_url_parses():
-    for a in load_registry(Paths.default()).sources[SOURCE].artifacts:
+    artifacts = load_registry(Paths.default()).sources[SOURCE].artifacts
+    urls = {str(a.url) for a in artifacts}
+    for a in artifacts:
+        if a.id == "subnational-names":
+            # The names workbook is the xlsx of one registered region file (envdash/geo.py reads its names only).
+            assert a.format == "xlsx" and str(a.url).endswith("?_format=xlsx")
+            assert str(a.url).replace("?_format=xlsx", "?_format=json") in urls
+            continue
         collection_of(str(a.url))
     combos: dict[str, set[tuple[int, int, str, str]]] = {}
     for a in _subnational_artifacts():

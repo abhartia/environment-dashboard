@@ -165,6 +165,25 @@ def test_zip_members_fingerprint_ignores_timestamps_and_order():
         contentkey.zip_members_sha256(data, r"\.[a-zA-Z]+$")
 
 
+def test_xlsx_members_fingerprint_leaves_out_the_core_properties():
+    """CCKP's API builds its xlsx per request and stamps the time in docProps/core.xml only."""
+    data = fixture("wb-cckp", "subnational-names")[0].read_bytes()
+    z = zipfile.ZipFile(io.BytesIO(data))
+    core = z.read(contentkey.XLSX_CORE_PROPERTIES)
+    assert core.count(b"2026-10-16T") == 2  # dcterms:created and dcterms:modified
+    restamped = _rezip(data, change=(contentkey.XLSX_CORE_PROPERTIES, core.replace(b"2026-10-16T", b"2026-10-23T")))
+    key = contentkey.zip_members_sha256
+    leave = frozenset({contentkey.XLSX_CORE_PROPERTIES})
+    assert key(restamped, leave_out=leave) == key(data, leave_out=leave)
+    assert key(restamped) != key(data)
+    sheet = "xl/sharedStrings.xml"
+    edited = _rezip(data, change=(sheet, z.read(sheet).replace(b"Delhi", b"Dehli")))
+    assert key(edited, leave_out=leave) != key(data, leave_out=leave)
+    # A workbook without the member it leaves out is not the file this key was declared for.
+    with pytest.raises(contentkey.ContentKeyError, match="no member"):
+        key(data, leave_out=frozenset({"docProps/missing.xml"}))
+
+
 def test_unchanged_zip_content_keeps_the_current_snapshot(tmp_paths, tmp_path):
     data = fixture("natural-earth", "admin-0-tiny-countries-50m")[0].read_bytes()
     paths = copy_sources(tmp_paths, tmp_path, "natural-earth")

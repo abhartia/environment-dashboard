@@ -58,8 +58,12 @@
 # code, name and value for every key (105,745 B for tas anomaly 2040-2059 SSP2-4.5 median; the rx1day file's 3,776
 # codes are the union of all seven variables), but it is generated per request: two fetches 80 s apart differed in
 # sha256 (0a119479ba26… and e9359a639b4e…) because docProps/core.xml stamps the request time and the zip stamps each
-# member; every other member was byte-identical. It also leaves zero values blank. No names file is registered: the
-# portal's geonames.json sits behind the Cloudflare challenge and has to be downloaded by a person (rule 7).
+# member; every other member was byte-identical. It also leaves zero values blank. The portal's geonames.json sits
+# behind the Cloudflare challenge (a person would have to download it, rule 7), so the names come from the API's xlsx
+# instead (artifact subnational-names, the rx1day file, whose codes cover every variable's region files): its
+# content_key xlsx-members leaves docProps/core.xml out of the fingerprint, so an unchanged workbook keeps its
+# snapshot. Only the code and name columns are read (envdash/geo.py builds the region rows of
+# pipeline/geo/entities.csv from them); its values are never read.
 #
 # Not registered, deliberately: CCKP's count-type products, the population counts (pop-x0.25 popcount) and the
 # population-weighted heatwave person-days (popwgt …exposure). Their national totals are 2-3 times the sum of CCKP's
@@ -287,6 +291,15 @@ artifacts:
 # Every country and every CCKP state or province in one file per variable, period, scenario and statistic (expanded
 # by envdash/registry.py into 270 ordinary artifacts; see the 2026-10-16 note at the top). Labels are CCKP's own
 # wording from the netCDF attributes of the same collections on its S3 bucket, with °C and mm spelled out.
+  - id: subnational-names
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_rx1day_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/all_countries_subnationals?_format=xlsx
+    format: xlsx
+    content_key: xlsx-members
+    description: >-
+      CCKP's names of every country and every CCKP state or province, as the columns code and name of the API's xlsx
+      for the rx1day 2040–2059 SSP2-4.5 median collection, whose codes cover every region file of the seven variables
+      registered here (246 countries, 3,530 regions on 2026-10-16). Its value column is not read.
+    access: {conditional: false}
 artifact_grids:
   # 1995–2014 reference period, CMIP6 historical runs: 6 variables × 3 statistics = 18.
   - id: cmip6-{variable}-{period}-{scenario}-{statistic}-subnat

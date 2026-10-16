@@ -20,7 +20,17 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Literal
 
-from envdash.models import Dimension, Display, Observation, PublishedValueRef, Scope, Snapshot, TimeBasis, Unit
+from envdash.models import (
+    Dimension,
+    Display,
+    GeoCoverage,
+    Observation,
+    PublishedValueRef,
+    Scope,
+    Snapshot,
+    TimeBasis,
+    Unit,
+)
 from envdash.paths import Paths
 
 
@@ -52,7 +62,7 @@ class Spec:
     unit: Unit
     display: Display
     scope: Scope
-    geo_coverage: Literal["global-only", "country", "mixed"]
+    geo_coverage: GeoCoverage
     headline_entity: str
     dimensions: tuple[Dimension, ...] = ()
     headline_dims: tuple[tuple[str, str], ...] = ()
