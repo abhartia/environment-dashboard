@@ -29,11 +29,15 @@ ring, and the number of such rings is a processing step. Coordinates stay as wri
 the .prj must be exactly WGS84_PRJ and the .cpg exactly UTF-8, or the build stops. A polygon record with no rings has no
 shape and is counted.
 
-Matching CCKP regions to admin-1 shapes, country by country (CCKP's region prefix is the shape's ISO_A3; CCKP's 32
-DIS.* units, areas it assigns to no country, are left out by rule). A code match counts only when the names agree: the
-CCKP name equals, after normalisation (norm), one of the shape's own names (NAME_FIELDS); CCKP's placeholders
-(NOT_NAMES) agree only with the same placeholder in the World Bank's file, whose names CCKP's are. The name rule never
-uses a placeholder, or a name that is the region's own code (Hong Kong's, Macao's and Taiwan's single regions).
+Matching CCKP regions to admin-1 shapes, country by country (CCKP's region prefix is the shape's ISO_A3). The regions
+are those of the entity table: left out, by geo.py's declared rules, are CCKP's 32 DIS.* units (areas it assigns to no
+country) and the three units it lists under China for Hong Kong, Macao and Taiwan (geo.CHINA_LISTED), which are
+places of their own with their own single regions. pipeline/geo/entities.csv must have been built from the same names
+snapshot, with every other region as a region of its country, or the build stops. A code match counts only when the
+names agree: the CCKP name equals, after normalisation (norm), one of the shape's own names (NAME_FIELDS); CCKP's
+placeholders (NOT_NAMES) agree only with the same placeholder in the World Bank's file, whose names CCKP's are. The
+name rule never uses a placeholder, or a name that is the region's own code (Hong Kong's, Macao's and Taiwan's single
+regions).
   1. gaul: CCKP's code equals {ISO_A3}.{GAUL_0}{GAUL_1} of shapes (both GAUL codes set).
   2. adm1cd: CCKP's code equals {ISO_A3}.{GAUL_0}{int(ADM1CD_t[3:])} of shapes.
   3. declared: pairs in pipeline/geo/cckp-adm1-declared.csv. accept joins the pair; reject refuses a code match.
@@ -43,7 +47,8 @@ uses a placeholder, or a name that is the region's own code (Hong Kong's, Macao'
      four shapes here), and a shared name can name a different shape.
 A region matched by a code rule takes every shape with that code whose names agree (Wisconsin is two records). The
 build stops when the two code rules point at different shapes, a shape would be used twice, a code match whose names
-differ is not declared, a declared row no longer matches the files or is no longer needed, or a World Bank code has
+differ is not declared, a declared row no longer matches the files or is no longer needed (a reject no code rule
+makes; an accept whose names agree and which the gaul, adm1cd or name rule makes on its own), or a World Bank code has
 no entity. Regions left unmatched are listed (index.json, crosswalk) and never drawn on a shape.
 
 Simplifying. Each file is one topology (topojson): coordinates snapped to a grid (prequantize), shared borders found
@@ -115,10 +120,8 @@ NAME_FIELDS = ("NAM_1", "ADM1NM", "NAM_1_SRCE", "P_NAME_1")
 """The record's own names in the World Bank's file: its name, its administrative name, its name in the boundary's
 source and in the P-code list. NAM_1_GAUL and NAM_1_STAT are not used: they can name a larger unit the record lies in
 (Bogotá's record has Cundinamarca in both, and Cundinamarca's GAUL code)."""
-NOT_NAMES = frozenset({"Administrative unit not available", "Name Unknown"})
-"""CCKP's placeholders for a region without a name (50 and 18 regions on 2026-10-16)."""
-DISPUTED_UNITS = 32
-"""CCKP's DIS.* units (areas it assigns to no country), left out by rule; another count stops the build."""
+NOT_NAMES = frozenset(geo.PLACEHOLDER_NAMES)
+"""CCKP's placeholders for a region without a name (geo.py declares them with their counts)."""
 
 DECLARED = "pipeline/geo/cckp-adm1-declared.csv"
 DECLARED_COLUMNS = ("cckp_code", "v1_record", "v1_adm1cd_t", "v1_name", "decision", "reason")
@@ -278,23 +281,27 @@ def check_projection(prj: bytes, cpg: bytes) -> None:
 
 
 def read_cckp_names(data: bytes) -> dict[str, str]:
-    """CCKP's code -> name, from the code and name columns of its xlsx (its value column is not read)."""
-    import openpyxl
+    """CCKP's code -> name, read as geo.py reads it for the entity table (its value column is not read)."""
+    try:
+        return geo.read_cckp_names(data)
+    except ValueError as e:
+        raise GeoShapesError(f"subnational-names: {e}") from None
 
-    wb = openpyxl.load_workbook(io.BytesIO(data), read_only=True)
-    rows = list(wb.worksheets[0].iter_rows(values_only=True))
-    if not rows or tuple(rows[0][:2]) != ("code", "name"):
-        first = rows[0][:2] if rows else None
-        raise GeoShapesError(f"subnational-names: the first columns are {first}, not code, name")
-    names: dict[str, str] = {}
-    for r in rows[1:]:
-        code, name = r[0], r[1]
-        if not isinstance(code, str) or not isinstance(name, str) or not name.strip():
-            raise GeoShapesError(f"subnational-names: row {r[:2]!r} has no code or no name")
-        if code in names:
-            raise GeoShapesError(f"subnational-names: {code} is listed twice")
-        names[code] = name
-    return names
+
+def cckp_regions(names: dict[str, str]) -> tuple[dict[str, str], list[str]]:
+    """The regions matched (code -> name) and the DIS.* units left out: every region code but geo.py's DIS units (their
+    count as declared) and geo.CHINA_LISTED (their names as declared)."""
+    regions = {c: n for c, n in names.items() if "." in c}
+    disputed = sorted(c for c in regions if c.split(".")[0] == geo.DISPUTED_PREFIX)
+    if len(disputed) != geo.DISPUTED_UNITS:
+        raise GeoShapesError(f"CCKP lists {len(disputed)} DIS.* units, not {geo.DISPUTED_UNITS}: {disputed[:5]}…")
+    for c in disputed:
+        del regions[c]
+    for c, n in geo.CHINA_LISTED.items():
+        if regions.get(c) != n:
+            raise GeoShapesError(f"CCKP's {c} is {regions.get(c)!r}, not {n!r} as geo.CHINA_LISTED declares")
+        del regions[c]
+    return regions, disputed
 
 
 # --- matching --------------------------------------------------------------------------------------------------------
@@ -388,12 +395,7 @@ class Join:
 
 def join(names: dict[str, str], adm1: list[Record], declared: list[Declared], entity_of: dict[str, str]) -> Join:
     """Match CCKP's regions to the admin-1 shapes (see the module docstring); raises GeoShapesError on any stop."""
-    regions = {c: n for c, n in names.items() if "." in c}
-    disputed = sorted(c for c in regions if c.startswith("DIS."))
-    if len(disputed) != DISPUTED_UNITS:
-        raise GeoShapesError(f"CCKP lists {len(disputed)} DIS.* units, not {DISPUTED_UNITS}: {disputed[:5]}…")
-    for c in disputed:
-        del regions[c]
+    regions, disputed = cckp_regions(names)
     by_iso: dict[str, list[Record]] = defaultdict(list)
     for r in adm1:
         if not r.iso:
@@ -458,6 +460,11 @@ def join(names: dict[str, str], adm1: list[Record], declared: list[Declared], en
                     used_rejects.add((code, r.fid))
                     continue
                 if any(d.record == r.fid for d in accept.get(code, [])):
+                    if norm(name) in names_of[r.fid]:
+                        raise GeoShapesError(
+                            f"{DECLARED}: {code} {name!r} and record {r.fid} are matched by the {rule} rule, the names "
+                            "agreeing: the accept is no longer needed"
+                        )
                     continue  # declared accept: joined in step 3
                 if norm(name) in names_of[r.fid]:
                     agree.append(r)
@@ -495,10 +502,19 @@ def join(names: dict[str, str], adm1: list[Record], declared: list[Declared], en
             continue
         counts = Counter(norm(regions[c]) for c in codes if is_name(c, regions[c]))
         for code in codes:
-            if code in joined or not is_name(code, regions[code]):
+            if not is_name(code, regions[code]):
                 continue
             n = norm(regions[code])
             hits = [r for r in shapes if n in names_of[r.fid]]
+            if code in joined:
+                method, rs = joined[code]
+                # What the name rule would take on its own: one shape, the name unique among the country's regions.
+                if method == "declared" and counts[n] == 1 and len(hits) == 1 and [hits[0].fid] == [r.fid for r in rs]:
+                    raise GeoShapesError(
+                        f"{DECLARED}: {code} {regions[code]!r} and record {rs[0].fid} have the same name, unique on "
+                        "both sides, and the name rule matches them: the accept is no longer needed"
+                    )
+                continue
             if counts[n] == 1 and len(hits) == 1 and hits[0].fid not in owner:
                 take(code, "name", hits)
 
@@ -759,10 +775,13 @@ def build_key(paths: Paths, registry: Registry) -> tuple[str, dict]:
     return canonical.sha256_bytes(canonical.dump_bytes(parts)), parts
 
 
-def _origin(src: Source, snap: Snapshot, vintage: str) -> Origin:
+def _origin(key: str, src: Source, snap: Snapshot, vintage: str) -> Origin:
+    """The origin of one input, named by its registry key: a manifest records the artifact that first read its bytes,
+    which can be another one with the same bytes (as for build.assemble, which names the transform's input)."""
+    source_id, artifact_id = key.split("/", 1)
     return Origin(
-        source_id=src.id,
-        artifact_id=snap.artifact_id,
+        source_id=source_id,
+        artifact_id=artifact_id,
         producer=src.publisher,
         title=src.title,
         version_producer=vintage,
@@ -822,11 +841,35 @@ class Matching:
         return join(self.names, self.adm1, self.declared, self.entity_of)
 
 
+def check_region_entities(paths: Paths, names_sha: str, regions: dict[str, str], entity_of: dict[str, str]) -> None:
+    """pipeline/geo/entities.csv was built from this names snapshot, and holds every region matched here as a region
+    of its country, so every region id in the map files is an entity."""
+    side = json.loads(geo.entities_path(paths).with_name("entities.provenance.json").read_text(encoding="utf-8"))
+    built_from = side["inputs"].get(f"{CCKP}/{NAMES_ARTIFACT}")
+    if built_from != names_sha:
+        raise GeoShapesError(
+            f"pipeline/geo/entities.csv was built from {CCKP}/{NAMES_ARTIFACT} {built_from}, not the current "
+            f"{names_sha}; run envdash geo build"
+        )
+    table = geo.read_table(geo.entities_path(paths)).by("iso3")
+    wrong = [
+        c
+        for c in sorted(regions)
+        if [(e.kind, e.member_of) for e in table.get(c, ())] != [("region", (entity_of[c.split(".")[0]],))]
+    ]
+    if wrong:
+        raise GeoShapesError(f"CCKP regions that are not regions of their country in entities.csv: {wrong[:10]}")
+
+
 def matching(paths: Paths, inputs: Inputs, layers: dict[str, list[Record]]) -> Matching:
-    names = read_cckp_names(inputs.files[f"{CCKP}/{NAMES_ARTIFACT}"])
+    key = f"{CCKP}/{NAMES_ARTIFACT}"
+    names = read_cckp_names(inputs.files[key])
+    regions, _ = cckp_regions(names)
     codes = {r.iso for recs in layers.values() for r in recs if r.iso}
-    codes |= {c.split(".")[0] for c in names if "." in c and not c.startswith("DIS.")}
-    return Matching(names, layers["adm1"], read_declared(declared_path(paths)), entity_of_codes(paths, codes))
+    codes |= {c.split(".")[0] for c in regions}
+    entity_of = entity_of_codes(paths, codes)
+    check_region_entities(paths, inputs.snaps[key].sha256, regions, entity_of)
+    return Matching(names, layers["adm1"], read_declared(declared_path(paths)), entity_of)
 
 
 def read_layers(inputs: Inputs, layers: tuple[str, ...] = LAYERS) -> dict[str, list[Record]]:
@@ -944,7 +987,7 @@ def build(paths: Paths, registry: Registry, inputs: Inputs | None = None, *, onl
         )
     )
     origins = [
-        _origin(sources[k.split("/")[0]], s, VINTAGE if k.startswith(SOURCE) else f"fetched {s.date_accessed}")
+        _origin(k, sources[k.split("/")[0]], s, VINTAGE if k.startswith(SOURCE) else f"fetched {s.date_accessed}")
         for k, s in sorted(inputs.snaps.items())
     ]
     index = GeoIndex(
@@ -1031,8 +1074,10 @@ def steps(paths: Paths, inputs: Inputs, j: Join, layers: dict[str, list[Record]]
         f"by pairs declared in {DECLARED}; {method_counts['name']:,} by a name unique on both sides, only in countries "
         f"with as many CCKP regions as records. {unjoined:,} CCKP regions are listed without a shape, "
         f"{len(shapeless)} matched to a record with no shape ({', '.join(shapeless) or 'none'}), and {unmatched:,} "
-        f"records are drawn without a value. CCKP's {j.disputed_left_out} DIS.* units are left out. The name rule was "
-        f"withheld, the counts differing, in: {', '.join(withheld)}.",
+        f"records are drawn without a value. CCKP's {j.disputed_left_out} DIS.* units are left out, and so are the "
+        f"{len(geo.CHINA_LISTED)} units it lists under China for Hong Kong, Macao and Taiwan, places with regions of "
+        f"their own (as in pipeline/geo/entities.csv). The name rule was withheld, the counts differing, in: "
+        f"{', '.join(withheld)}.",
         f"Simplified with the topojson library (topology with shared borders, Douglas-Peucker on arcs, rings kept at "
         f"least a triangle). World: coordinates snapped to {WORLD.prequantize:,} steps, epsilon {WORLD.epsilon}°, "
         f"polygons and holes under {WORLD.min_area} square degrees left out, output quantised to {WORLD.quantize:,} "

@@ -9,20 +9,27 @@ cannot be sliced (run with `uv run pytest -m snapshot` after `envdash fetch -s w
 
 from __future__ import annotations
 
+import dataclasses
 import io
 import json
 import os
+import shutil
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
 import shapefile
 
-from envdash import canonical, geo
+from envdash import canonical, geo, snapshots
 from envdash import geo_shapes as gs
+from envdash.export import BuildReport
+from envdash.fetch import SourceFetch
 from envdash.models import GeoIndex
-from envdash.paths import Paths
+from envdash.paths import REPO_ROOT, Paths
 from envdash.registry import load_registry
+from envdash.status import update_status
+from envdash.validate import geo_problems
 
 from support import fixture
 
@@ -74,10 +81,35 @@ def test_disputed_areas_keep_the_world_banks_names():
 
 def test_declared_pairs_are_complete_rows():
     rows = gs.read_declared(gs.declared_path(Paths.default()))
-    assert len(rows) == 151
-    assert sum(d.decision == "accept" for d in rows) == 79 and sum(d.decision == "reject" for d in rows) == 72
+    assert len(rows) == 152
+    assert sum(d.decision == "accept" for d in rows) == 80 and sum(d.decision == "reject" for d in rows) == 72
     assert all(d.reason.strip() and "." in d.cckp_code for d in rows)
     assert sum(d.cckp_code.startswith("KEN.") for d in rows) == 45
+
+
+def test_the_snapshot_manifests_name_the_registered_artifacts():
+    # A manifest records the artifact that first read its bytes; index.json names each input by its registry key.
+    paths = Paths.default()
+    pointers = snapshots.read_current(paths)
+    artifacts = {a.id for a in load_registry(paths).sources[gs.SOURCE].artifacts}
+    for key in (k for k in gs.INPUT_KEYS if k.startswith(f"{gs.SOURCE}/")):
+        snap = snapshots.read_manifest(paths, pointers[key])
+        assert snap is not None and f"{snap.source_id}/{snap.artifact_id}" == key
+        assert key.split("/")[1] in artifacts
+
+
+def test_a_failed_shapes_build_fails_both_sources_in_the_status(tmp_paths):
+    for sid in (gs.SOURCE, gs.CCKP):
+        shutil.copy(REPO_ROOT / "pipeline" / "sources" / f"{sid}.yaml", tmp_paths.sources / f"{sid}.yaml")
+    reg = load_registry(tmp_paths)
+    reason = "no snapshot of wb-cckp/subnational-names; run envdash fetch -s wb-cckp"
+    report = BuildReport(geo=gs.Outcome("failed", reason))
+    assert not report.ok
+    fetched = {gs.SOURCE: SourceFetch(gs.SOURCE, "unchanged", "2026-10-16T12:00:00Z")}
+    st = update_status(tmp_paths, reg, fetched=fetched, built=report)
+    for sid in (gs.SOURCE, gs.CCKP):  # wb-gad-v1 fetched this run, wb-cckp not
+        assert (st.sources[sid].state, st.sources[sid].reason) == ("failed", f"map shapes (data/v1/geo): {reason}")
+    assert BuildReport(geo=gs.Outcome("skipped")).ok and BuildReport(geo=gs.Outcome("built")).ok
 
 
 def test_names_compare_without_accents_case_or_punctuation():
@@ -164,6 +196,8 @@ def test_the_index_traces_every_file_and_input(built):
         assert canonical.sha256_bytes(built.files[f.path]) == f.sha256 and len(built.files[f.path]) == f.bytes
     current = gs.load_inputs(Paths.default()).snaps
     assert {o.sha256 for o in index.origins} == {s.sha256 for s in current.values()}
+    # Each input is named by its registry key, not by the artifact a shared manifest first recorded.
+    assert [f"{o.source_id}/{o.artifact_id}" for o in index.origins] == sorted(gs.INPUT_KEYS)
     assert index.licence_class == "open" and "UNCITRAL" not in index.attribution
     crosswalk = built.files["v1/geo/cckp-adm1-crosswalk.csv"].decode()
     header = next(line for line in crosswalk.splitlines() if not line.startswith("#"))
@@ -203,3 +237,65 @@ def test_another_process_writes_the_same_bytes(built):
     env = {**os.environ, "PYTHONHASHSEED": "12345"}
     out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=env, check=True)
     assert json.loads(out.stdout) == {k: canonical.sha256_bytes(v) for k, v in built.files.items()}
+
+
+@pytest.mark.snapshot
+def test_a_file_over_its_limit_stops_the_build(built, monkeypatch):
+    size = len(built.files["v1/geo/adm1/IND.topo.json"])
+    monkeypatch.setattr(gs, "COUNTRY_LIMIT", size - 1)
+    paths = Paths.default()
+    with pytest.raises(gs.GeoShapesError, match=f"IND.topo.json is {size:,} bytes, over its limit of {size - 1:,}"):
+        gs.build(paths, load_registry(paths), only={"IND"})
+
+
+def _write_paths(tmp_path: Path) -> Paths:
+    """data/ and the build records in a temporary directory, with the current snapshot pointers and the manifests of
+    the inputs (so the build key is the real one); the registry, entities and declarations are the repo's."""
+    real = Paths.default()
+    paths = real.with_(data=tmp_path / "data", manifests=tmp_path / "manifests")
+    paths.snapshot_manifests.mkdir(parents=True)
+    shutil.copy(real.current, paths.current)
+    pointers = snapshots.read_current(real)
+    for k in gs.INPUT_KEYS:
+        shutil.copy(snapshots.manifest_path(real, pointers[k]), paths.snapshot_manifests)
+    return paths
+
+
+@pytest.mark.snapshot
+def test_write_keeps_an_unchanged_build_and_stops_when_the_same_inputs_give_other_bytes(built, tmp_path, monkeypatch):
+    """write() with the real build key and, standing in for gs.build, the module's build of a few countries: the build
+    is skipped while its key and files are unchanged, rebuilt when a file changed on disk, stopped when the same key
+    gives other bytes (the files kept), and a country file no longer built is removed."""
+    paths = _write_paths(tmp_path)
+    reg = load_registry(paths)
+    monkeypatch.setattr(gs, "build", lambda *a, **k: built)
+    out = gs.write(paths, reg)
+    assert out.state == "built" and out.index == built.index
+    assert {p: (paths.data / p).read_bytes() for p in built.files} == built.files
+    assert geo_problems(paths) == []
+    record = json.loads(gs.record_path(paths).read_text())
+    assert record["key"] == gs.build_key(paths, reg)[0]
+    assert gs.write(paths, reg).state == "skipped"
+
+    world = paths.data / "v1/geo/world.topo.json"
+    world.write_bytes(world.read_bytes() + b" ")
+    assert geo_problems(paths) == ["data/v1/geo/index.json: v1/geo/world.topo.json changed"]
+    assert gs.write(paths, reg).state == "built" and world.read_bytes() == built.files["v1/geo/world.topo.json"]
+
+    other = dataclasses.replace(built, files={**built.files, "v1/geo/world.topo.json": world.read_bytes() + b"\n"})
+    monkeypatch.setattr(gs, "build", lambda *a, **k: other)
+    out = gs.write(paths, reg, force=True)
+    assert out.state == "failed" and out.reason is not None
+    assert "the same inputs gave different bytes than the last build: ['v1/geo/world.topo.json']" in out.reason
+    assert world.read_bytes() == built.files["v1/geo/world.topo.json"]
+
+    # A country file left by an earlier build (here a copy of Kenya's under Nepal's name) is removed.
+    left = paths.data / "v1/geo/adm1/NPL.topo.json"
+    left.write_bytes(built.files["v1/geo/adm1/KEN.topo.json"])
+    assert geo_problems(paths) == ["v1/geo/adm1/NPL.topo.json is not listed in data/v1/geo/index.json"]
+    monkeypatch.setattr(gs, "build", lambda *a, **k: built)
+    assert gs.write(paths, reg, force=True).state == "built" and not left.exists()
+    assert geo_problems(paths) == []
+
+    (paths.data / "v1/geo/adm1/KEN.topo.json").unlink()
+    assert geo_problems(paths) == ["data/v1/geo/index.json lists v1/geo/adm1/KEN.topo.json, which is missing"]

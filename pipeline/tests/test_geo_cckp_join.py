@@ -18,6 +18,7 @@ from pathlib import Path
 
 import pytest
 
+from envdash import geo
 from envdash import geo_shapes as gs
 from envdash.paths import Paths
 
@@ -131,7 +132,7 @@ def test_a_shared_gaul_code_takes_only_the_record_whose_name_agrees(j, m):
 
 
 def test_every_region_once_and_every_record_at_most_once(j, m):
-    regions = {c for c in m.names if "." in c and not c.startswith("DIS.")}
+    regions = {c for c in m.names if "." in c and not c.startswith("DIS.")} - set(geo.CHINA_LISTED)
     seen = Counter(p.cckp_code for p in j.pairs if p.cckp_code)
     multi = {c for c, n in seen.items() if n > 1}
     # A region takes several records only when every one bears its code and name (Wisconsin, written twice).
@@ -181,11 +182,66 @@ def test_a_rejection_no_rule_needs_any_more_stops_the_build(m):
 
 
 def test_a_record_used_twice_stops_the_build(m):
-    delhi = next(r for r in m.adm1 if r.attrs.get("ADM1CD_t") == "IND010")
-    goa = "IND.11511"
-    extra = gs.Declared(goa, delhi.fid, "IND010", "Delhi", "accept", "a test")
-    with pytest.raises(gs.GeoShapesError, match=r"already matched|used twice"):
+    # Abuja is declared onto the Federal Capital Territory's record; declaring Lagos onto it too uses it twice.
+    fct = next(r for r in m.adm1 if r.iso == "NGA" and r.attrs["NAM_1"] == "Federal Capital Territory")
+    lagos = next(c for c, n in m.names.items() if c.startswith("NGA.") and n == "Lagos")
+    extra = gs.Declared(lagos, fct.fid, "", "Federal Capital Territory", "accept", "a test")
+    with pytest.raises(gs.GeoShapesError, match=rf"record {fct.fid} .* would be used twice"):
         gs.join(m.names, m.adm1, [*m.declared, extra], m.entity_of)
+
+
+def test_an_accept_a_code_rule_already_makes_stops_the_build(m):
+    # Delhi matches its record by the ADM1CD rule, the names agreeing: an accept of the same pair is not needed.
+    delhi = next(r for r in m.adm1 if r.attrs.get("ADM1CD_t") == "IND010")
+    extra = gs.Declared("IND.11510", delhi.fid, "IND010", "Delhi", "accept", "a test")
+    with pytest.raises(gs.GeoShapesError, match=r"IND\.11510 'Delhi' and record \d+ are matched by the adm1cd rule"):
+        gs.join(m.names, m.adm1, [*m.declared, extra], m.entity_of)
+
+
+def test_an_accept_the_name_rule_already_makes_stops_the_build(m):
+    # Lagos matches its record by name in Nigeria (37 regions, 37 shapes): an accept of the same pair is not needed.
+    lagos = next(c for c, n in m.names.items() if c.startswith("NGA.") and n == "Lagos")
+    rec = next(r for r in m.adm1 if r.iso == "NGA" and r.attrs["NAM_1"] == "Lagos")
+    extra = gs.Declared(lagos, rec.fid, rec.attrs["ADM1CD_t"] or "", "Lagos", "accept", "a test")
+    with pytest.raises(gs.GeoShapesError, match=r"the name rule matches them: the accept is no longer needed"):
+        gs.join(m.names, m.adm1, [*m.declared, extra], m.entity_of)
+
+
+def test_china_lists_hong_kong_macao_and_taiwan_as_places_of_their_own(j, m):
+    # CCKP's units for them under China are left out (geo.CHINA_LISTED); China's 31 regions then match its 31 shapes.
+    china = next(c for c in j.countries if c.entity == "CHN")
+    assert (china.cckp_regions, china.shapes, china.joined, china.unjoined) == (31, 31, {"gaul": 31}, [])
+    assert not {p.cckp_code for p in j.pairs} & set(geo.CHINA_LISTED)
+    for e in ("HKG", "MAC", "TWN"):
+        place = next(c for c in j.countries if c.entity == e)
+        assert (place.cckp_regions, place.joined) == (1, {"declared": 1}), e
+    renamed = {**m.names, "CHN.33364910": "Hong Kong"}
+    with pytest.raises(gs.GeoShapesError, match=r"as geo\.CHINA_LISTED declares"):
+        gs.join(renamed, m.adm1, m.declared, m.entity_of)
+
+
+def test_the_philippines_17_of_17_on_the_world_banks_2013_shapes(j):
+    philippines = next(c for c in j.countries if c.entity == "PHL")
+    assert (philippines.cckp_regions, philippines.shapes, philippines.joined) == (17, 17, {"declared": 17})
+    # V1 names record 1988 ARMM in NAM_1 and Bangsamoro (BARMM) in P_NAME_1; its shape predates the 2019 plebiscite,
+    # as Region 12's does (see the reasons in the declared pairs).
+    barmm = next(p for p in pairs_of(j, "PHL") if p.cckp_code == "PHL.1961")
+    assert barmm.cckp_name == "Bangsamoro Autonomous Region in Muslim Mindanao"
+    assert barmm.record.attrs["P_NAME_1"] == "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)"
+    assert {p.record.attrs["GEOM_SRCE"] for p in pairs_of(j, "PHL")} == {"UN SALB"}
+
+
+def test_the_entity_table_holds_every_region_matched(m):
+    paths = Paths.default()
+    inputs = gs.load_inputs(paths)
+    sha = inputs.snaps[f"{gs.CCKP}/{gs.NAMES_ARTIFACT}"].sha256
+    regions, _ = gs.cckp_regions(m.names)
+    gs.check_region_entities(paths, sha, regions, m.entity_of)
+    with pytest.raises(gs.GeoShapesError, match="was built from"):
+        gs.check_region_entities(paths, "0" * 64, regions, m.entity_of)
+    # Hong Kong's unit under China is not an entity of China.
+    with pytest.raises(gs.GeoShapesError, match=r"not regions of their country in entities.csv: \['CHN.33364910'\]"):
+        gs.check_region_entities(paths, sha, {**regions, "CHN.33364910": "Hong Kong, SAR"}, m.entity_of)
 
 
 def test_two_code_rules_pointing_at_different_records_stop_the_build(m):

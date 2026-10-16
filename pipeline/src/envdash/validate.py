@@ -108,6 +108,29 @@ def _private_values_in_catalogue(ind: Indicator, entry: CatalogEntry) -> list[st
     return found
 
 
+def geo_problems(paths: Paths) -> list[str]:
+    """data/v1/geo/index.json, when present: a canonical GeoIndex listing every file of data/v1/geo/ with its sha256
+    and size."""
+    geo_index = paths.data / "v1" / "geo" / "index.json"
+    if not geo_index.exists():
+        return []
+    problems: list[str] = []
+    index, errs = _canonical(geo_index, GeoIndex)
+    problems += errs
+    listed_geo = {f.path for f in index.files} if index else set()
+    for f in index.files if index else []:
+        p = paths.data / f.path
+        if not p.exists():
+            problems.append(f"data/v1/geo/index.json lists {f.path}, which is missing")
+        elif canonical.sha256_file(p) != f.sha256 or p.stat().st_size != f.bytes:
+            problems.append(f"data/v1/geo/index.json: {f.path} changed")
+    for p in sorted((paths.data / "v1" / "geo").rglob("*")):
+        rel = p.relative_to(paths.data).as_posix()
+        if p.is_file() and rel != "v1/geo/index.json" and rel not in listed_geo:
+            problems.append(f"{rel} is not listed in data/v1/geo/index.json")
+    return problems
+
+
 def validate_all(paths: Paths, registry: Registry) -> list[str]:
     problems: list[str] = [*registry.source_errors.values(), *registry.literature_errors.values()]
 
@@ -187,21 +210,7 @@ def validate_all(paths: Paths, registry: Registry) -> list[str]:
     else:
         problems.append("data/datapackage.json is missing")
 
-    geo_index = paths.data / "v1" / "geo" / "index.json"
-    if geo_index.exists():
-        index, errs = _canonical(geo_index, GeoIndex)
-        problems += errs
-        listed_geo = {f.path for f in index.files} if index else set()
-        for f in index.files if index else []:
-            p = paths.data / f.path
-            if not p.exists():
-                problems.append(f"data/v1/geo/index.json lists {f.path}, which is missing")
-            elif canonical.sha256_file(p) != f.sha256 or p.stat().st_size != f.bytes:
-                problems.append(f"data/v1/geo/index.json: {f.path} changed")
-        for p in sorted((paths.data / "v1" / "geo").rglob("*")):
-            rel = p.relative_to(paths.data).as_posix()
-            if p.is_file() and rel != "v1/geo/index.json" and rel not in listed_geo:
-                problems.append(f"{rel} is not listed in data/v1/geo/index.json")
+    problems += geo_problems(paths)
 
     sums_path = paths.data / "SHA256SUMS"
     if sums_path.exists():

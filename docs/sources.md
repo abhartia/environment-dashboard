@@ -437,32 +437,60 @@ Evidence: the research of 2026-10-15/16 for the future map, re-checked on 2026-1
 - **Fetching.** The zip is 264,700,182 bytes. Only 11 of its members are read, by range requests: the .shp, .shx and
   .dbf of ADM0, ADM1 and NDLSA, plus one .prj and one .cpg, since those two are the same bytes in every layer. A
   fetch whose zip has the same size, ETag and Last-Modified keeps every snapshot after a one-byte request.
-- **Matching.** A code match counts only when the names agree. 151 pairs are declared in
-  `pipeline/geo/cckp-adm1-declared.csv`, each with its reason: 79 accepted and 72 rejected.
+- **Matching.** A code match counts only when the names agree. 152 pairs are declared in
+  `pipeline/geo/cckp-adm1-declared.csv`, each with its reason: 80 accepted and 72 rejected.
   - Rejected: Kenya (45), Iraq (15), Djibouti (5) and South Sudan (3), whose units CCKP numbers in an order of its
     own, and four records that share a neighbour's GAUL code (Bogotá; Bekaa and North in Lebanon; North West in
     Sierra Leone).
   - Accepted: Morocco's and Nepal's regions named by number; Hong Kong, Macao and Taiwan, which CCKP names by their
     codes; and, in countries with as many CCKP regions as shapes, names differing in spelling, language or encoding.
     These are Canada's bilingual names, Mexico's garbled accents ("Nuevo Le¢n"), Mongolian transliterations,
-    Cyprus's Greek names and the Philippines' numbered regions.
-  - The name rule applies only where a country has as many CCKP regions as shapes. It is withheld in 30 countries,
+    Cyprus's Greek names, and the Philippines' numbered regions and Bangsamoro (below).
+  - The name rule applies only where a country has as many CCKP regions as shapes. It is withheld in 29 countries,
     such as Indonesia, whose 33 CCKP provinces predate the splits of 2012 and 2022 (38 shapes). A shared name there
     can name a different shape.
-  - Result: 3,175 of CCKP's 3,498 regions are on a shape, and 215 of 246 countries are fully matched. The other 323
-    regions are listed, never drawn on a guessed shape. The Philippines' Bangsamoro region is not matched to the
-    World Bank's ARMM, whose borders it changed in 2019.
+  - The regions are those of `pipeline/geo/entities.csv`: CCKP's 3,530 region codes less its 32 DIS.* units and the
+    three units it lists under China for Hong Kong, Macao and Taiwan, which are places with regions of their own. The
+    build stops if the entity table was built from another names file or lacks one of these regions.
+  - Result: 3,176 of these 3,495 regions are on a shape, and 217 of 246 countries are fully matched. The other 319
+    regions are listed, never drawn on a guessed shape.
+  - **The Philippines, a decision for the owner.** CCKP's 17 regions are matched to V1's 17 records by declaration,
+    Bangsamoro (PHL.1961) included. V1's NAM_1 calls that record ARMM, but its P_NAME_1, from the P-code list of
+    2023-11-06, calls it "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)": CCKP's name with the abbreviation,
+    as for the Cordillera (CAR) and the capital region (NCR). V1's Philippine shapes are UN SALB's of 2013, from before
+    the 2019 plebiscite: Cotabato City and the barangays of North Cotabato that then joined Bangsamoro lie in Region
+    XII's shape (CCKP's Region 12, PHL.1969), not in ARMM's. Both regions are drawn on these shapes. If CCKP averages
+    over V1's shapes, as its codes elsewhere suggest, both are right; if it uses the borders of 2019, both shapes are
+    off by that area. The alternative is to remove both declarations, which leaves both regions listed without a
+    shape and their two shapes grey.
   - The table by country, `pipeline/tests/expected/cckp-join-by-country.csv`, makes any change show as a diff.
+- **A country's value against its regions (a diagnostic, not a check).** The check that stops the build is in
+  `cckp_projections.py`: each national value lies within its regions' range. A national value can pass it and still
+  be weighted wrongly, so `pipeline/tests/test_geo_area_weighted.py` compares it with the mean of its regions'
+  values weighted by their areas (V1's shapes measured on the WGS 84 ellipsoid). It reads the 2040–2059 SSP2-4.5
+  medians of the 172 countries with two or more regions, all on shapes.
+  - The gap is within half the site's last printed digit in 167 countries for hot days, 154 for hot nights, 169 for
+    heat-index days, 166 for the hottest day, 135 for the longest dry spell and 167 for warming.
+  - Pakistan's gap is the largest for every heat and dry measure: its national value has 11.45 fewer hot days than
+    the weighted mean of its regions. Guinea-Bissau's and India's are next, at 5.83 and 3.17 fewer. V1's shapes of
+    Pakistan and India leave out Jammu and Kashmir, a disputed area. CCKP does not publish the national areas it
+    averages over, so whether its national values include that area is not known.
+  - For the wettest day, the gap is within 0.5 mm in only 29 countries, and the national value is the lower one in 162.
+    The largest gap is the Philippines', at 17.68 mm. CCKP's national figure for this measure is not an area mean of
+    its regions' figures; the national check found it below every region in 859 country values.
+  - The result by country is `pipeline/tests/expected/cckp-area-weighted.csv`. Nothing on the site combines regions
+    into a country.
 - **Simplifying.** The shapes are simplified as one topology per file, so shared borders stay shared.
   - `world.topo.json` is 210,839 bytes (limit 250,000). Its epsilon is 0.25°, polygons under 0.05 square degrees are
     left out, and 192 of 245 countries are drawn; the rest are points.
-  - 224 country files total 4.3 MB. The largest is Guinea-Bissau's at 70,841 bytes (limit 200,000).
+  - 224 country files total 3,961,656 bytes. The largest is Guinea-Bissau's at 70,841 bytes (limit 200,000).
   - Every feature keeps a representative point of its full shape, so no place is lost.
 - **Disputed areas.** The World Bank's 24 non-determined legal status areas are drawn grey with its own names and
   never coloured. CCKP's 32 DIS.* units are left out.
 - **When CCKP changes boundaries.** CCKP's portal says it will move to the World Bank's newer boundaries. When it
   does, its region codes change and the build stops: code matches no declaration explains, and declarations no
-  longer needed. The region maps keep their last version until someone re-matches them.
+  longer needed (a rejection no code rule makes, or an acceptance that the code or name rules already make). The
+  region maps keep their last version until someone re-matches them.
 
 ## Rejected
 
