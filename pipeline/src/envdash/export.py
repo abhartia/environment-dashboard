@@ -10,6 +10,7 @@ data/ (committed, public; redistributable classes only):
                             no values: latest is null and there is no download)
   v1/sources.json           the source registry
   datapackage.json          Frictionless Data Package v2 of the CSVs, each with its own licence
+  v1/geo/                   map shapes and their index (envdash/geo_shapes.py), rebuilt when their build key changes
   SHA256SUMS                every file above (status.json is rewritten each run and is not listed)
 data-private/ (never committed or deployed as a file):
   v1/indicators/<id>.json   no-derivatives and display-only indicators, as IndicatorFile JSON
@@ -23,7 +24,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from envdash import canonical
+from envdash import canonical, geo_shapes
 from envdash.build import IndicatorOutcome, build_key, build_one, export_path, lock_sha, write_build_record
 from envdash.models import (
     REDISTRIBUTABLE,
@@ -68,6 +69,7 @@ def page_url(indicator_id: str) -> str:
 class BuildReport:
     outcomes: list[IndicatorOutcome] = field(default_factory=list)
     literature_errors: dict[str, str] = field(default_factory=dict)
+    geo: geo_shapes.Outcome | None = None
 
     @property
     def failed(self) -> list[IndicatorOutcome]:
@@ -75,7 +77,7 @@ class BuildReport:
 
     @property
     def ok(self) -> bool:
-        return not self.failed and not self.literature_errors
+        return not self.failed and not self.literature_errors and (self.geo is None or self.geo.state != "failed")
 
 
 def _one_line(s: str) -> str:
@@ -315,5 +317,6 @@ def build_and_export(
         paths.data / "v1" / "sources.json", canonical.dump_bytes(SourceList(sources=public_sources))
     )
     canonical.write_if_changed(paths.data / "datapackage.json", canonical.dump_bytes(datapackage(paths, exported)))
+    report.geo = geo_shapes.write(paths, registry, force=force)
     write_sums(paths)
     return report

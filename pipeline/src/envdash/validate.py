@@ -10,6 +10,7 @@ Returns a list of problems; empty means valid. Checks:
 - an indicator dated in years before 1950 runs from the oldest age to the youngest within each (entity, dims) series,
   and its latest is the youngest observation of its headline series (the model checks period/age_bp consistency);
 - datapackage.json lists exactly the public CSVs with the right hashes and only redistributable licences;
+- data/v1/geo/index.json (when present) is a canonical GeoIndex listing every map file with its sha256 and size;
 - SHA256SUMS matches the files.
 """
 
@@ -23,7 +24,16 @@ from pydantic import ValidationError
 
 from envdash import canonical, snapshots
 from envdash.export import SUMS_EXCLUDE, export_bytes
-from envdash.models import REDISTRIBUTABLE, Catalog, CatalogEntry, Indicator, IndicatorFile, Snapshot, SourceList
+from envdash.models import (
+    REDISTRIBUTABLE,
+    Catalog,
+    CatalogEntry,
+    GeoIndex,
+    Indicator,
+    IndicatorFile,
+    Snapshot,
+    SourceList,
+)
 from envdash.paths import Paths
 from envdash.registry import Registry
 
@@ -176,6 +186,22 @@ def validate_all(paths: Paths, registry: Registry) -> list[str]:
                 problems.append(f"datapackage.json lists {e.id} of class {e.licence_class}")
     else:
         problems.append("data/datapackage.json is missing")
+
+    geo_index = paths.data / "v1" / "geo" / "index.json"
+    if geo_index.exists():
+        index, errs = _canonical(geo_index, GeoIndex)
+        problems += errs
+        listed_geo = {f.path for f in index.files} if index else set()
+        for f in index.files if index else []:
+            p = paths.data / f.path
+            if not p.exists():
+                problems.append(f"data/v1/geo/index.json lists {f.path}, which is missing")
+            elif canonical.sha256_file(p) != f.sha256 or p.stat().st_size != f.bytes:
+                problems.append(f"data/v1/geo/index.json: {f.path} changed")
+        for p in sorted((paths.data / "v1" / "geo").rglob("*")):
+            rel = p.relative_to(paths.data).as_posix()
+            if p.is_file() and rel != "v1/geo/index.json" and rel not in listed_geo:
+                problems.append(f"{rel} is not listed in data/v1/geo/index.json")
 
     sums_path = paths.data / "SHA256SUMS"
     if sums_path.exists():

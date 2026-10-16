@@ -415,6 +415,55 @@ docs/research/sources-extremes-2026-10-12.json (verification[2]).
   say: that disasters or displacement are becoming more frequent (IDMC records many more events than it did), that
   climate change caused them, or a number of people (one person can be displaced more than once).
 
+## Decisions on the future map's shapes (2026-10-16)
+
+The future map colours each country, and each state or province, by CCKP's projections (`wb-cckp`). Its shapes are
+the World Bank's own boundaries, registered as `wb-gad-v1`. `envdash geo shapes` (`envdash/geo_shapes.py`) simplifies
+them into `data/v1/geo/` and matches CCKP's region codes to them; `envdash build` runs it when its inputs change.
+Evidence: the research of 2026-10-15/16 for the future map, re-checked on 2026-10-16.
+
+- **Which boundaries: World Bank Official Boundaries, GAD V1 of 7 May 2025** (`wb-gad-v1`, open). It is the release
+  CCKP aggregates its regions on. CCKP's region code can be rebuilt from its admin-1 attributes: as
+  `{ISO_A3}.{GAUL_0}{GAUL_1}` for 2,315 regions, and as `{ISO_A3}.{GAUL_0}{int(ADM1CD_t[3:])}` for 470 more, the names
+  agreeing. India matches 35 of 35 this way (IND010 Delhi is CCKP's IND.11510). The key is ISO_A3, not WB_A3: CCKP's
+  country codes are ISO_A3 codes (Kosovo is KSV), and WB_A3 is blank for Iraq and Haiti and puts Taiwan and France's
+  overseas regions under another country's code.
+- **Licence.** CC BY 4.0 with the World Bank Dataset Terms. The dataset's catalogue page reads "This dataset is
+  licensed under Creative Commons Attribution 4.0". The zip carries no licence of its own. The AWS registry's label
+  for the bucket is inconsistent and is not relied on. **An assumption for the owner to confirm:** the catalogue now
+  offers only later versions (its version history starts on 2026-05-14), so V1 is taken to be under the same CC BY
+  4.0, as an earlier release of the same World Bank dataset that the World Bank itself hosts in CCKP's open bucket.
+  If that is not accepted, the regions are shown as ranked bars and no region map is drawn.
+- **Fetching.** The zip is 264,700,182 bytes. Only 11 of its members are read, by range requests: the .shp, .shx and
+  .dbf of ADM0, ADM1 and NDLSA, plus one .prj and one .cpg, since those two are the same bytes in every layer. A
+  fetch whose zip has the same size, ETag and Last-Modified keeps every snapshot after a one-byte request.
+- **Matching.** A code match counts only when the names agree. 151 pairs are declared in
+  `pipeline/geo/cckp-adm1-declared.csv`, each with its reason: 79 accepted and 72 rejected.
+  - Rejected: Kenya (45), Iraq (15), Djibouti (5) and South Sudan (3), whose units CCKP numbers in an order of its
+    own, and four records that share a neighbour's GAUL code (Bogotá; Bekaa and North in Lebanon; North West in
+    Sierra Leone).
+  - Accepted: Morocco's and Nepal's regions named by number; Hong Kong, Macao and Taiwan, which CCKP names by their
+    codes; and, in countries with as many CCKP regions as shapes, names differing in spelling, language or encoding.
+    These are Canada's bilingual names, Mexico's garbled accents ("Nuevo Le¢n"), Mongolian transliterations,
+    Cyprus's Greek names and the Philippines' numbered regions.
+  - The name rule applies only where a country has as many CCKP regions as shapes. It is withheld in 30 countries,
+    such as Indonesia, whose 33 CCKP provinces predate the splits of 2012 and 2022 (38 shapes). A shared name there
+    can name a different shape.
+  - Result: 3,175 of CCKP's 3,498 regions are on a shape, and 215 of 246 countries are fully matched. The other 323
+    regions are listed, never drawn on a guessed shape. The Philippines' Bangsamoro region is not matched to the
+    World Bank's ARMM, whose borders it changed in 2019.
+  - The table by country, `pipeline/tests/expected/cckp-join-by-country.csv`, makes any change show as a diff.
+- **Simplifying.** The shapes are simplified as one topology per file, so shared borders stay shared.
+  - `world.topo.json` is 210,839 bytes (limit 250,000). Its epsilon is 0.25°, polygons under 0.05 square degrees are
+    left out, and 192 of 245 countries are drawn; the rest are points.
+  - 224 country files total 4.3 MB. The largest is Guinea-Bissau's at 70,841 bytes (limit 200,000).
+  - Every feature keeps a representative point of its full shape, so no place is lost.
+- **Disputed areas.** The World Bank's 24 non-determined legal status areas are drawn grey with its own names and
+  never coloured. CCKP's 32 DIS.* units are left out.
+- **When CCKP changes boundaries.** CCKP's portal says it will move to the World Bank's newer boundaries. When it
+  does, its region codes change and the build stops: code matches no declaration explains, and declarations no
+  longer needed. The region maps keep their last version until someone re-matches them.
+
 ## Rejected
 
 Recorded on 2026-10-04 while building the first registry. Each entry gives the clause or the reason, so it can be
@@ -471,3 +520,9 @@ Recorded on 2026-10-05 while researching personal footprints (docs/research/sour
 - **JRC Consumption Footprint, breakdown by area of consumption — deferred** (https://eplca.jrc.ec.europa.eu/ConsumptionFootprintPlatform.html): licence COM_REUSE (open), but the breakdown sits behind a JSF dashboard form (manual acquisition), runs only to 2021, and is a life-cycle model of household products that is not comparable with input-output footprints.
 - **NTNU Environmental Footprint Explorer (environmentalfootprints.org)**: the terms say its materials are 'protected by applicable copyright', with no open licence.
 - **Chancel (2022), Global carbon inequality over 1990-2019, Nature Sustainability; Bruckner et al. (2022); Ivanova et al. (2016), Journal of Industrial Ecology**: Crossref gives only publisher TDM or Wiley terms licences, not open.
+
+Recorded on 2026-10-16 while choosing the future map's shapes (see "Decisions on the future map's shapes"):
+
+- **World Bank Official Boundaries, current version (catalogue dataset 0038272, version 3)** (https://datacatalog.worldbank.org/search/dataset/0038272/world-bank-official-boundaries): not a licence problem (CC BY 4.0). Its admin-1 codes (ADM1CD_c, such as IND003) do not rebuild CCKP's region codes. Its units are newer than CCKP's: version 2 merged India's Dadra and Nagar Haveli with Daman and Diu. By name, only 2,210 of CCKP's 3,500 named regions match within their country. GAD V1 is used instead (`wb-gad-v1`).
+- **Natural Earth admin-1 (1:10m, public domain)** (https://www.naturalearthdata.com/downloads/10m-cultural-vectors/): not a licence problem. Its "admin-1" is not always the first level: it has 232 counties and unitary authorities for the United Kingdom, 101 departments for France, and Kenya's 8 former provinces instead of its 47 counties. Its codes (adm1_code, iso_3166_2) do not join CCKP's, and by name only 27 countries match one to one.
+- **geoBoundaries admin-1** (https://www.geoboundaries.org/): each country's boundary carries its producer's licence. Of 199 admin-1 records, 84 are ODbL and 14 are CC BY-SA, so the class would differ by country and many would be share-alike. Its codes are opaque shape ids, and China's admin-1 includes Taiwan.

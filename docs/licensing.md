@@ -91,6 +91,7 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `wb-carbon-pricing-2026` | World Bank | CC BY 3.0 IGO | open | yes | automatic | 2026-10-04 (pdf) |
 | `wb-wdi` | World Bank | CC BY 4.0 (World Bank dataset terms, with their additional terms) | open | yes | automatic | 2026-10-04 (page) |
 | `wb-cckp` | World Bank Group | CC BY 4.0 with the World Bank Dataset Terms | open | yes | automatic | 2026-10-04 (page) |
+| `wb-gad-v1` | World Bank Group | CC BY 4.0 with the World Bank Dataset Terms | open | yes | automatic | 2026-10-16 (page) |
 | `wgms-amce` | World Glacier Monitoring Service (WGMS), University of Zurich | CC BY 4.0 (WGMS data policy, open access on condition of correct citation) | open | yes | automatic | 2026-10-04 (page) |
 | `icct-lca-2025` | International Council on Clean Transportation (ICCT) | CC BY-SA 4.0 (ICCT terms of use, "except as otherwise noted") | share-alike | no | automatic | 2026-10-04 (page) |
 | `living-planet-index` | Zoological Society of London (Indicators & Assessments Unit) and WWF International | CC BY-SA 4.0 (published LPI trends) | share-alike | yes | manual | 2026-10-11 (pdf) |
@@ -113,4 +114,4 @@ Generated from `pipeline/sources/*.yaml` by `uv run envdash docs licensing` (run
 | `poore-nemecek-2018` | Joseph Poore (University of Oxford) and Thomas Nemecek (Agroscope); published in Science; series processed by Our World in Data | All rights reserved (Science, exclusive licensee AAAS); no data licence | display-only | no | automatic | 2026-10-04 (page) |
 | `un-m49` | United Nations Statistics Division | © United Nations; UN website Terms of Use (personal, non-commercial use; no redistribution or derivative works) | display-only | no | automatic | 2026-10-04 (page) |
 
-108 sources: 88 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.
+109 sources: 89 open, 2 share-alike, 10 noncommercial, 3 no-derivatives, 5 display-only.

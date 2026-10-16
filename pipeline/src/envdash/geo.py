@@ -209,6 +209,14 @@ SOURCE_SCHEMES: dict[str, SourceScheme] = {
         },
         note="Supplementary Data 1 column Place (134 places besides World and SIDS), sha256 37a6ab2fc25e…",
     ),
+    "wb-gad-v1": SourceScheme(
+        base="iso3",
+        # World Bank Official Boundaries V1 keys its admin-0 and admin-1 records by ISO_A3, the code CCKP uses for its
+        # countries and as the prefix of its region codes. Kosovo is KSV there (its WB_A3 is KOS, ours too). WB_A3 is
+        # not used: it is blank for Iraq and Haiti and puts Taiwan, Réunion and other areas under another code.
+        aliases={"KSV": "KOS"},
+        note="WB_GAD_ADM0.dbf column ISO_A3 (245 codes in 267 records), sha256 23f2adab0b6d…",
+    ),
 }
 
 

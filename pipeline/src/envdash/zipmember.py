@@ -13,6 +13,10 @@ Every response must be 206 Partial Content for the bytes asked for, and every re
 size and the same ETag (and Last-Modified) as the first, so a zip replaced on the server between two requests is a
 failure, never a member stitched from two files. A server that answers 200 (ignoring Range) is a permanent failure:
 it would be sending the whole zip.
+
+The first one-byte request is also the conditional check (envdash/fetch.py): a RemoteZip opened with
+read_tail=False makes only that request, and when the zip's size, ETag and Last-Modified equal those recorded with
+the current snapshot of a member, the fetch keeps that snapshot and reads nothing more.
 """
 
 from __future__ import annotations
@@ -59,7 +63,9 @@ class Member:
 class RemoteZip(io.RawIOBase):
     """A read-only, seekable view of a remote file that fetches only the byte ranges read, and keeps them."""
 
-    def __init__(self, client: httpx.Client, url: str, headers: dict[str, str] | None = None) -> None:
+    def __init__(
+        self, client: httpx.Client, url: str, headers: dict[str, str] | None = None, *, read_tail: bool = True
+    ) -> None:
         super().__init__()
         self.client = client
         self.url = url
@@ -70,7 +76,13 @@ class RemoteZip(io.RawIOBase):
         self.requests = 0
         self._segments: list[tuple[int, bytes]] = []
         self._pos = 0
-        self._fetch_tail()
+        self._tail_read = False
+        # The size first, from the Content-Range of a one-byte request: Zenodo answers a suffix range longer than
+        # the file ("bytes=-N", N > size) with a body it never sends, so the tail is asked for by explicit offsets.
+        start, data, _ = self._get("bytes=0-0")
+        self._segments.append((start, data))
+        if read_tail:
+            self.read_tail()
 
     # --- HTTP -----------------------------------------------------------------------------------------------------
 
@@ -125,16 +137,18 @@ class RemoteZip(io.RawIOBase):
                 f"{etag!r}, Last-Modified {self.last_modified!r} -> {last_modified!r})"
             )
 
-    def _fetch_tail(self) -> None:
-        # The size first, from the Content-Range of a one-byte request: Zenodo answers a suffix range longer than
-        # the file ("bytes=-N", N > size) with a body it never sends, so the tail is asked for by explicit offsets.
-        start, data, total = self._get("bytes=0-0")
-        self._segments.append((start, data))
+    def read_tail(self) -> None:
+        """Read the end of the zip (its end records and, usually, its whole central directory) in one request."""
+        if self._tail_read:
+            return
+        assert self.size is not None
+        total = self.size
         first = max(0, total - TAIL_BYTES)
         start, data, _ = self._get(f"bytes={first}-{total - 1}")
         if start != first or start + len(data) != total:
             raise ZipMemberError(f"{self.url}: the tail request did not return bytes {first}-{total - 1}")
         self._segments.append((start, data))
+        self._tail_read = True
 
     def prefetch(self, start: int, length: int) -> None:
         """Make sure bytes [start, start + length) are held, with one request for whatever is missing."""
@@ -205,6 +219,7 @@ def _retry_after(r: httpx.Response) -> float | None:
 
 
 def open_zip(remote: RemoteZip) -> zipfile.ZipFile:
+    remote.read_tail()
     try:
         return zipfile.ZipFile(remote)
     except zipfile.BadZipFile as e:

@@ -259,7 +259,11 @@ class Discover(Strict):
         return self
 
 
-ArtifactFormat = Literal["csv", "csv.gz", "txt", "tsv", "xlsx", "xls", "json", "xml", "zip", "nc", "pdf", "html", "rds"]
+ArtifactFormat = Literal[
+    "csv", "csv.gz", "txt", "tsv", "xlsx", "xls", "json", "xml", "zip", "nc", "pdf", "html", "rds", "shp", "shx", "dbf"
+]
+"""A shapefile's parts are separate artifacts: shp (geometry), shx (its index) and dbf (the attribute table); its .prj
+(coordinate system, WKT) and .cpg (code page) are plain text, so txt."""
 
 
 class Artifact(Strict):
@@ -407,6 +411,12 @@ class Snapshot(Strict):
         default=None,
         description="For artifacts with zip_member: the member these bytes are, read by range requests from the zip at "
         "url (etag and last_modified are the zip's).",
+    )
+    zip_bytes: int | None = Field(
+        default=None,
+        ge=0,
+        description="For artifacts with zip_member: the size of the whole zip at url when these bytes were read. With "
+        "the zip's etag and last_modified it lets a later fetch keep this snapshot without reading the zip again.",
     )
 
 
@@ -892,6 +902,63 @@ class SourceList(Strict):
 
     schema_version: Literal[1] = SCHEMA_VERSION
     sources: list[Source]
+
+
+# --- map shapes (data/v1/geo/, envdash/geo_shapes.py) -----------------------------------------------------------
+
+JoinMethod = Literal["gaul", "adm1cd", "declared", "name"]
+"""How a CCKP region was matched to World Bank admin-1 shapes (envdash/geo_shapes.py): gaul and adm1cd, CCKP's code
+rebuilt from the shape's codes with the names agreeing; declared, a pair listed in pipeline/geo/cckp-adm1-declared.csv;
+name, the same name, unique on both sides within the country."""
+
+
+class GeoFile(Strict):
+    """One published map file."""
+
+    path: str = Field(description='Path under data/, e.g. "v1/geo/adm1/IND.topo.json".')
+    sha256: Sha256
+    bytes: int = Field(ge=0)
+    features: int = Field(ge=0, description="Places in the file's main object (countries or regions); CSV rows.")
+    drawn: int = Field(
+        ge=0, description="Of those, the ones with at least one ring at the file's scale; the others are a point (rp)."
+    )
+    disputed: int = Field(ge=0, description="Disputed areas (non-determined legal status areas) in the file.")
+
+
+class GeoCountry(Strict):
+    """How one country's CCKP regions were matched to the World Bank's admin-1 shapes."""
+
+    entity: EntityCode
+    cckp_regions: int = Field(ge=0, description="CCKP's regions of this country (its DIS.* units are not countries).")
+    shapes: int = Field(ge=0, description="World Bank admin-1 records of this country.")
+    joined: dict[JoinMethod, int] = Field(description="CCKP regions matched to shapes, by method.")
+    name_rule: Literal["applied", "withheld"] = Field(
+        description="withheld when the two counts differ: a region split or merged between the two sets can share a "
+        "name with a shape it does not match, so names alone join nothing there."
+    )
+    unjoined: list[str] = Field(description="CCKP region codes listed without a shape (sorted).")
+    shapeless: list[str] = Field(
+        description="CCKP region codes matched to a record that has no rings in the World Bank's file: matched, but "
+        "listed, not drawn (sorted)."
+    )
+    unmatched: list[str] = Field(description='Shapes drawn without a CCKP value, as "V1:<record>" (sorted).')
+    file: str | None = Field(description="Its map file under data/, or null when no region was matched.")
+
+
+class GeoIndex(Strict):
+    """data/v1/geo/index.json: what the map files are, where their shapes and codes came from, and how CCKP's
+    regions were matched to them."""
+
+    schema_version: Literal[1] = SCHEMA_VERSION
+    description: str
+    licence_class: LicenceClass
+    licence: Licence
+    attribution: str = Field(description="Credit line as rendered (the modified variant for the simplified shapes).")
+    notice: str | None = None
+    origins: list[Origin] = Field(min_length=1)
+    processing: list[ProcessingStep] = Field(min_length=1)
+    files: list[GeoFile] = Field(min_length=1)
+    countries: list[GeoCountry]
 
 
 # --- literature (pipeline/literature/<id>.yaml) -------------------------------------------------------------------

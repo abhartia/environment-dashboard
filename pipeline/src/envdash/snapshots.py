@@ -5,7 +5,8 @@
   those bytes were first fetched and never changes; only the archive fields (r2_*, wayback) are filled in later. For
   a discovered artifact the manifest's url is the resolved URL and `discovery` names the listing it was found on; for
   an artifact with a content_key, `content_sha256` is the content fingerprint next to the raw sha256; for an
-  artifact with a zip_member, the bytes are that member's and `zip_member` names it inside the zip at `url`.
+  artifact with a zip_member, the bytes are that member's, `zip_member` names it inside the zip at `url`, and
+  `zip_bytes`, `etag` and `last_modified` are the zip's when the member was read.
 - Pointers: pipeline/manifests/current.json maps "<source>/<artifact>" to the sha256 the build reads. A source's
   pointers move together, and only when every artifact of that source fetched cleanly.
 """
@@ -78,6 +79,7 @@ def record(
     content_key: str | None = None,
     content_sha256: str | None = None,
     zip_member: str | None = None,
+    zip_bytes: int | None = None,
 ) -> tuple[Snapshot, bool]:
     """Cache the bytes and write their manifest if this sha256 is new. Returns (manifest, is_new)."""
     sha = store_bytes(paths, data)
@@ -104,6 +106,7 @@ def record(
         content_key=content_key,
         content_sha256=content_sha256,
         zip_member=zip_member,
+        zip_bytes=zip_bytes,
     )
     write_manifest(paths, snap)
     return snap, True

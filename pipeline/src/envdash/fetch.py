@@ -4,7 +4,10 @@ An artifact with `discover` has its URL resolved from a listing at every fetch (
 manifest records the resolved URL and the listing. An artifact with a `content_key` keeps its current snapshot when
 the new download's content fingerprint is unchanged (envdash/contentkey.py). An artifact with a `zip_member` reads
 only that member of its zip, by HTTP Range requests (envdash/zipmember.py); the zip's directory is read once per URL
-within a source's fetch, however many of its members are registered. Credentials (auth earthdata, api-key)
+within a source's fetch, however many of its members are registered. Its first one-byte request is the conditional
+check: when the zip's size, ETag and Last-Modified all equal those recorded with the member's current snapshot (and
+the server sent at least one of the two validators, and the bytes are still cached), the member is not-modified and
+nothing more is read. Credentials (auth earthdata, api-key)
 come from the environment variable the artifact names and are never written to a manifest, a status file or a
 message; a request carrying an api key does not follow redirects.
 
@@ -27,7 +30,7 @@ from urllib.parse import urlencode
 import httpx
 
 from envdash import canonical, contentkey, discovery, snapshots, textmatch, zipmember
-from envdash.models import Artifact, SnapshotDiscovery, Source, SourceState
+from envdash.models import Artifact, Snapshot, SnapshotDiscovery, Source, SourceState
 from envdash.paths import Paths
 from envdash.registry import Registry
 
@@ -220,6 +223,24 @@ def resolve_url(client: httpx.Client, art: Artifact) -> tuple[str, SnapshotDisco
     return r.url, r.record
 
 
+def _zip_unchanged(paths: Paths, art: Artifact, url: str, cur: Snapshot | None, remote: zipmember.RemoteZip) -> bool:
+    """Whether the current snapshot of this member was read from this same zip, unchanged: the same URL and member,
+    and the zip's size, ETag and Last-Modified now equal those recorded with it (at least one validator present, so a
+    server that sends neither, such as Zenodo, is always read), with its bytes still in the cache. A member whose
+    bytes are unchanged inside a changed zip keeps the manifest of its first read (manifests never change), whose
+    validators no longer match, so it is read again at each fetch: a cost in time, never a wrong snapshot."""
+    return (
+        art.access.conditional
+        and cur is not None
+        and str(cur.url) == url
+        and cur.zip_member == art.zip_member
+        and cur.zip_bytes is not None
+        and (cur.etag is not None or cur.last_modified is not None)
+        and (cur.zip_bytes, cur.etag, cur.last_modified) == (remote.size, remote.etag, remote.last_modified)
+        and snapshots.cache_path(paths, cur.sha256).exists()
+    )
+
+
 def _fetch_zip_member(
     client: httpx.Client,
     paths: Paths,
@@ -227,18 +248,30 @@ def _fetch_zip_member(
     art: Artifact,
     today: date,
     cur_sha: str | None,
-    remote_zips: dict[str, tuple[zipmember.RemoteZip, zipfile.ZipFile]],
+    remote_zips: dict[str, tuple[zipmember.RemoteZip, zipfile.ZipFile | None]],
 ) -> tuple[ArtifactFetch, str | None]:
-    """Read one member of a remote zip (Artifact.zip_member) and record its bytes. Returns (result, new pointer)."""
+    """Read one member of a remote zip (Artifact.zip_member) and record its bytes, unless the zip is unchanged since
+    the current snapshot was read (then not-modified, after one one-byte request per zip). Returns (result, new
+    pointer)."""
     assert art.url is not None and art.zip_member is not None
     url = str(art.url)
     try:
         if art.access.auth != "none" or art.access.cookie_accept_url:
             raise PermanentFetchError(f"artifact {art.id}: zip_member reads support only access without credentials")
         if url not in remote_zips:
-            remote = zipmember.RemoteZip(client, url)
-            remote_zips[url] = (remote, zipmember.open_zip(remote))
+            remote_zips[url] = (zipmember.RemoteZip(client, url, read_tail=False), None)
         remote, z = remote_zips[url]
+        cur = snapshots.read_manifest(paths, cur_sha) if cur_sha else None
+        if cur_sha is not None and _zip_unchanged(paths, art, url, cur, remote):
+            return ArtifactFetch(
+                art.id,
+                "not-modified",
+                cur_sha,
+                reason=f"the zip's size ({remote.size:,} bytes), ETag and Last-Modified are unchanged; nothing read",
+            ), cur_sha
+        if z is None:
+            z = zipmember.open_zip(remote)
+            remote_zips[url] = (remote, z)
         m = zipmember.read_member(remote, z, art.zip_member, max_bytes=art.max_bytes)
         snap, _ = snapshots.record(
             paths,
@@ -252,6 +285,7 @@ def _fetch_zip_member(
             last_modified=m.last_modified,
             content_type=None,
             zip_member=art.zip_member,
+            zip_bytes=m.zip_bytes,
         )
     except zipmember.ZipMemberError as e:
         return ArtifactFetch(art.id, "failed", reason=f"zip member {art.zip_member}: {e}"), None
@@ -289,7 +323,7 @@ def fetch_source(
     results: list[ArtifactFetch] = []
     new_pointers: dict[str, str] = {}
     visited_cookie_urls: set[str] = set()
-    remote_zips: dict[str, tuple[zipmember.RemoteZip, zipfile.ZipFile]] = {}
+    remote_zips: dict[str, tuple[zipmember.RemoteZip, zipfile.ZipFile | None]] = {}
     for art in src.artifacts:
         k = snapshots.key(src.id, art.id)
         resolved: str | None = None

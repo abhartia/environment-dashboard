@@ -17,6 +17,9 @@ dependencies = [
     "pypdf>=6.19.0",
     "netcdf4>=1.7.4",
     "pyreadr>=0.5.7",
+    "pyshp>=3.1.6",
+    "shapely>=2",
+    "topojson>=2.2",
 ]
 
 [project.scripts]
