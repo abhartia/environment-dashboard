@@ -291,6 +291,10 @@ artifacts:
 # Every country and every CCKP state or province in one file per variable, period, scenario and statistic (expanded
 # by envdash/registry.py into 270 ordinary artifacts; see the 2026-10-16 note at the top). Labels are CCKP's own
 # wording from the netCDF attributes of the same collections on its S3 bucket, with °C and mm spelled out.
+# The 39 rx1day files are fetched and the snapshot tests read and check them, but neither wettest-day indicator is
+# published (2026-10-16): CCKP's national values lie below the area-weighted mean of their own regions in 6,086 of
+# 6,630 values, more the larger the country, which its documented aggregation cannot give
+# (envdash/transforms/future/cckp_projections.py, "Withheld").
   - id: subnational-names
     url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_rx1day_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/all_countries_subnationals?_format=xlsx
     format: xlsx

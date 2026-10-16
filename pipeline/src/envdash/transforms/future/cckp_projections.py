@@ -22,7 +22,7 @@ Definitions, quoted from CCKP's Metadata page (climateknowledgeportal.worldbank.
 - hi39, "Number of Days with Heat Index >= 39°C": "The number of days where the Heat Index >= 39°C over the
   aggregation period. The Heat Index is a measure of apparent temperature that includes the influence of atmospheric
   moisture." The Heat Index is "as defined by US-National Weather Service".
-- txx, "Maximum of Daily Max-Temperature": "The single-day maximum value of the daily maximum temperatures over the
+- txx, "Maximum of Daily MaxTemperature": "The single-day maximum value of the daily maximum temperatures over the
   aggregated data period."
 - rx1day, "Average Largest 1-Day Precipitation": "The average highest precipitation amount in a 1-day period during
   each data period." In millimetres.
@@ -37,17 +37,19 @@ Definitions, quoted from CCKP's Metadata page (climateknowledgeportal.worldbank.
 - Climatologies: "For each model, and for each of the climate variables and indicators, 20year climatologies were
   formed from their corresponding time series ... one annual mean value established over the respective time
   windows". So each value is a 20-year average of the yearly figure (txx: of each year's hottest day).
-- Areas: "The weighted mean ... computed for each polygon, with weights combining both fractional overlap and
-  latitudinal adjustments", on the World Bank's ADM0 and ADM1 boundaries. Values are averaged over each area's land,
-  not weighted by where people live.
+- Areas ("Workflow for spatial aggregation"): each grid is intersected with the World Bank's ADM0 and ADM1 polygons,
+  each cell weighted by the fraction of it inside the polygon and by the cosine of its latitude, and "For most climate
+  variables, the weighted mean of the gridded data was calculated." Values are averaged over each area's land, not
+  weighted by where people live.
 
-Published: per measure, one indicator of countries and one of regions. The window is the observation's period
-("2040/2059"); the scenario is the dimension scenario (historical, ssp126, ssp245, ssp585); the median is the value
-and the 10th and 90th percentiles the range ("range"), as printed. Status projection, except the historical runs
-(final; their label says they are a model simulation, not observations). Countries are mapped to entities as in
-cckp.py (KSV to KOS). Regions keep CCKP's code and must be in pipeline/geo/entities.csv as kind region with the
-country of their prefix as member_of (envdash/geo.py). Left out, as geo.py declares: the 32 DIS.* units and the three
-units CCKP lists under China for Hong Kong, Macao and Taiwan (geo.CHINA_LISTED).
+Published: per measure, one indicator of countries and one of regions, for six of the seven measures (12 indicators;
+the wettest day is withheld, below). The window is the observation's period ("2040/2059"); the scenario is the
+dimension scenario (historical, ssp126, ssp245, ssp585); the median is the value and the 10th and 90th percentiles
+the range ("range"), as printed. Status projection, except the historical runs (final; their label says they are a
+model simulation, not observations). Countries are mapped to entities as in cckp.py (KSV to KOS). Regions keep CCKP's
+code and must be in pipeline/geo/entities.csv as kind region with the country of their prefix as member_of
+(envdash/geo.py). Left out, as geo.py declares: the 32 DIS.* units and the three units CCKP lists under China for Hong
+Kong, Macao and Taiwan (geo.CHINA_LISTED).
 
 Checks that stop the build, besides cckp.read_file's: every file of a measure holds the same codes; every region's
 prefix is a country of the same file, or DIS; exactly geo.DISPUTED_UNITS DIS units; 10th percentile <= median <= 90th
@@ -57,13 +59,42 @@ the snapshots of 2026-10-16 have none.
 National check. CCKP's national totals of counts are inflated 2-3 times (see cckp.py COUNT_TYPES), so every country
 value is compared with its own regions in the same file: it must lie within [lowest region - 0.01, highest region +
 0.01] (two halves of the last printed digit), and a country with one region must equal it within 0.01. In the
-snapshots of 2026-10-16 this holds for every country in every file of hd35, tr26, hi39 and txx (156 files). For cdd,
-rx1day and tas it fails for the countries in NATIONAL_EXCEPTIONS, each declared with the evidence. CCKP's Metadata
-page says ensemble values are "calculated from the individual model series" and does not say whether that is before
-or after averaging over each area; a median of per-model area means need not lie between the regions' medians. Those
-national values are published as CCKP prints them, as CCKP's figure for the whole country; nothing here combines
-regions into a country or a country into regions. An offender not declared stops the build, and so does a declared
-exception that no longer offends in any file of its measure.
+snapshots of 2026-10-16 this holds for every country in every file of hd35, tr26, hi39 and txx (156 files). For cdd
+and tas it fails for the countries in NATIONAL_EXCEPTIONS, in both directions and by little: cdd 46 values of 19
+countries, 21 below their lowest region and 25 above their highest, by at most 1.53 days; tas 31 values of 23
+countries, 14 below and 17 above, by at most 0.08 °C. That fits how CCKP forms its ensemble ("Ensemble values were
+calculated from the individual model series"): the median and percentiles of the models are taken for each area
+from each model's own value for it, and a median of per-model area means need not lie between the medians of the
+area's regions. Against the area-weighted mean of the regions (below) these national values sit as often above as
+below. Each exception carries its limit, the largest gap on 2026-10-16: a declared country further outside its
+regions' range stops the build, as does an offender not declared and a declared exception that no longer offends in
+any file of its measure. National values are published as CCKP prints them, as CCKP's figure for the whole country;
+nothing here combines regions into a country or a country into regions.
+
+Area-weighted diagnostic (2026-10-16, the check fd-plan's finding 5 asked for; not run in the build). For the 170
+countries with two or more regions whose regions are all matched to World Bank GAD V1 admin-1 shapes (the future map's
+join, envdash/geo_shapes.py), each national value was compared with the mean of its regions' values weighted by their
+spherical area, in all 39 files (36 for tas), 6,630 values per measure (6,120 for tas). For hd35, tr26, hi39, txx, cdd
+and tas the median difference is between -0.001 and 0.006 (in the measure's unit), with differences of more than 0.05 as
+often above as below (tas: 406 above, 334 below; cdd: 2,957 and 2,719): CCKP's national value is the area-weighted mean
+of its regions, up to the ensemble effect above.
+
+Withheld: the wettest day (rx1day). Its 39 files stay registered and fetched, and the snapshot tests read and check
+them, but neither of its indicators is published until the cause below is found. The national value lies below the
+area-weighted mean of its regions in 6,086 of the 6,630 values (by more than 0.05 mm; above in 257), by a median of 2.38
+mm (8.8 %), and the gap grows with the size of the country (correlation with the logarithm of its area -0.80; median
+over the 13 median files: United States 31 %, Brazil 20 %, India 18.5 %, countries under 1,000 km² 0.2 %). Against the
+national check, 872 values of 63 countries lie outside their regions' range, 859 of them below the lowest region (United
+States Minor Outlying Islands, 2060–2079 SSP5-8.5 90th percentile: 36.16 mm against 50.3 to 98.89 mm for its 8 regions;
+Sweden, 2040–2059 SSP2-4.5 median: 20.47 mm against 22.05 to 27.74 mm for its 21 regions), and in the median file 73 %
+of a typical country's regions lie above its national value (15 % to 47 % for the other six measures). A weighted mean
+of gridded values, the method CCKP documents, cannot put a country below every one of its regions. The pattern is what
+taking the year's wettest day after averaging the daily rain over the whole area would give; at equal country area the
+gap also shrinks as the country's regions get larger (+0.051 ± 0.010 of the relative gap per tenfold increase in their
+area-weighted mean area), which suggests that the region values are formed the same way and depend on the size of the
+region. CCKP documents neither. Until its gridded rx1day climatology is compared with the region and country values, or
+CCKP explains them, neither can be described truthfully as "the area-weighted mean of the 0.25° grid cells inside it",
+so neither is published.
 
 Vintage. CCKP publishes no version label and its API sends no Last-Modified or ETag, so the vintage is the variable
 and the newest fetch date of the files read (the sha256 of each file is in the origins).
@@ -125,6 +156,9 @@ class Measure:
     definition: str
     baseline: str | None = None
     """Scope.baseline: only for a change from a reference period."""
+    withheld: str | None = None
+    """Why neither indicator of this measure is published (module docstring, "Withheld"), or None. A withheld
+    measure's files stay registered; transforms() builds nothing from them."""
 
     @property
     def stem(self) -> str:
@@ -198,6 +232,11 @@ MEASURES: tuple[Measure, ...] = (
         decimals=0,
         value_range=(0.0, 1000.0),
         definition="The year's largest one-day precipitation (CCKP's rx1day), averaged over the 20 years.",
+        withheld="CCKP's national values lie below the area-weighted mean of their own regions in 6,086 of 6,630 "
+        "values, by 8.8 % at the median and more the larger the country, which the method CCKP documents cannot give, "
+        "and the region values look formed the same way; neither can be described as the area-weighted mean of the "
+        "grid cells inside the place until CCKP's gridded rx1day climatology is compared with them or CCKP explains "
+        "them.",
     ),
     Measure(
         key="longest-dry-spell",
@@ -226,20 +265,25 @@ MEASURES: tuple[Measure, ...] = (
     ),
 )
 
+
+@dataclass(frozen=True)
+class NationalException:
+    """Countries whose national value may lie outside the range of their own regions in a measure's files."""
+
+    reason: str
+    countries: frozenset[str]
+    """CCKP's codes."""
+    limit: Decimal
+    """The largest gap allowed, in the measure's unit: how far beyond its lowest or highest region (or from its one
+    region) a declared country's value may lie. The largest gap in the snapshots of 2026-10-16."""
+
+
 # Countries whose national value lies outside its regions' range in at least one file of the measure (snapshots of
-# 2026-10-16), by CCKP's code. See the module docstring.
+# 2026-10-16), by CCKP's code. See the module docstring, "National check".
 CDD_NATIONAL = frozenset(
     {
         "BEL", "BES", "BHR", "BIH", "BLR", "CYM", "DNK", "FIN", "GGY", "JEY", "KWT", "LIE", "LTU", "LUX", "NLD", "QAT",
         "SPM", "VCT", "VIR",
-    }
-)  # fmt: skip
-RX1DAY_NATIONAL = frozenset(
-    {
-        "AGO", "AIA", "ATF", "ATG", "BES", "BLR", "BRB", "BWA", "CAF", "COD", "CUB", "CYM", "CZE", "DEU", "DNK", "EST",
-        "FIN", "GMB", "GRD", "HUN", "IDN", "IRL", "KOR", "KWT", "LCA", "LTU", "LUX", "LVA", "MDA", "MDV", "MLT", "MOZ",
-        "MWI", "MYS", "NGA", "NIC", "NLD", "NZL", "OMN", "POL", "PRY", "QAT", "ROU", "SAU", "SOM", "SPM", "SSD", "STP",
-        "SUR", "SWE", "SYC", "TGO", "THA", "TKM", "TZA", "UKR", "UMI", "URY", "VCT", "VGB", "VIR", "VUT", "ZMB",
     }
 )  # fmt: skip
 TAS_NATIONAL = frozenset(
@@ -249,25 +293,20 @@ TAS_NATIONAL = frozenset(
     }
 )  # fmt: skip
 
-# Measure variable -> (the evidence, the countries).
-NATIONAL_EXCEPTIONS: dict[str, tuple[str, frozenset[str]]] = {
-    "cdd": (
-        "In 46 country values of the 39 files (19 countries), the national value lies outside its regions' range by "
-        "up to 1.53 days (Qatar, 2020–2039 SSP1-2.6 p90: 252.88 against 254.41 to 261.66).",
-        CDD_NATIONAL,
-    ),
-    "rx1day": (
-        "In 872 country values of the 39 files (63 countries), the national value lies outside its regions' range, "
-        "below the lowest region in 859 of them, by up to 14.14 mm (United States Minor Outlying Islands, 2060–2079 "
-        "SSP5-8.5 p90: 36.16 against 50.3 to 98.89).",
-        RX1DAY_NATIONAL,
-    ),
-    "tas": (
-        "In 31 country values of the 36 files (23 countries), the national warming lies outside its regions' range by "
-        "up to 0.08 °C (Kyrgyzstan, 2060–2079 SSP2-4.5 p90: 3.23 against 3.31 to 3.61); CCKP takes each model's "
-        "change before the median.",
-        TAS_NATIONAL,
-    ),
+ENSEMBLE = (
+    'That fits how CCKP describes its ensemble, "calculated from the individual model series": if each area\'s median '
+    "and percentiles are taken over the models' own values for that area, a country's median need not lie between the "
+    "medians of its regions, by a little and either way."
+)
+
+# Measure variable -> the declared exception. The wettest day (rx1day) is withheld, not excepted (Measure.withheld).
+NATIONAL_EXCEPTIONS: dict[str, NationalException] = {
+    # 46 values of 19 countries in the 39 files, 21 below the lowest region and 25 above the highest; the largest gap
+    # Qatar's, 2020–2039 SSP1-2.6 p90: 252.88 days against 254.41 to 261.66.
+    "cdd": NationalException(ENSEMBLE, CDD_NATIONAL, Decimal("1.53")),
+    # 31 values of 23 countries in the 36 files, 14 below and 17 above; the largest gap Kyrgyzstan's, 2060–2079
+    # SSP2-4.5 p90: 3.23 °C against 3.31 to 3.61.
+    "tas": NationalException(ENSEMBLE, TAS_NATIONAL, Decimal("0.08")),
 }
 
 
@@ -350,33 +389,42 @@ def check_ranges(values: dict[tuple[str, int, str], Values], name: str) -> None:
         raise CckpFormatError(f"{name}: median outside the 10th-90th percentile for {len(bad)} keys: {bad[:5]}")
 
 
-def national_offenders(values: dict[tuple[str, int, str], Values]) -> dict[str, list[str]]:
+@dataclass(frozen=True)
+class Offence:
+    file: str
+    """scenario start statistic: value against the regions' range."""
+    gap: Decimal
+    """How far beyond the lowest or highest region (or from its one region) the national value lies."""
+    below: bool
+    """Below the lowest region (or its one region), not above the highest."""
+
+
+def national_offenders(values: dict[tuple[str, int, str], Values]) -> dict[str, list[Offence]]:
     """CCKP country code -> the files (scenario, start, statistic) where its value lies outside its regions' range
     (beyond NATIONAL_TOLERANCE), or differs from its one region. Every region CCKP lists under the country counts,
     including those this site leaves out (geo.CHINA_LISTED); DIS units belong to no country."""
-    out: dict[str, list[str]] = {}
+    out: dict[str, list[Offence]] = {}
     for (scenario, start, st), vals in sorted(values.items()):
         regions: dict[str, list[Decimal]] = {}
         for code, v in vals.items():
             if "." in code and _prefix(code) != geo.DISPUTED_PREFIX:
                 regions.setdefault(_prefix(code), []).append(v)
         for country, rv in sorted(regions.items()):
-            n = vals[country]
-            if len(rv) == 1:
-                ok = abs(n - rv[0]) <= NATIONAL_TOLERANCE
-            else:
-                ok = min(rv) - NATIONAL_TOLERANCE <= n <= max(rv) + NATIONAL_TOLERANCE
-            if not ok:
-                out.setdefault(country, []).append(f"{scenario} {start} {st}: {n} against {min(rv)} to {max(rv)}")
+            n, lo, hi = vals[country], min(rv), max(rv)
+            gap = abs(n - rv[0]) if len(rv) == 1 else max(lo - n, n - hi, Decimal(0))
+            if gap > NATIONAL_TOLERANCE:
+                file = f"{scenario} {start} {st}: {n} against {lo} to {hi}"
+                out.setdefault(country, []).append(Offence(file, gap, n < lo))
     return out
 
 
 def check_national(f: Files) -> None:
     offenders = national_offenders(f.values)
-    declared = NATIONAL_EXCEPTIONS.get(f.measure.variable, ("", frozenset()))[1]
+    exception = NATIONAL_EXCEPTIONS.get(f.measure.variable)
+    declared = exception.countries if exception else frozenset()
     undeclared = {c: v for c, v in offenders.items() if c not in declared}
     if undeclared:
-        shown = [f"{c} ({v[0]}; {len(v)} files)" for c, v in sorted(undeclared.items())[:10]]
+        shown = [f"{c} ({v[0].file}; {len(v)} files)" for c, v in sorted(undeclared.items())[:10]]
         raise CckpFormatError(
             f"{f.measure.variable}: the national value of {len(undeclared)} countries lies outside the range of their "
             f"own regions: {shown}. CCKP's national counts were once inflated 2-3 times; find out why before "
@@ -388,6 +436,15 @@ def check_national(f: Files) -> None:
             f"{f.measure.variable}: NATIONAL_EXCEPTIONS declares {stale}, whose national values now lie within their "
             "regions' range in every file; remove them"
         )
+    if exception:
+        over = sorted((o.gap, c, o.file) for c, v in offenders.items() for o in v if o.gap > exception.limit)
+        if over:
+            gap, c, file = over[-1]
+            raise CckpFormatError(
+                f"{f.measure.variable}: {len(over)} national values of declared countries lie further outside their "
+                f"regions' range than the declared limit of {exception.limit}, up to {gap} ({c}, {file}); the "
+                "exception in NATIONAL_EXCEPTIONS needs a person to re-check it"
+            )
 
 
 # --- entities and observations ------------------------------------------------------------------------------------
@@ -453,17 +510,24 @@ def _steps(f: Files, published: str) -> list[str]:
     m = f.measure
     runs = "the 1995–2014 historical runs and " if m.has_baseline_runs else ""
     n = len(m.slices()) * len(STATISTICS)
-    declared = NATIONAL_EXCEPTIONS.get(m.variable, ("", frozenset()))
+    exception = NATIONAL_EXCEPTIONS.get(m.variable)
     national = (
         "Checked every country's value against its own regions' values in the same file: within the lowest and "
         "highest region (±0.01, rounding), or equal to its one region. "
-        + (
-            f"Declared exceptions, whose national values are published as CCKP prints them: {len(declared[1])} "
-            f"countries ({', '.join(sorted(declared[1]))}, CCKP's codes). {declared[0]}"
-            if declared[1]
-            else "It holds for every country in every file."
-        )
     )
+    if exception:
+        offences = [(c, o) for c, v in national_offenders(f.values).items() for o in v]
+        worst, largest = max(offences, key=lambda co: co[1].gap)
+        below = sum(o.below for _, o in offences)
+        national += (
+            f"Declared exceptions, whose national values are published as CCKP prints them, each allowed to lie at "
+            f"most {exception.limit} {m.unit.short} outside its regions' range: {len(exception.countries)} countries "
+            f"({', '.join(sorted(exception.countries))}, CCKP's codes). In these files {len(offences)} of their values "
+            f"lie outside, {below} below the lowest region and {len(offences) - below} above the highest, by up to "
+            f"{largest.gap} {m.unit.short} ({worst}, {largest.file}). {exception.reason}"
+        )
+    else:
+        national += "It holds for every country in every file."
     return [
         f"Read CCKP's {n} CMIP6 0.25° all_countries_subnationals files of {m.variable} ({m.product}): the multi-model "
         f"ensemble median, 10th and 90th percentiles for {runs}{_windows()} under SSP1-2.6, SSP2-4.5 and SSP5-8.5. "
@@ -525,7 +589,9 @@ COUNTRY_GEOGRAPHY = (
 REGION_GEOGRAPHY = (
     "Each state, province or other first-level region as CCKP draws it on the World Bank's official boundaries: the "
     "area-weighted mean of the 0.25° grid cells inside it, averaged over the land, not weighted by where people live. "
-    "The 32 areas the World Bank assigns to no country are left out."
+    "Left out: the 32 areas the World Bank assigns to no country, and the three units CCKP lists under China for Hong "
+    "Kong, Macao and Taiwan, places with their own values in the country indicator, and their own region where CCKP "
+    "lists one."
 )
 
 # The headline is India under SSP2-4.5, and Delhi for the regions: the country and region the source research checked
@@ -597,6 +663,8 @@ def transforms(paths: Paths) -> list[Transform]:
     module = Path(__file__)
     out: list[Transform] = []
     for m in MEASURES:
+        if m.withheld is not None:
+            continue
         combos = len(m.slices())
         out.append(
             Transform(

@@ -40,12 +40,21 @@ IDS = {
         "hot-nights-26c",
         "heat-index-39c-days",
         "hottest-day",
-        "wettest-day",
         "longest-dry-spell",
         "warming",
     )
     for level in ("countries", "regions")
 }
+# CCKP's 63 countries whose rx1day national value lies outside its regions' range in at least one of the 39 files
+# (snapshots of 2026-10-16): the evidence for withholding the wettest day (module docstring, "Withheld").
+RX1DAY_OUTSIDE = frozenset(
+    {
+        "AGO", "AIA", "ATF", "ATG", "BES", "BLR", "BRB", "BWA", "CAF", "COD", "CUB", "CYM", "CZE", "DEU", "DNK", "EST",
+        "FIN", "GMB", "GRD", "HUN", "IDN", "IRL", "KOR", "KWT", "LCA", "LTU", "LUX", "LVA", "MDA", "MDV", "MLT", "MOZ",
+        "MWI", "MYS", "NGA", "NIC", "NLD", "NZL", "OMN", "POL", "PRY", "QAT", "ROU", "SAU", "SOM", "SPM", "SSD", "STP",
+        "SUR", "SWE", "SYC", "TGO", "THA", "TKM", "TZA", "UKR", "UMI", "URY", "VCT", "VGB", "VIR", "VUT", "ZMB",
+    }
+)  # fmt: skip
 
 
 def _input(artifact_id: str) -> InputFile:
@@ -83,7 +92,7 @@ def _transforms() -> dict[str, object]:
 # --- declarations -------------------------------------------------------------------------------------------------
 
 
-def test_fourteen_indicators_read_only_registered_files():
+def test_twelve_indicators_read_only_registered_files():
     registered = {a.id for a in load_registry(Paths.default()).sources[SOURCE].artifacts}
     ts = _transforms()
     assert set(ts) == IDS
@@ -109,9 +118,23 @@ def test_fourteen_indicators_read_only_registered_files():
         "ssp245": "SSP2-4.5, middle emissions",
         "ssp585": "SSP5-8.5, very high emissions",
     }
-    # Exceptions to the national check are declared only where it failed on 2026-10-16.
-    assert set(fp.NATIONAL_EXCEPTIONS) == {"cdd", "rx1day", "tas"}
-    assert {k: len(v[1]) for k, v in fp.NATIONAL_EXCEPTIONS.items()} == {"cdd": 19, "rx1day": 63, "tas": 23}
+    # Exceptions to the national check are declared only where it failed on 2026-10-16, each with its limit, the
+    # largest gap of that day.
+    assert {k: (len(v.countries), v.limit) for k, v in fp.NATIONAL_EXCEPTIONS.items()} == {
+        "cdd": (19, Decimal("1.53")),
+        "tas": (23, Decimal("0.08")),
+    }
+
+
+def test_the_wettest_day_is_withheld():
+    """Neither wettest-day indicator is built: its national values cannot be described as CCKP documents them (module
+    docstring, "Withheld"). Its 39 files stay registered."""
+    (rx1day,) = [m for m in fp.MEASURES if m.withheld is not None]
+    assert (rx1day.key, rx1day.variable) == ("wettest-day", "rx1day")
+    assert "rx1day" not in fp.NATIONAL_EXCEPTIONS
+    assert not [t for t in _transforms() if ".wettest-day-" in t]
+    registered = {a.id for a in load_registry(Paths.default()).sources[SOURCE].artifacts}
+    assert len(fp.inputs(rx1day)) == 39 and {i.artifact_id for i in fp.inputs(rx1day)} <= registered
 
 
 # --- one window from the fixtures ---------------------------------------------------------------------------------
@@ -185,9 +208,24 @@ def test_a_national_value_outside_its_regions_stops_the_build(window):
 
 
 def test_a_declared_exception_that_no_longer_fails_stops_the_build(window, monkeypatch):
-    monkeypatch.setitem(fp.NATIONAL_EXCEPTIONS, "hd35", ("test", frozenset({"IND"})))
+    monkeypatch.setitem(fp.NATIONAL_EXCEPTIONS, "hd35", fp.NationalException("test", frozenset({"IND"}), Decimal(1)))
     with pytest.raises(CckpFormatError, match=r"declares \['IND'\].*remove them"):
         fp.check_national(window)
+
+
+def test_a_declared_exception_further_out_than_its_limit_stops_the_build(window, monkeypatch):
+    median = dict(window.values[("ssp245", 2040, "median")])
+    top = max(v for c, v in median.items() if c.startswith("IND."))
+    pushed = replace(window, values={**window.values, ("ssp245", 2040, "median"): {**median, "IND": top + 1}})
+    (o,) = fp.national_offenders(pushed.values)["IND"]
+    assert (o.gap, o.below) == (Decimal(1), False)
+    monkeypatch.setitem(fp.NATIONAL_EXCEPTIONS, "hd35", fp.NationalException("test", frozenset({"IND"}), Decimal(1)))
+    fp.check_national(pushed)
+    monkeypatch.setitem(
+        fp.NATIONAL_EXCEPTIONS, "hd35", fp.NationalException("test", frozenset({"IND"}), Decimal("0.99"))
+    )
+    with pytest.raises(CckpFormatError, match=r"declared limit of 0\.99, up to 1(\.00)? \(IND, ssp245 2040 median"):
+        fp.check_national(pushed)
 
 
 def test_codes_and_ranges_that_do_not_fit_stop_the_build(window):
@@ -235,8 +273,9 @@ def built():
 
 @pytest.mark.snapshot
 def test_every_indicator_builds_with_its_counts(built):
-    regions = {m.key: fp.MIN_REGIONS[m.variable] for m in fp.MEASURES}
-    for m in fp.MEASURES:
+    published = [m for m in fp.MEASURES if m.withheld is None]
+    regions = {m.key: fp.MIN_REGIONS[m.variable] for m in published}
+    for m in published:
         combos = 12 if m.key == "warming" else 13
         c = built[f"future.wb-cckp.{m.key}-countries"].observations
         r = built[f"future.wb-cckp.{m.key}-regions"].observations
@@ -257,7 +296,6 @@ def test_every_indicator_builds_with_its_counts(built):
         "hot-nights-26c": 3492,
         "heat-index-39c-days": 3493,
         "hottest-day": 3493,
-        "wettest-day": 3495,
         "longest-dry-spell": 3495,
         "warming": 3495,
     }
@@ -278,13 +316,51 @@ def test_known_values_from_every_file(built):
     assert at(hd + "countries", "BRA", "2040/2059", "ssp245")[0] == 47.25
     assert at(hd + "regions", "IND.11510", "2040/2059", "ssp245")[0] == 123.28
     assert at(hd + "regions", "IND.11510", "1995/2014", "historical") == (102.09, 90.22, 114.87)
-    # rx1day lists Taiwan twice; only its own region is published (geo.CHINA_LISTED).
-    assert at("future.wb-cckp.wettest-day-regions", "TWN.147296925", "2040/2059", "ssp245")[0] == 123.49
     for m in fp.MEASURES:
+        if m.withheld is not None:
+            continue
         for level in ("countries", "regions"):
             res = built[f"future.wb-cckp.{m.key}-{level}"]
             assert res.vintage.startswith(f"cmip6-x0.25 {m.variable} {m.product}, fetched 2026-10-16")
             assert ("Declared exceptions" in res.steps[1]) == (m.variable in fp.NATIONAL_EXCEPTIONS)
+    # The declared exceptions' evidence, as the steps state it from the files.
+    assert (
+        "In these files 46 of their values lie outside, 21 below the lowest region and 25 above the highest, by up to "
+        "1.53 days (QAT, ssp126 2020 p90: 252.88 against 254.41 to 261.66)"
+    ) in built["future.wb-cckp.longest-dry-spell-countries"].steps[1]
+    assert (
+        "In these files 31 of their values lie outside, 14 below the lowest region and 17 above the highest, by up to "
+        "0.08 °C (KGZ, ssp245 2060 p90: 3.23 against 3.31 to 3.61)"
+    ) in built["future.wb-cckp.warming-regions"].steps[1]
+    # The scope names every place left out of the region indicators.
+    scope = _transforms()["future.wb-cckp.warming-regions"].spec.scope.geography
+    assert "32 areas the World Bank assigns to no country" in scope and "Hong Kong, Macao and Taiwan" in scope
+
+
+@pytest.mark.snapshot
+def test_the_wettest_day_stays_withheld_while_its_national_values_sit_below_its_regions():
+    """The evidence for withholding the wettest day, from the 39 rx1day files (module docstring, "Withheld"). When it no
+    longer holds (CCKP corrects its national values, say), this fails and a person decides whether to publish."""
+    (m,) = [m for m in fp.MEASURES if m.variable == "rx1day"]
+    f = fp.read_measure(m, {i.key: _current(i.key) for i in fp.inputs(m)})
+    offenders = fp.national_offenders(f.values)
+    assert set(offenders) == RX1DAY_OUTSIDE
+    offences = [o for v in offenders.values() for o in v]
+    assert (len(offences), sum(o.below for o in offences)) == (872, 859)
+    assert max(o.gap for o in offences) == Decimal("14.14") == max(o.gap for o in offenders["UMI"])
+    # Sweden, 2040–2059 SSP2-4.5 median: below every one of its 21 regions.
+    median = f.values[("ssp245", 2040, "median")]
+    sweden = [v for c, v in median.items() if c.startswith("SWE.")]
+    assert (median["SWE"], len(sweden), min(sweden), max(sweden)) == (
+        Decimal("20.47"),
+        21,
+        Decimal("22.05"),
+        Decimal("27.74"),
+    )
+    # rx1day lists Taiwan twice, with different values; only its own region would be published (geo.CHINA_LISTED).
+    assert (median["TWN.147296925"], median["CHN.147295925"]) == (Decimal("123.49"), Decimal("151.67"))
+    with pytest.raises(CckpFormatError, match=r"rx1day: the national value of 63 countries"):
+        fp.check_national(f)
 
 
 @pytest.mark.snapshot
