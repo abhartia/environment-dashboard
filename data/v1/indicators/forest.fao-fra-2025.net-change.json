@@ -33,42 +33,42 @@
     {
       "description": "Read FRA_Years_2026-10-11.csv from the FRA 2025 platform's bulk download (all countries and areas). The vintage is the download date in the member names, 2026-10-11; the platform has no other version label.",
       "inputs": ["fa6adc75a29d32b7d72bf68e05fa1371d0ccb6d94c9fbdd9c6966c32e3cdf42b", "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/fra_2025.py",
       "transform_sha256": "effd975216c5bb9a8f729157555998b988e975fb2e933289855c8c89e5e03904"
     },
     {
       "description": "Kept 1a_forestArea (forest area, thousand hectares, as printed) and its flag for 236 countries and areas and the six reporting years 1990, 2000, 2010, 2015, 2020, 2025. Flags: A \"Normal value, official data reported by country/area\" (194 countries and areas); I \"Imputed value, desk study, data compiled by FAO\" (42 countries and areas); each country's values name their flag in a note.",
       "inputs": ["fa6adc75a29d32b7d72bf68e05fa1371d0ccb6d94c9fbdd9c6966c32e3cdf42b", "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/fra_2025.py",
       "transform_sha256": "effd975216c5bb9a8f729157555998b988e975fb2e933289855c8c89e5e03904"
     },
     {
       "description": "Matched each country and area by its ISO 3 code; French Guiana, Mayotte, Réunion and Svalbard and Jan Mayen Islands, which FRA reports separately, are published as their own entities.",
       "inputs": ["fa6adc75a29d32b7d72bf68e05fa1371d0ccb6d94c9fbdd9c6966c32e3cdf42b", "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/fra_2025.py",
       "transform_sha256": "effd975216c5bb9a8f729157555998b988e975fb2e933289855c8c89e5e03904"
     },
     {
       "description": "World = the sum of the forest area of all 236 countries and areas in the file for each year (exact decimal arithmetic), as FAO computes its global figure.",
       "inputs": ["fa6adc75a29d32b7d72bf68e05fa1371d0ccb6d94c9fbdd9c6966c32e3cdf42b", "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/fra_2025.py",
       "transform_sha256": "effd975216c5bb9a8f729157555998b988e975fb2e933289855c8c89e5e03904"
     },
     {
       "description": "Annual net change for each interval between reporting years = (forest area at the end − forest area at the start) / the number of years, in thousand hectares per year (exact decimal arithmetic); negative values are net loss. The report defines forest area net change the same way, as the difference in forest area between two points in time.",
       "inputs": ["fa6adc75a29d32b7d72bf68e05fa1371d0ccb6d94c9fbdd9c6966c32e3cdf42b", "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/fra_2025.py",
       "transform_sha256": "effd975216c5bb9a8f729157555998b988e975fb2e933289855c8c89e5e03904"
     },
     {
       "description": "For comparison only, the WORLD row of the report's Table 6 (PDF page 36) gives the annual net change as −10 695 thousand ha a year for 1990–2000 (here −10 694.51) and −4 122 for 2015–2025 (from the platform data used here, −4 099.60; that 10-year interval is published here as 2015–2020 and 2020–2025). The platform data can include country revisions made after the report was published.",
       "inputs": ["fa6adc75a29d32b7d72bf68e05fa1371d0ccb6d94c9fbdd9c6966c32e3cdf42b", "9b77d433587bec0c6882a3f9e06c96ad6eb33ffe823bfe910e4f6a418cc68d27"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/fra_2025.py",
       "transform_sha256": "effd975216c5bb9a8f729157555998b988e975fb2e933289855c8c89e5e03904"
     }

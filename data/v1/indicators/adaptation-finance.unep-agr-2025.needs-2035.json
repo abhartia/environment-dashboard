@@ -43,14 +43,14 @@
     {
       "description": "Read the text of UNEP's report PDF (sha256 7aae2efd6169…, downloaded by hand from UNEP's repository; see the snapshot note) and found these sentences, each with its value as printed, on PDF p. 13 (printed xiii), PDF p. 58 (printed 40) before publishing: \"the costs of adaptation are estimated to be in a plausible central range of US$310–365 billion/year for developing countries by the year 2035 (in constant 2023 prices, not inflation-adjusted). This is based on two lines of evidence\" \"The reanalysis estimates the costs of adaptation to be in a plausible central range of US$310–365 billion per year for developing countries by the year 2035 (in 2023 prices).\" \"An updated modelling analysis estimates adaptation costs at US$310 billion/year for developing countries by 2035.\" \"An updated assessment of submitted national adaptation plans (NAPs) and nationally determined contributions (NDCs), with extrapolation to all developing countries, estimates adaptation finance needs at US$365 billion/year for the period 2023–2035.\"",
       "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
       "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
     },
     {
       "description": "Published the two lines of evidence as printed: \"US$310 billion/year\" (modelled costs, by 2035) as 310 and \"US$365 billion/year\" (finance needs, 2023–2035) as 365. They are the two ends of the report's plausible central range, \"US$310–365 billion/year\" (also on p. xiii), which is not published as a midpoint.",
       "inputs": ["7aae2efd6169f64163c6e4624df3d0b1754a9ba26493cc0060b77420e73f79cf"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/unep_agr.py",
       "transform_sha256": "32f786101fdd546f3ee80c4d81ae86d90dda1349e3a7f97899bea5c6c3e00c0d"
     }

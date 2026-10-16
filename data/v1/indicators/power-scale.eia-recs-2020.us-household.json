@@ -33,14 +33,14 @@
     {
       "description": "Read Table CE2.1 (sha256 14c8a8c29b41…), sheet 'physical units', row 'All homes': average site electricity consumption 10566 kWh per household, after checking the title, the headings, the release dates and the footnotes. Every home uses electricity, so this is the average per home: total consumption (1305 billion kWh) over the number of homes (123.53 million) agrees with it to within rounding.",
       "inputs": ["14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff", "fdc47fbc71fb0a90ca229e42b6f501a6ea95f8a085377e05c334d45640ac7ebf"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_recs.py",
       "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
     },
     {
       "description": "Unit conversion to average power: divided the annual kilowatt-hours by the 8,784 hours (366 days) from 1 January 2020 to 31 December 2020, giving kilowatts (kWh / h = kW), in exact decimal arithmetic. The period is EIA's: page 13 of the survey's consumption technical documentation (sha256 fdc47fbc71fb…) says the bills cover 'the 366 total days from January 1 to December 31, 2020', and that sentence was found before converting. The result is the constant power that would deliver the same electricity over the year, not the home's peak demand.",
       "inputs": ["14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff", "fdc47fbc71fb0a90ca229e42b6f501a6ea95f8a085377e05c334d45640ac7ebf"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_recs.py",
       "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
     }

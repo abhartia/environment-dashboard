@@ -60,28 +60,28 @@
     {
       "description": "Read the three panel files of Figure SPM.3 (CEDA version v20221116: SPM3_panel_a.csv, SPM3_panel_b.csv, SPM3_panel_c.csv), BADC-CSV, one row per region. Checked that each has the 45 inhabited AR6 regions listed in its comments, once each, the same in all three; that all three say 'years 1950 to 2021' and that each region is assessed as a whole for the 1950s to the present. Every count is dated 1950/2021.",
       "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
       "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
     },
     {
       "description": "Counted the regions in each type of observed change (Increase, Decrease, Low agreement in the type of change, Limited data and/or literature), and split the increases by the confidence in a human contribution (High, Medium, Low due to limited agreement), using the producer's labels. The files word the low-agreement category as SPM3_panel_a.csv 'Low agreement in type of change'; SPM3_panel_b.csv 'Low agreement in the type of change'; SPM3_panel_c.csv 'Low agreement in the type of change'; each is read as the printed figure's 'Low agreement in the type of change'. Checked that the four types add up to the regions and the split adds up to the increases. No region is weighted by area or population.",
       "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
       "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
     },
     {
       "description": "Checked the pairings the split relies on: every region with low agreement in the type of change has 'Low due to limited agreement' confidence, every region with limited data has 'Low due to limited evidence', and every increase has High, Medium or 'Low due to limited agreement'. Regions with a decrease, and their confidence: agricultural and ecological drought: NAU (Low due to limited agreement).",
       "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
       "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
     },
     {
       "description": "Checked against the published figure (IPCC AR6 WGI SPM, p. 10): the count of each type of change printed beside its legend is a publisher cross-check. The split of increases by confidence is not printed there; it is counted from the IPCC data.",
       "inputs": ["6fa8b59c58e1c4babf6b43196881d9fbb742fb6cc43b59049657fac727acbbe6", "48ea9588d9ad42a5858cac3faa21f00c5e4f1662e8d407be9cc060a35de4740d", "ce11b5890050f2d3fe163f8c79692dd95fdc1d4c016207bf631dedad87866ffb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm3.py",
       "transform_sha256": "918a60ea876d508dc1e6e21e322dc0bf23f945220d306f6764a763bfad4f3fd2"
     }

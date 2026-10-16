@@ -32,14 +32,14 @@
     {
       "description": "Read the sheet 'Splines fits' of Law_Dome_GHG_2000years.xlsx, CSIRO collection version v3 (data last updated 11/2018).",
       "inputs": ["e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/law_dome_co2.py",
       "transform_sha256": "c67459fecb8e83feb79e7e5649df410e093a6a529adf10cd7c37368e72fcb62f"
     },
     {
       "description": "Published the column 'CO2 spline (20 yr, ppm)' as printed for each year of its 'Year AD' column, 0154 to 1996, as ISO calendar years. The spline is CSIRO's fit to the ice and firn measurements, which halves variations with periods shorter than 20 years; the growth-rate column and the individual samples are not published here.",
       "inputs": ["e2fb9ef0b36b46857c63bc171f3a8fff6af302ccae4d3d9e6f27df04fa6514d4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/law_dome_co2.py",
       "transform_sha256": "c67459fecb8e83feb79e7e5649df410e093a6a529adf10cd7c37368e72fcb62f"
     }

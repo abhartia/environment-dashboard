@@ -43,14 +43,14 @@
     {
       "description": "Read the sheet '2025 Report Data_Global' of the indicator 1.1.1 (vulnerable populations) workbook of the Lancet Countdown 2025 report, 1980–2024: the average heatwave days per person of adults over 65 (exposure_average_65) and of infants under one year old (exposure_average_infants), in days as the guidance sheet states, published as in the workbook.",
       "inputs": ["a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Total person-days are not published. The over-75 columns are not published either: the guidance sheet's column table does not describe them, and they read 0 in every year before 2000, when the over-65 values do not.",
       "inputs": ["a5b880ab56941f8a8db93b8412b47bb1d9415db8f138acf3d156445ec7b313a7"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     }

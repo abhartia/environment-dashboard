@@ -43,28 +43,28 @@
     {
       "description": "Read the sheets 'Territorial Emissions' and 'Consumption Emissions' of National_Fossil_Carbon_Emissions_2025_v1.0.xlsx (Global Carbon Budget 2025 v1.0, ICOS object loCXyssaalv6DPdO6Qdj90qQ), in million tonnes of carbon per year, and kept the years of the consumption sheet, 1990–2024.",
       "inputs": ["968097cacb1a6a5bfa0cf74ee90763f74a90ef10499e060ab43d1a74c671d46b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_national.py",
       "transform_sha256": "b2048d4a16c8112cc30377657d7b0e3894a02b8aa09d05c1224d4059a5208ef9"
     },
     {
       "description": "Mapped column names to entity codes by the entity table's names and an explicit alias table; left out the producer's regions (Kyoto Protocol Annex B and non-Annex B, OECD and non-OECD, and eight continental regions) and the statistical difference column. EU27 is kept after checking that the Regions sheet lists exactly the 27 member states.",
       "inputs": ["968097cacb1a6a5bfa0cf74ee90763f74a90ef10499e060ab43d1a74c671d46b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_national.py",
       "transform_sha256": "b2048d4a16c8112cc30377657d7b0e3894a02b8aa09d05c1224d4059a5208ef9"
     },
     {
       "description": "Converted from million tonnes of carbon to million tonnes of carbon dioxide by multiplying by 3.664, the factor the sheets state (\"multiply the values below by 3.664\"), with exact decimal arithmetic on the stored values.",
       "inputs": ["968097cacb1a6a5bfa0cf74ee90763f74a90ef10499e060ab43d1a74c671d46b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_national.py",
       "transform_sha256": "b2048d4a16c8112cc30377657d7b0e3894a02b8aa09d05c1224d4059a5208ef9"
     },
     {
       "description": "Cells left empty in the file are not published and are never read as zero.",
       "inputs": ["968097cacb1a6a5bfa0cf74ee90763f74a90ef10499e060ab43d1a74c671d46b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_national.py",
       "transform_sha256": "b2048d4a16c8112cc30377657d7b0e3894a02b8aa09d05c1224d4059a5208ef9"
     }

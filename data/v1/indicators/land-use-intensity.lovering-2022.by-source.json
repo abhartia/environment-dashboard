@@ -74,35 +74,35 @@
     {
       "description": "Read Table 1 from the article's XML (sha256 363fd323e30d…): its title, its seven column headings and its 12 row labels had to be exactly as expected. Found each row, cell by cell, in the printed table on page 8 of the PDF (sha256 d7d2d988f9a6…) before publishing.",
       "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
       "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
     },
     {
       "description": "Published the median, the interquartile range and the mean of each row as printed (thousands commas removed, nothing rounded or recalculated). The interquartile range is the paper's own column: the width between the 25th and 75th percentiles, published as its own statistic, not as bounds. The number of observations and the paper's ANOVA group are in each value's note; the standard error is not published.",
       "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
       "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
     },
     {
       "description": "Wind and natural gas each have two rows, footprint and spacing, published as two values of the 'area' dimension; the other sources have one definition each.",
       "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
       "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
     },
     {
       "description": "Added rooftop solar at zero, labelled 'assigned', because the methods state that the study assigns it zero (sentence found in both files); it is an assumption, not a measurement.",
       "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
       "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
     },
     {
       "description": "Found 7 sentences that the scope relies on (footprint and spacing, fuel-supply land, manufacturing land left out, and the lowest and highest medians) in the XML's text and on their PDF pages, and checked that nuclear has the lowest and dedicated biomass the highest median in the table.",
       "inputs": ["363fd323e30d81a81475af4d475cb2ca5b61941a7effadb0bc67489c08c458f0", "d7d2d988f9a6c7a2845deeab2e8d123308d33220efbdbf27ab64a6a959132b16"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/lovering_2022.py",
       "transform_sha256": "37be43818044a34f337a09e930412b9b8b5646bfae27e26b87e65f8ba3bdb7ed"
     }

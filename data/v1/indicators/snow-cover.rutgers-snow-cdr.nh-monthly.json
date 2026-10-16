@@ -32,28 +32,28 @@
     {
       "description": "Read the 3,131 weekly maps of the NOAA snow cover extent CDR (v01r01, file created 8 October 2026, weeks ending 1966-10-10 to 2026-10-05). Each map covers the seven days from Tuesday to the Monday it is dated.",
       "inputs": ["85722a2395da5b64c1b781e207330e7e18be45dc955e316d5c7a10acc31bdcb4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/rutgers_snow.py",
       "transform_sha256": "6ae9b5115a2b497b5e6fdaf976b148acd077f9a76a9bf352e42e80aa08feae4d"
     },
     {
       "description": "Weekly extent: the summed area of the land cells marked snow covered (cell areas as printed to 0.1 km², exact arithmetic).",
       "inputs": ["85722a2395da5b64c1b781e207330e7e18be45dc955e316d5c7a10acc31bdcb4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/rutgers_snow.py",
       "transform_sha256": "6ae9b5115a2b497b5e6fdaf976b148acd077f9a76a9bf352e42e80aa08feae4d"
     },
     {
       "description": "Monthly extent: each day takes the extent of the weekly map covering it, and the month is the mean over its days, i.e. weekly extents weighted by their number of days in the month (the CDR's own week-month day counts). Converted from km² to million km².",
       "inputs": ["85722a2395da5b64c1b781e207330e7e18be45dc955e316d5c7a10acc31bdcb4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/rutgers_snow.py",
       "transform_sha256": "6ae9b5115a2b497b5e6fdaf976b148acd077f9a76a9bf352e42e80aa08feae4d"
     },
     {
       "description": "Only whole months inside the record are published. Months with a day in a week without a map are published as missing, never filled: 1968-07, 1969-06, 1969-07, 1969-08, 1969-09, 1969-10, 1971-07, 1971-08, 1971-09.",
       "inputs": ["85722a2395da5b64c1b781e207330e7e18be45dc955e316d5c7a10acc31bdcb4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/rutgers_snow.py",
       "transform_sha256": "6ae9b5115a2b497b5e6fdaf976b148acd077f9a76a9bf352e42e80aa08feae4d"
     }

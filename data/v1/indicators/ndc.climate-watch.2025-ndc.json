@@ -48,21 +48,21 @@
     {
       "description": "Read the Climate Watch API response (sha256 91fee5e71d56…, retrieved 2026-10-11) and checked that every indicator in it has source 'Climate Watch'.",
       "inputs": ["91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
       "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     },
     {
       "description": "For the 153 locations with a 2025 NDC status, coded the submission status and the six content questions as 1 (Climate Watch's 'Yes' or 'Submitted' label) or 0 ('No' or 'Withdrawn'); labels that answer neither way are published as missing, with the label. Each value keeps Climate Watch's label as its note.",
       "inputs": ["91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
       "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     },
     {
       "description": "Dated each observation by the Party's 2025 NDC date (M/D/YYYY in the file, written as an ISO date). EUU (the European Union) is published as EU27.",
       "inputs": ["91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
       "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     }

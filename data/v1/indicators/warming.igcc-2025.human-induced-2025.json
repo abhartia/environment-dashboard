@@ -34,28 +34,28 @@
     {
       "description": "Quoted from Sect. 8.1, p. 3906 (also the abstract and Table 6) of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found in the text of page 18 of the PDF snapshot (sha256 795eb30a2ed5…) before publishing, and so was IGCC's statement on page 17 of which single-year definition it uses: 'where they differ we prioritise the SR1.5 trend-based definition' (rather than the annual mean).",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Value: \"1.37 [1.1 to 1.7] °C\" is published as 1.37 °C for 2025 with the likely range 1.1 to 1.7 °C, relative to 1850–1900.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Checked that each file read (Assessment-Update-2025_GMST_headlines.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Cross-check: the release's own 'SR15 definition' row for 2025 in Assessment-Update-2025_GMST_headlines.csv gives 5th, 50th and 95th percentiles 1.1, 1.37 and 1.7 °C, the same as the quoted value and range; the build stops if they differ. (The annual-mean row for 2025 gives 1.38 °C; that definition is published as warming.igcc-2025.human-induced.)",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "d419c3f7d513b42052f5635454853610739d8b5f1749f55b5df03862dfe28879"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     }

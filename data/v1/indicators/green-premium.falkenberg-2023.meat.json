@@ -61,21 +61,21 @@
     {
       "description": "Read the article's JATS XML from Europe PMC (sha256 727b62b8c073…) and checked its DOI, the caption and column headers of Table 3 and 2 sentences of the text.",
       "inputs": ["727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/meat_falkenberg_2023.py",
       "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
     },
     {
       "description": "Published the mean and the median price per kilogram of the four product groups, with the minimum and maximum as the range: 8 values, each addressed by its printed row label and column header and published as printed.",
       "inputs": ["727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/meat_falkenberg_2023.py",
       "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
     },
     {
       "description": "Nothing was subtracted: plant-based and conventional prices are shown side by side as the table gives them.",
       "inputs": ["727b62b8c073792975989ae512de94e94abdeccde02aeffbb3dcbdaf471a82af"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/meat_falkenberg_2023.py",
       "transform_sha256": "4c935499c4e8b08ccd23fa89ab0e726a7e0f13591af16f38bca1ee0290da9a21"
     }

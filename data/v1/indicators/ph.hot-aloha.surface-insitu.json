@@ -33,21 +33,21 @@
     {
       "description": "Read HOT_surface_CO2.txt, last updated 1 January 2026 (the vintage), and checked that its readme of the same date still defines the columns, the -999 missing marker and the notes codes as read here.",
       "inputs": ["4356aa4650188b99f623ac2423e4d5a2af4b189077fd1efd1e2cfd8167161665", "95ebe322ac08c965cc859679cad57bddbe596ebc138ec0381ed787ea9a03ba93"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/hot_aloha_co2.py",
       "transform_sha256": "c2648443192ff4296c90a535d2853089cfdde5edad68bd86081289a7db44e582"
     },
     {
       "description": "Published the column pHcalc_insitu (pH calculated from DIC and alkalinity at in situ temperature, total scale) for each of the 355 cruises, 1988-10-31 to 2024-12-20, as printed, dated by the cruise's mid-day (1 October 1988 plus the days column). 9 cruises have -999 and are published as missing.",
       "inputs": ["4356aa4650188b99f623ac2423e4d5a2af4b189077fd1efd1e2cfd8167161665", "95ebe322ac08c965cc859679cad57bddbe596ebc138ec0381ed787ea9a03ba93"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/hot_aloha_co2.py",
       "transform_sha256": "c2648443192ff4296c90a535d2853089cfdde5edad68bd86081289a7db44e582"
     },
     {
       "description": "Each cruise's notes codes are carried as a note in the readme's words, except c, r and s, which concern pH samples only. Nothing is averaged or filled.",
       "inputs": ["4356aa4650188b99f623ac2423e4d5a2af4b189077fd1efd1e2cfd8167161665", "95ebe322ac08c965cc859679cad57bddbe596ebc138ec0381ed787ea9a03ba93"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/hot_aloha_co2.py",
       "transform_sha256": "c2648443192ff4296c90a535d2853089cfdde5edad68bd86081289a7db44e582"
     }

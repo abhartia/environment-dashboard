@@ -32,21 +32,21 @@
     {
       "description": "Read the C3S Climate Bulletin file of global monthly ERA5 surface air temperature for data to 2026-08, last updated by C3S on 03 September 2026.",
       "inputs": ["3702df655287919f77ae09e62826b7874634cd0751f331cd604ac136c89fd144"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/c3s_era5_bulletin.py",
       "transform_sha256": "5845d2daa53ffa40306f9bf95f55eae21a0d6127141aa1683e8ee72eac96f106"
     },
     {
       "description": "Published C3S's own anomaly from 1850–1900 (column ano_pi) unchanged. C3S computes it as the anomaly from 1991–2020 plus a fixed offset per calendar month (offset_pi), its estimate of the warming from 1850–1900 to 1991–2020 from Berkeley Earth, HadCRUT5 and NOAAGlobalTemp, because ERA5 starts in 1940. Checked on every row that ano_pi equals ano_91-20 plus offset_pi. The offsets in this file (°C): January 0.9600; February 0.9600; March 0.9500; April 0.9100; May 0.8700; June 0.8300; July 0.8000; August 0.8000; September 0.8100; October 0.8500; November 0.8900; December 0.9300.",
       "inputs": ["3702df655287919f77ae09e62826b7874634cd0751f331cd604ac136c89fd144"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/c3s_era5_bulletin.py",
       "transform_sha256": "5845d2daa53ffa40306f9bf95f55eae21a0d6127141aa1683e8ee72eac96f106"
     },
     {
       "description": "The file has no status column and marks no month as preliminary, so no month is labelled preliminary here. The latest months rest on ERA5's preliminary data, which C3S may revise; a later Bulletin file then carries the revised values.",
       "inputs": ["3702df655287919f77ae09e62826b7874634cd0751f331cd604ac136c89fd144"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/c3s_era5_bulletin.py",
       "transform_sha256": "5845d2daa53ffa40306f9bf95f55eae21a0d6127141aa1683e8ee72eac96f106"
     }

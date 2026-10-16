@@ -44,21 +44,21 @@
     {
       "description": "Read the CCUS Projects Explorer's data file (fetched 2026-10-08, Last-Modified 2026-03-26, sha256 d132d5f6032c…): 422 projects, read with exact decimals.",
       "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
       "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
     },
     {
       "description": "Kept the 390 projects the explorer counts: capacity above zero and a status other than 'Suspended/cancelled/decommissioned'.",
       "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
       "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
     },
     {
       "description": "Applied the explorer's status chart rule (no transport or storage projects) and counted, for each status, the projects starting by 2026, by 2030 and by 2035 (cumulative).",
       "inputs": ["d132d5f6032cc4794e32a2fbebf232b83eea36d2625ecfd91e240f37f0d8c035"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_ccus.py",
       "transform_sha256": "ff9283d96f56d127ee3d23405173ab93a26bae62bfb9cd85f32414873dbc7c63"
     }

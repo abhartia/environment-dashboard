@@ -32,14 +32,14 @@
     {
       "description": "Read the September rows of ice_extent_nh_sii-v3p0_monthly.txt (OSI SAF Sea-Ice Index v3.0, Northern Hemisphere monthly mean extent in km²), created by OSI SAF on 11 October 2026. Only Septembers that had ended when the file was created are used.",
       "inputs": ["773a48edccc9741d7217f3ab1ffe2278eb7150453e339f53ac2d3a8ae9de00f1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/osisaf_sea_ice.py",
       "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"
     },
     {
       "description": "Converted km² to million km² (divided by 1,000,000, exact decimal arithmetic). Months marked -999 after the record starts would be published as missing.",
       "inputs": ["773a48edccc9741d7217f3ab1ffe2278eb7150453e339f53ac2d3a8ae9de00f1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/osisaf_sea_ice.py",
       "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"
     }

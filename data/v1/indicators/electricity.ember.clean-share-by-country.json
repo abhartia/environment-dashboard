@@ -33,42 +33,42 @@
     {
       "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-10-06 (Ember gives no version label, so that date is the vintage), and Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…). Every methodology statement this transform relies on was found in the PDF (pages 10, 11, 12, 15, 16) before publishing.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_countries.py",
       "transform_sha256": "8155ba05603a0ff0a7cd456b75f6d3bde247bb6c7c953191a0a1e7787cbf41a3"
     },
     {
       "description": "Kept the World and the 209 countries and economies in pipeline/geo/entities.csv, from 2000, the first year of Ember's stated coverage (earlier rows exist for some countries and are partial). Each country is matched by Ember's ISO 3 code; Ember's XKX is Kosovo (KOS).",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_countries.py",
       "transform_sha256": "8155ba05603a0ff0a7cd456b75f6d3bde247bb6c7c953191a0a1e7787cbf41a3"
     },
     {
       "description": "Checked, for every country and year, that the shares of the generating sources in the file add up to 100%, that Clean generation is Renewables plus Nuclear and the Clean share is Clean over Total generation, and that the emissions intensity is emissions over generation, each to within the rounding of the printed values.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_countries.py",
       "transform_sha256": "8155ba05603a0ff0a7cd456b75f6d3bde247bb6c7c953191a0a1e7787cbf41a3"
     },
     {
       "description": "Left as null, with the reason, every share and intensity of a country-year in which the file gives a negative generation for a source, because those shares do not describe a generation mix. Ember projects the latest year by applying absolute changes from monthly data to annual values, which can go below zero. In this vintage: Azerbaijan 2025 (Solar -0.094 TWh); Bangladesh 2025 (Wind -0.038 TWh); Costa Rica 2025 (Other fossil -1.134 TWh); Czechia 2025 (Other renewables -0.111 TWh); Spain 2025 (Other renewables -0.045 TWh); Estonia 2025 (Other renewables -0.001 TWh); Croatia 2025 (Other fossil -0.003 TWh); Kyrgyzstan 2025 (Other fossil -0.144 TWh); Netherlands 2025 (Other renewables -0.005 TWh); Slovenia 2025 (Other fossil -0.019 TWh).",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_countries.py",
       "transform_sha256": "8155ba05603a0ff0a7cd456b75f6d3bde247bb6c7c953191a0a1e7787cbf41a3"
     },
     {
       "description": "Status: a World year is preliminary when the file has no Total generation for a country that has it for an earlier year (Ember estimates missing country years from historical trends), as in electricity.ember.mix-world: 2023, 2024, 2025. Each country's values for 2025, the latest year in the file, are preliminary, because Ember estimates the most recent year from monthly data and the file does not say for which countries.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_countries.py",
       "transform_sha256": "8155ba05603a0ff0a7cd456b75f6d3bde247bb6c7c953191a0a1e7787cbf41a3"
     },
     {
       "description": "Published Ember's 'Share of generation (%)' of its aggregated source 'Clean' (renewables plus nuclear) as printed.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_countries.py",
       "transform_sha256": "8155ba05603a0ff0a7cd456b75f6d3bde247bb6c7c953191a0a1e7787cbf41a3"
     }

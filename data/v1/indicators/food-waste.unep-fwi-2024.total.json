@@ -45,14 +45,14 @@
     {
       "description": "Read the text of UNEP's report PDF (sha256 8f601d69958e…, downloaded by hand from UNEP's repository; see the snapshot note). Found Table 23's title, column header and all four rows, and the sentence introducing the table, word for word on PDF page 66 (printed p. 46) before publishing.",
       "inputs": ["8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/unep_food_waste.py",
       "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
     },
     {
       "description": "Published the column \"2022 total (million tonnes)\" for Household, Food service, Retail and Total, exactly as printed (\"1 052\" is read as 1,052).",
       "inputs": ["8f601d69958e811318374076d831858c5ec0f1a0e62549376d6e6172b8da2548"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/unep_food_waste.py",
       "transform_sha256": "66cf4484aa383fc6c0188da847d03e9391870434628c9a9b196498e902426609"
     }

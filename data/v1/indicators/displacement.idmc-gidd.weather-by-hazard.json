@@ -51,35 +51,35 @@
     {
       "description": "Read the sheet '1_Disaster_Displacement_data' of IDMC's GIDD disaster export (README: last update 2026-08-31, extracted 2026-10-05; recorded 2026-10-12, sha256 25c78f150cff…): 44,335 rows for 2008–2025, one per disaster event in a country and year.",
       "inputs": ["25c78f150cffef0fac7b2c860d07738cf4a52da9bfe1bb1cc6a976c41ad0d2d3"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/idmc_gidd.py",
       "transform_sha256": "0e992bbeff94140ac9050c01db3f936100ffca09e369aced4049b1efc9905f3c"
     },
     {
       "description": "Kept the 41,821 rows whose Hazard Category is 'Weather related' (IDMC's own category, CRED EM-DAT classification). Left out 2,084 'Geophysical' rows (earthquakes, volcanic activity and dry mass movement) and 430 'Mixed disasters' rows (displacement IDMC does not assign to one hazard). For China, IDMC gives one 'Mixed disasters' row a year in 2008 and 2010–2016, so China's displacement in those years is not in the sums; nothing is estimated in its place. 'Mixed disasters' figures left out, by year: 2008 26,822,000; 2009 130,000; 2010 18,584,000; 2011 9,402,232; 2012 11,135,953; 2013 12,168,639; 2014 6,150,513; 2015 6,444,000; 2016 9,143,000; 2024 19,132; 2025 531,353; each year's total carries a note with them.",
       "inputs": ["25c78f150cffef0fac7b2c860d07738cf4a52da9bfe1bb1cc6a976c41ad0d2d3"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/idmc_gidd.py",
       "transform_sha256": "0e992bbeff94140ac9050c01db3f936100ffca09e369aced4049b1efc9905f3c"
     },
     {
       "description": "Added up the raw figure (Disaster Internal Displacements (Raw)) of these rows by Year, the year IDMC reports the displacement in, and by IDMC's Hazard Type, and over all nine types, as whole numbers. The rounded column is not used.",
       "inputs": ["25c78f150cffef0fac7b2c860d07738cf4a52da9bfe1bb1cc6a976c41ad0d2d3"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/idmc_gidd.py",
       "transform_sha256": "0e992bbeff94140ac9050c01db3f936100ffca09e369aced4049b1efc9905f3c"
     },
     {
       "description": "Left out the 701 weather-related rows with no reported figure; they are never counted as zero, and each value whose rows include some carries a note with their number. Rows with a figure and without one, by year: 2008 1,044/0; 2009 1,576/1; 2010 1,609/0; 2011 1,655/2; 2012 1,675/3; 2013 2,065/65; 2014 2,362/42; 2015 1,877/5; 2016 2,182/26; 2017 867/0; 2018 1,548/0; 2019 1,835/32; 2020 1,796/25; 2021 1,176/368; 2022 2,263/16; 2023 3,774/57; 2024 4,778/33; 2025 7,038/26.",
       "inputs": ["25c78f150cffef0fac7b2c860d07738cf4a52da9bfe1bb1cc6a976c41ad0d2d3"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/idmc_gidd.py",
       "transform_sha256": "0e992bbeff94140ac9050c01db3f936100ffca09e369aced4049b1efc9905f3c"
     },
     {
       "description": "A hazard type with no row in a year has no value for that year. No check against the totals printed in IDMC's Global Report on Internal Displacement: they are built differently and are not used.",
       "inputs": ["25c78f150cffef0fac7b2c860d07738cf4a52da9bfe1bb1cc6a976c41ad0d2d3"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/idmc_gidd.py",
       "transform_sha256": "0e992bbeff94140ac9050c01db3f936100ffca09e369aced4049b1efc9905f3c"
     }

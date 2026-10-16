@@ -33,21 +33,21 @@
     {
       "description": "Read the 'Cumulative mass balance anomaly (mm)' column and its uncertainty from imbie3_antarctica_mm_partitioned.csv (IMBIE version 1.0), 1979-01 to 2023-12.",
       "inputs": ["cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2", "2a45ff6a5ca9492762421fb4dc895dc9c5a9744b91f9e7ad764c48b699cdede9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/imbie_2026.py",
       "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
     },
     {
       "description": "Checked every month against imbie3_antarctica_Gt_partitioned.csv: the mm value and its uncertainty equal the Gt values divided by 360 (IMBIE's 360 Gt of ice per mm of sea level), so the mm column has the mass-balance sign, negative for a loss of ice.",
       "inputs": ["cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2", "2a45ff6a5ca9492762421fb4dc895dc9c5a9744b91f9e7ad764c48b699cdede9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/imbie_2026.py",
       "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
     },
     {
       "description": "Flipped the sign, so that a positive value is a rise in global mean sea level. Lower and upper are the flipped value minus and plus the one-sigma uncertainty.",
       "inputs": ["cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2", "2a45ff6a5ca9492762421fb4dc895dc9c5a9744b91f9e7ad764c48b699cdede9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/imbie_2026.py",
       "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
     }

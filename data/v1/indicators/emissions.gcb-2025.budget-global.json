@@ -48,28 +48,28 @@
     {
       "description": "Read the sheet 'Global Carbon Budget' of Global_Carbon_Budget_2025_v1.0.xlsx (Global Carbon Budget 2025 v1.0, ICOS object qSjPBsV1drZnYdH-yCJMmkGn): one row per year 1959–2024, in billion tonnes of carbon per year. Sinks are positive numbers in the sheet and stay positive here.",
       "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
       "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
     },
     {
       "description": "Checked the sheet's definition of the budget imbalance on every year: fossil emissions plus land-use change emissions, minus atmospheric growth, ocean sink, land sink and cement carbonation sink, equals the imbalance column (largest difference 3.3e-14 GtC/yr). This confirms that the fossil column is before the cement carbonation sink is subtracted.",
       "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
       "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
     },
     {
       "description": "Converted from billion tonnes of carbon to billion tonnes of carbon dioxide by multiplying by 3.664, the factor the sheet states (\"multiply the numbers below by 3.664\"), with exact decimal arithmetic on the stored values.",
       "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
       "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
     },
     {
       "description": "Lower and upper are given for two components only, from the one-sigma uncertainties the sheet states: ±5 % of fossil emissions, and ±0.7 billion tonnes of carbon (2.5648 billion tonnes of carbon dioxide) per year for land-use change. The sheet gives the ocean sink (±0.4) and land sink (±0.5 billion tonnes of carbon per year) uncertainties only 'on average' and atmospheric growth's as 'variable', so those components and the imbalance have no range.",
       "inputs": ["a928cf06c57576b66761d1fec8224c9a41a781eb63442afc03ba902858dd64a9"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcb_global.py",
       "transform_sha256": "63ef45577c93e407d829b864e7503055cba3ebf917a19ce9f03bf6f38914a16b"
     }

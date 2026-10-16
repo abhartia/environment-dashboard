@@ -32,14 +32,14 @@
     {
       "description": "Read the monthly mean column (average) of co2_mm_mlo.csv, created by NOAA on 9 October 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
       "inputs": ["d895fb5b4a59fb5e4cd98e69b7667fe5bef595c6581f630852b12cb41c07f675"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
       "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
     },
     {
       "description": "Kept every month as published. Where NOAA's own markers say something about a month (a Scripps-era value, a month with no measurement days that NOAA interpolated, a month without a standard deviation, or a month measured at Maunakea after the 2022 eruption) the observation carries that as a note. The deseasonalized, days, standard deviation and uncertainty columns are not published.",
       "inputs": ["d895fb5b4a59fb5e4cd98e69b7667fe5bef595c6581f630852b12cb41c07f675"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
       "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
     }

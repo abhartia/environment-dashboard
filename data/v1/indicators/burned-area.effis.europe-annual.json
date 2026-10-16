@@ -34,21 +34,21 @@
     {
       "description": "Read EFFIS's estimatesbycountry responses for the areas EU and UCPM: hectares burnt (ba) each year 2006–2026, published as served. Number of fires (nf) is not published.",
       "inputs": ["8684c80abd2e4ec022571b506ad95e6754e823438d28a3c5f505b31fed97b1c3", "de6f67da665915920336dde96b4f030abdd3fedf74ff0730d47f6f85732fde55", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
       "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
     },
     {
       "description": "Checked EFFIS's own membership list (countriesbyaoi): EU has the 27 member states; UCPM has the 27, the ten other states in the Union Civil Protection Mechanism (ALB, BIH, ISL, MDA, MKD, MNE, NOR, SRB, TUR, UKR) and six separately listed areas (GLP, GUY, MAF, MTQ, MYT, REU). Checked that UCPM is never below EU27.",
       "inputs": ["8684c80abd2e4ec022571b506ad95e6754e823438d28a3c5f505b31fed97b1c3", "de6f67da665915920336dde96b4f030abdd3fedf74ff0730d47f6f85732fde55", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
       "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
     },
     {
       "description": "Year to date, status preliminary: EU27 2026 (as served on 2026-10-11); UCPM 2026 (as served on 2026-10-11).",
       "inputs": ["8684c80abd2e4ec022571b506ad95e6754e823438d28a3c5f505b31fed97b1c3", "de6f67da665915920336dde96b4f030abdd3fedf74ff0730d47f6f85732fde55", "63d59c1da82e0781729b189f501534eb8e820d92e2a5f854999877d8027e0632"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/effis_burned_area.py",
       "transform_sha256": "c7329bf20b693a90f32e3d5bd66af6d80ea62e827a59d91feb6f1e91a481a831"
     }

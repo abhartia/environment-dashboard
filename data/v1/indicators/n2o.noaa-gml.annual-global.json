@@ -32,21 +32,21 @@
     {
       "description": "Read n2o_annmean_gl.csv, created by NOAA on 9 October 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
       "inputs": ["fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
       "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
     },
     {
       "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the standard deviations of 100 bootstrap (network) and 100 Monte Carlo (measurement) global averages taken in quadrature (one standard deviation).",
       "inputs": ["fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
       "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
     },
     {
       "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
       "inputs": ["fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
       "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
     }

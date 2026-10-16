@@ -24,10 +24,11 @@ uv.lock), and the outputs must then be byte-identical to the last build with the
 
 Reading. A .shp is read record by record at the offsets its .shx gives; every record must be a polygon (type 5) or
 null. Rings follow the shapefile rule: clockwise rings are outer rings and counter-clockwise rings are holes, each hole
-belonging to the smallest outer ring that contains it; a hole inside no outer ring (wrongly wound) is drawn as an outer
-ring, and the number of such rings is a processing step. Coordinates stay as written, WGS 84 longitude and latitude:
-the .prj must be exactly WGS84_PRJ and the .cpg exactly UTF-8, or the build stops. A polygon record with no rings has no
-shape and is counted.
+belonging to the smallest outer ring that contains it; a hole inside no outer ring (wrongly wound) is turned
+clockwise and drawn as an outer ring, and the number of such rings is a processing step. Every ring is checked again
+after simplifying: outer rings clockwise, holes counter-clockwise, as d3-geo reads them on the sphere. Coordinates
+stay as written, WGS 84 longitude and latitude: the .prj must be exactly WGS84_PRJ and the .cpg exactly UTF-8, or the
+build stops. A polygon record with no rings has no shape and is counted.
 
 Matching CCKP regions to admin-1 shapes, country by country (CCKP's region prefix is the shape's ISO_A3). The regions
 are those of the entity table: left out, by geo.py's declared rules, are CCKP's 32 DIS.* units (areas it assigns to no
@@ -85,6 +86,7 @@ from envdash import canonical, geo, snapshots
 from envdash import models as models_mod
 from envdash.build import PUBLIC_FILES_BASE, lock_sha
 from envdash.models import (
+    REDISTRIBUTABLE,
     GeoCountry,
     GeoFile,
     GeoIndex,
@@ -232,8 +234,10 @@ def read_rings(shp: bytes, shx: bytes, name: str) -> list[list[np.ndarray]]:
 
 def assemble(rings: list[np.ndarray]) -> tuple[tuple[Polygon, ...], int, int]:
     """Polygons from a record's rings (clockwise outer rings, counter-clockwise holes); how many holes lay in no outer
-    ring and were made outer rings; how many rings had no area (their points on one line), which enclose nothing and
-    are left out."""
+    ring and were made outer rings (turned clockwise, so these polygons follow the shapefile rule too; the topojson
+    library also winds every polygon it is given clockwise, its winding_order CW_CCW, passed explicitly in topology(),
+    and orient() turns round the rings it leaves backwards once it shares arcs); how many rings had no area (their
+    points on one line), which enclose nothing and are left out."""
     shells: list[np.ndarray] = []
     holes: list[np.ndarray] = []
     flat = 0
@@ -254,7 +258,7 @@ def assemble(rings: list[np.ndarray]) -> tuple[tuple[Polygon, ...], int, int]:
             orphans.append(hole)
             continue
         owned[min(hits, key=lambda k: (shell_polys[k].area, k))].append(hole)
-    polys = [Polygon(s, owned[k]) for k, s in enumerate(shells)] + [Polygon(h) for h in orphans]
+    polys = [Polygon(s, owned[k]) for k, s in enumerate(shells)] + [Polygon(h[::-1]) for h in orphans]
     return tuple(polys), len(orphans), flat
 
 
@@ -647,6 +651,7 @@ def topology(objects: dict[str, list[Feature]], s: Simplify) -> dict:
         toposimplify=s.epsilon,
         topoquantize=s.quantize,
         prevent_oversimplify=True,
+        winding_order="CW_CCW",
     ).to_dict()
     for g in topo["objects"]["all"]["geometries"]:
         out[g["properties"].pop(OBJECT)].append(g)
@@ -654,19 +659,78 @@ def topology(objects: dict[str, list[Feature]], s: Simplify) -> dict:
         name: {"type": "GeometryCollection", "geometries": sorted(geoms, key=lambda g: g["id"])}
         for name, geoms in out.items()
     }
+    orient(topo)
     return topo
 
 
+def arc_points(topo: dict) -> list[np.ndarray]:
+    """Each arc's points in quantized coordinates (the file's arcs are delta-encoded)."""
+    return [np.cumsum(np.array(a, dtype=np.int64), axis=0) for a in topo["arcs"]]
+
+
+def winding(points: list[np.ndarray], ring: list[int]) -> int:
+    """Twice a ring's signed area in quantized units, longitude and latitude as a plane (negative: clockwise)."""
+    parts = [points[i] if i >= 0 else points[~i][::-1] for i in ring]
+    xy = np.concatenate([parts[0], *[p[1:] for p in parts[1:]]])
+    x, y = xy[:, 0], xy[:, 1]
+    return int(np.sum(x[:-1] * y[1:] - x[1:] * y[:-1]))
+
+
+def orient(topo: dict) -> None:
+    """Wind every ring as the shapefile rule says and d3-geo reads on the sphere: outer rings clockwise, holes
+    counter-clockwise. After simplifying, two kinds of ring break the rule, both found in the world file of 2026-10-16:
+    a ring shared whole by two shapes (an enclave such as Lesotho, and its neighbour's matching hole) gets the same
+    arc, in the same direction, from the topojson library for both, so one of the two is wound backwards; and a small
+    island can fold onto itself (two in Indonesia, one in Russia). Such a ring is referenced the other way round (its
+    arcs reversed, each read backwards), which changes no shared border. A ring left with no area (one in Myanmar)
+    encloses nothing and is left out, its polygon too when it is the outer ring; a feature left with nothing is a null
+    geometry, as one with nothing left at its scale (its rp stays)."""
+    points = arc_points(topo)
+    for obj in topo["objects"].values():
+        for g in obj["geometries"]:
+            if g["type"] is None:
+                continue
+            polys = g["arcs"] if g["type"] == "MultiPolygon" else [g["arcs"]]
+            kept = []
+            for poly in polys:
+                rings = []
+                for k, ring in enumerate(poly):
+                    w = winding(points, ring)
+                    if w == 0:
+                        if k == 0:
+                            break
+                        continue
+                    rings.append([~i for i in reversed(ring)] if (w > 0) == (k == 0) else ring)
+                if rings:
+                    kept.append(rings)
+            if not kept:
+                g["type"] = None
+                del g["arcs"]
+            elif g["type"] == "MultiPolygon":
+                g["arcs"] = kept
+            else:
+                g["arcs"] = kept[0]
+
+
 def check_topology(topo: dict, expected: dict[str, list[str]], name: str) -> dict[str, tuple[int, int]]:
-    """Every expected feature present (by id), every arc index valid, every ring closed. Returns, per object,
-    (features, features with at least one ring)."""
+    """Every expected feature present (by id), every arc index valid, every ring closed, and every ring wound as the
+    shapefile rule and d3-geo both read it after simplifying: an outer ring clockwise, a hole counter-clockwise (in
+    longitude and latitude, the quantized coordinates' own plane). Returns, per object, (features, features with at
+    least one ring)."""
     arcs = topo["arcs"]
-    decoded = []
     for a in arcs:
         if len(a) < 2:
             raise GeoShapesError(f"{name}: an arc of {len(a)} point(s)")
-        pts = np.cumsum(np.array(a, dtype=np.int64), axis=0)
-        decoded.append((tuple(pts[0]), tuple(pts[-1])))
+    points = arc_points(topo)
+    # The winding is read in longitude and latitude as a plane, which is how d3-geo reads it on the sphere only while
+    # no edge spans half the globe: an edge of 180° of longitude or more (a ring written across the 180° line) would be
+    # read the other way round there, so it stops the build rather than be drawn inside out.
+    # A file whose places are all points (Marshall Islands, Saint Helena) has no arcs, and so no transform.
+    sx = topo["transform"]["scale"][0] if points else 0
+    for k, pts in enumerate(points):
+        if len(pts) > 1 and float(np.abs(np.diff(pts[:, 0])).max()) * sx >= 180:
+            raise GeoShapesError(f"{name}: arc {k} has an edge of 180° of longitude or more")
+    decoded = [(tuple(pts[0]), tuple(pts[-1])) for pts in points]
 
     def ends(i: int) -> tuple[tuple, tuple]:
         k = i if i >= 0 else ~i
@@ -701,6 +765,11 @@ def check_topology(topo: dict, expected: dict[str, list[str]], name: str) -> dic
                         cur = b
                     if cur != start:
                         raise GeoShapesError(f"{name} {obj} {g['id']}: a ring does not close")
+                for k, ring in enumerate(poly):
+                    w = winding(points, ring)
+                    if (w >= 0) if k == 0 else (w <= 0):
+                        what = "an outer ring is not clockwise" if k == 0 else "a hole is not counter-clockwise"
+                        raise GeoShapesError(f"{name} {obj} {g['id']}: {what} after simplifying")
             drawn += 1
         out[obj] = (len(geoms), drawn)
     return out
@@ -883,6 +952,10 @@ def build(paths: Paths, registry: Registry, inputs: Inputs | None = None, *, onl
     for sid in (SOURCE, CCKP):
         if sid not in registry.sources:
             raise GeoShapesError(registry.source_errors.get(sid, f"{sid} is not registered"))
+    # The map files are public downloads (rule 6): shapes or names whose terms forbid redistribution never go into them.
+    cls = strictest([registry.sources[sid].licence_class for sid in (CCKP, SOURCE)])
+    if cls not in REDISTRIBUTABLE:
+        raise GeoShapesError(f"{CCKP} and {SOURCE} together are {cls}: their shapes and names cannot be published")
     inputs = inputs or load_inputs(paths)
     layers = read_layers(inputs)
     m = matching(paths, inputs, layers)
@@ -1062,7 +1135,8 @@ def steps(paths: Paths, inputs: Inputs, j: Join, layers: dict[str, list[Record]]
         "Read the ADM0, ADM1 and NDLSA layers of the World Bank's GAD V1 shapefile as written (WGS 84 longitude and "
         "latitude, checked against the .prj; UTF-8 attributes, checked against the .cpg). Clockwise rings are outer "
         "rings and counter-clockwise rings holes, each hole in the smallest outer ring containing it. Holes inside no "
-        f"outer ring, drawn as outer rings: {per_layer(lambda rs: sum(r.orphan_holes for r in rs))}. Rings with no "
+        "outer ring, turned clockwise and drawn as outer rings: "
+        f"{per_layer(lambda rs: sum(r.orphan_holes for r in rs))}. Rings with no "
         f"area (their points on one line), left out: {per_layer(lambda rs: sum(r.flat_rings for r in rs))}. Records "
         f"with no rings, so no shape: {empty or 'none'}.",
         "Countries: every ADM0 record is joined to the site's entity of its ISO_A3 code (Kosovo's KSV is KOS); the "
@@ -1084,7 +1158,11 @@ def steps(paths: Paths, inputs: Inputs, j: Join, layers: dict[str, list[Record]]
         f"steps. Each country: the same with epsilon its extent / {round(1 / COUNTRY_EPSILON)}, minimum area "
         f"(its extent / {round(1 / COUNTRY_MIN_SIDE)})², and {COUNTRY_QUANTIZE:,} steps across its extent. Each "
         f"feature's rp is a representative point of its full, unsimplified shape ({RP_DECIMALS} decimals); a "
-        "feature with nothing left at its scale is a null geometry with that point. A country's file holds the "
+        "feature with nothing left at its scale is a null geometry with that point. After simplifying, every outer "
+        "ring is wound clockwise and every hole counter-clockwise, as d3-geo reads them on the sphere: a ring the "
+        "library wound backwards (an enclave's ring shared whole with its neighbour's hole, or a small island folded "
+        "onto itself) is referenced the other way round, changing no border, and a ring left with no area is left "
+        "out. A country's file holds the "
         f"disputed areas within {TOUCH_DEGREES}° of its shapes.",
     ]
     return [

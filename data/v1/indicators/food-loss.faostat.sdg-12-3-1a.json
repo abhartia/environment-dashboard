@@ -47,35 +47,35 @@
     {
       "description": "Read SDG_BulkDownloads_E_All_Data_(Normalized).csv from FAOSTAT's SDGB bulk zip. The vintage is the domain's DateUpdate, 29 September 2026, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 478,304, the number of data rows in this file. The zip was last modified on the server on Tue, 29 Sep 2026 07:16:22 GMT.",
       "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
       "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
     },
     {
       "description": "Kept the rows of the five \"12.3.1a Food loss percentage\" items (total and four commodity groups), element \"Value\" (code 6121), unit \"%\", 2015–2024, for WLD; values are published as printed.",
       "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
       "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
     },
     {
       "description": "Left out FAO regional and analytical groups (Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, Central Asia and Southern Asia, Eastern Africa, Eastern Asia, Eastern Asia and South-eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Melanesia, Micronesia, Middle Africa, Northern Africa, Northern America, Northern America and Europe, Northern Europe, Oceania, Oceania excluding Australia and New Zealand, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Sub-Saharan Africa, Western Africa, Western Asia, Western Asia and Northern Africa, Western Europe). Their values are never re-assigned to other entities.",
       "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
       "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
     },
     {
       "description": "Every value used carries FAO's flag A, which the file's codebook defines as \"Official value\".",
       "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
       "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
     },
     {
       "description": "50 of the values carry FAO's note that before July 2022 the series was disseminated under the SDG code \"AG_FLS_IDX\".",
       "inputs": ["ef0358f2cc8cb786f811f5347818284b6e186b1ce4330f788c7e6d7142fb751e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_food_loss.py",
       "transform_sha256": "9d21044637cd82720d092f8dd5318737a8ac37a6301c4b1cbf9f2a47b4d5079b"
     }

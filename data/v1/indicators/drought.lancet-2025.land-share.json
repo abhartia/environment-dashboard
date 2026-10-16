@@ -44,14 +44,14 @@
     {
       "description": "Read the sheet '2025 Report Data_Global' of the indicator 1.2.2 (drought) workbook of the Lancet Countdown 2025 report, 1951–2024: the percent of the world's land area with at least 1, 3 and 6 months of extreme drought in each year (Percent_in_drought by Months), published as in the workbook.",
       "inputs": ["3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Checked that every year has each duration once and that the share falls (or stays level) as the duration lengthens. The 12-month share is not published: it reads NA in 15 of the 74 years.",
       "inputs": ["3e9f7cb9aebc8c867703ee672c99e692c0a830096b14b4a4272ab7f1e5817f42"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     }

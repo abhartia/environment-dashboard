@@ -32,14 +32,14 @@
     {
       "description": "Read sheet '2024' of the workbook (sha256 9d40814a23f8…), after checking its title and its 24 column headings, and took row K03000001 'Great Britain (inc unallocated)', 'All local authorities', column 'Mean domestic consumption (kWh per household)'. Checked the cover sheet's statements on electricity years, units and the publication date.",
       "inputs": ["9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/desnz_subnational.py",
       "transform_sha256": "adc633ec418266cb314baddc794719ab5771a0431d3bdb88160a64218f84fdc5"
     },
     {
       "description": "Unit conversion to average power: divided the household's annual kilowatt-hours by the 8,784 hours (366 days) of the span domestic meters cover, 1 February 2024 to 31 January 2025 (the cover sheet's electricity year for non-half-hourly meters, on which domestic consumption is based), giving kilowatts (kWh / h = kW), in exact decimal arithmetic. The result is the constant power that would deliver the same electricity over the year, not the home's peak demand.",
       "inputs": ["9d40814a23f87b2b028dd39da05b47d0e67e843473ec6ec4a8a0f93167666429"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/desnz_subnational.py",
       "transform_sha256": "adc633ec418266cb314baddc794719ab5771a0431d3bdb88160a64218f84fdc5"
     }

@@ -66,14 +66,14 @@
     {
       "description": "Read sheet 'Factors by Category' of the flat file (sha256 a9a455ab396d…) and kept the rows with Level 1 'Business travel- air', Level 2 'Flights', unit 'passenger.km' and GHG/Unit 'kg CO2e' (the all-gas total): 28 factors, one for each haul, seat class and with or without radiative forcing that DESNZ publishes. Checked that each appears exactly once.",
       "inputs": ["a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/desnz_flights.py",
       "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
     },
     {
       "description": "Published each factor as printed, with its DESNZ factor ID in the value's note. Well-to-tank rows and the separate CO2, CH4 and N2O rows are not used.",
       "inputs": ["a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/desnz_flights.py",
       "transform_sha256": "79a892da557e792a5367eef793936f505a9c5e4ee4cafd6855a80dffcdc9d903"
     }

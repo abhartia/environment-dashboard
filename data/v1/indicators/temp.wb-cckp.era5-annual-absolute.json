@@ -35,16 +35,16 @@
     {
       "description": "Read CCKP's ERA5 0.25° annual mean near-surface air temperature for every country and territory and for the globe, 1950–2025 (absolute °C; CCKP stamps each year's value \"YYYY-07\", read as the year).",
       "inputs": ["62effa974e359adb02b6e4346d385997af9987a9437e31d58cf0f433cf364824", "589d54de415a9c6f6f7a8fdc67b913b9afcf5e147cdfd58cbce54e0c404efe7f", "8b34b2306902cb994e25c3a0cd76f20a185dd09206f36c209db9043006c6b1cc", "ac58ff0206fa4b1fad2e3ac66916c1209e793d4923393499f2defabdd3364792"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/country/cckp.py",
-      "transform_sha256": "5cfdd50878c9ffae5d481cc971232bf1460dc17d3a486d6b825936085104a74a"
+      "transform_sha256": "24cc3d380d075d6e7f9da61b4e9d376e2344320f4937c0885aea6d4132991ef3"
     },
     {
       "description": "Mapped CCKP's codes to the site's entities: ISO 3166-1 alpha-3 codes as they are, KSV (CCKP's code for Kosovo) to KOS and GLOBAL to WLD. Every CCKP area is published, including the overseas territories Natural Earth draws inside another country (envdash/geo.py EXTRA_TERRITORIES).",
       "inputs": ["62effa974e359adb02b6e4346d385997af9987a9437e31d58cf0f433cf364824", "589d54de415a9c6f6f7a8fdc67b913b9afcf5e147cdfd58cbce54e0c404efe7f", "8b34b2306902cb994e25c3a0cd76f20a185dd09206f36c209db9043006c6b1cc", "ac58ff0206fa4b1fad2e3ac66916c1209e793d4923393499f2defabdd3364792"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/country/cckp.py",
-      "transform_sha256": "5cfdd50878c9ffae5d481cc971232bf1460dc17d3a486d6b825936085104a74a"
+      "transform_sha256": "24cc3d380d075d6e7f9da61b4e9d376e2344320f4937c0885aea6d4132991ef3"
     }
   ],
   "published_value": null,

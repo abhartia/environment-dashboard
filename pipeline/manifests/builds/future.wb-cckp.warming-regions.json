@@ -1,0 +1,162 @@
+{
+  "export": "data/v1/indicators/future.wb-cckp.warming-regions.json",
+  "export_sha256": "9d5783a97cfa178efa89ff822c02fe85e2b8a3cddc038534ff4b97666a462de4",
+  "indicator_id": "future.wb-cckp.warming-regions",
+  "key": "15fed58190fec0ff857d45f84b8660c20f599f24e5bdb6ffaad5c33481ae6365",
+  "key_parts": {
+    "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
+    "inputs": {
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp126-median-subnat": {
+        "manifest_sha256": "722c8ae3ae84ac879c1a02d3d44d732a91688a60f18652b94a3cb7bb2ccbc33c",
+        "sha256": "19c2420c997bf1c11b1d4fe3d5ec06fa2d214c39546d87e05320639cccb06d41"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp126-p10-subnat": {
+        "manifest_sha256": "22c8ad4b4452fb4575ea2dc8feae6cca4236471b2716268c9a85a75e51bf3d4e",
+        "sha256": "4dec40a438f3b3db2feb91cdba85f17eab1433f46ec616d55d1cced5f16583f8"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp126-p90-subnat": {
+        "manifest_sha256": "f3e56698480b7f7dda01021f2745c69af221b14b0bdf4615a1cd6dc4f06831e7",
+        "sha256": "1f2f6943b5706a9bfa9e911c0b966fe560b7496c061f3583000c9e403cb3cb38"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp245-median-subnat": {
+        "manifest_sha256": "4d09ea281025927931d849d8a45f725a4ddc59106d215f55dede14f17b0cfd5a",
+        "sha256": "c7a42b9e3f762e396504e13fb8b0e51889e21f271567477906128fb33f2b5482"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp245-p10-subnat": {
+        "manifest_sha256": "d54a6cb445b441b21e7b55fea1bdc8969fd1a004be1bceb2bc6b1a7f4c5bc273",
+        "sha256": "f18c6757d9119cfe1a7448aafbb4dd05890e7e0d8ef78cb070a93a21168f0281"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp245-p90-subnat": {
+        "manifest_sha256": "d104ac32b6059876f6ff3215ab3da625a169215dab849dde08c90de41bfef9ce",
+        "sha256": "a35845f29635904572bccd0f03715e480b341aea592add9564b04f1bcafc6a1d"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp585-median-subnat": {
+        "manifest_sha256": "6111888dc6945d9198ac0b2f64fdd94391e1ef4d235378a253afb11ee83e1889",
+        "sha256": "6e098abb3c9d2b12d2c901cfdab03c2bd20b98d5c17f21ada2c236eec5efa786"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp585-p10-subnat": {
+        "manifest_sha256": "3612dbba3a76435be871962f476f3987af79c6e13fa6521965a6c7f65ded5eb7",
+        "sha256": "73831a92a7fd92472ef760d838be312b5e0334ee2318d9c34f72c2a3f9a67727"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2020-2039-ssp585-p90-subnat": {
+        "manifest_sha256": "bc4ef4a9eb5b2a0eb429d368765d4eca960e71889758c7c08bc6ec62c73e1afb",
+        "sha256": "5c8b208f566867f5cb6550471b7f24b45fbc521de5bed4d48885f3f2fed8a29f"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp126-median-subnat": {
+        "manifest_sha256": "31d74b5bdb961d6fdfec1dde1e7611a9a5577ecf12c7a6ee6718e21ea4b6d05c",
+        "sha256": "73fa08886609cc5d839054c2aaec43c49dc80ba08fff619fa2052acb0288eea9"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp126-p10-subnat": {
+        "manifest_sha256": "7891ff0d48a529dc2685f44c6466669c0eb6e9728994de71abc263dc2c8c00a9",
+        "sha256": "90b993fec91123201aae31704d4e9e3055d93f76193aa99ae244076d1c2499a2"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp126-p90-subnat": {
+        "manifest_sha256": "8e2dfa787033b86e1ca1c887f37a65785596b6b0abb5a031b079804bb742952f",
+        "sha256": "4cadb2f8d4c191e2a1e73b9c70b5a65c280346ff18ff505407ca93e434ebc920"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp245-median-subnat": {
+        "manifest_sha256": "3a2bf6f233ab03fa59c32ffec8f3a2edb933de78639269b7f6b885bbb0f4da0c",
+        "sha256": "1655c12b3566804cb41753b90124e518bf75f16f5ae6db088ebd90420424b7e0"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp245-p10-subnat": {
+        "manifest_sha256": "97651340a71914449e7498bac7a621a46a2178be6e3d16805e08aded84df7902",
+        "sha256": "0ede1307b988b96bd1cbb90795df63c2f7ff644edebbde96fb39f53b09631117"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp245-p90-subnat": {
+        "manifest_sha256": "5844c09d655327d401e1c2efbf469733095b37a5310d8c927710952aabe6cd60",
+        "sha256": "f72e605bdb10ea5dfaa7f63a05b1ce34383fc457e41589ffe28892ab7c135135"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp585-median-subnat": {
+        "manifest_sha256": "7315622c5de81f744c84dc72f47e0556419a7224261f7dabb2ace4c0f9929e80",
+        "sha256": "2a60065b3f7237c023b7aa35ffcc5b5f93ca90306a3c753b92b286da71b50c59"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp585-p10-subnat": {
+        "manifest_sha256": "331d79282fce017258051dbf7e87b8552215ddd8a9f2077c04de2055187bc183",
+        "sha256": "4c65c292e7c2876275edbeb98d749bcb34c2cc4ebfad6e245f7cd2d83e6d8153"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2040-2059-ssp585-p90-subnat": {
+        "manifest_sha256": "d3a710d61b6c89131a119280f47312609797d7ca1da8f01fb7d18c99cb2441fc",
+        "sha256": "159373c10b36f1c5de60a1b4a4bc9773524798bce573b73ec3ff78f90fedf9b8"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp126-median-subnat": {
+        "manifest_sha256": "ba80a59bea9f4294f51516b5defbb558b2266ff8101523c2c2cf18b17fdec8fd",
+        "sha256": "717120f3715ae4895c54523b7e12a52875831096a1c2a2488d1b892d0f8853b6"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp126-p10-subnat": {
+        "manifest_sha256": "9ca73d656ba856c0e6a3706ab2cc1670f21791b105fc26f047cf73c95ffde828",
+        "sha256": "1066d7e174ba900a781fb2060fd3e95de36fdcd54935de1fefd3bf1fef30d3be"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp126-p90-subnat": {
+        "manifest_sha256": "3396740d896ef7edb3246334d5671b9975bd0e0d323eacaaaf381ee336c7d2d2",
+        "sha256": "fbd80115ec30d2b07ee9dd3ef0998e5b70b93a724cb054b99f6f470bb6032fcb"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp245-median-subnat": {
+        "manifest_sha256": "3648eb7b3f1baedc57abcaea4108be3e1e13b24a2df7f4984f8cf3726cd65c03",
+        "sha256": "778efa29c0c1ca2f064ca39a2c504bd13ff28d50e32e5e3d1c0e2d101dc219f1"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp245-p10-subnat": {
+        "manifest_sha256": "64cd800d62702c88c8a614560d77cad96eff041a6d6916808c3e3b7be66e7998",
+        "sha256": "86b8e35b9da942ef7652252e55166595c668580fcdc5c96b88fea82dc6830f88"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp245-p90-subnat": {
+        "manifest_sha256": "9be9e7f4ac0d9c8f14accca8bb54e8a2e8bbd7a80096e6a0bf3e6f1fa29441df",
+        "sha256": "0742ddf962c75dbdb1d99f82a91dd5b013498899ecf863999384cef8492c55ed"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp585-median-subnat": {
+        "manifest_sha256": "31c17fff790e4dbe28436d3ea06e90dc102822d69595b7b9280a1317b7d9e23b",
+        "sha256": "370bf3fccf8a2dc7d92527f92dc236816cf43ef3a8e8385aca53949cdcec76fd"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp585-p10-subnat": {
+        "manifest_sha256": "5627f63add3b5964b5d4a38b7afd9e1a0a1e2ff1fa75c43862755ad7b03f5fdf",
+        "sha256": "bd382605dae0a04b07b7d8984cfdbe177515f95343d3f66f528267fc237a779e"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2060-2079-ssp585-p90-subnat": {
+        "manifest_sha256": "f00a1569d0b70ca19a78183ff1b6b1cfb736bed24c66ec639eab2d9e29c70a49",
+        "sha256": "115c5d324c70cb3f30a33d1b8a08ff9787f67b31e0c127b7b34eff91259234ac"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp126-median-subnat": {
+        "manifest_sha256": "f8621b373acbd6212cf23b0396566c413880deae0ac0ae1746ab3837d54aa0c2",
+        "sha256": "4ede31e172dd2a1a8cf37d5646d0e46863b641caedccdba95d01c03a4d6ed055"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp126-p10-subnat": {
+        "manifest_sha256": "8f690b297ce282454836b2839a42ef16e219ac47a433040e5e9d7164b51b14e6",
+        "sha256": "bbc9e59db2e93424dd699fbbbf0f3c97e1d77fc5fc17596947b8a4dbe5d1e794"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp126-p90-subnat": {
+        "manifest_sha256": "75a2a4422600302a7e0fbe2c50130e90864c927584533293c57b760b8e714968",
+        "sha256": "ae0fd1b792d874f2b73ec2a3dd04e4cf9ef12663f5398d69c549808a9872e5da"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp245-median-subnat": {
+        "manifest_sha256": "89a41827e6ea9ac4098f4478c9bcb7d0e316869a2681852ece9b72f226069f2f",
+        "sha256": "c8db459ad47aa471e4cb47e5a6f5ea863d40773871016767d289d12626212e9c"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp245-p10-subnat": {
+        "manifest_sha256": "8592764737adac2636ab9c7348127b4d0a5794d8cba725e450504e2e79b7d42a",
+        "sha256": "8be28f18394abb795e22f23a499fa83befc84380257901b507b60b259477b721"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp245-p90-subnat": {
+        "manifest_sha256": "ea9a306b1d78a5f9399eceffe5441b8ee9c508c35b6b2559eb97dc406a535b45",
+        "sha256": "29d850cccbd3cce269da0cebb69068ec8d13bf2ec9cc671501e2c6ad7770c9f6"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp585-median-subnat": {
+        "manifest_sha256": "f0ad5cca3968ca22942fdf571778d2ac7fdbe5a04eb982b20a74567b8c3bcd94",
+        "sha256": "78471050b8f3638f06eb2dfa3ea8d6c199c4355c901c71fd29a681fd15b60734"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp585-p10-subnat": {
+        "manifest_sha256": "6420c41e8ca326d8a86e5bab6114c7eac48b3280a6cbe4fa3230cdcac3ed058d",
+        "sha256": "5e56312e4fd65b24aa7252533c419976e826802b8b3e7cb95803475cb299b7c2"
+      },
+      "wb-cckp/cmip6-tas-anomaly-2080-2099-ssp585-p90-subnat": {
+        "manifest_sha256": "ee4bf026de697eb8af34a3e3f7b16e439cf0d2978ced05966511f5257a4cdb6c",
+        "sha256": "72f6832436a14237358db0a77bdc47fb38542791088b1712d7ac975742cc33cd"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
+    "sources": {
+      "wb-cckp": "b5da730f36a90a978e0023e4e8c9e8696b3d45f84d0b1b2a6475041c4501a2eb"
+    },
+    "transform_sha256": "726b8fb0808d97fdd52d43ef72f6dacfb7d06aa0508e4d12a7e0a00cf3644b62"
+  },
+  "publisher_checks": []
+}

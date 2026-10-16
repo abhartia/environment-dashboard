@@ -76,42 +76,42 @@
     {
       "description": "Read 'Carbon footprint for the UK dataset, 1990 to 2023' (OpenDocument spreadsheet, sha256 a2fa54f975ca…, retrieved 2026-10-05; the cover sheet says the tables were published on 30 June 2026 and are licensed under the Open Government Licence 3.0). Cells were read from the file's content.xml as written.",
       "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
       "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
     },
     {
       "description": "Selected the 34 product columns of sheet Summary_product, Table 1 'Greenhouse gas emissions from household and household direct expenditure by broad product category' (ktCO2e), 1990–2023, with their labels as published (note markers moved to the value's note, which quotes the Notes sheet). Table 2 of the sheet (carbon dioxide only) was not used.",
       "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
       "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
     },
     {
       "description": "Checked that in every year the products add up to the table's Total, and that the Total equals Households plus Households direct in Summary_final_demand Table 1, both within 0.001 kt. 2023: Total 528626.10144782555 kt.",
       "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
       "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
     },
     {
       "description": "Copied the cover sheet's sentence on 1990 to 1996 as the note of each of those years.",
       "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
       "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
     },
     {
       "description": "Converted kilotonnes to million tonnes (divided by 1,000, exact decimal arithmetic).",
       "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
       "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
     },
     {
       "description": "Global warming potentials: Defra's 'Consumption-based accounts for the UK, 1990 to 2023: Summary of methods' (University of Leeds; PDF, sha256 1bd24a507911…, retrieved 2026-10-05), section 1.4, page 6: 'Non-CO2 gasses are converted to CO2e using the Global Warming Potential values from the IPCC Fifth Assessment Report (AR5).' The quote was found in the text of that page before publishing; the scope records AR5 100-year values from it.",
       "inputs": ["a2fa54f975caa9fdb7b2092273683f9ff7b395f2bdc571c8489be79532c2085b", "1bd24a5079114b85d13274f22eead875ac4ef23d974d63118601bde6793dc0f5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/defra_uk.py",
       "transform_sha256": "d05b1873094a65b4504b86e74a3eaa7e825b1e7f9f71496bac0d1673815d218e"
     }

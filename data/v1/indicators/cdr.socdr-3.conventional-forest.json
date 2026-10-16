@@ -47,14 +47,14 @@
     {
       "description": "Read SoCDR-Edition-3-Chapter-7.csv (fetched 2026-10-08, Last-Modified Wed, 27 May 2026 20:08:10 GMT, sha256 250208937d47…), UTF-8 with a byte-order mark.",
       "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
       "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
     },
     {
       "description": "Kept the world rows of 'Conventional CDR from bookkeeping models by country and year' (afforestation, reforestation and forest management): the bookkeeping models BLUE, LUCE and OSCAR and their mean, as printed.",
       "inputs": ["250208937d47b6fad5a10941f8db1130aa2c2de511283c9ea2db5176ca026a4f", "1986f453b0f6aa1c807a453c371b870030b94ae7f1625172fd183d32a6cc3313", "0d2e43e1c7b0c54daa80d228b59783ebe24410a8530a00cf8a7b33483383ac65"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/state_of_cdr.py",
       "transform_sha256": "7b328a5ef6d493cdd2b01239e7ab92e23f7422e4d25a45654de6e95e5e4ea84a"
     }

@@ -53,21 +53,21 @@
     {
       "description": "Read the article's JATS XML from Europe PMC (sha256 af876aea0cf1…) and checked its DOI, the caption and column headers of Table 1 and 2 sentences of the text.",
       "inputs": ["af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/cars_furch_2022.py",
       "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
     },
     {
       "description": "Published the row 'Life cycle specific costs LCCS' for the petrol, diesel and electric cars, each cell addressed by its printed row label and column header and published as printed (thousands separators removed), after checking that each car's service life reads 400,000 km and 15 years.",
       "inputs": ["af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/cars_furch_2022.py",
       "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
     },
     {
       "description": "Left out the CNG and hybrid cars. Nothing was subtracted: the petrol, diesel and electric costs are shown side by side as the table gives them.",
       "inputs": ["af876aea0cf16a87a5ccc5c3bc5b1d00b999e252f74b88e5c94fbe0fd7032cc4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/cars_furch_2022.py",
       "transform_sha256": "561a3df04cb4bbaaa260cf120f4c334f29c9cffb6914fbef5d004fae93c73b52"
     }

@@ -32,21 +32,21 @@
     {
       "description": "Read co2_annmean_gl.csv, created by NOAA on 9 October 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
       "inputs": ["d82714c8a014a232b08e8bc150ddaaedf2ec4a80db65d6fe0eb93eb84f9db7db"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
       "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
     },
     {
       "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the mean of the standard deviations of 200 Monte Carlo global averages (one standard deviation).",
       "inputs": ["d82714c8a014a232b08e8bc150ddaaedf2ec4a80db65d6fe0eb93eb84f9db7db"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
       "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
     },
     {
       "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
       "inputs": ["d82714c8a014a232b08e8bc150ddaaedf2ec4a80db65d6fe0eb93eb84f9db7db"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_co2.py",
       "transform_sha256": "251a10a6dfe1ae295fbdb6147e6456532529e130f3aca2620ef4cfe1cbf91512"
     }

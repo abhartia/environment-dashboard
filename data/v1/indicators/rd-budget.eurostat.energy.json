@@ -33,28 +33,28 @@
     {
       "description": "Read Eurostat dataset gba_nabsfin07 ('GBARD by socioeconomic objectives (NABS 2007)', updated 2026-09-25) from the dissemination API (fetched 2026-10-08, sha256 74121b2c2340…), filtered to nabs07 NABS05, unit MIO_EUR.",
       "inputs": ["74121b2c23401248782aaf25ab02fadbe36196e54565f906293b3e6a1f2fe37e", "84460b3f72a5ee75156f3f06ff7259fbdfbc1aaa5c14d64e626d68adc02f4c24"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eurostat.py",
       "transform_sha256": "076295b414f8a4e4db9f370a54dfa4714931d60a12cc4360576be767d95267de"
     },
     {
       "description": "Kept only the EU, its member states, the EFTA states and the official candidate countries, whose data Eurostat lets anyone reuse; checked the candidates against Eurostat's glossary page; mapped Eurostat's two-letter codes to ISO 3166-1 alpha-3 (EU27_2020 to EU27).",
       "inputs": ["74121b2c23401248782aaf25ab02fadbe36196e54565f906293b3e6a1f2fe37e", "84460b3f72a5ee75156f3f06ff7259fbdfbc1aaa5c14d64e626d68adc02f4c24"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eurostat.py",
       "transform_sha256": "076295b414f8a4e4db9f370a54dfa4714931d60a12cc4360576be767d95267de"
     },
     {
       "description": "Kept Eurostat's status flags as notes, with their labels from the response; a provisional flag marks the value preliminary, and a flagged cell without a value is published as missing with the flag as the reason.",
       "inputs": ["74121b2c23401248782aaf25ab02fadbe36196e54565f906293b3e6a1f2fe37e", "84460b3f72a5ee75156f3f06ff7259fbdfbc1aaa5c14d64e626d68adc02f4c24"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eurostat.py",
       "transform_sha256": "076295b414f8a4e4db9f370a54dfa4714931d60a12cc4360576be767d95267de"
     },
     {
       "description": "Published every value as Eurostat gives it.",
       "inputs": ["74121b2c23401248782aaf25ab02fadbe36196e54565f906293b3e6a1f2fe37e", "84460b3f72a5ee75156f3f06ff7259fbdfbc1aaa5c14d64e626d68adc02f4c24"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eurostat.py",
       "transform_sha256": "076295b414f8a4e4db9f370a54dfa4714931d60a12cc4360576be767d95267de"
     }

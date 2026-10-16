@@ -88,21 +88,21 @@
     {
       "description": "Read the text of the article's version-of-record PDF (sha256 f41eb020a2b6…, the copy the authors deposited on Zenodo). Found each of 21 sentences from the abstract and section 3 word for word on its page before publishing; a minus sign had to match a minus sign.",
       "inputs": ["f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/ivanova_2020.py",
       "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
     },
     {
       "description": "Published the mean, the median and the range across the reviewed studies for the 28 options whose values the text states, exactly as printed. Values listed with several options are read in the order the options are named; 'between A and B' is the range across studies. Each value's sentence is in its note.",
       "inputs": ["f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/ivanova_2020.py",
       "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
     },
     {
       "description": "Left out statements that give one number for several options, a bound ('more than', 'up to'), an approximate value ('around') or a total; the other 33 of the 61 options are only in the article's figures and its supplementary spreadsheet. Where the article states one value twice with different numbers, the value is null and both statements are given.",
       "inputs": ["f41eb020a2b60570445ca2795a82a51d9313be1ad3857f5c458b684beaf91d0e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/ivanova_2020.py",
       "transform_sha256": "3112ad931eee437435a54d9907899239c4b5cc050d6027e5c29b41dc16c2fbe6"
     }

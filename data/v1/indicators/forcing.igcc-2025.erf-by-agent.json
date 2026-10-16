@@ -62,28 +62,28 @@
     {
       "description": "Checked that each file read (ERF_best_aggregates.csv, ERF_p05_aggregates.csv, ERF_p95_aggregates.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Read the best estimate, 5th and 95th percentile of effective radiative forcing for each year from 1750 and each of 18 agents and aggregates, as published (W/m²). The 5–95% range is IGCC's, taken from its own percentile files; nothing is re-estimated.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Checked that every human-caused column is exactly zero in 1750 in all three files, so its values are the change since 1750. Solar and volcanic forcing are not zero in 1750 (best estimates 0.02159121 and 0.234943996 W/m²), so the natural and total values are IGCC's time series as published, not changes since 1750. IGCC gives solar for 2025 as a single-year value, separate from its assessment over complete solar cycles, and includes volcanic forcing in the time series without a single-year assessment for 2025 (ESSD Sect. 5).",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Checked in the best-estimate file that each aggregate equals the sum of its parts to 1e-6 W/m² (aerosols, well-mixed greenhouse gases, total human-caused, natural, total), which confirms what each column means. Not published as agents of their own: minor, nonco2wmghg, anthro_nonwmghg, which are sums of published columns (non-CO₂ well-mixed greenhouse gases = methane + nitrous oxide + halogenated gases; minor = contrails + land use + black carbon on snow + stratospheric water vapour; human-caused other than well-mixed greenhouse gases = ozone + stratospheric water vapour + aerosols + contrails + land use + black carbon on snow), checked to 1e-6 W/m² the same way.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "68e66370d5dd13134a275e21998c4ec517ca96d37fd3ee2865dc1a307c2200d9", "ce98d15a21427bfcc4be9397a86b24706a18d32240a6dc53ca9cfa222f5440ed", "325755f3a3c50148dbddf55d96e91a9be1c404661a9f643f99b894cc1ca6548a"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     }

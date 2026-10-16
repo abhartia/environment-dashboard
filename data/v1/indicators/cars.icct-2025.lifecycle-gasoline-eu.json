@@ -32,14 +32,14 @@
     {
       "description": "Quoted from Executive summary, p. i. The quote was found in the text of page 3 of the snapshot (sha256 5f28121f4899…) before publishing.",
       "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     },
     {
       "description": "Value: \"estimated at 235 g CO2e/km\" is published as 235 grams of CO2-equivalent per kilometre for cars sold in 2025.",
       "inputs": ["5f28121f4899372929972d5d6f648b272ef702535137abf8f64140e4004cb93c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     }

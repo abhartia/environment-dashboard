@@ -1,0 +1,174 @@
+{
+  "export": "data/v1/indicators/future.wb-cckp.hot-nights-26c-countries.json",
+  "export_sha256": "c6b4feeba6ec8647d66372ae505f063fa56f034ebde72896707d303a98f9f999",
+  "indicator_id": "future.wb-cckp.hot-nights-26c-countries",
+  "key": "d4f21ade4471cba42975c4536473d6599e41c2aa0a08845440aecf2a67ad3379",
+  "key_parts": {
+    "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
+    "inputs": {
+      "wb-cckp/cmip6-tr26-1995-2014-historical-median-subnat": {
+        "manifest_sha256": "d9f21a2bd86a6768986edf60e1cd1dcdd17c8ba0a01e8d6e70e15f31bb1e1fae",
+        "sha256": "5489ff7e9c73747d248d8e69cec19277f08cbefb9ba96611ff195167219dbe36"
+      },
+      "wb-cckp/cmip6-tr26-1995-2014-historical-p10-subnat": {
+        "manifest_sha256": "e514678f84c13022dc1dfb35f5149641da5d58ee5c1493151f7a55c67c34e7ff",
+        "sha256": "79a2264d2931dd20f647288480ab20c1f58e1b5e600765a537f18486c80f74e6"
+      },
+      "wb-cckp/cmip6-tr26-1995-2014-historical-p90-subnat": {
+        "manifest_sha256": "0cfa21e3aaa281d3b54f3f6f832cc7a18008bda3b820a541d69aac1810911def",
+        "sha256": "9c59531ecf2742f5cff4fb017035f9b9638736b0602b021724db062ad306d2f0"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp126-median-subnat": {
+        "manifest_sha256": "59c9de8d2e48d8c01c3570fb8b7dd5fb16ada7d604067f01ce69ba09b05d7dab",
+        "sha256": "f30db593f3af45a628e557459b357d6aabb2fe5b0363c551046ccfbaaf7c6916"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp126-p10-subnat": {
+        "manifest_sha256": "57aed9727033d958e19bd399ae2861bc444513082873aa9336718608850ce12a",
+        "sha256": "f81def4159a9ffdff3f00893599092ff15944b738fa979e1a0e30430955f4093"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp126-p90-subnat": {
+        "manifest_sha256": "3625f6d6fb8987b7c653dce0f74c4f4e2ef722c977c218b62a6d714b765a2100",
+        "sha256": "30eac6a09913ec3849a2bfa72c6a7a2acfbbdc987f3669cca8da3043fad78871"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp245-median-subnat": {
+        "manifest_sha256": "bb52b841ae0b1fc2d17f193b92fa2e0efe7634ec094518f96a71b70134d381bc",
+        "sha256": "c5e3a32969e26e805bb7bb8269ceb76c6df3f41a0c611e0b92c26fc5382e4a8a"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp245-p10-subnat": {
+        "manifest_sha256": "19305035020ef4ce07ba3a0095f4e147bc4110d217ec9f9d1f618b0e376ecfdf",
+        "sha256": "168230c7bea33b4476803ceb523f227ae7fd1227cf0cdd0b5ca7db03a365a808"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp245-p90-subnat": {
+        "manifest_sha256": "57607f31f8cf1a35d7153478e63a7d609e6804c15838203c84ec278d7f25e091",
+        "sha256": "dde5aadceeaab67a03b58dc37a1ac433dd967732c03628fa772cba5e455c9087"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp585-median-subnat": {
+        "manifest_sha256": "1f6a30af970a884c084f30ab74ab302cf8f6bfd668a42871e151485d133e3584",
+        "sha256": "42bf9dff77880868a54e68d33120265b91a5a070b70c2a2c1df6b1ade3cc4a56"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp585-p10-subnat": {
+        "manifest_sha256": "351c7e354ab59e368b07dca5c9f1ff7aef3fd521c703af208d6d7418c8ae7d10",
+        "sha256": "e014aa3895959db625ce88ea6f09b3cd7b0e758a53f611f09c389287bc1764a2"
+      },
+      "wb-cckp/cmip6-tr26-2020-2039-ssp585-p90-subnat": {
+        "manifest_sha256": "e120c370508b4fc53f1217b2d460786202264c1bd249a14d9375cb550fef07d0",
+        "sha256": "ca3152792f9ba05f2c94cc0107b263cb71b5fd9ad871ab517dce15fead9db2ae"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp126-median-subnat": {
+        "manifest_sha256": "7e63bc42eb12f62637e0c41c5da1100a71db20d5fc335b457aa5b230880406a9",
+        "sha256": "486d498f6b6b07a764b8ceea9a7b4d8790e6d1eb5f5f9e80e2bab66f5d44cd7a"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp126-p10-subnat": {
+        "manifest_sha256": "22b61922944c6ab5a5a2d7a1f105266351bdcf6a8eedabc013292da39799ec77",
+        "sha256": "f5a63da94f9119e1f2b0398db3d901b8628c03c1d0ab9fb61a8ae90d06a5a73d"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp126-p90-subnat": {
+        "manifest_sha256": "c917c17210e68a488bd6440de02706f37dbd8b3ac1706cb638005269e1615cc0",
+        "sha256": "06b298f7848e66f855da94dde4421995afc8b2a32979b37008bb8ab9fe1f7a97"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp245-median-subnat": {
+        "manifest_sha256": "fc283641819b95e0f9a262b3341447defea7f517f02c4cf62a814f7aa97ffdba",
+        "sha256": "1be2cdbf4b42c3bcaa54c4cccafc3028bc678d037c8b9f58d7c58c17b80b44d7"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp245-p10-subnat": {
+        "manifest_sha256": "e9830c2c088d0b94161b8e4f9d590c22dbe3d26115f5d93747000eb75a2281d2",
+        "sha256": "2b394acd036ebe9e7c2a10025a5e65cde0acb92b01a677c088bf0536a68df7a2"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp245-p90-subnat": {
+        "manifest_sha256": "1aaca51d82eb685be5af4e5b7f5312f48be083765208fdeb131c0e1c9345e395",
+        "sha256": "1ab347223c1ca810d457c61ff921e99e04ca7fde19b37cf172c98535a1204d15"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp585-median-subnat": {
+        "manifest_sha256": "e035638fa9ba5892b41dc62aa351a444da9ef25754380064fa4e94c04bbe6a02",
+        "sha256": "ec65f53b18150117a2cef5636c53140fe9388a58a68e85aba821be8df68a23aa"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp585-p10-subnat": {
+        "manifest_sha256": "c282906be7e5aa6c78e73e1f9edec2be31e87c26ef44c9454dbf462043910cea",
+        "sha256": "a181f156b5c1495f9eb56a30fe1f857afbb06627f24d80351ef256a40c1e849d"
+      },
+      "wb-cckp/cmip6-tr26-2040-2059-ssp585-p90-subnat": {
+        "manifest_sha256": "e732acd9ab3760a357c30fded482fb2ce3e7ca5d2e7b8f16306a8a8f0157ae02",
+        "sha256": "a0172664ae0274d05295f34d144703fa5752672bbcc053d6a0cd2c7bd6a08001"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp126-median-subnat": {
+        "manifest_sha256": "07c16294805f3bf4e3ddfcf7204d33674607a32d1d208a0e924c032f24847cc7",
+        "sha256": "406e013f19d77520e82c09c71917711a10ad183550fcf4f109da56ed97c35969"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp126-p10-subnat": {
+        "manifest_sha256": "c4951cba6340e6f734f332418123df08d7e8b073e1c51494d645261f8286e53c",
+        "sha256": "a0bcb56643890b0a8a5f55f8fc0e24c814412d562ccaed9717879d8a004b83e2"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp126-p90-subnat": {
+        "manifest_sha256": "2d14babd83b3b0581dac737270d4702263a5b892a8e31ba252d9af789654cad6",
+        "sha256": "6355fc7f9d89c985133ca7471bbfecdd6f6032378b3c103c905a059d8e1f7413"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp245-median-subnat": {
+        "manifest_sha256": "42a9c0b618d9c9a4937241e49fc356b02c3e4c0a012ebc718ef21abfc54bb905",
+        "sha256": "ecefebb46768c39670fd7ae9eef6bbc6671dbc03bb2220b4c83c5246ae943df0"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp245-p10-subnat": {
+        "manifest_sha256": "ef1dfb0ad20523b5bb570f95a2c023ca58c75c6123fe691e4ac84b7587f1f01b",
+        "sha256": "c933d9f5359f15d054a370270ba4be4396a2ba093b17028c0261f21adcc94c38"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp245-p90-subnat": {
+        "manifest_sha256": "8a20e373384bad04c350fa8fda6646bd295e6be3ddf206ca6950c1f97b2d44b5",
+        "sha256": "11fd73ceb1507972531f92170be0aa5ebbead100fc9a3b5444cd66c91c1da097"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp585-median-subnat": {
+        "manifest_sha256": "f74327d69d1ec81f270fed0111a9dc22fa3d7f5103ec69782f5d013e974b4456",
+        "sha256": "cf9c6f3641983a5077cee9d3ec764915ce4716c4a32ac5f6c4bbabd1b75933b2"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp585-p10-subnat": {
+        "manifest_sha256": "9f63ddfe563062005c8858b88ead5f22e87ef0a78165cd97d75691e8f74c72c9",
+        "sha256": "139da9f17f7e274714576a26095d00cc12f265d5c90cb9a3ee33445c3791e8a4"
+      },
+      "wb-cckp/cmip6-tr26-2060-2079-ssp585-p90-subnat": {
+        "manifest_sha256": "21105a896143dcf1b3bb998c7f4100055fdfd72419143f3a2136c022a4ef2529",
+        "sha256": "1981ebe33b08e6d88339a8b72153e0523fc04f0dafab7ca3bc4136658e3e1b14"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp126-median-subnat": {
+        "manifest_sha256": "ff7dfa4022d575e7adb9b06ffb8f4390e1e7e0c83daaf4be3a4825ba4a6edd55",
+        "sha256": "aeeb4f68c1fa94c0049b346bf695cfdb763534b24ef386e7e5a5e1cd564ff54e"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp126-p10-subnat": {
+        "manifest_sha256": "0e7eb1ad64de3148e55b62662ac42edfbcc1fbdbb7dd9ede41bf6c0f84efa41a",
+        "sha256": "de6999d7b70f53fe8e7a7051c5f8ec2d79ed0c5910b8c49fa63fda988b59cc9c"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp126-p90-subnat": {
+        "manifest_sha256": "40958f2fb7e6ca3197c00ca9bbcaea2d0b877def6df80b1bb144c3459e74fbfd",
+        "sha256": "599683a3ad55c573794352f7bb51b7f29d1558ee6ce43e97c83663e67b285628"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp245-median-subnat": {
+        "manifest_sha256": "7d252cc5c6b6ac412e27dc1293ae290848aa4edb3b63a524eaf1a7bc5732740d",
+        "sha256": "f45dcde76980dae9fca5d8fc26c560b53385b340ea4ce1b1ebd2fee9ccb1aaa0"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp245-p10-subnat": {
+        "manifest_sha256": "65c143453724cda29ae8d221fd73069ed9623fcfd8cc49a075163cd4ffd4d38c",
+        "sha256": "d7b786e1d71b1264cf84983f8f7fcae3b7152696d77007cb424dbc1cabce549c"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp245-p90-subnat": {
+        "manifest_sha256": "08a4a585e54dd2cec8addb31b4b71627faacb78c401ea60f88af6d2d49c1bd80",
+        "sha256": "e7946eaf790eeae14942be604f8ac2b47c6231fafad73a27d344802e2d8db6b4"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp585-median-subnat": {
+        "manifest_sha256": "fa2276c271e60fb9b3ff3c3287e8a0abd2f39a976c4357311b01ff745191c8fb",
+        "sha256": "f5ca53acbe0582f2915433f11617963b7eb794ee6d876386564817f993bc6ab9"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp585-p10-subnat": {
+        "manifest_sha256": "ee969ffe57cfc25c04dc0a531884fc95203d3a09299d0bfca0f1d2c4f8f5dbe6",
+        "sha256": "166f410b6e23ac349347068b00a6f255d6039131351fdb118e519ee005eaa7c1"
+      },
+      "wb-cckp/cmip6-tr26-2080-2099-ssp585-p90-subnat": {
+        "manifest_sha256": "43578e0f2da25647a3e88effc0bfbd2fbbf64cc8cc9510e69fd490b35072d655",
+        "sha256": "61ced7532d8353880fc5a247d4c02a87dd3b8b9d8003f7cd8aeef98d607c507a"
+      }
+    },
+    "key_files": {},
+    "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
+    "sources": {
+      "wb-cckp": "b5da730f36a90a978e0023e4e8c9e8696b3d45f84d0b1b2a6475041c4501a2eb"
+    },
+    "transform_sha256": "726b8fb0808d97fdd52d43ef72f6dacfb7d06aa0508e4d12a7e0a00cf3644b62"
+  },
+  "publisher_checks": []
+}

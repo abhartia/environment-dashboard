@@ -55,28 +55,28 @@
     {
       "description": "Read Policy_out.RDS (sha256 a0c67b252c4b…) with a reader of R's serialization format: 69 negative structural breaks in sectoral emissions across the developed (AC1) and developing (AC6) country samples and four sectors, each with the CAPMF policies the authors matched to it within two years (policy_match_2y, the window used in the paper's main text).",
       "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
       "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
     },
     {
       "description": "Read EU_policies_label_df.csv (sha256 1bc4d07bf186…), the EU policies the model controls for, and matched each break to those in force in its country and sector within two years, as the notes of 06_Fig_4.R do by hand: 4 breaks are matched only by an EU policy.",
       "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
       "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
     },
     {
       "description": "Kept the 63 breaks with at least one matched policy (the paper's successful policy interventions); the other 6 have none and are not published.",
       "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
       "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
     },
     {
       "description": "Effect size = (e^coefficient − 1) × 100, the authors' conversion of the break coefficient (log scale) to the percent change in the sector's emissions. Each value's note lists the matched policies.",
       "inputs": ["a0c67b252c4b671db9306d2dc4e6a341d3d7964041e1c49d56123f2ea17516b6", "1bc4d07bf1862a68f4b19472650d49998ca47dfc377ab17ab2a58e36040bd52c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/stechemesser_2024.py",
       "transform_sha256": "f2e468c8d8e6713971b8d286900a039fd9ce203d4905a149ff071c654a54069e"
     }

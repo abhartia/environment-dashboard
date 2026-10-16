@@ -1,10 +1,10 @@
 {
   "export": "data/v1/indicators/electricity.ember.clean-share-by-country.json",
-  "export_sha256": "46118d48627b55e7b690dbb0740aea5071bd2f38890624069d8fbb7c90d2b2ab",
+  "export_sha256": "eee4e488b6884ac402eac0fa15f63baf5fc1940b912dd47fe703fe53b0446d5d",
   "indicator_id": "electricity.ember.clean-share-by-country",
-  "key": "26d97f213de54362ac3cfb3f4305590661e9697807998459798414186f771078",
+  "key": "d49ac388d205e7e62e1623984780451b1b4046f9fb536d1ec92bc608261dba3a",
   "key_parts": {
-    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
       "ember-yearly/generation-yearly-global": {
         "manifest_sha256": "501d860669ee47fd0c8c2020d1151e57148428d89d922165f8ced70502910106",
@@ -18,7 +18,7 @@
     "key_files": {
       "pipeline/src/envdash/transforms/energy/ember_yearly.py": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
-    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
     "sources": {
       "ember-yearly": "f6f2037aa4f997f182a3a96f0fc4dee47a71aa09482a96a60cf06c478421fca5"
     },

@@ -337,7 +337,11 @@ downloaded, so no new source and no new licence. Evidence: docs/research/sources
 - **On the dashboard.** Each heat country view opens with a "caused by the warming" card for that country's heatwave
   days (the producer attributes them); without Lancet values the view says "No data for … in the Lancet Countdown's
   heatwave days". The work hours are heat of any cause and say so.
-- **Not used yet:** World Bank CCKP heat-index and tropical-night indicators (registered as `wb-cckp`, open).
+- **CCKP's heat-index days and hot nights** (`wb-cckp`, open) are on the home page's future map, with hot days, the
+  hottest day, the longest dry spell and warming, for every country and every state or province (below). The wettest
+  day is registered but withheld: CCKP's national values lie below the area-weighted mean of their own regions in
+  6,086 of 6,630 values, which the method CCKP documents cannot give
+  (`pipeline/src/envdash/transforms/future/cckp_projections.py`, "Withheld").
 
 ## Decisions on extreme weather: IPCC figure data and land TXx (2026-10-12)
 
@@ -481,10 +485,14 @@ Evidence: the research of 2026-10-15/16 for the future map, re-checked on 2026-1
   - The result by country is `pipeline/tests/expected/cckp-area-weighted.csv`. Nothing on the site combines regions
     into a country.
 - **Simplifying.** The shapes are simplified as one topology per file, so shared borders stay shared.
-  - `world.topo.json` is 210,839 bytes (limit 250,000). Its epsilon is 0.25°, polygons under 0.05 square degrees are
+  - `world.topo.json` is 210,843 bytes (limit 250,000). Its epsilon is 0.25°, polygons under 0.05 square degrees are
     left out, and 192 of 245 countries are drawn; the rest are points.
-  - 224 country files total 3,961,656 bytes. The largest is Guinea-Bissau's at 70,841 bytes (limit 200,000).
+  - 224 country files total 3,961,701 bytes. The largest is Guinea-Bissau's at 70,841 bytes (limit 200,000).
   - Every feature keeps a representative point of its full shape, so no place is lost.
+- **Names.** Regions take CCKP's names, except seven Mexican states whose accented letters CCKP garbles (written in
+  code page 437 and read as Windows-1252: "Ciudad de M‚xico", "Yucat n"); they take the name of the World Bank shape
+  each is declared to match ("Ciudad de México", "Yucatán"), and a change to CCKP's garbled name stops the build
+  (`envdash/geo.py` GARBLED_NAMES).
 - **Disputed areas.** The World Bank's 24 non-determined legal status areas are drawn grey with its own names and
   never coloured. CCKP's 32 DIS.* units are left out.
 - **When CCKP changes boundaries.** CCKP's portal says it will move to the World Bank's newer boundaries. When it

@@ -1,10 +1,10 @@
 {
   "export": "data/v1/indicators/sea-ice-extent.nsidc.arctic-minimum-5day.json",
-  "export_sha256": "a7eb7e204cb47db4bd34a960ae0deff9b62436d38018f390620d920c4118608a",
+  "export_sha256": "ce5b34e4687301cbaf676ffa1024c872137bccf98d02b35a229b9c916f389c3c",
   "indicator_id": "sea-ice-extent.nsidc.arctic-minimum-5day",
-  "key": "8d0d605dca73068a38acba6133c60d24864b581ab8e9407acbbdafe620ec902a",
+  "key": "531389baa3b5c2afb79e91820d433e0c0aaa81e78441734793feacd7e2e9b6a7",
   "key_parts": {
-    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
       "nsidc-sea-ice-index/north-daily-extent": {
         "manifest_sha256": "b6b6ff15d35f5b1f9c486fe70323584dfbe4e22dfe86f246f291f99a2780bea2",
@@ -12,7 +12,7 @@
       }
     },
     "key_files": {},
-    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
     "sources": {
       "nsidc-sea-ice-index": "5db606fac901a177dc48a7d3b9ecceea54d5099a7fb3a6c1be8fa40993aae10d"
     },

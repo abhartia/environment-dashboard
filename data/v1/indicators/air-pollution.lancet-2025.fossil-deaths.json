@@ -44,14 +44,14 @@
     {
       "description": "Read the sheet 'Global' of the indicator 3.2.1 (mortality from ambient air pollution by sector and fuel) workbook of the Lancet Countdown 2025 report, 2007–2022: for each year and each of the seven emitting sectors (power plants, industry, transport, households, waste, agriculture, other), the deaths attributable to PM2.5 from coal, liquids and gas, biomass and other sources, in deaths as the guidance sheet states.",
       "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Added the coal deaths of the seven sectors, and separately their liquids-and-gas deaths, for each year (whole deaths, exact), and added the two for deaths from fossil fuels, as the report's key finding does. Biomass and other sources are left out.",
       "inputs": ["bde1cab1171764da6c8e631ae45e93a9b4f0460d68c6ad704eaca0dd1aa5cf7f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     }

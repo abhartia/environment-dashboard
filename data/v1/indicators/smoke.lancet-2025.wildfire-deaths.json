@@ -32,7 +32,7 @@
     {
       "description": "Read the Mortality column (deaths due to fire-originated PM2.5) of the sheet '2025 Report Data_Global' of the indicator 1.2.1 (fire smoke, mortality) workbook of the Lancet Countdown 2025 report, one value a year 2003–2024. Values are published as in the workbook (modelled deaths, not whole numbers).",
       "inputs": ["1cf07d2a285a07cea1b1bfc3d5545a99ba83dcbf362e50377a6a9f48e7d21e7d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     }

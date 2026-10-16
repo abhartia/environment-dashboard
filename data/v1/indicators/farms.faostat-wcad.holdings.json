@@ -33,42 +33,42 @@
     {
       "description": "Read World_Census_Agriculture_E_All_Data_(Normalized).csv from FAOSTAT's WCAD bulk zip. The vintage is the domain's DateUpdate, 27 April 2026, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 28,565, the number of data rows in this file. The zip was last modified on the server on Fri, 19 Jun 2026 13:54:45 GMT.",
       "inputs": ["a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_wcad.py",
       "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
     },
     {
       "description": "Kept the rows of item 27002 \"Holdings\" (element 60850 \"Number\") and of FAO's 16 land-size items (elements 60850 \"Number\" and 50260 \"Area\", in hectares), for every country and census in the WCA rounds 1930 to 2020. Values are published as printed, one per country and census, with the census year as the period (split years such as \"2015/16\" and ranges such as \"2018-2021\" written as 2015/2016 and 2018/2021) and the WCA round, census year as printed, FAO's flag and FAO's note in each value's note.",
       "inputs": ["a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_wcad.py",
       "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
     },
     {
       "description": "Nothing is added up: there is no world or regional total, because each country's census is of a different year and countries define a holding in their own way, and the land-size classes, which differ between countries and partly nest, are not summed. No census in this file reports a class together with a class nested in it.",
       "inputs": ["a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_wcad.py",
       "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Czechoslovakia, Yugoslav SFR); FAO regional and analytical groups (China). Their values are never re-assigned to other entities.",
       "inputs": ["a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_wcad.py",
       "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
     },
     {
       "description": "FAO reports China's census rows under area 351 \"China\" (M49 159), which FAOSTAT's area standard uses for China including Hong Kong, Macao and Taiwan; they are not assigned to mainland China (CHN).",
       "inputs": ["a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_wcad.py",
       "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
     },
     {
       "description": "Flags in the rows used: A \"Official figure\" (7,311 values); I \"Value imputed by a receiving agency\" (3,274 values); each value's note names its flag.",
       "inputs": ["a266d08687d42963617111376dc8297fb806a4588a6d43e82643ecd09216078e", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_wcad.py",
       "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
     }

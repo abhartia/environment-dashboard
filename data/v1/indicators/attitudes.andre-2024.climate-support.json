@@ -46,21 +46,21 @@
     {
       "description": "Extracted the text of PDF pages 6–8 of the Supplementary Information (sha256 622196c98156…), Table S4 'National averages', and read every row between the column header and the notes: 125 countries and World, five values each, as printed (percent, one decimal).",
       "inputs": ["622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/andre_2024.py",
       "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
     },
     {
       "description": "Mapped each country name, exactly as printed, to its ISO 3166-1 code through a fixed table; World is the authors' population-weighted average of the national shares.",
       "inputs": ["622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/andre_2024.py",
       "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
     },
     {
       "description": "Published the 3 dashes the table prints as missing values.",
       "inputs": ["622196c981566e628bd6f5048160eb9381aaacd54ab26c91c0ee7a05382d2d87"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/andre_2024.py",
       "transform_sha256": "01bd569d1a189728268309a7355e4770ed295f846615a31986a683d4fb59dc8e"
     }

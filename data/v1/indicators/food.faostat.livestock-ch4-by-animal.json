@@ -58,56 +58,56 @@
     {
       "description": "Read Emissions_livestock_E_All_Data_(Normalized).csv from FAOSTAT's GLE bulk zip as a stream. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip as its FileLocation and gives FileSize 54572KB, this zip's 55,881,712 bytes in kilobytes rounded up. Its FileRows, 6,941,916, is not the number of data rows in this file (6,650,421), so it does not identify the file. The zip was last modified on the server on Wed, 29 Oct 2025 12:20:38 GMT.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Kept the \"FAO TIER 1\" rows of element \"Livestock total (Emissions CH4)\" (code 72441): methane from enteric fermentation and manure management, in kilotonnes of methane, for the 16 animal items FAO estimates separately, 1961–2023. FAO's aggregate items are not used. Rows from FAO's \"UNFCCC\" source are not used.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Checked, in all 14,264 areas and years where FAO prints them (FAO's regions included), that item \"All Animals\" (1755) equals the sum of the 16 animals present, to within 0.01 kilotonnes. Nothing is computed from this check; it shows that the animals published are FAO's whole total, with no remainder.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Annex I countries, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Non-Annex I countries, Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Sub-Saharan Africa, Western Africa, Western Asia, Western Europe); the European Union (27), a region (only the world and countries and territories are published). Their values are never re-assigned to other entities.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed values). The values stay in tonnes of methane; they are not converted to CO₂-equivalent.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Labelled FAO's items in plain words: \"Cattle, dairy\" as \"Dairy cattle\"; \"Cattle, non-dairy\" as \"Beef and other cattle\"; \"Swine, market\" as \"Pigs raised for meat\"; \"Swine, breeding\" as \"Breeding pigs\"; \"Chickens, broilers\" as \"Chickens raised for meat\"; \"Chickens, layers\" as \"Egg-laying hens\"; \"Asses\" as \"Donkeys\". Only the names shown differ; every value is FAO's item of that name.",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     },
     {
       "description": "Left out FAO's projections for 2030 and 2050, which the file flags F (\"Forecast value\").",
       "inputs": ["1eca81ff01c2064e54feea179911414700539eb38b9bb29b3e123955fe38309f", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/faostat_livestock_by_animal.py",
       "transform_sha256": "f3ea399553a6c18cee9b434fda24bcd2faf88a78bee9b80a0ed0dbc24cbc1f4e"
     }

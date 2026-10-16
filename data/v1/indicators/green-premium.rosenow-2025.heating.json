@@ -64,21 +64,21 @@
     {
       "description": "Read the article's JATS XML from Europe PMC (sha256 06688ab35231…) and checked its DOI, the caption of Table 2 and 6 sentences of the methods that the scope relies on.",
       "inputs": ["06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/heating_rosenow_2025.py",
       "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
     },
     {
       "description": "Published the 10 cells of the rows 'BAU—gas boiler' and 'BAU—heat pump' in all five columns, each addressed by its printed row label and column header, as printed without the pound sign and the thousands separator.",
       "inputs": ["06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/heating_rosenow_2025.py",
       "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
     },
     {
       "description": "Left out the policy rows, which each cost only one of the two systems. Nothing was subtracted: the gas boiler and heat pump totals are shown side by side as the table gives them.",
       "inputs": ["06688ab35231f1bbb4815d63dc4160763a30ceb96de21bc0faf26bc18576cf87"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/heating_rosenow_2025.py",
       "transform_sha256": "2a8fc5548ddd9ae1131c1a96e49cea5a9d36a51f457d8ebd3c42151ac86f9f65"
     }

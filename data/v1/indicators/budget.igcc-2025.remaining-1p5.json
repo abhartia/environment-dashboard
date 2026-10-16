@@ -34,28 +34,28 @@
     {
       "description": "Quoted from Sect. 9, p. 3910 (with Table 8 on the same page) of Forster et al. (2026), Earth Syst. Sci. Data 18. The quote was found in the text of page 22 of the PDF snapshot (sha256 795eb30a2ed5…) before publishing, and so was the Table 8 caption that dates the budgets: 'Estimates are expressed relative to the start of 2026.'",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Value: \"130 GtCO₂ (50 % likelihood)\" is published as 130 billion tonnes of carbon dioxide from the start of 2026, as Table 8 on the same page dates it.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Checked that each file read (budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Cross-check: the release's budget file with the Table 8 assumptions (budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv) gives 134.22 GtCO₂ for 1.5 °C at 50% likelihood. The paper rounds to the nearest 10 GtCO₂; the build stops if the file value is more than 5 GtCO₂ from the quoted 130. Difference: 4.22 GtCO₂.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "f52b1e97cfbd1a6b33b2fd94baa18125b08427e5ba828469fd52919efa9fcd1d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     }

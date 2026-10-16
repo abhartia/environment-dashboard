@@ -221,6 +221,53 @@ def test_a_lost_feature_or_an_open_ring_stops_the_build(built):
         gs.check_topology(broken, expected, "IND")
 
 
+def test_shapes_whose_terms_forbid_redistribution_are_never_built():
+    paths = Paths.default()
+    reg = load_registry(paths)
+    reg.sources[gs.SOURCE] = reg.sources[gs.SOURCE].model_copy(update={"licence_class": "display-only"})
+    with pytest.raises(gs.GeoShapesError, match="display-only: their shapes and names cannot be published"):
+        gs.build(paths, reg)
+
+
+def _rings(g: dict) -> list[list[list[int]]]:
+    return g["arcs"] if g["type"] == "MultiPolygon" else [g["arcs"]]
+
+
+@pytest.mark.snapshot
+def test_every_ring_is_wound_as_d3_reads_it_on_the_sphere(built):
+    world = _topo(built, "v1/geo/world.topo.json")
+    points = gs.arc_points(world)
+    geoms = {g["id"]: g for g in world["objects"]["countries"]["geometries"]}
+    for g in geoms.values():
+        if g["type"] is None:
+            continue
+        for poly in _rings(g):
+            assert gs.winding(points, poly[0]) < 0, g["id"]
+            assert all(gs.winding(points, hole) > 0 for hole in poly[1:]), g["id"]
+    # Lesotho's outline and South Africa's hole are one arc, read in opposite directions (the topojson library gives
+    # both the same direction; orient turns Lesotho's round).
+    (lesotho,) = _rings(geoms["LSO"])
+    holes = [ring for poly in _rings(geoms["ZAF"]) for ring in poly[1:]]
+    assert [[~i for i in reversed(lesotho[0])]] == [
+        h for h in holes if {i if i >= 0 else ~i for i in h} == {i if i >= 0 else ~i for i in lesotho[0]}
+    ]
+    # Read backwards, Lesotho would be the whole globe less Lesotho: the build stops instead.
+    backwards = json.loads(json.dumps(world))
+    lso = next(g for g in backwards["objects"]["countries"]["geometries"] if g["id"] == "LSO")
+    lso["arcs"] = [[[~i for i in reversed(ring)] for ring in poly] for poly in _rings(lso)]
+    if lso["type"] == "Polygon":
+        lso["arcs"] = lso["arcs"][0]
+    expected = {k: [g["id"] for g in v["geometries"]] for k, v in world["objects"].items()}
+    with pytest.raises(gs.GeoShapesError, match="LSO: an outer ring is not clockwise"):
+        gs.check_topology(backwards, expected, "world.topo.json")
+    # An edge spanning half the globe would be read the other way round on the sphere: the build stops instead.
+    across = json.loads(json.dumps(world))
+    step = round(200 / across["transform"]["scale"][0])
+    across["arcs"][0][1:1] = [[step, 0], [-step, 0]]
+    with pytest.raises(gs.GeoShapesError, match="180° of longitude or more"):
+        gs.check_topology(across, expected, "world.topo.json")
+
+
 @pytest.mark.snapshot
 def test_another_process_writes_the_same_bytes(built):
     """Python randomises string hashing per process: the same build in a process with another seed must give the

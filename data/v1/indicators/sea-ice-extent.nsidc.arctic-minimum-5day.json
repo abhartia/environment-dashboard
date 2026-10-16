@@ -32,28 +32,28 @@
     {
       "description": "Read the Extent column of N_seaice_extent_daily_v4.0.csv (million km², data to 10 October 2026).",
       "inputs": ["a7aa04928100cad5f9e85d886b2827a912a8d0266fd02641384de457b5c634d8"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "For every day whose four preceding days also have a value, took the mean of the five (NSIDC's 5-day trailing mean, exact decimal arithmetic). Windows with a missing day are skipped, never filled; no window may contain 14 September 1984, which NSIDC's user guide says is in error.",
       "inputs": ["a7aa04928100cad5f9e85d886b2827a912a8d0266fd02641384de457b5c634d8"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "For each calendar year, published the lowest of those means, dated by the day it ends on (the earlier day if two tie). Years with no complete window are not published: 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986 (the file has a value only every other day before 21 August 1987).",
       "inputs": ["a7aa04928100cad5f9e85d886b2827a912a8d0266fd02641384de457b5c634d8"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "The last year is marked preliminary until the file reaches 31 December.",
       "inputs": ["a7aa04928100cad5f9e85d886b2827a912a8d0266fd02641384de457b5c634d8"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     }

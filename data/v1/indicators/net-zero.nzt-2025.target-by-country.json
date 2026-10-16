@@ -48,28 +48,28 @@
     {
       "description": "Read Data_finalised_for_Zenodo_16_09(Sheet1).csv from Zenodo record 17143240 (fetched 2026-10-08, sha256 fd2471cfb041…), as cp1252 text, and checked that its md5 is the 68515520c574f51bf5d69af4d493ca57 Zenodo lists.",
       "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
       "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
     },
     {
       "description": "Kept the 198 rows with Entity_type 'Country' (the European Union, EUU, is published as EU27) and only their target columns; the GDP, population and emissions context columns were not read.",
       "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
       "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
     },
     {
       "description": "Took the Tracker's own classification: data_is_nzt marks a net zero or similar end target (net zero, zero emissions, zero carbon, climate neutral, climate positive, carbon neutral(ity), GHG neutral(ity), carbon negative, net negative), data_NonNZ_EndTarget another kind of end target, and 'No target at all' none; the build checks that each flag agrees with the End_target label.",
       "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
       "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
     },
     {
       "description": "Published, for each country, the year of its net zero target with the Tracker's status label as a dimension, and for countries without one a missing value with the Tracker's end target as the reason. Each value keeps the Tracker's labels (end target, year, status, year of the last status update) as its note.",
       "inputs": ["fd2471cfb041c02e24f09291edaa2d77c5367edcb16f2123994d1be0b31bd54b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/net_zero_tracker.py",
       "transform_sha256": "049d7ac4b59c6ac75b8a36671617d3575366853655f504f3d706ffc310844596"
     }

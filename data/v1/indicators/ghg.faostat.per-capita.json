@@ -33,35 +33,35 @@
     {
       "description": "Read Climate_change_Emissions_indicators_E_All_Data_(Normalized).csv from FAOSTAT's Emissions indicators (EM) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 678,370, the number of data rows in this file. The zip was last modified on the server on Wed, 29 Oct 2025 11:06:06 GMT.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Kept the rows of item \"All sectors with LULUCF\" (code 6825), element \"Emissions per capita\" (code 7279), unit \"t CO2eq/cap\", 1990–2023, as FAO prints them. FAO divides each area's all-sector emissions by its population; nothing is computed here.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "94 published per-person values are below zero, in 11 areas (BIH, BLR, BTN, FJI, GHA, HND, LAO, LCA, LVA, MNE, RWA), where land use, land-use change and forestry takes up more carbon than the other emissions counted add up to; the lowest is LAO 2001 (-9.66 t CO2eq/cap as printed). Published as printed.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Netherlands Antilles (former), Pacific Islands Trust Territory, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Annex I countries, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Non-Annex I countries, Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Western Africa, Western Asia, Western Europe). Their values are never re-assigned to other entities.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     }

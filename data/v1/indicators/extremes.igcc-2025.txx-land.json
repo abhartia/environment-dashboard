@@ -34,21 +34,21 @@
     {
       "description": "Checked that each file read (txx_timeseries.csv) is byte-identical to the same path inside the IGCC-2025a release zip deposited on Zenodo (doi:10.5281/zenodo.21494229, sha256 04658ff91053…).",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Read the ERA5 column of txx_timeseries.csv: the land average (excluding Antarctica) of each grid cell's highest daily maximum temperature of the year, as an anomaly relative to 1961–1990 (°C), 1950–2025, as printed. The Berkeley column (Berkeley Earth's non-commercial terms) and the HadEX3 column (ends in 2018) are not used; the three are not coverage-matched and are never combined.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     },
     {
       "description": "Checked against the paper (Forster et al. 2026, Sect. 10.1, page 23 of the PDF snapshot, sha256 795eb30a2ed5…), whose statements were found in its text before publishing: the base period is 1961–1990, and the ERA5 mean over those years is 0.001 °C, zero to the file's two decimals; IGCC adds a single offset of 0.51 °C to express TXx relative to 1850–1900, which is not applied here; and its 2025 value relative to 1850–1900 and fall from the year before equal the file's values plus that offset and their difference, exactly.",
       "inputs": ["04658ff91053808aced03f65dc977311668aec1610ec83bec72fff303dcbcbcd", "795eb30a2ed5defdffb78499b0c3eac2314eac3a4ab5d7e9f093bef336acafeb", "c93fc6f4fff8f6665b8dd8aa446eabb4de74378596f8393004e2c6f2223c94a4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/climate/igcc_2025.py",
       "transform_sha256": "bb168888d911761a1e3b5c9ab7f664a7a01df1b09d7b429235c9a924f881eac2"
     }

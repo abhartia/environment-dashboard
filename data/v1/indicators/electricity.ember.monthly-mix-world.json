@@ -50,28 +50,28 @@
     {
       "description": "Read release_generation_monthly_global.csv, last modified by Ember on 2026-10-06 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World', 2019-01 to 2026-08.",
       "inputs": ["182bf4a3be2521c650f29d05d5cf8f5afde8828cfea59f40538b3df2af5df893"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
       "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
     },
     {
       "description": "Checked that every month's shares mean what is published: the nine non-aggregated sources add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
       "inputs": ["182bf4a3be2521c650f29d05d5cf8f5afde8828cfea59f40538b3df2af5df893"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
       "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
     },
     {
       "description": "Noted on each month how many countries and economies have Total generation in the file for it (from 83 in 2019-01 to 51 in 2026-08), and marked a month preliminary when a country with generation for an earlier month has none for it, because the World total then includes Ember's estimate for that country. Preliminary months in this vintage: 47, the first 2022-10 and the last 2026-08.",
       "inputs": ["182bf4a3be2521c650f29d05d5cf8f5afde8828cfea59f40538b3df2af5df893"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
       "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
     },
     {
       "description": "Published Ember's 'Share of generation (%)' for each of the nine sources as printed.",
       "inputs": ["182bf4a3be2521c650f29d05d5cf8f5afde8828cfea59f40538b3df2af5df893"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_monthly.py",
       "transform_sha256": "0cc7356131783d6ac00bb9e260a456b0ab7d721a1beafde0c28984a7c9126efa"
     }

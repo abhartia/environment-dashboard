@@ -32,14 +32,14 @@
     {
       "description": "Read the 'Cumulative mass balance anomaly (Gt)' column of imbie3_antarctica_Gt_partitioned.csv (IMBIE version 1.0), 1979-01 to 2023-12, as printed.",
       "inputs": ["cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/imbie_2026.py",
       "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
     },
     {
       "description": "Lower and upper are the value minus and plus the file's 'Cumulative mass balance anomaly uncertainty (Gt)', which the file states is one standard deviation (exact decimal arithmetic).",
       "inputs": ["cdb5f37c703af3fb36ccbf89f6ca0ba8b444817cb48ff34cc77ca7a9d9a525b2"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/imbie_2026.py",
       "transform_sha256": "890ecd9e82cc65eb0035bf87823c2a8ed59f083ca51502ecc722709a13032788"
     }

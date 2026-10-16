@@ -1,0 +1,867 @@
+{
+ "title": "Sources for the future-mode world map: climate projections by country and by state or province, and the region shapes they join to",
+ "researched_on": "2026-10-16",
+ "need": "The site is adding a 'future mode': a world map of projected climate for every country and, inside a country, for every state or province. A projection is a 20-year window under a named emissions path, shown with the range across the climate models beside the median. That needs two things. First, open projection values for countries and for states or provinces, for measures people can feel: days at 35 °C or more, hot nights, the hottest day, the wettest day, dry spells and warming. Second, region shapes whose codes join to those values by a declared rule, never by a guess. The values and the simplified shapes are written to public JSON, so a source whose terms forbid redistribution or derivatives cannot be used, and every number must keep its dataset version, file and licence.",
+ "method": [
+  "Three scratch-note passes, kept outside the repo. (1) Projection sources: values read live from the CCKP API on 2026-10-15, nothing written. (2) Boundary files: read-only, file sizes from 'curl -sI' unless marked estimate. (3) An independent verification pass over (1) and (2): read-only (curl and in-memory range reads, nothing written), run on 2026-10-15 and 2026-10-16.",
+  "Where the verification pass disagrees with the first two, this record follows the verification pass and lists each change under 'corrections'.",
+  "'decisions' come from the build plan for future mode, checked against the code on 2026-10-16.",
+  "The last two open questions (the wettest day, the Philippines) were decided later in the build. They are not in the scratch notes."
+ ],
+ "candidates": [
+  {
+   "rank": 1,
+   "role": "Projected values by country and by state or province",
+   "name": "World Bank Climate Change Knowledge Portal (CCKP) API, CMIP6 projections (already registered as wb-cckp)",
+   "producer": "World Bank, Climate Change Knowledge Portal",
+   "landing_url": "https://climateknowledgeportal.worldbank.org/download-data (its API Structure tab documents the URL pattern). Metadata: https://climateknowledgeportal.worldbank.org/metadata. Bucket README: https://worldbank.github.io/climateknowledgeportal/README.html. Code: https://github.com/worldbank/climateknowledgeportal",
+   "file_urls": [
+    "https://cckpapi.worldbank.org/cckp/v1/{collection}_{type}_{var}_{product}_{agg}_{period}_{pctl}_{scenario}_ensemble_all_mean/{geocode}?_format=json",
+    "Read in the verification pass: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/{geo}?_format=json",
+    "Geocodes: IND, USA.2593214, comma lists such as IND,NGA,IND.11510, region_SAR, all_countries and all_countries_subnationals. The last returns 246 countries and 3,527 regions (in 244 countries) in one call: 110,326 B for one climatology. Several variables work in one call (hd35,tas). curl works without a key. all_subnationals and per-country variants return data: [].",
+    "Region names: _format=xlsx returns a code, name column. geonames.json (255 KB, last modified 2026-10-15) and the portal's web pages sit behind a Cloudflare challenge (HTTP 403 to curl), so a person has to download them (rule 7).",
+    "Annual series 2015–2100: about 4.7 MB per variable, scenario and percentile, for all units.",
+    "Public S3 bucket wbg-cckp.s3.amazonaws.com: per-model runs for 25–30 models for the scenarios other than SSP1-1.9 (SSP1-1.9 has only ensemble-all-ssp119), the V1 boundary zip (candidate 2), EEZ_ADM0.tar, HydroBasins.tar and OceanBasins.tar."
+   ],
+   "licence_name": "CC BY 4.0 with the World Bank's additional terms (Dataset Terms)",
+   "licence_terms_url": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+   "licence_quote": "Unless specifically labeled otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0 International License (CC BY 4.0), with the additional terms below.",
+   "licence_terms_verbatim": [
+    "Terms page header: 'Last Updated: Mar 23, 2018'.",
+    "A 'mandatory and binding addition': non-binding mediation, then after 45 days 'the UNCITRAL Arbitration Rules as then in force', with a sole arbitrator.",
+    "'You agree to provide attribution to The World Bank and its data providers in the following format: The World Bank: Dataset name: Data source (if known).'",
+    "'When sharing or facilitating access to the Datasets, you agree to include the same acknowledgment requirement in any sub-licenses of the data that you grant, and a requirement that any sub-licensees do the same. You may meet this requirement by providing the uniform resource locator (URL) of these terms of use.'",
+    "No Endorsement, and No Association: no name, trade-mark, emblem or logo without consent.",
+    "Third-party data 'may not be redistributed or reused without the consent of the original data provider, or may be subject to terms and conditions that are different from those described above.'",
+    "'These Dataset Terms incorporate the World Bank Terms and Conditions by reference.' (missed by both first passes; found by the verification pass)"
+   ],
+   "licence_quote_metadata_page": "'All CCKP data adhere to CC-BY 4.0.' Read by the first pass; the verification pass could not re-check it because the portal pages and metatag.pdf return HTTP 403 to curl.",
+   "fetched_on": "2026-10-15 (first pass); 2026-10-15 and 2026-10-16 (verification pass)",
+   "proposed_licence_class": "open (CC BY 4.0 with the additional terms above; already registered as wb-cckp)",
+   "granularity": "246 countries and 3,527 regions in 244 countries. Region detail is uneven: Latvia has 119 units, Malta 67 and Seychelles 60; India has 35, Kenya 47 (all counties) and Brazil 31. Hong Kong, Macao and Taiwan have no regions. 68 units have placeholder names (an example is GBR.25639503, 'Administrative unit not available'). 32 DIS.* units are disputed areas with no names; they do have values.",
+   "variables": "hd35 (maximum 35 °C or more), hd40 (40 °C or more), hi39 (heat index 39 °C or more), tr26 (nights 26 °C or more), txx (hottest day), wsdi (warm spell days), rx1day (wettest day), cdd (dry spell), spei12 (drought index) and tas (warming). Also available: hd30/42/45/50, hi35/37/41, tr (20 °C), tr23/29/32, rx5day, r20mm, r95ptot, fd, pr. The heatwave product ehf2 is covered in weighting_findings.",
+   "years": "Windows 2020–2039, 2040–2059, 2060–2079 and 2080–2099, plus a 1995–2014 baseline (the models' own simulation of the past). Annual series 2015–2100.",
+   "scenarios": "SSP1-1.9, 1-2.6, 2-4.5, 3-7.0 and 5-8.5. Percentiles p10, median and p90. Products: climatology and anomaly. Ensemble of 30 CMIP6 models.",
+   "weighting": "Area-weighted. The metadata page describes 'fractional overlap' of grid cells plus 'cosine of latitude' weighting. There is no population-weighted variant of the threshold indicators (see weighting_findings).",
+   "values_read": {
+    "what": "Median of 30 CMIP6 models, 2040–2059, SSP2-4.5, read live on 2026-10-15. Days a year unless stated. The verification pass re-read the hd35 values (India, Nigeria, California, Delhi, Kenya, Brazil) and they matched; the other rows were read by the first pass only.",
+    "rows": [
+     {
+      "variable": "hd35 (maximum 35 °C or more)",
+      "India": 94.78,
+      "Delhi (IND.11510)": 123.28,
+      "Nigeria": 134.32,
+      "California (USA.2593218)": 47.12
+     },
+     {
+      "variable": "hd40 (maximum 40 °C or more)",
+      "India": 31.68,
+      "Delhi (IND.11510)": 52,
+      "Nigeria": 26.41,
+      "California (USA.2593218)": 13.68
+     },
+     {
+      "variable": "hi39 (heat index 39 °C or more)",
+      "India": 32.55,
+      "Delhi (IND.11510)": 62.7,
+      "Nigeria": 10.23,
+      "California (USA.2593218)": 0.82
+     },
+     {
+      "variable": "tr26 (nights 26 °C or more)",
+      "India": 92.78,
+      "Delhi (IND.11510)": 129.88,
+      "Nigeria": 66.66,
+      "California (USA.2593218)": 12.99
+     },
+     {
+      "variable": "txx (hottest day, °C)",
+      "India": 42.9,
+      "Delhi (IND.11510)": 47.24,
+      "Nigeria": 42.16,
+      "California (USA.2593218)": 40.87
+     },
+     {
+      "variable": "wsdi (warm spell days)",
+      "India": 69,
+      "Delhi (IND.11510)": 63.75,
+      "Nigeria": 69.44,
+      "California (USA.2593218)": 52.53
+     },
+     {
+      "variable": "rx1day (wettest day, mm)",
+      "India": 42.92,
+      "Delhi (IND.11510)": 47.03,
+      "Nigeria": 34.96,
+      "California (USA.2593218)": 34.66
+     },
+     {
+      "variable": "cdd (dry spell, days)",
+      "India": 70,
+      "Delhi (IND.11510)": 64.37,
+      "Nigeria": 73.46,
+      "California (USA.2593218)": 92.14
+     },
+     {
+      "variable": "spei12 (drought index)",
+      "India": 0.25,
+      "Delhi (IND.11510)": 0.46,
+      "Nigeria": 0.39,
+      "California (USA.2593218)": -0.6
+     },
+     {
+      "variable": "tas change (°C against 1995–2014)",
+      "India": 1.18,
+      "Delhi (IND.11510)": 1.34,
+      "Nigeria": 1.26,
+      "California (USA.2593218)": 1.64
+     }
+    ],
+    "more": [
+     "Delhi's 1995–2014 hd35 baseline is 102.09 days (p10 90.22, p90 114.87).",
+     "Delhi hd35 in 2080–2099 is 117.36 under SSP1-1.9 and 196.1 under SSP5-8.5.",
+     "hd35, 2040–2059, SSP2-4.5, median, read by the verification pass: Kenya 75.44, Brazil 47.25.",
+     "Kenya's regions are real: Turkana 162.43, Marsabit 133.9, Nairobi 0."
+    ]
+   },
+   "headline_checks": [
+    {
+     "value": "India 94.78, Kenya 75.44, Brazil 47.25 and Delhi (IND.11510) 123.28 days a year at 35 °C or more",
+     "query": "GET the hd35 URL in file_urls with {geo} set to each code (verification pass, 2026-10-15/16). Nigeria 134.32, California 47.12 and the Delhi 1995–2014 baseline 102.09 also match."
+    },
+    {
+     "value": "246 countries and 3,527 regions in 244 countries; India 35 regions, Kenya 47, Brazil 31",
+     "query": "GET all_countries_subnationals (verification pass)."
+    },
+    {
+     "value": "Asking for two variables at once works; all_subnationals returns data: []",
+     "query": "GET with hd35,tas, and with all_subnationals (verification pass)."
+    }
+   ],
+   "caveats": [
+    "Area-weighted, not population-weighted. Say 'averaged over the land of the place'.",
+    "CCKP's national totals for count-type values (population and person-days) are 2–3 times the sum of its own regions. Never publish them (see weighting_findings).",
+    "The portal's Cartography tab says its numbers still use the previous World Bank boundaries. A July 2026 World Bank boundary release updated 'many ADM1 boundaries' and CCKP plans to switch. When it does, every region code changes.",
+    "CCKP does not document its region codes; its metadata page says only 'reflecting World Bank shapefiles for national (ADM0) and subnational (ADM1) units'.",
+    "The portal's web pages and geonames.json cannot be fetched by a script, so the names file may need a manual snapshot (rule 7).",
+    "India has no Jammu and Kashmir or Ladakh values at all (IND.11515 is missing)."
+   ],
+   "verdict": "Adopted as the source of the future values.",
+   "recommendation": "Use for days at 35 °C or more, hot nights, the hottest day, the wettest day and dry spells by country and by region, labelled area-averaged (the wettest day was withheld later in the build: see open_questions). Never publish CCKP's national population or person-day totals."
+  },
+  {
+   "rank": 2,
+   "role": "Region shapes (country and state or province) that join to CCKP's codes",
+   "name": "World Bank Official Boundaries, Global Administrative Divisions (WB GAD) V1, 2025-05-07, as hosted in CCKP's S3 bucket",
+   "producer": "World Bank (Official Boundaries); hosted by CCKP",
+   "landing_url": "https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip. The World Bank catalogue page https://datacatalog.worldbank.org/search/dataset/0038272/World-Bank-Official-Boundaries does not offer V1; it lists only v3 (candidate 4), the legacy 2020 admin-0 files and 20260710_GAD_v2_Maintenance_Log.xlsx.",
+   "file_urls": [
+    "https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip (264,700,182 B, last modified 10 Jun 2025)"
+   ],
+   "naming_note": "'Legacy v1 (2020)' in the boundary note means the three 2020 admin-0-only files on the catalogue (geojson_highres 20,346,962 B, geojson_lowres 4,678,469 B, topojson 2,149,917 B). It is not this V1, which is dated 2025-05-07 and has admin-1.",
+   "licence_name": "CC BY 4.0 (dataset level, from the catalogue), with the World Bank's additional terms. Inferred for V1.",
+   "licence_terms_url": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+   "licence_quote": "License : Creative Commons Attribution 4.0 … This dataset is licensed under Creative Commons Attribution 4.0 (World Bank Official Boundaries catalogue, dataset 0038272, version 2026-09-10). The licence links to datacatalog.worldbank.org/public-licenses?fragment=cc, which says: 'CC-BY 4.0, with the additional terms below, is the default license for all Datasets produced by the World Bank itself and distributed as open data . All users of these Datasets under the CC-BY 4.0 License also agree to the following mandatory terms:' followed by the same mediation and UNCITRAL clause as in the Dataset Terms.",
+   "licence_inference": "V1 itself carries no licence. The zip has no licence file or readme and its .shp.xml files have no use-constraint fields. The catalogue does not offer V1. The licence is therefore inferred from the catalogue's dataset-level CC BY 4.0 and from the zip's host, CCKP's open bucket. The bucket's AWS Open Data Registry entry is inconsistent: it reads License: '[World Bank Open Database License (ODbL)](https://creativecommons.org/licenses/by/4.0/)', an ODbL label linking to CC BY 4.0. The worldbank/WB_GAD GitHub repo is MPL-2.0, but that covers documentation and code only.",
+   "fetched_on": "2026-10-15 and 2026-10-16 (verification pass)",
+   "proposed_licence_class": "open, inferred (flagged for the owner: see open_questions)",
+   "granularity": "ADM0, ADM1, ADM2 and the disputed areas the World Bank does not assign to a country (NDLSA). The admin-1 layer has 3,604 features. Admin-1 fields include GAUL_0, GAUL_1, HASC_1, ADM1CD_t and P_CODE_1_t (the GAUL rule below also uses WB_A3). The GAUL_0 field confirms that CCKP's number after the dot starts with the FAO GAUL country code.",
+   "years": "Dated 2025-05-07; zip last modified 10 Jun 2025. Older than v2 (14 May 2026) and v3 (10 Sep 2026): for example the v2 maintenance log says Trindade/Martim Vaz, Rocas Atoll and Alcatrazes (BRA014–017) were folded into states in 2026, and CCKP's Brazil still has 4 'Name Unknown' island units.",
+   "sizes_and_formats": "Shapefile zip, 264,700,182 B. The build plan notes that the admin-1 .shp may exceed the 200 MB max_bytes default and that the zip must be checked against the source's mirror_raw: true setting.",
+   "headline_checks": [
+    {
+     "value": "The GAUL rule {WB_A3}.{GAUL_0}{GAUL_1} matches 2,254 of CCKP's regions with names confirmed (USA, Brazil, France and China among them); the ADM1CD rule {WB_A3}.{GAUL_0}{int(ADM1CD_t[3:])} matches 467 with names confirmed. Together: 2,732 of 3,527 codes.",
+     "query": "Verification pass: build the CCKP code from the V1 admin-1 fields and compare with all_countries_subnationals and the names file."
+    },
+    {
+     "value": "India matches 35 of 35 (IND010 Delhi becomes IND.11510 Delhi)",
+     "query": "ADM1CD rule, verification pass."
+    },
+    {
+     "value": "By name within the same country, 3,176 of 3,527 CCKP names appear in V1; 183 of 244 countries have equal counts with every name matched",
+     "query": "Verification pass."
+    }
+   ],
+   "caveats": [
+    "No column holds the CCKP string as it is; the code has to be built by a rule.",
+    "Some countries need name or declared pairs: Kenya matches 47 of 47 by name but not by code (CCKP numbers Kenya's counties in a different order; Uasin Gishu = 1); Nigeria matches 35 of 37 by name (Akwa Ibom and Abuja unmatched).",
+    "Jammu and Kashmir sits in V1's disputed-areas layer.",
+    "68 CCKP units have placeholder names and 32 DIS.* units have none.",
+    "The only cartography duty on the World Bank's own boundaries applies to Bank staff ('staff must receive legal clearance … World Bank Cartography Unit'). The Dataset Terms still require attribution, pass-through of the acknowledgment, no endorsement and no logo.",
+    "The Philippines' Bangsamoro and Region 12 are on 2013 UN SALB shapes (see open_questions)."
+   ],
+   "verdict": "Adopted as the region map (admin-0 for the world map, admin-1 per country). The only downloadable boundary file whose codes join to CCKP's.",
+   "recommendation": "Register it with the licence inference written down and the owner's decision recorded. Join to CCKP by the GAUL rule, then the ADM1CD rule, then declared pairs, then exact names (see decisions). Record every pair."
+  },
+  {
+   "rank": 3,
+   "role": "Population-weighted 'average resident' values by country (follow-up)",
+   "name": "Climate Solutions Explorer (CSE) v1.1",
+   "producer": "IIASA (method: Werning et al. 2024, Environmental Research: Climate 3:045015, CC BY 4.0)",
+   "landing_url": "https://zenodo.org/records/14524342 (concept DOI 10.5281/zenodo.7971429; published 2024-12-20). IIASA PURE: https://pure.iiasa.ac.at/20382. Method paper: https://iopscience.iop.org/article/10.1088/2752-5295/ad8300",
+   "file_urls": [
+    "The country zip is 2.39 GB and each CSV is about 500 MB uncompressed. One CSV entry (about 55 MB compressed) can be pulled with a ranged request, and that worked. Realistically this is a manual acquisition."
+   ],
+   "licence_name": "CC BY 4.0",
+   "licence_terms_url": "https://zenodo.org/records/14524342",
+   "licence_quote": "License CC BY 4.0 (the record's README).",
+   "fetched_on": "2026-10-15 (first pass; not re-checked in the verification pass)",
+   "proposed_licence_class": "open (from the README; not re-verified)",
+   "granularity": "Countries (227), the 10-region and 5-region UN groupings, the EU and the IPCC regions. No states or provinces. Rows are 'Climate Solutions' (multi-model statistics) and per-model rows; Region is ISO3. Measures: '…|Hazard|Absolute|Population weighted|{5,25,50,75,95}th Percentile|Mean', plus land-area-weighted versions, exposure counts and shares.",
+   "years": "Warming levels 1.2, 1.5, 2, 2.5, 3 and 3.5 °C (31-year windows) with SSP1–5 populations; baseline 1974–2004. The year columns vary only because population changes: the values belong to a warming level, not a year.",
+   "methods": "5 ISIMIP3b models; heat indicators are based on wet-bulb temperature.",
+   "indicators": "cdd, dri and dri_qtot (drought), heatwave events and heatwave days (95th/97th/99th percentile × 3/5/7/10 days), iavar, pr_r10/r20/r95p/r99p, cooling degree days at several thresholds, sdii, seas, tr20, wsi (water stress). Land and air-pollution indicators are in a separate archive.",
+   "values_read": {
+    "what": "Heatwave days (hwd_97_5), SSP2 population, 2020 column, median.",
+    "rows": [
+     {
+      "country": "India",
+      "population_weighted_at_1.2C": 19.23,
+      "population_weighted_at_1.5C_5th_to_95th": "26.90 (17.54–35.95)",
+      "area_weighted_at_1.5C": 27.35
+     },
+     {
+      "country": "Nigeria",
+      "population_weighted_at_1.2C": 35.29,
+      "population_weighted_at_1.5C_5th_to_95th": "51.49",
+      "area_weighted_at_1.5C": null
+     },
+     {
+      "country": "United Kingdom",
+      "population_weighted_at_1.2C": 9.91,
+      "population_weighted_at_1.5C_5th_to_95th": "11.72",
+      "area_weighted_at_1.5C": null
+     }
+    ]
+   },
+   "caveats": [
+    "Countries only. It cannot fill the state or province map.",
+    "A different method from CCKP's: 5 ISIMIP3b models (CCKP uses 30 CMIP6 models), a 1974–2004 baseline, wet-bulb heat measures, and warming levels instead of 20-year windows."
+   ],
+   "verdict": "Follow-up: the only population-weighted source found. Not in this round.",
+   "recommendation": "Use later for each country's population-weighted 'average resident' values by warming level, beside CCKP's area-averaged values."
+  },
+  {
+   "rank": 4,
+   "role": "Region shapes: the current World Bank release, which does not join to CCKP's codes",
+   "name": "World Bank Official Boundaries (WB GAD) v3, 10 Sep 2026",
+   "producer": "World Bank",
+   "landing_url": "https://datacatalog.worldbank.org/search/dataset/0038272/World-Bank-Official-Boundaries (also https://github.com/worldbank/WB_GAD and https://gee-community-catalog.org/projects/wb_gad/)",
+   "file_urls": [
+    "https://datacatalogfiles.worldbank.org/ddh-published/0038272/3/DR00953{69,70,71}/… (all Last-Modified 10 Sep 2026)",
+    "Admin 0: GeoJSON 156,622,990 B; shapefile zip 46,341,893 B (all layers 46,775,442 B); GeoPackage, all layers, 60,555,264 B.",
+    "Admin 1: GeoJSON 236,537,979 B; GeoPackage 92,266,496 B; shapefile zip 67,894,257 B.",
+    "NDLSA GeoJSON 1,475,361 B. Admin 1 extra-columns CSV 102,204 B."
+   ],
+   "licence_name": "CC BY 4.0 with the World Bank's additional terms",
+   "licence_terms_url": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+   "licence_quote": "This dataset is licensed under Creative Commons Attribution 4.0 (catalogue page). The Dataset Terms add: 'Unless specifically labeled otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0 International License (CC BY 4.0), with the additional terms below.'",
+   "fetched_on": "2026-10-15; catalogue re-read on 2026-10-16",
+   "proposed_licence_class": "open",
+   "granularity": "The admin-1 GeoPackage has 3,193 features. Fields: ISO_A3, ISO_A2, WB_A3, WB_REGION, WB_STATUS, NAM_0, NAM_1, ADM1CD_c. The primary key ADM1CD_c looks like IND003 or FRA013. The extra-columns CSV adds SOV_ISO_A3, SOV_NAME, ADM1CD and ADM1CD_t. The GEE community catalogue lists GAUL_1 and HASC_1 fields, but they are not in the downloaded file. India has no Jammu and Kashmir or Ladakh admin-1 unit; they are in the NDLSA layer.",
+   "rendering": "The catalogue offers an 'Admin 0 line file (for visualization purposes with World Bank-specific drawing instructions)'; its Style field reads: blank (solid) 337, Dashed 43, Dotted 1, Tightly Dashed 1. The non-determined legal status (NDLSA) layer has 24 polygons, for example Aksai Chin, Arunachal Pradesh, Jammu and Kashmir (two features, one with sovereign IND and one with PAK), Western Sahara, Abyei and the Falklands. The World Bank's tutorial (WB_GAD/notebooks/TUTORIAL_drawing_WB_maps.ipynb) draws dashed and dotted lines by Style and shades the NDLSA areas.",
+   "headline_checks": [
+    {
+     "value": "Number of regions differs from CCKP's in 69 of 244 countries",
+     "query": "First pass, comparing CCKP's all_countries_subnationals with v3's admin-1 layer. Examples: FRA 23 against 13, LVA 119 against 43, UGA 111 against 4, VNM 63 against 34, MLT 67 against 6, SYC 60 against 7, IND 35 against 34 (the India figure was corrected: see corrections)."
+    },
+    {
+     "value": "By name against v3: of 3,500 named CCKP regions, 2,210 match a v3 NAM_1 exactly within the same country, 144 more differ only in accents or capitals, and 1,146 do not match. Of 207 countries with real regions, 75 match one-to-one with exact names and equal counts (86 if accents and capitals are ignored).",
+     "query": "First pass."
+    },
+    {
+     "value": "CCKP's API returns nothing for v3 codes such as IND003",
+     "query": "First pass."
+    }
+   ],
+   "caveats": [
+    "A July 2026 World Bank boundary release updated many ADM1 boundaries, and CCKP's numbers still use the previous boundaries. v2 (14 May 2026) merged Dadra and Nagar Haveli with Daman and Diu, which is why two of India's 35 CCKP codes do not map.",
+    "v3 is not the vintage CCKP uses (see join_findings)."
+   ],
+   "verdict": "Not used for the CCKP join. The first note expected CCKP's codes to match these boundaries once CCKP re-runs on the July 2026 release ('codes would then match those boundaries'); nothing in the notes confirms that.",
+   "recommendation": "Do not register for this map. Revisit when CCKP moves to the new World Bank boundaries."
+  },
+  {
+   "rank": 5,
+   "role": "Region and country shapes; considered for the world layer",
+   "name": "Natural Earth admin-0 and admin-1 (v5.1.2; already registered as natural-earth)",
+   "producer": "Natural Earth",
+   "landing_url": "https://www.naturalearthdata.com/about/terms-of-use/ (disputed boundaries policy: https://www.naturalearthdata.com/about/disputed-boundaries-policy/)",
+   "file_urls": [
+    "All v5.1.2, Last-Modified 13 May 2022. Admin-0: 110m 214,976 B; 50m 799,734 B (ETag a33f3bf6…, matches our snapshot); 10m 4,930,492 B.",
+    "Admin-1: 110m 49,304 B (USA only, 51 features); 50m 911,408 B (9 countries only: AUS, BRA, CAN, USA, CHN, IND, IDN, RUS, ZAF; 294 features); 10m 14,909,524 B (4,596 features, 251 adm0_a3 codes, 1,295,319 vertices); 10m with lakes 15,057,498 B.",
+    "Disputed areas 10m 215,221 B; breakaway/disputed 50m 49,928 B. Point-of-view variants exist only at 1:10m, for example ne_10m_admin_0_countries_ind.zip at 4,922,443 B.",
+    "GeoJSON on the GitHub master branch (labelled 5.2.0-pre, not the release): admin-0 110m 838,726 B, 50m 3,083,490 B; admin-1 10m 40,726,851 B, 50m 2,325,694 B, 110m 183,638 B."
+   ],
+   "licence_name": "Public domain",
+   "licence_terms_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+   "licence_quote": "All versions of Natural Earth raster + vector map data found on this website are in the public domain.",
+   "fetched_on": "2026-10-15 (already in pipeline/sources/natural-earth.yaml)",
+   "proposed_licence_class": "open (public domain; credit is optional)",
+   "granularity": "Admin-1 has 121 fields, including adm1_code (USA-3519), iso_3166_2 (US-WA; 188 features have no real code, with values like -99-X16~ or KS-X01~), adm0_a3, gn_id, code_hasc, fips, wikidataid and name_* in 26 locales. Admin-1 is not consistently the first level: GBR has 232 counties and unitary authorities, FRA 101 departments, SVN 193 municipalities, ITA 110 provinces; KEN has 8 old provinces against 47 counties today. The sovereign borders follow de facto status (who controls the ground).",
+   "headline_checks": [
+    {
+     "value": "By name, CCKP's regions match Natural Earth 10m admin-1 in 27 countries (40 ignoring accents and capitals), for example USA, BRA, CAN, NGA, ZAF",
+     "query": "First pass."
+    },
+    {
+     "value": "Simplified TopoJSON sizes (estimates, not measured; no mapshaper was run, no files written): world from 50m admin-0 (242 features, quantised to a 10,000 grid) about 332 KB at tolerance 1, 207 KB at 3 and 152 KB at 6; world from 110m about 84 KB; admin-1 from 10m, one file per country, 251 files totalling about 3.0 MB (CAN about 109 KB, GBR 77 KB, RUS 66 KB)",
+     "query": "In-memory arc-topology plus Douglas-Peucker pass with quantised delta encoding (first pass, 'estimate')."
+    }
+   ],
+   "caveats": [
+    "Its de facto world outline and the World Bank's regions (with NDLSA cut out) disagree at India, Western Sahara and other disputed edges, so a country outline should come from the same set as its regions."
+   ],
+   "verdict": "Admin-1: does not join CCKP's codes, not used. Admin-0: the first boundary note recommended its 50m layer for the world map; the build plan chose V1's admin-0 instead.",
+   "recommendation": "Already registered. Not the map's shapes."
+  },
+  {
+   "rank": 6,
+   "role": "Region shapes (rejected)",
+   "name": "geoBoundaries",
+   "producer": "geoBoundaries (each boundary carries its upstream producer's licence)",
+   "landing_url": "https://www.geoboundaries.org/",
+   "file_urls": [
+    "Raw files are large: IND admin-1 GeoJSON 46,170,854 B, FRA 72,722,915 B, RUS TopoJSON 14,303,430 B."
+   ],
+   "licence_name": "Stated as CC BY 4.0 on the homepage; per-boundary licences differ",
+   "licence_terms_url": "https://www.geoboundaries.org/",
+   "licence_quote": "open license ( CC BY 4.0 ) resource … the only requirement for use is acknowledgement.",
+   "licence_quote_per_record": "Of 199 admin-1 records: ODbL 1.0 84; CC BY 4.0 28; public domain 27; CC BY 3.0 IGO 18; CC BY 2.5 9; CC BY-SA 2.0 9; CC0 7; CC BY 3.0 6; CC BY-SA 3.0 5; CC BY 2.5 IN 2; one each of OGL Canada 2.0, swisstopo, DL-DE-BY-2.0 and Etalab 2.0.",
+   "fetched_on": "2026-10-15",
+   "proposed_licence_class": "set per country; many are share-alike",
+   "granularity": "Admin-1 per country. Codes are opaque shapeID hashes plus shapeName. China's admin-1 includes 'Taiwan Province', which is a point-of-view problem.",
+   "years": "No release since v6.0.0 (Sept 2023).",
+   "caveats": [
+    "Opaque codes cannot join CCKP's codes; names would be the only route."
+   ],
+   "verdict": "Rejected.",
+   "recommendation": "Do not use."
+  },
+  {
+   "rank": 7,
+   "role": "Region shapes (rejected)",
+   "name": "GADM",
+   "producer": "GADM",
+   "landing_url": "https://gadm.org/license.html",
+   "file_urls": [],
+   "licence_name": "Academic and non-commercial use only",
+   "licence_terms_url": "https://gadm.org/license.html",
+   "licence_quote": "The data are freely available for academic use and other non-commercial use. Redistribution or commercial use is not allowed without prior permission.",
+   "fetched_on": "2026-10-15 (read that day); already rejected in docs/sources.md around line 462",
+   "proposed_licence_class": "not usable",
+   "caveats": [
+    "WRI Aqueduct 4.0 uses GADM 3.6 region codes, so its shapes cannot be published either (candidate 15)."
+   ],
+   "verdict": "Rejected.",
+   "recommendation": "Do not use."
+  },
+  {
+   "rank": 8,
+   "role": "Projections by region (rejected)",
+   "name": "IPCC AR6 Interactive Atlas regional aggregates (IPCC-WG1/Atlas on GitHub)",
+   "producer": "IPCC Working Group I",
+   "landing_url": "https://github.com/IPCC-WG1/Atlas",
+   "file_urls": [],
+   "licence_name": "CC BY 4.0",
+   "licence_terms_url": "https://github.com/IPCC-WG1/Atlas",
+   "licence_quote": "All datasets and notebooks in this repository are provided under the [Creative Commons Attribution 4.0 license (CC BY 4.0)]",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "open",
+   "granularity": "Only the IPCC reference regions. Temperature and rainfall averages per model, weighted by latitude. No country or state values.",
+   "verdict": "Rejected: not suitable.",
+   "recommendation": "Do not use for the country and state map."
+  },
+  {
+   "rank": 9,
+   "role": "Country tables: what warming means for people (not map values)",
+   "name": "Grant et al. 2025 supplementary information (already registered as grant-2025)",
+   "producer": "Grant et al. 2025 (article DOI 10.1038/s41586-025-08907-1, read from the file URL)",
+   "landing_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-025-08907-1/MediaObjects/41586_2025_8907_MOESM1_ESM.pdf",
+   "file_urls": [
+    "18 tables in a 40 MB PDF. One row per country by birth year (1960–2020), for the 1.5, 2.5 and 3.5 °C pathways."
+   ],
+   "licence_name": "CC BY 4.0, inherited from the article",
+   "licence_terms_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-025-08907-1/MediaObjects/41586_2025_8907_MOESM1_ESM.pdf",
+   "licence_quote": "Recorded in the first note as 'CC BY 4.0 inherited from the article'; the clause itself was not quoted.",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "open",
+   "granularity": "Table 1 (heatwaves, 1.5 °C): India's 2020 cohort is '10491 (46)' (thousands, %); Nigeria is '4558 (72)'. In a later table, Nigeria's 2020 cohort reaches '6256 (99)'. Countries appear by name; some wrap over several lines ('United / Arab / Emirates'). Hong Kong prints '0 (0)' after non-zero values, as the yaml already notes.",
+   "verdict": "Already registered. The first note suggests it as a country-level view of what warming means for people.",
+   "recommendation": "The build plan puts no 'so what' card on future views; they link to the people chapter's own views instead (see decisions)."
+  },
+  {
+   "rank": 10,
+   "role": "Country tables: what warming means for people (not map values)",
+   "name": "Lenton et al. 2023 Supplementary Data 1 (not yet registered)",
+   "producer": "Lenton et al. 2023 (article DOI 10.1038/s41893-023-01132-6, read from the file URL)",
+   "landing_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41893-023-01132-6/MediaObjects/41893_2023_1132_MOESM3_ESM.xlsx",
+   "file_urls": [
+    "41893_2023_1132_MOESM3_ESM.xlsx, 36 KB, about 243 countries by name."
+   ],
+   "licence_name": "CC BY 4.0 (the figshare data is also CC BY 4.0)",
+   "licence_terms_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41893-023-01132-6/MediaObjects/41893_2023_1132_MOESM3_ESM.xlsx",
+   "licence_quote": "Recorded in the first note as 'CC BY 4.0' (and the figshare data also CC BY 4.0); the clause itself was not quoted.",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "open",
+   "granularity": "People exposed to mean annual temperature of 29 °C or more. As written in the note: 'with 2.7 °C and 1.5 °C warming each at 9.5 and 11.1 billion people'; India 617,734,930 / 93,113,378 ('9.5 billion world'); Nigeria 323,419,262 / 34,719,150; United Kingdom 0.",
+   "caveats": [
+    "The note's description of the two columns is unclear (it puts '9.5 and 11.1 billion people' next to the two warming levels). Read the workbook's headers before any use."
+   ],
+   "verdict": "Not registered. The first note suggests it as a country-level view of what warming means for people.",
+   "recommendation": "Not used on the future map in this round."
+  },
+  {
+   "rank": 11,
+   "role": "Country tables: what warming means for people (not map values)",
+   "name": "Kulp and Strauss 2019 (already published as coastal.kulp-strauss-2019.below-high-tide-by-country)",
+   "producer": "Kulp and Strauss 2019",
+   "landing_url": "Already in the repo's published data.",
+   "file_urls": [],
+   "licence_name": "As registered for the published indicator",
+   "licence_terms_url": "Not recorded in the notes.",
+   "licence_quote": "Not re-read in this research.",
+   "fetched_on": "2026-10-15 (first pass)",
+   "proposed_licence_class": "as registered",
+   "granularity": "Published by country, 2050 and 2100, for RCP2.6, 4.5 and 8.5, under two models (labelled k14 and k17 in the published file). India's 2050 RCP4.5 (k14) median is 21,000,000 people.",
+   "caveats": [
+    "Pairing its RCPs with SSPs would be our own equivalence claim. The build plan dropped it."
+   ],
+   "verdict": "Already published. No pairing with the SSP paths.",
+   "recommendation": "Leave to the people chapter."
+  },
+  {
+   "rank": 12,
+   "role": "Other projections: sea level per country sea zone",
+   "name": "IPCC AR6 sea-level projections: NASA API linked from CCKP, and the AR6 regional files",
+   "producer": "NASA (API at d3qt3aobtsas2h.cloudfront.net, linked from CCKP); projections from IPCC AR6",
+   "landing_url": "https://d3qt3aobtsas2h.cloudfront.net/edge/ws/search/sealevelgovglobal/projection?mrg_id=8480 (India)",
+   "file_urls": [
+    "The API serves IPCC AR6 projections aggregated to each country's sea zone: 231 zones, named by the mrg_id parameter. The response includes 5/17/50/83/95 percentiles, SSPs, warming levels and components.",
+    "The registered ar6.zip holds global projections only. Tide-gauge and regional projections are in the 9.2 GB ar6-regional-confidence.zip."
+   ],
+   "licence_name": "Unverified",
+   "licence_terms_url": "earth.gov/sealevel returned a server error; no terms were found",
+   "licence_quote": "None found.",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "unknown until the terms are found",
+   "granularity": "India, SSP2-4.5 median: 0.203 m in 2050 and 0.554 m in 2100 (17th–83rd percentile 0.238–0.914). The UK zone (5696): 0.532 m in 2100. Bangladesh (8481): 0.530 m.",
+   "caveats": [
+    "Its baseline also needs confirming (probably 1995–2014)."
+   ],
+   "verdict": "Not used. Licence unverified.",
+   "recommendation": "Revisit if the terms are found."
+  },
+  {
+   "rank": 13,
+   "role": "Other projections: heat deaths in Europe",
+   "name": "Masselot et al. 2025, Nature Medicine (Zenodo 14004322)",
+   "producer": "Masselot et al.",
+   "landing_url": "https://zenodo.org/records/14004322",
+   "file_urls": [
+    "results_csv.zip is 1.37 GB. Its country_level.csv (18 MB) covers 30 countries by ISO2 code. A city-level file covers 854 cities."
+   ],
+   "licence_name": "CC BY 4.0 (Zenodo licence field cc-by-4.0)",
+   "licence_terms_url": "https://zenodo.org/records/14004322",
+   "licence_quote": "Zenodo licence field 'cc-by-4.0'.",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "open",
+   "granularity": "Warming levels 1.5 and up, for SSP1–3 and 0/10/50/90 % adaptation, split into heat, cold and total. Excess death rate, deaths and share of deaths, with a clim subscenario for the part due to climate change. Real row: Austria, 1.5 °C, ages 20–44, heat, SSP1, full subscenario, rate_est 4.02e-06.",
+   "verdict": "Not used. Europe only.",
+   "recommendation": "Not for the world map."
+  },
+  {
+   "rank": 14,
+   "role": "Other projections: heat deaths, global",
+   "name": "Carleton et al. 2022 (Zenodo 6416119)",
+   "producer": "Carleton et al.",
+   "landing_url": "https://zenodo.org/records/6416119",
+   "file_urls": [
+    "data.zip is 32 GB. Values for 24,378 local 'impact regions' (region,year,mean; for example IND.10.121.371,2015,3.74e-05)."
+   ],
+   "licence_name": "CC BY 4.0",
+   "licence_terms_url": "https://zenodo.org/records/6416119",
+   "licence_quote": "CC BY 4.0 (Zenodo).",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "open",
+   "granularity": "SSP3 only. Nets heat against cold. Getting to states would require a population-weighted aggregation of our own.",
+   "verdict": "Not used. The first note does not recommend it.",
+   "recommendation": "Do not use."
+  },
+  {
+   "rank": 15,
+   "role": "Other projections: water stress by state or province",
+   "name": "WRI Aqueduct 4.0 rankings (xlsx, 12.8 MB)",
+   "producer": "World Resources Institute",
+   "landing_url": "https://www.wri.org/data/aqueduct-40-country-rankings (open data commitment: https://www.wri.org/about/open-data-commitment)",
+   "file_urls": [
+    "Aqueduct 4.0 rankings xlsx, 12.8 MB."
+   ],
+   "licence_name": "CC BY (data-catalogue field)",
+   "licence_terms_url": "https://www.wri.org/about/open-data-commitment",
+   "licence_quote": "WRI 'adopted the Creative Commons Attribution 4.0 International License as our standard license for publications and data'. The data-catalogue field says CC BY.",
+   "fetched_on": "2026-10-15 (first pass; not re-checked)",
+   "proposed_licence_class": "open for the values; the GADM shapes it uses cannot be published (candidate 7)",
+   "granularity": "Scores 0–5 and categories for 2030, 2050 and 2080 under three scenarios. NCT of Delhi, 2030, optimistic, total: 4.58, 'Extremely High (>80%)'. Weighted by water demand, not population. Regions use GADM 3.6 codes.",
+   "verdict": "Not used: its regions need GADM shapes, which GADM's licence does not allow us to publish.",
+   "recommendation": "Do not use for the map."
+  }
+ ],
+ "join_findings": {
+  "summary": "CCKP's region codes join to one downloadable boundary file: World Bank Official Boundaries (WB GAD) V1, dated 2025-05-07, in CCKP's own S3 bucket. They do not join to the current v3, to Natural Earth admin-1, to geoBoundaries or to GADM. The first boundary pass said they join to none of them; the verification pass found V1. V1 joins by a rule, not as it stands: no column holds the CCKP string, and the rules cover 2,732 of 3,527 codes, so names and declared pairs do the rest.",
+  "cckp_codes": {
+   "format": "ISO3.{GAUL country code}{n}. GAUL country codes seen: IND 115, KEN 133, BRA 37, USA 259, CHN 147295, EGY 40765, AFG 1. Examples: USA.2593214 (Alabama), IND.1151, IND.11510 (Delhi), CHN.147295898, FRA.851248 (Alsace), KSV.750081, DIS.990011.",
+   "how_known": "The first pass inferred the GAUL basis from the numbers and said the producer does not say so. The verification pass confirmed it with the GAUL_0 field in the V1 file.",
+   "disputed_units": "32 DIS.* units, with no names. They have values.",
+   "placeholder_names": "68 CCKP units have placeholder names. Brazil's 4 'Name Unknown' units are islands.",
+   "names": "The names file comes from the API itself (_format=xlsx gives a code, name column) or from geonames.json (a person has to download it)."
+  },
+  "v1_layer": "Admin-1 layer: 3,604 features. Fields include GAUL_0, GAUL_1, HASC_1, ADM1CD_t and P_CODE_1_t, and WB_A3 is used by the rules.",
+  "rules": [
+   {
+    "name": "GAUL rule",
+    "formula": "{WB_A3}.{GAUL_0}{GAUL_1}",
+    "matches": 2254,
+    "names": "Confirmed (USA, Brazil, France and China among them)."
+   },
+   {
+    "name": "ADM1CD rule",
+    "formula": "{WB_A3}.{GAUL_0}{int(ADM1CD_t[3:])}",
+    "matches": 467,
+    "names": "Confirmed.",
+    "example": "India matches 35 of 35: IND010 Delhi becomes IND.11510 Delhi."
+   },
+   {
+    "name": "Both rules together",
+    "matches": "2,732 of 3,527 codes"
+   }
+  ],
+  "by_name": {
+   "result": "Within the same country, 3,176 of 3,527 CCKP names appear in V1. 183 of 244 countries have equal counts with every name matched (the first pass found 75 of 207 against v3).",
+   "kenya": "47 of 47 by name but not by code: CCKP numbers Kenya's counties in a different order (Uasin Gishu = 1).",
+   "nigeria": "35 of 37 by name; Akwa Ibom and Abuja unmatched."
+  },
+  "files_that_do_not_join": [
+   {
+    "file": "World Bank Official Boundaries v3 (10 Sep 2026)",
+    "why": "v3 uses different codes (ADM1CD_c, for example IND003 and FRA013) and the API returns nothing for them. The unit sets differ: the number of regions differs from CCKP's in 69 of 244 countries (FRA 23 against 13, LVA 119 against 43, UGA 111 against 4, VNM 63 against 34, MLT 67 against 6, SYC 60 against 7). By name, 2,210 of 3,500 named CCKP regions match exactly within the same country, and 75 of 207 countries match one-to-one. v2 (14 May 2026) merged Dadra and Nagar Haveli with Daman and Diu, and the v2 maintenance log records Brazil's island units folded into states in 2026. For India, the verification pass found that the current v3 matches 33 of the 35 codes 'by the same rule'; the other two do not map."
+   },
+   {
+    "file": "Natural Earth 10m admin-1",
+    "why": "Natural Earth's admin-1 is not consistently the first level (GBR 232 counties, FRA 101 departments, SVN 193 municipalities, ITA 110 provinces, KEN 8 old provinces against 47 counties). CCKP's region names match in only 27 countries (40 ignoring accents and capitals). The 50m admin-1 file has 9 countries only and the 110m file has the USA only."
+   },
+   {
+    "file": "geoBoundaries admin-1",
+    "why": "Opaque shapeID hashes with a shapeName, no code that matches CCKP's, a different licence for each country, and 'Taiwan Province' inside China."
+   },
+   {
+    "file": "GADM",
+    "why": "Not usable at all: redistribution is not allowed without prior permission."
+   }
+  ],
+  "countries_with_odd_cases": [
+   "India: CCKP has 35 units, with no Jammu and Kashmir or Ladakh (IND.11515 is missing); in V1, Jammu and Kashmir is in the disputed-areas layer. India includes Telangana.",
+   "Brazil: 4 'Name Unknown' units are islands (BRA014–017, folded into states in 2026 in v2).",
+   "China: CCKP has no unit for Hong Kong, Macao or Taiwan.",
+   "Philippines: see open_questions (shape vintage)."
+  ]
+ },
+ "weighting_findings": {
+  "area_weighted": "CCKP's values are area-weighted ('fractional overlap' of grid cells plus 'cosine of latitude' weighting). The heat threshold indicators (hd35, hd40, tr26, hi39, txx, swbgt32) come only as climatology, anomaly, timeseries, trend and year-of-change. There is no population-weighted version of them.",
+  "popwgt_products": "CCKP has population-weighted (popwgt) products only for the heatwave variable ehf2: climatologypopwgthw85exposure and climatologypopwgthw3x85exposure. Example code: cmip6-x0.25_climatology_ehf2_climatologypopwgthw85exposure_annual_2040-2059_median_ssp245_ensemble_all_mean. They are absolute person-days, not an average per resident: India 38,915,194,880; Delhi 110,786,096; Kenya 1,255,721,088 (2040–2059, SSP2-4.5).",
+  "right_pairing": "They pair with the area-weighted climatologyhw85exposure (India 12.55, Delhi 7.73), not with climatologyhwdays (India 37.35, Delhi 20.92).",
+  "population": "CCKP does publish population: the pop-x0.25 collection, as pop-x0.25_climatology_popcount_climatology_annual_{period}_mean_{ssp}_gpw-v4_rev11_mean, for countries and regions, 1995–2014 and each SSP period. Delhi 2040–2059 SSP2-4.5 is 14,199,143; Kenya 76,501,020. Delhi person-days divided by population is 7.80, close to its area value of 7.73. Dividing is still our own computation across two CCKP files.",
+  "national_totals_problem": {
+   "finding": "CCKP's national totals for count-type values are 2–3 times the sum of its own regions, for both population and person-days. India's person-days are 38.9 billion nationally against 19.36 billion summed over regions. The verification pass said: 'Do not publish CCKP national population or person-day totals.' It also said area-averaged values are likely unaffected, but did not test that.",
+   "countries_over_5_percent_different": [
+    {
+     "country": "IND",
+     "national_over_sum_of_regions": 2.02,
+     "note": "population 3,354,552,300 against 1,663,800,215"
+    },
+    {
+     "country": "PAK",
+     "national_over_sum_of_regions": 2.03
+    },
+    {
+     "country": "GBR",
+     "national_over_sum_of_regions": 2.0,
+     "note": "population 142,024,020 against 71,011,996"
+    },
+    {
+     "country": "FRA, ESP, AUS",
+     "national_over_sum_of_regions": 2.0
+    },
+    {
+     "country": "PRT, BES",
+     "national_over_sum_of_regions": 3.0
+    },
+    {
+     "country": "UMI",
+     "national_over_sum_of_regions": 7.0
+    }
+   ]
+  },
+  "consequence": "Use area-averaged values only, label them as such, and reject the count-type variables (popcount, popwgt and anything ending in exposure) in the pipeline."
+ },
+ "rendering_tools": {
+  "note": "From the boundary pass (2026-10-15). At that date web/package.json had only d3-scale, d3-shape and motion, and the pipeline had none of these tools; geo.py read only the .dbf attribute file.",
+  "web": [
+   "d3-geo 3.1.1 (ISC), includes geoEqualEarth: 36,329 B minified, 13,100 B gzipped.",
+   "topojson-client 3.1.0 (ISC): 7,169 B, 2,587 B gzipped.",
+   "Reference: world-atlas@2.0.2 countries-110m.json is 107,761 B (38,423 B gzipped) with 177 countries and numeric ISO ids; countries-50m.json is 756,420 B (232,879 B gzipped)."
+  ],
+  "pipeline": [
+   "Python topojson 2.2 on shapely 2.2 (BSD-3), using prequantize and toposimplify.",
+   "mapshaper 0.7.87 (MPL-2.0).",
+   "Topology-aware simplification is needed so neighbouring regions share one simplified border; per-polygon shapely.simplify leaves slivers and gaps. Record the tolerance and quantisation as the transformation applied."
+  ],
+  "file_counts": "The first pass proposed data/v1/geo/world.json and about 250 data/v1/geo/adm1/<ISO3>.json files. That takes the file count from 4,731 in today's out/ to about 4,980, against the 15,000 limit in web/scripts/check-build.mjs, with every file far below 20 MiB. The build plan later set a budget of about 5,370 files."
+ },
+ "decisions": [
+  {
+   "decision": "Take the projected values from CCKP's CMIP6 ensemble (registered as wb-cckp), through its API, for countries and for states or provinces.",
+   "why": "It is the only open source found with future values for every country and 3,527 regions, under CC BY 4.0. IIASA's Climate Solutions Explorer has no states or provinces; the IPCC Atlas has only IPCC reference regions.",
+   "from": "first note; build plan"
+  },
+  {
+   "decision": "Seven measures, each as a country indicator and a region indicator: future.wb-cckp.{hot-days-35c, hot-nights-26c, heat-index-39c-days, hottest-day, wettest-day, longest-dry-spell, warming}-{countries|regions}.",
+   "why": "The ids follow the data plan, with the suffix -regions rather than -adm1. The wettest day was withheld later in the build (see open_questions).",
+   "from": "build plan, section 2 and Phase 1.2"
+  },
+  {
+   "decision": "Dimension scenario: historical, ssp126, ssp245, ssp585. Windows: 1995/2014 (historical only, none for warming), 2020/2039, 2040/2059, 2060/2079, 2080/2099. The median is the value, p10 is lower and p90 is upper, with the interval named 'range'. Status is final for the historical run and projection otherwise.",
+   "why": "Windows and paths as the plan set them. The plan gives no reason for leaving out SSP1-1.9 and SSP3-7.0; the first note found that SSP1-1.9 has only the ensemble, with no per-model runs.",
+   "from": "build plan, Phase 1.2"
+  },
+  {
+   "decision": "Scenario labels come from the pipeline: 'SSP1-2.6, low emissions', 'SSP2-4.5, middle emissions', 'SSP5-8.5, very high emissions' and, for the past, 'Model simulation of 1995–2014, not observations'. The path icons are shapes only.",
+   "why": "The words must be the data's words. Whether 'very high' or 'high' is right for SSP5-8.5 is left to the owner (see open_questions).",
+   "from": "build plan, section 2"
+  },
+  {
+   "decision": "Use area-averaged values only, labelled so. No population-weighted values this round.",
+   "why": "CCKP has no population-weighted threshold indicators, its population-based heatwave values are inflated nationally, and the only population-weighted source (IIASA) has no states or provinces.",
+   "from": "first note and verification pass"
+  },
+  {
+   "decision": "The pipeline reads an explicit variable allowlist and always rejects popcount, popwgt and anything ending in exposure. CCKP's national population and person-day totals are never published.",
+   "why": "National count-type totals are 2–3 times the sum of CCKP's own regions (see weighting_findings).",
+   "from": "verification pass; build plan, section 4"
+  },
+  {
+   "decision": "Draw the map on World Bank GAD V1: admin-0 for the world map, admin-1 per country. Do not use v3, Natural Earth, geoBoundaries or GADM for the regions.",
+   "why": "V1 is the only file whose codes join to CCKP's. The first boundary note recommended Natural Earth 50m admin-0 for the world layer and v3 admin-1 for regions; the verification pass made that obsolete. Drawing a country's outline from the same set as its regions also avoids the disagreement at India, Western Sahara and other disputed edges.",
+   "from": "verification pass; build plan, section 2"
+  },
+  {
+   "decision": "Join in this order: (1) the GAUL rule, (2) the ADM1CD rule, (3) declared pairs, (4) an exact name match after normalisation that is unique on both sides. A code match counts only when the names agree. The build stops if the two code rules point at different features, if a feature is used twice, or if a pair is unresolved; each unresolved pair must be declared accept or reject in pipeline/geo/cckp-adm1-declared.csv. The result is written to data/v1/geo/cckp-adm1-crosswalk.csv.",
+   "why": "A code match whose names differ (Orissa and Odisha, say) would otherwise fall through to 'unjoined' and the shape would disappear without anyone noticing. A .prj that is not WGS84 also stops the build.",
+   "from": "build plan, section 1 item 6 and Phase 2"
+  },
+  {
+   "decision": "The 68 placeholder names become 'Unnamed region of {Country} ({code})' in the entity table and are left out of search. The 32 DIS.* units are left out of the entity table by a declared rule and drawn as a grey, dashed 'Disputed area (World Bank), not coloured'.",
+   "why": "The DIS.* units do have values, so a disputed shape must not say 'No data'.",
+   "from": "build plan, section 1 item 9 and section 2"
+  },
+  {
+   "decision": "Three map states. Disputed area: grey fill, dashed edge, 'Disputed area (World Bank), not coloured'. No value: hatched, 'No data for X in the World Bank's Climate Change Knowledge Portal'. A World Bank shape with no CCKP region joined: hatched, 'CCKP's regions do not match this shape; its values are listed beside the map'.",
+   "why": "Rule 8: the UI says what is missing and never substitutes another value.",
+   "from": "build plan, section 2"
+  },
+  {
+   "decision": "Keep region views inside the country's file (future/c-<ISO3>.json), not as separate region node files. URL: /?mode=future&p=2040-2059&s=ssp245&c=IND&r=IND.11510&m=tr26, with m left out for hd35.",
+   "why": "The 3,527 separate region node files would duplicate the country files. The file budget is about 5,370, not about 8,900.",
+   "from": "build plan, section 1 item 10 and section 2"
+  },
+  {
+   "decision": "Simplify in the pipeline with a topology-aware tool. Each feature carries a representative point (rp) taken from the unsimplified geometry. Fill shapes without strokes and draw borders as one mesh, with no coastline stroke.",
+   "why": "Micro-states (TUV, NRU, MCO, VAT, TKL) collapse when simplified; countries across the 180° line (RUS, FJI, USA, KIR, NZL) show seams in a rotated projection.",
+   "from": "build plan, section 1 items 7 and 8"
+  },
+  {
+   "decision": "Keep the national-within-regions check as the pipeline gate, and add a diagnostic for fully joined countries that compares CCKP's national value with the area-weighted mean of its regions (geodesic areas). Record the result in docs/sources.md. The docs claim no more than this.",
+   "why": "A national mean that is wrongly weighted but stays inside its regions' range passes the first check, so the check is necessary but not sufficient.",
+   "from": "build plan, section 1 item 5 and section 4"
+  },
+  {
+   "decision": "Carry the boundary licence's obligations: attribution 'The World Bank: World Bank Official Boundaries (Global Administrative Divisions V1, 2025-05-07): World Bank'; a modification note 'Simplified by Environment Dashboard from …'; a notice with the terms URL; no logo; no endorsement; mirror_raw true. Use the Dataset Terms page as terms_url and record the catalogue's 'licensed under Creative Commons Attribution 4.0' quote in the YAML header.",
+   "why": "The catalogue page is probably rendered by script, so a scripted terms check against it would fail; wb-cckp already checks the Dataset Terms page automatically.",
+   "from": "build plan, section 1 item 4 and Phase 2"
+  },
+  {
+   "decision": "No world aggregate this round: the big number at the root is the top-ranked country for the chosen slice.",
+   "why": "Registering CCKP's land-only world aggregate (global_land) would cost about 270 more files to fetch; left to the owner (see open_questions).",
+   "from": "build plan, sections 2 and 5"
+  },
+  {
+   "decision": "No 'so what' card on future views. They carry plain cross-chapter cards to people:hw-<ISO3>, people:coast-<ISO3> and heat:c-<ISO3>, each only when it is in that chapter's ids().",
+   "why": "Future views are already about people.",
+   "from": "build plan, section 2"
+  },
+  {
+   "decision": "Drop the pairing of Kulp and Strauss's RCPs with SSPs.",
+   "why": "It would be our own equivalence claim.",
+   "from": "build plan, section 1 item 11"
+  },
+  {
+   "decision": "Accept that region values stop updating when CCKP moves to the new World Bank boundaries: every region code changes, and region indicators fail and keep their last vintage until someone re-joins them.",
+   "why": "The failed source keeps its last validated vintage and says so (rule 8). The owner is asked to confirm (see open_questions).",
+   "from": "build plan, section 1 item 18 and section 5"
+  }
+ ],
+ "corrections": [
+  {
+   "id": "lines-up-exactly",
+   "where": "docs/research/sources-country-and-local.json, lines 9 and 25 (the CCKP entry)",
+   "claim": "Line 9, 'coverage': 'Every country and ADM1 unit uses World Bank Official Boundaries codes (e.g. IND, USA.2593214).' Line 25, 'site_use': 'Because it shares World Bank Official Boundaries codes, the map polygons and numbers line up exactly.'",
+   "verdict": "refuted for v3 (the current World Bank Official Boundaries); corrected: it is V1 (2025-05-07, on CCKP's S3 bucket) that lines up, and only through a rule",
+   "evidence": [
+    "Boundary pass: 'docs/research/sources-country-and-local.json lines 9 and 25 claim CCKP uses World Bank Official Boundaries codes so that \"the map polygons and numbers line up exactly\". That is false for v3.'",
+    "Verification pass: 'The repo note that CCKP \"lines up exactly\" with v3 is still false. It is V1 that lines up.'",
+    "Against v3: its admin-1 codes look like IND003 and the API returns nothing for them; the number of regions differs in 69 of 244 countries; 2,210 of 3,500 named CCKP regions match a v3 NAM_1 exactly; 75 of 207 countries match one-to-one.",
+    "Against V1: 'No column holds the CCKP string as-is'. The GAUL rule matches 2,254 regions and the ADM1CD rule 467, together 2,732 of 3,527; by name 3,176 of 3,527 CCKP names appear in V1 and 183 of 244 countries match completely. So even V1 does not line up 'exactly': pairs must be built and checked."
+   ],
+   "use_instead": "WB GAD V1 (2025-05-07) from CCKP's bucket, joined by the rules and declared pairs recorded in the crosswalk. See join_findings.",
+   "note": "The 2026-10-04 files are kept as collected; this correction is recorded here and not edited into them."
+  },
+  {
+   "id": "no-boundary-file-matches",
+   "where": "Boundary pass, opening paragraph and section 4 ('Which admin-1 codes match CCKP: none')",
+   "claim": "'The CCKP sub-national codes match no boundary file that can be downloaded. Not Natural Earth, not World Bank Official Boundaries v3, not geoBoundaries, not GADM.' The same pass said the crosswalk 'is exact for only about a third of countries' and that about 120 of 207 countries had no exact one-to-one join.",
+   "verdict": "refuted",
+   "evidence": [
+    "Verification pass: 'CCKP's own public S3 bucket hosts the matching boundaries: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip. It is 264,700,182 B, last modified 10 Jun 2025.'",
+    "Verification pass: 183 of 244 countries have equal counts with every name matched in V1; the first pass found 75 against v3."
+   ],
+   "use_instead": "V1. The statement stays true for v3, Natural Earth, geoBoundaries and GADM."
+  },
+  {
+   "id": "boundary-pass-recommendation",
+   "where": "Boundary pass, Recommendation",
+   "claim": "Register WB Official Boundaries v3 admin-1, join CCKP regions through a declared crosswalk to ADM1CD_c, and draw no regional map for the countries the crosswalk cannot cover ('about 120 of 207'), showing ranked bars with the message 'CCKP's regions are an older set than the World Bank's current boundaries'. World layer: Natural Earth 50m admin-0.",
+   "verdict": "superseded by the verification pass and the build plan",
+   "evidence": [
+    "Verification pass: 'Use the V1 zip's ADM1 layer as the region map, joined to CCKP by the GAUL rule, the ADM1CD_t rule, or name, with every pair recorded.'",
+    "Build plan: geometry is World Bank GAD V1, admin-0 for the world map and admin-1 per country."
+   ],
+   "use_instead": "V1. Ranked bars remain only as the fallback if the owner does not accept the V1 licence inference (see open_questions)."
+  },
+  {
+   "id": "region-polygons-only-tiles",
+   "where": "First note, 'Region codes and boundaries: the main risk'",
+   "claim": "'CCKP's own region polygons are served only as map tiles. Only ADM0.geojson (countries) and Basins.geojson can be downloaded.'",
+   "verdict": "refuted",
+   "evidence": [
+    "Verification pass: the S3 bucket holds the V1 zip (ADM0, ADM1, ADM2 and the disputed areas, 3,604 admin-1 features). 'Also refuted: CCKP's region shapes are not only map tiles; the S3 bucket also has EEZ_ADM0.tar, HydroBasins.tar and OceanBasins.tar.'"
+   ]
+  },
+  {
+   "id": "versions-on-catalogue",
+   "where": "First note, 'Shapes and file count'",
+   "claim": "'Versions 1–2 are listed on the catalogue but I could not download them.'",
+   "verdict": "corrected",
+   "evidence": [
+    "Verification pass: 'V1 itself is not offered on the catalog page. Only v3 resources, the legacy 2020 admin-0 files and 20260710_GAD_v2_Maintenance_Log.xlsx are listed.' V1 is downloadable from CCKP's bucket."
+   ],
+   "use_instead": "The bucket URL in candidate 2. This is also why its licence is inferred (see open_questions)."
+  },
+  {
+   "id": "india-pre-2019",
+   "where": "First note ('India's 35 units are the pre-2019 states') and boundary pass ('India: Jammu and Kashmir as one unit (before 2019), and Dadra and Nagar Haveli separate from Daman and Diu (before 2020)')",
+   "claim": "CCKP's India is a pre-2019 set of states, with Jammu and Kashmir as one unit.",
+   "verdict": "refuted",
+   "evidence": [
+    "Verification pass: 'CCKP India has no Jammu and Kashmir or Ladakh at all; IND.11515 is missing. In V1, J&K sits in the disputed-areas layer. India also includes Telangana, so the set is V1's, not pre-2019.'"
+   ],
+   "use_instead": "Treat India's 35 units as V1's. India matches 35 of 35 by the ADM1CD rule."
+  },
+  {
+   "id": "india-unit-counts",
+   "where": "Boundary pass, table of region counts (IND: CCKP 35, WB v3 34)",
+   "claim": "India has 34 units in v3 against CCKP's 35.",
+   "verdict": "refuted",
+   "evidence": [
+    "Verification pass: 'The current v3 matches 33 of India's 35 codes by the same rule. The other two do not map because v2 (14 May 2026) merged Dadra and Nagar Haveli with Daman and Diu: IND009 was vacated and IND008 changed shape.'"
+   ],
+   "use_instead": "The 33 of 35 figure for v3; 35 of 35 for V1."
+  },
+  {
+   "id": "cckp-code-basis",
+   "where": "First note ('This is my inference; the producer does not say so') and boundary pass ('this is my inference and CCKP does not document it')",
+   "claim": "CCKP's codes are the FAO GAUL country code joined to a region number.",
+   "verdict": "confirmed (no longer an inference)",
+   "evidence": [
+    "Verification pass: 'The code format is ISO3.{GAUL country code}{n} (IND 115, KEN 133, BRA 37, USA 259). The GAUL country code is now confirmed by a GAUL_0 field in the boundary file below.' CCKP itself still documents only 'reflecting World Bank shapefiles for national (ADM0) and subnational (ADM1) units'."
+   ]
+  },
+  {
+   "id": "heatwave-person-days-pairing",
+   "where": "First note, 'Weighting' (heatwave product ehf2)",
+   "claim": "India's heatwave person-days (38,915,194,880) were put beside 'Heatwave days per area: India 37.35, Delhi 20.92', and the note said turning person-days into days per resident 'would mean dividing by population, which CCKP does not publish'.",
+   "verdict": "corrected (the pairing) and refuted (the population claim)",
+   "evidence": [
+    "Verification pass: person-days 'pair with the area-weighted climatologyhw85exposure (India 12.55, Delhi 7.73), not with climatologyhwdays (India 37.35, Delhi 20.92). The earlier report put the person-days next to 37.35, which is the wrong pairing.'",
+    "Verification pass: 'Refuted: \"CCKP does not publish population\".' The pop-x0.25 collection is reachable through the API for countries and regions; Delhi 2040–2059 SSP2-4.5 is 14,199,143 and Kenya 76,501,020. Delhi person-days divided by population is 7.80, close to its area value of 7.73."
+   ],
+   "use_instead": "Compare person-days only with climatologyhw85exposure. Dividing by population is still our own computation, across two CCKP files (see weighting_findings)."
+  },
+  {
+   "id": "popwgt-only-for-heatwaves",
+   "where": "First note, 'There is no population-weighted variant of the threshold indicators'",
+   "claim": "No population-weighted CCKP values.",
+   "verdict": "corrected: true for the threshold indicators, but CCKP does have popwgt products for the heatwave variable",
+   "evidence": [
+    "Verification pass: 'CCKP has popwgt products, but only for the heatwave variable ehf2' and 'No popwgt exists for hd35, hd40, tr26, hi39, txx or swbgt32.' They are absolute person-days, not an average per resident."
+   ]
+  },
+  {
+   "id": "national-count-totals",
+   "where": "Not in the first two notes: a new problem found by the verification pass",
+   "claim": "The first two notes did not mention it. They gave India's 38,915,194,880 person-days as a plain CCKP value.",
+   "verdict": "added",
+   "evidence": [
+    "Verification pass: 'CCKP's national totals for count-type values are 2–3× the sum of their own regions, for both population and person-days. Area-averaged values are likely unaffected but this was not tested.' India population 3,354,552,300 against 1,663,800,215; India person-days 38.9 billion against 19.36 billion."
+   ],
+   "use_instead": "Do not publish CCKP national population or person-day totals. See the table in weighting_findings. The wettest-day item in open_questions is a related national-against-regions finding."
+  },
+  {
+   "id": "licence-points-missed",
+   "where": "Both first passes, licence sections",
+   "claim": "The Dataset Terms were quoted as complete (CC BY 4.0 plus the listed additions), and the boundary pass set the licence class to open.",
+   "verdict": "added",
+   "evidence": [
+    "Verification pass: 'These Dataset Terms incorporate the World Bank Terms and Conditions by reference.'",
+    "Verification pass: the bucket's AWS Open Data Registry entry reads License: '[World Bank Open Database License (ODbL)](https://creativecommons.org/licenses/by/4.0/)', an ODbL label linking to CC BY.",
+    "Verification pass: the V1 zip has no licence file or readme and the .shp.xml files have no use-constraint fields; 'Its licence is therefore inferred from the dataset-level CC BY 4.0 and from its host, CCKP's open bucket.'"
+   ],
+   "use_instead": "See candidate 2 and the first open question."
+  },
+  {
+   "id": "v1-name-clash",
+   "where": "Boundary pass, 'Legacy v1 (2020)'",
+   "claim": "'Legacy v1 (2020)' files 'contain admin-0 only, no admin-1'.",
+   "verdict": "clarified: confirmed for the 2020 files, which are not the file the map uses",
+   "evidence": [
+    "The legacy 2020 files (geojson_highres 20,346,962 B, geojson_lowres 4,678,469 B, topojson 2,149,917 B) are on the catalogue. The V1 of 2025-05-07 in CCKP's bucket is a different file with admin-1."
+   ],
+   "use_instead": "Always write V1 with its date, 2025-05-07."
+  }
+ ],
+ "open_questions": [
+  "1. Owner decision, flagged: the licence of the World Bank boundaries V1 (2025-05-07) is inferred from the dataset-level CC BY 4.0 and from its hosting on CCKP's open bucket, because the catalogue now lists only v3. The zip has no licence file or readme, and the bucket's AWS registry entry is inconsistent (an ODbL label linking to CC BY 4.0). Do you accept the inference? If not, every country gets ranked bars instead of a region map.",
+  "2. Population-weighted values as a follow-up. CCKP has no population-weighted values for hd35, hd40, tr26, hi39, txx or swbgt32, and only absolute person-days for the heatwave variable. The IIASA Climate Solutions Explorer (Zenodo 14524342, v1.1) is the only population-weighted source found: countries only (227, no states or provinces), a 2.39 GB country zip that is a manual acquisition, values tied to warming levels and not to years, and a CC BY 4.0 licence read from its README and not re-verified. Decide whether to register it for 'average resident' values by country.",
+  "3. Path words. 'Very high' for SSP5-8.5, as the IPCC and the existing heat chapter call it, or 'high' as the owner wrote? The IPCC uses 'high' for SSP3-7.0, which the map does not show.",
+  "4. The world view's big number is the top-ranked country for now. Should CCKP's land-only world aggregate (global_land) be registered next round, at the cost of about 270 more files to fetch?",
+  "5. Follow-ups: retire hot-days-35c.wb-cckp.cmip6 and its 18 artifacts? Slim the 3.5 MB catalogue that the Trace panel fetches whole (it grows from 2.3 MB to about 3.5 MB with this work)?",
+  "6. The boundary switch. CCKP plans to move to the new World Bank boundaries, and every region code will change; region indicators then keep their last vintage until someone re-joins them. Is that acceptable? The notes give no date for CCKP's switch, and they name release dates that they do not reconcile: 'a July 2026 World Bank boundary release' (first note), a v2 maintenance log with 20260710 in its file name, v2 on 14 May 2026 and v3 on 10 Sep 2026.",
+  "7. Checks that need a person with a browser, because CCKP's portal pages and metatag.pdf return HTTP 403 to curl (rule 7): the metadata page's sentence 'All CCKP data adhere to CC-BY 4.0'; the Cartography tab's statement that CCKP's numbers still use the previous World Bank boundaries and that CCKP plans to switch; and each variable's definition, including whether a threshold is ≥ or >. The build plan lists the last as a first-step task; the notes do not say it was done.",
+  "8. Left open by the notes and planned for the first build step: that the warming URL (cmip6-x0.25_climatology_tas_anomaly_annual_…) is an anomaly against 1995–2014; the subnational stamps; whether any value is null; and whether the names file is byte-stable over two fetches (the plan tries _format=csv, then xlsx, else a manual snapshot of geonames.json).",
+  "9. Not checked by the verification pass: sections B to E of the first note (IIASA's values, the IPCC Atlas, the country tables and the other candidates). The NASA sea-level API's terms and baseline are unverified (earth.gov/sealevel returned a server error). Lenton et al. 2023 is not registered and the notes' description of its two exposure columns is unclear.",
+  "10. GAUL terms. V1 carries the FAO GAUL codes (GAUL_0, GAUL_1) and CCKP's codes are built on them. The boundary note lists FAO's GAUL 2024 release page and the GAUL 2015 data licence among its sources but records no reading of either, so whether GAUL's own terms add anything for the V1 shapes is not settled in the notes.",
+  "11. Unit counts that the notes do not reconcile: V1's admin-1 layer has 3,604 features, CCKP has 3,527 regions and v3 has 3,193 features; the first pass counted 3,500 named CCKP regions, the verification pass 68 placeholder names, and 32 DIS.* units have no names; the build plan's commit message counts 3,495 regions (3,527 less 32). The crosswalk file the build writes is where these settle.",
+  "12. The first note said CCKP's area-averaged values are likely unaffected by the national count-type problem, and the verification pass did not test it. The build plan adds a national-within-regions check and an area-weighted diagnostic for this. The next item is a related finding for the wettest day.",
+  "13. The wettest-day measure (CCKP rx1day) is withheld: CCKP's national values lie below the area-weighted mean of their own regions in 6,086 of 6,630 values (8.8 % at the median, more for larger countries), which the method CCKP documents cannot give; to settle it, compare CCKP's gridded rx1day climatology netCDF with its area values, or ask CCKP.",
+  "14. The Philippines' Bangsamoro (PHL.1961) and Region 12 (PHL.1969) are drawn on V1's 2013 UN SALB shapes, which predate the 2019 plebiscite; correct if CCKP averages over V1's shapes, off by Cotabato City and the North Cotabato barangays if it uses the 2019 borders."
+ ]
+}

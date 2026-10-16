@@ -33,14 +33,14 @@
     {
       "description": "Read the global annual series of HadSST.4.2.0.0 (sea-surface temperature anomaly in kelvin relative to 1961–1990, as published; a difference of 1 K equals 1 °C, so the values are unchanged). The file holds complete years, 1850 to 2025; each was confirmed to have all 12 months in the global monthly file.",
       "inputs": ["38dd997dc6716cdae019e41d37a5436178d07554a7d69287411904c14e67fa01", "07444a0e9be79dfe546f29d34e8dbbf561036e172b89eea45c3487c2b58dada6"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/hadsst4.py",
       "transform_sha256": "d556dbda6cbcbcbc49a8268c77c5c8258ccb5de152fb04cb6fe453af2d2f716e"
     },
     {
       "description": "Lower and upper are the anomaly minus and plus the file's total_uncertainty, which the Product User Guide defines as the 1σ uncertainty combining uncorrelated measurement, sampling, correlated measurement, bias-correction and coverage uncertainties. The file's 95% bounds cover bias uncertainty only and are not used.",
       "inputs": ["38dd997dc6716cdae019e41d37a5436178d07554a7d69287411904c14e67fa01", "07444a0e9be79dfe546f29d34e8dbbf561036e172b89eea45c3487c2b58dada6"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/hadsst4.py",
       "transform_sha256": "d556dbda6cbcbcbc49a8268c77c5c8258ccb5de152fb04cb6fe453af2d2f716e"
     }

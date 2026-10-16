@@ -32,14 +32,14 @@
     {
       "description": "Quoted from Executive summary, p. 3215. The quote was found in the text of page 5 of the snapshot (sha256 166e10a66b4d…) before publishing.",
       "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     },
     {
       "description": "Value: \"170 GtCO₂ left\" is published as 170 billion tonnes of carbon dioxide, dated 2026-01-01 because the paper counts the budget \"from the beginning of 2026\".",
       "inputs": ["166e10a66b4dfb1e3396be57dc0596a9e3de6c17a293a2f0b933d5f30572df12"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     }

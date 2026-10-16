@@ -33,21 +33,21 @@
     {
       "description": "Read the World Bank Indicators API response for EG.ELC.ACCS.ZS ('Access to electricity (% of population)'), WDI source 2, last updated 2026-10-08, one page holding every row (sha256 677da72ab359…).",
       "inputs": ["677da72ab359c44e5fa2c4697a5eee678374e206efc26a2a6a78b060f482d30e", "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/wdi_access.py",
       "transform_sha256": "2bf9f6cb7dde3b12f44fda80c55fcd4cdee0a2edb391e7065c8a21d50b4af9d0"
     },
     {
       "description": "Kept the World and the 216 economies with a value, matched by ISO 3 code to pipeline/geo/entities.csv (the API's XKX is Kosovo, KOS; CHI is the Channel Islands, reported as one economy), from the API's country list; World Bank regions, income and lending groups were left out.",
       "inputs": ["677da72ab359c44e5fa2c4697a5eee678374e206efc26a2a6a78b060f482d30e", "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/wdi_access.py",
       "transform_sha256": "2bf9f6cb7dde3b12f44fda80c55fcd4cdee0a2edb391e7065c8a21d50b4af9d0"
     },
     {
       "description": "Published every non-empty value as given, 1990–2024; years without a value have no observation.",
       "inputs": ["677da72ab359c44e5fa2c4697a5eee678374e206efc26a2a6a78b060f482d30e", "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/wdi_access.py",
       "transform_sha256": "2bf9f6cb7dde3b12f44fda80c55fcd4cdee0a2edb391e7065c8a21d50b4af9d0"
     }

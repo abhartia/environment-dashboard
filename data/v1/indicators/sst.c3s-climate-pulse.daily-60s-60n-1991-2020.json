@@ -32,21 +32,21 @@
     {
       "description": "Read the Climate Pulse daily series of 60°S–60°N sea-surface temperature from ERA5, last updated by C3S on 11 October 2026, from 1979-01-01 to 2026-10-09.",
       "inputs": ["aff92c28315ea3eb85cb7e3d34f95eb02e4e1c2db08a437e3653e8192bf90405"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/c3s_climate_pulse.py",
       "transform_sha256": "20988e29489d4b585261de3a2f60b7df2a2cd3d8646521020647b8f0dc7e5d8a"
     },
     {
       "description": "Published the producer's anomaly from its smoothed 1991–2020 daily climatology (column ano_91-20) unchanged, rounded as printed (three decimals).",
       "inputs": ["aff92c28315ea3eb85cb7e3d34f95eb02e4e1c2db08a437e3653e8192bf90405"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/c3s_climate_pulse.py",
       "transform_sha256": "20988e29489d4b585261de3a2f60b7df2a2cd3d8646521020647b8f0dc7e5d8a"
     },
     {
       "description": "Kept the file's status of each day: 0 day(s) marked PRELIMINARY are published as preliminary, because the file states that their values will likely change slightly once the final ERA5 data for the day are available.",
       "inputs": ["aff92c28315ea3eb85cb7e3d34f95eb02e4e1c2db08a437e3653e8192bf90405"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/c3s_climate_pulse.py",
       "transform_sha256": "20988e29489d4b585261de3a2f60b7df2a2cd3d8646521020647b8f0dc7e5d8a"
     }

@@ -47,21 +47,21 @@
     {
       "description": "Read the 438 indicator metadata files in the Systems Change Lab export (sha256 d4d291091dd5…, retrieved 2026-10-11); 196 are outcome indicators with a progress status, the rest enablers and barriers, which have none.",
       "inputs": ["d4d291091dd53c590e6867a7e62a239f1f575e149c1f8b0531a101925e2a2194"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
       "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
     },
     {
       "description": "Left out the 17 outcome indicators whose data sources name the International Energy Agency (BLDG-11, BLDG-15, BLDG-24, BLDG-25, BLDG-37, CTY-21, FIN-86, IN-2, PWR-41, PWR-42, PWR-50, PWR-58, TRNS-27, TRNS-28, TRNS-29, TRNS-31, X-FIN-85).",
       "inputs": ["d4d291091dd53c590e6867a7e62a239f1f575e149c1f8b0531a101925e2a2194"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
       "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
     },
     {
       "description": "Counted the remaining 179 outcome indicators by Systems Change Lab's status and divided each count by their total, times 100.",
       "inputs": ["d4d291091dd53c590e6867a7e62a239f1f575e149c1f8b0531a101925e2a2194"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/systems_change_lab.py",
       "transform_sha256": "3d70736c6d596bf03250e69cf7b0a3c69ca29ac80873818194c53bd5961a41e4"
     }

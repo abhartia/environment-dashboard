@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 
 import pytest
@@ -148,6 +149,11 @@ def test_cckp_regions_from_the_real_names_workbook(cckp_names, places, table):
     assert e["BRA.37692"].name == "Unnamed region of Brazil (BRA.37692)"
     assert e["HKG.33364910"].name == "Unnamed region of Hong Kong S.A.R. (HKG.33364910)"
     assert sum(r.name.startswith("Unnamed region of ") for r in rows) == 68 + 3
+    # CCKP's garbled Mexican names are named as the World Bank's boundaries name them; no other name is changed.
+    assert (e["MEX.1625"].name, e["MEX.16224"].name) == ("Ciudad de México", "Yucatán")
+    assert {
+        r.iso3 for r in rows if r.name != cckp_names[r.iso3] and not r.name.startswith("Unnamed region of ")
+    } == set(geo.GARBLED_NAMES)
     assert not [c for c in e if c.startswith("DIS.") or c in geo.CHINA_LISTED]
     assert {p: sum(c.startswith(f"{p}.") for c in e) for p in ("IND", "KEN", "BRA", "CHN")} == {
         "IND": 35,
@@ -168,6 +174,21 @@ def test_china_lists_hong_kong_macao_and_taiwan_only_as_declared(cckp_names, pla
     gone = {k: v for k, v in cckp_names.items() if k != "CHN.1491879"}
     with pytest.raises(ValueError, match="under China for Hong Kong, Macao or Taiwan"):
         geo.cckp_regions(gone, places)
+
+
+def test_garbled_names_are_the_shapes_they_are_declared_to_match():
+    declared = {
+        r["cckp_code"]: r
+        for r in csv.DictReader((Paths.default().repo / "pipeline/geo/cckp-adm1-declared.csv").open(encoding="utf-8"))
+    }
+    for code, (garbled, name) in geo.GARBLED_NAMES.items():
+        assert declared[code]["decision"] == "accept" and declared[code]["v1_name"] == name, code
+        assert f"({garbled} for {name})" in declared[code]["reason"], code
+
+
+def test_a_garbled_name_that_changes_stops_the_build(cckp_names, places):
+    with pytest.raises(ValueError, match="GARBLED_NAMES"):
+        geo.cckp_regions({**cckp_names, "MEX.1625": "Ciudad de México"}, places)
 
 
 def test_cckp_names_that_do_not_fit_the_declared_rules_stop_the_build(cckp_names, places):

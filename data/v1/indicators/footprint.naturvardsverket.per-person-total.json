@@ -32,21 +32,21 @@
     {
       "description": "Read the statistics page 'Konsumtionsbaserade växthusgasutsläpp per person och år' (sha256 c87de2b596b9…, retrieved 2026-10-11, reviewed by the producer on 2025-10-28). The series is the CSV inside the page's chart options (page model <script id=\"__model_data\">, content.highChartsOptions, data.csv): 16 years, 2008–2023, in tonnes of carbon dioxide equivalent per person ('Ton koldioxidekvivalenter per person'). Checked the page heading, the responsible authority (SCB), the axis title, the series names and the CSV header before reading any value.",
       "inputs": ["c87de2b596b9f660361ba9f450e1c5af5ed0e041b61d6364167239645d999cf5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     },
     {
       "description": "Selected the column Totalt as published (the producer's own total, not a sum of ours). No value was changed.",
       "inputs": ["c87de2b596b9f660361ba9f450e1c5af5ed0e041b61d6364167239645d999cf5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     },
     {
       "description": "Checked the page's tab 'Koldioxidekvivalenter': its general conversion table ('Omräkningstabell') gives CO2 1, CH4 25 and N2O 298, the IPCC Fourth Assessment Report (AR4) 100-year values, and links that report ('Koldioxidekvivalenter för ytterligare växthusgaser i IPCC:s fjärde utvärderingsrapport'), but the page does not say that this series uses them. So no global warming potential is recorded in the scope; the basis says what the page shows.",
       "inputs": ["c87de2b596b9f660361ba9f450e1c5af5ed0e041b61d6364167239645d999cf5"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     }

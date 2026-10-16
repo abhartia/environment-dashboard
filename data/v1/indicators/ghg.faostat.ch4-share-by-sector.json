@@ -48,49 +48,49 @@
     {
       "description": "Read Climate_change_Emissions_indicators_E_All_Data_(Normalized).csv from FAOSTAT's Emissions indicators (EM) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 678,370, the number of data rows in this file. The zip was last modified on the server on Wed, 29 Oct 2025 11:06:06 GMT.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Kept the rows of element \"Emissions Share (CH4)\" (code 7265), unit \"%\", for the six IPCC sector items \"Energy\" (6821), \"IPPU\" (6817), \"IPCC Agriculture\" (1711), \"LULUCF\" (1707), \"Waste\" (6818), \"Other\" (6819), 1990–2023, as FAO prints them: each sector's methane as a percentage of the area's methane from all sectors (item \"All sectors with LULUCF\"). Nothing is computed here.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Checked that the six shares add up to 100 within 0.03 (the rounding of values printed to 0.01) in each of the 1,398 area-years where FAO publishes all six; the transform stops otherwise.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "FAO publishes no row for some parts of some areas' methane splits. Those parts are left missing, never filled or set to zero, and a sector without a share is one for which FAOSTAT's emissions totals (GT) have no methane row for that area and year, so it is not part of the whole. ARE, ARG, AUT, BGD, BHR, BRA, BRN, BTN, CAN, CIV, CYP, DNK, DOM, EGY, FRA, GAB, GBR, GIN, GNQ, GRC, GTM, HKG, IDN, IRL, IRN, IRQ, ISL, ISR, ITA, JAM, JPN, KOR, KWT, LBN, LBY, LCA, MAC, MAR, MDV, MEX, MLT, MMR, MRT, MYS, NGA, NOR, OMN, PAK, PAN, PER, PHL, PRK, PRY, QAT, RWA, SAU, STP, SWE, THA, TTO, TUN, TUR, TWN, URY, VEN, VNM, ZAF, ZMB, ZWE: no Other (item 6819) (1990–2023). ABW, AGO, AIA, ATG, BEN, BFA, BHS, BLZ, BOL, BRB, BWA, CAF, CMR, COD, COG, COK, COM, CPV, CRI, DJI, DMA, FJI, GHA, GMB, GNB, HND, JOR, KEN, KHM, KIR, KNA, LAO, LBR, LKA, LSO, MDG, MLI, MNG, MOZ, MWI, NAM, NER, NIC, NIU, NPL, NRU, PNG, SEN, SHN, SLE, SLV, SOM, SUR, SWZ, SYC, SYR, TCA, TCD, TGO, TLS, TON, TZA, UGA, VCT, VGB, VUT, YEM: no Industrial processes and product use (item 6817) (1990–2023); Other (item 6819) (1990–2023). BIH, EST, GEO, KAZ, LVA, MDA, RUS, SVN, TJK, TKM, UZB: no Other (item 6819) (1992–2023). ERI, ETH: no Industrial processes and product use (item 6817) (1993–2023); Other (item 6819) (1993–2023). SDN, SSD: no Industrial processes and product use (item 6817) (2012–2023); Other (item 6819) (2012–2023). TKL, TUV: no Energy (item 6821) (1990–2023); Industrial processes and product use (item 6817) (1990–2023); Other (item 6819) (1990–2023). CZE: no Other (item 6819) (1993–2023). FSM: no Energy (item 6821) (1991–2023); Industrial processes and product use (item 6817) (1991–2023); Other (item 6819) (1991–2023). HTI: no Industrial processes and product use (item 6817) (1990–2023). KGZ: no Industrial processes and product use (item 6817) (1992–2023); Other (item 6819) (1992–2023). LUX: no Other (item 6819) (2000–2023). MYT: no Energy (item 6821) (1990–1999); Industrial processes and product use (item 6817) (1990–1999); Waste (item 6818) (1990–1999); Other (item 6819) (1990–1999). PLW: no Industrial processes and product use (item 6817) (1991–2023); Other (item 6819) (1991–2023). SRB: no Other (item 6819) (2006–2023).",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Published as printed, although the shares FAO publishes for these areas and years add up to a little less or more than 100 beyond the rounding of their printed values (the sum in brackets): NIU 2001 (99.77), 2008 (99.78), 2010 (99.78), 2012 (99.78), 2014 (99.79), 2022 (99.8), 2023 (99.8).",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Netherlands Antilles (former), Pacific Islands Trust Territory, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Annex I countries, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Non-Annex I countries, Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Western Africa, Western Asia, Western Europe). Their values are never re-assigned to other entities.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     }

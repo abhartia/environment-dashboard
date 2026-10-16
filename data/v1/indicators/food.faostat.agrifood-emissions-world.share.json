@@ -33,21 +33,21 @@
     {
       "description": "Read Climate_change_Emissions_indicators_E_All_Data_(Normalized).csv from FAOSTAT's Emissions indicators (EM) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 678,370, the number of data rows in this file. The zip was last modified on the server on Wed, 29 Oct 2025 11:06:06 GMT.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Kept the World (area code 5000) rows of item \"Agrifood systems\" (code 6518), element \"Emissions Share (CO2eq) (AR5)\" (code 726313), unit \"%\", 1990–2023, as FAO prints them: FAO's own share of agrifood-system emissions in its \"All sectors with LULUCF\" total. Nothing is computed here.",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["d48bf98589ccfd3ffc2aae314091088d3a989cb58d3f149fdc26856178d6da34", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     }

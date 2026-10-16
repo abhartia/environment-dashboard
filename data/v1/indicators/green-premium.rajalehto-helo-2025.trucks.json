@@ -62,21 +62,21 @@
     {
       "description": "Read the text of the article's version-of-record PDF (sha256 8b72c98ad063…, the copy on the University of Vaasa repository) and found Table 3 and 6 passages of the text and Table 1 word for word on their pages.",
       "inputs": ["8b72c98ad063d41c1ef8912f95943cce8328269670e5fcf476f0d3c03c699b58"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/trucks_rajalehto_helo_2025.py",
       "transform_sha256": "079bcf923e6d50ba709500f4b643f635e97cef2355afca47fba9f597cfdac90e"
     },
     {
       "description": "Read each truck's column of Table 3 by position (the PDF's text gives the table column by column) and published its mean and median monthly cost of ownership, with the minimum and maximum of the simulations as the range: 6 values, as printed ('2.13E4' is 21,300).",
       "inputs": ["8b72c98ad063d41c1ef8912f95943cce8328269670e5fcf476f0d3c03c699b58"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/trucks_rajalehto_helo_2025.py",
       "transform_sha256": "079bcf923e6d50ba709500f4b643f635e97cef2355afca47fba9f597cfdac90e"
     },
     {
       "description": "Nothing was subtracted: the diesel, biomethane and electric costs are shown side by side as the table gives them.",
       "inputs": ["8b72c98ad063d41c1ef8912f95943cce8328269670e5fcf476f0d3c03c699b58"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/trucks_rajalehto_helo_2025.py",
       "transform_sha256": "079bcf923e6d50ba709500f4b643f635e97cef2355afca47fba9f597cfdac90e"
     }

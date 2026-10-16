@@ -32,28 +32,28 @@
     {
       "description": "Read the msl variable (global mean sea level anomaly, metres) and the cycle times of MSL_Serie_MERGED_Global_AVISO_GIA_Adjust_Filter2m.nc, created by AVISO on 26 September 2026: 1236 values about 10 days apart from 5 January 1993 to 15 August 2026. Checked the product DOI, zone GLOBAL, the glacial isostatic adjustment correction, the 2-month filter and that annual and semi-annual signals are removed, as the file's attributes state.",
       "inputs": ["d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     },
     {
       "description": "Averaged the cycle values dated in each calendar month (arithmetic mean). Of the 403 months published, 9 hold 2, 360 hold 3, 34 hold 4 cycles. The month of the last cycle (2026-08) is not published because the record stops part-way through it.",
       "inputs": ["d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     },
     {
       "description": "Re-based to the mean of the twelve 1993 monthly values (7.233 mm on AVISO's scale, which has no stated reference period) and converted from metres to millimetres.",
       "inputs": ["d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     },
     {
       "description": "AVISO's 1-sigma uncertainty envelope is defined for its own cycle values and is not published for these monthly means.",
       "inputs": ["d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     }

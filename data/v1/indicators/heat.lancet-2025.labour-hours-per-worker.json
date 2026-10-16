@@ -32,28 +32,28 @@
     {
       "description": "Read the column TotalSunWHLpp (mean potential work hours lost per worker, in hours as the guidance sheet states) of the sheets '2025 Report Data_Global' (the world) and '2025 Report Data_Country' (219 countries and territories by ISO3 code) of the indicator 1.1.3 workbook of the Lancet Countdown 2025 report, 1990–2024, published as in the workbook.",
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Mapped each ISO3 code to the site's entity of that code (pipeline/geo/entities.csv); every code is in it.",
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Checked in every row that the value equals the total hours lost (TotalsunAgCon, thousands of hours) over the people employed in the four sectors (EmplPop 15+).",
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     },
     {
       "description": "Published the country-years with no value per worker as missing, with the reason, never filled: 204 '#DIV/0!'; 1 'blank' cells. A division by zero is accepted only where the sheet gives no one employed in the four sectors.",
       "inputs": ["36d16d2ba3acb43e333fca86f6873b558f9ea4816ea97c740bb5b85c228413cb"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lancet_countdown.py",
       "transform_sha256": "fecaf0b937e79c603aff048f9e171264dc0149558bfc33af2187250a8609cab9"
     }

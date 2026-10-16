@@ -32,21 +32,21 @@
     {
       "description": "Read the text of the version-of-record PDF from the ETH Zurich Research Collection (sha256 255165bb02a3…, one download recorded by hand because the repository's cover page changes with every download) and found 6 passages from the abstract, the methods and the results word for word on their pages.",
       "inputs": ["255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/meat_siegrist_2024.py",
       "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
     },
     {
       "description": "Published the two price ratios of meat substitutes to conventional meat that the results state for one country each (Germany and Spain), exactly as printed.",
       "inputs": ["255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/meat_siegrist_2024.py",
       "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
     },
     {
       "description": "Did not publish the ranges stated for several countries at once (the abstract's '24 to 115 %' and 'between 1.24 and 1.46' for France, Italy, the Netherlands and the United Kingdom); they are quoted in each value's note.",
       "inputs": ["255165bb02a3ca5169e6b607994d587c2e6255d6aca797eead239efe8403831e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/meat_siegrist_2024.py",
       "transform_sha256": "b0cab8cf01645d6141b8ad5fc56f41fc136b59c4b21dc4d2ef0ffa6cb746c1a2"
     }

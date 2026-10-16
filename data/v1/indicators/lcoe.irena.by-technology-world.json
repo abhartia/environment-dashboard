@@ -49,28 +49,28 @@
     {
       "description": "Read sheet 'Fig S.2' (Figure S.2 LCOE of renewable power technologies, 2010-2025, unit 'LCOE (2025 USD/MWh)') of IRENA's data file for Renewable power generation costs in 2025, last modified on 2026-07-02 (sha256 44dd32bc07cf…), whose Contents sheet cites this edition. Values are taken as stored in the workbook, one per technology and year, 2010–2025; an empty cell is published as a null value.",
       "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
       "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
     },
     {
       "description": "Sheets labelled as based on third-party data, which are never read: 'Fig. 9.5' (Based on BNEF data); 'Fig. 9.7' (Based on BNEF data); 'Fig. 9.8' (Based on Carbon Limiting Technologies).",
       "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
       "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
     },
     {
       "description": "Checked that sheet 'Fig S.1' row 'LCOE 2025 (USD/MWh)' equals each technology's 2025 value rounded to a whole dollar, and found the executive summary's statements of the 2025 values on its page 5.",
       "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
       "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
     },
     {
       "description": "Published the global weighted averages as stored. 'Solar thermal' in the sheet is concentrated solar power (the summary sheet's label).",
       "inputs": ["44dd32bc07cf707b7dc296aff77a2a4b802ae270e53663a422cb0c017c8d8172", "2046b4146b69197a6d62f769a50fd76b87c31f558fbc8b8c4f621339e8b46905"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_costs.py",
       "transform_sha256": "1fe337ed378dc05e3de8b1c0162ae3d0742f045e43c3bdc19ec380267ebe8188"
     }

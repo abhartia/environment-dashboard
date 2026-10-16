@@ -72,28 +72,28 @@
     {
       "description": "Read sheets 'lcoe-components' and 'lcoe-regional' of LCOE-LCOS-LACE_figures.xlsx (sha256 e371002d0282…), after checking that their titles name AEO2026, online year 2031 and 2025 dollars, and that the plant types and columns are where this edition has them.",
       "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
       "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
     },
     {
       "description": "Checked inside the file: each total system cost equals the sum of its capital, fixed O&M, variable and transmission components; each total including tax credits equals the total plus the credits listed; the regional sheet's simple average with tax credits equals the components sheet's total including tax credits; every average lies within its regional minimum and maximum.",
       "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
       "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
     },
     {
       "description": "Published, for each plant type: the total system cost before tax credits and the total including tax credits (simple averages of the 25 supply regions, each with its regional minimum and maximum as the range), and the capacity-weighted average including tax credits (null where EIA marks it NB, not built). Values as stored in the workbook; nothing is computed across plant types.",
       "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
       "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
     },
     {
       "description": "Checked the averages including tax credits against the labels on page 8 of the report (publisher checks).",
       "inputs": ["e371002d02821ef0260773b667e9791c14744dcc4801ee22dbed5be2046a3e10", "8c11a13bed5b65248f59387e1fff7df24f8abd2480365b3ba7e54ab2c21981ad"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_aeo_lcoe.py",
       "transform_sha256": "6af1f54fab63241e5a4ab55ea372e538f8d67dabc28502a1ab6ea43e1602ac0f"
     }

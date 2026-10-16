@@ -33,14 +33,14 @@
     {
       "description": "Read the WORLD row of mortality_region_2019_ref.xlsx (the reference model run) and of mortality_region_2019_noFF.xlsx (the run with all fossil-fuel emissions removed) from the Edmond deposit of Lelieveld et al. 2023: column 'NCD+LRI+LRI5-+CPO3', excess deaths in 2019 from all causes due to outdoor fine particles and ozone. Checked that both files list the same regions with the same population, and that the reference total and its 95% confidence limits round to the paper's printed 8.34 million (5.63, 11.19 million).",
       "inputs": ["37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb", "5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lelieveld_2023.py",
       "transform_sha256": "81c07c7da3da14543f6d3ca3876442d6508822080ca60165e4bb8d2762d9932a"
     },
     {
       "description": "Subtracted the deaths without fossil fuels from those of the reference run, in exact decimal arithmetic on the stored values: the deaths the paper attributes to fossil-fuel emissions. Confidence limits cannot be subtracted, so no range is calculated; the observation quotes the paper's own 95% confidence interval.",
       "inputs": ["37e2ef88859e5eb51ba822eebf4923fdd69bf94ef1d0f70da4fc05aa9dff76eb", "5e1fe7bc2c7417399502c0a93e9d248bfb8a54d46319ee592dc92dc11d016010"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/lelieveld_2023.py",
       "transform_sha256": "81c07c7da3da14543f6d3ca3876442d6508822080ca60165e4bb8d2762d9932a"
     }

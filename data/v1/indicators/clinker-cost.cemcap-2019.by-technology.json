@@ -48,21 +48,21 @@
     {
       "description": "Read the text of the PDF (sha256 50f05980ed4f…). Found each of the 1 quoted statement(s) word for word on PDF page(s) 11, and the 4 context sentence(s) the scope relies on, before publishing.",
       "inputs": ["50f05980ed4f097af1655f3a9160d32c188e11558188f55dfca2a1295b24b94d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/green_premium.py",
       "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
     },
     {
       "description": "Published each number exactly as printed, with its statement in the value's note. A range 'A-B%' is published as its low end A and high end B (dimension 'bound'); nothing was computed, rounded or combined with any other source.",
       "inputs": ["50f05980ed4f097af1655f3a9160d32c188e11558188f55dfca2a1295b24b94d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/green_premium.py",
       "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
     },
     {
       "description": "Table 6's column order (Ref. Cement Plant, MEA, Oxyfuel, CAP, MAL, CaL-Tail-End, CaL-Integrated) was checked in the page text, and the row's numbers had to be exactly the seven values in that order.",
       "inputs": ["50f05980ed4f097af1655f3a9160d32c188e11558188f55dfca2a1295b24b94d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/green_premium.py",
       "transform_sha256": "c2e591e4a0510a3d98f06c52a7bc77fa5e0b4c6d26cf010ec6c7d63920ed91c7"
     }

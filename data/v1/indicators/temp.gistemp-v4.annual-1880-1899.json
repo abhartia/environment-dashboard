@@ -32,21 +32,21 @@
     {
       "description": "Read the January–December mean (J-D) of GISTEMP v4's global Land-Ocean Temperature Index table GLB.Ts+dSST.csv (°C relative to 1951–1980, two decimals).",
       "inputs": ["4c64eda288bce32b8d76926278f346ecea1e53506df8ee72a3d5accb0657c416"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/gistemp.py",
       "transform_sha256": "8cd1cacfd44b039ea84fa61167c98e2840f2fe9a8fcf7891b03d5c1747ddfbf4"
     },
     {
       "description": "Left out 2026: the table has 9 of its 12 months and prints *** for its J-D mean. A year is published only when GISS prints its J-D value, which it does once all twelve months are in.",
       "inputs": ["4c64eda288bce32b8d76926278f346ecea1e53506df8ee72a3d5accb0657c416"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/gistemp.py",
       "transform_sha256": "8cd1cacfd44b039ea84fa61167c98e2840f2fe9a8fcf7891b03d5c1747ddfbf4"
     },
     {
       "description": "Re-based to the dataset's own 1880–1899 mean, the first step of the method in the GISTEMP FAQ: subtracted the mean of the 20 J-D values 1880–1899, -0.2245 °C relative to 1951–1980 (exact decimal arithmetic on the printed values), from every year. GISS has no observations before 1880. The FAQ's second step, about 0.038 °C estimated from the HadCRUT, NOAA and Berkeley Earth analyses to reach 1850–1900, is not applied, so these values are relative to 1880–1899, not 1850–1900.",
       "inputs": ["4c64eda288bce32b8d76926278f346ecea1e53506df8ee72a3d5accb0657c416"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/gistemp.py",
       "transform_sha256": "8cd1cacfd44b039ea84fa61167c98e2840f2fe9a8fcf7891b03d5c1747ddfbf4"
     }

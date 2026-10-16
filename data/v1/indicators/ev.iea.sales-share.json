@@ -47,42 +47,42 @@
     {
       "description": "Read the IEA Global EV Data Explorer's historical file from api.iea.org/evs (fetched 2026-10-05, sha256 43de47975d08…), which carries no version label; its latest year is 2025, the year the Global EV Outlook 2026 reports on.",
       "inputs": ["43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b", "7f0e1575fa3679fe195c24b6adfd036c28ac90f7d0680ef127d62b4f481e8300"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_evs.py",
       "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
     },
     {
       "description": "Kept the 'EV sales share' rows (category Historical, powertrain EV: battery-electric and plug-in hybrid together; unit percent) for cars, vans, buses, trucks and two- and three-wheelers, 2010–2025. The 26,007 car price rows (price_* and sales-historical-price-data), based on S&P Global Mobility data that the IEA's licence does not cover, were not read.",
       "inputs": ["43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b", "7f0e1575fa3679fe195c24b6adfd036c28ac90f7d0680ef127d62b4f481e8300"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_evs.py",
       "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
     },
     {
       "description": "Matched IEA region names to countries in pipeline/geo/entities.csv by name (Czech Republic, Korea, Lao PDR, Turkiye, USA and Viet Nam by declared alias). The IEA's regional groupings were left out because the file does not list their members: Advanced Economies, Africa, Asia Pacific, Developing Economies excl. China, Europe, European Union, Latin America, Middle East and Caspian, Southeast Asia.",
       "inputs": ["43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b", "7f0e1575fa3679fe195c24b6adfd036c28ac90f7d0680ef127d62b4f481e8300"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_evs.py",
       "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
     },
     {
       "description": "Published each value as the shortest decimal that reproduces the single-precision number stored in the file (for example 0.012 for 0.012000000104308128).",
       "inputs": ["43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b", "7f0e1575fa3679fe195c24b6adfd036c28ac90f7d0680ef127d62b4f481e8300"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_evs.py",
       "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
     },
     {
       "description": "Left as null, with the reason, every value above 100%, which cannot be a share of sales. In this vintage: ARE vans 2021; ARE vans 2022; ARE vans 2023; ARE vans 2024; ARE vans 2025.",
       "inputs": ["43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b", "7f0e1575fa3679fe195c24b6adfd036c28ac90f7d0680ef127d62b4f481e8300"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_evs.py",
       "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
     },
     {
       "description": "Found the report's statement of the 2025 world share for cars on page 16 of the PDF.",
       "inputs": ["43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b", "7f0e1575fa3679fe195c24b6adfd036c28ac90f7d0680ef127d62b4f481e8300"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/iea_evs.py",
       "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
     }

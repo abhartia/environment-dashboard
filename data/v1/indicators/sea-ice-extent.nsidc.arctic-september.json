@@ -32,14 +32,14 @@
     {
       "description": "Read the extent column of N_09_extent_v4.0.csv, NSIDC's Northern Hemisphere September file (one row per year, 1979 to 2026), as printed in million km². NSIDC computes each value as the mean of the month's daily extents (cells with at least 15% ice concentration, the unobserved area around the pole counted as ice covered).",
       "inputs": ["3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "Rows whose source data set is NSIDC-0803 (JAXA's AMSR2 record, used from 1 January 2025) carry that as a note.",
       "inputs": ["3968dfdbe73b8361712da9136cfeff6dbc9a6d87ab3e75daa30cc254615eab1f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     }

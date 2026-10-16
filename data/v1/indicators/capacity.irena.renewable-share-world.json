@@ -33,28 +33,28 @@
     {
       "description": "Read IRENA's Renewable capacity statistics 2026 (PDF created 31 March 2026, sha256 fc580bd4f4ee…; its metadata title and the citation on page 2 name this edition) and took the World row of each table from the text of pages 14, 18, 21, 25, 26, 29, 32, 33, 37, 41, 42, 53, 64, read with the columns kept apart, for 2016 to 2025.",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
       "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
     },
     {
       "description": "Checked that Total renewable energy is the sum of renewable hydropower, marine, onshore and offshore wind, solar photovoltaic, concentrated solar power, bioenergy and geothermal in every year, and that the wind, solar and hydropower tables add up from their parts, each to within the rounding of the megawatt values. Pure pumped storage is not part of IRENA's renewable total.",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
       "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
     },
     {
       "description": "Found the quotes used as publisher checks in the highlights PDF (pages 1, 5).",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
       "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
     },
     {
       "description": "Published IRENA's share as printed (one decimal).",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
       "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
     }

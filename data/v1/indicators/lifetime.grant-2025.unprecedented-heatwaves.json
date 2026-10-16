@@ -53,21 +53,21 @@
     {
       "description": "Read the article's JATS XML from Europe PMC (sha256 4224ab518159…), checked its DOI and its CC BY 4.0 licence statement, and found in its text the 3 Results sentences and 2 abstract sentences that state the values, and 10 sentences of the Methods and Discussion that the scope relies on.",
       "inputs": ["4224ab518159b19d8ca09c2cdc673d6e34ccb24d674c8df6bcca0a53c341ad3c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/grant_2025.py",
       "transform_sha256": "c45a84e85fa0f1d39ff44474ea38b809f2d3bc29bf7a76500952b6ab43e28d5f"
     },
     {
       "description": "Published 5 world shares exactly as the Results text prints them, each read from the words that state it inside its checked sentence: 16% for people born in 1960, which the article gives 'regardless of the scenario' and which is therefore shown under each of the three pathways, and 52% (1.5 °C) and 92% (3.5 °C) for people born in 2020. The abstract states 52% and 92% again; each was checked to print the same number.",
       "inputs": ["4224ab518159b19d8ca09c2cdc673d6e34ccb24d674c8df6bcca0a53c341ad3c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/grant_2025.py",
       "transform_sha256": "c45a84e85fa0f1d39ff44474ea38b809f2d3bc29bf7a76500952b6ab43e28d5f"
     },
     {
       "description": "Published people born in 2020 on the 2.5 °C pathway as missing, because the text states no world share for it. Nothing was read from a figure or computed, and the numbers of people in the same sentences (13, 62 and 111 million) are not published.",
       "inputs": ["4224ab518159b19d8ca09c2cdc673d6e34ccb24d674c8df6bcca0a53c341ad3c"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/grant_2025.py",
       "transform_sha256": "c45a84e85fa0f1d39ff44474ea38b809f2d3bc29bf7a76500952b6ab43e28d5f"
     }

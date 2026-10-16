@@ -1,10 +1,10 @@
 {
   "export": "data/v1/indicators/power-scale.eia-recs-2020.us-household.json",
-  "export_sha256": "3bc3c16bfd97ffdc2b108bc501b80ac044b8776e77a47c28e5e30e382313484e",
+  "export_sha256": "18882dfdf38fec7894db89afa8dc38a7d662a861bbeb99fc5d6728af428b4526",
   "indicator_id": "power-scale.eia-recs-2020.us-household",
-  "key": "f9c306ea6d5db3dd6c97915bc2fe0fe403c05e25d0889babcd056f6ceec312a9",
+  "key": "f531ac7dc272622b2907980d5cd005895a4ad41aee05f4a1c77e635857bc8879",
   "key_parts": {
-    "contract_sha256": "db43bf0d08b981028829f53dbe2962da0974e7c3abb7df97801ee479d0df534b",
+    "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
       "eia-recs-2020/ce-technical-documentation": {
         "manifest_sha256": "2dbdf99e1fe994c0b398b4336983bb45c8326776e5a1ff06bffda6e65bb8dbf7",
@@ -18,7 +18,7 @@
     "key_files": {
       "pipeline/src/envdash/power.py": "ad3b232991da8c65ef54816fa79d6100f879a4a7af8ff77dfaa13b6216318b56"
     },
-    "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+    "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
     "sources": {
       "eia-recs-2020": "0e9848985af4478546cf2336041fbd1f120d66d2c75adccf914d1ee584141667"
     },

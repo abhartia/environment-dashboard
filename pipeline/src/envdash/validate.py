@@ -110,13 +110,17 @@ def _private_values_in_catalogue(ind: Indicator, entry: CatalogEntry) -> list[st
 
 def geo_problems(paths: Paths) -> list[str]:
     """data/v1/geo/index.json, when present: a canonical GeoIndex listing every file of data/v1/geo/ with its sha256
-    and size."""
+    and size, of a licence class that allows redistribution (the files are public downloads)."""
     geo_index = paths.data / "v1" / "geo" / "index.json"
     if not geo_index.exists():
         return []
     problems: list[str] = []
     index, errs = _canonical(geo_index, GeoIndex)
     problems += errs
+    if index and index.licence_class not in REDISTRIBUTABLE:
+        problems.append(
+            f"data/v1/geo/ is {index.licence_class}: map files whose terms forbid redistribution are public"
+        )
     listed_geo = {f.path for f in index.files} if index else set()
     for f in index.files if index else []:
         p = paths.data / f.path

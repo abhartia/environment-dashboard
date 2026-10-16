@@ -62,21 +62,21 @@
     {
       "description": "Read the results sheet of Project Drawdown's Use Heat Pumps spreadsheet, checking the adoption unit, the headings and unit of the baseline and solution cost blocks and the label of every value cell.",
       "inputs": ["9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/heating_drawdown_explorer.py",
       "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
     },
     {
       "description": "Published 4 cached cell values as Drawdown gives them: the operating cost and the net cost per unit per year of the baseline heating equipment and of a heat pump system, in 2023 US dollars.",
       "inputs": ["9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/heating_drawdown_explorer.py",
       "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
     },
     {
       "description": "Checked in the methodology that the net cost amortises the initial cost without discounting. Left out the initial cost, the revenues and Drawdown's difference between the two; nothing was subtracted.",
       "inputs": ["9eba37098c0c9002a2fad4fa2a92a8421f8ae0ad789df2077390c6679b2fb7cd", "858b73fb3fd4230e4c014ef76351acaea2a3a63bd866c9c9ace07776f179fc2d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/heating_drawdown_explorer.py",
       "transform_sha256": "c85406ea934884f625146aa0aff7509a3b9f38e500b0b0f13ee69ed050c7ae84"
     }

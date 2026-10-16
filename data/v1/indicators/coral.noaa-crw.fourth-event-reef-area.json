@@ -32,14 +32,14 @@
     {
       "description": "Quoted from Current Global Bleaching: Status Update (Updated: June 2, 2026), first paragraph under the headline. The quote was found in the visible text of the snapshot (sha256 d48ccb9c370e…) before publishing.",
       "inputs": ["d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     },
     {
       "description": "Value: \"~84.4%\" is published as 84.4 percent of the world's coral reef area for 1 January 2023 to 30 September 2025; the page gives no range.",
       "inputs": ["d48ccb9c370ee02e46c5db311665f9a7d7f2b1a22d474f08e6fb3018ebd11b13"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/literature.py",
       "transform_sha256": "a5b5e1344e63f00f27104797d126b6a018b61af35ce032fb5e665703d5e05132"
     }

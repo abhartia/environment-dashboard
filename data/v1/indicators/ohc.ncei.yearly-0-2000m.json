@@ -32,14 +32,14 @@
     {
       "description": "Read h22-w0-2000m.dat (World Ocean heat content, 0-2000 m, in 10^22 joules; last modified by NCEI on 2026-07-06, which is the vintage, since the file carries no version), 21 rows from 2005 to 2025. The time column (year + 0.5) became the year.",
       "inputs": ["5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/ncei_ohc.py",
       "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
     },
     {
       "description": "Published the World Ocean column as printed. Lower and upper are that value minus and plus NCEI's standard error from the next column (one standard error). The hemisphere columns are not published.",
       "inputs": ["5b0fabf106dc1473f0a658baaced5245bc19e33a39c6d86294a3cf074ac0f5b4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/ncei_ohc.py",
       "transform_sha256": "dadfc516ad88d8e9af8656cda22e5a4e30fe74867a812e36b38159e21b7c800b"
     }

@@ -61,28 +61,28 @@
     {
       "description": "Read Table 16 from page 20 of the article PDF (sha256 c411c5ee0ce3…): its caption and headings had to be as expected, and its twelve source lines exactly Nuclear, Natural gas, Hydro, Solar (CSP), Solar (PV), Wave, Geothermal, Solar (rooftop), Wind (offshore), Tidal, Wind (onshore) and Biomass, in that order.",
       "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
       "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
     },
     {
       "description": "Published the median, the mean and the standard deviation of mean specific power in watts per square metre for ten sources, exactly as printed. The annual energy density columns (the same quantity in terawatt-hours per square kilometre) and the capacity factors are not published.",
       "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
       "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
     },
     {
       "description": "Checked that the article agrees with itself: nuclear equals Table 7's line including the safety area, offshore and onshore wind equal Table 11, rooftop solar equals Table 9's world line.",
       "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
       "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
     },
     {
       "description": "Left out natural gas, whose Table 16 value is the upper estimate of Table 6, built on the IEA's World Energy Outlook 2022 (reference 35; both checked in the PDF), and biomass, which is van Zalk and Behrens (2018)'s value, whose own licence has not been confirmed.",
       "inputs": ["c411c5ee0ce374c81c75ece0e98ed8d0c73c54bea62ff8fe709ca1c50aecb2de"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/noland_2022.py",
       "transform_sha256": "ee8544fbd31ec7beb39c22f15d0379e731e7b25cb3e36c034cd7a386f4b1c066"
     }

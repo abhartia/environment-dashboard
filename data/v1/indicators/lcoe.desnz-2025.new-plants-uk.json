@@ -101,21 +101,21 @@
     {
       "description": "Read the five 'Additional Estimates' sheets (2030 to 2050) of Annex A (sha256 a6233e478d7d…), 151 technology columns in all, after checking each sheet's title, its 2024 real pounds line, its eleven row labels and its units.",
       "inputs": ["a6233e478d7d1b1c6471781a397e8ba2d3bed511e2eccfb597edb2011ecf20ea"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/desnz_generation_costs.py",
       "transform_sha256": "ab510631b86fa3c534992cbc43cf0297e7b8ddb7eb69c6737c2a0b9656be03d0"
     },
     {
       "description": "Read each column header as printed: footnote numbers removed, '(FOAK)' kept as the 'estimate' dimension, the load factor kept as part of the technology. Cells printed '<1' are null values with that reason.",
       "inputs": ["a6233e478d7d1b1c6471781a397e8ba2d3bed511e2eccfb597edb2011ecf20ea"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/desnz_generation_costs.py",
       "transform_sha256": "ab510631b86fa3c534992cbc43cf0297e7b8ddb7eb69c6737c2a0b9656be03d0"
     },
     {
       "description": "Checked that each total lies within the sum of its rounded components plus or minus half a pound per component. Values are published as DESNZ prints them; nothing is computed across technologies, and no total without carbon costs is derived (carbon costs are their own published row).",
       "inputs": ["a6233e478d7d1b1c6471781a397e8ba2d3bed511e2eccfb597edb2011ecf20ea"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/desnz_generation_costs.py",
       "transform_sha256": "ab510631b86fa3c534992cbc43cf0297e7b8ddb7eb69c6737c2a0b9656be03d0"
     }

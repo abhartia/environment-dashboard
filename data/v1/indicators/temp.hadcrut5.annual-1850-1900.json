@@ -33,21 +33,21 @@
     {
       "description": "Read the global annual and global monthly summary series of HadCRUT.5.2.0.0 (analysis ensemble means; anomalies relative to 1961–1990 with the 2.5% and 97.5% limits).",
       "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
       "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
     },
     {
       "description": "Excluded 2026: the monthly file has 8 of its 12 months, so the annual file's value for it is a partial-year average. A year is published only when all 12 months are in the monthly file.",
       "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
       "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
     },
     {
       "description": "Re-based to the dataset's own 1850–1900 mean: subtracted the mean of the 51 annual anomalies 1850–1900, -0.359435557 °C relative to 1961–1990 (exact decimal arithmetic on the printed values), from every anomaly and from both limits of the 95% range.",
       "inputs": ["7f750b673bb34aad722736ee21f122b5ea692c99877fa0b1066df65e51f32c04", "dd4449a3e25b75396ec4f0445f8647e5b9f5a10f3993929fb82918f3ec135dd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/hadcrut5.py",
       "transform_sha256": "94194861a1d4f1e5a07e8e7cf684084ecfb73690911b7de12c7bafc62bc34c18"
     }

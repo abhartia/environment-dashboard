@@ -32,14 +32,14 @@
     {
       "description": "Read Table CE2.1 (sha256 14c8a8c29b41…), sheet 'physical units', row 'All homes': average site electricity consumption 10566 kWh per household, after checking the title, the headings, the release dates and the footnotes. Every home uses electricity, so this is the average per home: total consumption (1305 billion kWh) over the number of homes (123.53 million) agrees with it to within rounding.",
       "inputs": ["14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_recs.py",
       "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
     },
     {
       "description": "Published the average as printed.",
       "inputs": ["14c8a8c29b419eae27a477347cf70569720544ce51d441e391f4e97d540ef7ff"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_recs.py",
       "transform_sha256": "1aad46fc68ef411ea033e5ea93b22863cc8dd41ee391f85a696232d2cd5eab60"
     }

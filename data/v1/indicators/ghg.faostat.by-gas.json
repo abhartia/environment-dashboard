@@ -46,56 +46,56 @@
     {
       "description": "Read Emissions_Totals_E_All_Data_(Normalized).csv from FAOSTAT's Emissions totals (GT) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 2,500,090, the number of data rows in this file. The zip was last modified on the server on Sat, 06 Dec 2025 15:13:44 GMT.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Kept the \"FAO TIER 1\" rows of item \"All sectors with LULUCF\" (code 6825) for the elements \"Emissions (CO2)\" (7273), \"Emissions (CO2eq) from CH4 (AR5)\" (724413), \"Emissions (CO2eq) from N2O (AR5)\" (724313), \"Emissions (CO2eq) from F-gases (AR5)\" (717815), in kilotonnes. Carbon dioxide is in kilotonnes of CO₂, which is its own CO₂-equivalent (global warming potential 1); the other three are FAO's CO₂-equivalents at IPCC AR5 100-year global warming potentials (methane 28, nitrous oxide 265).",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Checked in every area and year that the four gases present add up to element \"Emissions (CO2eq) (AR5)\" (code 723113) of the same item within 0.001 kt; the transform stops otherwise.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Carbon dioxide includes the net carbon dioxide of land use, land-use change and forestry. 535 published carbon dioxide values are below zero, in 37 areas (ASM, BDI, BEN, BIH, BLR, BMU, BTN, CRI, CYM, ESH, FIN, FJI, GEO, GHA, GLP, HND, HTI, LAO, LCA, LVA, MNE, MNP, MSR, MTQ, NCL, NPL, PRI, PSE, PYF, REU, RWA, SDN, SUR, URY, VIR, VNM, WLF), where land use, land-use change and forestry takes up more carbon than the other emissions counted add up to; the lowest is LAO 2001 (-62024.0466 kt as printed). Published as printed.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "FAO publishes no row for some parts of some areas' all-sector totals. Those parts are left missing, never filled or set to zero, and the published total of those areas is the sum of the parts that exist. ABW, AIA, ASM, ATG, BHS, BMU, BRB, BTN, CHI, COK, COM, CYM, DJI, ESH, FLK, FRO, GIB, GLP, GMB, GRL, GUF, GUM, HTI, IMN, KIR, KNA, LAO, LBR, MAC, MSR, MTQ, MYT, NCL, NFK, NIU, NRU, PCN, PNG, PRI, PSE, PYF, REU, SHN, SJM, SLE, SPM, SWZ, SYC, TCA, TKL, TLS, TON, TUV, TZA, UGA, VCT, VGB, VIR, VUT, WLF: no Fluorinated gases (element 717815) (1990–2023). FSM, MHL, MNP, PLW: no Fluorinated gases (element 717815) (1991–2023). ERI, ETH: no Fluorinated gases (element 717815) (1993–2023). KGZ: no Fluorinated gases (element 717815) (1992–2023).",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Netherlands Antilles (former), Pacific Islands Trust Territory, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Annex I countries, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Non-Annex I countries, Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Western Africa, Western Asia, Western Europe). Their values are never re-assigned to other entities.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Converted kilotonnes to billion tonnes by dividing by 1,000,000 (exact decimal arithmetic on the printed values).",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     }

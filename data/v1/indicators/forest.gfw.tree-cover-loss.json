@@ -44,28 +44,28 @@
     {
       "description": "Read loss-country-annual: WRI's table gadm__tcl__iso_change v20260424 queried through the Global Forest Watch Data API with the SQL in the file's URL (https://data-api.globalforestwatch.org/dataset/gadm__tcl__iso_change/v20260424/download/csv?sql=SELECT%20iso%2C%20umd_tree_cover_loss__year%2C%20SUM%28umd_tree_cover_loss__ha%29%20AS%20umd_tree_cover_loss__ha%2C%20SUM%28umd_tree_cover_loss_from_fires__ha%29%20AS%20umd_tree_cover_loss_from_fires__ha%20FROM%20data%20WHERE%20umd_tree_cover_density_2000__threshold%20%3D%2030%20GROUP%20BY%20iso%2C%20umd_tree_cover_loss__year%20ORDER%20BY%20iso%2C%20umd_tree_cover_loss__year), at a tree canopy cover in 2000 of at least 30 percent. Hectares as in the file, not rounded.",
       "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
       "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
     },
     {
       "description": "A country and year with no row in the file has no loss recorded for it; nothing is filled in.",
       "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
       "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
     },
     {
       "description": "World: read loss-global-annual (the same query without the country grouping), 2001–2025. Checked that the countries, with the codes left out below, add up to it exactly in every year, for all loss and for loss due to fire.",
       "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
       "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
     },
     {
       "description": "Not published as countries: GADM codes with no entity in our table (XAD 80 ha; Z01 4,365 ha; Z06 555 ha; Z07 164,532 ha, all years together). Their loss is included in the world totals.",
       "inputs": ["79b791bcb241093320fc0e6297babf3c468e58027c31dc8213c328f68c46053e", "d2356e4f4d7ae8edc5830cf84fc5bafc7c69a53a144157751ef507201a210bd1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/gfw_tree_cover_loss.py",
       "transform_sha256": "15a82e1f48690b7a720c6627c6ebe816d1ad424d54de3633a13ab1e900bc7ed0"
     }

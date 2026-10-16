@@ -32,21 +32,21 @@
     {
       "description": "Read all 1,901 samples of antarctica2015co2composite-noaa.txt (NOAA template v4, contributed 2015-02-04): gas age in calendar years before 1950 (age_gas_calBP), carbon dioxide in parts per million (co2_ppm) and its one standard deviation (co2_1s_ppm), each as printed.",
       "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
       "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
     },
     {
       "description": "Published each sample's gas age as age_bp, unrounded, with no calendar period (time basis years-before-1950), from the oldest (805668.87) to the youngest (-51.03); the file lists them youngest first.",
       "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
       "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
     },
     {
       "description": "Range: value minus and plus the published one standard deviation (exact decimal arithmetic on the printed digits). The file's header says that where a sample has no sigma of its own, the average for the system or record is given.",
       "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
       "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
     }

@@ -32,14 +32,14 @@
     {
       "description": "Read all 1,901 samples of antarctica2015co2composite-noaa.txt (contributed 2015-02-04), as for co2.bereiter-2015.800k.",
       "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
       "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
     },
     {
       "description": "Kept the 1,679 samples with a gas age above 1,000 years before 1950 (before 950 CE) and took the one with the highest co2_ppm: 298.60 ppm at 335102.31 years before 1950, one standard deviation 3.00 ppm. No other sample has that value. The value, age and standard deviation are published as printed; the range is value ± one standard deviation.",
       "inputs": ["40c9c175ab754530be3ecc53d2ac833c1979804f8a1bcccae185af66679ac08f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/bereiter_co2.py",
       "transform_sha256": "6261d007099e532c2e5b801e76b40b90473facf3b3772c5b5d7bce1cfc404b92"
     }

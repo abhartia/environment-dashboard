@@ -35,28 +35,28 @@
     {
       "description": "Read the global (90°S–90°N) annual land-ocean anomaly of NOAAGlobalTemp v6.1.0, release 202608 (kelvin relative to 1991–2020, as the readme states; a difference of 1 K equals 1 °C). The error-variance columns are all -999 and are not used.",
       "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
       "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
     },
     {
       "description": "Confirmed one release: the global annual, global monthly and 60°N–90°N annual file names all carry v6.1.0.202608, and the monthly file's last month is 2026-08.",
       "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
       "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
     },
     {
       "description": "Left out 2026: the release runs to month 8 of 2026, so the annual file's value for it averages only those months. Earlier years are complete: the file names give the month of the latest data.",
       "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
       "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
     },
     {
       "description": "Re-based to the dataset's own 1850–1900 mean: subtracted the mean of the 51 annual anomalies 1850–1900, -0.7768811568627451 K relative to 1991–2020 (exact decimal arithmetic on the printed values), from every year.",
       "inputs": ["ce98047f148087859faa7996987c2b717baad14ce0e58cbe6a4b6c41d9f2a666", "76cc32238bcb7d058703841f8a26731594a03e3d07daf41b82736c06e96f42dc", "19f707255a4fe95bc7da1a93584541cc75668828067423825c7eff1c6708f5b2", "2595d84ca80c3418bb55330e36356c3b1770d40832de4aa9b1c67d1895ec189f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/temperature/noaaglobaltemp.py",
       "transform_sha256": "94517bf2e4124d31a70c7b68351a2681f28ce5bf7843a328d2ac4e1e7d25070a"
     }

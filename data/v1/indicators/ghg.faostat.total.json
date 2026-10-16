@@ -33,49 +33,49 @@
     {
       "description": "Read Emissions_Totals_E_All_Data_(Normalized).csv from FAOSTAT's Emissions totals (GT) bulk zip. The vintage is the domain's DateUpdate, 28 October 2025, from FAOSTAT's bulk-download catalogue (datasets_E.json), whose entry names this zip and gives FileRows 2,500,090, the number of data rows in this file. The zip was last modified on the server on Sat, 06 Dec 2025 15:13:44 GMT.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Kept the \"FAO TIER 1\" rows of item \"All sectors with LULUCF\" (code 6825), element \"Emissions (CO2eq) (AR5)\" (code 723113), 1990–2023, in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global warming potentials). Rows from FAO's \"UNFCCC\" source are not used.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "FAO's total is the sum of its six IPCC sector items (energy, industrial processes and product use, agriculture, net land use, land-use change and forestry, waste, other); international aviation and shipping (\"International bunkers\", item 6820) are outside it. FAO publishes no row for some parts of some areas' all-sector totals. Those parts are left missing, never filled or set to zero, and the published total of those areas is the sum of the parts that exist. ASM, BMU, CHI, CYM, ESH, FLK, FRO, GIB, GLP, GRL, GUF, GUM, IMN, MSR, MTQ, MYT, NCL, NFK, PCN, PRI, PSE, PYF, REU, SJM, SPM, VIR, WLF: no Energy (item 6821) (1990–2023); Industrial processes and product use (item 6817) (1990–2023); Waste (item 6818) (1990–2023); Other (item 6819) (1990–2023). NRU, TUV: no Other (item 6819) (1990–2023). MNP: no Energy (item 6821) (1991–2023); Industrial processes and product use (item 6817) (1991–2023); Waste (item 6818) (1991–2023); Other (item 6819) (1991–2023). TKL: no Energy (item 6821) (1990–2023); Other (item 6819) (1990–2023).",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "FAO prints a \"All sectors with LULUCF\" total of exactly 0 kt, with every sector it prints for that area and year also 0, for 275 area-years of 10 territories: ASM 1990–2000, 2011–2023; CHI 1990–2023; GIB 2001–2023; GRL 1996–2001; GUM 1990–2010, 2016–2023; MNP 1991–2010, 2016–2023; NFK 1990–2023; PCN 1990–2023; SJM 1990–2023; SPM 1990–2015, 2021–2023. They are published as printed, not removed. Their totals cover agriculture and land use only, and a 0 there is where FAO has no estimate, so these values are not comparable with countries' totals.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Left out former states and territories reported only before their dissolution, with no entity here (Belgium-Luxembourg, Czechoslovakia, Ethiopia PDR, Netherlands Antilles (former), Pacific Islands Trust Territory, Sudan (former), USSR, Yugoslav SFR); FAO regional and analytical groups (Africa, Americas, Annex I countries, Asia, Australia and New Zealand, Caribbean, Central America, Central Asia, China, Eastern Africa, Eastern Asia, Eastern Europe, Europe, Land Locked Developing Countries (LLDCs), Latin America and the Caribbean, Least Developed Countries (LDCs), Low Income Food Deficit Countries (LIFDCs), Melanesia, Micronesia, Middle Africa, Net Food Importing Developing Countries (NFIDCs), Non-Annex I countries, Northern Africa, Northern America, Northern Europe, OECD, Oceania, Polynesia, Small Island Developing States (SIDS), South America, South-eastern Asia, Southern Africa, Southern Asia, Southern Europe, Western Africa, Western Asia, Western Europe). Their values are never re-assigned to other entities.",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Converted kilotonnes to billion tonnes by dividing by 1,000,000 (exact decimal arithmetic on the printed values).",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     },
     {
       "description": "Every value used carries FAO's flag E, which the file's codebook defines as \"Estimated value\".",
       "inputs": ["d2c47e116553711f7c2fd6b62437db511038fd9bd9ec77815fa69ff7a18a89a9", "f294cc8002c70eeb411697c1522324fd7bfe020a7cb4ba86d70f217c3d63fbf1"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/faostat_all_sectors.py",
       "transform_sha256": "6289feaf5cb49780699c814a3b44c1c4a8d8a6767c9155bbf923967e71fb295e"
     }

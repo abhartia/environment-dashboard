@@ -56,16 +56,16 @@
     {
       "description": "Read CCKP's CMIP6 0.25° climatologies of hd35, the number of days a year with a daily maximum temperature of 35 °C or more, for every country and territory: the multi-model ensemble median, 10th and 90th percentiles for the 1995–2014 historical runs and for 2040–2059 under SSP1-2.6, SSP2-4.5 and SSP5-8.5.",
       "inputs": ["9b5de9cb0f52a46f02eafe26c7f156c380b7d45766ca3fcdb36a537da235908d", "90ddace0604ca99cf997d0034484464d30c204020d62197e9bafb565a64871bf", "ae440c1154fa3c5e1613b5fe267df4de0961125fb7bb252cd1ec314642470898", "8cb672eeb19bbd211d2717b5d7a6214c163d4d5207248fe2f34ced473f468477", "fdd6a9dd2d4a8a28e0a830f951142def8943d370c40e39c0a22b40515e49fc51", "d5150be95a24b80c18794b7d46a70e38bf41f7646d35f5792250d1e70b992859", "19d514a9a6ea6771cf98b89da926cd085b52b73d64d882436b67bad332f704e8", "a6cfc086d43a3712f0d9183a71b004a5fa17fa06b64a39c9db2a4b36ccb6af20", "7e4e25d44447f54e4ee767447f09279562fc80b7337d4916385de0d830a67325", "0d1de2c9fca4b2a5b7170c0160203612ad9fd25d0590cfdf497e7b63550dd564", "18d7423668ab6f8ac6251b0f8111842ec410804bf592b93ec24344a4071a5f3d", "3b6b510159195592252adb23cde94c8d340eae93054a59947196544c85f1e733"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/country/cckp.py",
-      "transform_sha256": "5cfdd50878c9ffae5d481cc971232bf1460dc17d3a486d6b825936085104a74a"
+      "transform_sha256": "24cc3d380d075d6e7f9da61b4e9d376e2344320f4937c0885aea6d4132991ef3"
     },
     {
       "description": "Published the median as the value and the 10th and 90th percentiles as the range, as printed. Mapped CCKP's codes to the site's entities: ISO 3166-1 alpha-3 codes as they are and KSV (CCKP's code for Kosovo) to KOS. Every CCKP area is published, including the overseas territories Natural Earth draws inside another country (envdash/geo.py EXTRA_TERRITORIES).",
       "inputs": ["9b5de9cb0f52a46f02eafe26c7f156c380b7d45766ca3fcdb36a537da235908d", "90ddace0604ca99cf997d0034484464d30c204020d62197e9bafb565a64871bf", "ae440c1154fa3c5e1613b5fe267df4de0961125fb7bb252cd1ec314642470898", "8cb672eeb19bbd211d2717b5d7a6214c163d4d5207248fe2f34ced473f468477", "fdd6a9dd2d4a8a28e0a830f951142def8943d370c40e39c0a22b40515e49fc51", "d5150be95a24b80c18794b7d46a70e38bf41f7646d35f5792250d1e70b992859", "19d514a9a6ea6771cf98b89da926cd085b52b73d64d882436b67bad332f704e8", "a6cfc086d43a3712f0d9183a71b004a5fa17fa06b64a39c9db2a4b36ccb6af20", "7e4e25d44447f54e4ee767447f09279562fc80b7337d4916385de0d830a67325", "0d1de2c9fca4b2a5b7170c0160203612ad9fd25d0590cfdf497e7b63550dd564", "18d7423668ab6f8ac6251b0f8111842ec410804bf592b93ec24344a4071a5f3d", "3b6b510159195592252adb23cde94c8d340eae93054a59947196544c85f1e733"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/country/cckp.py",
-      "transform_sha256": "5cfdd50878c9ffae5d481cc971232bf1460dc17d3a486d6b825936085104a74a"
+      "transform_sha256": "24cc3d380d075d6e7f9da61b4e9d376e2344320f4937c0885aea6d4132991ef3"
     }
   ],
   "published_value": null,

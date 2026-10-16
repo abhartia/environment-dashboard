@@ -51,28 +51,28 @@
     {
       "description": "Read meta.xml, eml.xml, taxon.txt and distribution.txt from the IUCN Red List version 2026-1 archive on GBIF; checked the column positions against meta.xml and the version against eml.xml's citation.",
       "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
       "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
     },
     {
       "description": "Counted accepted taxa of rank species (175,909), each by the category of its single Global distribution row: Least Concern 91,357; Data Deficient 23,037; Endangered 20,372; Vulnerable 18,186; Critically Endangered 10,947; Near Threatened 10,259; Extinct 951; near threatened 442; least concern 160; conservation dependent 115; Extinct in the Wild 83. Left out accepted taxa below species (2 subspecies, 1,133 subspecies (plantae), 967 variety).",
       "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
       "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
     },
     {
       "description": "Threatened = Critically Endangered + Endangered + Vulnerable. The lower-case categories are assessments under IUCN's 1994 criteria (Lower Risk) and are counted as not threatened.",
       "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
       "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
     },
     {
       "description": "Groups, matched exactly on the archive's kingdom and class: Mammals: kingdom ANIMALIA, class MAMMALIA; Birds: kingdom ANIMALIA, class AVES; Amphibians: kingdom ANIMALIA, class AMPHIBIA; Reptiles: kingdom ANIMALIA, class REPTILIA; Ray-finned fishes: kingdom ANIMALIA, class ACTINOPTERYGII; Sharks, rays and chimaeras: kingdom ANIMALIA, class CHONDRICHTHYES; Insects: kingdom ANIMALIA, class INSECTA; Plants: kingdom PLANTAE; Fungi: kingdom FUNGI.",
       "inputs": ["2ed2c5f75667fa2dee9dc718406b5ba094fa9312e548934916b16c0c509ccb7d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/nature/iucn_red_list.py",
       "transform_sha256": "704bf4c54d922f196941212fa86bb258d3adffe15ab43c56bc44e7ec0f6e9b8f"
     }

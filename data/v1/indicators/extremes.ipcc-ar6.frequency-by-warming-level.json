@@ -61,28 +61,28 @@
     {
       "description": "Read the four frequency files of Figure SPM.6 (CEDA version v20210809: panel_a/TXx_freq_change_10_year_event.csv, panel_b/TXx_freq_change_50_year_event.csv, panel_c/Rx1day_freq_change_10_year_event.csv, panel_d/drought_freq_change_10_year_event.csv). Each gives, at global warming levels of 1.0, 1.5, 2.0, 3.0, 4.0 °C, how many times as often an extreme that occurred once in 10 (or 50) years in 1850–1900 occurs: the median of the CMIP6 multi-model ensemble and its 17th, 83rd, 5th and 95th percentiles. Checked that the five percentiles are in order in every row.",
       "inputs": ["0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758", "fa0bae3d1795cc3cc2a7e3f3e931cab8e87b343a6569a82a2ab98f0085de41a6", "295a667b35b198aa56a21e5bc99e635f36af35fc3a52badda0270e3771c2246c", "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac", "a9a555f05c7b92d3bdd5e055469c8d8ebce68d00d4143b6b06eaa8c308a942ec"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm6.py",
       "transform_sha256": "59295a35370825239e2ca1bb48af85b2c95a2552f253a2344d80299585c830d3"
     },
     {
       "description": "Published the median as the value and the 5th to 95th percentile as the range (very likely range), as the published figure shows them; the 17th–83rd percentiles are not published. Values are as printed in the files. Each is dated 2021, the year of the assessment: the warming level, not the date, is what varies. The 3.0 °C level is in the files but not in the published figure, whose caption lists 1, 1.5, 2 and 4 °C; its label says so.",
       "inputs": ["0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758", "fa0bae3d1795cc3cc2a7e3f3e931cab8e87b343a6569a82a2ab98f0085de41a6", "295a667b35b198aa56a21e5bc99e635f36af35fc3a52badda0270e3771c2246c", "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac", "a9a555f05c7b92d3bdd5e055469c8d8ebce68d00d4143b6b06eaa8c308a942ec"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm6.py",
       "transform_sha256": "59295a35370825239e2ca1bb48af85b2c95a2552f253a2344d80299585c830d3"
     },
     {
       "description": "Checked against metadata.yaml: each file is listed under its figure panel (the Readme's panel letters for precipitation and drought are out of date); the caption gives the base periods used in the labels (1851–1900 for heat and rain, 1850–1900 for drought); and it lists 17 drying regions for drought, of which the Caribbean is not included in the calculation, so the drought values cover 16.",
       "inputs": ["0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758", "fa0bae3d1795cc3cc2a7e3f3e931cab8e87b343a6569a82a2ab98f0085de41a6", "295a667b35b198aa56a21e5bc99e635f36af35fc3a52badda0270e3771c2246c", "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac", "a9a555f05c7b92d3bdd5e055469c8d8ebce68d00d4143b6b06eaa8c308a942ec"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm6.py",
       "transform_sha256": "59295a35370825239e2ca1bb48af85b2c95a2552f253a2344d80299585c830d3"
     },
     {
       "description": "Checked against the published figure (IPCC AR6 WGI SPM, p. 18): each of the 16 ranges it prints equals the 5th and 95th percentiles rounded half up to one decimal, and each printed median is a publisher cross-check.",
       "inputs": ["0e5c0403b26a65d8079ea80844df7febcbe7ab47520ccd6e6dda2e0d81bee758", "fa0bae3d1795cc3cc2a7e3f3e931cab8e87b343a6569a82a2ab98f0085de41a6", "295a667b35b198aa56a21e5bc99e635f36af35fc3a52badda0270e3771c2246c", "f15a0ab6987ee51b02f260e6145cf221fb7d8ef59fc167858fac7744c9d5e7ac", "a9a555f05c7b92d3bdd5e055469c8d8ebce68d00d4143b6b06eaa8c308a942ec"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/ipcc_ar6_spm6.py",
       "transform_sha256": "59295a35370825239e2ca1bb48af85b2c95a2552f253a2344d80299585c830d3"
     }

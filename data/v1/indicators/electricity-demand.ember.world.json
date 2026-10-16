@@ -33,28 +33,28 @@
     {
       "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-10-06 (Ember gives no version label, so that date is the vintage), and kept Area 'World', Electricity source 'Demand', column 'Generation (TWh)'.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
       "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
     },
     {
       "description": "Checked that World demand equals World total generation (the world has no net imports) in every year, to within the rounding of the printed values.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
       "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
     },
     {
       "description": "Marked a year preliminary, with a note giving the count, when the file has no Demand for that year for a country or economy that has it for an earlier year; Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…; both sentences found on pages 10, 12) says it estimates the latest annual values from monthly data and a country's missing years from historical trends. Preliminary years in this vintage: 2023, 2024, 2025.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
       "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
     },
     {
       "description": "Published World demand as printed.",
       "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_demand.py",
       "transform_sha256": "62080a6f510a41869d7a7f989f86d654ecddc667ee7e692e7a9271908d0d5df3"
     }

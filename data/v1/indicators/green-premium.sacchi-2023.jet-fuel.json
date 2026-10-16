@@ -61,21 +61,21 @@
     {
       "description": "Read the article's JATS XML from Europe PMC (sha256 d6c6f56ad109…) and checked its DOI, the caption of Table 4 and 5 sentences of the Methods.",
       "inputs": ["d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/jet_fuel_sacchi_2023.py",
       "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
     },
     {
       "description": "Published the 4 levelised costs of synthetic jet fuel in Table 4 (two scenarios, 2030 and 2050), each addressed by its printed scenario row and column header, exactly as printed.",
       "inputs": ["d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/jet_fuel_sacchi_2023.py",
       "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
     },
     {
       "description": "Published no value for conventional jet fuel: the article's 0.50 €/kg is a third party's 2019 production cost used as an input (via Becattini et al. 2021, from an International Energy Agency chart), so each conventional cell is a missing value that says so.",
       "inputs": ["d6c6f56ad1095d92de5636ffcc93f0dcf0cabc33dd8e02b51f4454e2718d894e"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/jet_fuel_sacchi_2023.py",
       "transform_sha256": "ad20f3a07d962159634e5781b6c20aec09029258b885459e3c4d40f9d6f10303"
     }

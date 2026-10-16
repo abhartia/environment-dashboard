@@ -57,35 +57,35 @@
     {
       "description": "Read Supplementary Data 1 (sha256 37a6ab2fc25e…): its 27 column headings had to be exactly as expected. Kept the rows of Place 'World' and of the 134 countries and territories, each with the same 13 sea levels in the same order (present day, then K14 and K17 under RCP2.6, 4.5 and 8.5 for 2050 and 2100), and from each only the three CoastalDEM columns of RL1: land below the future local high tide line plus the local 1-year coastal flood level. The authors' group of small island developing states (SIDS), the Total column and the SRTM, JAXA and MERITDEM columns are not used. The file description says places where the most people exposed is under 0.01 million are left out of the file, so a country absent here has no value, never zero.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
       "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Mapped each Place name to the site's entity: 10 names through the explicit alias table for this source (envdash/geo.py), the rest by their exact name in pipeline/geo/entities.csv.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
       "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Published the 50th percentile as the value and the 5th and 95th percentiles as the lower and upper ends of a 90% interval, each multiplied by one million to give people (exact decimal arithmetic on the printed digits, so the values keep the file's two significant figures). The present-day row prints '--' for both percentiles, so it has no range.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
       "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Dated the present-day row 2010, the year of the LandScan population that every row counts (its sea level is that of 2000, the zero of both projection sets), and the projected rows 2050 and 2100, the years of their sea levels; the population stays as it was in 2010.",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
       "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     },
     {
       "description": "Checked the file against Table 1 of the corrected article (sha256 912692e7c7a3…, page 3): each of its 24 CoastalDEM totals, median and 90% interval, equals the file's three numbers. Found the 20 sentences that the scope and the cross-checks rely on, each on its page of the article (which page 1 marks 'Corrected: Author correction'), and the 2 on units, exposures and percentiles in the description of the supplementary files (sha256 2b98673da602…).",
       "inputs": ["37a6ab2fc25ec632f8dc7485346d0389d953754b591d6b015c45b5d6de4c0b81", "2b98673da602184f06aa3d86a939ea6b977dfb847181cf979472349695a1a771", "912692e7c7a388dfb735f5ec9b1dca5bd6d42b40ed11c88014594ba6b0dd6d3f"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/impacts/kulp_strauss.py",
       "transform_sha256": "5ddd6351a3e35c3870dc431f28867df83f4c2928638eac13412415e3ad226abb"
     }

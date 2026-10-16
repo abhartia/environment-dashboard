@@ -32,21 +32,21 @@
     {
       "description": "Read global.csv from wgms-amce-2026-02-10.zip (hydrological years 1976 to 2025) and published the gt_cumsum column (cumulative glacier mass change in Gt) as printed.",
       "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
       "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
     },
     {
       "description": "Lower and upper are gt_cumsum minus and plus gt_cumsum_sigma, which the release README defines as the 1-sigma uncertainty (exact decimal arithmetic).",
       "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
       "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
     },
     {
       "description": "Checked that gt_cumsum and mmsle_cumsum are the running sums of gt and mmsle (within rounding), and that mmsle has the opposite sign of gt, so that positive mm is a rise in sea level.",
       "inputs": ["b88c2355650142160594c96dcb800e3fb58d82abbebd0ab2d976a458153e2ecc"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/wgms_amce.py",
       "transform_sha256": "ee23473d77b7f2d742e94cadcd66d8b346a31a8360b0db01f8f0f177a5ad1d8f"
     }

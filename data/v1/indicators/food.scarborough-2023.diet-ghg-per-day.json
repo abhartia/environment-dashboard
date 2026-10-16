@@ -47,14 +47,14 @@
     {
       "description": "Read the text of the article's version-of-record PDF (sha256 b061fbc4e0b2…). Found Table 3's title, column header, note and all 6 rows on PDF page 5 (printed p. 569), and the Methods sentence on the GWP100 factors on PDF page 7, word for word, before publishing.",
       "inputs": ["b061fbc4e0b22a1a548061df007ced7a17ec66c380f8e19ab5ea870ce5a81ecc"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/scarborough_2023.py",
       "transform_sha256": "3cdc437bb7f0c85722f03cec374e3643a9b94df69c2e3eec6953130fcc616d51"
     },
     {
       "description": "Published the GWP100 column (the first of the table's three metrics): for each diet group the median as the value and the 2.5th and 97.5th percentiles of the authors' 1,000-iteration Monte Carlo analysis as the 95% uncertainty interval, exactly as printed. The GTP100 and GWP20 columns are not published here.",
       "inputs": ["b061fbc4e0b22a1a548061df007ced7a17ec66c380f8e19ab5ea870ce5a81ecc"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/food/scarborough_2023.py",
       "transform_sha256": "3cdc437bb7f0c85722f03cec374e3643a9b94df69c2e3eec6953130fcc616d51"
     }

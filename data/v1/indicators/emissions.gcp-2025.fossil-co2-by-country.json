@@ -33,28 +33,28 @@
     {
       "description": "Read GCB2025v15_MtCO2_flat.csv (version 2025v15): 222 entities (countries, territories, international aviation, international shipping, three historical entities and the world), each 1750–2024, in million tonnes of carbon dioxide. The metadata file's titles, units and version were checked against the columns. Producer codes were mapped to entity codes through an explicit alias table (KSV Kosovo, XIA international aviation, XIS international shipping; the Kuwaiti oil fires, the Pacific Islands (Palau) and the Ryukyu Islands by name).",
       "inputs": ["20650c19b394d91b6b31cddff2fbc9508bcdbbed7c3f93660336f2f655f367ff", "b41c76163ac6258fee7203c417a0def6b2e7300dc59943de654b913e824f3cd4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcp_fossil_national.py",
       "transform_sha256": "9cbf1047ea48dc4b3cd8bebf1ad58a2f8c972ff9fc41c01d3f110933e694e366"
     },
     {
       "description": "Checked that the file's Global row equals the sum of all other rows (countries, international aviation and shipping, historical entities) in every year (largest difference 0.000008 Mt).",
       "inputs": ["20650c19b394d91b6b31cddff2fbc9508bcdbbed7c3f93660336f2f655f367ff", "b41c76163ac6258fee7203c417a0def6b2e7300dc59943de654b913e824f3cd4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcp_fossil_national.py",
       "transform_sha256": "9cbf1047ea48dc4b3cd8bebf1ad58a2f8c972ff9fc41c01d3f110933e694e366"
     },
     {
       "description": "Published the Total column as stated.",
       "inputs": ["20650c19b394d91b6b31cddff2fbc9508bcdbbed7c3f93660336f2f655f367ff", "b41c76163ac6258fee7203c417a0def6b2e7300dc59943de654b913e824f3cd4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcp_fossil_national.py",
       "transform_sha256": "9cbf1047ea48dc4b3cd8bebf1ad58a2f8c972ff9fc41c01d3f110933e694e366"
     },
     {
       "description": "Cells left empty in the file are not published and are never read as zero.",
       "inputs": ["20650c19b394d91b6b31cddff2fbc9508bcdbbed7c3f93660336f2f655f367ff", "b41c76163ac6258fee7203c417a0def6b2e7300dc59943de654b913e824f3cd4"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/emissions/gcp_fossil_national.py",
       "transform_sha256": "9cbf1047ea48dc4b3cd8bebf1ad58a2f8c972ff9fc41c01d3f110933e694e366"
     }

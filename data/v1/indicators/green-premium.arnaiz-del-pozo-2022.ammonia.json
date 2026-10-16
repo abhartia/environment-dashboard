@@ -67,21 +67,21 @@
     {
       "description": "Read the text of the article's version-of-record PDF (sha256 9473fa567ff4…, the copy on the Universidad Politécnica de Madrid repository) and found 10 passages from the abstract, section 3.2.3, section 4 and Tables 3 and 4 word for word on their pages.",
       "inputs": ["9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/ammonia_arnaiz_del_pozo_2022.py",
       "transform_sha256": "34796ff32ad703a6053fd24e4e3c007c2fbfb70e5ca82592aa4dcb433860e006"
     },
     {
       "description": "Published the 8 levelised costs of ammonia that the passages state, exactly as printed, in euros per tonne. Values listed with several places are read in the order the places are named. Where the abstract repeats a value, both statements agree and both are in the value's note.",
       "inputs": ["9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/ammonia_arnaiz_del_pozo_2022.py",
       "transform_sha256": "34796ff32ad703a6053fd24e4e3c007c2fbfb70e5ca82592aa4dcb433860e006"
     },
     {
       "description": "Placed the plants costed at European energy prices at 'Europe, as the study defines it', the green plants in Germany, Spain and Saudi Arabia, and the gas switching reforming plant at Saudi prices in Saudi Arabia. Nothing was subtracted or divided: the conventional and lower-carbon costs are shown side by side as the article gives them.",
       "inputs": ["9473fa567ff47afc01ee1b9f20981fea577495ba527c1eb6ccebc5c9c3676387"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/green_premium/ammonia_arnaiz_del_pozo_2022.py",
       "transform_sha256": "34796ff32ad703a6053fd24e4e3c007c2fbfb70e5ca82592aa4dcb433860e006"
     }

@@ -33,21 +33,21 @@
     {
       "description": "Quoted from AVISO's Mean Sea Level product page, section 'At the global scale'. The quote was found in the visible text of the page snapshot (sha256 40fb325e7cac…) before publishing.",
       "inputs": ["40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     },
     {
       "description": "Value: \"3.6 mm per year (+/-0.3 mm/yr, 90%CI)\" is published as 3.6 millimetres per year with the 90% range 3.3 to 3.9 (the value minus and plus 0.3). The page states the period only as \"from 1999\"; it is published as 1999/2026, 2026 being the year the page was read (4 October 2026). The page carries no date, so the vintage is that reading date.",
       "inputs": ["40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     },
     {
       "description": "Consistency check (not published): an ordinary least-squares slope through the cycle values from 1 January 1999 of the NetCDF created on 26 September 2026 (sha256 d7a57922352a…, to 15 August 2026) is 3.67 mm per year, inside AVISO's stated 90% range; the build stops if it is not.",
       "inputs": ["40fb325e7cac42366fd9b020ffda678f2e7b65fe8f527936d33e06acb3ba236a", "d7a57922352a1d8f9317e41a43b767ef9b67ec5540d67e52627e67837f9da862"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ocean/aviso_gmsl.py",
       "transform_sha256": "e2b1d842e3df28d784b2938a85968ab40fddca0cf3c8317beb95f584d8d794c7"
     }

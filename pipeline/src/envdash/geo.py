@@ -39,7 +39,9 @@ Rules, all deterministic:
   three units CCKP lists under China for Hong Kong, Macao and Taiwan in some of its files (CHINA_LISTED), which are
   entities of their own here and in CCKP's other files. A region named only by a placeholder (PLACEHOLDER_NAMES, with
   their exact counts) or by its own code (NAMED_BY_CODE) is named "Unnamed region of {country} ({code})"; a name is
-  never borrowed from another file. Region names must be unique within their country.
+  never borrowed from another file, except the seven Mexican states whose accented letters CCKP garbles
+  (GARBLED_NAMES), named as the World Bank's own boundaries file names the shape each is declared to match. Region
+  names must be unique within their country.
 - Regions are looked up by code only. EntityTable.by indexes the name and Natural Earth columns over the other rows,
   so a region that shares a country's name (Georgia, the US state; Luxembourg, a district of Luxembourg) never makes a
   name ambiguous.
@@ -295,6 +297,22 @@ CHINA_LISTED: dict[str, str] = {
 CHINA_LISTED_WORDS = re.compile(r"hong ?kong|maca[uo]|taiwan", re.IGNORECASE)
 
 
+# CCKP's names of seven Mexican states with their accented letters garbled (names workbook of 2026-10-16): written in
+# code page 437 and read as Windows-1252, é, ó and í became ‚, ¢ and ¡, and á a plain space, so two cannot be decoded
+# back. Each is named as the World Bank's GAD V1 admin-1 shape it is declared to match names it (NAM_1; the same
+# publisher's boundaries, pipeline/geo/cckp-adm1-declared.csv, where each pair carries this reason). CCKP's name is
+# checked as written: a change (CCKP fixing it, or garbling it differently) stops the build until this is re-read.
+GARBLED_NAMES: dict[str, tuple[str, str]] = {
+    "MEX.1625": ("Ciudad de M‚xico", "Ciudad de México"),
+    "MEX.16211": ("M‚xico", "México"),
+    "MEX.16212": ("Michoac n de Ocampo", "Michoacán de Ocampo"),
+    "MEX.16214": ("Nuevo Le¢n", "Nuevo León"),
+    "MEX.16217": ("Quer‚taro", "Querétaro"),
+    "MEX.16219": ("San Luis Potos¡", "San Luis Potosí"),
+    "MEX.16224": ("Yucat n", "Yucatán"),
+}
+
+
 def unnamed_region(country: str, code: str) -> str:
     return f"Unnamed region of {country} ({code})"
 
@@ -350,6 +368,9 @@ def cckp_regions(names: dict[str, str], places: list[Entity]) -> list[Entity]:
     by_code = {c for c, n in kept.items() if n == c}
     if by_code != NAMED_BY_CODE:
         raise ValueError(f"CCKP regions named by their own code are {sorted(by_code)}, not {sorted(NAMED_BY_CODE)}")
+    garbled = {c: kept.get(c) for c in GARBLED_NAMES if kept.get(c) != GARBLED_NAMES[c][0]}
+    if garbled:
+        raise ValueError(f"CCKP's names of {garbled} are not the garbled ones declared in GARBLED_NAMES; re-read them")
     table = EntityTable(tuple(places))
     parents = {e.iso3: e for e in places}
     rows: list[Entity] = []
@@ -361,7 +382,7 @@ def cckp_regions(names: dict[str, str], places: list[Entity]) -> list[Entity]:
         if parent.kind not in ("country", "territory"):
             raise ValueError(f"CCKP region {code}: its parent {parent.iso3} is a {parent.kind}")
         unnamed = name in PLACEHOLDER_NAMES or code in NAMED_BY_CODE
-        label = unnamed_region(parent.name, code) if unnamed else name
+        label = unnamed_region(parent.name, code) if unnamed else GARBLED_NAMES.get(code, (name, name))[1]
         rows.append(Entity(code, label, "region", "", "", (parent.iso3,)))
     seen: dict[tuple[str, str], str] = {}
     for e in rows:

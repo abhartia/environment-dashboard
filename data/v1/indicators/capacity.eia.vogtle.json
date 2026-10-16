@@ -32,14 +32,14 @@
     {
       "description": "Read the visible text of EIA's FAQ 207 (sha256 5cf45a61f9c4…) and found, in full, the passage dating the answer ('As of March 2026') and the passage naming the Alvin W. Vogtle Electric Generating Plant in Georgia as the largest US nuclear power plant, with a total net summer electricity generating capacity of 4,530 MW.",
       "inputs": ["5cf45a61f9c4f9d30829c743f8b5e1c6ea6b6e901d5c32bf3406618a2d20f39d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_faq_nuclear.py",
       "transform_sha256": "f5d72e1b5a6eeff1c4f438c8d187977d58e493879cbd202bc11baedc0753ba83"
     },
     {
       "description": "Unit conversion: 4,530 megawatts divided by 1,000 gives gigawatts, exactly. This is a capacity, the most the plant can deliver in summer conditions after its own use, not its average output.",
       "inputs": ["5cf45a61f9c4f9d30829c743f8b5e1c6ea6b6e901d5c32bf3406618a2d20f39d"],
-      "lock_sha256": "7e110986c30381965c2e6096466c401cbf72bd1b7a828369f6f6c14c909dcbda",
+      "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_faq_nuclear.py",
       "transform_sha256": "f5d72e1b5a6eeff1c4f438c8d187977d58e493879cbd202bc11baedc0753ba83"
     }

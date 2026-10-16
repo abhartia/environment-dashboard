@@ -3825,6 +3825,474 @@
       "title": "Tree cover lost each year, by what drove it"
     },
     {
+      "bytes": 321037,
+      "description": "Days a year with a heat index of 39 °C or more, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every country and territory, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:e0d42756d2a981f5768e006aeed653d0e415a7cd67f4c59f800f9330c064c0c3",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.heat-index-39c-days-countries",
+      "path": "v1/indicators/future.wb-cckp.heat-index-39c-days-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days a year with a heat index of 39 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Days a year with a heat index of 39 °C or more by country, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 4766596,
+      "description": "Days a year with a heat index of 39 °C or more, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every state or province, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:67b9dcbd31bd50437fee029e41bb15aa40b01d45decf62a3a4fd128b2300d7a2",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.heat-index-39c-days-regions",
+      "path": "v1/indicators/future.wb-cckp.heat-index-39c-days-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days a year with a heat index of 39 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Days a year with a heat index of 39 °C or more by state or province, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 302587,
+      "description": "Days a year at 35 °C or more, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every country and territory, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:94e38cd25fe13ddc22bd15c00828cc877a66f0d362102768ed65d59eec47ee7f",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.hot-days-35c-countries",
+      "path": "v1/indicators/future.wb-cckp.hot-days-35c-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days a year with a daily maximum temperature of 35 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Days a year at 35 °C or more by country, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 4523204,
+      "description": "Days a year at 35 °C or more, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every state or province, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d2cada84719f89d3e4499b5ace6bcb2380e569466870ef3187af1cbc103410fa",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.hot-days-35c-regions",
+      "path": "v1/indicators/future.wb-cckp.hot-days-35c-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days a year with a daily maximum temperature of 35 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Days a year at 35 °C or more by state or province, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 314565,
+      "description": "Nights a year that stay at 26 °C or more, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every country and territory, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:260ee99ad7b6f6a5f15ce5f8b634f76d6b5df707948b931bea88c9a54acfb0c2",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.hot-nights-26c-countries",
+      "path": "v1/indicators/future.wb-cckp.hot-nights-26c-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "nights a year with a daily minimum temperature of 26 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Nights a year that stay at 26 °C or more by country, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 4632671,
+      "description": "Nights a year that stay at 26 °C or more, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every state or province, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:c7b1ebf6353cd8e630143b415cc36f246fe8bb9aa502e739a50463fd74bd57b0",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.hot-nights-26c-regions",
+      "path": "v1/indicators/future.wb-cckp.hot-nights-26c-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "nights a year with a daily minimum temperature of 26 °C or more (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Nights a year that stay at 26 °C or more by state or province, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 306945,
+      "description": "Temperature of the hottest day of the year, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every country and territory, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:f5916aadd6d50381459634fe2c19b5a0d0894ecfa0aacc35fc3589621a134cb1",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.hottest-day-countries",
+      "path": "v1/indicators/future.wb-cckp.hottest-day-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius on the hottest day of the year (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Temperature of the hottest day of the year by country, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 4580408,
+      "description": "Temperature of the hottest day of the year, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every state or province, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:aef440d6cd037a647e96a21983e63114ca495adcf9b97184f8bbd4a5b3769091",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.hottest-day-regions",
+      "path": "v1/indicators/future.wb-cckp.hottest-day-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius on the hottest day of the year (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Temperature of the hottest day of the year by state or province, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 326612,
+      "description": "Longest dry spell of the year, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every country and territory, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:758be888ae5b87b349ca7dcdcf254714027d33e68b7555396a1285b6bfea5cc3",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.longest-dry-spell-countries",
+      "path": "v1/indicators/future.wb-cckp.longest-dry-spell-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days in the year's longest run of days with less than 1 mm of precipitation (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Longest dry spell of the year by country, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 4858657,
+      "description": "Longest dry spell of the year, 1995–2014 as the models simulate it and projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every state or province, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models. The 1995–2014 values are the models' simulation of the recent past, not observations.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:2a353789286c799010641e71335c88e6095e39a74d57c67d85de885fba792a99",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.longest-dry-spell-regions",
+      "path": "v1/indicators/future.wb-cckp.longest-dry-spell-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "days in the year's longest run of days with less than 1 mm of precipitation (days)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Longest dry spell of the year by state or province, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 263159,
+      "description": "Warming from 1995–2014, projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every country and territory, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:d231f9176fbb431af40202d7c100937d70e023ba00ce830341d28b9f20d4344a",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.warming-countries",
+      "path": "v1/indicators/future.wb-cckp.warming-countries.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius warmer than the 1995–2014 average (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Warming from 1995–2014 by country, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
+      "bytes": 3941298,
+      "description": "Warming from 1995–2014, projected for 2020–2039, 2040–2059, 2060–2079 and 2080–2099 under low, middle and very high emissions, for every state or province, from the CMIP6 climate models as bias-corrected, downscaled and aggregated by the World Bank's Climate Change Knowledge Portal. Each value is averaged over the land of the place, not weighted by where people live. The value is the median of the models and the range runs from the 10th to the 90th percentile of the models.",
+      "dialect": {
+        "$schema": "https://datapackage.org/profiles/2.0/tabledialect.json",
+        "commentChar": "#"
+      },
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "sha256:86416b5d974b5a655e527ba7dc82c887d324ba9375587559f85f2cad6fcb7b45",
+      "licenses": [
+        {"name": "CC-BY-4.0", "path": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets", "title": "CC BY 4.0 with the World Bank Dataset Terms"}
+      ],
+      "mediatype": "text/csv",
+      "name": "future.wb-cckp.warming-regions",
+      "path": "v1/indicators/future.wb-cckp.warming-regions.csv",
+      "schema": {
+        "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+        "fields": [
+          {"name": "indicator_id", "type": "string"},
+          {"name": "entity", "type": "string"},
+          {"description": "ISO 8601 year, year-month or date; empty when the row is dated by age_bp", "name": "period", "type": "string"},
+          {"description": "degrees Celsius warmer than the 1995–2014 average (degC)", "name": "value", "type": "number"},
+          {"name": "lower", "type": "number"},
+          {"name": "upper", "type": "number"},
+          {"name": "interval", "type": "string"},
+          {"name": "status", "type": "string"},
+          {"name": "note", "type": "string"},
+          {"name": "missing_reason", "type": "string"},
+          {"description": "Age in years before 1950 as published (negative after 1950); empty when the row is dated by period", "name": "age_bp", "type": "number"},
+          {"name": "scenario", "title": "Emissions scenario", "type": "string"}
+        ],
+        "missingValues": [""]
+      },
+      "sources": [
+        {"path": "https://climateknowledgeportal.worldbank.org/", "title": "World Bank Group: Climate Change Knowledge Portal country climate data"}
+      ],
+      "title": "Warming from 1995–2014 by state or province, projected for 20-year windows to 2099 (CMIP6, World Bank CCKP)"
+    },
+    {
       "bytes": 1853541,
       "description": "Climate TRACE's emissions of all greenhouse gases grouped into the five activities Bill Gates uses in How to Avoid a Climate Disaster, for the world and each country, 2015–2025, plus three bands that are not one of the five: wildfires, land taking up carbon (below zero), and reservoirs. The grouping follows Rhodium Group's, which Gates's numbers come from: fuel production and refining count as making things, landfills and waste as growing things, fluorinated gases as keeping warm and cool, electricity where it is generated, and forest fires are left out. Making things: aluminium, cement, chemicals, food, beverage and tobacco, glass, iron and steel, lime, other chemicals, other metals, petrochemical steam cracking, pulp and paper, textiles, leather and apparel, wood and wood products, bauxite mining, copper mining, iron mining, other mining and quarrying, rock quarrying, sand quarrying, coal mining, oil and gas production, oil and gas refining, oil and gas transport, other fossil fuel operations (methane and nitrous oxide only), other solid fuels (methane and nitrous oxide only). Plugging in: electricity generation, heat plants, other energy use (methane and nitrous oxide only). Growing things: crop residues, cropland fires (methane and nitrous oxide only), enteric fermentation, cattle operations, enteric fermentation, cattle pasture, enteric fermentation, other animals, manure applied to soils, manure left on pasture, cattle, manure management, cattle operations, manure management, other animals, other agricultural soil emissions, rice cultivation, synthetic fertilizer application, biological treatment of solid waste (methane and nitrous oxide only), domestic wastewater treatment and discharge, incineration and open burning of waste (methane and nitrous oxide only), industrial wastewater treatment and discharge, solid waste disposal (methane and nitrous oxide only), forest land clearing, forest land degradation, net soil organic carbon. Getting around: domestic aviation, domestic shipping, international aviation, international shipping, non-broadcasting vessels, other transport (methane and nitrous oxide only), railways (methane and nitrous oxide only), road transportation. Keeping warm and cool: non-residential onsite fuel usage, other onsite fuel usage (methane and nitrous oxide only), residential onsite fuel usage, fluorinated gases. Not one of the five: wildfires: forest land fires, shrub and grass fires, wetland fires. Not one of the five: land taking up carbon: removals, net forest land, net shrub and grass land, net wetland. Not one of the five: reservoirs: water reservoirs. A group is missing in a year in which any of its subsectors is missing: growing things starts in 2016, because V5.10.0 has no 2015 estimate of cropland soil carbon, and land taking up carbon ends in 2024, because its 2025 values are not yet estimated. Carbon dioxide from the subsectors Climate TRACE takes from EDGAR, and other manufacturing, are not included, so making things, plugging in, getting around and keeping warm and cool are somewhat smaller than their full emissions.",
       "dialect": {
