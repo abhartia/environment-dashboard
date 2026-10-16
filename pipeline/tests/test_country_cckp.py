@@ -86,7 +86,7 @@ def test_transforms_read_only_registered_artifacts():
         "temp.wb-cckp.era5-annual-1991-2020",
         "hot-days-35c.wb-cckp.cmip6",
     }
-    assert len(projections) == 14  # tests/test_future_cckp.py
+    assert len(projections) == 12  # tests/test_future_cckp.py (the wettest day is withheld)
     for t in ts.values():
         assert {i.artifact_id for i in t.inputs} <= registered
     assert len(ts["hot-days-35c.wb-cckp.cmip6"].inputs) == 12
