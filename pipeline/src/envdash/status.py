@@ -88,6 +88,9 @@ def update_status(
             sid = _literature_source(paths, lid)
             if sid is not None:
                 build_fail.setdefault(sid, []).append(err)
+        if built.geo is not None and built.geo.state == "failed":
+            for sid in built.geo.source_ids:
+                build_fail.setdefault(sid, []).append(f"map shapes (data/v1/geo): {built.geo.reason}")
     fetched = dict(fetched or {})
     if built:
         for sid in sorted({sid for o in built.outcomes for sid in o.source_ids} - fetched.keys() - build_fail.keys()):

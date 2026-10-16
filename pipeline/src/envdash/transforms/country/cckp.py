@@ -11,7 +11,11 @@ What each file is, is read from its URL rather than assumed. The CCKP collection
 (`{collection}_{type}_{variable}_{product}_annual_{start}-{end}_{statistic}_{scenario}_{model}_mean/{geocode}`)
 must name exactly the variable, period, statistic, scenario and geography this module expects for that artifact,
 and every series in the file must hold exactly the stamps that period implies (1950-07 to 2025-07 for the series;
-the period's first year for a climatology). A file that says anything else stops the build.
+the period's first year for a climatology). A file that says anything else stops the build. The URL pattern admits
+only the variables in VARIABLES, the products timeseries, climatology and anomaly, and the areas all_countries,
+all_countries_subnationals (every country and every CCKP region in one file) and global; count-type products
+(popcount, popwgt, *exposure) are refused by name. Keys must be three letters, or, in an all_countries_subnationals
+file, also a region code (`IND.11510`).
 
 Definitions, from CCKP's Metadata page (read in a browser on 2026-10-05; the site returns HTTP 403 to scripts):
 - hd35 is "Number of Hot Days (Tmax >= 35°C)": "The number of days with daily maximum temperature >= 35°C that
@@ -84,13 +88,25 @@ ALIASES: dict[str, str] = {
     "GLOBAL": "WLD",
 }
 
+# The CCKP variables this site reads, by name; anything else in the variable slot does not parse. Count-type products
+# (population counts, population-weighted person-days, exposure) are refused by name in any slot, whatever this list
+# says: CCKP's national totals of counts are 2-3 times the sum of its own regions (India's population 3,354,552,300
+# against 1,663,800,215 summed over its 35 regions, 2.02×; GBR, FRA, ESP and AUS 2.0×; PRT and BES 3.0×; UMI 7.0×;
+# read from the API on 2026-10-15/16).
+VARIABLES = ("tas", "hd35", "tr26", "hi39", "txx", "rx1day", "cdd")
+COUNT_TYPES = re.compile(r"popcount|popwgt|exposure")
+
 COLLECTION_URL = re.compile(
     r"https://cckpapi\.worldbank\.org/cckp/v1/"
-    r"(?P<collection>era5-x0\.25|cmip6-x0\.25)_(?P<type>timeseries|climatology)_(?P<variable>[a-z0-9]+)_"
-    r"(?P<product>timeseries|climatology)_annual_(?P<start>\d{4})-(?P<end>\d{4})_"
+    r"(?P<collection>era5-x0\.25|cmip6-x0\.25)_(?P<type>timeseries|climatology)_"
+    rf"(?P<variable>{'|'.join(VARIABLES)})_"
+    r"(?P<product>timeseries|climatology|anomaly)_annual_(?P<start>\d{4})-(?P<end>\d{4})_"
     r"(?P<statistic>mean|median|p10|p90)_(?P<scenario>historical|ssp\d{3})_(?P<model>era5_x0\.25|ensemble_all)_mean/"
-    r"(?P<geocode>all_countries|global)\?_format=json"
+    r"(?P<geocode>all_countries_subnationals|all_countries|global)\?_format=json"
 )
+COUNTRY_KEY = re.compile(r"[A-Z]{3}")
+REGION_KEY = re.compile(r"[A-Z]{3}\.\d{1,12}")
+"""A CCKP sub-national code: the parent's three letters, a dot, and digits (`IND.11510`, Delhi)."""
 
 
 @dataclass(frozen=True)
@@ -155,6 +171,11 @@ class Collection:
 
 
 def collection_of(url: str | None) -> Collection:
+    if COUNT_TYPES.search(url or ""):
+        raise CckpFormatError(
+            f"{url!r} is a CCKP count-type product (popcount, popwgt or exposure); its national totals are inflated "
+            "2-3 times and it is never read"
+        )
     m = COLLECTION_URL.fullmatch(url or "")
     if not m:
         raise CckpFormatError(f"{url!r} is not a CCKP collection URL this module can read")
@@ -208,8 +229,14 @@ def read_file(f: InputFile, name: str, **want: object) -> tuple[Collection, dict
         require_stamps(data, range(c.start, c.start + 1), name)
     if c.geocode == "global" and set(data) != {"GLOBAL"}:
         raise CckpFormatError(f"{name}: a global file should hold only GLOBAL, found {sorted(data)[:5]}")
-    if c.geocode == "all_countries" and "GLOBAL" in data:
-        raise CckpFormatError(f"{name}: the all_countries file holds GLOBAL")
+    if c.geocode != "global":
+        if "GLOBAL" in data:
+            raise CckpFormatError(f"{name}: the {c.geocode} file holds GLOBAL")
+        regions = c.geocode == "all_countries_subnationals"
+        bad = [k for k in data if not (COUNTRY_KEY.fullmatch(k) or (regions and REGION_KEY.fullmatch(k)))]
+        if bad:
+            want = "three letters or a region code (ABC.123)" if regions else "three letters"
+            raise CckpFormatError(f"{name}: {len(bad)} keys are not {want}: {sorted(bad)[:5]}")
     return c, data
 
 

@@ -1,0 +1,187 @@
+# World Bank Official Boundaries, Global Administrative Divisions (WB GAD) V1 of 2025-05-07: the country (ADM0),
+# state and province (ADM1) and disputed-area (NDLSA, non-determined legal status areas) shapes the future map draws.
+# This is the boundary set CCKP (wb-cckp) aggregates its region values on: its ADM1 attributes rebuild CCKP's region
+# codes (envdash/geo_shapes.py; docs/sources.md "Decisions on the future map's shapes").
+# Evidence: the research of 2026-10-15/16 (to be committed under docs/research/ with the future map), re-checked below.
+#
+# Checked 2026-10-16:
+#   - The file is on CCKP's own public S3 bucket (the World Bank's, listed on the AWS Open Data registry as
+#     wbg-cckp): data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip, HTTP 200,
+#     264,700,182 B, ETag "6987265b288ff6b45b378672c37a90a3" (a single-part upload: the zip's MD5), Last-Modified
+#     Tue, 10 Jun 2025 13:12:59 GMT, Accept-Ranges bytes. Its central directory (read by range requests) lists ADM0,
+#     ADM1, ADM2 and NDLSA shapefiles (.shp, .shx, .dbf, .prj, .cpg, .sbn, .sbx, .shp.xml), every member dated
+#     2025-05-07. Only the 11 members below are read (envdash/zipmember.py), so the 195 MB ADM2 layer is never
+#     downloaded. Every .prj is GCS_WGS_1984 (EPSG:4326 in the .shp.xml); every .cpg reads UTF-8.
+#   - No licence or readme is inside the zip, and the .shp.xml files carry no use constraints.
+#   - Licence: the producer's catalogue page for the dataset (https://datacatalog.worldbank.org/search/dataset/0038272/
+#     world-bank-official-boundaries, metadata last updated Sep 10, 2026) reads, verbatim: "License : Creative Commons
+#     Attribution 4.0 This dataset is licensed under Creative Commons Attribution 4.0". Its licence link
+#     (https://datacatalog.worldbank.org/public-licenses?fragment=cc) says "CC-BY 4.0, with the additional terms below,
+#     is the default license for all Datasets produced by the World Bank itself and distributed as open data", the
+#     additional terms being mediation, then arbitration under the UNCITRAL rules. The World Bank Dataset Terms (the
+#     terms_url below, which wb-cckp also checks each week) license Datasets under CC BY 4.0 "Unless specifically
+#     labeled otherwise", require the attribution "The World Bank: Dataset name: Data source (if known)" to be passed
+#     on to anyone the data are shared with (met by giving the terms' URL), forbid implying endorsement and using the
+#     World Bank's name or logo, and incorporate the World Bank Terms and Conditions by reference.
+#   - ASSUMPTION (for the owner to confirm): the catalogue now offers only version 3 of the boundaries (its version
+#     history starts 2026-05-14, after this file's 2025-05-07); V1 is not listed. Its licence is taken to be the
+#     dataset-level CC BY 4.0 above, because V1 is an earlier release of the same World Bank dataset and the World Bank
+#     itself hosts it in CCKP's open bucket. The AWS registry entry for that bucket is inconsistent (its licence reads
+#     "World Bank Open Database License (ODbL)" but links to https://creativecommons.org/licenses/by/4.0/), so it is
+#     not relied on (rule 5: the producer's own terms).
+#   - The catalogue's only cartographic condition binds World Bank staff ("staff must receive legal clearance by
+#     submitting the finished map to the World Bank Cartography Unit"); the map says the boundaries are the World
+#     Bank's and that disputed areas are drawn as the World Bank draws them.
+id: wb-gad-v1
+title: World Bank Official Boundaries, Global Administrative Divisions V1 (2025-05-07)
+publisher: World Bank Group
+landing_url: https://datacatalog.worldbank.org/search/dataset/0038272/world-bank-official-boundaries
+description: >-
+  The World Bank's own boundaries for every country and territory (ADM0), every state or province (ADM1) and the
+  disputed areas it assigns to no country (non-determined legal status areas), in the release of 7 May 2025 (V1) that
+  the World Bank's Climate Change Knowledge Portal uses for its country and region values. Shapefiles in WGS 84
+  longitude and latitude. The site simplifies them into small map files; it never redraws a boundary.
+citation:
+  type: dataset
+  title: World Bank Official Boundaries (Global Administrative Divisions V1, 2025-05-07)
+  author:
+    - {literal: The World Bank}
+  issued: "2025-05-07"
+  publisher: The World Bank
+  version: V1 (2025-05-07)
+  URL: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+  # The catalogue gives no suggested citation ("citation": null in its metadata); this is the attribution format the
+  # Dataset Terms require, "The World Bank: Dataset name: Data source (if known)".
+  text: "The World Bank: World Bank Official Boundaries (GAD V1, 2025-05-07): World Bank"
+licence_class: open
+licence:
+  name: CC BY 4.0 with the World Bank Dataset Terms
+  spdx: CC-BY-4.0
+  url: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+evidence:
+  terms_url: https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+  licence_quote: >-
+    Unless specifically labeled otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0
+    International License (CC BY 4.0), with the additional terms below.
+  checked_on: 2026-10-16
+  terms_check: page
+obligations:
+  # Dataset Terms: "You agree to provide attribution to The World Bank and its data providers in the following format:
+  # The World Bank: Dataset name: Data source (if known)."
+  attribution: "The World Bank: World Bank Official Boundaries (GAD V1, 2025-05-07): World Bank"
+  attribution_modified: >-
+    Simplified by Environment Dashboard from The World Bank: World Bank Official Boundaries (GAD V1, 2025-05-07): World
+    Bank.
+  # Dataset Terms: "When sharing or facilitating access to the Datasets, you agree to include the same acknowledgment
+  # requirement in any sub-licenses of the data that you grant, and a requirement that any sub-licensees do the same.
+  # You may meet this requirement by providing the uniform resource locator (URL) of these terms of use."
+  notice: >-
+    Shared under the World Bank Dataset Terms (CC BY 4.0 with additional terms), including their attribution
+    requirement, which passes to anyone who shares these data further:
+    https://www.worldbank.org/ext/en/legal/terms-conditions/datasets
+  mirror_raw: true
+  # Dataset Terms, "No Endorsement" and "No Association" (no name, trade-mark, emblem or logo without written consent).
+  no_logo: true
+  no_endorsement: true
+acquisition: automatic
+# One zip on S3, read member by member (HTTP Range). S3 sends a strong ETag and Last-Modified, so a fetch whose zip
+# has the same size, ETag and Last-Modified keeps every snapshot after a one-byte request (envdash/fetch.py). Each
+# max_bytes is about one and a half times the member's size in the 2025-05-07 file.
+artifacts:
+  - id: adm0-shp
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM0.shp
+    format: shp
+    max_bytes: 100000000
+    description: >-
+      WB_GAD_ADM0.shp: the polygons of 267 countries and territories, one record each (68,555,828 bytes).
+  - id: adm0-shx
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM0.shx
+    format: shx
+    max_bytes: 10000
+    description: >-
+      WB_GAD_ADM0.shx: the index of the ADM0 records (2,236 bytes).
+  - id: adm0-dbf
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM0.dbf
+    format: dbf
+    max_bytes: 50000
+    description: >-
+      WB_GAD_ADM0.dbf: the attributes of each ADM0 record, among them its World Bank code (WB_A3), ISO codes and
+      English name (28,624 bytes).
+  - id: adm1-shp
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM1.shp
+    format: shp
+    max_bytes: 150000000
+    description: >-
+      WB_GAD_ADM1.shp: the polygons of 3,604 states, provinces and other first-level divisions (100,520,904 bytes).
+  - id: adm1-shx
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM1.shx
+    format: shx
+    max_bytes: 50000
+    description: >-
+      WB_GAD_ADM1.shx: the index of the ADM1 records (28,932 bytes).
+  - id: adm1-dbf
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM1.dbf
+    format: dbf
+    max_bytes: 3000000
+    description: >-
+      WB_GAD_ADM1.dbf: the attributes of each ADM1 record: its country's World Bank code (WB_A3), its name and the
+      FAO GAUL codes (GAUL_0, GAUL_1) and World Bank code (ADM1CD_t) that CCKP's region codes are built from
+      (2,040,730 bytes).
+  - id: ndlsa-shp
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_NDLSA.shp
+    format: shp
+    max_bytes: 1000000
+    description: >-
+      WB_GAD_NDLSA.shp: the polygons of the 24 non-determined legal status areas, the disputed areas the World Bank
+      assigns to no country (614,164 bytes).
+  - id: ndlsa-shx
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_NDLSA.shx
+    format: shx
+    max_bytes: 1000
+    description: >-
+      WB_GAD_NDLSA.shx: the index of the NDLSA records (292 bytes).
+  - id: ndlsa-dbf
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_NDLSA.dbf
+    format: dbf
+    max_bytes: 10000
+    description: >-
+      WB_GAD_NDLSA.dbf: the attributes of each disputed area, with the World Bank's name for it (2,410 bytes).
+  # The .prj of every layer is the same 145 bytes (CRC-32 af437f55 in the zip's central directory) and so is every
+  # .cpg (5 bytes, CRC-32 0e813c50). A snapshot is its bytes, so the same bytes cannot be two artifacts: one of each
+  # is registered, read from the ADM0 layer, and stands for all three layers.
+  - id: prj
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM0.prj
+    format: txt
+    max_bytes: 1000
+    description: >-
+      WB_GAD_ADM0.prj: the coordinate system of every layer, as WKT (GCS_WGS_1984; 145 bytes, identical in the ADM1
+      and NDLSA layers).
+  - id: cpg
+    url: https://wbg-cckp.s3.amazonaws.com/data/SHP/20250507_WB_Sovereignty_Polygons_Global_Administrative_Divisions_V1.zip
+    zip_member: WB_GAD_ADM0.cpg
+    format: txt
+    max_bytes: 100
+    description: >-
+      WB_GAD_ADM0.cpg: the text encoding of every layer's .dbf (UTF-8; 5 bytes, identical in the ADM1 and NDLSA
+      layers).
+status:
+  state: active
+  note: >-
+    A fixed, dated release: the file of 7 May 2025 has not changed since it was uploaded on 10 June 2025. The World
+    Bank's catalogue now offers later versions (version 3, September 2026) with different region codes; CCKP's portal
+    says it will move to the newer boundaries, and when it does its region codes will change and these shapes will
+    stop matching them (the build then stops rather than draw a value on the wrong shape).
+  us_federal: false
+update_cadence: Fixed release (V1, 2025-05-07); later versions are separate datasets
+twins: []
+research_ref: docs/sources.md#decisions-on-the-future-maps-shapes-2026-10-16

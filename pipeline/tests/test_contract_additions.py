@@ -34,6 +34,9 @@ def test_content_key_rules():
     Artifact(id="a", url=URL, format="zip", description="d", content_key="zip-members", member_name_ignore=r"_\d+")
     with pytest.raises(ValidationError, match="needs format zip"):
         Artifact(id="a", url=URL, format="csv", description="d", content_key="zip-members")
+    Artifact(id="a", url=URL, format="xlsx", description="d", content_key="xlsx-members")
+    with pytest.raises(ValidationError, match="needs format xlsx"):
+        Artifact(id="a", url=URL, format="zip", description="d", content_key="xlsx-members")
     with pytest.raises(ValidationError, match="only with a content_key"):
         Artifact(id="a", url=URL, format="zip", description="d", member_name_ignore="x")
     with pytest.raises(ValidationError, match="not a valid regex"):

@@ -1,0 +1,13 @@
+{
+  "artifact_id": "cmip6-hd35-2040-2059-ssp245-median-subnat",
+  "command": "uv run python tests/fixtures/make_fixture.py --source wb-cckp --artifact cmip6-hd35-2040-2059-ssp245-median-subnat --whole",
+  "date_accessed": "2026-10-16",
+  "fixture_bytes": 110326,
+  "fixture_sha256": "323022b770355a1e9a2547e65124349be19bb23458241356ad979c143c327a8d",
+  "full_bytes": 110326,
+  "full_sha256": "323022b770355a1e9a2547e65124349be19bb23458241356ad979c143c327a8d",
+  "licence": "CC BY 4.0 with the World Bank Dataset Terms",
+  "rows_kept": "the whole file (110,326 bytes)",
+  "source_id": "wb-cckp",
+  "url": "https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_hd35_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/all_countries_subnationals?_format=json"
+}

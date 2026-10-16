@@ -16,8 +16,14 @@ def test_paths_and_components():
         "/data/v1/indicators/{id}.json",
         "/data/v1/sources.json",
         "/data/v1/status.json",
+        "/data/v1/geo/index.json",
+        "/data/v1/geo/world.topo.json",
+        "/data/v1/geo/adm1/{entity}.topo.json",
+        "/data/v1/geo/cckp-adm1-crosswalk.csv",
     }
     for name in ("Catalog", "CatalogEntry", "Indicator", "Observation", "SourceList", "Status", "Source"):
+        assert name in doc["components"]["schemas"]
+    for name in ("GeoIndex", "GeoFile", "GeoCountry", "TopoJsonTopology"):
         assert name in doc["components"]["schemas"]
     assert "note" in doc["components"]["schemas"]["Observation"]["required"]
 

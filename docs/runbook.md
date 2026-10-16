@@ -178,6 +178,11 @@ Every command is listed in `pipeline/README.md`; these are the ones that come up
 - **A new country, station or aggregate code:** declare it in `pipeline/src/envdash/geo.py` (`STATIONS`,
   `AGGREGATES`, `EXTRA_TERRITORIES`, or a source's alias table) and run `uv run envdash geo build`; unknown codes
   raise.
+- **The map shapes stop the build** (`envdash geo shapes`, run by `envdash build`): a CCKP region code that the
+  World Bank boundaries rebuild but whose names differ needs a row in `pipeline/geo/cckp-adm1-declared.csv`, accept
+  or reject with the reason, after checking which unit each side means; a row the files no longer support must be
+  removed. Then rewrite `pipeline/tests/expected/cckp-join-by-country.csv` (`uv run python
+  tests/test_geo_cckp_join.py` in `pipeline/`) and review its diff.
 - **A fresh checkout or runner:** `uv run envdash snapshots pull` restores from R2 every snapshot the build and the
   snapshot tests need, each checked against its sha256 (R2 variables as in step 3). It fails, naming them, for
   snapshots never archived: run `uv run envdash archive` where those bytes are and commit

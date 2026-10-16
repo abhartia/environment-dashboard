@@ -8,7 +8,8 @@ contiguous range of lines (for a web page).
 Reads the artifact's current snapshot (pipeline/manifests/current.json -> pipeline/.snapshots/<sha256>). With --first
 and --last it keeps every leading '#' comment line and the column header line unchanged, then the chosen data lines
 unchanged; with --lines START:END it keeps lines START to END (1-based, inclusive) unchanged; with --whole it keeps
-the whole file (small files only, such as a zip that cannot be cut). It writes
+the whole file (small files only, such as a zip, or one line of JSON such as a CCKP file of every country and
+region at about 110 kB, that cannot be cut by lines). It writes
 tests/fixtures/<source>/<sha12>.<format> with a <sha12>.<format>.provenance.json sidecar. Only open-class sources
 whose terms allow re-hosting the raw file (obligations.mirror_raw), because fixtures are committed to a public
 repository.
@@ -26,6 +27,7 @@ from envdash.paths import Paths
 from envdash.registry import load_registry
 
 HERE = Path(__file__).resolve().parent
+WHOLE_LIMIT = 150_000
 
 
 def cut(raw: bytes, first: int, last: int) -> tuple[bytes, dict]:
@@ -86,8 +88,8 @@ def main(argv: list[str]) -> None:
     raw = snapshots.cache_path(paths, sha).read_bytes()
     assert canonical.sha256_bytes(raw) == sha
     if args.whole:
-        if len(raw) > 100_000:
-            raise SystemExit(f"{len(raw):,} bytes is too large for a whole-file fixture (limit 100,000)")
+        if len(raw) > WHOLE_LIMIT:
+            raise SystemExit(f"{len(raw):,} bytes is too large for a whole-file fixture (limit {WHOLE_LIMIT:,})")
         sliced, info = raw, {"rows_kept": f"the whole file ({len(raw):,} bytes)"}
     elif args.lines:
         start, end = (int(x) for x in args.lines.split(":"))

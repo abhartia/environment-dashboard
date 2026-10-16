@@ -1,10 +1,20 @@
 """The source registry (pipeline/sources/*.yaml) and quoted literature values (pipeline/literature/*.yaml).
 
 Each file is validated on its own: one broken entry is reported against its id and never stops the others loading.
+
+A source file may declare `artifact_grids:` beside `artifacts:`, for a producer that serves one file per combination
+of a few values (a variable, a period, a scenario, a statistic). Each grid is an artifact whose `id`, `url` and
+`description` are templates, plus `values`: placeholder name -> an ordered mapping of value -> label. The grid
+expands into one ordinary artifact per combination of the values (in the order written, first name outermost),
+filling `{name}` with the value and `{name_label}` with its label; every other field (format, access, max_bytes …) is
+copied as written. Expansion happens here, before the entry is validated, so models.Source and data/v1/sources.json
+see only ordinary artifacts. A template naming an undeclared placeholder, a declared name the id or url does not use,
+or an expanded id or url that another artifact of the source already has, is an error for that source.
 """
 
 from __future__ import annotations
 
+import itertools
 import re
 from dataclasses import dataclass, field
 from datetime import date
@@ -72,15 +82,96 @@ def _coerce_nulls(v: object) -> object:
     return v
 
 
+class GridError(ValueError):
+    """An artifact_grids entry that cannot expand into distinct, fully named artifacts."""
+
+
+GRID_TEMPLATES = ("id", "url", "description")
+
+
+def _grid_values(grid: dict, n: int) -> dict[str, dict[str, str]]:
+    values = grid.get("values")
+    if not isinstance(values, dict) or not values:
+        raise GridError(f"artifact_grids[{n}]: values must map each placeholder to its values")
+    for name, options in values.items():
+        if not re.fullmatch(r"[a-z]+", name):
+            raise GridError(f"artifact_grids[{n}]: placeholder name {name!r} must be lower-case letters only")
+        if not isinstance(options, dict) or not options:
+            raise GridError(f"artifact_grids[{n}]: values.{name} must map each value to its label")
+        for value, label in options.items():
+            if not isinstance(label, str) or not label.strip():
+                raise GridError(f"artifact_grids[{n}]: values.{name}.{value} needs a label")
+    return values
+
+
+def _expand_grid(grid: object, n: int) -> list[dict]:
+    if not isinstance(grid, dict):
+        raise GridError(f"artifact_grids[{n}] is not a mapping")
+    missing = [k for k in GRID_TEMPLATES if not isinstance(grid.get(k), str)]
+    if missing:
+        raise GridError(f"artifact_grids[{n}]: {missing} must be given as templates")
+    values = _grid_values(grid, n)
+    known = set(values) | {f"{name}_label" for name in values}
+    for key in GRID_TEMPLATES:
+        unknown = set(PLACEHOLDER.findall(grid[key])) - known
+        if unknown:
+            raise GridError(
+                f"artifact_grids[{n}].{key}: unknown placeholders {sorted(unknown)} (declared: {sorted(known)})"
+            )
+    for key in ("id", "url"):
+        unused = set(values) - set(PLACEHOLDER.findall(grid[key]))
+        if unused:
+            raise GridError(f"artifact_grids[{n}].{key} does not use {sorted(unused)}, so its artifacts would repeat")
+    rest = {k: v for k, v in grid.items() if k not in (*GRID_TEMPLATES, "values")}
+    out: list[dict] = []
+    for combo in itertools.product(*(list(options.items()) for options in values.values())):
+        fill: dict[str, str] = {}
+        for name, (value, label) in zip(values, combo, strict=True):
+            fill[name], fill[f"{name}_label"] = value, label
+        out.append({**{k: _fill(grid[k], fill) for k in GRID_TEMPLATES}, **rest})
+    return out
+
+
+def _fill(template: str, fill: dict[str, str]) -> str:
+    return PLACEHOLDER.sub(lambda m: fill[m.group(1)], template)
+
+
+def expand_artifact_grids(raw: object) -> object:
+    """The source entry with each `artifact_grids` entry replaced by the artifacts it expands into, appended to
+    `artifacts` after those written out. Raises GridError on a malformed grid or a repeated id or url."""
+    if not isinstance(raw, dict) or "artifact_grids" not in raw:
+        return raw
+    grids = raw["artifact_grids"]
+    if not isinstance(grids, list) or not grids:
+        raise GridError("artifact_grids must be a non-empty list")
+    artifacts = raw.get("artifacts") or []
+    if not isinstance(artifacts, list):
+        return raw  # reported by validation
+    expanded = [a for n, g in enumerate(grids) for a in _expand_grid(g, n)]
+    for key in ("id", "url"):
+        seen: set[str] = set()
+        for a in [*artifacts, *expanded]:
+            v = a.get(key) if isinstance(a, dict) else None
+            if v is None:
+                continue
+            if v in seen:
+                raise GridError(f"artifact {key} {v!r} appears twice once artifact_grids are expanded")
+            seen.add(v)
+    return {**{k: v for k, v in raw.items() if k != "artifact_grids"}, "artifacts": [*artifacts, *expanded]}
+
+
 def load_registry(paths: Paths) -> Registry:
     reg = Registry()
     for path in sorted(paths.sources.glob("*.yaml")):
         sid = path.stem
         try:
-            raw = _coerce_nulls(_load_yaml(path))
+            raw = expand_artifact_grids(_coerce_nulls(_load_yaml(path)))
             src = Source.model_validate(raw)
         except ValidationError as e:
             reg.source_errors[sid] = f"{path.name} is invalid: {_short(e)}"
+            continue
+        except GridError as e:
+            reg.source_errors[sid] = f"{path.name}: {e}"
             continue
         except (yaml.YAMLError, OSError) as e:
             reg.source_errors[sid] = f"{path.name} could not be read: {e}"

@@ -82,11 +82,14 @@
           },
           "content_key": {
             "anyOf": [
-              {"const": "zip-members", "type": "string"},
+              {
+                "enum": ["zip-members", "xlsx-members"],
+                "type": "string"
+              },
               {"type": "null"}
             ],
             "default": null,
-            "description": "For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression. A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.",
+            "description": "For files rebuilt on every request (a zip generated per download): zip-members fingerprints the sorted member names and the sha256 of each member's bytes, ignoring zip timestamps, order and compression; xlsx-members does the same for a workbook, leaving out docProps/core.xml (the creator and the time the workbook was generated). A fetch whose fingerprint equals the current snapshot's keeps that snapshot (no new vintage); the manifest records both the raw sha256 and this content_sha256.",
             "title": "Content Key"
           },
           "description": {
@@ -102,7 +105,7 @@
             "description": "Find the URL from a listing at each fetch, for files whose names change."
           },
           "format": {
-            "enum": ["csv", "csv.gz", "txt", "tsv", "xlsx", "xls", "json", "xml", "zip", "nc", "pdf", "html", "rds"],
+            "enum": ["csv", "csv.gz", "txt", "tsv", "xlsx", "xls", "json", "xml", "zip", "nc", "pdf", "html", "rds", "shp", "shx", "dbf"],
             "title": "Format",
             "type": "string"
           },
@@ -193,7 +196,7 @@
             "type": "string"
           },
           "geo_coverage": {
-            "enum": ["global-only", "country", "mixed"],
+            "enum": ["global-only", "country", "subnational", "mixed"],
             "title": "Geo Coverage",
             "type": "string"
           },
@@ -436,6 +439,192 @@
         "title": "Display",
         "type": "object"
       },
+      "GeoCountry": {
+        "additionalProperties": false,
+        "description": "How one country's CCKP regions were matched to the World Bank's admin-1 shapes.",
+        "properties": {
+          "cckp_regions": {
+            "description": "CCKP's regions of this country (its DIS.* units are not countries).",
+            "minimum": 0,
+            "title": "Cckp Regions",
+            "type": "integer"
+          },
+          "entity": {
+            "title": "Entity",
+            "type": "string"
+          },
+          "file": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "description": "Its map file under data/, or null when no region was matched.",
+            "title": "File"
+          },
+          "joined": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "description": "CCKP regions matched to shapes, by method.",
+            "propertyNames": {
+              "enum": ["gaul", "adm1cd", "declared", "name"]
+            },
+            "title": "Joined",
+            "type": "object"
+          },
+          "name_rule": {
+            "description": "withheld when the two counts differ: a region split or merged between the two sets can share a name with a shape it does not match, so names alone join nothing there.",
+            "enum": ["applied", "withheld"],
+            "title": "Name Rule",
+            "type": "string"
+          },
+          "shapeless": {
+            "description": "CCKP region codes matched to a record that has no rings in the World Bank's file: matched, but listed, not drawn (sorted).",
+            "items": {
+              "type": "string"
+            },
+            "title": "Shapeless",
+            "type": "array"
+          },
+          "shapes": {
+            "description": "World Bank admin-1 records of this country.",
+            "minimum": 0,
+            "title": "Shapes",
+            "type": "integer"
+          },
+          "unjoined": {
+            "description": "CCKP region codes listed without a shape (sorted).",
+            "items": {
+              "type": "string"
+            },
+            "title": "Unjoined",
+            "type": "array"
+          },
+          "unmatched": {
+            "description": "Shapes drawn without a CCKP value, as \"V1:<record>\" (sorted).",
+            "items": {
+              "type": "string"
+            },
+            "title": "Unmatched",
+            "type": "array"
+          }
+        },
+        "required": ["entity", "cckp_regions", "shapes", "joined", "name_rule", "unjoined", "shapeless", "unmatched", "file"],
+        "title": "GeoCountry",
+        "type": "object"
+      },
+      "GeoFile": {
+        "additionalProperties": false,
+        "description": "One published map file.",
+        "properties": {
+          "bytes": {
+            "minimum": 0,
+            "title": "Bytes",
+            "type": "integer"
+          },
+          "disputed": {
+            "description": "Disputed areas (non-determined legal status areas) in the file.",
+            "minimum": 0,
+            "title": "Disputed",
+            "type": "integer"
+          },
+          "drawn": {
+            "description": "Of those, the ones with at least one ring at the file's scale; the others are a point (rp).",
+            "minimum": 0,
+            "title": "Drawn",
+            "type": "integer"
+          },
+          "features": {
+            "description": "Places in the file's main object (countries or regions); CSV rows.",
+            "minimum": 0,
+            "title": "Features",
+            "type": "integer"
+          },
+          "path": {
+            "description": "Path under data/, e.g. \"v1/geo/adm1/IND.topo.json\".",
+            "title": "Path",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          }
+        },
+        "required": ["path", "sha256", "bytes", "features", "drawn", "disputed"],
+        "title": "GeoFile",
+        "type": "object"
+      },
+      "GeoIndex": {
+        "additionalProperties": false,
+        "description": "data/v1/geo/index.json: what the map files are, where their shapes and codes came from, and how CCKP's\nregions were matched to them.",
+        "properties": {
+          "attribution": {
+            "description": "Credit line as rendered (the modified variant for the simplified shapes).",
+            "title": "Attribution",
+            "type": "string"
+          },
+          "countries": {
+            "items": {
+              "$ref": "#/components/schemas/GeoCountry"
+            },
+            "title": "Countries",
+            "type": "array"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "files": {
+            "items": {
+              "$ref": "#/components/schemas/GeoFile"
+            },
+            "minItems": 1,
+            "title": "Files",
+            "type": "array"
+          },
+          "licence": {
+            "$ref": "#/components/schemas/Licence"
+          },
+          "licence_class": {
+            "enum": ["open", "share-alike", "noncommercial", "no-derivatives", "display-only", "excluded"],
+            "title": "Licence Class",
+            "type": "string"
+          },
+          "notice": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ],
+            "default": null,
+            "title": "Notice"
+          },
+          "origins": {
+            "items": {
+              "$ref": "#/components/schemas/Origin"
+            },
+            "minItems": 1,
+            "title": "Origins",
+            "type": "array"
+          },
+          "processing": {
+            "items": {
+              "$ref": "#/components/schemas/ProcessingStep"
+            },
+            "minItems": 1,
+            "title": "Processing",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          }
+        },
+        "required": ["schema_version", "description", "licence_class", "licence", "attribution", "notice", "origins", "processing", "files", "countries"],
+        "title": "GeoIndex",
+        "type": "object"
+      },
       "Indicator": {
         "additionalProperties": false,
         "description": "An indicator with its observations as records: the pipeline's in-memory form, and the shape the site works\nwith after expanding a published IndicatorFile (web/src/lib/indicator-table.ts). Not itself a published file.",
@@ -460,7 +649,7 @@
             "$ref": "#/components/schemas/Display"
           },
           "geo_coverage": {
-            "enum": ["global-only", "country", "mixed"],
+            "enum": ["global-only", "country", "subnational", "mixed"],
             "title": "Geo Coverage",
             "type": "string"
           },
@@ -593,7 +782,7 @@
             "$ref": "#/components/schemas/Display"
           },
           "geo_coverage": {
-            "enum": ["global-only", "country", "mixed"],
+            "enum": ["global-only", "country", "subnational", "mixed"],
             "title": "Geo Coverage",
             "type": "string"
           },
@@ -1721,6 +1910,65 @@
         "title": "Status",
         "type": "object"
       },
+      "TopoJsonTopology": {
+        "description": "A TopoJSON topology (https://github.com/topojson/topojson-specification): quantised, delta-encoded arcs and the objects drawn from them. world.topo.json has objects countries (id: entity code) and disputed; adm1/<entity>.topo.json has objects regions (id: CCKP region code, or V1:<record>) and disputed. Every geometry carries properties.rp, a representative point [longitude, latitude]; a null geometry is a place too small to draw at the file's scale. meta carries the credit line and licence.",
+        "properties": {
+          "arcs": {
+            "items": {
+              "items": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "bbox": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "meta": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "objects": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "transform": {
+            "properties": {
+              "scale": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "translate": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            },
+            "required": ["scale", "translate"],
+            "type": "object"
+          },
+          "type": {
+            "const": "Topology"
+          }
+        },
+        "required": ["type", "objects", "arcs", "transform", "meta"],
+        "title": "TopoJsonTopology",
+        "type": "object"
+      },
       "Unit": {
         "additionalProperties": false,
         "properties": {
@@ -1774,6 +2022,88 @@
         },
         "summary": "Every published indicator, without its observations",
         "tags": ["data"]
+      }
+    },
+    "/data/v1/geo/adm1/{entity}.topo.json": {
+      "get": {
+        "operationId": "getRegionShapes",
+        "parameters": [
+          {"description": "Entity code of the country, e.g. IND; GeoIndex.countries[].file lists them", "in": "path", "name": "entity", "required": true, "schema": {"pattern": "^[A-Z0-9_]{2,12}$", "type": "string"}}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TopoJsonTopology"
+                }
+              }
+            },
+            "description": "The country's map."
+          },
+          "404": {
+            "description": "No such file."
+          }
+        },
+        "summary": "One country's states or provinces as CCKP's regions, with nearby disputed areas",
+        "tags": ["geo"]
+      }
+    },
+    "/data/v1/geo/cckp-adm1-crosswalk.csv": {
+      "get": {
+        "operationId": "getCckpCrosswalk",
+        "responses": {
+          "200": {
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "The crosswalk, with '#' comment lines first."
+          }
+        },
+        "summary": "Every CCKP region and World Bank admin-1 shape, with the pair made and how (CSV)",
+        "tags": ["geo"]
+      }
+    },
+    "/data/v1/geo/index.json": {
+      "get": {
+        "operationId": "getGeoIndex",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeoIndex"
+                }
+              }
+            },
+            "description": "The index of the map files."
+          }
+        },
+        "summary": "The map files: their origins, processing, licence, and how CCKP's regions were matched",
+        "tags": ["geo"]
+      }
+    },
+    "/data/v1/geo/world.topo.json": {
+      "get": {
+        "operationId": "getWorldShapes",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TopoJsonTopology"
+                }
+              }
+            },
+            "description": "The world map."
+          }
+        },
+        "summary": "Countries and disputed areas of the world, simplified (TopoJSON)",
+        "tags": ["geo"]
       }
     },
     "/data/v1/indicators/{id}.json": {

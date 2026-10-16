@@ -9,12 +9,12 @@ from typing import Annotated
 import typer
 
 from envdash import archive as archive_mod
-from envdash import canonical, contentkey, geo, snapshot_pull, snapshots
+from envdash import canonical, contentkey, geo, geo_shapes, snapshot_pull, snapshots
 from envdash import docs as docs_mod
 from envdash import issues as issues_mod
 from envdash import openapi as openapi_mod
 from envdash import private as private_mod
-from envdash.export import BuildReport, build_and_export
+from envdash.export import BuildReport, build_and_export, write_sums
 from envdash.fetch import FetchError, SourceFetch, fetch_all, make_client, manual_fetch, now_iso, resolve_url
 from envdash.paths import Paths
 from envdash.registry import Registry, load_registry
@@ -27,7 +27,9 @@ snapshot_app = typer.Typer(no_args_is_help=True, help="Record raw files.")
 app.add_typer(snapshot_app, name="snapshot")
 private_app = typer.Typer(no_args_is_help=True, help="Exports we may show but not redistribute (private R2 bucket).")
 app.add_typer(private_app, name="private")
-geo_app = typer.Typer(no_args_is_help=True, help="The entity crosswalk (pipeline/geo/entities.csv).")
+geo_app = typer.Typer(
+    no_args_is_help=True, help="The entity crosswalk (pipeline/geo/entities.csv) and the map shapes (data/v1/geo/)."
+)
 app.add_typer(geo_app, name="geo")
 snapshots_app = typer.Typer(no_args_is_help=True, help="The local cache of raw snapshots (pipeline/.snapshots).")
 app.add_typer(snapshots_app, name="snapshots")
@@ -73,6 +75,22 @@ def _print_build(report: BuildReport) -> None:
             typer.echo(f"           publisher check [{c.status}] {c.check.source_id} {c.check.vintage}: {c.detail}")
     for lid, err in report.literature_errors.items():
         typer.echo(f"  failed   literature/{lid}: {err}")
+    if report.geo is not None:
+        _print_geo(report.geo)
+
+
+def _print_geo(o: geo_shapes.Outcome) -> None:
+    typer.echo(f"  {o.state:<8} geo shapes (data/v1/geo)")
+    if o.reason:
+        typer.echo(f"           {o.reason}")
+    if o.index is not None:
+        joined = sum(sum(c.joined.values()) for c in o.index.countries)
+        regions = sum(c.cckp_regions for c in o.index.countries)
+        maps = sum(1 for c in o.index.countries if c.file)
+        typer.echo(f"           {joined:,} of {regions:,} CCKP regions on a shape; {maps} country maps")
+        for f in o.index.files:
+            if not f.path.startswith("v1/geo/adm1/"):
+                typer.echo(f"           {f.path}: {f.bytes:,} bytes, {f.features:,} features ({f.drawn:,} drawn)")
 
 
 def _do_fetch(paths: Paths, reg: Registry, only: list[str] | None) -> dict[str, SourceFetch]:
@@ -378,10 +396,24 @@ def docs_licensing() -> None:
 
 @geo_app.command("build")
 def geo_build() -> None:
-    """Rebuild pipeline/geo/entities.csv from the current natural-earth snapshots and the declared rows."""
+    """Rebuild pipeline/geo/entities.csv from the current natural-earth snapshots, CCKP's names of its regions
+    (wb-cckp/subnational-names) and the declared rows."""
     paths = _paths()
     changed = geo.write(paths)
     typer.echo(f"{paths.rel(geo.entities_path(paths))} {'written' if changed else 'unchanged'}")
+
+
+@geo_app.command("shapes")
+def geo_shapes_cmd(
+    force: Annotated[bool, typer.Option(help="Rebuild even if the build key is unchanged.")] = False,
+) -> None:
+    """Build data/v1/geo/ (map shapes from wb-gad-v1, matched to CCKP's regions) when its inputs changed."""
+    paths = _paths()
+    outcome = geo_shapes.write(paths, load_registry(paths), force=force)
+    _print_geo(outcome)
+    if outcome.state == "failed":
+        raise typer.Exit(1)
+    write_sums(paths)
 
 
 @app.command("report-issues")

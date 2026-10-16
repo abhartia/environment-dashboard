@@ -8,6 +8,10 @@ stable.
 getIndicator returns an IndicatorFile (observations as columns). Indicator, the same indicator with its observations
 as records, is listed as a component though no path returns it: it is the shape web/src/lib/indicator-table.ts
 expands an IndicatorFile into, so the web's types for it are generated from the same models.
+
+The map files under /data/v1/geo/ (envdash/geo_shapes.py) are TopoJSON, described by the TopoJsonTopology component
+below (written here, not from a model: the topojson library makes them), with their index (GeoIndex) and the CCKP
+crosswalk (CSV).
 """
 
 from __future__ import annotations
@@ -15,10 +19,37 @@ from __future__ import annotations
 from pydantic.json_schema import models_json_schema
 
 from envdash import canonical
-from envdash.models import SCHEMA_VERSION, Catalog, Indicator, IndicatorFile, SourceList, Status
+from envdash.models import SCHEMA_VERSION, Catalog, GeoIndex, Indicator, IndicatorFile, SourceList, Status
 from envdash.paths import Paths
 
 REF = "#/components/schemas/{model}"
+ENTITY_PATTERN = r"^[A-Z0-9_]{2,12}$"
+
+TOPOLOGY = {
+    "title": "TopoJsonTopology",
+    "description": "A TopoJSON topology (https://github.com/topojson/topojson-specification): quantised, "
+    "delta-encoded arcs and the objects drawn from them. world.topo.json has objects countries (id: entity code) and "
+    "disputed; adm1/<entity>.topo.json has objects regions (id: CCKP region code, or V1:<record>) and disputed. Every "
+    "geometry carries properties.rp, a representative point [longitude, latitude]; a null geometry is a place too "
+    "small to draw at the file's scale. meta carries the credit line and licence.",
+    "type": "object",
+    "required": ["type", "objects", "arcs", "transform", "meta"],
+    "properties": {
+        "type": {"const": "Topology"},
+        "bbox": {"type": "array", "items": {"type": "number"}},
+        "transform": {
+            "type": "object",
+            "required": ["scale", "translate"],
+            "properties": {
+                "scale": {"type": "array", "items": {"type": "number"}},
+                "translate": {"type": "array", "items": {"type": "number"}},
+            },
+        },
+        "arcs": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "integer"}}}},
+        "objects": {"type": "object", "additionalProperties": {"type": "object"}},
+        "meta": {"type": "object", "additionalProperties": {"type": "string"}},
+    },
+}
 
 
 def _ok(schema: str, description: str) -> dict:
@@ -30,7 +61,8 @@ def _ok(schema: str, description: str) -> dict:
 
 def document() -> dict:
     _, defs = models_json_schema(
-        [(m, "serialization") for m in (Catalog, IndicatorFile, Indicator, SourceList, Status)], ref_template=REF
+        [(m, "serialization") for m in (Catalog, IndicatorFile, Indicator, SourceList, Status, GeoIndex)],
+        ref_template=REF,
     )
     not_found = {"description": "No such file."}
     return {
@@ -80,6 +112,52 @@ def document() -> dict:
                     "responses": {"200": _ok("SourceList", "The sources.")},
                 }
             },
+            "/data/v1/geo/index.json": {
+                "get": {
+                    "operationId": "getGeoIndex",
+                    "summary": "The map files: their origins, processing, licence, and how CCKP's regions were matched",
+                    "tags": ["geo"],
+                    "responses": {"200": _ok("GeoIndex", "The index of the map files.")},
+                }
+            },
+            "/data/v1/geo/world.topo.json": {
+                "get": {
+                    "operationId": "getWorldShapes",
+                    "summary": "Countries and disputed areas of the world, simplified (TopoJSON)",
+                    "tags": ["geo"],
+                    "responses": {"200": _ok("TopoJsonTopology", "The world map.")},
+                }
+            },
+            "/data/v1/geo/adm1/{entity}.topo.json": {
+                "get": {
+                    "operationId": "getRegionShapes",
+                    "summary": "One country's states or provinces as CCKP's regions, with nearby disputed areas",
+                    "tags": ["geo"],
+                    "parameters": [
+                        {
+                            "name": "entity",
+                            "in": "path",
+                            "required": True,
+                            "description": "Entity code of the country, e.g. IND; GeoIndex.countries[].file lists them",
+                            "schema": {"type": "string", "pattern": ENTITY_PATTERN},
+                        }
+                    ],
+                    "responses": {"200": _ok("TopoJsonTopology", "The country's map."), "404": not_found},
+                }
+            },
+            "/data/v1/geo/cckp-adm1-crosswalk.csv": {
+                "get": {
+                    "operationId": "getCckpCrosswalk",
+                    "summary": "Every CCKP region and World Bank admin-1 shape, with the pair made and how (CSV)",
+                    "tags": ["geo"],
+                    "responses": {
+                        "200": {
+                            "description": "The crosswalk, with '#' comment lines first.",
+                            "content": {"text/csv": {"schema": {"type": "string"}}},
+                        }
+                    },
+                }
+            },
             "/data/v1/status.json": {
                 "get": {
                     "operationId": "getStatus",
@@ -89,7 +167,7 @@ def document() -> dict:
                 }
             },
         },
-        "components": {"schemas": dict(sorted(defs["$defs"].items()))},
+        "components": {"schemas": dict(sorted({**defs["$defs"], "TopoJsonTopology": TOPOLOGY}.items()))},
     }
 
 

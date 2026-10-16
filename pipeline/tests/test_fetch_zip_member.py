@@ -32,19 +32,28 @@ def _real_zip() -> bytes:
     return fixture("natural-earth", "admin-0-tiny-countries-50m")[0].read_bytes()
 
 
-def _ranged(data: bytes, seen: list[str] | None = None, *, etag: str = '"a"', ignore_range: bool = False):
+def _ranged(
+    data: bytes,
+    seen: list[str] | None = None,
+    *,
+    etag: str | None = '"a"',
+    last_modified: str | None = None,
+    ignore_range: bool = False,
+):
+    validators = {k: v for k, v in (("etag", etag), ("last-modified", last_modified)) if v is not None}
+
     def handler(request: httpx.Request) -> httpx.Response:
         rng = request.headers.get("range", "")
         if seen is not None:
             seen.append(rng)
         m = RANGE.match(rng)
         if ignore_range or not m:
-            return httpx.Response(200, content=data, headers={"etag": etag})
+            return httpx.Response(200, content=data, headers=validators)
         a, b = int(m.group(1)), min(int(m.group(2)), len(data) - 1)
         return httpx.Response(
             206,
             content=data[a : b + 1],
-            headers={"content-range": f"bytes {a}-{b}/{len(data)}", "etag": etag},
+            headers={"content-range": f"bytes {a}-{b}/{len(data)}", **validators},
         )
 
     return handler
@@ -128,26 +137,92 @@ def test_artifact_rules():
         Artifact.model_validate({**base, "url": None, "format": "csv", "zip_member": "a.csv"})
 
 
-def test_fetch_records_the_member_with_the_zip_url(tmp_paths, tmp_path):
-    data = _real_zip()
-    member = next(i.filename for i in zipfile.ZipFile(io.BytesIO(data)).infolist() if i.filename.endswith(".prj"))
+def _members_registry(tmp_paths, tmp_path, data: bytes, suffixes: tuple[str, ...]):
+    """A copy of natural-earth whose artifacts are members of the real tiny-countries zip, read from ZIP_URL."""
+    infos = zipfile.ZipFile(io.BytesIO(data)).infolist()
     paths = copy_sources(tmp_paths, tmp_path, "natural-earth")
     y = paths.sources / "natural-earth.yaml"
     doc = yaml.safe_load(y.read_text())
     doc["evidence"]["terms_check"] = "manual"
     doc["artifacts"] = [
-        {"id": "one-member", "url": ZIP_URL, "format": "txt", "description": "one member", "zip_member": member}
+        {
+            "id": f"member-{suffix}",
+            "url": ZIP_URL,
+            "format": "txt",
+            "description": "one member",
+            "zip_member": next(i.filename for i in infos if i.filename.endswith(f".{suffix}")),
+        }
+        for suffix in suffixes
     ]
     y.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True))
     reg = load_registry(paths)
     assert not reg.source_errors, reg.source_errors
+    return paths, reg
+
+
+def test_fetch_records_the_member_with_the_zip_url(tmp_paths, tmp_path):
+    data = _real_zip()
+    member = next(i.filename for i in zipfile.ZipFile(io.BytesIO(data)).infolist() if i.filename.endswith(".prj"))
+    paths, reg = _members_registry(tmp_paths, tmp_path, data, ("prj",))
     with fetch.make_client(httpx.MockTransport(_ranged(data))) as c:
         r = fetch.fetch_all(paths, reg, today=date(2026, 10, 8), client=c)["natural-earth"]
         assert r.state == "ok", r.reason
-        again = fetch.fetch_all(paths, reg, today=date(2026, 10, 15), client=c)["natural-earth"]
-    assert again.state == "unchanged" and again.artifacts[0].outcome == "same"
-    sha = snapshots.read_current(paths)["natural-earth/one-member"]
+    sha = snapshots.read_current(paths)["natural-earth/member-prj"]
     snap = snapshots.read_manifest(paths, sha)
     assert snap.zip_member == member and str(snap.url) == ZIP_URL and snap.etag == '"a"'
+    assert snap.zip_bytes == len(data) and snap.last_modified is None
     assert snapshots.cache_path(paths, sha).read_bytes() == zipfile.ZipFile(io.BytesIO(data)).read(member)
     assert snap.date_accessed == date(2026, 10, 8)
+
+
+def test_an_unchanged_zip_is_not_read_again(tmp_paths, tmp_path):
+    """Same size, ETag and Last-Modified as when the current snapshots were read: one one-byte request for the zip,
+    however many of its members are registered, and every member keeps its snapshot."""
+    data = _real_zip()
+    paths, reg = _members_registry(tmp_paths, tmp_path, data, ("prj", "dbf", "shx"))
+    lm = "Tue, 10 Jun 2025 13:12:59 GMT"
+    with fetch.make_client(httpx.MockTransport(_ranged(data, etag='"a"', last_modified=lm))) as c:
+        first = fetch.fetch_all(paths, reg, today=date(2026, 10, 8), client=c)["natural-earth"]
+    assert first.state == "ok" and {a.outcome for a in first.artifacts} == {"new"}
+    before = snapshots.read_current(paths)
+    seen: list[str] = []
+    with fetch.make_client(httpx.MockTransport(_ranged(data, seen, etag='"a"', last_modified=lm))) as c:
+        again = fetch.fetch_all(paths, reg, today=date(2026, 10, 15), client=c)["natural-earth"]
+    assert again.state == "unchanged", again.reason
+    assert [a.outcome for a in again.artifacts] == ["not-modified"] * 3
+    assert seen == ["bytes=0-0"]
+    assert snapshots.read_current(paths) == before
+
+
+@pytest.mark.parametrize(
+    ("change", "validators"),
+    [
+        ("etag", {"etag": '"b"', "last_modified": "Tue, 10 Jun 2025 13:12:59 GMT"}),
+        ("last-modified", {"etag": '"a"', "last_modified": "Wed, 11 Jun 2025 08:00:00 GMT"}),
+        ("no validators", {"etag": None, "last_modified": None}),
+        ("bytes not cached", {"etag": '"a"', "last_modified": "Tue, 10 Jun 2025 13:12:59 GMT"}),
+    ],
+)
+def test_a_changed_zip_is_read_again(tmp_paths, tmp_path, change, validators):
+    data = _real_zip()
+    paths, reg = _members_registry(tmp_paths, tmp_path, data, ("prj", "dbf"))
+    first_validators = (
+        {"etag": None, "last_modified": None}
+        if change == "no validators"
+        else {"etag": '"a"', "last_modified": "Tue, 10 Jun 2025 13:12:59 GMT"}
+    )
+    with fetch.make_client(httpx.MockTransport(_ranged(data, **first_validators))) as c:
+        assert fetch.fetch_all(paths, reg, today=date(2026, 10, 8), client=c)["natural-earth"].state == "ok"
+    if change == "bytes not cached":
+        snapshots.cache_path(paths, snapshots.read_current(paths)["natural-earth/member-dbf"]).unlink()
+    seen: list[str] = []
+    with fetch.make_client(httpx.MockTransport(_ranged(data, seen, **validators))) as c:
+        again = fetch.fetch_all(paths, reg, today=date(2026, 10, 15), client=c)["natural-earth"]
+    outcomes = {a.artifact_id: a.outcome for a in again.artifacts}
+    if change == "bytes not cached":
+        # Only the member whose bytes are gone is read; the other keeps its snapshot.
+        assert outcomes == {"member-prj": "not-modified", "member-dbf": "same"}
+    else:
+        assert outcomes == {"member-prj": "same", "member-dbf": "same"}
+    assert len(seen) > 1 and seen[1] != "bytes=0-0"
+    assert again.state == "unchanged"
