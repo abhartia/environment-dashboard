@@ -1,4 +1,5 @@
-# World Bank Climate Change Knowledge Portal (CCKP): ERA5 country temperature series and CMIP6 hot-day projections.
+# World Bank Climate Change Knowledge Portal (CCKP): ERA5 country temperature series, CMIP6 hot-day projections by
+# country, and CMIP6 projections of seven measures for every country and every CCKP state or province.
 # Evidence: docs/research/sources-country-and-local.json ("Climate Change Knowledge Portal (CCKP): ERA5 and CMIP6
 # aggregated to countries, ADM1 and watersheds"; verifier corrected the terms URL and added the pass-through duty).
 #
@@ -18,6 +19,53 @@
 # annual value). CCKP publishes ERA5 climatologies for 1986-2005, 1991-2020 and 1995-2014 only (a 1951-1980 call
 # returned no data). A 1951-1980 baseline would therefore be the site's own computation from the annual series; the
 # baseline CCKP itself publishes is 1991-2020 (artifacts below).
+#
+# Checked 2026-10-16 (every country and region; the artifact_grids below). The area all_countries_subnationals returns
+# every country and every CCKP state or province in one response. `envdash fetch -s wb-cckp` got HTTP 200 and data for
+# all 270 collections registered: 102,429 to 116,256 B each, 30,395,255 B in all (hd35 2040-2059 SSP2-4.5 median
+# 110,326 B, the size the research read on 2026-10-15). Content-Type application/json, still no ETag or
+# Last-Modified; a second fetch of one file (tas anomaly 2040-2059 SSP2-4.5 median, 111,948 B) was byte-identical
+# (sha256 1655c12b3566…). Every file holds the same 246 countries as the all_countries files (hd35 values identical
+# to them in the four files compared) plus 3,527 to 3,530 regions, 32 of them DIS.* (areas the World Bank assigns to
+# no country, named only by their code); one stamp ("{start}-07"); no null in any file; p10 <= median <= p90 for
+# every key. Region codes are ISO3.{FAO GAUL country code}{n}: IND.11510 Delhi (GAUL 115), KEN.133…, USA.259…,
+# with 2 to 10 digits after the dot (BES.7500175101); each region's prefix is a country in the same file, or DIS.
+# The code set is the same in every file of one variable, but differs between variables in where Hong Kong, Macao
+# and Taiwan sit: as units of China (CHN.33364910 "Hong Kong, SAR", CHN.1491879 "Macau, SAR", CHN.147295925 "Taiwan
+# Sheng" in CCKP's xlsx) for hd35, tr26, hi39, txx, rx1day and (without Taiwan) cdd; as their own single region
+# (HKG.33364910, MAC.1491879, TWN.147296925) for tas, rx1day and cdd, and TWN also for hi39 and txx. In rx1day both
+# exist with different values (CHN.147295925 151.67 mm, TWN.147296925 123.49 mm, 2040-2059 SSP2-4.5 median).
+#
+# Warming is CCKP's `anomaly` product of tas (the S3 README lists anomaly among CCKP's products). The CCKP portal
+# pages, the Metadata page included, still return HTTP 403 (Cloudflare) to scripts, so the reference period was read
+# from CCKP's own netCDF of the same collection on its public S3 bucket (data/cmip6-x0.25/tas/ensemble-all-ssp245/
+# anomaly-tas-annual-mean_cmip6-x0.25_ensemble-all-ssp245_climatology_median_2040-2059.nc, first 200 kB by HTTP
+# range): "ensemble of anomaly of Daily Near-Surface Air Temperature with reference period 1995-2014". The API
+# returns an empty data array for a 1995-2014 historical anomaly, so no baseline file is registered. The anomaly is
+# not the difference of the two published medians (a median of per-model changes): India 1.18 °C against 25.61 -
+# 24.42 = 1.19 °C; over all 3,773 areas the median gap is 0.04 °C.
+#
+# Definitions in the netCDF attributes of the same collections (2040-2059 SSP2-4.5 median files on the S3 bucket):
+# hd35 "number of days with tasmax >= 35"; hi39 "days greater than or equal to threshold (39 degC)"; tr26 "number of
+# intense tropical nights with 26 degC and higher" but also "number of days with tasmin > 26.0 C"; txx "maximum of
+# daily maximum temperatures in period"; rx1day "monthly maxima of single day precipitation" (annual files; CCKP's
+# docs label it "Average Largest 1-Day Precipitation"); cdd "longest consecutive sequence of dry days (<1mm) within
+# annual data". CCKP's GitHub collection notes (docs/collections/cmip6-x0.25.md) write hd35 as "Tmax > 35°C" and tr26
+# as "T-min > 26°C"; the Metadata page (read in a browser on 2026-10-05) says hd35 is ">= 35°C". The transform that
+# reads these files quotes the Metadata page for each measure.
+#
+# Names: CCKP serves no CSV (`_format=csv` answers HTTP 200 with an empty text/html body). `_format=xlsx` gives
+# code, name and value for every key (105,745 B for tas anomaly 2040-2059 SSP2-4.5 median; the rx1day file's 3,776
+# codes are the union of all seven variables), but it is generated per request: two fetches 80 s apart differed in
+# sha256 (0a119479ba26… and e9359a639b4e…) because docProps/core.xml stamps the request time and the zip stamps each
+# member; every other member was byte-identical. It also leaves zero values blank. No names file is registered: the
+# portal's geonames.json sits behind the Cloudflare challenge and has to be downloaded by a person (rule 7).
+#
+# Not registered, deliberately: CCKP's count-type products, the population counts (pop-x0.25 popcount) and the
+# population-weighted heatwave person-days (popwgt …exposure). Their national totals are 2-3 times the sum of CCKP's
+# own regions (read 2026-10-15/16): India's population 3,354,552,300 against 1,663,800,215 summed over its 35
+# regions (2.02×) and its person-days 38.9 billion against 19.36 billion; PAK 2.03×; GBR, FRA, ESP and AUS 2.0×; PRT
+# and BES 3.0×; UMI 7.0×. envdash/transforms/country/cckp.py refuses any URL naming them.
 id: wb-cckp
 title: Climate Change Knowledge Portal country climate data
 publisher: World Bank Group
@@ -25,10 +73,14 @@ landing_url: https://climateknowledgeportal.worldbank.org/
 description: >-
   Country and global aggregates of climate data prepared by the World Bank on its official boundaries. Observed: ERA5
   reanalysis annual mean near-surface air temperature for every country and territory from 1950, as absolute values in
-  degrees Celsius, with CCKP's 1991–2020 climatology as the reference. Projected: the number of days a year with a
-  daily maximum of 35 °C or more, from the bias-corrected, downscaled CMIP6 multi-model ensemble (median, 10th and
-  90th percentiles) for 1995–2014 and for 2040–2059 under five emissions scenarios. These are reanalysis and model
-  aggregates over each country's land area, not weather-station records.
+  degrees Celsius, with CCKP's 1991–2020 climatology as the reference. Projected, from the bias-corrected, downscaled
+  CMIP6 multi-model ensemble (median, 10th and 90th percentiles): the number of days a year with a daily maximum of
+  35 °C or more for every country, for 1995–2014 and for 2040–2059 under five emissions scenarios; and, for every
+  country and every state or province as CCKP draws them, seven measures for 2020–2039, 2040–2059, 2060–2079 and
+  2080–2099 under SSP1-2.6, SSP2-4.5 and SSP5-8.5: hot days of 35 °C or more, tropical nights of 26 °C, days with a
+  heat index of 39 °C or more, the hottest day, the wettest day and the longest dry spell (each also for the
+  1995–2014 historical runs), and warming against 1995–2014. These are reanalysis and model aggregates over the land
+  area of each country or region, not weather-station records, and not weighted by where people live.
 citation:
   type: dataset
   title: "Climate Change Knowledge Portal: Observed Climate Data, ERA5 0.25-Degree"
@@ -232,12 +284,76 @@ artifacts:
       CMIP6 multi-model ensemble 90th percentile: days per year with daily maximum temperature of 35 °C or more,
       2040–2059 under SSP5-8.5, every country.
     access: {conditional: false}
+# Every country and every CCKP state or province in one file per variable, period, scenario and statistic (expanded
+# by envdash/registry.py into 270 ordinary artifacts; see the 2026-10-16 note at the top). Labels are CCKP's own
+# wording from the netCDF attributes of the same collections on its S3 bucket, with °C and mm spelled out.
+artifact_grids:
+  # 1995–2014 reference period, CMIP6 historical runs: 6 variables × 3 statistics = 18.
+  - id: cmip6-{variable}-{period}-{scenario}-{statistic}-subnat
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_{variable}_climatology_annual_{period}_{statistic}_{scenario}_ensemble_all_mean/all_countries_subnationals?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble {statistic_label}, {period_label} reference period ({scenario_label}): {variable_label},
+      for every country and every CCKP state or province (all_countries_subnationals).
+    access: {conditional: false}
+    values:
+      variable: &absolute-variables
+        hd35: "hot days, the number of days a year with a daily maximum temperature of 35 °C or more (hd35)"
+        tr26: "intense tropical nights, the number of nights a year with 26 °C and higher (tr26)"
+        hi39: "the number of days a year with a heat index of 39 °C or more (hi39)"
+        txx: "the hottest day of the year, the maximum of daily maximum temperatures in °C (txx)"
+        rx1day: "the wettest day, the largest single-day precipitation in millimetres (rx1day)"
+        cdd: "the longest run of consecutive dry days (under 1 mm of precipitation) in the year (cdd)"
+      period:
+        1995-2014: 1995–2014
+      scenario:
+        historical: historical runs
+      statistic: &statistics
+        median: median
+        p10: 10th percentile
+        p90: 90th percentile
+  # 2020–2039 to 2080–2099 under the low, middle and very high emissions scenarios: 6 × 4 × 3 × 3 = 216.
+  - id: cmip6-{variable}-{period}-{scenario}-{statistic}-subnat
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_{variable}_climatology_annual_{period}_{statistic}_{scenario}_ensemble_all_mean/all_countries_subnationals?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble {statistic_label}, {period_label} under {scenario_label}: {variable_label}, for every
+      country and every CCKP state or province (all_countries_subnationals).
+    access: {conditional: false}
+    values:
+      variable: *absolute-variables
+      period: &future-periods
+        2020-2039: 2020–2039
+        2040-2059: 2040–2059
+        2060-2079: 2060–2079
+        2080-2099: 2080–2099
+      scenario: &scenarios
+        ssp126: SSP1-2.6
+        ssp245: SSP2-4.5
+        ssp585: SSP5-8.5
+      statistic: *statistics
+  # Warming: CCKP's own anomaly of annual mean near-surface air temperature against 1995–2014 (so no 1995–2014 file;
+  # the API returns an empty data array for it): 4 × 3 × 3 = 36.
+  - id: cmip6-tas-anomaly-{period}-{scenario}-{statistic}-subnat
+    url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_tas_anomaly_annual_{period}_{statistic}_{scenario}_ensemble_all_mean/all_countries_subnationals?_format=json
+    format: json
+    description: >-
+      CMIP6 multi-model ensemble {statistic_label}, {period_label} under {scenario_label}: the change in annual mean
+      near-surface air temperature from the 1995–2014 reference period, in °C (tas anomaly), for every country and
+      every CCKP state or province (all_countries_subnationals).
+    access: {conditional: false}
+    values:
+      period: *future-periods
+      scenario: *scenarios
+      statistic: *statistics
 status:
   state: active
   note: >-
-    The API answered on 2026-10-04 and the ERA5 country series runs to 2025. The ERA5 series is refreshed about once a
-    year; the CMIP6 projections are fixed. No version label is published, so each snapshot's sha256 and fetch date are
-    the version.
+    The API answered on 2026-10-04, and for every artifact on 2026-10-16; the ERA5 country series runs to 2025. The
+    ERA5 series is refreshed about once a year; the CMIP6 projections are fixed, but their regions follow the World
+    Bank boundaries CCKP uses, and the portal's Cartography tab says it will move to the July 2026 release (research of
+    2026-10-15), which would change region codes. No version label is published, so each snapshot's sha256 and fetch
+    date are the version.
   us_federal: false
 update_cadence: ERA5 series about once a year; CMIP6 projections static
 twins: []
