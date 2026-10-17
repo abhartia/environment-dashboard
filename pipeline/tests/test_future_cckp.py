@@ -127,8 +127,8 @@ def test_twelve_indicators_read_only_registered_files():
 
 
 def test_the_wettest_day_is_withheld():
-    """Neither wettest-day indicator is built: its national values cannot be described as CCKP documents them (module
-    docstring, "Withheld"). Its 39 files stay registered."""
+    """Neither wettest-day indicator is built: neither its national nor its region values can be described as CCKP
+    documents them (module docstring, "Withheld"; tests/test_cckp_grid.py). Its 39 files stay registered."""
     (rx1day,) = [m for m in fp.MEASURES if m.withheld is not None]
     assert (rx1day.key, rx1day.variable) == ("wettest-day", "rx1day")
     assert "rx1day" not in fp.NATIONAL_EXCEPTIONS

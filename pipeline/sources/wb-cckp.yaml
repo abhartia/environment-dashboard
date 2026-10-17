@@ -294,7 +294,9 @@ artifacts:
 # The 39 rx1day files are fetched and the snapshot tests read and check them, but neither wettest-day indicator is
 # published (2026-10-16): CCKP's national values lie below the area-weighted mean of their own regions in 6,086 of
 # 6,630 values, more the larger the country, which its documented aggregation cannot give
-# (envdash/transforms/future/cckp_projections.py, "Withheld").
+# (envdash/transforms/future/cckp_projections.py, "Withheld"). Nor are its region values the area-weighted mean of
+# CCKP's own grid (2026-10-17, the two -grid artifacts above, tests/test_cckp_grid.py): where the txx grid gives CCKP's
+# txx values, the rx1day grid gives more than CCKP's rx1day values, for regions as for countries.
   - id: subnational-names
     url: https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_climatology_rx1day_climatology_annual_2040-2059_median_ssp245_ensemble_all_mean/all_countries_subnationals?_format=xlsx
     format: xlsx
@@ -304,6 +306,27 @@ artifacts:
       for the rx1day 2040–2059 SSP2-4.5 median collection, whose codes cover every region file of the seven variables
       registered here (246 countries, 3,530 regions on 2026-10-16). Its value column is not read.
     access: {conditional: false}
+# CCKP's gridded climatologies of the same collection, on its public S3 bucket (the World Bank's own, the same Dataset
+# Terms as the API; the S3 README lists the climatology product), read only by the snapshot test that compares the
+# grid with the area values the API publishes for rx1day (envdash/transforms/future/cckp_projections.py, "Withheld").
+# txx is the control: an annual extreme whose national values agree with the area-weighted mean of their regions, so
+# its grid shows whether the comparison itself reproduces CCKP's area values. Checked 2026-10-17 (HTTP HEAD): rx1day
+# 4,206,024 B, Last-Modified Wed, 01 Apr 2026 20:37:17 GMT, ETag "62990db7c5e6f0fcdace7dfb09196a62"; txx 2,469,254 B,
+# Last-Modified Fri, 22 Mar 2024 16:40:27 GMT, ETag "acf38f00d287328d4b0940e9343d14ff"; both application/x-netcdf.
+  - id: cmip6-rx1day-2040-2059-ssp245-median-grid
+    url: https://wbg-cckp.s3.amazonaws.com/data/cmip6-x0.25/rx1day/ensemble-all-ssp245/climatology-rx1day-annual-mean_cmip6-x0.25_ensemble-all-ssp245_climatology_median_2040-2059.nc
+    format: nc
+    max_bytes: 7000000
+    description: >-
+      CMIP6 multi-model ensemble median, 2040–2059 under SSP2-4.5: the wettest day, the largest single-day
+      precipitation in millimetres (rx1day), on CCKP's 0.25° grid (netCDF).
+  - id: cmip6-txx-2040-2059-ssp245-median-grid
+    url: https://wbg-cckp.s3.amazonaws.com/data/cmip6-x0.25/txx/ensemble-all-ssp245/climatology-txx-annual-mean_cmip6-x0.25_ensemble-all-ssp245_climatology_median_2040-2059.nc
+    format: nc
+    max_bytes: 4000000
+    description: >-
+      CMIP6 multi-model ensemble median, 2040–2059 under SSP2-4.5: the hottest day of the year, the maximum of daily
+      maximum temperatures in °C (txx), on CCKP's 0.25° grid (netCDF).
 artifact_grids:
   # 1995–2014 reference period, CMIP6 historical runs: 6 variables × 3 statistics = 18.
   - id: cmip6-{variable}-{period}-{scenario}-{statistic}-subnat

@@ -282,6 +282,13 @@ def test_every_registered_cckp_url_parses():
             assert a.format == "xlsx" and str(a.url).endswith("?_format=xlsx")
             assert str(a.url).replace("?_format=xlsx", "?_format=json") in urls
             continue
+        if a.format == "nc":
+            # CCKP's gridded climatologies on its S3 bucket, read only by tests/test_cckp_grid.py, never by this module.
+            assert a.id.endswith("-grid") and str(a.url).startswith(
+                "https://wbg-cckp.s3.amazonaws.com/data/cmip6-x0.25/"
+            )
+            assert not cckp.COUNT_TYPES.search(str(a.url))
+            continue
         collection_of(str(a.url))
     combos: dict[str, set[tuple[int, int, str, str]]] = {}
     for a in _subnational_artifacts():

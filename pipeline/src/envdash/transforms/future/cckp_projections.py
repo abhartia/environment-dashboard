@@ -92,9 +92,28 @@ of gridded values, the method CCKP documents, cannot put a country below every o
 taking the year's wettest day after averaging the daily rain over the whole area would give; at equal country area the
 gap also shrinks as the country's regions get larger (+0.051 ± 0.010 of the relative gap per tenfold increase in their
 area-weighted mean area), which suggests that the region values are formed the same way and depend on the size of the
-region. CCKP documents neither. Until its gridded rx1day climatology is compared with the region and country values, or
-CCKP explains them, neither can be described truthfully as "the area-weighted mean of the 0.25° grid cells inside it",
-so neither is published.
+region. CCKP documents neither.
+
+CCKP's own grid (2026-10-17, tests/test_cckp_grid.py) shows the region values are not the documented mean either.
+CCKP's gridded ensemble median of 2040–2059 under SSP2-4.5 (wb-cckp's -grid artifacts) was averaged over the V1 shape
+of each place, every cell weighted by the fraction of it inside the shape and the cosine of its latitude, for the
+United States, Brazil, India, Sweden, the Philippines, Luxembourg, Barbados, Grenada and Saint Lucia and their 185
+regions. The hottest day (txx) is the control: the grid gives CCKP's published txx to within 0.01 °C in 156 of the 194
+places, all 22 of Sweden's among them, so the comparison does what CCKP does. The other 38 are the United States and
+India as a whole (V1's India leaves out Jammu and Kashmir) and mostly states and provinces on the Great Lakes or the sea
+(Michigan 1.93 °C), where V1's shapes and CCKP's polygons may take in different water. In those 156 places CCKP's rx1day
+is never above the grid's mean (by more than 0.01 mm), equals it in 22, all of a few cells, and lies below it in 134,
+regions as well as countries, the further the larger the place: a median of -0.1 % for the 44 places of up to five
+cells, -14.0 % for the 59 regions of 100 cells or more (correlation of the gap with the logarithm of the cells -0.80).
+CCKP prints 20.47 mm for Sweden against the grid's 25.33, and every one of its 21 regions lies below the grid too,
+Norrbotten, the largest, 22.86 mm against 25.55; for the United States it prints 20.53 against 36.35. Over every
+country (the same code, `--all`): txx agrees in 3,033 of 3,418 places, and in those rx1day lies below the grid's mean
+in 2,517, within 0.01 mm in 309 and above it in 207, with a median of -11.6 % for the 351 regions of 100 cells or more
+and -0.3 % for the 1,224 places of up to five cells. So publishing the regions alone would carry the same false
+description. Equal to the grid in a place of a cell or so, and lower the more cells are averaged, is what taking each
+year's wettest day after averaging each model's daily rain over the place would give, since cells have their wettest
+day on different days; a climatology file holds one 20-year value per cell, so it cannot test that. Neither indicator
+is published until CCKP explains its rx1day values.
 
 Vintage. CCKP publishes no version label and its API sends no Last-Modified or ETag, so the vintage is the variable
 and the newest fetch date of the files read (the sha256 of each file is in the origins).
@@ -233,10 +252,10 @@ MEASURES: tuple[Measure, ...] = (
         value_range=(0.0, 1000.0),
         definition="The year's largest one-day precipitation (CCKP's rx1day), averaged over the 20 years.",
         withheld="CCKP's national values lie below the area-weighted mean of their own regions in 6,086 of 6,630 "
-        "values, by 8.8 % at the median and more the larger the country, which the method CCKP documents cannot give, "
-        "and the region values look formed the same way; neither can be described as the area-weighted mean of the "
-        "grid cells inside the place until CCKP's gridded rx1day climatology is compared with them or CCKP explains "
-        "them.",
+        "values, which the method CCKP documents cannot give, and CCKP's own gridded rx1day climatology, averaged as "
+        "CCKP documents, gives more than CCKP publishes for regions as for countries, the further the larger the "
+        "place, where the same comparison reproduces its hottest-day values; neither can be described as the "
+        "area-weighted mean of the grid cells inside the place until CCKP explains them.",
     ),
     Measure(
         key="longest-dry-spell",

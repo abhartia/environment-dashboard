@@ -343,6 +343,20 @@ downloaded, so no new source and no new licence. Evidence: docs/research/sources
   6,086 of 6,630 values, which the method CCKP documents cannot give
   (`pipeline/src/envdash/transforms/future/cckp_projections.py`, "Withheld"). The owner agreed on 2026-10-17 to keep
   it withheld until CCKP's gridded rx1day climatology is compared with its area values, or CCKP explains them.
+  - **The comparison (2026-10-17) keeps both withheld.** `pipeline/tests/test_cckp_grid.py` averages CCKP's own
+    0.25° grids of 2040–2059 under SSP2-4.5 over the V1 shape of each place, each cell weighted by its fraction
+    inside the shape and the cosine of its latitude, as CCKP documents. The grids are on CCKP's S3 bucket under the
+    same terms and are registered as two artifacts of `wb-cckp`; only the test reads them.
+  - The hottest day is the control. Its grid gives CCKP's published value to within 0.01 °C in 156 of 194 places in
+    nine countries (3,033 of 3,418 over every country), so the comparison does what CCKP does.
+  - In those places the wettest-day grid gives more than CCKP publishes, for regions as for countries, and the gap
+    grows with the place. Regions of 100 cells or more lie 14.0 % below the grid's mean at the median, places of up
+    to five cells 0.1 %. Sweden prints 20.47 mm against the grid's 25.33 mm, its largest region 22.86 mm against
+    25.55 mm.
+  - So the region values cannot be described as the area-weighted mean of the grid cells inside the region either,
+    and the region indicator is not published alone. The pattern fits taking each year's wettest day after
+    averaging each model's daily rain over the place. A climatology file cannot test that; it would need the
+    models' daily rain. Publishing waits until CCKP explains its wettest-day values.
 
 ## Decisions on extreme weather: IPCC figure data and land TXx (2026-10-12)
 
