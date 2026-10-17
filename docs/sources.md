@@ -341,7 +341,8 @@ downloaded, so no new source and no new licence. Evidence: docs/research/sources
   hottest day, the longest dry spell and warming, for every country and every state or province (below). The wettest
   day is registered but withheld: CCKP's national values lie below the area-weighted mean of their own regions in
   6,086 of 6,630 values, which the method CCKP documents cannot give
-  (`pipeline/src/envdash/transforms/future/cckp_projections.py`, "Withheld").
+  (`pipeline/src/envdash/transforms/future/cckp_projections.py`, "Withheld"). The owner agreed on 2026-10-17 to keep
+  it withheld until CCKP's gridded rx1day climatology is compared with its area values, or CCKP explains them.
 
 ## Decisions on extreme weather: IPCC figure data and land TXx (2026-10-12)
 
@@ -434,10 +435,9 @@ Evidence: the research of 2026-10-15/16 for the future map, re-checked on 2026-1
   overseas regions under another country's code.
 - **Licence.** CC BY 4.0 with the World Bank Dataset Terms. The dataset's catalogue page reads "This dataset is
   licensed under Creative Commons Attribution 4.0". The zip carries no licence of its own. The AWS registry's label
-  for the bucket is inconsistent and is not relied on. **An assumption for the owner to confirm:** the catalogue now
-  offers only later versions (its version history starts on 2026-05-14), so V1 is taken to be under the same CC BY
+  for the bucket is inconsistent and is not relied on. **An assumption the owner accepted on 2026-10-17:** the catalogue
+  now offers only later versions (its version history starts on 2026-05-14), so V1 is taken to be under the same CC BY
   4.0, as an earlier release of the same World Bank dataset that the World Bank itself hosts in CCKP's open bucket.
-  If that is not accepted, the regions are shown as ranked bars and no region map is drawn.
 - **Fetching.** The zip is 264,700,182 bytes. Only 11 of its members are read, by range requests: the .shp, .shx and
   .dbf of ADM0, ADM1 and NDLSA, plus one .prj and one .cpg, since those two are the same bytes in every layer. A
   fetch whose zip has the same size, ETag and Last-Modified keeps every snapshot after a one-byte request.
@@ -458,15 +458,15 @@ Evidence: the research of 2026-10-15/16 for the future map, re-checked on 2026-1
     build stops if the entity table was built from another names file or lacks one of these regions.
   - Result: 3,176 of these 3,495 regions are on a shape, and 217 of 246 countries are fully matched. The other 319
     regions are listed, never drawn on a guessed shape.
-  - **The Philippines, a decision for the owner.** CCKP's 17 regions are matched to V1's 17 records by declaration,
+  - **The Philippines, kept as drawn by the owner's decision of 2026-10-17.** CCKP's 17 regions are matched to V1's 17 records by declaration,
     Bangsamoro (PHL.1961) included. V1's NAM_1 calls that record ARMM, but its P_NAME_1, from the P-code list of
     2023-11-06, calls it "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)": CCKP's name with the abbreviation,
     as for the Cordillera (CAR) and the capital region (NCR). V1's Philippine shapes are UN SALB's of 2013, from before
     the 2019 plebiscite: Cotabato City and the barangays of North Cotabato that then joined Bangsamoro lie in Region
     XII's shape (CCKP's Region 12, PHL.1969), not in ARMM's. Both regions are drawn on these shapes. If CCKP averages
     over V1's shapes, as its codes elsewhere suggest, both are right; if it uses the borders of 2019, both shapes are
-    off by that area. The alternative is to remove both declarations, which leaves both regions listed without a
-    shape and their two shapes grey.
+    off by that area. The alternative, not taken, was to remove both declarations, which would leave both regions
+    listed without a shape and their two shapes grey.
   - The table by country, `pipeline/tests/expected/cckp-join-by-country.csv`, makes any change show as a diff.
 - **A country's value against its regions (a diagnostic, not a check).** The check that stops the build is in
   `cckp_projections.py`: each national value lies within its regions' range. A national value can pass it and still
