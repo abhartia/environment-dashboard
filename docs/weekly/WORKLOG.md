@@ -31,6 +31,8 @@ assertion reproduces `data/` except Wayback links that arrived while it ran (and
 **Archive.** 284 snapshots (mostly CCKP's projection files from 2026-10-16) had never been uploaded to R2; they are
 now, and the data carries their mirror URLs. Wayback captures are slow (683 targets at up to a minute each, over three
 hours this run); the push went out once R2 was complete, and captures that landed later went in a follow-up commit.
+The Wayback record now holds 695 pages: 294 captured, 62 pending, 339 refused, most of the refusals Save Page Now's
+429 "limit of active sessions" late in the run. Next run: if SPN still throttles, consider pacing the data captures.
 
 **Releases due.** Lancet Countdown 2026: not out (explore-our-data still lists the 2025 workbooks; nothing 2026 in the
 media library). Living Planet Report 2026: still waiting for the owner's CSVs.
