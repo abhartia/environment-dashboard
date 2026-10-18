@@ -12,17 +12,17 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 |---|---|---|---|---|
 | G1 | How much international public money reaches adaptation (the fourth AGR indicator) | unep-agr-2025 online annexes PDF (noncommercial) | zero adaptation nodes | owner: download `AGR2025_Online_Annexes.pdf` by hand (runbook step 4) |
 | G3 | Wildlife populations to 2022 (Living Planet Report 2026) | living-planet-index (share-alike; terms re-read 2026-10-11) | `/food` species nodes | owner: download the nine trend CSVs, then adopt and update the citation |
-| G4 | Keep electric car shares fetchable | iea-gevo-2026 evs-historical (open) | `/energy?v=ev` and below | todo: `api.iea.org/evs` is 404 since about 2026-10-10; re-probe, else make it manual |
-| G2 | Heat-related deaths after 2021 | Lancet Countdown 2026 report, when released (noncommercial) | `/people` heat deaths | todo: check lancetcountdown.org for the 2026 workbook (usually late October) |
+| G4 | Keep electric car shares fetchable | iea-gevo-2026 evs-historical (open) | `/energy?v=ev` and below | done 2026-10-18: the IEA moved the route to `api.iea.org/electric-vehicles` (same bytes) |
+| G2 | Heat-related deaths after 2021 | Lancet Countdown 2026 report, when released (noncommercial) | `/people` heat deaths | todo: not out on 2026-10-18 (explore-our-data still lists the 2025 workbooks; no 2026 xlsx in the media library); check again |
 
 ## Dead ends answerable from data already published
 
 | # | Question | Source (class) | Node | Status |
 |---|---|---|---|---|
 | D1 | Where are electric cars the largest share of new cars, and how has each of those countries moved? | `ev.iea.sales-share` (open) | `/energy?v=ev` | done 2026-10-11 |
-| D2 | What does each of the largest energy users run on? (bars → country by fuel) | `energy.eia.primary-by-fuel` (open) | `/energy?v=all-energy-countries` | todo |
+| D2 | What does each of the largest energy users run on? (bars → country by fuel) | `energy.eia.primary-by-fuel` (open) | `/energy?v=all-energy-countries` | done 2026-10-18 (`ae-<ISO>`) |
 | D3 | Which animals the livestock methane comes from (cross-drill to food's methane by animal) | `food.faostat.livestock-ch4-by-animal` (open) | `/air?v=methane-livestock` | todo: check the food node exists, then `crossDrill` |
-| D4 | Each country with the least electricity access, over time (bars → country line vs world) | `access.wb-wdi.electricity` (open) | `/energy?v=access-countries` | todo |
+| D4 | Each country with the least electricity access, over time (bars → country line vs world) | `access.wb-wdi.electricity` (open) | `/energy?v=access-countries` | done 2026-10-18 (`access-<ISO>`) |
 | D5 | Primary forest loss and driver bars → the existing `tl-<iso>` country nodes | `forest.gfw.*` (open) | `/food?v=primary-loss-countries`, `driver-<id>` | todo (small: add bar drills only) |
 | D6 | A country's forest area over time below `tl-<iso>` | `forest.fao-fra-2025.area` (open) | `/food?v=tl-<iso>` | todo |
 | D7 | Each country's electrification over time (bars → country line) | `electricity.eurostat.share-of-final-energy` (open) | `/zero?v=electrify-countries` | todo |
@@ -45,6 +45,9 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 | N9 | A per-person denominator for energy | UN WPP 2024 or WDI population (open) | `/energy` | todo: needed before any "per person" energy view |
 
 ## Notes
+
+- EIA's United States rows by fuel do not add up to its US total (EIA's US series count solar and geothermal
+  differently, as the indicator's basis says), so a country-by-fuel view never says its bands add up to the total.
 
 - The action chapter's root has 10 choice cards (6 static, 3 domains, 1 cross-drill), one more than the 9 the weekly
   task names as the limit. No new card may go there; replace one or go a level lower.

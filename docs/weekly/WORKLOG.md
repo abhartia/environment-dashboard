@@ -3,6 +3,62 @@
 One entry per Sunday run of the data steward routine (newest first): what was refreshed, what failed and why, what
 was fixed, what depth was added, dead ends, and what the next run should do first.
 
+## 2026-10-18
+
+**Refresh.** `envdash refresh`: every automatic licence quote unchanged. New vintages: C3S Climate Bulletin September
+2026 (1.634 °C above 1850–1900; C3S's page says 1.63), NOAAGlobalTemp 6.1.0.202609 (2025 revised by the producer
+from 1.291 to 1.282 °C), C3S Climate Pulse to 16 October, EFFIS 2026 burned area 698,450 ha (from 695,936), OSI SAF and
+NSIDC sea ice, HadSST4 monthly, OISST, NASA SSH. Re-downloads with unchanged values: FAO FRA, Climate Watch (151
+submitted), Systems Change Lab, Eurostat candidate list, EIA bulk manifest and FAQ 207, Naturvårdsverket, WDI
+population. Every headline move checked against the previous catalogue: new periods or under 1%. No errata.
+
+**Failed, fixed at the root.**
+- `c3s-era5-bulletin`: the September bulletin renamed its files; no Fig1b link any more. The global all-months data
+  is now three byte-identical files (Fig2, FigSupp1a, FigSupp2a); the discover rule takes the ref1850-1900 one with
+  the figure number left open, the transform reads the month from either name, and a test checks the rule matches
+  exactly one of the page's three links. The C3S publisher check is pinned to vintage 2026-08, so it reports
+  not-applicable for 2026-09, like the other monthly sources' pinned checks.
+- `iea-gevo-2026`: the IEA moved the explorer's API from `api.iea.org/evs` to `api.iea.org/electric-vehicles` (read
+  from the explorer's own script, updated 9 October). Same query, same bytes as our snapshot, so no new vintage. The
+  processing step now names the route each snapshot came from. No manual download needed after all.
+- `rajalehto-helo-2025`: host back up; unchanged.
+
+**Still failing.** `unep-agr-2025` (online annexes PDF, owner). Snapshot tests: the same four UNEP-annex tests as last
+week; the Climate Watch test's pinned access date updated to 2026-10-18. A full forced rebuild without the UNEP
+assertion reproduces `data/` except Wayback links that arrived while it ran (and the two files holding hashes), and
+`data-private/` exactly.
+
+**Archive.** 284 snapshots (mostly CCKP's projection files from 2026-10-16) had never been uploaded to R2; they are
+now, and the data carries their mirror URLs. Wayback captures are slow (683 targets at up to a minute each, over three
+hours this run); the push went out once R2 was complete, and captures that landed later went in a follow-up commit.
+
+**Releases due.** Lancet Countdown 2026: not out (explore-our-data still lists the 2025 workbooks; nothing 2026 in the
+media library). Living Planet Report 2026: still waiting for the owner's CSVs.
+
+**Depth shipped.** Backlog D2 and D4, both small and complete, both dead ends whose next question published data
+answers. `/energy?v=all-energy-countries` bars now open `/energy?v=ae-<ISO>`: that country's energy by fuel since 1980
+(`energy.eia.primary-by-fuel`, public domain, open), kicker naming the largest fuel derived from the data (coal in
+China, India, Indonesia; gas in Russia, Iran, Canada; nuclear in France; oil elsewhere). `/energy?v=access-countries`
+bars open `/energy?v=access-<ISO>`: the country's share with electricity against the world (`access.wb-wdi.electricity`,
+CC BY 4.0, open). 30 nodes, no card added anywhere. The by-fuel view never claims its bands add up (EIA's US fuels sum
+to 95.997 against a US total of 94.556 quad Btu). Checked at desktop and 375×812 in the built-in browser: one screen,
+no scroll, chart draws, number links to its data page, bar → country → back works, no console errors. "Select a
+country." was dropped from the access ranking's sentence because it truncated at 375 px.
+
+**Gates.** ruff, ruff format, `pytest -q` (1,119 passed), `pytest -m snapshot` (all but the four UNEP-annex tests),
+`envdash validate` (0 problems), gen:api clean, typecheck, lint, `npm test` (235), build with check-build (5,368
+files, 215 indicators).
+
+**Owner actions.**
+1. Download the Living Planet Report 2026 trend CSVs (see 2026-10-11, action 1).
+2. Download `AGR2025_Online_Annexes.pdf` (runbook step 4).
+3. IDMC API key still not issued (`idmc-client-id` absent).
+4. Earthdata token expires 2026-12-05 (48 days left; renew after 2026-11-21).
+
+**Next run first.** Check for the Lancet Countdown 2026 workbooks (G2; usually late October); adopt LPR 2026 if the
+owner recorded the CSVs; then backlog D3 (livestock methane → food's methane by animal) or D5 (forest loss bars →
+the existing `tl-<iso>` nodes), both small.
+
 ## 2026-10-11
 
 First run under this routine; WORKLOG.md and BACKLOG.md created (backlog seeded from the dead-end nodes, the research
