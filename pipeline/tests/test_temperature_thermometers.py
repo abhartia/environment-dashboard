@@ -5,6 +5,7 @@ tests marked snapshot read the full cached files instead."""
 from __future__ import annotations
 
 import hashlib
+import re
 from datetime import date
 from decimal import Decimal
 
@@ -13,6 +14,7 @@ import pytest
 from envdash import snapshots
 from envdash.models import Snapshot
 from envdash.paths import Paths
+from envdash.registry import load_registry
 from envdash.transform import InputFile, Transform, run_checks, validate
 from envdash.transforms.temperature import c3s_climate_pulse as pulse
 from envdash.transforms.temperature import c3s_era5_bulletin as bulletin
@@ -153,6 +155,23 @@ def test_bulletin_result_and_publisher_check():
     assert r.changes is None
     (outcome,) = run_checks(t, {"c3s-era5-bulletin": r.vintage}, r.observations)
     assert outcome.status == "pass"
+
+
+# The three global all-months links on the September 2026 bulletin page (read 2026-10-18), all one file's bytes.
+_SEPT_2026_LINKS = [
+    "https://climate.copernicus.eu/sites/default/files/2026-10/C3S_Bulletin_temp_202609_Fig2_timeseries_era5_2t_anomalies_preindustrial_global_allmonths_DATA_0.csv",
+    "https://climate.copernicus.eu/sites/default/files/2026-10/C3S_Bulletin_temp_202609_FigSupp1a_timeseries_era5_monthly_2t_anomaly_ref19912020_global_allmonths_DATA.csv",
+    "https://climate.copernicus.eu/sites/default/files/2026-10/C3S_Bulletin_temp_202609_FigSupp2a_timeseries_anomalies_ref1850-1900_global_allmonths_DATA.csv",
+]
+
+
+def test_bulletin_discover_rule_takes_one_link_after_the_rename():
+    rule = load_registry(Paths.default()).sources["c3s-era5-bulletin"].artifacts[0].discover
+    assert rule is not None
+    matched = [u for u in _SEPT_2026_LINKS if re.fullmatch(rule.link_pattern, u)]
+    assert matched == [_SEPT_2026_LINKS[2]]
+    assert bulletin.file_month(matched[0]) == "2026-09"
+    assert bulletin.file_month(fixture("c3s-era5-bulletin", "global-allmonths")[1]["url"]) == "2026-08"
 
 
 def test_bulletin_refuses_row_whose_ano_pi_is_not_the_sum():

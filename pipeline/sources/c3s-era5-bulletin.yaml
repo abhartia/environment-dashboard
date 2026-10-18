@@ -13,6 +13,12 @@
 # a choice). Current file: data to August 2026, "Last updated: 03 Sep 2026", HTTP 200 on 2026-10-04 (Last-Modified
 # 09 Sep 2026, ETag present); resolved by `envdash resolve` and fetched on 2026-10-04. The September 2026 name under
 # 2026-10/ returned HTTP 404 on 2026-10-04 (not yet published).
+# Renamed with the September 2026 bulletin (read 2026-10-18): the page no longer links a Fig1b file. Its global
+# all-months file is now FigSupp2a_timeseries_anomalies_ref1850-1900_global_allmonths_DATA.csv; the page's Fig2
+# (..._era5_2t_anomalies_preindustrial_global_allmonths_DATA_0.csv) and FigSupp1a
+# (..._era5_monthly_2t_anomaly_ref19912020_global_allmonths_DATA.csv) files are byte-identical to it (sha256
+# b31271d6…5407e, the same header and columns as the Fig1b files). The pattern takes the ref1850-1900 name, which
+# says what is published (ano_pi), and leaves the figure number open; it matches one link on that page.
 #
 # Licence: the CSV and climate.copernicus.eu carry no licence statement of their own. The file header names its data
 # source as ERA5 monthly averaged data on the C3S Climate Data Store, whose catalogue entry is licensed CC BY 4.0 (the
@@ -91,7 +97,7 @@ artifacts:
     discover:
       listing_url: https://climate.copernicus.eu/climate-bulletin
       sublisting_pattern: 'https://climate\.copernicus\.eu/surface-air-temperature-(?P<month>[a-z]+)-(?P<year>\d{4})'
-      link_pattern: 'https://climate\.copernicus\.eu/sites/default/files/\d{4}-\d{2}/C3S_Bulletin_temp_(?P<key>\d{6})_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA(?:_\d+)?\.csv'
+      link_pattern: 'https://climate\.copernicus\.eu/sites/default/files/\d{4}-\d{2}/C3S_Bulletin_temp_(?P<key>\d{6})_Fig[0-9A-Za-z]+_timeseries_anomalies_ref1850-1900_global_allmonths_DATA(?:_\d+)?\.csv'
     format: csv
     description: >-
       Global (0–360°E, 90°S–90°N) monthly ERA5 surface air temperature from January 1940: columns month, 2t,

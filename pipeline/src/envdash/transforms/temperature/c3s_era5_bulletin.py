@@ -1,6 +1,7 @@
 """C3S Climate Bulletin: ERA5 monthly global surface air temperature relative to 1850–1900, as C3S publishes it.
 
-Input: the Bulletin's "Fig1b ... global_allmonths_DATA.csv" for the latest month (found through `discover`): a "#"
+Input: the Bulletin's "FigSupp2a ... ref1850-1900_global_allmonths_DATA.csv" ("Fig1b ... ref1991-2020" until the
+August 2026 bulletin) for the latest month (found through `discover`): a "#"
 header ending "Last updated: <dd Mon yyyy>", then columns month, 2t, clim_91-20, ano_91-20, offset_pi, ano_pi, in °C to
 four decimals, one row per month from January 1940.
 
@@ -39,7 +40,12 @@ HEADER_REQUIRED = (
     "ano_pi: Monthly anomaly relative to 1850-1900",
     "Units: deg. C",
 )
-FILE_MONTH = re.compile(r"/C3S_Bulletin_temp_(\d{6})_Fig1b_timeseries_anomalies_ref1991-2020_global_allmonths_DATA")
+# C3S renamed the file with the September 2026 bulletin (Fig1b ... ref1991-2020 became FigSupp2a ... ref1850-1900, the
+# same bytes as two other figures' files); both names are read so earlier snapshots still build.
+FILE_MONTH = re.compile(
+    r"/C3S_Bulletin_temp_(\d{6})_(?:Fig1b_timeseries_anomalies_ref1991-2020|Fig[0-9A-Za-z]+_timeseries_anomalies_ref1850-1900)"
+    r"_global_allmonths_DATA"
+)
 
 
 class BulletinFormatError(ValueError):
