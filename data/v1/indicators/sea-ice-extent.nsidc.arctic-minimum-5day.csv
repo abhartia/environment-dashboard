@@ -1,7 +1,7 @@
 # Arctic sea ice yearly minimum extent (NSIDC, 5-day mean)
 # Indicator: sea-ice-extent.nsidc.arctic-minimum-5day (vintage 4.0); unit: million square kilometres (million-km2)
 # Source: NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder) <https://nsidc.org/data/g02135/versions/4>
-# Credit: Calculated by Environment Dashboard from Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed 2026-10-11. Changes: 5-day trailing means of the daily extent, and the lowest of them in each year.
+# Credit: Calculated by Environment Dashboard from Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed 2026-10-18. Changes: 5-day trailing means of the daily extent, and the lowest of them in each year.
 # Licence: No licence stated; free use with citation as a condition of use (NSIDC) <https://nsidc.org/about/data-use-and-copyright>
 # Provenance and processing: https://environmentdashboard.org/data/sea-ice-extent/nsidc/arctic-minimum-5day
 indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
@@ -44,4 +44,4 @@ sea-ice-extent.nsidc.arctic-minimum-5day,NH,2022-09-19,4.7036,,,,final,,,
 sea-ice-extent.nsidc.arctic-minimum-5day,NH,2023-09-19,4.257,,,,final,,,
 sea-ice-extent.nsidc.arctic-minimum-5day,NH,2024-09-14,4.2516,,,,final,,,
 sea-ice-extent.nsidc.arctic-minimum-5day,NH,2025-09-10,4.6018,,,,final,"NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025.",,
-sea-ice-extent.nsidc.arctic-minimum-5day,NH,2026-09-12,4.5976,,,,preliminary,"NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025. The year is not over: the lowest 5-day mean from 1 January to 10 October 2026.",,
+sea-ice-extent.nsidc.arctic-minimum-5day,NH,2026-09-12,4.5976,,,,preliminary,"NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025. The year is not over: the lowest 5-day mean from 1 January to 16 October 2026.",,

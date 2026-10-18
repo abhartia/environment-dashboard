@@ -38,7 +38,7 @@
       "question": "submitted"
     },
     "entity": "WLD",
-    "period": "2026-10-11",
+    "period": "2026-10-18",
     "status": "final",
     "value": 151.0
   },
@@ -51,19 +51,19 @@
   "notes": [],
   "notice": "NDC documents: UNFCCC. 2026. NDC Registry. Available at: https://unfccc.int/NDCREG. Climate Watch data shared under CC BY-NC 4.0, for non-commercial use only.",
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "ndc-tracker-2025", "bytes": 303649, "citation_full": "Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker", "date_accessed": "2026-10-11", "date_published": null, "doi": null, "etag": "W/\"91fee5e71d56a8b96e1926458993d095\"", "last_modified": null, "licence": {"name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)", "spdx": "CC-BY-NC-4.0", "url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "producer": "World Resources Institute (Climate Watch)", "r2_url": "https://files.environmentdashboard.org/raw/91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f.zst", "sha256": "91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f", "source_id": "climate-watch-ndc", "title": "Climate Watch NDC Tracker (2025 NDCs)", "url_download": "https://www.climatewatchdata.org/api/v1/ndcs?indicators=2025_status,2025_statement,2025_emissions_compare,2025_source,2025_date,2025_compare_1,2025_compare_2,2025_compare_3,2025_compare_4,2025_compare_5,2025_compare_6,submission,submission_date,pa_status", "url_main": "https://www.climatewatchdata.org/", "version_producer": "NDC Tracker retrieved 2026-10-11", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "ndc-tracker-2025", "bytes": 303719, "citation_full": "Climate Watch NDC Tracker. 2026. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ndc-tracker", "date_accessed": "2026-10-18", "date_published": null, "doi": null, "etag": "W/\"4e38a3519db7d04f48d1d2704e13e136\"", "last_modified": null, "licence": {"name": "CC BY-NC 4.0 (Climate Watch dataset metadata; the site-wide text says CC BY 4.0)", "spdx": "CC-BY-NC-4.0", "url": "https://creativecommons.org/licenses/by-nc/4.0/"}, "producer": "World Resources Institute (Climate Watch)", "r2_url": "https://files.environmentdashboard.org/raw/4e38a3519db7d04f48d1d2704e13e13607b22bea7c46f5f183f3d6fd507454fa.zst", "sha256": "4e38a3519db7d04f48d1d2704e13e13607b22bea7c46f5f183f3d6fd507454fa", "source_id": "climate-watch-ndc", "title": "Climate Watch NDC Tracker (2025 NDCs)", "url_download": "https://www.climatewatchdata.org/api/v1/ndcs?indicators=2025_status,2025_statement,2025_emissions_compare,2025_source,2025_date,2025_compare_1,2025_compare_2,2025_compare_3,2025_compare_4,2025_compare_5,2025_compare_6,submission,submission_date,pa_status", "url_main": "https://www.climatewatchdata.org/", "version_producer": "NDC Tracker retrieved 2026-10-18", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read the Climate Watch API response (sha256 91fee5e71d56…, retrieved 2026-10-11) and coded its labels as in ndc.climate-watch.2025-ndc.",
-      "inputs": ["91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f"],
+      "description": "Read the Climate Watch API response (sha256 4e38a3519db7…, retrieved 2026-10-18) and coded its labels as in ndc.climate-watch.2025-ndc.",
+      "inputs": ["4e38a3519db7d04f48d1d2704e13e13607b22bea7c46f5f183f3d6fd507454fa"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
       "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
     },
     {
       "description": "Counted, for each question, the 152 countries with a 2025 NDC status that Climate Watch codes yes and those it codes no. The European Union's own entry (EUU) is not counted, because Climate Watch codes its NDC for each member state too; labels that answer neither way are in neither count.",
-      "inputs": ["91fee5e71d56a8b96e1926458993d095ee98619da7be430a70aca266badafd5f"],
+      "inputs": ["4e38a3519db7d04f48d1d2704e13e13607b22bea7c46f5f183f3d6fd507454fa"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/action/climate_watch_ndc.py",
       "transform_sha256": "090e35ff044de792f434773c5e513471fe4b4c02cb40a3a857a653b5498fbdcd"
@@ -86,7 +86,7 @@
       "question": ["submitted", "submitted", "ghg-target-2035", "ghg-target-2035", "economy-wide-target-2035", "economy-wide-target-2035", "non-co2-target", "non-co2-target", "strengthened-2030-target", "strengthened-2030-target", "strengthened-adaptation", "strengthened-adaptation", "added-clarity-transparency", "added-clarity-transparency"]
     },
     "entity": ["WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD", "WLD"],
-    "period": ["2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11", "2026-10-11"],
+    "period": ["2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18", "2026-10-18"],
     "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
     "value": [151.0, 1.0, 138.0, 14.0, 98.0, 54.0, 71.0, 73.0, 27.0, 125.0, 97.0, 55.0, 139.0, 13.0]
   },
@@ -97,5 +97,5 @@
     "label": "countries",
     "short": "countries"
   },
-  "vintage": "NDC Tracker retrieved 2026-10-11"
+  "vintage": "NDC Tracker retrieved 2026-10-18"
 }

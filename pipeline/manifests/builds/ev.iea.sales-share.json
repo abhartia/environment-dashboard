@@ -1,8 +1,8 @@
 {
   "export": "data/v1/indicators/ev.iea.sales-share.json",
-  "export_sha256": "8230e443b77a49c04a088da63677f13d4564a56f1dcee5a25dd014895bebcf7a",
+  "export_sha256": "269a822c3ecfa8c57d1b3a818e5ae8fa5aaa7904e1b4a49d297ef5cc6f95953a",
   "indicator_id": "ev.iea.sales-share",
-  "key": "126ac542bd7e2f5992c0195dd730e3f42bb577f4bd57074c780d93d1af88906f",
+  "key": "009a3b118e6479fa042ffb39fb70f7324cda8682e647f22a6c7c8c9ea689f7e6",
   "key_parts": {
     "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
@@ -18,9 +18,9 @@
     "key_files": {},
     "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
     "sources": {
-      "iea-gevo-2026": "d6ae6c4717190b935e7555d84854b3cfbfee83083e3b073cf646f7f69abf49a0"
+      "iea-gevo-2026": "d871a560f0f83cc7ac3e28fcdeb2bc108e00f2a6927ce9ba889cfe079247d907"
     },
-    "transform_sha256": "de5e18217fa9b61781e38cd923c77e996345bb5ff9655f767bf6de76b090d190"
+    "transform_sha256": "2ebfa9e8c975ae3e0b24376d134ddd0f787c145202c8d1114ebb36c8002e5469"
   },
   "publisher_checks": [
     {"detail": "ours 25.0 vs stated 25 (tolerance ±0.5, difference 0)", "entity": "WLD", "period": "2025", "quote": "The sales share of electric cars in the overall car market increased to 25%.", "source_id": "iea-gevo-2026", "stated": "25", "status": "pass", "url": "https://iea.blob.core.windows.net/assets/857aa690-2a43-453f-9f12-147cc8f0a1dd/GlobalEVOutlook2026.pdf", "vintage": "Global EV Outlook 2026"}
