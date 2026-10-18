@@ -1,8 +1,8 @@
 """IEA Global EV Data Explorer (Global EV Outlook 2026): the electric share of new vehicle sales, by country and mode.
 
-Input: the historical CSV from api.iea.org/evs (registry entry iea-gevo-2026, artifact evs-historical), columns
-region, category, parameter, mode, powertrain, year, unit, value; and the Global EV Outlook 2026 report PDF (artifact
-report-pdf), read only for the statement used as a publisher check.
+Input: the historical CSV from api.iea.org/electric-vehicles (api.iea.org/evs until October 2026; registry entry
+iea-gevo-2026, artifact evs-historical), columns region, category, parameter, mode, powertrain, year, unit, value;
+and the Global EV Outlook 2026 report PDF (artifact report-pdf), read only for the statement used as a publisher check.
 
 Rows used: parameter "EV sales share", category "Historical", powertrain "EV" (battery-electric and plug-in hybrid
 vehicles together, as the IEA defines EV), unit "percent", for the modes Cars, Vans, Buses, Trucks and "2 and 3
@@ -99,6 +99,14 @@ Q_WORLD = "The sales share of electric cars in the overall car market increased 
 
 class IeaFormatError(ValueError):
     pass
+
+
+def endpoint(f: InputFile) -> str:
+    """The host and path the snapshot was fetched from (the IEA moved the route from /evs to /electric-vehicles)."""
+    url = f.snapshot.url
+    if url is None or url.host is None:
+        raise ValueError(f"{f.snapshot.sha256[:12]}: the explorer file has no fetch URL")
+    return f"{url.host}{url.path}"
 
 
 def read_table(raw: bytes) -> pl.DataFrame:
@@ -202,7 +210,7 @@ def run(files: dict[str, InputFile]) -> Result:
         vintage=VINTAGE,
         date_published="2026-05-20",
         steps=[
-            f"Read the IEA Global EV Data Explorer's historical file from api.iea.org/evs (fetched "
+            f"Read the IEA Global EV Data Explorer's historical file from {endpoint(f)} (fetched "
             f"{f.snapshot.date_accessed}, sha256 {f.snapshot.sha256[:12]}…), which carries no version label; its "
             f"latest year is {years[-1]}, the year the {VINTAGE} reports on.",
             f"Kept the '{PARAMETER}' rows (category Historical, powertrain EV: battery-electric and plug-in hybrid "

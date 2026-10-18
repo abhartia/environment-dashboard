@@ -1,4 +1,4 @@
-# IEA Global EV Outlook 2026 and its Global EV Data Explorer (historical data via api.iea.org/evs).
+# IEA Global EV Outlook 2026 and its Global EV Data Explorer (historical data via api.iea.org/electric-vehicles).
 # Evidence: docs/research/sources-energy.json ("IEA – Global EV Outlook 2026 and Global EV Data Explorer"),
 # re-checked 2026-10-04. iea.org pages return 403 with "cf-mitigated: challenge"; the blob-hosted PDF and
 # api.iea.org answer scripts.
@@ -8,6 +8,9 @@
 #   - The Global EV Data Explorer page (Internet Archive copy, 2026-09-22) says "Licence CC BY 4.0", "Last updated
 #     20 May 2026". Its script (https://iea.blob.core.windows.net/scripts/ev-dashboard/ev-dashboard.js) reads its
 #     data from https://api.iea.org/evs, the artifact below.
+#   - The IEA moved that route: api.iea.org/evs answers 404 from about 2026-10-10, and the explorer's script (Last-Modified
+#     9 Oct 2026, read 2026-10-18) now reads https://api.iea.org/electric-vehicles. The same query there returned, on
+#     2026-10-18, the bytes of the snapshot fetched from /evs on 2026-10-04 (sha256 43de4797…8e49b).
 #   - Not used: the "Global EV Outlook 2026" data product (XLSX, needs an IEA account) is licensed under "Terms of
 #     Use for Non-CC Material" (product page, Internet Archive copy, 2026-10-01), not CC BY.
 #   - The IEA "Notice for CC-licensed Content" (Internet Archive copy of
@@ -74,7 +77,7 @@ artifacts:
   # byte-identical (sha256 43de47975d08de9458832cccc8574ebbb0bf7a9282636c9c07a242b03608e49b). The API needs a
   # region or a year ("Must specify a region or a year." otherwise) and accepts a comma-separated year list.
   - id: evs-historical
-    url: https://api.iea.org/evs?category=Historical&year=2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025&csv=true
+    url: https://api.iea.org/electric-vehicles?category=Historical&year=2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025&csv=true
     format: csv
     description: >-
       All historical rows: columns region, category, parameter, mode, powertrain, year, unit, value.
