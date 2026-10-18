@@ -9,10 +9,10 @@ import { formatPeriod } from "@/lib/format";
 /**
  * The energy chapter: how fast the switch away from fossil fuels is going. Clean electricity → what makes it → by
  * country (its mix, its grid's carbon) → month by month (each source, then fossil power against a year earlier); then
- * all energy, not just electricity (by fuel; in total, then by country), renewable power built (its share of all
- * plants; what electricity from new plants costs), electric cars (where their share is highest, then each of those
- * countries over time), and who has electricity at all (then where the
- * fewest do).
+ * all energy, not just electricity (by fuel; in total, then by country, then each of those countries by fuel),
+ * renewable power built (its share of all plants; what electricity from new plants costs), electric cars (where their
+ * share is highest, then each of those countries over time), and who has electricity at all (then where the fewest
+ * do, then each of those countries over time).
  */
 
 const CLEAN = "electricity.ember.clean-share-world";
@@ -342,9 +342,9 @@ function allEnergyCountries(): Built {
     crumb: "By country",
     kicker: "Which countries use the most energy",
     headline: headline(PRIMARY_TOTAL, top[0].entity, {}, year),
-    sentence: `used in ${entityName(top[0].entity)} in ${year}, the most of any country or territory. These are national totals, not amounts per person.`,
+    sentence: `used in ${entityName(top[0].entity)} in ${year}, the most of any country or territory. These are national totals, not amounts per person. Select a country.`,
     chart: bars(
-      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: NEUTRAL_COLOUR })),
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: NEUTRAL_COLOUR, drill: `ae-${r.entity}` })),
       short,
       decimals,
       year,
@@ -353,6 +353,51 @@ function allEnergyCountries(): Built {
     drills: [],
     credit: credit(PRIMARY_TOTAL),
     indicators: [PRIMARY_TOTAL],
+  };
+}
+
+/** The countries and territories that use the most energy in the latest year, most first (ties by code). */
+function energyCountryCodes(): string[] {
+  return ranking(PRIMARY_TOTAL, latestPeriod(PRIMARY_TOTAL))
+    .slice(0, TOP)
+    .map((r) => r.entity);
+}
+
+/** The fuel with the largest published value for a place and year, so a kicker's "largest" follows the data. */
+function largestFuel(entity: string, year: string): (typeof PRIMARY_FUELS)[number] {
+  const ranked = PRIMARY_FUELS.map((f) => ({
+    f,
+    v: indicator(PRIMARY_BY_FUEL).observations.find((o) => o.entity === entity && o.period === year && o.dims.fuel === f.id)?.value ?? null,
+  }))
+    .filter((x): x is { f: (typeof PRIMARY_FUELS)[number]; v: number } => x.v !== null)
+    .sort((a, b) => b.v - a.v || a.f.id.localeCompare(b.f.id));
+  if (ranked.length === 0) throw new Error(`${PRIMARY_BY_FUEL}: no fuel has a ${year} value for ${entity}`);
+  return ranked[0].f;
+}
+
+function allEnergyCountry(iso: string): Built {
+  const { short, decimals } = u(PRIMARY_BY_FUEL);
+  const name = entityName(iso);
+  const year = latestPeriod(PRIMARY_TOTAL);
+  const top = largestFuel(iso, year);
+  return {
+    id: `ae-${iso}`,
+    parent: "all-energy-countries",
+    crumb: name,
+    kicker: `${name}: ${top.label.toLowerCase()} is the largest source of energy`,
+    headline: headline(PRIMARY_BY_FUEL, iso, { fuel: top.id }, year),
+    sentence: `of the energy used in ${name} in ${year} came from ${top.label.toLowerCase()}, as the US EIA accounts for it.`,
+    chart: area(
+      PRIMARY_FUELS.map((f) => ({ key: f.id, label: f.label, colour: f.colour, points: points(PRIMARY_BY_FUEL, iso, { fuel: f.id }) })).filter((s) =>
+        s.points.some((p) => p[1] !== null),
+      ),
+      short,
+      decimals,
+      true,
+    ),
+    drills: [],
+    credit: credit(PRIMARY_BY_FUEL),
+    indicators: [PRIMARY_BY_FUEL],
   };
 }
 
@@ -554,11 +599,15 @@ function access(): Built {
   };
 }
 
+/** Every country and territory with a value in the latest year, lowest share first (ties by code), so the sentence's "lowest" follows the data. */
+function accessRanked(): { year: string; ranked: { entity: string; value: number }[] } {
+  const year = latestPeriod(ACCESS);
+  return { year, ranked: [...ranking(ACCESS, year)].sort((a, b) => a.value - b.value || a.entity.localeCompare(b.entity)) };
+}
+
 function accessCountries(): Built {
   const { short, decimals } = u(ACCESS);
-  const year = latestPeriod(ACCESS);
-  // Lowest share first (ties by code), so the sentence's "lowest" follows the data.
-  const ranked = [...ranking(ACCESS, year)].sort((a, b) => a.value - b.value || a.entity.localeCompare(b.entity));
+  const { year, ranked } = accessRanked();
   const fewest = ranked.slice(0, TOP);
   const name = entityName(fewest[0].entity);
   return {
@@ -569,11 +618,36 @@ function accessCountries(): Built {
     headline: headline(ACCESS, fewest[0].entity, {}, year),
     sentence: `of people in ${name} had access to electricity in ${year}, the lowest share of any country or territory the World Bank reports for that year.`,
     chart: bars(
-      fewest.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: NEUTRAL_COLOUR })),
+      fewest.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: NEUTRAL_COLOUR, drill: `access-${r.entity}` })),
       short,
       decimals,
       year,
       `The ${fewest.length} lowest of ${ranked.length} countries and territories with a value for ${year}.`,
+    ),
+    drills: [],
+    credit: credit(ACCESS),
+    indicators: [ACCESS],
+  };
+}
+
+function accessCountry(iso: string): Built {
+  const { short, decimals } = u(ACCESS);
+  const name = entityName(iso);
+  const h = headline(ACCESS, iso);
+  return {
+    id: `access-${iso}`,
+    parent: "access-countries",
+    crumb: name,
+    kicker: `${name}: people with access to electricity`,
+    headline: h,
+    sentence: `of people in ${name} had access to electricity in ${h.period}, by the World Bank. The grey line is the world.`,
+    chart: line(
+      [
+        { key: iso, label: name, colour: NEUTRAL_COLOUR, points: points(ACCESS, iso) },
+        { key: "WLD", label: "World", colour: GREY, points: points(ACCESS, "WLD") },
+      ],
+      short,
+      decimals,
     ),
     drills: [],
     credit: credit(ACCESS),
@@ -603,6 +677,8 @@ function ids(): string[] {
   ];
   for (const iso of countryCodes()) out.push(`c-${iso}`, `c-${iso}-mix`, `c-${iso}-intensity`);
   for (const r of evRanking().rows.slice(0, TOP)) out.push(`ev-${r.entity}`);
+  for (const iso of energyCountryCodes()) out.push(`ae-${iso}`);
+  for (const r of accessRanked().ranked.slice(0, TOP)) out.push(`access-${r.entity}`);
   return out;
 }
 
@@ -624,6 +700,10 @@ function build(id: string): Built {
   if (id === "ev-countries") return evCountries();
   if (id === "access") return access();
   if (id === "access-countries") return accessCountries();
+  const ae = id.match(/^ae-([A-Z0-9_]+)$/);
+  if (ae) return allEnergyCountry(ae[1]);
+  const ac = id.match(/^access-([A-Z0-9_]+)$/);
+  if (ac) return accessCountry(ac[1]);
   const e = id.match(/^ev-([A-Z0-9_]+)$/);
   if (e) return evCountry(e[1]);
   const c = id.match(/^c-([A-Z0-9_]+)(-mix|-intensity)?$/);
