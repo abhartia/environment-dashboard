@@ -70,6 +70,19 @@ function chartSeries(ind: Indicator): Series[] {
   }));
 }
 
+/**
+ * schema.org Dataset `license`: the deed's URL, or, for a producer that states terms but no named licence, a
+ * CreativeWork naming those terms and linking the producer's own page that states them (the source's evidence).
+ */
+function datasetLicence(licence: Indicator["licence"], sources: ReturnType<typeof source>[]) {
+  if (licence.url) return licence.url;
+  const terms = [...new Set(sources.map((s) => s.evidence.terms_url))];
+  if (terms.length !== 1) {
+    throw new Error(`"${licence.name}" has no licence URL and its sources do not state one terms page: ${terms.join(", ")}`);
+  }
+  return { "@type": "CreativeWork", name: licence.name, url: terms[0] };
+}
+
 function DescriptionRow({ term, children }: { term: string; children: React.ReactNode }) {
   return (
     <div className="grid gap-1 border-t border-border py-3 sm:grid-cols-[12rem_minmax(0,1fr)]">
@@ -370,7 +383,7 @@ export default async function Page({ params }: PageProps<"/data/[...id]">) {
             description: p.description,
             url: absoluteUrl(dataPath(id)),
             version: ind.vintage,
-            license: p.licence.url ?? undefined,
+            license: datasetLicence(p.licence, sourcesUsed),
             creditText: p.attribution,
             isAccessibleForFree: true,
             creator: sourcesUsed.map((s) => ({ "@type": "Organization", name: s.publisher, url: s.landing_url })),
