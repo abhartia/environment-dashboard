@@ -13,7 +13,8 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 | G1 | How much international public money reaches adaptation (the fourth AGR indicator) | unep-agr-2025 online annexes PDF (noncommercial) | zero adaptation nodes | owner: download `AGR2025_Online_Annexes.pdf` by hand (runbook step 4) |
 | G3 | Wildlife populations to 2022 (Living Planet Report 2026) | living-planet-index (share-alike; terms re-read 2026-10-11) | `/food` species nodes | owner: download the nine trend CSVs, then adopt and update the citation |
 | G4 | Keep electric car shares fetchable | iea-gevo-2026 evs-historical (open) | `/energy?v=ev` and below | done 2026-10-18: the IEA moved the route to `api.iea.org/electric-vehicles` (same bytes) |
-| G2 | Heat-related deaths after 2021 | Lancet Countdown 2026 report, when released (noncommercial) | `/people` heat deaths | todo: not out on 2026-10-18 (explore-our-data still lists the 2025 workbooks; no 2026 xlsx in the media library); check again |
+| G2 | Heat-related deaths after 2021 | Lancet Countdown 2026 report, when released (noncommercial) | `/people` heat deaths | todo: not out on 2026-10-25 (explore-our-data lists only the 2025 workbooks; a UCL event in October marks the 10th report); check again |
+| G5 | Food and all-sector emissions to 2024 (FAOSTAT October 2026 release) | faostat (open), faostat-all-sectors (noncommercial) | `/emissions`, `/food` | todo: on 2026-10-25 FAO's catalogue disagreed with the GT zip (2,415,025 vs 2,500,090 rows), so GT failed; adopt when both are the new release |
 
 ## Dead ends answerable from data already published
 
@@ -21,9 +22,9 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 |---|---|---|---|---|
 | D1 | Where are electric cars the largest share of new cars, and how has each of those countries moved? | `ev.iea.sales-share` (open) | `/energy?v=ev` | done 2026-10-11 |
 | D2 | What does each of the largest energy users run on? (bars → country by fuel) | `energy.eia.primary-by-fuel` (open) | `/energy?v=all-energy-countries` | done 2026-10-18 (`ae-<ISO>`) |
-| D3 | Which animals the livestock methane comes from (cross-drill to food's methane by animal) | `food.faostat.livestock-ch4-by-animal` (open) | `/air?v=methane-livestock` | todo: check the food node exists, then `crossDrill` |
+| D3 | Which animals the livestock methane comes from (cross-drill to food's methane by animal) | `food.faostat.livestock-ch4-by-animal` (open) | `/air?v=methane-livestock` | done 2026-10-25 (card into `food:animals`) |
 | D4 | Each country with the least electricity access, over time (bars → country line vs world) | `access.wb-wdi.electricity` (open) | `/energy?v=access-countries` | done 2026-10-18 (`access-<ISO>`) |
-| D5 | Primary forest loss and driver bars → the existing `tl-<iso>` country nodes | `forest.gfw.*` (open) | `/food?v=primary-loss-countries`, `driver-<id>` | todo (small: add bar drills only) |
+| D5 | Primary forest loss and driver bars → the existing `tl-<iso>` country nodes | `forest.gfw.*` (open) | `/food?v=primary-loss-countries`, `driver-<id>` | done 2026-10-25 (tl- nodes for all three rankings, 50 countries) |
 | D6 | A country's forest area over time below `tl-<iso>` | `forest.fao-fra-2025.area` (open) | `/food?v=tl-<iso>` | todo |
 | D7 | Each country's electrification over time (bars → country line) | `electricity.eurostat.share-of-final-energy` (open) | `/zero?v=electrify-countries` | todo |
 | D8 | Net zero emitters' bars → the existing `action:ndc-<iso>` nodes | `ndc.climate-watch.2025-ndc` (noncommercial) | `/zero?v=net-zero-emitters` | todo |

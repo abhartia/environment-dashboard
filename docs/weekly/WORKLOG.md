@@ -3,6 +3,68 @@
 One entry per Sunday run of the data steward routine (newest first): what was refreshed, what failed and why, what
 was fixed, what depth was added, dead ends, and what the next run should do first.
 
+## 2026-10-25
+
+**Refresh.** `envdash refresh`: every automatic licence quote unchanged except imbie-2026's (below). New vintages:
+Ember yearly and monthly (file of 2026-10-19; world clean share 2025 revised 42.314 → 42.313 %, monthly to August
+2026), Climate Watch NDC tracker (156 submitted, from 151: Albania, Guinea-Bissau, Grenada, Niger, Chad), Systems
+Change Lab export (193 outcome indicators, from 179; on track 0.56 → 0.52 %), EIA international bulk (Oct 2026,
+values unchanged), EFFIS 2026 burned area 700,797 ha (from 698,450), GWIS, HadCRUT5 monthly to September (annual
+unchanged), C3S Climate Pulse to 23 October, FAO FRA, NSIDC and OSI SAF. Ember's revision gives Denmark −0.001 TWh of
+other renewables in 2025, so that country-year is withheld by the existing negative-generation rule (11 withheld,
+from 10). Every move checked against HEAD: new periods, producer revisions under 1 % on yearly values, or the
+monthly series' preliminary months. No errata.
+
+**Failed, not fixable this run.**
+- `faostat`, `faostat-all-sectors`: FAO's `datasets_E.json` now gives GT `FileRows` 2,415,025 (it gave 2,500,090 on
+  4, 5 and 11 October) while the GT zip is byte-identical (20,501,708 bytes, Last-Modified 2025-12-06) with 2,500,090
+  rows, and DateUpdate is still 2025-10-28. The transform's guard refuses to take DateUpdate as the vintage of a
+  file the catalogue does not describe, as designed; the GT indicators keep their last export. Probably FAO staging
+  the October 2026 emissions release (due by 31 October). The `current.json` pointer moved to the new catalogue, so
+  the FAOSTAT snapshot tests (3 failed, 10 errors, one cause) fail until FAO's zip and catalogue agree again.
+- `imbie-2026`: data.bas.ac.uk answers 200 with "This website is undergoing maintenance", so the licence quote is not
+  found and the source is frozen (its values did not change). Host maintenance, not a licence change; re-check next
+  run.
+- `unep-agr-2025`: still the owner's annex PDF.
+
+`report-issues` opened issues for faostat, faostat-all-sectors and imbie-2026 and updated #3.
+
+**Snapshot tests.** Facts pinned to last week's vintages re-derived from the new raw files (Climate Watch 158 / 157 /
+144, period 2026-10-25; SCL 475 rows, 193 outcome indicators; Ember 116 countries without 2025 Total generation,
+42.313, 11 withheld, 64 countries in July 2026, vintage 2026-10-19; EIA Oct 2026). Still failing: the FAOSTAT ones
+above, the four UNEP-annex tests, and the golden rebuild (stops on those). Not re-run without those assertions this
+week.
+
+**Releases due.** Lancet Countdown 2026 global report: explore-our-data still lists only the 2025 workbooks; a UCL
+event in October marks the 10th report, so it is probably days away. LPR 2026: no owner CSVs recorded yet.
+
+**Depth shipped.** Backlog D3 and D5, both small dead ends. `/food?v=primary-loss-countries` and every
+`/food?v=driver-<id>` ranking now open each bar's `/food?v=tl-<ISO>` (tree cover loss by driver; `forest.gfw.*`,
+CC BY 4.0, open); the tl- nodes are built for the union of the three rankings' top 15 (50 countries, from 15), each
+passing the driver-bands-add-up check. A tl- node keeps its trail under "Tree cover loss › By country" when reached
+from primary forest; its sentence says "tree cover", so it never claims to be primary-forest-only.
+`/air?v=methane-livestock` gets one card into `/food?v=animals` (`food.faostat.livestock-ch4-by-animal`, open). No
+card added to a node that had any; no new indicator.
+
+**Visual check not possible.** The preview server start was declined (no one at the keyboard to approve it), so the
+nodes were checked from their built JSON only: kickers, headlines, chart series, drill targets and trails. Next run:
+look at `/food?v=tl-BOL` and `/air?v=methane-livestock` at desktop and 375×812.
+
+**Gates.** ruff, ruff format, `pytest -q` (1,119 passed), `pytest -m snapshot` (failures as above), `envdash
+validate` (0 problems), gen:api clean, typecheck, lint, `npm test` (235), build with check-build (5,403 files, 215
+indicators). Archive: R2 before the push; Wayback captures started after it (a follow-up commit records them if they finish this run). CI and deploy of 31173f7 green; `tl-BOL` and the methane card served live.
+
+**Owner actions.**
+1. Download the Living Planet Report 2026 trend CSVs (see 2026-10-11, action 1).
+2. Download `AGR2025_Online_Annexes.pdf` (runbook step 4).
+3. IDMC API key still not issued (`idmc-client-id` absent).
+4. Earthdata token expires 2026-12-05 (41 days left; renew after 2026-11-21).
+
+**Next run first.** FAOSTAT: if FAO has published the October 2026 emissions release (GT, GLE with data to 2024),
+adopt it (licence re-check: PRIMAP-hist v2.8 is CC BY-NC-SA, see `faostat-all-sectors.yaml`), re-pin the FAOSTAT
+snapshot facts and check every food and emissions kicker; if the catalogue still disagrees with the zip, it stays
+failed. Re-check imbie-2026's terms page. Lancet Countdown 2026 (G2). Then D7 (electrification bars → country line).
+
 ## 2026-10-18
 
 **Refresh.** `envdash refresh`: every automatic licence quote unchanged. New vintages: C3S Climate Bulletin September
