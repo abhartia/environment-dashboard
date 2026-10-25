@@ -1,7 +1,7 @@
 # Electricity generation by source, by country
-# Indicator: electricity.ember.mix-by-country (vintage 2026-10-06); unit: percent of electricity generation (percent)
+# Indicator: electricity.ember.mix-by-country (vintage 2026-10-19); unit: percent of electricity generation (percent)
 # Source: Ember <https://ember-energy.org/data/yearly-electricity-data/>
-# Credit: Ember, Yearly Electricity Data (file of 2026-10-06), CC BY 4.0.
+# Credit: Ember, Yearly Electricity Data (file of 2026-10-19), CC BY 4.0.
 # Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
 # Provenance and processing: https://environmentdashboard.org/data/electricity/ember/mix-by-country
 indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,source
@@ -4507,7 +4507,7 @@ electricity.ember.mix-by-country,BIH,2021,0.38,,,,final,,,,solar
 electricity.ember.mix-by-country,BIH,2022,0.673,,,,final,,,,solar
 electricity.ember.mix-by-country,BIH,2023,1.455,,,,final,,,,solar
 electricity.ember.mix-by-country,BIH,2024,2.54,,,,final,,,,solar
-electricity.ember.mix-by-country,BIH,2025,4.012,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,BIH,2025,4.018,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,BIH,2011,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,BIH,2012,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,BIH,2013,0.0,,,,final,,,,wind
@@ -4522,7 +4522,7 @@ electricity.ember.mix-by-country,BIH,2021,2.064,,,,final,,,,wind
 electricity.ember.mix-by-country,BIH,2022,2.385,,,,final,,,,wind
 electricity.ember.mix-by-country,BIH,2023,2.095,,,,final,,,,wind
 electricity.ember.mix-by-country,BIH,2024,2.36,,,,final,,,,wind
-electricity.ember.mix-by-country,BIH,2025,2.638,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,BIH,2025,2.642,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,BIH,2000,48.802,,,,final,,,,hydro
 electricity.ember.mix-by-country,BIH,2001,48.73,,,,final,,,,hydro
 electricity.ember.mix-by-country,BIH,2002,48.842,,,,final,,,,hydro
@@ -4548,7 +4548,7 @@ electricity.ember.mix-by-country,BIH,2021,36.339,,,,final,,,,hydro
 electricity.ember.mix-by-country,BIH,2022,28.807,,,,final,,,,hydro
 electricity.ember.mix-by-country,BIH,2023,39.29,,,,final,,,,hydro
 electricity.ember.mix-by-country,BIH,2024,35.075,,,,final,,,,hydro
-electricity.ember.mix-by-country,BIH,2025,36.328,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,BIH,2025,36.381,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,BIH,2014,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,BIH,2015,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,BIH,2016,0.0,,,,final,,,,bioenergy
@@ -4610,7 +4610,7 @@ electricity.ember.mix-by-country,BIH,2021,60.837,,,,final,,,,coal
 electricity.ember.mix-by-country,BIH,2022,67.584,,,,final,,,,coal
 electricity.ember.mix-by-country,BIH,2023,56.461,,,,final,,,,coal
 electricity.ember.mix-by-country,BIH,2024,58.799,,,,final,,,,coal
-electricity.ember.mix-by-country,BIH,2025,55.709,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,BIH,2025,55.789,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,BIH,2009,0.388,,,,final,,,,gas
 electricity.ember.mix-by-country,BIH,2010,0.295,,,,final,,,,gas
 electricity.ember.mix-by-country,BIH,2011,0.332,,,,final,,,,gas
@@ -4652,7 +4652,7 @@ electricity.ember.mix-by-country,BIH,2021,0.163,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,BIH,2022,0.306,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,BIH,2023,0.407,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,BIH,2024,0.965,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,BIH,2025,1.03,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,BIH,2025,0.888,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,BLR,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,BLR,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,BLR,2002,0.0,,,,final,,,,solar
@@ -6954,8 +6954,8 @@ electricity.ember.mix-by-country,CHE,2020,55.285,,,,final,,,,hydro
 electricity.ember.mix-by-country,CHE,2021,58.583,,,,final,,,,hydro
 electricity.ember.mix-by-country,CHE,2022,48.445,,,,final,,,,hydro
 electricity.ember.mix-by-country,CHE,2023,53.361,,,,final,,,,hydro
-electricity.ember.mix-by-country,CHE,2024,57.343,,,,final,,,,hydro
-electricity.ember.mix-by-country,CHE,2025,52.259,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,CHE,2024,57.339,,,,final,,,,hydro
+electricity.ember.mix-by-country,CHE,2025,52.26,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,CHE,2000,0.318,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,CHE,2001,0.281,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,CHE,2002,0.321,,,,final,,,,bioenergy
@@ -6980,8 +6980,8 @@ electricity.ember.mix-by-country,CHE,2020,1.182,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,CHE,2021,1.522,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,CHE,2022,1.604,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,CHE,2023,1.484,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,CHE,2024,1.327,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,CHE,2025,1.599,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,CHE,2024,1.373,,,,final,,,,bioenergy
+electricity.ember.mix-by-country,CHE,2025,1.71,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,CHE,2000,0.953,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,CHE,2001,0.957,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,CHE,2002,1.085,,,,final,,,,other-renewables
@@ -7006,8 +7006,8 @@ electricity.ember.mix-by-country,CHE,2020,1.723,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,CHE,2021,1.759,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,CHE,2022,1.766,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,CHE,2023,1.484,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,CHE,2024,1.327,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,CHE,2025,1.599,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
+electricity.ember.mix-by-country,CHE,2024,1.287,,,,final,,,,other-renewables
+electricity.ember.mix-by-country,CHE,2025,1.486,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
 electricity.ember.mix-by-country,CHE,2000,40.003,,,,final,,,,nuclear
 electricity.ember.mix-by-country,CHE,2001,37.734,,,,final,,,,nuclear
 electricity.ember.mix-by-country,CHE,2002,41.63,,,,final,,,,nuclear
@@ -7032,8 +7032,8 @@ electricity.ember.mix-by-country,CHE,2020,35.066,,,,final,,,,nuclear
 electricity.ember.mix-by-country,CHE,2021,30.686,,,,final,,,,nuclear
 electricity.ember.mix-by-country,CHE,2022,39.128,,,,final,,,,nuclear
 electricity.ember.mix-by-country,CHE,2023,34.794,,,,final,,,,nuclear
-electricity.ember.mix-by-country,CHE,2024,30.657,,,,final,,,,nuclear
-electricity.ember.mix-by-country,CHE,2025,29.875,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,CHE,2024,30.655,,,,final,,,,nuclear
+electricity.ember.mix-by-country,CHE,2025,29.876,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,CHE,2000,1.301,,,,final,,,,gas
 electricity.ember.mix-by-country,CHE,2001,1.196,,,,final,,,,gas
 electricity.ember.mix-by-country,CHE,2002,1.361,,,,final,,,,gas
@@ -11174,7 +11174,7 @@ electricity.ember.mix-by-country,DNK,2021,3.979,,,,final,,,,solar
 electricity.ember.mix-by-country,DNK,2022,6.769,,,,final,,,,solar
 electricity.ember.mix-by-country,DNK,2023,10.8,,,,final,,,,solar
 electricity.ember.mix-by-country,DNK,2024,10.739,,,,final,,,,solar
-electricity.ember.mix-by-country,DNK,2025,13.238,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Solar does not describe a generation mix.",,solar
 electricity.ember.mix-by-country,DNK,2000,11.827,,,,final,,,,wind
 electricity.ember.mix-by-country,DNK,2001,11.481,,,,final,,,,wind
 electricity.ember.mix-by-country,DNK,2002,12.481,,,,final,,,,wind
@@ -11200,7 +11200,7 @@ electricity.ember.mix-by-country,DNK,2021,48.755,,,,final,,,,wind
 electricity.ember.mix-by-country,DNK,2022,54.096,,,,final,,,,wind
 electricity.ember.mix-by-country,DNK,2023,57.215,,,,final,,,,wind
 electricity.ember.mix-by-country,DNK,2024,58.378,,,,final,,,,wind
-electricity.ember.mix-by-country,DNK,2025,58.815,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Wind does not describe a generation mix.",,wind
 electricity.ember.mix-by-country,DNK,2000,0.084,,,,final,,,,hydro
 electricity.ember.mix-by-country,DNK,2001,0.08,,,,final,,,,hydro
 electricity.ember.mix-by-country,DNK,2002,0.077,,,,final,,,,hydro
@@ -11226,7 +11226,7 @@ electricity.ember.mix-by-country,DNK,2021,0.061,,,,final,,,,hydro
 electricity.ember.mix-by-country,DNK,2022,0.028,,,,final,,,,hydro
 electricity.ember.mix-by-country,DNK,2023,0.059,,,,final,,,,hydro
 electricity.ember.mix-by-country,DNK,2024,0.057,,,,final,,,,hydro
-electricity.ember.mix-by-country,DNK,2025,0.058,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Hydro does not describe a generation mix.",,hydro
 electricity.ember.mix-by-country,DNK,2000,3.626,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,DNK,2001,4.022,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,DNK,2002,4.808,,,,final,,,,bioenergy
@@ -11252,7 +11252,7 @@ electricity.ember.mix-by-country,DNK,2021,26.488,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,DNK,2022,19.966,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,DNK,2023,18.324,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,DNK,2024,20.058,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,DNK,2025,22.08,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Bioenergy does not describe a generation mix.",,bioenergy
 electricity.ember.mix-by-country,DNK,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,DNK,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,DNK,2002,0.0,,,,final,,,,other-renewables
@@ -11278,7 +11278,7 @@ electricity.ember.mix-by-country,DNK,2021,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,DNK,2022,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,DNK,2023,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,DNK,2024,0.0,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,DNK,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Other renewables does not describe a generation mix.",,other-renewables
 electricity.ember.mix-by-country,DNK,2000,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,DNK,2001,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,DNK,2002,0.0,,,,final,,,,nuclear
@@ -11304,7 +11304,7 @@ electricity.ember.mix-by-country,DNK,2021,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,DNK,2022,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,DNK,2023,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,DNK,2024,0.0,,,,final,,,,nuclear
-electricity.ember.mix-by-country,DNK,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Nuclear does not describe a generation mix.",,nuclear
 electricity.ember.mix-by-country,DNK,2000,46.499,,,,final,,,,coal
 electricity.ember.mix-by-country,DNK,2001,47.469,,,,final,,,,coal
 electricity.ember.mix-by-country,DNK,2002,46.701,,,,final,,,,coal
@@ -11330,7 +11330,7 @@ electricity.ember.mix-by-country,DNK,2021,13.275,,,,final,,,,coal
 electricity.ember.mix-by-country,DNK,2022,12.6,,,,final,,,,coal
 electricity.ember.mix-by-country,DNK,2023,7.465,,,,final,,,,coal
 electricity.ember.mix-by-country,DNK,2024,4.972,,,,final,,,,coal
-electricity.ember.mix-by-country,DNK,2025,0.45,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Coal does not describe a generation mix.",,coal
 electricity.ember.mix-by-country,DNK,2000,24.463,,,,final,,,,gas
 electricity.ember.mix-by-country,DNK,2001,24.694,,,,final,,,,gas
 electricity.ember.mix-by-country,DNK,2002,24.527,,,,final,,,,gas
@@ -11356,7 +11356,7 @@ electricity.ember.mix-by-country,DNK,2021,4.678,,,,final,,,,gas
 electricity.ember.mix-by-country,DNK,2022,2.901,,,,final,,,,gas
 electricity.ember.mix-by-country,DNK,2023,2.951,,,,final,,,,gas
 electricity.ember.mix-by-country,DNK,2024,2.585,,,,final,,,,gas
-electricity.ember.mix-by-country,DNK,2025,0.322,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Gas does not describe a generation mix.",,gas
 electricity.ember.mix-by-country,DNK,2000,13.501,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,DNK,2001,12.254,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,DNK,2002,11.407,,,,final,,,,other-fossil
@@ -11382,7 +11382,7 @@ electricity.ember.mix-by-country,DNK,2021,2.764,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,DNK,2022,3.641,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,DNK,2023,3.187,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,DNK,2024,3.21,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,DNK,2025,5.036,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,DNK,2025,,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.","Not published: Ember's file gives negative generation for Denmark in 2025 (Other renewables -0.001 TWh), so its share for Other fossil does not describe a generation mix.",,other-fossil
 electricity.ember.mix-by-country,DOM,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,DOM,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,DOM,2002,0.0,,,,final,,,,solar
@@ -13207,8 +13207,8 @@ electricity.ember.mix-by-country,FIN,2020,0.318,,,,final,,,,solar
 electricity.ember.mix-by-country,FIN,2021,0.416,,,,final,,,,solar
 electricity.ember.mix-by-country,FIN,2022,0.54,,,,final,,,,solar
 electricity.ember.mix-by-country,FIN,2023,0.883,,,,final,,,,solar
-electricity.ember.mix-by-country,FIN,2024,1.141,,,,final,,,,solar
-electricity.ember.mix-by-country,FIN,2025,1.19,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,FIN,2024,1.14,,,,final,,,,solar
+electricity.ember.mix-by-country,FIN,2025,1.188,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,FIN,2000,0.114,,,,final,,,,wind
 electricity.ember.mix-by-country,FIN,2001,0.094,,,,final,,,,wind
 electricity.ember.mix-by-country,FIN,2002,0.08,,,,final,,,,wind
@@ -13233,8 +13233,8 @@ electricity.ember.mix-by-country,FIN,2020,11.93,,,,final,,,,wind
 electricity.ember.mix-by-country,FIN,2021,11.801,,,,final,,,,wind
 electricity.ember.mix-by-country,FIN,2022,16.655,,,,final,,,,wind
 electricity.ember.mix-by-country,FIN,2023,18.449,,,,final,,,,wind
-electricity.ember.mix-by-country,FIN,2024,24.672,,,,final,,,,wind
-electricity.ember.mix-by-country,FIN,2025,27.378,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,FIN,2024,24.751,,,,final,,,,wind
+electricity.ember.mix-by-country,FIN,2025,27.485,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,FIN,2000,20.952,,,,final,,,,hydro
 electricity.ember.mix-by-country,FIN,2001,17.73,,,,final,,,,hydro
 electricity.ember.mix-by-country,FIN,2002,14.389,,,,final,,,,hydro
@@ -13259,8 +13259,8 @@ electricity.ember.mix-by-country,FIN,2020,22.935,,,,final,,,,hydro
 electricity.ember.mix-by-country,FIN,2021,21.897,,,,final,,,,hydro
 electricity.ember.mix-by-country,FIN,2022,18.692,,,,final,,,,hydro
 electricity.ember.mix-by-country,FIN,2023,18.646,,,,final,,,,hydro
-electricity.ember.mix-by-country,FIN,2024,17.354,,,,final,,,,hydro
-electricity.ember.mix-by-country,FIN,2025,15.161,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,FIN,2024,17.336,,,,final,,,,hydro
+electricity.ember.mix-by-country,FIN,2025,15.138,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,FIN,2000,12.348,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,FIN,2001,11.108,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,FIN,2002,11.999,,,,final,,,,bioenergy
@@ -13285,8 +13285,8 @@ electricity.ember.mix-by-country,FIN,2020,16.71,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,FIN,2021,18.832,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,FIN,2022,17.68,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,FIN,2023,13.911,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,FIN,2024,12.609,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,FIN,2025,12.586,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,FIN,2024,12.596,,,,final,,,,bioenergy
+electricity.ember.mix-by-country,FIN,2025,12.567,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,FIN,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,FIN,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,FIN,2002,0.0,,,,final,,,,other-renewables
@@ -13312,7 +13312,7 @@ electricity.ember.mix-by-country,FIN,2021,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,FIN,2022,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,FIN,2023,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,FIN,2024,0.0,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,FIN,2025,0.15,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
+electricity.ember.mix-by-country,FIN,2025,0.149,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
 electricity.ember.mix-by-country,FIN,2000,32.128,,,,final,,,,nuclear
 electricity.ember.mix-by-country,FIN,2001,30.584,,,,final,,,,nuclear
 electricity.ember.mix-by-country,FIN,2002,29.765,,,,final,,,,nuclear
@@ -13337,8 +13337,8 @@ electricity.ember.mix-by-country,FIN,2020,33.637,,,,final,,,,nuclear
 electricity.ember.mix-by-country,FIN,2021,32.728,,,,final,,,,nuclear
 electricity.ember.mix-by-country,FIN,2022,35.112,,,,final,,,,nuclear
 electricity.ember.mix-by-country,FIN,2023,42.088,,,,final,,,,nuclear
-electricity.ember.mix-by-country,FIN,2024,39.563,,,,final,,,,nuclear
-electricity.ember.mix-by-country,FIN,2025,39.902,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,FIN,2024,39.522,,,,final,,,,nuclear
+electricity.ember.mix-by-country,FIN,2025,39.843,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,FIN,2000,12.134,,,,final,,,,coal
 electricity.ember.mix-by-country,FIN,2001,14.251,,,,final,,,,coal
 electricity.ember.mix-by-country,FIN,2002,16.965,,,,final,,,,coal
@@ -13363,7 +13363,7 @@ electricity.ember.mix-by-country,FIN,2020,3.524,,,,final,,,,coal
 electricity.ember.mix-by-country,FIN,2021,3.703,,,,final,,,,coal
 electricity.ember.mix-by-country,FIN,2022,4.767,,,,final,,,,coal
 electricity.ember.mix-by-country,FIN,2023,1.914,,,,final,,,,coal
-electricity.ember.mix-by-country,FIN,2024,1.007,,,,final,,,,coal
+electricity.ember.mix-by-country,FIN,2024,1.006,,,,final,,,,coal
 electricity.ember.mix-by-country,FIN,2025,0.182,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,FIN,2000,14.478,,,,final,,,,gas
 electricity.ember.mix-by-country,FIN,2001,15.702,,,,final,,,,gas
@@ -13389,8 +13389,8 @@ electricity.ember.mix-by-country,FIN,2020,5.763,,,,final,,,,gas
 electricity.ember.mix-by-country,FIN,2021,5.311,,,,final,,,,gas
 electricity.ember.mix-by-country,FIN,2022,1.33,,,,final,,,,gas
 electricity.ember.mix-by-country,FIN,2023,0.81,,,,final,,,,gas
-electricity.ember.mix-by-country,FIN,2024,0.995,,,,final,,,,gas
-electricity.ember.mix-by-country,FIN,2025,1.143,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,FIN,2024,0.994,,,,final,,,,gas
+electricity.ember.mix-by-country,FIN,2025,1.142,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,FIN,2000,7.846,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,FIN,2001,10.531,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,FIN,2002,11.279,,,,final,,,,other-fossil
@@ -13415,8 +13415,8 @@ electricity.ember.mix-by-country,FIN,2020,5.185,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,FIN,2021,5.311,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,FIN,2022,5.224,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,FIN,2023,3.3,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,FIN,2024,2.658,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,FIN,2025,2.307,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,FIN,2024,2.655,,,,final,,,,other-fossil
+electricity.ember.mix-by-country,FIN,2025,2.304,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,FJI,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,FJI,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,FJI,2002,0.0,,,,final,,,,solar
@@ -14556,9 +14556,9 @@ electricity.ember.mix-by-country,GBR,2019,3.796,,,,final,,,,solar
 electricity.ember.mix-by-country,GBR,2020,4.044,,,,final,,,,solar
 electricity.ember.mix-by-country,GBR,2021,3.94,,,,final,,,,solar
 electricity.ember.mix-by-country,GBR,2022,4.11,,,,final,,,,solar
-electricity.ember.mix-by-country,GBR,2023,4.745,,,,final,,,,solar
-electricity.ember.mix-by-country,GBR,2024,5.205,,,,final,,,,solar
-electricity.ember.mix-by-country,GBR,2025,6.613,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,GBR,2023,4.735,,,,final,,,,solar
+electricity.ember.mix-by-country,GBR,2024,5.199,,,,final,,,,solar
+electricity.ember.mix-by-country,GBR,2025,6.606,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,GBR,2000,0.249,,,,final,,,,wind
 electricity.ember.mix-by-country,GBR,2001,0.249,,,,final,,,,wind
 electricity.ember.mix-by-country,GBR,2002,0.323,,,,final,,,,wind
@@ -14582,9 +14582,9 @@ electricity.ember.mix-by-country,GBR,2019,19.512,,,,final,,,,wind
 electricity.ember.mix-by-country,GBR,2020,24.37,,,,final,,,,wind
 electricity.ember.mix-by-country,GBR,2021,21.088,,,,final,,,,wind
 electricity.ember.mix-by-country,GBR,2022,24.712,,,,final,,,,wind
-electricity.ember.mix-by-country,GBR,2023,28.083,,,,final,,,,wind
-electricity.ember.mix-by-country,GBR,2024,29.307,,,,final,,,,wind
-electricity.ember.mix-by-country,GBR,2025,29.365,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,GBR,2023,28.232,,,,final,,,,wind
+electricity.ember.mix-by-country,GBR,2024,29.389,,,,final,,,,wind
+electricity.ember.mix-by-country,GBR,2025,29.436,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,GBR,2000,1.35,,,,final,,,,hydro
 electricity.ember.mix-by-country,GBR,2001,1.053,,,,final,,,,hydro
 electricity.ember.mix-by-country,GBR,2002,1.237,,,,final,,,,hydro
@@ -14608,9 +14608,9 @@ electricity.ember.mix-by-country,GBR,2019,1.812,,,,final,,,,hydro
 electricity.ember.mix-by-country,GBR,2020,2.217,,,,final,,,,hydro
 electricity.ember.mix-by-country,GBR,2021,1.76,,,,final,,,,hydro
 electricity.ember.mix-by-country,GBR,2022,1.744,,,,final,,,,hydro
-electricity.ember.mix-by-country,GBR,2023,1.894,,,,final,,,,hydro
-electricity.ember.mix-by-country,GBR,2024,2.027,,,,final,,,,hydro
-electricity.ember.mix-by-country,GBR,2025,1.846,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,GBR,2023,1.89,,,,final,,,,hydro
+electricity.ember.mix-by-country,GBR,2024,2.025,,,,final,,,,hydro
+electricity.ember.mix-by-country,GBR,2025,1.844,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,GBR,2000,1.029,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GBR,2001,1.177,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GBR,2002,1.312,,,,final,,,,bioenergy
@@ -14634,9 +14634,9 @@ electricity.ember.mix-by-country,GBR,2019,11.473,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GBR,2020,12.433,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GBR,2021,12.994,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GBR,2022,11.045,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,GBR,2023,11.657,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,GBR,2024,14.108,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,GBR,2025,13.953,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,GBR,2023,11.633,,,,final,,,,bioenergy
+electricity.ember.mix-by-country,GBR,2024,14.092,,,,final,,,,bioenergy
+electricity.ember.mix-by-country,GBR,2025,13.939,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,GBR,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,GBR,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,GBR,2002,0.0,,,,final,,,,other-renewables
@@ -14686,9 +14686,9 @@ electricity.ember.mix-by-country,GBR,2019,17.17,,,,final,,,,nuclear
 electricity.ember.mix-by-country,GBR,2020,16.191,,,,final,,,,nuclear
 electricity.ember.mix-by-country,GBR,2021,14.972,,,,final,,,,nuclear
 electricity.ember.mix-by-country,GBR,2022,14.603,,,,final,,,,nuclear
-electricity.ember.mix-by-country,GBR,2023,13.879,,,,final,,,,nuclear
-electricity.ember.mix-by-country,GBR,2024,14.284,,,,final,,,,nuclear
-electricity.ember.mix-by-country,GBR,2025,12.4,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,GBR,2023,13.85,,,,final,,,,nuclear
+electricity.ember.mix-by-country,GBR,2024,14.268,,,,final,,,,nuclear
+electricity.ember.mix-by-country,GBR,2025,12.388,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,GBR,2000,31.812,,,,final,,,,coal
 electricity.ember.mix-by-country,GBR,2001,34.166,,,,final,,,,coal
 electricity.ember.mix-by-country,GBR,2002,32.094,,,,final,,,,coal
@@ -14712,8 +14712,8 @@ electricity.ember.mix-by-country,GBR,2019,2.115,,,,final,,,,coal
 electricity.ember.mix-by-country,GBR,2020,1.837,,,,final,,,,coal
 electricity.ember.mix-by-country,GBR,2021,2.205,,,,final,,,,coal
 electricity.ember.mix-by-country,GBR,2022,1.83,,,,final,,,,coal
-electricity.ember.mix-by-country,GBR,2023,1.292,,,,final,,,,coal
-electricity.ember.mix-by-country,GBR,2024,0.669,,,,final,,,,coal
+electricity.ember.mix-by-country,GBR,2023,1.289,,,,final,,,,coal
+electricity.ember.mix-by-country,GBR,2024,0.668,,,,final,,,,coal
 electricity.ember.mix-by-country,GBR,2025,0.112,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,GBR,2000,39.272,,,,final,,,,gas
 electricity.ember.mix-by-country,GBR,2001,36.882,,,,final,,,,gas
@@ -14738,9 +14738,9 @@ electricity.ember.mix-by-country,GBR,2019,40.677,,,,final,,,,gas
 electricity.ember.mix-by-country,GBR,2020,36.059,,,,final,,,,gas
 electricity.ember.mix-by-country,GBR,2021,39.896,,,,final,,,,gas
 electricity.ember.mix-by-country,GBR,2022,38.545,,,,final,,,,gas
-electricity.ember.mix-by-country,GBR,2023,34.752,,,,final,,,,gas
-electricity.ember.mix-by-country,GBR,2024,30.37,,,,final,,,,gas
-electricity.ember.mix-by-country,GBR,2025,31.355,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,GBR,2023,34.68,,,,final,,,,gas
+electricity.ember.mix-by-country,GBR,2024,30.335,,,,final,,,,gas
+electricity.ember.mix-by-country,GBR,2025,31.324,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,GBR,2000,3.729,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GBR,2001,3.059,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GBR,2002,3.024,,,,final,,,,other-fossil
@@ -14764,9 +14764,9 @@ electricity.ember.mix-by-country,GBR,2019,3.441,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GBR,2020,2.849,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GBR,2021,3.144,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GBR,2022,3.411,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,GBR,2023,3.699,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,GBR,2024,4.029,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,GBR,2025,4.357,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,GBR,2023,3.691,,,,final,,,,other-fossil
+electricity.ember.mix-by-country,GBR,2024,4.025,,,,final,,,,other-fossil
+electricity.ember.mix-by-country,GBR,2025,4.353,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,GEO,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,GEO,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,GEO,2002,0.0,,,,final,,,,solar
@@ -16314,7 +16314,7 @@ electricity.ember.mix-by-country,GRC,2021,9.679,,,,final,,,,solar
 electricity.ember.mix-by-country,GRC,2022,13.818,,,,final,,,,solar
 electricity.ember.mix-by-country,GRC,2023,18.169,,,,final,,,,solar
 electricity.ember.mix-by-country,GRC,2024,19.726,,,,final,,,,solar
-electricity.ember.mix-by-country,GRC,2025,19.667,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,GRC,2025,19.645,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,GRC,2000,0.85,,,,final,,,,wind
 electricity.ember.mix-by-country,GRC,2001,1.447,,,,final,,,,wind
 electricity.ember.mix-by-country,GRC,2002,1.218,,,,final,,,,wind
@@ -16340,7 +16340,7 @@ electricity.ember.mix-by-country,GRC,2021,19.322,,,,final,,,,wind
 electricity.ember.mix-by-country,GRC,2022,21.057,,,,final,,,,wind
 electricity.ember.mix-by-country,GRC,2023,22.522,,,,final,,,,wind
 electricity.ember.mix-by-country,GRC,2024,21.988,,,,final,,,,wind
-electricity.ember.mix-by-country,GRC,2025,20.908,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,GRC,2025,20.885,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,GRC,2000,6.97,,,,final,,,,hydro
 electricity.ember.mix-by-country,GRC,2001,3.997,,,,final,,,,hydro
 electricity.ember.mix-by-country,GRC,2002,5.247,,,,final,,,,hydro
@@ -16366,7 +16366,7 @@ electricity.ember.mix-by-country,GRC,2021,10.878,,,,final,,,,hydro
 electricity.ember.mix-by-country,GRC,2022,7.47,,,,final,,,,hydro
 electricity.ember.mix-by-country,GRC,2023,7.807,,,,final,,,,hydro
 electricity.ember.mix-by-country,GRC,2024,6.272,,,,final,,,,hydro
-electricity.ember.mix-by-country,GRC,2025,5.928,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,GRC,2025,5.921,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,GRC,2000,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GRC,2001,0.152,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GRC,2002,0.244,,,,final,,,,bioenergy
@@ -16392,7 +16392,7 @@ electricity.ember.mix-by-country,GRC,2021,0.922,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GRC,2022,1.103,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GRC,2023,1.328,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,GRC,2024,1.244,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,GRC,2025,1.227,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,GRC,2025,1.336,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,GRC,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,GRC,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,GRC,2002,0.0,,,,final,,,,other-renewables
@@ -16470,7 +16470,7 @@ electricity.ember.mix-by-country,GRC,2021,9.808,,,,final,,,,coal
 electricity.ember.mix-by-country,GRC,2022,11.148,,,,final,,,,coal
 electricity.ember.mix-by-country,GRC,2023,9.381,,,,final,,,,coal
 electricity.ember.mix-by-country,GRC,2024,5.729,,,,final,,,,coal
-electricity.ember.mix-by-country,GRC,2025,4.747,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,GRC,2025,4.742,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,GRC,2000,11.182,,,,final,,,,gas
 electricity.ember.mix-by-country,GRC,2001,11.667,,,,final,,,,gas
 electricity.ember.mix-by-country,GRC,2002,13.231,,,,final,,,,gas
@@ -16496,7 +16496,7 @@ electricity.ember.mix-by-country,GRC,2021,41.464,,,,final,,,,gas
 electricity.ember.mix-by-country,GRC,2022,37.043,,,,final,,,,gas
 electricity.ember.mix-by-country,GRC,2023,32.659,,,,final,,,,gas
 electricity.ember.mix-by-country,GRC,2024,37.718,,,,final,,,,gas
-electricity.ember.mix-by-country,GRC,2025,40.298,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,GRC,2025,40.253,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,GRC,2000,16.188,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GRC,2001,15.303,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GRC,2002,15.274,,,,final,,,,other-fossil
@@ -16522,7 +16522,7 @@ electricity.ember.mix-by-country,GRC,2021,7.928,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GRC,2022,8.361,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GRC,2023,8.134,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,GRC,2024,7.323,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,GRC,2025,7.224,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,GRC,2025,7.216,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,GRD,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,GRD,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,GRD,2002,0.0,,,,final,,,,solar
@@ -19338,7 +19338,7 @@ electricity.ember.mix-by-country,IRL,2020,36.505,,,,final,,,,wind
 electricity.ember.mix-by-country,IRL,2021,31.317,,,,final,,,,wind
 electricity.ember.mix-by-country,IRL,2022,33.708,,,,final,,,,wind
 electricity.ember.mix-by-country,IRL,2023,37.603,,,,final,,,,wind
-electricity.ember.mix-by-country,IRL,2024,37.309,,,,final,,,,wind
+electricity.ember.mix-by-country,IRL,2024,37.305,,,,final,,,,wind
 electricity.ember.mix-by-country,IRL,2025,37.658,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,IRL,2000,3.597,,,,final,,,,hydro
 electricity.ember.mix-by-country,IRL,2001,2.44,,,,final,,,,hydro
@@ -19468,7 +19468,7 @@ electricity.ember.mix-by-country,IRL,2020,2.083,,,,final,,,,coal
 electricity.ember.mix-by-country,IRL,2021,8.57,,,,final,,,,coal
 electricity.ember.mix-by-country,IRL,2022,7.014,,,,final,,,,coal
 electricity.ember.mix-by-country,IRL,2023,3.836,,,,final,,,,coal
-electricity.ember.mix-by-country,IRL,2024,2.027,,,,final,,,,coal
+electricity.ember.mix-by-country,IRL,2024,2.028,,,,final,,,,coal
 electricity.ember.mix-by-country,IRL,2025,1.481,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,IRL,2000,39.187,,,,final,,,,gas
 electricity.ember.mix-by-country,IRL,2001,37.21,,,,final,,,,gas
@@ -19494,8 +19494,8 @@ electricity.ember.mix-by-country,IRL,2020,50.498,,,,final,,,,gas
 electricity.ember.mix-by-country,IRL,2021,47.763,,,,final,,,,gas
 electricity.ember.mix-by-country,IRL,2022,48.92,,,,final,,,,gas
 electricity.ember.mix-by-country,IRL,2023,48.668,,,,final,,,,gas
-electricity.ember.mix-by-country,IRL,2024,48.596,,,,final,,,,gas
-electricity.ember.mix-by-country,IRL,2025,47.931,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,IRL,2024,48.598,,,,final,,,,gas
+electricity.ember.mix-by-country,IRL,2025,47.932,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,IRL,2000,26.915,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,IRL,2001,29.85,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,IRL,2002,23.266,,,,final,,,,other-fossil
@@ -22989,7 +22989,7 @@ electricity.ember.mix-by-country,KWT,2021,0.173,,,,final,,,,solar
 electricity.ember.mix-by-country,KWT,2022,0.211,,,,final,,,,solar
 electricity.ember.mix-by-country,KWT,2023,0.212,,,,final,,,,solar
 electricity.ember.mix-by-country,KWT,2024,0.227,,,,final,,,,solar
-electricity.ember.mix-by-country,KWT,2025,0.235,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,KWT,2025,0.262,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,KWT,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,KWT,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,KWT,2002,0.0,,,,final,,,,wind
@@ -23015,7 +23015,7 @@ electricity.ember.mix-by-country,KWT,2021,0.087,,,,final,,,,wind
 electricity.ember.mix-by-country,KWT,2022,2.017,,,,final,,,,wind
 electricity.ember.mix-by-country,KWT,2023,1.916,,,,final,,,,wind
 electricity.ember.mix-by-country,KWT,2024,2.011,,,,final,,,,wind
-electricity.ember.mix-by-country,KWT,2025,2.085,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,KWT,2025,2.084,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,KWT,2000,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,KWT,2001,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,KWT,2002,0.0,,,,final,,,,hydro
@@ -23171,7 +23171,7 @@ electricity.ember.mix-by-country,KWT,2021,50.842,,,,final,,,,gas
 electricity.ember.mix-by-country,KWT,2022,51.014,,,,final,,,,gas
 electricity.ember.mix-by-country,KWT,2023,61.341,,,,final,,,,gas
 electricity.ember.mix-by-country,KWT,2024,62.082,,,,final,,,,gas
-electricity.ember.mix-by-country,KWT,2025,62.231,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,KWT,2025,62.214,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,KWT,2000,67.058,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,KWT,2001,69.3,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,KWT,2002,78.004,,,,final,,,,other-fossil
@@ -23197,7 +23197,7 @@ electricity.ember.mix-by-country,KWT,2021,48.899,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,KWT,2022,46.758,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,KWT,2023,36.531,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,KWT,2024,35.68,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,KWT,2025,35.45,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,KWT,2025,35.44,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,LAO,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,LAO,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,LAO,2002,0.0,,,,final,,,,solar
@@ -24347,8 +24347,7 @@ electricity.ember.mix-by-country,LKA,2020,2.788,,,,final,,,,solar
 electricity.ember.mix-by-country,LKA,2021,3.655,,,,final,,,,solar
 electricity.ember.mix-by-country,LKA,2022,5.015,,,,final,,,,solar
 electricity.ember.mix-by-country,LKA,2023,6.101,,,,final,,,,solar
-electricity.ember.mix-by-country,LKA,2024,6.664,,,,final,,,,solar
-electricity.ember.mix-by-country,LKA,2025,10.79,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,LKA,2024,8.008,,,,final,,,,solar
 electricity.ember.mix-by-country,LKA,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,LKA,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,LKA,2002,0.0,,,,final,,,,wind
@@ -24373,8 +24372,7 @@ electricity.ember.mix-by-country,LKA,2020,2.0,,,,final,,,,wind
 electricity.ember.mix-by-country,LKA,2021,3.712,,,,final,,,,wind
 electricity.ember.mix-by-country,LKA,2022,4.418,,,,final,,,,wind
 electricity.ember.mix-by-country,LKA,2023,5.003,,,,final,,,,wind
-electricity.ember.mix-by-country,LKA,2024,5.482,,,,final,,,,wind
-electricity.ember.mix-by-country,LKA,2025,6.231,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,LKA,2024,3.573,,,,final,,,,wind
 electricity.ember.mix-by-country,LKA,2000,47.345,,,,final,,,,hydro
 electricity.ember.mix-by-country,LKA,2001,46.777,,,,final,,,,hydro
 electricity.ember.mix-by-country,LKA,2002,38.905,,,,final,,,,hydro
@@ -24399,8 +24397,7 @@ electricity.ember.mix-by-country,LKA,2020,30.182,,,,final,,,,hydro
 electricity.ember.mix-by-country,LKA,2021,41.291,,,,final,,,,hydro
 electricity.ember.mix-by-country,LKA,2022,40.418,,,,final,,,,hydro
 electricity.ember.mix-by-country,LKA,2023,36.486,,,,final,,,,hydro
-electricity.ember.mix-by-country,LKA,2024,40.133,,,,final,,,,hydro
-electricity.ember.mix-by-country,LKA,2025,36.222,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,LKA,2024,39.001,,,,final,,,,hydro
 electricity.ember.mix-by-country,LKA,2000,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,LKA,2001,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,LKA,2004,0.0,,,,final,,,,bioenergy
@@ -24423,14 +24420,12 @@ electricity.ember.mix-by-country,LKA,2020,0.606,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,LKA,2021,0.514,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,LKA,2022,0.299,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,LKA,2023,0.732,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,LKA,2024,0.918,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,LKA,2025,1.127,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,LKA,2024,0.976,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,LKA,2020,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,LKA,2021,0.228,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,LKA,2022,0.179,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,LKA,2023,0.244,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,LKA,2024,0.23,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,LKA,2025,0.227,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
+electricity.ember.mix-by-country,LKA,2024,0.103,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,LKA,2011,9.004,,,,final,,,,coal
 electricity.ember.mix-by-country,LKA,2012,11.864,,,,final,,,,coal
 electricity.ember.mix-by-country,LKA,2013,12.27,,,,final,,,,coal
@@ -24444,8 +24439,7 @@ electricity.ember.mix-by-country,LKA,2020,38.545,,,,final,,,,coal
 electricity.ember.mix-by-country,LKA,2021,34.894,,,,final,,,,coal
 electricity.ember.mix-by-country,LKA,2022,34.209,,,,final,,,,coal
 electricity.ember.mix-by-country,LKA,2023,31.422,,,,final,,,,coal
-electricity.ember.mix-by-country,LKA,2024,34.503,,,,final,,,,coal
-electricity.ember.mix-by-country,LKA,2025,30.898,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,LKA,2024,34.166,,,,final,,,,coal
 electricity.ember.mix-by-country,LKA,2000,52.655,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,LKA,2001,53.223,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,LKA,2002,61.095,,,,final,,,,other-fossil
@@ -24470,8 +24464,7 @@ electricity.ember.mix-by-country,LKA,2020,25.879,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,LKA,2021,15.705,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,LKA,2022,15.463,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,LKA,2023,20.012,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,LKA,2024,12.071,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,LKA,2025,14.511,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,LKA,2024,14.172,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,LSO,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,LSO,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,LSO,2002,0.0,,,,final,,,,solar
@@ -25671,7 +25664,7 @@ electricity.ember.mix-by-country,MAR,2021,12.373,,,,final,,,,wind
 electricity.ember.mix-by-country,MAR,2022,12.944,,,,final,,,,wind
 electricity.ember.mix-by-country,MAR,2023,15.426,,,,final,,,,wind
 electricity.ember.mix-by-country,MAR,2024,16.722,,,,final,,,,wind
-electricity.ember.mix-by-country,MAR,2025,15.215,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,MAR,2025,15.214,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,MAR,2000,5.182,,,,final,,,,hydro
 electricity.ember.mix-by-country,MAR,2001,5.513,,,,final,,,,hydro
 electricity.ember.mix-by-country,MAR,2002,5.563,,,,final,,,,hydro
@@ -25723,7 +25716,7 @@ electricity.ember.mix-by-country,MAR,2021,0.097,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,MAR,2022,0.097,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,MAR,2023,0.094,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,MAR,2024,0.094,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,MAR,2025,0.091,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,MAR,2025,0.095,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,MAR,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,MAR,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,MAR,2002,0.0,,,,final,,,,other-renewables
@@ -25801,7 +25794,7 @@ electricity.ember.mix-by-country,MAR,2021,68.475,,,,final,,,,coal
 electricity.ember.mix-by-country,MAR,2022,70.031,,,,final,,,,coal
 electricity.ember.mix-by-country,MAR,2023,63.943,,,,final,,,,coal
 electricity.ember.mix-by-country,MAR,2024,61.745,,,,final,,,,coal
-electricity.ember.mix-by-country,MAR,2025,62.38,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,MAR,2025,62.378,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,MAR,2000,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,MAR,2001,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,MAR,2002,0.0,,,,final,,,,gas
@@ -27840,7 +27833,7 @@ electricity.ember.mix-by-country,MNG,2021,2.285,,,,final,,,,solar
 electricity.ember.mix-by-country,MNG,2022,2.452,,,,final,,,,solar
 electricity.ember.mix-by-country,MNG,2023,2.292,,,,final,,,,solar
 electricity.ember.mix-by-country,MNG,2024,2.381,,,,final,,,,solar
-electricity.ember.mix-by-country,MNG,2025,2.163,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,MNG,2025,2.349,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,MNG,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,MNG,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,MNG,2002,0.0,,,,final,,,,wind
@@ -27866,7 +27859,7 @@ electricity.ember.mix-by-country,MNG,2021,7.796,,,,final,,,,wind
 electricity.ember.mix-by-country,MNG,2022,6.581,,,,final,,,,wind
 electricity.ember.mix-by-country,MNG,2023,6.152,,,,final,,,,wind
 electricity.ember.mix-by-country,MNG,2024,5.782,,,,final,,,,wind
-electricity.ember.mix-by-country,MNG,2025,5.675,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,MNG,2025,5.651,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,MNG,2000,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,MNG,2001,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,MNG,2002,0.0,,,,final,,,,hydro
@@ -27892,7 +27885,7 @@ electricity.ember.mix-by-country,MNG,2021,1.075,,,,final,,,,hydro
 electricity.ember.mix-by-country,MNG,2022,0.774,,,,final,,,,hydro
 electricity.ember.mix-by-country,MNG,2023,0.724,,,,final,,,,hydro
 electricity.ember.mix-by-country,MNG,2024,0.68,,,,final,,,,hydro
-electricity.ember.mix-by-country,MNG,2025,0.618,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,MNG,2025,0.615,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,MNG,2000,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,MNG,2001,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,MNG,2002,0.0,,,,final,,,,bioenergy
@@ -27996,7 +27989,7 @@ electricity.ember.mix-by-country,MNG,2021,84.274,,,,final,,,,coal
 electricity.ember.mix-by-country,MNG,2022,85.806,,,,final,,,,coal
 electricity.ember.mix-by-country,MNG,2023,85.163,,,,final,,,,coal
 electricity.ember.mix-by-country,MNG,2024,84.694,,,,final,,,,coal
-electricity.ember.mix-by-country,MNG,2025,85.677,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,MNG,2025,85.312,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,MNG,2000,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,MNG,2001,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,MNG,2002,0.0,,,,final,,,,gas
@@ -28048,7 +28041,7 @@ electricity.ember.mix-by-country,MNG,2021,4.57,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,MNG,2022,4.387,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,MNG,2023,5.669,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,MNG,2024,6.463,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,MNG,2025,5.871,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,MNG,2025,6.082,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,MOZ,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,MOZ,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,MOZ,2002,0.0,,,,final,,,,solar
@@ -30154,7 +30147,7 @@ electricity.ember.mix-by-country,NGA,2021,0.255,,,,final,,,,solar
 electricity.ember.mix-by-country,NGA,2022,0.263,,,,final,,,,solar
 electricity.ember.mix-by-country,NGA,2023,0.269,,,,final,,,,solar
 electricity.ember.mix-by-country,NGA,2024,0.346,,,,final,,,,solar
-electricity.ember.mix-by-country,NGA,2025,0.306,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,NGA,2025,0.336,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,NGA,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,NGA,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,NGA,2002,0.0,,,,final,,,,wind
@@ -30206,7 +30199,7 @@ electricity.ember.mix-by-country,NGA,2021,20.255,,,,final,,,,hydro
 electricity.ember.mix-by-country,NGA,2022,24.289,,,,final,,,,hydro
 electricity.ember.mix-by-country,NGA,2023,22.263,,,,final,,,,hydro
 electricity.ember.mix-by-country,NGA,2024,24.494,,,,final,,,,hydro
-electricity.ember.mix-by-country,NGA,2025,31.513,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,NGA,2025,31.502,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,NGA,2000,0.068,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NGA,2001,0.065,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NGA,2002,0.046,,,,final,,,,bioenergy
@@ -30232,7 +30225,7 @@ electricity.ember.mix-by-country,NGA,2021,0.153,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NGA,2022,0.158,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NGA,2023,0.147,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NGA,2024,0.16,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,NGA,2025,0.141,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,NGA,2025,0.146,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,NGA,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NGA,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NGA,2002,0.0,,,,final,,,,other-renewables
@@ -30336,7 +30329,7 @@ electricity.ember.mix-by-country,NGA,2021,79.337,,,,final,,,,gas
 electricity.ember.mix-by-country,NGA,2022,75.289,,,,final,,,,gas
 electricity.ember.mix-by-country,NGA,2023,77.322,,,,final,,,,gas
 electricity.ember.mix-by-country,NGA,2024,75.0,,,,final,,,,gas
-electricity.ember.mix-by-country,NGA,2025,68.041,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,NGA,2025,68.017,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,NGA,2000,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NGA,2001,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NGA,2002,0.0,,,,final,,,,other-fossil
@@ -31531,7 +31524,7 @@ electricity.ember.mix-by-country,NZL,2021,0.482,,,,final,,,,solar
 electricity.ember.mix-by-country,NZL,2022,0.647,,,,final,,,,solar
 electricity.ember.mix-by-country,NZL,2023,0.863,,,,final,,,,solar
 electricity.ember.mix-by-country,NZL,2024,0.841,,,,final,,,,solar
-electricity.ember.mix-by-country,NZL,2025,0.848,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,NZL,2025,1.123,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,NZL,2000,0.308,,,,final,,,,wind
 electricity.ember.mix-by-country,NZL,2001,0.356,,,,final,,,,wind
 electricity.ember.mix-by-country,NZL,2002,0.373,,,,final,,,,wind
@@ -31557,7 +31550,7 @@ electricity.ember.mix-by-country,NZL,2021,6.016,,,,final,,,,wind
 electricity.ember.mix-by-country,NZL,2022,6.682,,,,final,,,,wind
 electricity.ember.mix-by-country,NZL,2023,8.184,,,,final,,,,wind
 electricity.ember.mix-by-country,NZL,2024,9.793,,,,final,,,,wind
-electricity.ember.mix-by-country,NZL,2025,9.642,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,NZL,2025,9.615,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,NZL,2000,62.169,,,,final,,,,hydro
 electricity.ember.mix-by-country,NZL,2001,54.633,,,,final,,,,hydro
 electricity.ember.mix-by-country,NZL,2002,61.229,,,,final,,,,hydro
@@ -31583,7 +31576,7 @@ electricity.ember.mix-by-country,NZL,2021,55.086,,,,final,,,,hydro
 electricity.ember.mix-by-country,NZL,2022,59.792,,,,final,,,,hydro
 electricity.ember.mix-by-country,NZL,2023,61.017,,,,final,,,,hydro
 electricity.ember.mix-by-country,NZL,2024,53.283,,,,final,,,,hydro
-electricity.ember.mix-by-country,NZL,2025,54.498,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,NZL,2025,54.347,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,NZL,2000,2.185,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NZL,2001,1.833,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NZL,2002,1.442,,,,final,,,,bioenergy
@@ -31609,7 +31602,7 @@ electricity.ember.mix-by-country,NZL,2021,1.837,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NZL,2022,1.734,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NZL,2023,1.539,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,NZL,2024,1.772,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,NZL,2025,1.282,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,NZL,2025,1.278,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,NZL,2000,7.093,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NZL,2001,6.823,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NZL,2002,6.59,,,,final,,,,other-renewables
@@ -31635,7 +31628,7 @@ electricity.ember.mix-by-country,NZL,2021,18.301,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NZL,2022,18.081,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NZL,2023,18.023,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,NZL,2024,20.291,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,NZL,2025,22.381,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
+electricity.ember.mix-by-country,NZL,2025,22.319,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
 electricity.ember.mix-by-country,NZL,2000,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,NZL,2001,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,NZL,2002,0.0,,,,final,,,,nuclear
@@ -31687,7 +31680,7 @@ electricity.ember.mix-by-country,NZL,2021,5.97,,,,final,,,,coal
 electricity.ember.mix-by-country,NZL,2022,1.665,,,,final,,,,coal
 electricity.ember.mix-by-country,NZL,2023,1.236,,,,final,,,,coal
 electricity.ember.mix-by-country,NZL,2024,2.727,,,,final,,,,coal
-electricity.ember.mix-by-country,NZL,2025,1.13,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,NZL,2025,1.127,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,NZL,2000,24.287,,,,final,,,,gas
 electricity.ember.mix-by-country,NZL,2001,30.957,,,,final,,,,gas
 electricity.ember.mix-by-country,NZL,2002,25.242,,,,final,,,,gas
@@ -31713,7 +31706,7 @@ electricity.ember.mix-by-country,NZL,2021,10.677,,,,final,,,,gas
 electricity.ember.mix-by-country,NZL,2022,9.965,,,,final,,,,gas
 electricity.ember.mix-by-country,NZL,2023,7.834,,,,final,,,,gas
 electricity.ember.mix-by-country,NZL,2024,9.793,,,,final,,,,gas
-electricity.ember.mix-by-country,NZL,2025,8.75,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,NZL,2025,8.726,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,NZL,2000,1.388,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NZL,2001,1.502,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NZL,2002,1.393,,,,final,,,,other-fossil
@@ -31739,7 +31732,7 @@ electricity.ember.mix-by-country,NZL,2021,1.63,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NZL,2022,1.434,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NZL,2023,1.306,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,NZL,2024,1.5,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,NZL,2025,1.47,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,NZL,2025,1.466,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,OMN,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,OMN,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,OMN,2002,0.0,,,,final,,,,solar
@@ -31765,7 +31758,7 @@ electricity.ember.mix-by-country,OMN,2021,1.463,,,,final,,,,solar
 electricity.ember.mix-by-country,OMN,2022,4.245,,,,final,,,,solar
 electricity.ember.mix-by-country,OMN,2023,4.667,,,,final,,,,solar
 electricity.ember.mix-by-country,OMN,2024,4.684,,,,final,,,,solar
-electricity.ember.mix-by-country,OMN,2025,4.352,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,OMN,2025,5.012,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,OMN,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,OMN,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,OMN,2002,0.0,,,,final,,,,wind
@@ -31947,7 +31940,7 @@ electricity.ember.mix-by-country,OMN,2021,94.634,,,,final,,,,gas
 electricity.ember.mix-by-country,OMN,2022,91.509,,,,final,,,,gas
 electricity.ember.mix-by-country,OMN,2023,91.556,,,,final,,,,gas
 electricity.ember.mix-by-country,OMN,2024,91.242,,,,final,,,,gas
-electricity.ember.mix-by-country,OMN,2025,91.864,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,OMN,2025,91.515,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,OMN,2000,17.124,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,OMN,2001,17.659,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,OMN,2002,18.006,,,,final,,,,other-fossil
@@ -31973,7 +31966,7 @@ electricity.ember.mix-by-country,OMN,2021,3.659,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,OMN,2022,4.009,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,OMN,2023,3.556,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,OMN,2024,3.87,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,OMN,2025,3.595,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,OMN,2025,3.284,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,PAK,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,PAK,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,PAK,2002,0.0,,,,final,,,,solar
@@ -34736,7 +34729,6 @@ electricity.ember.mix-by-country,QAT,2021,0.019,,,,final,,,,solar
 electricity.ember.mix-by-country,QAT,2022,1.078,,,,final,,,,solar
 electricity.ember.mix-by-country,QAT,2023,3.335,,,,final,,,,solar
 electricity.ember.mix-by-country,QAT,2024,3.793,,,,final,,,,solar
-electricity.ember.mix-by-country,QAT,2025,3.76,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,wind
@@ -34762,7 +34754,6 @@ electricity.ember.mix-by-country,QAT,2021,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,QAT,2022,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,QAT,2023,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,QAT,2024,0.0,,,,final,,,,wind
-electricity.ember.mix-by-country,QAT,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,hydro
@@ -34788,7 +34779,6 @@ electricity.ember.mix-by-country,QAT,2021,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,QAT,2022,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,QAT,2023,0.0,,,,final,,,,hydro
 electricity.ember.mix-by-country,QAT,2024,0.0,,,,final,,,,hydro
-electricity.ember.mix-by-country,QAT,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,bioenergy
@@ -34814,7 +34804,6 @@ electricity.ember.mix-by-country,QAT,2021,0.27,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,QAT,2022,0.237,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,QAT,2023,0.231,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,QAT,2024,0.229,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,QAT,2025,0.227,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,other-renewables
@@ -34840,7 +34829,6 @@ electricity.ember.mix-by-country,QAT,2021,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,QAT,2022,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,QAT,2023,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,QAT,2024,0.0,,,,final,,,,other-renewables
-electricity.ember.mix-by-country,QAT,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-renewables
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,nuclear
@@ -34866,7 +34854,6 @@ electricity.ember.mix-by-country,QAT,2021,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,QAT,2022,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,QAT,2023,0.0,,,,final,,,,nuclear
 electricity.ember.mix-by-country,QAT,2024,0.0,,,,final,,,,nuclear
-electricity.ember.mix-by-country,QAT,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,coal
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,coal
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,coal
@@ -34892,7 +34879,6 @@ electricity.ember.mix-by-country,QAT,2021,0.0,,,,final,,,,coal
 electricity.ember.mix-by-country,QAT,2022,0.0,,,,final,,,,coal
 electricity.ember.mix-by-country,QAT,2023,0.0,,,,final,,,,coal
 electricity.ember.mix-by-country,QAT,2024,0.0,,,,final,,,,coal
-electricity.ember.mix-by-country,QAT,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,QAT,2000,100.0,,,,final,,,,gas
 electricity.ember.mix-by-country,QAT,2001,100.0,,,,final,,,,gas
 electricity.ember.mix-by-country,QAT,2002,100.0,,,,final,,,,gas
@@ -34918,7 +34904,6 @@ electricity.ember.mix-by-country,QAT,2021,99.71,,,,final,,,,gas
 electricity.ember.mix-by-country,QAT,2022,98.685,,,,final,,,,gas
 electricity.ember.mix-by-country,QAT,2023,96.435,,,,final,,,,gas
 electricity.ember.mix-by-country,QAT,2024,95.977,,,,final,,,,gas
-electricity.ember.mix-by-country,QAT,2025,96.012,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,QAT,2000,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,QAT,2001,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,QAT,2002,0.0,,,,final,,,,other-fossil
@@ -34944,7 +34929,6 @@ electricity.ember.mix-by-country,QAT,2021,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,QAT,2022,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,QAT,2023,0.0,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,QAT,2024,0.0,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,QAT,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,REU,2004,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,REU,2005,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,REU,2006,0.0,,,,final,,,,solar
@@ -35106,7 +35090,7 @@ electricity.ember.mix-by-country,ROU,2021,2.903,,,,final,,,,solar
 electricity.ember.mix-by-country,ROU,2022,3.635,,,,final,,,,solar
 electricity.ember.mix-by-country,ROU,2023,3.916,,,,final,,,,solar
 electricity.ember.mix-by-country,ROU,2024,6.487,,,,final,,,,solar
-electricity.ember.mix-by-country,ROU,2025,9.943,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,ROU,2025,9.961,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,ROU,2005,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,ROU,2006,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,ROU,2007,0.0,,,,final,,,,wind
@@ -35127,7 +35111,7 @@ electricity.ember.mix-by-country,ROU,2021,11.236,,,,final,,,,wind
 electricity.ember.mix-by-country,ROU,2022,12.788,,,,final,,,,wind
 electricity.ember.mix-by-country,ROU,2023,13.257,,,,final,,,,wind
 electricity.ember.mix-by-country,ROU,2024,12.201,,,,final,,,,wind
-electricity.ember.mix-by-country,ROU,2025,11.975,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,ROU,2025,11.998,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,ROU,2000,28.666,,,,final,,,,hydro
 electricity.ember.mix-by-country,ROU,2001,27.862,,,,final,,,,hydro
 electricity.ember.mix-by-country,ROU,2002,29.493,,,,final,,,,hydro
@@ -35153,7 +35137,7 @@ electricity.ember.mix-by-country,ROU,2021,29.73,,,,final,,,,hydro
 electricity.ember.mix-by-country,ROU,2022,25.539,,,,final,,,,hydro
 electricity.ember.mix-by-country,ROU,2023,31.853,,,,final,,,,hydro
 electricity.ember.mix-by-country,ROU,2024,26.914,,,,final,,,,hydro
-electricity.ember.mix-by-country,ROU,2025,24.231,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,ROU,2025,24.277,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,ROU,2000,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ROU,2001,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ROU,2002,0.0,,,,final,,,,bioenergy
@@ -35179,7 +35163,7 @@ electricity.ember.mix-by-country,ROU,2021,1.11,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ROU,2022,1.187,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ROU,2023,0.773,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ROU,2024,0.91,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,ROU,2025,0.954,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,ROU,2025,0.956,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,ROU,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,ROU,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,ROU,2002,0.0,,,,final,,,,other-renewables
@@ -35231,7 +35215,7 @@ electricity.ember.mix-by-country,ROU,2021,19.262,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ROU,2022,20.259,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ROU,2023,19.649,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ROU,2024,20.693,,,,final,,,,nuclear
-electricity.ember.mix-by-country,ROU,2025,20.456,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,ROU,2025,20.495,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,ROU,2000,36.695,,,,final,,,,coal
 electricity.ember.mix-by-country,ROU,2001,36.788,,,,final,,,,coal
 electricity.ember.mix-by-country,ROU,2002,37.321,,,,final,,,,coal
@@ -35257,7 +35241,7 @@ electricity.ember.mix-by-country,ROU,2021,18.255,,,,final,,,,coal
 electricity.ember.mix-by-country,ROU,2022,18.944,,,,final,,,,coal
 electricity.ember.mix-by-country,ROU,2023,14.153,,,,final,,,,coal
 electricity.ember.mix-by-country,ROU,2024,15.098,,,,final,,,,coal
-electricity.ember.mix-by-country,ROU,2025,15.14,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,ROU,2025,15.169,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,ROU,2000,17.455,,,,final,,,,gas
 electricity.ember.mix-by-country,ROU,2001,15.07,,,,final,,,,gas
 electricity.ember.mix-by-country,ROU,2002,16.483,,,,final,,,,gas
@@ -35283,7 +35267,7 @@ electricity.ember.mix-by-country,ROU,2021,16.923,,,,final,,,,gas
 electricity.ember.mix-by-country,ROU,2022,17.044,,,,final,,,,gas
 electricity.ember.mix-by-country,ROU,2023,16.067,,,,final,,,,gas
 electricity.ember.mix-by-country,ROU,2024,17.355,,,,final,,,,gas
-electricity.ember.mix-by-country,ROU,2025,16.938,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,ROU,2025,16.971,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,ROU,2000,6.594,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,ROU,2001,10.103,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,ROU,2002,6.578,,,,final,,,,other-fossil
@@ -35309,7 +35293,7 @@ electricity.ember.mix-by-country,ROU,2021,0.581,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,ROU,2022,0.603,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,ROU,2023,0.334,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,ROU,2024,0.341,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,ROU,2025,0.361,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,ROU,2025,0.171,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,RUS,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,RUS,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,RUS,2002,0.0,,,,final,,,,solar
@@ -37531,7 +37515,7 @@ electricity.ember.mix-by-country,SRB,2021,0.027,,,,final,,,,solar
 electricity.ember.mix-by-country,SRB,2022,0.057,,,,final,,,,solar
 electricity.ember.mix-by-country,SRB,2023,0.127,,,,final,,,,solar
 electricity.ember.mix-by-country,SRB,2024,0.433,,,,final,,,,solar
-electricity.ember.mix-by-country,SRB,2025,0.444,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,SRB,2025,0.961,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,SRB,2012,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,SRB,2013,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,SRB,2014,0.0,,,,final,,,,wind
@@ -37545,7 +37529,7 @@ electricity.ember.mix-by-country,SRB,2021,2.883,,,,final,,,,wind
 electricity.ember.mix-by-country,SRB,2022,2.727,,,,final,,,,wind
 electricity.ember.mix-by-country,SRB,2023,2.721,,,,final,,,,wind
 electricity.ember.mix-by-country,SRB,2024,3.33,,,,final,,,,wind
-electricity.ember.mix-by-country,SRB,2025,4.115,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,SRB,2025,4.093,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,SRB,2000,30.736,,,,final,,,,hydro
 electricity.ember.mix-by-country,SRB,2001,30.365,,,,final,,,,hydro
 electricity.ember.mix-by-country,SRB,2002,29.874,,,,final,,,,hydro
@@ -37571,7 +37555,7 @@ electricity.ember.mix-by-country,SRB,2021,29.925,,,,final,,,,hydro
 electricity.ember.mix-by-country,SRB,2022,24.684,,,,final,,,,hydro
 electricity.ember.mix-by-country,SRB,2023,31.477,,,,final,,,,hydro
 electricity.ember.mix-by-country,SRB,2024,27.342,,,,final,,,,hydro
-electricity.ember.mix-by-country,SRB,2025,22.275,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,SRB,2025,22.159,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,SRB,2000,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SRB,2001,0.0,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SRB,2002,0.0,,,,final,,,,bioenergy
@@ -37597,7 +37581,7 @@ electricity.ember.mix-by-country,SRB,2021,0.667,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SRB,2022,0.718,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SRB,2023,0.636,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SRB,2024,0.92,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,SRB,2025,1.071,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,SRB,2025,1.065,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,SRB,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,SRB,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,SRB,2002,0.0,,,,final,,,,other-renewables
@@ -37675,7 +37659,7 @@ electricity.ember.mix-by-country,SRB,2021,63.454,,,,final,,,,coal
 electricity.ember.mix-by-country,SRB,2022,67.423,,,,final,,,,coal
 electricity.ember.mix-by-country,SRB,2023,59.853,,,,final,,,,coal
 electricity.ember.mix-by-country,SRB,2024,62.967,,,,final,,,,coal
-electricity.ember.mix-by-country,SRB,2025,65.664,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,SRB,2025,65.324,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,SRB,2000,1.221,,,,final,,,,gas
 electricity.ember.mix-by-country,SRB,2001,1.535,,,,final,,,,gas
 electricity.ember.mix-by-country,SRB,2002,1.504,,,,final,,,,gas
@@ -37701,7 +37685,7 @@ electricity.ember.mix-by-country,SRB,2021,2.856,,,,final,,,,gas
 electricity.ember.mix-by-country,SRB,2022,4.162,,,,final,,,,gas
 electricity.ember.mix-by-country,SRB,2023,5.009,,,,final,,,,gas
 electricity.ember.mix-by-country,SRB,2024,4.656,,,,final,,,,gas
-electricity.ember.mix-by-country,SRB,2025,6.137,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,SRB,2025,6.106,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,SRB,2000,0.97,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SRB,2001,0.982,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SRB,2002,0.752,,,,final,,,,other-fossil
@@ -37727,7 +37711,7 @@ electricity.ember.mix-by-country,SRB,2021,0.187,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SRB,2022,0.23,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SRB,2023,0.178,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SRB,2024,0.352,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,SRB,2025,0.294,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,SRB,2025,0.293,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,SSD,2012,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,SSD,2013,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,SSD,2014,0.0,,,,final,,,,solar
@@ -38762,8 +38746,8 @@ electricity.ember.mix-by-country,SWE,2020,0.641,,,,final,,,,solar
 electricity.ember.mix-by-country,SWE,2021,0.891,,,,final,,,,solar
 electricity.ember.mix-by-country,SWE,2022,1.144,,,,final,,,,solar
 electricity.ember.mix-by-country,SWE,2023,1.873,,,,final,,,,solar
-electricity.ember.mix-by-country,SWE,2024,2.418,,,,final,,,,solar
-electricity.ember.mix-by-country,SWE,2025,2.611,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,SWE,2024,2.417,,,,final,,,,solar
+electricity.ember.mix-by-country,SWE,2025,2.61,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,SWE,2000,0.317,,,,final,,,,wind
 electricity.ember.mix-by-country,SWE,2001,0.297,,,,final,,,,wind
 electricity.ember.mix-by-country,SWE,2002,0.416,,,,final,,,,wind
@@ -38788,8 +38772,8 @@ electricity.ember.mix-by-country,SWE,2020,16.803,,,,final,,,,wind
 electricity.ember.mix-by-country,SWE,2021,15.863,,,,final,,,,wind
 electricity.ember.mix-by-country,SWE,2022,19.214,,,,final,,,,wind
 electricity.ember.mix-by-country,SWE,2023,20.626,,,,final,,,,wind
-electricity.ember.mix-by-country,SWE,2024,23.44,,,,final,,,,wind
-electricity.ember.mix-by-country,SWE,2025,22.809,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,SWE,2024,23.484,,,,final,,,,wind
+electricity.ember.mix-by-country,SWE,2025,22.843,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,SWE,2000,54.107,,,,final,,,,hydro
 electricity.ember.mix-by-country,SWE,2001,48.923,,,,final,,,,hydro
 electricity.ember.mix-by-country,SWE,2002,45.235,,,,final,,,,hydro
@@ -38814,8 +38798,8 @@ electricity.ember.mix-by-country,SWE,2020,44.2,,,,final,,,,hydro
 electricity.ember.mix-by-country,SWE,2021,43.014,,,,final,,,,hydro
 electricity.ember.mix-by-country,SWE,2022,40.376,,,,final,,,,hydro
 electricity.ember.mix-by-country,SWE,2023,39.861,,,,final,,,,hydro
-electricity.ember.mix-by-country,SWE,2024,37.559,,,,final,,,,hydro
-electricity.ember.mix-by-country,SWE,2025,40.075,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,SWE,2024,37.537,,,,final,,,,hydro
+electricity.ember.mix-by-country,SWE,2025,40.058,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,SWE,2000,2.823,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SWE,2001,2.339,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SWE,2002,2.849,,,,final,,,,bioenergy
@@ -38840,8 +38824,8 @@ electricity.ember.mix-by-country,SWE,2020,6.826,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SWE,2021,7.614,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SWE,2022,7.587,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,SWE,2023,7.046,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,SWE,2024,5.918,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,SWE,2025,5.859,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,SWE,2024,5.914,,,,final,,,,bioenergy
+electricity.ember.mix-by-country,SWE,2025,5.857,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,SWE,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,SWE,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,SWE,2002,0.0,,,,final,,,,other-renewables
@@ -38892,8 +38876,8 @@ electricity.ember.mix-by-country,SWE,2020,30.04,,,,final,,,,nuclear
 electricity.ember.mix-by-country,SWE,2021,30.836,,,,final,,,,nuclear
 electricity.ember.mix-by-country,SWE,2022,30.014,,,,final,,,,nuclear
 electricity.ember.mix-by-country,SWE,2023,29.19,,,,final,,,,nuclear
-electricity.ember.mix-by-country,SWE,2024,29.455,,,,final,,,,nuclear
-electricity.ember.mix-by-country,SWE,2025,27.416,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,SWE,2024,29.438,,,,final,,,,nuclear
+electricity.ember.mix-by-country,SWE,2025,27.404,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,SWE,2000,1.129,,,,final,,,,coal
 electricity.ember.mix-by-country,SWE,2001,1.163,,,,final,,,,coal
 electricity.ember.mix-by-country,SWE,2002,1.616,,,,final,,,,coal
@@ -38971,7 +38955,7 @@ electricity.ember.mix-by-country,SWE,2021,1.613,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SWE,2022,1.578,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SWE,2023,1.307,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,SWE,2024,1.145,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,SWE,2025,1.158,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,SWE,2025,1.157,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,SWZ,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,SWZ,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,SWZ,2002,0.0,,,,final,,,,solar
@@ -41438,7 +41422,7 @@ electricity.ember.mix-by-country,TUN,2021,1.005,,,,final,,,,solar
 electricity.ember.mix-by-country,TUN,2022,1.495,,,,final,,,,solar
 electricity.ember.mix-by-country,TUN,2023,2.303,,,,final,,,,solar
 electricity.ember.mix-by-country,TUN,2024,2.62,,,,final,,,,solar
-electricity.ember.mix-by-country,TUN,2025,2.513,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,TUN,2025,2.502,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,TUN,2000,0.189,,,,final,,,,wind
 electricity.ember.mix-by-country,TUN,2001,0.176,,,,final,,,,wind
 electricity.ember.mix-by-country,TUN,2002,0.253,,,,final,,,,wind
@@ -41464,7 +41448,7 @@ electricity.ember.mix-by-country,TUN,2021,1.963,,,,final,,,,wind
 electricity.ember.mix-by-country,TUN,2022,1.495,,,,final,,,,wind
 electricity.ember.mix-by-country,TUN,2023,1.598,,,,final,,,,wind
 electricity.ember.mix-by-country,TUN,2024,1.731,,,,final,,,,wind
-electricity.ember.mix-by-country,TUN,2025,1.31,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,TUN,2025,1.305,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,TUN,2000,0.567,,,,final,,,,hydro
 electricity.ember.mix-by-country,TUN,2001,0.439,,,,final,,,,hydro
 electricity.ember.mix-by-country,TUN,2002,0.507,,,,final,,,,hydro
@@ -41620,7 +41604,7 @@ electricity.ember.mix-by-country,TUN,2021,95.753,,,,final,,,,gas
 electricity.ember.mix-by-country,TUN,2022,95.843,,,,final,,,,gas
 electricity.ember.mix-by-country,TUN,2023,95.066,,,,final,,,,gas
 electricity.ember.mix-by-country,TUN,2024,94.525,,,,final,,,,gas
-electricity.ember.mix-by-country,TUN,2025,95.108,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,TUN,2025,94.692,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,TUN,2000,11.615,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,TUN,2001,9.842,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,TUN,2002,10.135,,,,final,,,,other-fossil
@@ -41646,7 +41630,7 @@ electricity.ember.mix-by-country,TUN,2021,1.142,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,TUN,2022,1.121,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,TUN,2023,0.987,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,TUN,2024,1.076,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,TUN,2025,1.032,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,TUN,2025,1.466,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,TUR,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,TUR,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,TUR,2002,0.0,,,,final,,,,solar
@@ -42771,7 +42755,7 @@ electricity.ember.mix-by-country,URY,2021,3.002,,,,final,,,,solar
 electricity.ember.mix-by-country,URY,2022,3.365,,,,final,,,,solar
 electricity.ember.mix-by-country,URY,2023,3.822,,,,final,,,,solar
 electricity.ember.mix-by-country,URY,2024,4.188,,,,final,,,,solar
-electricity.ember.mix-by-country,URY,2025,5.199,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,URY,2025,5.192,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,URY,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,URY,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,URY,2002,0.0,,,,final,,,,wind
@@ -42797,7 +42781,7 @@ electricity.ember.mix-by-country,URY,2021,31.207,,,,final,,,,wind
 electricity.ember.mix-by-country,URY,2022,32.167,,,,final,,,,wind
 electricity.ember.mix-by-country,URY,2023,37.129,,,,final,,,,wind
 electricity.ember.mix-by-country,URY,2024,38.594,,,,final,,,,wind
-electricity.ember.mix-by-country,URY,2025,40.556,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,URY,2025,40.505,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,URY,2000,92.885,,,,final,,,,hydro
 electricity.ember.mix-by-country,URY,2001,99.351,,,,final,,,,hydro
 electricity.ember.mix-by-country,URY,2002,99.271,,,,final,,,,hydro
@@ -42823,7 +42807,7 @@ electricity.ember.mix-by-country,URY,2021,32.958,,,,final,,,,hydro
 electricity.ember.mix-by-country,URY,2022,38.291,,,,final,,,,hydro
 electricity.ember.mix-by-country,URY,2023,27.457,,,,final,,,,hydro
 electricity.ember.mix-by-country,URY,2024,33.657,,,,final,,,,hydro
-electricity.ember.mix-by-country,URY,2025,27.343,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
+electricity.ember.mix-by-country,URY,2025,27.308,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,hydro
 electricity.ember.mix-by-country,URY,2000,0.527,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,URY,2001,0.432,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,URY,2002,0.417,,,,final,,,,bioenergy
@@ -42849,7 +42833,7 @@ electricity.ember.mix-by-country,URY,2021,17.448,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,URY,2022,16.958,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,URY,2023,24.025,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,URY,2024,22.438,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,URY,2025,24.752,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,URY,2025,24.721,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,URY,2000,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,URY,2001,0.0,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,URY,2002,0.0,,,,final,,,,other-renewables
@@ -42953,7 +42937,7 @@ electricity.ember.mix-by-country,URY,2021,0.063,,,,final,,,,gas
 electricity.ember.mix-by-country,URY,2022,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,URY,2023,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,URY,2024,0.0,,,,final,,,,gas
-electricity.ember.mix-by-country,URY,2025,0.0,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
+electricity.ember.mix-by-country,URY,2025,0.125,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,gas
 electricity.ember.mix-by-country,URY,2000,6.588,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,URY,2001,0.216,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,URY,2002,0.312,,,,final,,,,other-fossil
@@ -42979,7 +42963,7 @@ electricity.ember.mix-by-country,URY,2021,15.322,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,URY,2022,9.219,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,URY,2023,7.566,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,URY,2024,1.122,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,URY,2025,2.158,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
+electricity.ember.mix-by-country,URY,2025,2.155,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,other-fossil
 electricity.ember.mix-by-country,USA,2000,0.013,,,,final,,,,solar
 electricity.ember.mix-by-country,USA,2001,0.014,,,,final,,,,solar
 electricity.ember.mix-by-country,USA,2002,0.014,,,,final,,,,solar
@@ -44768,8 +44752,8 @@ electricity.ember.mix-by-country,WLD,2020,3.181,,,,final,,,,solar
 electricity.ember.mix-by-country,WLD,2021,3.72,,,,final,,,,solar
 electricity.ember.mix-by-country,WLD,2022,4.604,,,,final,,,,solar
 electricity.ember.mix-by-country,WLD,2023,5.606,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
-electricity.ember.mix-by-country,WLD,2024,6.953,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
-electricity.ember.mix-by-country,WLD,2025,8.793,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
+electricity.ember.mix-by-country,WLD,2024,6.954,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
+electricity.ember.mix-by-country,WLD,2025,8.792,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
 electricity.ember.mix-by-country,WLD,2000,0.203,,,,final,,,,wind
 electricity.ember.mix-by-country,WLD,2001,0.246,,,,final,,,,wind
 electricity.ember.mix-by-country,WLD,2002,0.324,,,,final,,,,wind
@@ -44793,9 +44777,9 @@ electricity.ember.mix-by-country,WLD,2019,5.283,,,,final,,,,wind
 electricity.ember.mix-by-country,WLD,2020,5.938,,,,final,,,,wind
 electricity.ember.mix-by-country,WLD,2021,6.549,,,,final,,,,wind
 electricity.ember.mix-by-country,WLD,2022,7.261,,,,final,,,,wind
-electricity.ember.mix-by-country,WLD,2023,7.78,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
-electricity.ember.mix-by-country,WLD,2024,8.066,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
-electricity.ember.mix-by-country,WLD,2025,8.475,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
+electricity.ember.mix-by-country,WLD,2023,7.781,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
+electricity.ember.mix-by-country,WLD,2024,8.067,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
+electricity.ember.mix-by-country,WLD,2025,8.474,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
 electricity.ember.mix-by-country,WLD,2000,17.178,,,,final,,,,hydro
 electricity.ember.mix-by-country,WLD,2001,16.508,,,,final,,,,hydro
 electricity.ember.mix-by-country,WLD,2002,16.241,,,,final,,,,hydro
@@ -44819,9 +44803,9 @@ electricity.ember.mix-by-country,WLD,2019,15.741,,,,final,,,,hydro
 electricity.ember.mix-by-country,WLD,2020,16.244,,,,final,,,,hydro
 electricity.ember.mix-by-country,WLD,2021,15.158,,,,final,,,,hydro
 electricity.ember.mix-by-country,WLD,2022,14.953,,,,final,,,,hydro
-electricity.ember.mix-by-country,WLD,2023,14.28,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
-electricity.ember.mix-by-country,WLD,2024,14.365,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
-electricity.ember.mix-by-country,WLD,2025,13.929,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
+electricity.ember.mix-by-country,WLD,2023,14.279,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
+electricity.ember.mix-by-country,WLD,2024,14.364,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
+electricity.ember.mix-by-country,WLD,2025,13.929,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
 electricity.ember.mix-by-country,WLD,2000,1.038,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,WLD,2001,0.994,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,WLD,2002,1.043,,,,final,,,,bioenergy
@@ -44847,7 +44831,7 @@ electricity.ember.mix-by-country,WLD,2021,2.146,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,WLD,2022,2.092,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,WLD,2023,2.066,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
 electricity.ember.mix-by-country,WLD,2024,2.045,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
-electricity.ember.mix-by-country,WLD,2025,2.044,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
+electricity.ember.mix-by-country,WLD,2025,2.044,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
 electricity.ember.mix-by-country,WLD,2000,0.285,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,WLD,2001,0.284,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,WLD,2002,0.285,,,,final,,,,other-renewables
@@ -44873,7 +44857,7 @@ electricity.ember.mix-by-country,WLD,2021,0.305,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,WLD,2022,0.303,,,,final,,,,other-renewables
 electricity.ember.mix-by-country,WLD,2023,0.297,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
 electricity.ember.mix-by-country,WLD,2024,0.285,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
-electricity.ember.mix-by-country,WLD,2025,0.286,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
+electricity.ember.mix-by-country,WLD,2025,0.286,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
 electricity.ember.mix-by-country,WLD,2000,16.577,,,,final,,,,nuclear
 electricity.ember.mix-by-country,WLD,2001,16.808,,,,final,,,,nuclear
 electricity.ember.mix-by-country,WLD,2002,16.491,,,,final,,,,nuclear
@@ -44899,7 +44883,7 @@ electricity.ember.mix-by-country,WLD,2021,9.739,,,,final,,,,nuclear
 electricity.ember.mix-by-country,WLD,2022,9.104,,,,final,,,,nuclear
 electricity.ember.mix-by-country,WLD,2023,9.053,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
 electricity.ember.mix-by-country,WLD,2024,8.931,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
-electricity.ember.mix-by-country,WLD,2025,8.787,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
+electricity.ember.mix-by-country,WLD,2025,8.788,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
 electricity.ember.mix-by-country,WLD,2000,38.114,,,,final,,,,coal
 electricity.ember.mix-by-country,WLD,2001,38.096,,,,final,,,,coal
 electricity.ember.mix-by-country,WLD,2002,38.377,,,,final,,,,coal
@@ -44923,9 +44907,9 @@ electricity.ember.mix-by-country,WLD,2019,36.763,,,,final,,,,coal
 electricity.ember.mix-by-country,WLD,2020,35.475,,,,final,,,,coal
 electricity.ember.mix-by-country,WLD,2021,36.146,,,,final,,,,coal
 electricity.ember.mix-by-country,WLD,2022,35.74,,,,final,,,,coal
-electricity.ember.mix-by-country,WLD,2023,35.353,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
-electricity.ember.mix-by-country,WLD,2024,34.287,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
-electricity.ember.mix-by-country,WLD,2025,33.226,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
+electricity.ember.mix-by-country,WLD,2023,35.352,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
+electricity.ember.mix-by-country,WLD,2024,34.286,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
+electricity.ember.mix-by-country,WLD,2025,33.227,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
 electricity.ember.mix-by-country,WLD,2000,17.925,,,,final,,,,gas
 electricity.ember.mix-by-country,WLD,2001,18.758,,,,final,,,,gas
 electricity.ember.mix-by-country,WLD,2002,19.297,,,,final,,,,gas
@@ -44949,9 +44933,9 @@ electricity.ember.mix-by-country,WLD,2019,23.801,,,,final,,,,gas
 electricity.ember.mix-by-country,WLD,2020,23.862,,,,final,,,,gas
 electricity.ember.mix-by-country,WLD,2021,23.179,,,,final,,,,gas
 electricity.ember.mix-by-country,WLD,2022,22.773,,,,final,,,,gas
-electricity.ember.mix-by-country,WLD,2023,22.531,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
-electricity.ember.mix-by-country,WLD,2024,22.191,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
-electricity.ember.mix-by-country,WLD,2025,21.681,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
+electricity.ember.mix-by-country,WLD,2023,22.53,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
+electricity.ember.mix-by-country,WLD,2024,22.19,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
+electricity.ember.mix-by-country,WLD,2025,21.681,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
 electricity.ember.mix-by-country,WLD,2000,8.673,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,WLD,2001,8.297,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,WLD,2002,7.93,,,,final,,,,other-fossil
@@ -44975,9 +44959,9 @@ electricity.ember.mix-by-country,WLD,2019,3.229,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,WLD,2020,2.96,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,WLD,2021,3.06,,,,final,,,,other-fossil
 electricity.ember.mix-by-country,WLD,2022,3.17,,,,final,,,,other-fossil
-electricity.ember.mix-by-country,WLD,2023,3.036,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
-electricity.ember.mix-by-country,WLD,2024,2.878,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
-electricity.ember.mix-by-country,WLD,2025,2.779,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
+electricity.ember.mix-by-country,WLD,2023,3.035,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
+electricity.ember.mix-by-country,WLD,2024,2.879,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
+electricity.ember.mix-by-country,WLD,2025,2.779,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
 electricity.ember.mix-by-country,WSM,2000,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,WSM,2001,0.0,,,,final,,,,solar
 electricity.ember.mix-by-country,WSM,2002,0.0,,,,final,,,,solar
@@ -45453,7 +45437,7 @@ electricity.ember.mix-by-country,ZAF,2021,3.194,,,,final,,,,solar
 electricity.ember.mix-by-country,ZAF,2022,4.364,,,,final,,,,solar
 electricity.ember.mix-by-country,ZAF,2023,6.353,,,,final,,,,solar
 electricity.ember.mix-by-country,ZAF,2024,7.384,,,,final,,,,solar
-electricity.ember.mix-by-country,ZAF,2025,8.022,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
+electricity.ember.mix-by-country,ZAF,2025,8.023,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,solar
 electricity.ember.mix-by-country,ZAF,2000,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,ZAF,2001,0.0,,,,final,,,,wind
 electricity.ember.mix-by-country,ZAF,2002,0.0,,,,final,,,,wind
@@ -45479,7 +45463,7 @@ electricity.ember.mix-by-country,ZAF,2021,3.524,,,,final,,,,wind
 electricity.ember.mix-by-country,ZAF,2022,4.056,,,,final,,,,wind
 electricity.ember.mix-by-country,ZAF,2023,4.98,,,,final,,,,wind
 electricity.ember.mix-by-country,ZAF,2024,4.485,,,,final,,,,wind
-electricity.ember.mix-by-country,ZAF,2025,4.653,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
+electricity.ember.mix-by-country,ZAF,2025,4.654,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,wind
 electricity.ember.mix-by-country,ZAF,2000,0.522,,,,final,,,,hydro
 electricity.ember.mix-by-country,ZAF,2001,0.819,,,,final,,,,hydro
 electricity.ember.mix-by-country,ZAF,2002,0.943,,,,final,,,,hydro
@@ -45531,7 +45515,7 @@ electricity.ember.mix-by-country,ZAF,2021,0.167,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ZAF,2022,0.151,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ZAF,2023,0.202,,,,final,,,,bioenergy
 electricity.ember.mix-by-country,ZAF,2024,0.19,,,,final,,,,bioenergy
-electricity.ember.mix-by-country,ZAF,2025,0.194,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
+electricity.ember.mix-by-country,ZAF,2025,0.176,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,bioenergy
 electricity.ember.mix-by-country,ZAF,2000,6.176,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ZAF,2001,5.103,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ZAF,2002,5.436,,,,final,,,,nuclear
@@ -45557,7 +45541,7 @@ electricity.ember.mix-by-country,ZAF,2021,5.031,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ZAF,2022,4.223,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ZAF,2023,3.477,,,,final,,,,nuclear
 electricity.ember.mix-by-country,ZAF,2024,3.152,,,,final,,,,nuclear
-electricity.ember.mix-by-country,ZAF,2025,4.206,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
+electricity.ember.mix-by-country,ZAF,2025,4.207,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,nuclear
 electricity.ember.mix-by-country,ZAF,2000,93.074,,,,final,,,,coal
 electricity.ember.mix-by-country,ZAF,2001,93.879,,,,final,,,,coal
 electricity.ember.mix-by-country,ZAF,2002,93.404,,,,final,,,,coal
@@ -45583,7 +45567,7 @@ electricity.ember.mix-by-country,ZAF,2021,85.928,,,,final,,,,coal
 electricity.ember.mix-by-country,ZAF,2022,84.371,,,,final,,,,coal
 electricity.ember.mix-by-country,ZAF,2023,82.55,,,,final,,,,coal
 electricity.ember.mix-by-country,ZAF,2024,83.561,,,,final,,,,coal
-electricity.ember.mix-by-country,ZAF,2025,81.372,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
+electricity.ember.mix-by-country,ZAF,2025,81.386,,,,preliminary,"2025 is the latest year in Ember's file, which has no estimate flag; Ember's methodology says that for the most recent years it estimates annual generation from monthly data.",,,coal
 electricity.ember.mix-by-country,ZAF,2000,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,ZAF,2001,0.0,,,,final,,,,gas
 electricity.ember.mix-by-country,ZAF,2002,0.0,,,,final,,,,gas

@@ -26,19 +26,19 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "nh-extent-monthly", "bytes": 17861, "citation_full": "EUMETSAT OSI SAF, Sea-Ice Index (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026", "date_accessed": "2026-10-18", "date_published": "2026-10-17", "doi": "10.15770/EUM_SAF_OSI_0026", "etag": null, "last_modified": "Sat, 17 Oct 2026 10:22:08 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "EUMETSAT Ocean and Sea Ice SAF (OSI SAF), produced by the Norwegian Meteorological Institute", "r2_url": "https://files.environmentdashboard.org/raw/7cbd8ec0320492432de69ba4b8eb6bf5a55561c2bfb1e107e3d3e3405704bd2e.zst", "sha256": "7cbd8ec0320492432de69ba4b8eb6bf5a55561c2bfb1e107e3d3e3405704bd2e", "source_id": "osisaf-sea-ice-index", "title": "EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)", "url_download": "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt", "url_main": "https://osi-saf.eumetsat.int/products/osi-420-a", "version_producer": "3.0", "wayback_url": "https://web.archive.org/web/20261018132627/https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt"}
+    {"acquisition": "automatic", "artifact_id": "nh-extent-monthly", "bytes": 17861, "citation_full": "EUMETSAT OSI SAF, Sea-Ice Index (2026), OSI-420-a, doi:10.15770/EUM_SAF_OSI_0026", "date_accessed": "2026-10-25", "date_published": "2026-10-24", "doi": "10.15770/EUM_SAF_OSI_0026", "etag": null, "last_modified": "Sat, 24 Oct 2026 10:22:10 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "EUMETSAT Ocean and Sea Ice SAF (OSI SAF), produced by the Norwegian Meteorological Institute", "r2_url": "https://files.environmentdashboard.org/raw/7239ff1e67d869bed9676abfe9c3d69e1ce36010c0c7029cae9c02b0bd9ffb6c.zst", "sha256": "7239ff1e67d869bed9676abfe9c3d69e1ce36010c0c7029cae9c02b0bd9ffb6c", "source_id": "osisaf-sea-ice-index", "title": "EUMETSAT OSI SAF Sea-Ice Index v3.0 (OSI-420-a)", "url_download": "https://osisaf-hl.met.no/archive/osisaf/sea-ice-index/v3p0/timeseries/nh/ice_extent_nh_sii-v3p0_monthly.txt", "url_main": "https://osi-saf.eumetsat.int/products/osi-420-a", "version_producer": "3.0", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read the September rows of ice_extent_nh_sii-v3p0_monthly.txt (OSI SAF Sea-Ice Index v3.0, Northern Hemisphere monthly mean extent in km²), created by OSI SAF on 17 October 2026. Only Septembers that had ended when the file was created are used.",
-      "inputs": ["7cbd8ec0320492432de69ba4b8eb6bf5a55561c2bfb1e107e3d3e3405704bd2e"],
+      "description": "Read the September rows of ice_extent_nh_sii-v3p0_monthly.txt (OSI SAF Sea-Ice Index v3.0, Northern Hemisphere monthly mean extent in km²), created by OSI SAF on 24 October 2026. Only Septembers that had ended when the file was created are used.",
+      "inputs": ["7239ff1e67d869bed9676abfe9c3d69e1ce36010c0c7029cae9c02b0bd9ffb6c"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/osisaf_sea_ice.py",
       "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"
     },
     {
       "description": "Converted km² to million km² (divided by 1,000,000, exact decimal arithmetic). Months marked -999 after the record starts would be published as missing.",
-      "inputs": ["7cbd8ec0320492432de69ba4b8eb6bf5a55561c2bfb1e107e3d3e3405704bd2e"],
+      "inputs": ["7239ff1e67d869bed9676abfe9c3d69e1ce36010c0c7029cae9c02b0bd9ffb6c"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/osisaf_sea_ice.py",
       "transform_sha256": "28f380a158835f270ecf4c06ffefa1110e78ea31b9ed6aaaa105f92b6dd36e2e"

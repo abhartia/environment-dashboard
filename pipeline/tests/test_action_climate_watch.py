@@ -51,13 +51,13 @@ def test_status_and_content_of_the_real_response():
     validate(t, result.observations)
     by = {(o.entity, o.dims["question"]): o for o in result.observations}
     submitted = [o for o in result.observations if o.dims["question"] == "submitted"]
-    assert len(submitted) == 153
-    assert sum(o.value == 1 for o in submitted) == 152
+    assert len(submitted) == 158
+    assert sum(o.value == 1 for o in submitted) == 157
     usa = by[("USA", "submitted")]
     assert usa.value == 0 and "Withdrawn 2025 NDC" in (usa.note or "")
     eu = by[("EU27", "submitted")]
     assert eu.value == 1 and eu.period == "2025-11-05"
-    assert sum(o.value == 1 for o in result.observations if o.dims["question"] == "ghg-target-2035") == 139
+    assert sum(o.value == 1 for o in result.observations if o.dims["question"] == "ghg-target-2035") == 144
 
 
 @pytest.mark.snapshot
@@ -67,11 +67,11 @@ def test_countries_counted_once_each():
     result = t.run({cw.TRACKER.key: _current()})
     validate(t, result.observations)
     by = {(o.dims["question"], o.dims["answer"]): o.value for o in result.observations}
-    # 152 submitted entries less the EU's own (EU27), whose NDC is also coded for each member state; the USA withdrew.
-    assert by[("submitted", "yes")] == 151 and by[("submitted", "no")] == 1
-    # 139 entries code a 2035 GHG target yes, the EU's among them.
-    assert by[("ghg-target-2035", "yes")] == 138
-    assert all(o.entity == "WLD" and o.period == "2026-10-18" for o in result.observations)
+    # 157 submitted entries less the EU's own (EU27), whose NDC is also coded for each member state; the USA withdrew.
+    assert by[("submitted", "yes")] == 156 and by[("submitted", "no")] == 1
+    # 144 entries code a 2035 GHG target yes, the EU's among them.
+    assert by[("ghg-target-2035", "yes")] == 143
+    assert all(o.entity == "WLD" and o.period == "2026-10-25" for o in result.observations)
 
 
 @pytest.mark.snapshot

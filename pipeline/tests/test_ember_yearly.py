@@ -141,11 +141,11 @@ def test_full_file_marks_2023_to_2025_partly_estimated():
     assert {y: (n, len(m)) for y, (n, m) in gaps.items() if m and int(y) >= 2000} == {
         "2023": (209, 1),
         "2024": (209, 15),
-        "2025": (209, 114),
+        "2025": (209, 116),
     }
     assert gaps["2023"][1] == ["Ukraine"]
     obs = {o.period: o for o in clean_observations(df)}
-    assert obs["2025"].value == 42.314 and obs["2025"].status == "preliminary"
+    assert obs["2025"].value == 42.313 and obs["2025"].status == "preliminary"
     assert obs["2022"].status == "final"
 
 
@@ -166,6 +166,6 @@ def test_full_transform_run():
     files = {GENERATION.key: _current(GENERATION.key), METHODOLOGY.key: _current(METHODOLOGY.key)}
     ts = {t.spec.id: t for t in discover(Paths.default())}
     res = ts["electricity.ember.clean-share-world"].run(files)
-    assert res.vintage == "2026-10-06" and res.changes is None
+    assert res.vintage == "2026-10-19" and res.changes is None
     assert "Preliminary years in this vintage: 2023, 2024, 2025." in res.steps[2]
     assert "pages 10, 12" in res.steps[2]

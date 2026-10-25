@@ -177,7 +177,7 @@ def test_full_transform_run():
     ts = {t.spec.id: t for t in discover(p)}
     res = ts["energy.eia.fossil-share"].run(files)
     validate(ts["energy.eia.fossil-share"], res.observations)
-    assert res.vintage == "Sep 2026" and res.changes
+    assert res.vintage == "Oct 2026" and res.changes
     assert "(11,140 country-years checked)" in res.steps[2]
     assert "Entities where they differ in this vintage: USA, WLD" in res.steps[3]
     over = [o for o in res.observations if o.value is not None and o.value > 100]

@@ -1,5 +1,5 @@
 {
-  "attribution": "Calculated by Environment Dashboard from Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed 2026-10-18. Changes: 5-day trailing means of the daily extent, and the lowest of them in each year.",
+  "attribution": "Calculated by Environment Dashboard from Fetterer, Knowles, Meier, Savoie, Windnagel & Stafford (2025), Sea Ice Index, Version 4 (G02135), National Snow and Ice Data Center, Boulder, Colorado, doi:10.7265/a98x-0f50, accessed 2026-10-25. Changes: 5-day trailing means of the daily extent, and the lowest of them in each year.",
   "description": "The lowest Arctic sea ice extent of each year since 1987, on the 5-day trailing mean NSIDC uses for its minimum announcements, and the day it was reached. Earlier years are not shown: the satellite record then has a value only every other day.",
   "dimensions": [],
   "display": {
@@ -23,36 +23,36 @@
     "url": "https://nsidc.org/about/data-use-and-copyright"
   },
   "licence_class": "open",
-  "notes": ["NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025.", "NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025. The year is not over: the lowest 5-day mean from 1 January to 16 October 2026.", "No 5-day mean can be formed for 1 January 1987 to 23 August 1987; 3 December 1987 to 31 December 1987, because NSIDC's file lacks a value for at least one day of those windows.", "No 5-day mean can be formed for 1 January 1988 to 16 January 1988, because NSIDC's file lacks a value for at least one day of those windows."],
+  "notes": ["NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025.", "NSIDC computed these days from JAXA's AMSR2 record (NSIDC-0803), the input from 2025. The year is not over: the lowest 5-day mean from 1 January to 17 October 2026.", "No 5-day mean can be formed for 1 January 1987 to 23 August 1987; 3 December 1987 to 31 December 1987, because NSIDC's file lacks a value for at least one day of those windows.", "No 5-day mean can be formed for 1 January 1988 to 16 January 1988, because NSIDC's file lacks a value for at least one day of those windows."],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "north-daily-extent", "bytes": 1906560, "citation_full": "Fetterer, F., Knowles, K., Meier, W. N., Savoie, M., Windnagel, A. K. & Stafford, T. (2025). Sea Ice Index. (G02135, Version 4). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center. https://doi.org/10.7265/a98x-0f50. Daily and monthly sea ice extent, Northern and Southern Hemispheres. Date Accessed 2026-10-18.", "date_accessed": "2026-10-18", "date_published": "2026-10-17", "doi": "10.7265/a98x-0f50", "etag": "\"6ad34be8-1d1780\"", "last_modified": "Sat, 17 Oct 2026 10:20:24 GMT", "licence": {"name": "No licence stated; free use with citation as a condition of use (NSIDC)", "spdx": null, "url": "https://nsidc.org/about/data-use-and-copyright"}, "producer": "NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder)", "r2_url": "https://files.environmentdashboard.org/raw/2d191aa890d5f4badc32b031568f5d4c848e65833f8b4ddd70d3bee4b829e24e.zst", "sha256": "2d191aa890d5f4badc32b031568f5d4c848e65833f8b4ddd70d3bee4b829e24e", "source_id": "nsidc-sea-ice-index", "title": "Sea Ice Index, Version 4 (G02135)", "url_download": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv", "url_main": "https://nsidc.org/data/g02135/versions/4", "version_producer": "4.0", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "north-daily-extent", "bytes": 1906925, "citation_full": "Fetterer, F., Knowles, K., Meier, W. N., Savoie, M., Windnagel, A. K. & Stafford, T. (2025). Sea Ice Index. (G02135, Version 4). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center. https://doi.org/10.7265/a98x-0f50. Daily and monthly sea ice extent, Northern and Southern Hemispheres. Date Accessed 2026-10-25.", "date_accessed": "2026-10-25", "date_published": "2026-10-18", "doi": "10.7265/a98x-0f50", "etag": "\"6ad4a295-1d18ed\"", "last_modified": "Sun, 18 Oct 2026 10:42:29 GMT", "licence": {"name": "No licence stated; free use with citation as a condition of use (NSIDC)", "spdx": null, "url": "https://nsidc.org/about/data-use-and-copyright"}, "producer": "NOAA@NSIDC, National Snow and Ice Data Center (CIRES, University of Colorado Boulder)", "r2_url": "https://files.environmentdashboard.org/raw/d36fc1791ba938b1343d3143271874a89426f854602ba32d22b656ff4100221a.zst", "sha256": "d36fc1791ba938b1343d3143271874a89426f854602ba32d22b656ff4100221a", "source_id": "nsidc-sea-ice-index", "title": "Sea Ice Index, Version 4 (G02135)", "url_download": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv", "url_main": "https://nsidc.org/data/g02135/versions/4", "version_producer": "4.0", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read the Extent column of N_seaice_extent_daily_v4.0.csv (million km², data to 16 October 2026).",
-      "inputs": ["2d191aa890d5f4badc32b031568f5d4c848e65833f8b4ddd70d3bee4b829e24e"],
+      "description": "Read the Extent column of N_seaice_extent_daily_v4.0.csv (million km², data to 17 October 2026).",
+      "inputs": ["d36fc1791ba938b1343d3143271874a89426f854602ba32d22b656ff4100221a"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "For every day whose four preceding days also have a value, took the mean of the five (NSIDC's 5-day trailing mean, exact decimal arithmetic). Windows with a missing day are skipped, never filled; no window may contain 14 September 1984, which NSIDC's user guide says is in error.",
-      "inputs": ["2d191aa890d5f4badc32b031568f5d4c848e65833f8b4ddd70d3bee4b829e24e"],
+      "inputs": ["d36fc1791ba938b1343d3143271874a89426f854602ba32d22b656ff4100221a"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "For each calendar year, published the lowest of those means, dated by the day it ends on (the earlier day if two tie). Years with no complete window are not published: 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986 (the file has a value only every other day before 21 August 1987).",
-      "inputs": ["2d191aa890d5f4badc32b031568f5d4c848e65833f8b4ddd70d3bee4b829e24e"],
+      "inputs": ["d36fc1791ba938b1343d3143271874a89426f854602ba32d22b656ff4100221a"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"
     },
     {
       "description": "The last year is marked preliminary until the file reaches 31 December.",
-      "inputs": ["2d191aa890d5f4badc32b031568f5d4c848e65833f8b4ddd70d3bee4b829e24e"],
+      "inputs": ["d36fc1791ba938b1343d3143271874a89426f854602ba32d22b656ff4100221a"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/ice/nsidc_sea_ice.py",
       "transform_sha256": "8b0c8ba6e2a25c0970fbbb9ca3f8eb93d48443340ce1c2ab0a813e5f06a5e10b"

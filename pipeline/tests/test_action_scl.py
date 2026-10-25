@@ -51,9 +51,9 @@ def test_shares_from_the_real_export():
     validate(t, result.observations)
     assert abs(sum(o.value for o in result.observations if o.value is not None) - 100) < 1e-9
     by = {o.dims["status"]: o for o in result.observations}
-    assert by["on-track"].note == "1 of 179 outcome indicators: FIN-1."
+    assert by["on-track"].note == "1 of 193 outcome indicators: FIN-1."
     by_status, iea, n = scl.classify(_current().path.read_bytes())
-    assert n == 438 and len(iea) == 17 and "PWR-41" in iea
+    assert n == 475 and len(iea) == 17 and "PWR-41" in iea
     assert all(not code.startswith("PWR-41") for codes in by_status.values() for code in codes)
 
 

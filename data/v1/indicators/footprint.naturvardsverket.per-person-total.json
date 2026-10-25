@@ -26,26 +26,26 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "per-person-page", "bytes": 231605, "citation_full": "Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2023 series, page reviewed 2025-10-28). Official statistics of Sweden; responsible authority Statistics Sweden (SCB). https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0", "spdx": null, "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"}, "producer": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)", "r2_url": null, "sha256": "ac383cb0999e2a7830be5a94944edc7041bfda1b098d441faa707902d53314a0", "source_id": "naturvardsverket-consumption-footprint", "title": "Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)", "url_download": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "url_main": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "version_producer": "2008-2023 series, page reviewed 2025-10-28", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "per-person-page", "bytes": 231605, "citation_full": "Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2023 series, page reviewed 2025-10-28). Official statistics of Sweden; responsible authority Statistics Sweden (SCB). https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0", "spdx": null, "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"}, "producer": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)", "r2_url": null, "sha256": "da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30", "source_id": "naturvardsverket-consumption-footprint", "title": "Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)", "url_download": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "url_main": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "version_producer": "2008-2023 series, page reviewed 2025-10-28", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read the statistics page 'Konsumtionsbaserade växthusgasutsläpp per person och år' (sha256 ac383cb0999e…, retrieved 2026-10-05, reviewed by the producer on 2025-10-28). The series is the CSV inside the page's chart options (page model <script id=\"__model_data\">, content.highChartsOptions, data.csv): 16 years, 2008–2023, in tonnes of carbon dioxide equivalent per person ('Ton koldioxidekvivalenter per person'). Checked the page heading, the responsible authority (SCB), the axis title, the series names and the CSV header before reading any value.",
-      "inputs": ["ac383cb0999e2a7830be5a94944edc7041bfda1b098d441faa707902d53314a0"],
+      "description": "Read the statistics page 'Konsumtionsbaserade växthusgasutsläpp per person och år' (sha256 da4e1b4dd620…, retrieved 2026-10-05, reviewed by the producer on 2025-10-28). The series is the CSV inside the page's chart options (page model <script id=\"__model_data\">, content.highChartsOptions, data.csv): 16 years, 2008–2023, in tonnes of carbon dioxide equivalent per person ('Ton koldioxidekvivalenter per person'). Checked the page heading, the responsible authority (SCB), the axis title, the series names and the CSV header before reading any value.",
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     },
     {
       "description": "Selected the column Totalt as published (the producer's own total, not a sum of ours). No value was changed.",
-      "inputs": ["ac383cb0999e2a7830be5a94944edc7041bfda1b098d441faa707902d53314a0"],
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     },
     {
       "description": "Checked the page's tab 'Koldioxidekvivalenter': its general conversion table ('Omräkningstabell') gives CO2 1, CH4 25 and N2O 298, the IPCC Fourth Assessment Report (AR4) 100-year values, and links that report ('Koldioxidekvivalenter för ytterligare växthusgaser i IPCC:s fjärde utvärderingsrapport'), but the page does not say that this series uses them. So no global warming potential is recorded in the scope; the basis says what the page shows.",
-      "inputs": ["ac383cb0999e2a7830be5a94944edc7041bfda1b098d441faa707902d53314a0"],
+      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"

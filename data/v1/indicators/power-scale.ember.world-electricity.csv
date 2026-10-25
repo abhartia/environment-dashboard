@@ -1,7 +1,7 @@
 # Average electric power of the world
-# Indicator: power-scale.ember.world-electricity (vintage 2026-10-06); unit: terawatts (average over the year) (TW)
+# Indicator: power-scale.ember.world-electricity (vintage 2026-10-19); unit: terawatts (average over the year) (TW)
 # Source: Ember <https://ember-energy.org/data/yearly-electricity-data/>
-# Credit: Calculated by Environment Dashboard from Ember, Yearly Electricity Data (file of 2026-10-06), CC BY 4.0. Changes: world electricity demand divided by the hours in each year to give average power in terawatts.
+# Credit: Calculated by Environment Dashboard from Ember, Yearly Electricity Data (file of 2026-10-19), CC BY 4.0. Changes: world electricity demand divided by the hours in each year to give average power in terawatts.
 # Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
 # Provenance and processing: https://environmentdashboard.org/data/power-scale/ember/world-electricity
 indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp
@@ -28,6 +28,6 @@ power-scale.ember.world-electricity,WLD,2019,3.0710163242009134,,,,final,,,
 power-scale.ember.world-electricity,WLD,2020,3.0513537112932605,,,,final,,,
 power-scale.ember.world-electricity,WLD,2021,3.2358372146118723,,,,final,,,
 power-scale.ember.world-electricity,WLD,2022,3.31069600456621,,,,final,,,
-power-scale.ember.world-electricity,WLD,2023,3.400470319634703,,,,preliminary,"Partly Ember's estimate: the file has no 2023 demand for 1 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
-power-scale.ember.world-electricity,WLD,2024,3.5371066712204007,,,,preliminary,"Partly Ember's estimate: the file has no 2024 demand for 15 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
-power-scale.ember.world-electricity,WLD,2025,3.6438205479452055,,,,preliminary,"Partly Ember's estimate: the file has no 2025 demand for 114 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+power-scale.ember.world-electricity,WLD,2023,3.4005399543378996,,,,preliminary,"Partly Ember's estimate: the file has no 2023 demand for 1 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+power-scale.ember.world-electricity,WLD,2024,3.537176912568306,,,,preliminary,"Partly Ember's estimate: the file has no 2024 demand for 15 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,
+power-scale.ember.world-electricity,WLD,2025,3.6438941780821916,,,,preliminary,"Partly Ember's estimate: the file has no 2025 demand for 116 of the 209 countries and economies with demand for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,

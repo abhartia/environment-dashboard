@@ -1,5 +1,5 @@
 {
-  "attribution": "Ember, Yearly Electricity Data (file of 2026-10-06), CC BY 4.0.",
+  "attribution": "Ember, Yearly Electricity Data (file of 2026-10-19), CC BY 4.0.",
   "description": "Share of the world's electricity generation from renewables (solar, wind, hydro, bioenergy and other renewables) and nuclear power together, each year since 2000, as published by Ember.",
   "dimensions": [],
   "display": {
@@ -15,7 +15,7 @@
     "entity": "WLD",
     "period": "2025",
     "status": "preliminary",
-    "value": 42.314
+    "value": 42.313
   },
   "licence": {
     "name": "CC BY 4.0",
@@ -23,37 +23,37 @@
     "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "licence_class": "open",
-  "notes": ["Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.", "Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.", "Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source."],
+  "notes": ["Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.", "Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.", "Partly Ember's estimate: the file has no 2025 generation for 116 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source."],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "generation-yearly-global", "bytes": 16123048, "citation_full": "Yearly electricity generation data, Ember", "date_accessed": "2026-10-11", "date_published": "2026-10-06", "doi": null, "etag": "\"b8972990fc141f8c734eda2ff50148a5\"", "last_modified": "Tue, 06 Oct 2026 18:04:43 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": "https://files.environmentdashboard.org/raw/b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1.zst", "sha256": "b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "source_id": "ember-yearly", "title": "Yearly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv", "url_main": "https://ember-energy.org/data/yearly-electricity-data/", "version_producer": "2026-10-06", "wayback_url": "https://web.archive.org/web/20261018134351/https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv"},
-    {"acquisition": "automatic", "artifact_id": "methodology-pdf", "bytes": 1487777, "citation_full": "Yearly electricity generation data, Ember", "date_accessed": "2026-10-04", "date_published": "2026-10-06", "doi": null, "etag": "\"9e4a04176b5b87901bdf0da81b05935b\"", "last_modified": "Tue, 22 Sep 2026 11:58:42 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": "https://files.environmentdashboard.org/raw/67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908.zst", "sha256": "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908", "source_id": "ember-yearly", "title": "Yearly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/ember_electricity_data_methodology.pdf", "url_main": "https://ember-energy.org/data/yearly-electricity-data/", "version_producer": "2026-10-06", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "generation-yearly-global", "bytes": 16118558, "citation_full": "Yearly electricity generation data, Ember", "date_accessed": "2026-10-25", "date_published": "2026-10-19", "doi": null, "etag": "\"6a080b27c110a7f6a14c85675543d416\"", "last_modified": "Mon, 19 Oct 2026 20:26:55 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": "https://files.environmentdashboard.org/raw/91d30fb170dac8a62130f7b39e11ecbb301f902e08400e9561510882eadcd701.zst", "sha256": "91d30fb170dac8a62130f7b39e11ecbb301f902e08400e9561510882eadcd701", "source_id": "ember-yearly", "title": "Yearly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv", "url_main": "https://ember-energy.org/data/yearly-electricity-data/", "version_producer": "2026-10-19", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "methodology-pdf", "bytes": 1487777, "citation_full": "Yearly electricity generation data, Ember", "date_accessed": "2026-10-04", "date_published": "2026-10-19", "doi": null, "etag": "\"9e4a04176b5b87901bdf0da81b05935b\"", "last_modified": "Tue, 22 Sep 2026 11:58:42 GMT", "licence": {"name": "CC BY 4.0", "spdx": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}, "producer": "Ember", "r2_url": "https://files.environmentdashboard.org/raw/67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908.zst", "sha256": "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908", "source_id": "ember-yearly", "title": "Yearly electricity data", "url_download": "https://files.ember-energy.org/public-downloads/ember_electricity_data_methodology.pdf", "url_main": "https://ember-energy.org/data/yearly-electricity-data/", "version_producer": "2026-10-19", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-10-06 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World'.",
-      "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "description": "Read release_generation_yearly_global.csv, last modified by Ember on 2026-10-19 (Ember gives no version label, so that date is the vintage), and kept the rows for Area 'World'.",
+      "inputs": ["91d30fb170dac8a62130f7b39e11ecbb301f902e08400e9561510882eadcd701", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
       "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
     {
       "description": "Checked that the shares mean what is published: the nine non-aggregated sources (Solar, Wind, Hydro, Bioenergy, Other renewables, Nuclear, Coal, Gas, Other fossil) add up to 100%, Clean generation is Renewables plus Nuclear, Renewables is the five renewable sources, and the Clean share is Clean over Total generation, each to within the rounding of the printed values.",
-      "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "inputs": ["91d30fb170dac8a62130f7b39e11ecbb301f902e08400e9561510882eadcd701", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
       "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
     {
       "description": "Marked a year preliminary, with a note giving the count, when the file has no Total generation for that year for a country or economy that has it for an earlier year. Ember's data methodology (PDF last modified 2026-09-22, sha256 67c5eaac3bfb…; both sentences were found on pages 10, 12 before publishing) says it estimates the latest annual generation from monthly data and a country's missing years from historical trends, so the World value for such a year is partly Ember's estimate. Preliminary years in this vintage: 2023, 2024, 2025.",
-      "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "inputs": ["91d30fb170dac8a62130f7b39e11ecbb301f902e08400e9561510882eadcd701", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
       "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
     },
     {
       "description": "Published Ember's 'Share of generation (%)' of its aggregated source 'Clean' (renewables plus nuclear) as printed.",
-      "inputs": ["b2ac49fa9b27035fedda3c6afb85917bf136de9253bfcbaf09c3410904ec7cd1", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
+      "inputs": ["91d30fb170dac8a62130f7b39e11ecbb301f902e08400e9561510882eadcd701", "67c5eaac3bfbeb7e67bb786f9ea9680f67f6f26e75318560562ee52d439de908"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/ember_yearly.py",
       "transform_sha256": "12e6cb80d37f2702d863b64ecc81744cf66aa7093e69b93c5b30120f0894e0ac"
@@ -76,7 +76,7 @@
     "note": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 2],
     "period": ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
     "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "preliminary", "preliminary", "preliminary"],
-    "value": [35.288, 34.849, 34.396, 33.038, 33.555, 33.095, 32.849, 31.65, 32.273, 32.749, 32.485, 31.838, 31.718, 32.199, 32.714, 33.465, 34.119, 34.605, 35.065, 36.207, 37.703, 37.616, 38.317, 39.081, 40.645, 42.314]
+    "value": [35.288, 34.849, 34.396, 33.038, 33.555, 33.095, 32.849, 31.65, 32.273, 32.749, 32.485, 31.838, 31.718, 32.199, 32.714, 33.465, 34.119, 34.605, 35.065, 36.207, 37.703, 37.616, 38.317, 39.082, 40.645, 42.313]
   },
   "time_basis": "calendar",
   "title": "Share of world electricity from clean sources",
@@ -85,5 +85,5 @@
     "label": "percent of electricity generation",
     "short": "%"
   },
-  "vintage": "2026-10-06"
+  "vintage": "2026-10-19"
 }

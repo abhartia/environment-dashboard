@@ -135,7 +135,7 @@ def test_full_file_withholds_negative_generation_years_and_publishes_the_oversea
     r = ec.read(read_table(_current(GENERATION.key).path.read_bytes()))
     assert {"GUF", "REU"} <= {ay.entity for ay in r.groups}
     withheld = [(ay.entity, ay.year) for ay in r.groups if ec.negative_rows(ay)]
-    assert ("CRI", "2025") in withheld and len(withheld) == 10
+    assert ("CRI", "2025") in withheld and len(withheld) == 11
     clean = _by(ec.clean_observations(r))
     cri = clean[("CRI", "2025")]
     assert cri.value is None and "Other fossil -1.134 TWh" in (cri.missing_reason or "")
@@ -153,7 +153,7 @@ def test_full_transforms_run_and_validate():
     for tid in IDS:
         res = ts[tid].run(files)
         validate(ts[tid], res.observations)
-        assert res.vintage == "2026-10-06" and res.changes is None
+        assert res.vintage == "2026-10-19" and res.changes is None
         assert "pages 10, 11, 12, 15, 16" in res.steps[0]
 
 
