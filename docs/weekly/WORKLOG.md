@@ -52,7 +52,7 @@ look at `/food?v=tl-BOL` and `/air?v=methane-livestock` at desktop and 375×812.
 
 **Gates.** ruff, ruff format, `pytest -q` (1,119 passed), `pytest -m snapshot` (failures as above), `envdash
 validate` (0 problems), gen:api clean, typecheck, lint, `npm test` (235), build with check-build (5,403 files, 215
-indicators). Archive: R2 before the push; Wayback captures started after it (a follow-up commit records them if they finish this run). CI and deploy of 31173f7 green; `tl-BOL` and the methane card served live.
+indicators). Archive: R2 before the push; Wayback after it: 683 targets, 140 captured, 18 pending, 525 refused (almost all Save Page Now 429 "limit of active sessions"; pacing the data captures is still worth trying). CI and deploy of 31173f7 green; `tl-BOL` and the methane card served live.
 
 **Owner actions.**
 1. Download the Living Planet Report 2026 trend CSVs (see 2026-10-11, action 1).

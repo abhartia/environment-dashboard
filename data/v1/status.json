@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T11:05:23Z",
+  "generated_at": "2026-10-25T12:40:48Z",
   "run_url": null,
   "schema_version": 1,
   "sources": {
@@ -247,7 +247,7 @@
       "vintage": "FRA 2025 platform, downloaded 2026-10-25"
     },
     "faostat": {
-      "checked_at": "2026-10-25T11:05:23Z",
+      "checked_at": "2026-10-25T12:40:48Z",
       "last_success": "2026-10-18T10:17:27Z",
       "manual_last_verified": null,
       "reason": "food.faostat.agrifood-emissions-by-country: FaostatBulkError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage; food.faostat.agrifood-emissions-by-process: FaostatBulkError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage; food.faostat.agrifood-emissions-by-stage: FaostatBulkError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage; food.faostat.agrifood-emissions-world: FaostatFormatError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage; food.faostat.livestock-ch4-world: FaostatFormatError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage",
@@ -256,7 +256,7 @@
       "vintage": "2026-10-02"
     },
     "faostat-all-sectors": {
-      "checked_at": "2026-10-25T11:05:23Z",
+      "checked_at": "2026-10-25T12:40:48Z",
       "last_success": "2026-10-18T10:17:29Z",
       "manual_last_verified": null,
       "reason": "ghg.faostat.by-gas: FaostatBulkError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage; ghg.faostat.by-sector: FaostatBulkError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage; ghg.faostat.total: FaostatBulkError: datasets_E.json says GT has 2415025 rows but Emissions_Totals_E_All_Data_(Normalized).csv has 2500090: the catalogue describes another file, so its DateUpdate cannot be this file's vintage",
@@ -895,7 +895,7 @@
       "vintage": null
     },
     "unep-agr-2025": {
-      "checked_at": "2026-10-25T11:05:23Z",
+      "checked_at": "2026-10-25T12:40:48Z",
       "last_success": "2026-10-08T19:32:08Z",
       "manual_last_verified": null,
       "reason": "adaptation-finance.unep-agr-2025.international-public-flows: no snapshot yet for ['unep-agr-2025/online-annexes-pdf']; run envdash fetch (or envdash snapshot add)",
