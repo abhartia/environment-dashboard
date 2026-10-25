@@ -175,7 +175,7 @@ function methaneLivestock(): Built {
     headline: headline(LIVESTOCK_CH4, "WLD"),
     sentence: "a year from livestock worldwide (digestion and manure), as estimated by FAO.",
     chart: area([{ key: "livestock", label: "Methane from livestock", colour: CH4_COLOUR, points: points(LIVESTOCK_CH4, "WLD") }], u.short, u.decimals, false),
-    drills: [],
+    drills: [crossTo("Which animals", "food:animals")],
     credit: credit(LIVESTOCK_CH4),
     indicators: [LIVESTOCK_CH4],
   };

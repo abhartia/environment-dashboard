@@ -484,7 +484,7 @@ function driverCountries(driver: string): Built {
     headline: headline(DRIVERS, top[0].entity, { driver }, year),
     sentence: `of tree cover lost in ${entityName(top[0].entity)} in ${year} was where ${label.toLowerCase()} was the main driver, the most of any country (WRI and Google DeepMind).`,
     chart: bars(
-      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: driverColour(driver) })),
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: driverColour(driver), drill: `tl-${r.entity}` })),
       short,
       decimals,
       year,
@@ -571,7 +571,7 @@ function primaryLossCountries(): Built {
     headline: headline(PRIMARY, top[0].entity, {}, year),
     sentence: `of humid tropical primary forest lost in ${entityName(top[0].entity)} in ${year}, the most of any country (University of Maryland).`,
     chart: bars(
-      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: RAINFOREST })),
+      top.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: RAINFOREST, drill: `tl-${r.entity}` })),
       short,
       decimals,
       year,
@@ -643,11 +643,20 @@ function countryCodes(): string[] {
     .map((r) => r.entity);
 }
 
-/** The countries on the tree cover loss ranking, each opening its loss by driver. */
+/**
+ * The countries on the tree cover loss, primary forest and driver rankings, each opening its loss by driver, so every
+ * bar on those rankings opens a view of what drove the loss there.
+ */
 function treeLossCodes(): string[] {
-  return ranking(TREE_LOSS, latestPeriod(TREE_LOSS), { part: "all" })
-    .slice(0, TOP)
-    .map((r) => r.entity);
+  const top = (rows: { entity: string }[]) => rows.slice(0, TOP).map((r) => r.entity);
+  const driverYear = latestPeriod(DRIVERS);
+  return [
+    ...new Set([
+      ...top(ranking(TREE_LOSS, latestPeriod(TREE_LOSS), { part: "all" })),
+      ...top(ranking(PRIMARY, latestPeriod(PRIMARY))),
+      ...driverViews().flatMap((d) => top(ranking(DRIVERS, driverYear, { driver: d }))),
+    ]),
+  ];
 }
 
 /** Nodes with a fixed id, outside food-nodes.ts. */
