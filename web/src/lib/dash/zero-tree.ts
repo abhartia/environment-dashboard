@@ -90,6 +90,7 @@ const FOSSIL = "#8b8b86";
 const CAPTURE = "#2166ac";
 const PREMIUM = "#b2182b";
 const NEUTRAL = "#2166ac";
+const GREY = "#9aa0a6";
 /** The two sides of a Green Premium, and fossil with its carbon dioxide captured between them. */
 const SIDE_COLOUR: Record<string, string> = { conventional: FOSSIL, "conventional-with-capture": CAPTURE, "low-carbon": CLEAN };
 /** Net Zero Tracker's statuses, from firmest to none. */
@@ -999,11 +1000,43 @@ function electrifyCountries(): Built {
     headline: headline(ELEC_SHARE, top.entity, {}, year),
     sentence: `of the energy used in ${entityName(top.entity)} in ${year} was electricity, the highest share among the countries Eurostat reports.`,
     chart: bars(
-      rows.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: CAPTURE })),
+      rows.map((r) => ({ key: r.entity, label: entityName(r.entity), value: r.value, colour: CAPTURE, drill: `electrify-${r.entity}` })),
       short,
       decimals,
       year,
       `The ${rows.length} highest shares in ${year}, EU, EFTA and candidate countries.`,
+    ),
+    drills: [],
+    credit: credit(ELEC_SHARE),
+    indicators: [ELEC_SHARE],
+  };
+}
+
+/** The countries the ranking opens, so every bar's drill target is built. */
+function electrifyCountryIds(): string[] {
+  return ranking(ELEC_SHARE, latestPeriod(ELEC_SHARE))
+    .slice(0, TOP)
+    .map((r) => `electrify-${r.entity}`);
+}
+
+function electrifyCountry(iso: string): Built {
+  const { short, decimals } = u(ELEC_SHARE);
+  const name = entityName(iso);
+  const h = headline(ELEC_SHARE, iso);
+  return {
+    id: `electrify-${iso}`,
+    parent: "electrify-countries",
+    crumb: name,
+    kicker: `${name}: how much of the energy used is electricity`,
+    headline: h,
+    sentence: `of the energy used in ${name} in ${h.period} was electricity, by Eurostat. The grey line is the European Union.`,
+    chart: line(
+      [
+        { key: iso, label: name, colour: CAPTURE, points: points(ELEC_SHARE, iso) },
+        { key: "EU27", label: "European Union", colour: GREY, points: points(ELEC_SHARE, "EU27") },
+      ],
+      short,
+      decimals,
     ),
     drills: [],
     credit: credit(ELEC_SHARE),
@@ -1389,13 +1422,15 @@ const NODES: Record<string, () => Built> = {
 };
 
 function ids(): string[] {
-  return ["root", "shares", ...activityIds(), ...Object.keys(NODES)];
+  return ["root", "shares", ...activityIds(), ...Object.keys(NODES), ...electrifyCountryIds()];
 }
 
 function build(id: string): Built {
   if (id === "root") return rootNode(rootDrills());
   if (id === "shares") return sharesNode();
   if (isActivityNode(id)) return buildActivity(id);
+  const el = id.match(/^electrify-([A-Z0-9_]+)$/);
+  if (el) return electrifyCountry(el[1]);
   const f = NODES[id];
   if (!f) throw new Error(`unknown zero node ${id}`);
   return f();
