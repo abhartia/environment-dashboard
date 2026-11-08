@@ -189,7 +189,7 @@ def test_recs_refuses_an_average_that_is_not_over_all_homes():
 
 @pytest.mark.parametrize("side", DESNZ_SIDECARS, ids=lambda p: p.name)
 def test_desnz_member_fixture_matches_its_sidecar(side):
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     f = side.with_name(side.name.removesuffix(".provenance.json"))
     assert canonical.sha256_bytes(f.read_bytes()) == meta["fixture_sha256"] == meta["member_sha256"]
     assert f.name.startswith(meta["full_sha256"][:12])
@@ -206,7 +206,7 @@ def test_desnz_member_fixture_is_an_exact_slice_of_the_snapshot(side):
     sys.path.insert(0, str(FIXTURES))
     from zip_member_fixture import cut, parse_command
 
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     source, artifact, member, ranges = parse_command(meta["command"])
     assert (source, artifact, member) == (meta["source_id"], meta["artifact_id"], meta["member"])
@@ -216,7 +216,7 @@ def test_desnz_member_fixture_is_an_exact_slice_of_the_snapshot(side):
 def _desnz_members() -> dict[str, bytes]:
     out = {}
     for side in DESNZ_SIDECARS:
-        meta = json.loads(side.read_text())
+        meta = json.loads(side.read_text(encoding="utf-8"))
         out[meta["member"]] = side.with_name(side.name.removesuffix(".provenance.json")).read_bytes()
     return out
 

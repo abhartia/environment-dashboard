@@ -28,7 +28,7 @@ YEARS_FIXTURE = FIXTURES / "fao-fra-2025" / "bulk-download-world" / "d93c84204f6
 
 @pytest.mark.parametrize("side", MEMBER_SIDECARS, ids=lambda p: p.name)
 def test_member_fixture_matches_its_sidecar(side):
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     f = side.with_name(side.name.removesuffix(".provenance.json"))
     assert canonical.sha256_bytes(f.read_bytes()) == meta["fixture_sha256"]
     assert f.name.startswith(meta["full_sha256"][:12])
@@ -45,7 +45,7 @@ def test_member_fixture_is_an_exact_slice_of_the_snapshot(side):
     sys.path.insert(0, str(FIXTURES))
     from zip_member_fixture import cut, parse_command
 
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     assert canonical.sha256_bytes(raw) == meta["full_sha256"]
     source, artifact, member, ranges = parse_command(meta["command"])

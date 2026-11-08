@@ -105,7 +105,7 @@ def test_refuses_renamed_items_and_nested_classes_side_by_side():
 
 
 def test_vintage_from_catalogue():
-    side = json.loads((ART / "a266d08687d4.india.csv.provenance.json").read_text())
+    side = json.loads((ART / "a266d08687d4.india.csv.provenance.json").read_text(encoding="utf-8"))
     updated, rows = catalogue_entry(CATALOGUE.read_bytes(), w.DATASET_CODE, side["url"])
     assert updated.isoformat() == "2026-04-27"
     assert rows == side["data_rows_total"] == 28_565

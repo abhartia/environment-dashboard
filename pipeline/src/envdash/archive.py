@@ -161,7 +161,7 @@ def wayback_all(paths: Paths, sources: dict[str, Source]) -> dict[str, WaybackCa
     if record.exists():
         import json
 
-        pages = {u: WaybackCapture.model_validate(c) for u, c in json.loads(record.read_text()).items()}
+        pages = {u: WaybackCapture.model_validate(c) for u, c in json.loads(record.read_text(encoding="utf-8")).items()}
     for u, c in out.items():
         if c.status == "captured" or pages.get(u) is None or pages[u].status != "captured":
             pages[u] = c  # a later failure never erases an earlier capture

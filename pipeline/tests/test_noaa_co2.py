@@ -9,7 +9,7 @@ from support import fixture
 
 def _monthly():
     path, _ = fixture("noaa-gml-trends", "co2-mm-mlo")
-    return parse_monthly(path.read_text())
+    return parse_monthly(path.read_text(encoding="utf-8"))
 
 
 def test_monthly_vintage_from_file_creation():
@@ -39,14 +39,14 @@ def test_monthly_sentinels_become_notes_not_values():
 
 def test_monthly_refuses_file_without_its_stated_rules():
     path, _ = fixture("noaa-gml-trends", "co2-mm-mlo")
-    raw = path.read_text().replace("# Missing months have been interpolated", "# Missing months")
+    raw = path.read_text(encoding="utf-8").replace("# Missing months have been interpolated", "# Missing months")
     with pytest.raises(NoaaFormatError, match="re-read"):
         parse_monthly(raw)
 
 
 def test_annual_global_one_sigma_bounds_and_preliminary_last_year():
     path, _ = fixture("noaa-gml-trends", "co2-annmean-gl")
-    obs, created = parse_annual_global(path.read_text())
+    obs, created = parse_annual_global(path.read_text(encoding="utf-8"))
     last = obs[-1]
     assert (last.period, last.value, last.lower, last.upper) == ("2025", 425.62, 425.57, 425.67)
     assert last.interval == "1sigma" and last.status == "preliminary"

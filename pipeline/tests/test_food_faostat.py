@@ -45,7 +45,7 @@ def _lines(artifact: str, *names: str) -> list[bytes]:
 
 
 def _total_rows(artifact: str, name: str) -> int:
-    return json.loads((FIXTURES / artifact / f"{name}.provenance.json").read_text())["data_rows_total"]
+    return json.loads((FIXTURES / artifact / f"{name}.provenance.json").read_text(encoding="utf-8"))["data_rows_total"]
 
 
 def _flags(artifact: str, name: str, member: str) -> dict[str, str]:
@@ -130,7 +130,7 @@ def test_land_use_vintage_from_catalogue():
 
 def _url(artifact: str) -> str:
     side = next((FIXTURES / artifact).glob("*.provenance.json"))
-    return json.loads(side.read_text())["url"]
+    return json.loads(side.read_text(encoding="utf-8"))["url"]
 
 
 # --- food loss -----------------------------------------------------------------------------------------------------

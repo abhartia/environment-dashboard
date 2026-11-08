@@ -320,7 +320,7 @@ def test_write_keeps_an_unchanged_build_and_stops_when_the_same_inputs_give_othe
     assert out.state == "built" and out.index == built.index
     assert {p: (paths.data / p).read_bytes() for p in built.files} == built.files
     assert geo_problems(paths) == []
-    record = json.loads(gs.record_path(paths).read_text())
+    record = json.loads(gs.record_path(paths).read_text(encoding="utf-8"))
     assert record["key"] == gs.build_key(paths, reg)[0]
     assert gs.write(paths, reg).state == "skipped"
 

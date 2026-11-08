@@ -104,7 +104,7 @@ def test_entities_csv_is_rebuilt_byte_identical_from_the_current_snapshots():
     data, side = geo.build(paths)
     out = geo.entities_path(paths)
     assert data == out.read_bytes(), "run: uv run envdash geo build"
-    committed = json.loads(out.with_name("entities.provenance.json").read_text())
+    committed = json.loads(out.with_name("entities.provenance.json").read_text(encoding="utf-8"))
     assert committed == side and committed["sha256"] == canonical.sha256_bytes(data)
     current = snapshots.read_current(paths)
     for k, sha in committed["inputs"].items():

@@ -443,7 +443,8 @@ def _steps(r: _Read) -> list[str]:
     modified = f" The zip was last modified on the server on {r.zip_modified}." if r.zip_modified else ""
     return [
         f"Read INTL.txt from EIA's bulk file INTL.zip. EIA's bulk manifest gives the INTL release as last updated "
-        f"{r.release:%-d %B %Y} and names this zip as its file, so the vintage is '{vintage_of(r.release)}'.{modified}",
+        f"{r.release.day} {r.release:%B %Y} and names this zip as its file, so the vintage is "
+        f"'{vintage_of(r.release)}'.{modified}",
         "Kept the annual consumption series in quadrillion Btu: total energy consumption and its five fuels (coal, "
         "natural gas, petroleum and other liquids, nuclear, renewables and other), checking each series' name and "
         f"units. Kept the World and the {len(t.by_entity) - 1} countries and territories in "

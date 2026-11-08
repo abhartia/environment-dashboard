@@ -20,9 +20,9 @@ TEST_KEY = "test-value-for-the-in-process-handler"
 
 def _edit(paths, source_id: str, change) -> None:
     y = paths.sources / f"{source_id}.yaml"
-    doc = yaml.safe_load(y.read_text())
+    doc = yaml.safe_load(y.read_text(encoding="utf-8"))
     change(doc)
-    y.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True))
+    y.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
 
 def _real_csv() -> bytes:

@@ -66,7 +66,7 @@ def _transform(indicator_id: str):
 
 @pytest.mark.parametrize("side", SIDECARS, ids=lambda p: p.name)
 def test_fixture_matches_its_sidecar(side):
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     f = side.with_name(side.name.removesuffix(".provenance.json"))
     assert canonical.sha256_bytes(f.read_bytes()) == meta["fixture_sha256"]
     assert f.name.startswith(meta["full_sha256"][:12])
@@ -82,7 +82,7 @@ def test_fixture_is_an_exact_slice_of_the_snapshot(side):
     sys.path.insert(0, str(FIXTURES))
     from make_zip_fixture import cut, parse_command
 
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     assert canonical.sha256_bytes(raw) == meta["full_sha256"]
     artifact, member, area, pairs = parse_command(meta["command"])
@@ -169,7 +169,7 @@ def test_vintage_from_catalogue_entry_for_this_file():
     updated, rows = catalogue_entry(raw, GT_URL)
     assert updated.isoformat() == "2025-10-28"
     # The data rows of the full CSV member, recorded in the fixture's sidecar by the cutter.
-    meta = json.loads((FIXTURES / "emissions-totals" / "d2c47e116553.csv.provenance.json").read_text())
+    meta = json.loads((FIXTURES / "emissions-totals" / "d2c47e116553.csv.provenance.json").read_text(encoding="utf-8"))
     assert rows == meta["data_rows_total"] == 2_500_090
     with pytest.raises(FaostatFormatError, match="not"):
         catalogue_entry(raw, GT_URL.replace("Totals", "totals"))

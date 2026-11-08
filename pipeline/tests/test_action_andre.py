@@ -26,7 +26,7 @@ FIXTURES = Path(__file__).parent / "fixtures" / an.SOURCE
 
 def _fixture() -> tuple[Path, dict]:
     for side in sorted(FIXTURES.glob("*.provenance.json")):
-        meta = json.loads(side.read_text())
+        meta = json.loads(side.read_text(encoding="utf-8"))
         if meta["artifact_id"] == an.SI.artifact_id:
             return side.with_name(side.name.removesuffix(".provenance.json")), meta
     raise LookupError(an.SI.artifact_id)

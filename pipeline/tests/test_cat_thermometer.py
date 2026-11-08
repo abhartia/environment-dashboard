@@ -186,8 +186,8 @@ def test_build_writes_only_the_private_export(tmp_path):
     assert ind["origins"][0]["sha256"] == SHA and ind["origins"][0]["r2_url"] is None
     assert {o["dims"]["scenario"]: (o["lower"], o["value"], o["upper"]) for o in ind["observations"]} == TABLE
 
-    (entry,) = json.loads((paths.data / "v1" / "catalog.json").read_text())["indicators"]
+    (entry,) = json.loads((paths.data / "v1" / "catalog.json").read_text(encoding="utf-8"))["indicators"]
     assert entry["id"] == ID and entry["latest"] is None and entry["downloadable"] is False
     assert not [p for p in paths.data.rglob("*") if p.is_file() and ID in p.name]
-    assert json.loads((paths.data / "datapackage.json").read_text())["resources"] == []
+    assert json.loads((paths.data / "datapackage.json").read_text(encoding="utf-8"))["resources"] == []
     assert validate_all(paths, reg) == []

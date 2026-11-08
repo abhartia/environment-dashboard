@@ -35,8 +35,8 @@ ID = "co2-share.sei-inequality.income-groups-global"
 
 
 def _fixture(artifact_id: str) -> tuple[Path, dict]:
-    (side,) = [s for s in SIDECARS if json.loads(s.read_text())["artifact_id"] == artifact_id]
-    return side.with_name(side.name.removesuffix(".provenance.json")), json.loads(side.read_text())
+    (side,) = [s for s in SIDECARS if json.loads(s.read_text(encoding="utf-8"))["artifact_id"] == artifact_id]
+    return side.with_name(side.name.removesuffix(".provenance.json")), json.loads(side.read_text(encoding="utf-8"))
 
 
 def _raw() -> bytes:
@@ -70,7 +70,7 @@ def _shares(obs) -> dict[tuple[str, str], float]:
 
 @pytest.mark.parametrize("side", SIDECARS, ids=lambda p: p.name)
 def test_fixture_matches_its_sidecar(side):
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     f = side.with_name(side.name.removesuffix(".provenance.json"))
     assert canonical.sha256_bytes(f.read_bytes()) == meta["fixture_sha256"]
     assert f.name.startswith(meta["full_sha256"][:12])
@@ -87,7 +87,7 @@ def test_fixture_is_an_exact_slice_of_the_snapshot(side):
     sys.path.insert(0, str(FIXTURES))
     from make_json_fixture import cut, parse_command
 
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     assert canonical.sha256_bytes(raw) == meta["full_sha256"]
     artifact, years = parse_command(meta["command"])

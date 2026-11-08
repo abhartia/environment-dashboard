@@ -80,7 +80,9 @@ def _crw_entry(**changes) -> dict:
 
 
 def _write_entry(paths, entry: dict) -> None:
-    (paths.literature / f"{entry['id']}.yaml").write_text(yaml.safe_dump(entry, sort_keys=False, allow_unicode=True))
+    (paths.literature / f"{entry['id']}.yaml").write_text(
+        yaml.safe_dump(entry, sort_keys=False, allow_unicode=True), encoding="utf-8"
+    )
 
 
 def _with_crw_source(tmp_paths):
@@ -120,7 +122,9 @@ def test_pdf_page_must_match_the_artifact_format(tmp_paths):
     errs = load_registry(paths).literature_errors
     assert "not a PDF: pdf_page must be null" in errs["crw-fourth-event-reef-area"]
 
-    lit = yaml.safe_load((REPO_ROOT / "pipeline" / "literature" / "ipcc-ar6-wg3-spm-c12.yaml").read_text())
+    lit = yaml.safe_load(
+        (REPO_ROOT / "pipeline" / "literature" / "ipcc-ar6-wg3-spm-c12.yaml").read_text(encoding="utf-8")
+    )
     lit["pdf_page"] = None
     _write_entry(paths, {**lit, "checked_on": str(lit["checked_on"])})
     errs = load_registry(paths).literature_errors

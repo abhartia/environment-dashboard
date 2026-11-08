@@ -14,7 +14,7 @@
 //    opens no future view, a search index over 1 MiB, or map files whose licence forbids redistribution
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { join, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const OUT = fileURLToPath(new URL("../out/", import.meta.url));
@@ -33,7 +33,8 @@ function walk(dir) {
   });
 }
 const files = walk(OUT);
-const rel = (f) => f.replace(OUT, "");
+/** A path under out/, with "/" separators on every platform (the page patterns below are written with "/"). */
+const rel = (f) => f.replace(OUT, "").split(sep).join("/");
 
 // --- Required files, limits -----------------------------------------------------------------
 

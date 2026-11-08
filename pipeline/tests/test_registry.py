@@ -22,7 +22,9 @@ def test_one_broken_entry_does_not_stop_the_others(tmp_paths, tmp_path):
 def test_unknown_placeholder_rejected(tmp_paths, tmp_path):
     paths = copy_sources(tmp_paths, tmp_path, "noaa-gml-trends")
     y = paths.sources / "noaa-gml-trends.yaml"
-    y.write_text(y.read_text().replace("version {version}, doi", "version {release}, doi", 1))
+    y.write_text(
+        y.read_text(encoding="utf-8").replace("version {version}, doi", "version {release}, doi", 1), encoding="utf-8"
+    )
     assert "unknown placeholders" in load_registry(paths).source_errors["noaa-gml-trends"]
 
 
@@ -83,9 +85,9 @@ def test_cckp_grids_expand_into_ordinary_artifacts():
 def _edit_cckp(tmp_paths, tmp_path, old: str, new: str, count: int = 1) -> str | None:
     paths = copy_sources(tmp_paths, tmp_path, "wb-cckp")
     y = paths.sources / "wb-cckp.yaml"
-    text = y.read_text()
+    text = y.read_text(encoding="utf-8")
     assert old in text
-    y.write_text(text.replace(old, new, count))
+    y.write_text(text.replace(old, new, count), encoding="utf-8")
     reg = load_registry(paths)
     return reg.source_errors.get("wb-cckp")
 

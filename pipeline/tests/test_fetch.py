@@ -29,11 +29,11 @@ def _serve(seen: list[httpx.Request]):
 def _one_artifact_registry(tmp_paths, tmp_path):
     paths = copy_sources(tmp_paths, tmp_path, "noaa-gml-trends")
     y = paths.sources / "noaa-gml-trends.yaml"
-    text = y.read_text()
+    text = y.read_text(encoding="utf-8")
     head, arts = text.split("artifacts:\n", 1)
     first = arts.split("  - id: co2-annmean-mlo", 1)[0]
     rest = arts.split("status:\n", 1)[1]
-    y.write_text(head + "artifacts:\n" + first + "status:\n" + rest)
+    y.write_text(head + "artifacts:\n" + first + "status:\n" + rest, encoding="utf-8")
     return paths
 
 
@@ -63,7 +63,7 @@ def test_size_limit(tmp_paths):
 def test_changed_terms_freeze_the_source(tmp_paths, tmp_path):
     paths = _one_artifact_registry(tmp_paths, tmp_path)
     y = paths.sources / "noaa-gml-trends.yaml"
-    y.write_text(y.read_text().replace("made freely available", "made available"))
+    y.write_text(y.read_text(encoding="utf-8").replace("made freely available", "made available"), encoding="utf-8")
     reg = load_registry(paths)
     with fetch.make_client(httpx.MockTransport(_serve([]))) as c:
         r = fetch.fetch_all(paths, reg, client=c)["noaa-gml-trends"]

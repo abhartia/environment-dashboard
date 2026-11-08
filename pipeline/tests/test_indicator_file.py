@@ -20,7 +20,7 @@ PALEO = INDICATORS / "co2.bereiter-2015.800k.json"
 
 
 def _raw(path) -> dict:
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("path", sorted(INDICATORS.glob("*.json")), ids=lambda p: p.stem)

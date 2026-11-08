@@ -35,7 +35,7 @@ FIXTURES = Path(__file__).parent / "fixtures"
 def fixture(source_id: str, artifact_id: str) -> tuple[Path, dict]:
     """The fixture file cut from (source, artifact) and its provenance sidecar (copied from tests/support.py)."""
     for side in sorted(FIXTURES.glob(f"{source_id}/*.provenance.json")):
-        meta = json.loads(side.read_text())
+        meta = json.loads(side.read_text(encoding="utf-8"))
         if meta["artifact_id"] == artifact_id:
             return side.with_name(side.name.removesuffix(".provenance.json")), meta
     raise LookupError(f"no fixture for {source_id}/{artifact_id}")
@@ -69,7 +69,7 @@ def run_transform(indicator_id: str, *inputs: tuple[str, str]):
 
 def test_ch4_annual_global_one_sigma_bounds_and_preliminary_last_year():
     path, _ = fixture("noaa-gml-trends-ch4-n2o-sf6", "ch4-annmean-gl")
-    obs, created = parse_annual_global(path.read_text(), CH4)
+    obs, created = parse_annual_global(path.read_text(encoding="utf-8"), CH4)
     assert f"{created:%Y-%m}" == "2026-09"
     assert len(obs) == 42
     assert (obs[0].period, obs[0].value, obs[0].lower, obs[0].upper) == ("1984", 1644.84, 1644.24, 1645.44)
@@ -83,7 +83,7 @@ def test_ch4_annual_global_one_sigma_bounds_and_preliminary_last_year():
 
 def test_n2o_annual_global_values():
     path, _ = fixture("noaa-gml-trends-ch4-n2o-sf6", "n2o-annmean-gl")
-    obs, created = parse_annual_global(path.read_text(), N2O)
+    obs, created = parse_annual_global(path.read_text(encoding="utf-8"), N2O)
     assert f"{created:%Y-%m}" == "2026-09"
     assert len(obs) == 25
     assert (obs[0].period, obs[0].value) == ("2001", 316.36)
@@ -102,12 +102,12 @@ def test_ch4_transform_vintage_and_validation():
 def test_n2o_refuses_a_file_of_the_other_gas():
     path, _ = fixture("noaa-gml-trends-ch4-n2o-sf6", "ch4-annmean-gl")
     with pytest.raises(NoaaGhgFormatError, match="N2O expressed"):
-        parse_annual_global(path.read_text(), N2O)
+        parse_annual_global(path.read_text(encoding="utf-8"), N2O)
 
 
 def test_ch4_refuses_file_without_its_stated_uncertainty_rule():
     path, _ = fixture("noaa-gml-trends-ch4-n2o-sf6", "ch4-annmean-gl")
-    raw = path.read_text().replace("taken in\n# quadrature", "combined\n# somehow")
+    raw = path.read_text(encoding="utf-8").replace("taken in\n# quadrature", "combined\n# somehow")
     with pytest.raises(NoaaGhgFormatError, match="re-read"):
         parse_annual_global(raw, CH4)
 
@@ -151,13 +151,13 @@ MAXIMUM = "co2.bereiter-2015.800k.max-before-1000bp"
 def test_bereiter_reader_keeps_ages_as_printed():
     path, meta = fixture("bereiter-2015-co2", "composite")
     assert meta["fixture_sha256"] == meta["full_sha256"]
-    samples = read_composite(path.read_text())
+    samples = read_composite(path.read_text(encoding="utf-8"))
     assert len(samples) == 1901
     first, last = samples[0], samples[-1]
     # File rows "-51.03\t368.02\t0.06" (first) and "805668.87\t207.29\t2.20" (last).
     assert (str(first.age_bp), str(first.co2_ppm), str(first.sigma_ppm)) == ("-51.03", "368.02", "0.06")
     assert (str(last.age_bp), str(last.co2_ppm), str(last.sigma_ppm)) == ("805668.87", "207.29", "2.20")
-    assert contribution_date(path.read_text()) == "2015-02-04"
+    assert contribution_date(path.read_text(encoding="utf-8")) == "2015-02-04"
 
 
 def test_bereiter_series_is_dated_by_age_oldest_first():
@@ -183,7 +183,7 @@ def test_bereiter_maximum_before_1000_years_bp():
 
 def test_bereiter_maximum_refuses_a_tie_and_needs_old_samples():
     path, _ = fixture("bereiter-2015-co2", "composite")
-    samples = read_composite(path.read_text())
+    samples = read_composite(path.read_text(encoding="utf-8"))
     top, _ = preindustrial_max(samples)
     twin = Sample(top.age_bp + 1, top.co2_ppm, top.sigma_ppm)
     with pytest.raises(BereiterFormatError, match="share the maximum"):
@@ -194,7 +194,7 @@ def test_bereiter_maximum_refuses_a_tie_and_needs_old_samples():
 
 def test_bereiter_reader_refuses_a_changed_age_unit():
     path, _ = fixture("bereiter-2015-co2", "composite")
-    raw = path.read_text().replace("Time_Unit: cal yr BP", "Time_Unit: yr b2k")
+    raw = path.read_text(encoding="utf-8").replace("Time_Unit: cal yr BP", "Time_Unit: yr b2k")
     with pytest.raises(BereiterFormatError, match="re-read"):
         read_composite(raw)
 
@@ -228,11 +228,11 @@ def test_bereiter_builds_and_exports_with_age_bp(tmp_paths, tmp_path):
     mx = exported(tmp_paths.public_indicators / f"{MAXIMUM}.json")
     assert (mx["latest"]["age_bp"], mx["latest"]["value"]) == (335102.31, 298.6)
     assert mx["attribution"].startswith("Calculated by Environment Dashboard from Bereiter et al. (2015)")
-    csv = (tmp_paths.public_indicators / f"{SERIES}.csv").read_text().splitlines()
+    csv = (tmp_paths.public_indicators / f"{SERIES}.csv").read_text(encoding="utf-8").splitlines()
     assert "# Provenance and processing: https://environmentdashboard.org/data/co2/bereiter-2015/800k" in csv
     header = csv.index("indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp")
     assert csv[header + 1] == "co2.bereiter-2015.800k,ANT_ICECORES,,207.29,205.09,209.49,1sigma,final,,,805668.87"
-    catalog = json.loads((tmp_paths.data / "v1" / "catalog.json").read_text())
+    catalog = json.loads((tmp_paths.data / "v1" / "catalog.json").read_text(encoding="utf-8"))
     assert {e["id"]: e["time_basis"] for e in catalog["indicators"]} == {
         SERIES: "years-before-1950",
         MAXIMUM: "years-before-1950",

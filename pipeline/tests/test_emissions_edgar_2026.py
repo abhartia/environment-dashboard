@@ -241,6 +241,6 @@ def test_build_exports_privately_with_passing_checks(tmp_paths):
     assert total["latest"] == {"entity": "WLD", "period": "2025", "value": 54149.174008064, "status": "preliminary",
                                "dims": {}, "age_bp": None}  # fmt: skip
     assert "Changes:" not in total["attribution"]
-    catalog = json.loads((paths.data / "v1" / "catalog.json").read_text())
+    catalog = json.loads((paths.data / "v1" / "catalog.json").read_text(encoding="utf-8"))
     assert all(e["latest"] is None and not e["downloadable"] for e in catalog["indicators"] if e["id"] in IDS)
     assert validate_all(paths, reg) == []

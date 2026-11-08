@@ -261,7 +261,8 @@ def _runner(compute, last: str, changes: str | None):
             vintage=VINTAGE,
             date_published=VINTAGE,
             steps=[
-                f"Read IRENA's {EDITION} (PDF created {created:%-d %B %Y}, sha256 {f.snapshot.sha256[:12]}…; its "
+                f"Read IRENA's {EDITION} (PDF created {created.day} {created:%B %Y}, sha256 "
+                f"{f.snapshot.sha256[:12]}…; its "
                 "metadata title and the citation on page 2 name this edition) and took the World row of each table "
                 f"from the text of pages {', '.join(str(p) for p in used)}, read with the columns kept apart, for "
                 f"{YEARS[0]} to {YEARS[-1]}.",

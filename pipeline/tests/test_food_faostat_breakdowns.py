@@ -42,7 +42,7 @@ def _lines(artifact: str, *names: str) -> list[bytes]:
 
 
 def _meta(artifact: str, name: str) -> dict:
-    return json.loads((FIXTURES / artifact / f"{name}.provenance.json").read_text())
+    return json.loads((FIXTURES / artifact / f"{name}.provenance.json").read_text(encoding="utf-8"))
 
 
 def _rows(lines: list[bytes]) -> list[dict[str, str]]:

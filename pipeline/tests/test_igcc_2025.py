@@ -22,7 +22,7 @@ RELEASE = igcc.RELEASES["IGCC-2025a"]
 def fixture(source_id: str, artifact_id: str) -> tuple[Path, dict]:
     """The fixture file cut from (source, artifact) and its provenance sidecar (copied from tests/support.py)."""
     for side in sorted(FIXTURES.glob(f"{source_id}/*.provenance.json")):
-        meta = json.loads(side.read_text())
+        meta = json.loads(side.read_text(encoding="utf-8"))
         if meta["artifact_id"] == artifact_id:
             return side.with_name(side.name.removesuffix(".provenance.json")), meta
     raise LookupError(f"no fixture for {source_id}/{artifact_id}")

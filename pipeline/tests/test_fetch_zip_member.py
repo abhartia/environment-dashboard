@@ -142,7 +142,7 @@ def _members_registry(tmp_paths, tmp_path, data: bytes, suffixes: tuple[str, ...
     infos = zipfile.ZipFile(io.BytesIO(data)).infolist()
     paths = copy_sources(tmp_paths, tmp_path, "natural-earth")
     y = paths.sources / "natural-earth.yaml"
-    doc = yaml.safe_load(y.read_text())
+    doc = yaml.safe_load(y.read_text(encoding="utf-8"))
     doc["evidence"]["terms_check"] = "manual"
     doc["artifacts"] = [
         {
@@ -154,7 +154,7 @@ def _members_registry(tmp_paths, tmp_path, data: bytes, suffixes: tuple[str, ...
         }
         for suffix in suffixes
     ]
-    y.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True))
+    y.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True), encoding="utf-8")
     reg = load_registry(paths)
     assert not reg.source_errors, reg.source_errors
     return paths, reg

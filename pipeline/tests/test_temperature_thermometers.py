@@ -126,7 +126,7 @@ def test_noaa_refuses_monthly_file_of_another_release():
 
 
 def test_noaa_readme_must_state_the_1991_2020_baseline():
-    text = fixture("noaaglobaltemp-v6", "timeseries-readme")[0].read_text()
+    text = fixture("noaaglobaltemp-v6", "timeseries-readme")[0].read_text(encoding="utf-8")
     noaaglobaltemp.check_readme(text)
     with pytest.raises(noaaglobaltemp.NoaaGlobalTempFormatError, match="re-read"):
         noaaglobaltemp.check_readme(text.replace("from 1991 to 2020", "from 1901 to 2000"))
@@ -136,7 +136,7 @@ def test_noaa_readme_must_state_the_1991_2020_baseline():
 
 
 def _bulletin_raw() -> str:
-    return fixture("c3s-era5-bulletin", "global-allmonths")[0].read_text()
+    return fixture("c3s-era5-bulletin", "global-allmonths")[0].read_text(encoding="utf-8")
 
 
 def test_bulletin_publishes_producers_ano_pi_unchanged():
@@ -184,7 +184,7 @@ def test_bulletin_refuses_row_whose_ano_pi_is_not_the_sum():
 
 
 def test_pulse_air_temperature_keeps_preliminary_status():
-    raw = fixture("c3s-climate-pulse", "air-temperature-daily")[0].read_text()
+    raw = fixture("c3s-climate-pulse", "air-temperature-daily")[0].read_text(encoding="utf-8")
     obs, preliminary = pulse.parse(raw, pulse.VARIABLES[pulse.AIR.key])
     by = {o.period: o for o in obs}
     assert obs[0].period == "1940-01-01" and obs[0].value == -0.762
@@ -204,7 +204,7 @@ def test_pulse_sea_surface_temperature():
 
 
 def test_pulse_refuses_unknown_status_and_wrong_variable():
-    raw = fixture("c3s-climate-pulse", "air-temperature-daily")[0].read_text()
+    raw = fixture("c3s-climate-pulse", "air-temperature-daily")[0].read_text(encoding="utf-8")
     with pytest.raises(pulse.PulseFormatError, match="neither FINAL nor PRELIMINARY"):
         pulse.parse(raw.replace(",PRELIMINARY", ",PROVISIONAL"), pulse.VARIABLES[pulse.AIR.key])
     with pytest.raises(pulse.PulseFormatError, match="re-read"):

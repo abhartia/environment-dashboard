@@ -34,7 +34,7 @@ def test_build_then_skip_then_rebuild_on_key_change(tmp_paths, tmp_path):
     # A different uv.lock changes the key: the transform runs again and the output is byte-identical.
     lock = tmp_path / "uv.lock"
     shutil.copy(tmp_paths.lock, lock)
-    with lock.open("a") as f:
+    with lock.open("a", encoding="utf-8") as f:
         f.write("\n")
     p2 = tmp_paths.with_(lock=lock)
     again = build_and_export(p2, reg, ts)
@@ -56,14 +56,14 @@ def test_export_set_is_consistent_and_valid(tmp_paths):
     report = build_and_export(tmp_paths, reg, _annual_transform(tmp_paths))
     assert report.ok
     d = tmp_paths.data
-    csv = (tmp_paths.public_indicators / f"{ANNUAL}.csv").read_text()
+    csv = (tmp_paths.public_indicators / f"{ANNUAL}.csv").read_text(encoding="utf-8")
     assert csv.startswith("# Carbon dioxide, global annual mean\n")
     assert "# Credit: NOAA Global Monitoring Laboratory (Lan, Tans & Thoning), version 2026-09" in csv
     assert "# Licence: Public domain" in csv
     assert "co2.noaa-gml.annual-global,WLD,2025,425.62,425.57,425.67,1sigma,preliminary,," in csv
-    dp = json.loads((d / "datapackage.json").read_text())
+    dp = json.loads((d / "datapackage.json").read_text(encoding="utf-8"))
     assert [r["name"] for r in dp["resources"]] == [ANNUAL]
-    sums = (d / "SHA256SUMS").read_text()
+    sums = (d / "SHA256SUMS").read_text(encoding="utf-8")
     assert f"v1/indicators/{ANNUAL}.csv" in sums and "status.json" not in sums
     problems = validate_all(tmp_paths, reg)
     assert problems == [], problems
@@ -73,8 +73,8 @@ def test_display_only_never_under_data(tmp_paths, tmp_path):
     """Route a real series through a copy of its registry entry re-classed display-only: nothing reaches data/."""
     paths = copy_sources(tmp_paths, tmp_path, "noaa-gml-trends")
     y = paths.sources / "noaa-gml-trends.yaml"
-    text = y.read_text().replace("licence_class: open", "licence_class: display-only")
-    y.write_text(text.replace("  mirror_raw: true", "  mirror_raw: false"))
+    text = y.read_text(encoding="utf-8").replace("licence_class: open", "licence_class: display-only")
+    y.write_text(text.replace("  mirror_raw: true", "  mirror_raw: false"), encoding="utf-8")
     load_fixture_snapshot(paths, "noaa-gml-trends", "co2-annmean-gl")
     reg = load_registry(paths)
     assert reg.sources["noaa-gml-trends"].licence_class == "display-only"
@@ -84,18 +84,18 @@ def test_display_only_never_under_data(tmp_paths, tmp_path):
     assert (paths.private_indicators / f"{ANNUAL}.json").exists()
     public_files = [p.relative_to(paths.data).as_posix() for p in paths.data.rglob("*") if p.is_file()]
     assert not [p for p in public_files if ANNUAL in p and "indicators" in p]
-    catalog = json.loads((paths.data / "v1" / "catalog.json").read_text())
+    catalog = json.loads((paths.data / "v1" / "catalog.json").read_text(encoding="utf-8"))
     (entry,) = catalog["indicators"]
     assert entry["latest"] is None and entry["downloadable"] is False
-    assert json.loads((paths.data / "datapackage.json").read_text())["resources"] == []
+    assert json.loads((paths.data / "datapackage.json").read_text(encoding="utf-8"))["resources"] == []
     # No value of the series appears anywhere under data/.
     for p in paths.data.rglob("*"):
         if p.is_file():
-            assert "425.62" not in p.read_text(), p
+            assert "425.62" not in p.read_text(encoding="utf-8"), p
     assert validate_all(paths, reg) == []
 
     # Re-classing back to open moves it to data/ and removes the private copy.
-    y.write_text(text.replace("licence_class: display-only", "licence_class: open"))
+    y.write_text(text.replace("licence_class: display-only", "licence_class: open"), encoding="utf-8")
     reg = load_registry(paths)
     assert build_and_export(paths, reg, _annual_transform(paths)).ok
     assert (paths.public_indicators / f"{ANNUAL}.json").exists()
@@ -118,4 +118,7 @@ def test_failed_build_keeps_previous_export(tmp_paths):
     report = build_and_export(tmp_paths, reg, ts)
     assert [o.state for o in report.outcomes] == ["failed"]
     assert out.read_bytes() == good
-    assert json.loads((tmp_paths.data / "v1" / "catalog.json").read_text())["indicators"][0]["id"] == ANNUAL
+    assert (
+        json.loads((tmp_paths.data / "v1" / "catalog.json").read_text(encoding="utf-8"))["indicators"][0]["id"]
+        == ANNUAL
+    )

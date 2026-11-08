@@ -28,7 +28,7 @@ SOURCE, ARTIFACT = "ivanova-2020", "article-pdf"
 def _fixture() -> tuple[Path, dict]:
     # Copied from support.fixture, which this file must not change.
     for side in sorted(FIXTURES.glob(f"{SOURCE}/*.provenance.json")):
-        meta = json.loads(side.read_text())
+        meta = json.loads(side.read_text(encoding="utf-8"))
         if meta["artifact_id"] == ARTIFACT:
             return side.with_name(side.name.removesuffix(".provenance.json")), meta
     raise LookupError(f"no fixture for {SOURCE}/{ARTIFACT}")

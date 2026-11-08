@@ -154,4 +154,4 @@ def test_cli_with_everything_cached_needs_no_credentials(tmp_paths, monkeypatch)
     result = CliRunner().invoke(cli.app, ["snapshots", "pull"])
     assert result.exit_code == 0, result.output
     assert "all 1 snapshot(s) already cached and verified" in result.output
-    assert json.loads(tmp_paths.current.read_text())  # nothing about the pointers changed
+    assert json.loads(tmp_paths.current.read_text(encoding="utf-8"))  # nothing about the pointers changed

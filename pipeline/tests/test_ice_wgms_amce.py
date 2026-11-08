@@ -25,7 +25,7 @@ VERSION = "2026-02-10"
 
 
 def _fixture(member: str) -> bytes:
-    side = next(s for s in SIDECARS if json.loads(s.read_text())["member"] == member)
+    side = next(s for s in SIDECARS if json.loads(s.read_text(encoding="utf-8"))["member"] == member)
     return side.with_name(side.name.removesuffix(".provenance.json")).read_bytes()
 
 
@@ -42,7 +42,7 @@ def _transform(indicator_id: str):
 
 @pytest.mark.parametrize("side", SIDECARS, ids=lambda p: p.name)
 def test_fixture_matches_its_sidecar(side):
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     f = side.with_name(side.name.removesuffix(".provenance.json"))
     assert canonical.sha256_bytes(f.read_bytes()) == meta["fixture_sha256"]
     assert f.name.startswith(meta["full_sha256"][:12])
@@ -64,7 +64,7 @@ def test_fixture_is_an_exact_slice_of_the_snapshot(side):
     spec.loader.exec_module(mod)
     cut, parse_command = mod.cut, mod.parse_command
 
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     assert canonical.sha256_bytes(raw) == meta["full_sha256"]
     artifact, member = parse_command(meta["command"])

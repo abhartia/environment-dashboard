@@ -12,7 +12,7 @@ from support import fixture
 
 def _obs():
     path, _ = fixture("noaa-gml-trends", "co2-annmean-gl")
-    obs, _ = parse_annual_global(path.read_text())
+    obs, _ = parse_annual_global(path.read_text(encoding="utf-8"))
     return [o.model_dump(mode="json") for o in obs]
 
 
