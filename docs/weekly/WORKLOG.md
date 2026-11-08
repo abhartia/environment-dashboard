@@ -3,6 +3,81 @@
 One entry per Sunday run of the data steward routine (newest first): what was refreshed, what failed and why, what
 was fixed, what depth was added, dead ends, and what the next run should do first.
 
+## 2026-11-08
+
+First run on the owner's Windows machine (the Mac is out of service until about December). No run on 2026-11-01.
+None of the run's secrets exist here yet: `%USERPROFILE%\.secrets` holds only an unrelated key, so R2, GFW, Earthdata,
+Internet Archive and EIA keys were all absent (owner actions below).
+
+**Setup.** The main checkout's snapshot cache lacked 40 snapshots from the last two Mac runs. 39 were in the public R2
+bucket and came down over HTTPS from files.environmentdashboard.org, each checked against its manifest's sha256 with
+`snapshot_pull.decode`. The 40th, `systems-change-lab/scl-data-all`, is private-bucket only; the refresh fetched a new one.
+The 11 private exports in the main checkout matched the catalogue's hashes, and none changed this run, so the deploy's
+`private pull` has nothing new to find.
+
+**Windows fixes (c568ae9).** `%-d` in EIA's and IRENA's step text is a glibc/BSD-only strftime code. Windows raised
+"Invalid format string", so the four EIA energy indicators failed. 72 test reads and 8 writes (plus one in archive.py)
+used the platform's default encoding, cp1252 here. check-build's page paths kept "\", so every data page missed the
+TECHNICAL_PAGES exemption. Each is fixed at the root, with output byte-identical to the Mac's.
+
+**Refresh.** `envdash refresh`: every reachable licence quote unchanged. New vintages and moves are in the refresh
+commit (5d1991b): Ember to 3 November (world clean share 2025 42.313 → 42.309 %; Iceland's clean share printed
+100.002, accepted within nine shares' rounding, 702642e), C3S October 1.754 °C, AVISO to August 2026, EFFIS 703,775 ha.
+Naturvårdsverket added 2024 and revised the whole Swedish series (2023 7.62 → 7.17 t). OECD GBARD turned provisional
+years final (France 2023 2,659 → 1,583, back in line with 2019–2022). Each move was checked against HEAD: new periods,
+producer revisions, or (OECD, Naturvårdsverket) provisional-to-final and series revisions that are consistent across
+the series, not parsing errors. Terms "unverifiable": ipcc.ch/copyright answered 403 to this machine (new this week),
+and ourairports.com's TLS certificate has expired. Neither is a licence change; recheck next run. imbie-2026 recovered.
+
+**FAOSTAT held (G5).** FAO published its release of 6 November 2026 (data to 2024). I traced three changes in the raw
+files, then held both sources at their last vintage instead of publishing half of it. Before the hold, 13 FAOSTAT
+indicators built on the new files and 8 failed. Status records the hold through `update_status(extra_failures=…)`,
+with the vintage put back to the published one.
+1. The World's "All sectors with LULUCF" (6825) now includes International bunkers (6820), in GT and in EM's shares.
+   All 35 World years add up with seven parts, and all 9,320 other area-years still add up with six. Our scopes say
+   `bunkers: excluded`.
+2. Agrifood systems emissions are revised up over the whole series. World 2023 goes 16.535 → 18.648 Gt; land-use
+   change +32 % and pre- and post-production +23 %; FAO's own share 31.73 → 35.23 %. The stage parts still add up to
+   FAO's total.
+3. Nicaragua 2023–2024 is printed empty with flag L ("Missing value; data exist but were not collected"). This
+   affects EM, EI and livestock, and the transforms stop on any empty Value.
+The PRIMAP-hist version behind energy, IPPU, waste and other is unverified (the registry header expects v2.8), so the
+attribution would be wrong. The fixes for 1 and 3 were written and then backed out, so no untested code was
+committed; the backlog G5 row lists what they need. Snapshot tests for FAOSTAT fail the same way as last week.
+
+**Lancet Countdown 2026 is out (G2).** It is on a new portal, data.lancetcountdown.org/data-explorer, with CSV and
+XLSX per indicator (1.1.5 "last updated in September 2026"). Not adopted this run: it is every Lancet indicator on a
+new file layout.
+
+**Depth shipped.** Backlog D7: `/zero?v=electrify-countries` bars now open `/zero?v=electrify-<ISO>`, which shows the
+country's share of final energy used as electricity since 1990, against the EU in grey
+(`electricity.eurostat.share-of-final-energy`, open). It adds 15 nodes, no card, and no new indicator. I chose D7
+over G2 and G5 because both releases need more than one run's careful work, and D7 was complete and small. **Visual
+check not possible**: the browser pane refused localhost with nobody to approve it. The node files were checked
+instead (kicker, headline, sentence, NOR + EU27 lines with 35 points each, every bar's drill target built).
+
+**Gates.** ruff, ruff format, `pytest -q` (1,119 passed), `envdash validate` (0 problems), gen:api clean, typecheck,
+lint, `npm test` (235), build with check-build (5,418 files, 215 indicators). `pytest -m snapshot`: 20 facts
+re-pinned and passing. Expected failures: the four UNEP-annex tests and FAOSTAT on its held vintage. The golden rebuild
+cannot run here because `symlink_to` needs a Windows privilege (WinError 1314); it needs Developer Mode or the Mac.
+
+**Not archived.** With no R2 or Internet Archive keys, `envdash archive` could not run. This week's new snapshot
+manifests have no `r2_key`, so a fresh checkout's `snapshots pull` will name them until they are archived. Their bytes
+are kept in the main checkout's `pipeline/.snapshots` cache, copied there before the worktree was removed. The deploy
+does not need them: it pulls only the unchanged private exports.
+
+**Owner actions.**
+1. Put the secrets on this machine as DPAPI files in `%USERPROFILE%\.secrets` (`r2-envdash-access-key-id`,
+   `r2-envdash-secret-access-key`, `gfw-api-key`, `earthdata-envdash`, `archive-org-s3-access`, `archive-org-s3-secret`,
+   `eia-api-key`). Then next week's run can archive this week's snapshots and fetch GFW and NASA SSH.
+2. The Earthdata token expires 2026-12-05 (27 days left; renew after 2026-11-21). Its expiry could not be read here.
+3. Download the Living Planet Report 2026 trend CSVs (see 2026-10-11, action 1).
+4. Download `AGR2025_Online_Annexes.pdf` (runbook step 4).
+5. IDMC API key still not issued.
+
+**Next run first.** `envdash archive` once the R2 keys exist (this run's snapshots). Then FAOSTAT 2026 (G5, steps in
+the backlog), then the Lancet Countdown 2026 (G2).
+
 ## 2026-10-25
 
 **Refresh.** `envdash refresh`: every automatic licence quote unchanged except imbie-2026's (below). New vintages:
