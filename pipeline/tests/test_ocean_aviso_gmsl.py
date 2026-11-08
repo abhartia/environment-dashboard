@@ -85,19 +85,19 @@ def _edited_nc(tmp_path: Path, edit) -> bytes:
 
 
 @pytest.mark.snapshot
-def test_record_of_26_september_2026():
+def test_record_of_7_november_2026():
     rec = av.read_record(_current(av.NC.artifact_id).path.read_bytes())
-    assert rec.created == date(2026, 9, 26)
-    assert (rec.first_date, rec.end_date) == (date(1993, 1, 5), date(2026, 8, 15))
-    assert len(rec.times) == 1236
-    assert rec.msl_m[0] == 0.0020695430973826376 and rec.msl_m[-1] == 0.11810054310168677
+    assert rec.created == date(2026, 11, 7)
+    assert (rec.first_date, rec.end_date) == (date(1993, 1, 5), date(2026, 9, 24))
+    assert len(rec.times) == 1240
+    assert rec.msl_m[0] == 0.002080141227708293 and rec.msl_m[-1] == 0.12261874308514406
 
 
 @pytest.mark.snapshot
 def test_the_txt_and_the_netcdf_hold_the_same_values():
     # The registry's TXT (decimal year, msl, envelope) and the NetCDF msl variable are the same series.
     rec = av.read_record(_current(av.NC.artifact_id).path.read_bytes())
-    rows = [ln.split() for ln in _current("msl-global-filter2m-txt").path.read_text().splitlines()]
+    rows = [ln.split() for ln in _current("msl-global-filter2m-txt").path.read_text(encoding="utf-8").splitlines()]
     assert [float(r[1]) for r in rows] == rec.msl_m
 
 
@@ -106,19 +106,19 @@ def test_monthly_change_since_1993():
     rec = av.read_record(_current(av.NC.artifact_id).path.read_bytes())
     mon = av.monthly_change(rec)
     obs = mon.observations
-    assert len(obs) == 403 and obs[0].period == "1993-01" and obs[-1].period == "2026-07"
-    assert mon.dropped_month == "2026-08"
-    assert mon.cycles_per_month == {2: 9, 3: 360, 4: 34}
+    assert len(obs) == 404 and obs[0].period == "1993-01" and obs[-1].period == "2026-08"
+    assert mon.dropped_month == "2026-09"
+    assert mon.cycles_per_month == {2: 9, 3: 361, 4: 34}
     # January 1993 is the mean of the first three cycles, less the 1993 baseline.
     jan = math.fsum(rec.msl_m[:3]) / 3
     assert obs[0].value == pytest.approx((jan - mon.baseline_m) * 1000, abs=1e-12)
-    assert mon.baseline_m == pytest.approx(0.007232964915631773, abs=1e-15)
+    assert mon.baseline_m == pytest.approx(0.007233453299894134, abs=1e-15)
     assert math.fsum(o.value for o in obs[:12]) == pytest.approx(0, abs=1e-9)
-    assert obs[-1].value == pytest.approx(111.7744299608096, abs=1e-9)
-    # AVISO's page: "Since February 1993, the GMSL has risen by approximately 11 cm." The same file gives 114.7 mm
-    # from February 1993 to July 2026: a rounded statement, compared here only and recorded, not adjusted.
+    assert obs[-1].value == pytest.approx(112.53766494651889, abs=1e-9)
+    # AVISO's page: "Since February 1993, the GMSL has risen by approximately 11 cm." The same file gives 115.5 mm
+    # from February 1993 to August 2026: a rounded statement, compared here only and recorded, not adjusted.
     by = {o.period: o.value for o in obs}
-    assert by["2026-07"] - by["1993-02"] == pytest.approx(114.739, abs=1e-3)
+    assert by["2026-08"] - by["1993-02"] == pytest.approx(115.500, abs=1e-3)
 
 
 @pytest.mark.snapshot
@@ -127,7 +127,7 @@ def test_the_monthly_series_passes_validation():
     t = next(t for t in av.transforms(Paths.default()) if t.spec.id == "gmsl.aviso.monthly")
     result = t.run({av.NC.key: f})
     validate(t, result.observations)
-    assert result.vintage == "2026-09-26 (doi:10.24400/527896/AVISO-2025.010)"
+    assert result.vintage == "2026-11-07 (doi:10.24400/527896/AVISO-2025.010)"
     assert result.changes and "re-based" in result.changes
 
 

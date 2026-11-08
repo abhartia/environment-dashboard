@@ -131,14 +131,16 @@ def _current(key: str) -> InputFile:
 
 
 @pytest.mark.snapshot
-def test_full_file_withholds_negative_generation_years_and_publishes_the_overseas_regions():
+def test_full_file_publishes_the_overseas_regions_and_a_clean_share_printed_above_100():
     r = ec.read(read_table(_current(GENERATION.key).path.read_bytes()))
     assert {"GUF", "REU"} <= {ay.entity for ay in r.groups}
-    withheld = [(ay.entity, ay.year) for ay in r.groups if ec.negative_rows(ay)]
-    assert ("CRI", "2025") in withheld and len(withheld) == 11
+    # The file of 3 November 2026 has no negative generation, so nothing is withheld (11 country-years were in the
+    # file of 19 October, Costa Rica 2025 among them; the rule is tested on the fixture above).
+    assert [(ay.entity, ay.year) for ay in r.groups if ec.negative_rows(ay)] == []
     clean = _by(ec.clean_observations(r))
-    cri = clean[("CRI", "2025")]
-    assert cri.value is None and "Other fossil -1.134 TWh" in (cri.missing_reason or "")
+    assert clean[("CRI", "2025")].value == 99.988
+    # Iceland's sources' rounded shares add up to 100.002: published as printed, inside CLEAN_SHARE_MAX.
+    assert clean[("ISL", "2025")].value == 100.002 < ec.CLEAN_SHARE_MAX
     assert clean[("CRI", "2024")].value == 99.909
     assert clean[("KOS", "2024")].value is not None
     assert clean[("DEU", "2025")].status == "preliminary" and clean[("DEU", "2024")].status == "final"
@@ -153,7 +155,7 @@ def test_full_transforms_run_and_validate():
     for tid in IDS:
         res = ts[tid].run(files)
         validate(ts[tid], res.observations)
-        assert res.vintage == "2026-10-19" and res.changes is None
+        assert res.vintage == "2026-11-03" and res.changes is None
         assert "pages 10, 11, 12, 15, 16" in res.steps[0]
 
 

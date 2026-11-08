@@ -1,8 +1,8 @@
 {
   "export": "data/v1/indicators/capacity.irena.renewable-share-world.json",
-  "export_sha256": "efe253b2b0cb2f0dce744f526166553e04b91516cbf7e9546e179f2368ca35c6",
+  "export_sha256": "f1c93abd125f3fa77407d97695e41b9b9d06aaf7d6ba73f0a4e702537c144499",
   "indicator_id": "capacity.irena.renewable-share-world",
-  "key": "9602ccde3f76fd3d680e9ae8ee41569d8a42bf0770a90c43b11be2473e3ebf63",
+  "key": "fdc4d37fe90b41d6890a86c2e295ac24f5d2709bcfb29cbd10f3c2de0743fa1d",
   "key_parts": {
     "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
@@ -20,7 +20,7 @@
     "sources": {
       "irena-capacity-2026": "7a4e1ec5486dcbc6cf7c5afa2880f00c1d62d8102d04eda6532e26e698676a08"
     },
-    "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+    "transform_sha256": "6f905d91fa1374866dee7145d18f722d2edc0e1ed75effb0188695739e8b3a7e"
   },
   "publisher_checks": [
     {"detail": "ours 46.3 vs stated 46.3 (tolerance ±0.05, difference 0)", "entity": "WLD", "period": "2024", "quote": "the renewable share of total installed power capacity rose by more than three percentage points from 46.3% in 2024 to 49.4% in 2025.", "source_id": "irena-capacity-2026", "stated": "46.3", "status": "pass", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf", "vintage": "2026-03-31"},

@@ -35,28 +35,28 @@
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
-      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+      "transform_sha256": "6f905d91fa1374866dee7145d18f722d2edc0e1ed75effb0188695739e8b3a7e"
     },
     {
       "description": "Checked that Total renewable energy is the sum of renewable hydropower, marine, onshore and offshore wind, solar photovoltaic, concentrated solar power, bioenergy and geothermal in every year, and that the wind, solar and hydropower tables add up from their parts, each to within the rounding of the megawatt values. Pure pumped storage is not part of IRENA's renewable total.",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
-      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+      "transform_sha256": "6f905d91fa1374866dee7145d18f722d2edc0e1ed75effb0188695739e8b3a7e"
     },
     {
       "description": "Found the quotes used as publisher checks in the highlights PDF (pages 1, 5).",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
-      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+      "transform_sha256": "6f905d91fa1374866dee7145d18f722d2edc0e1ed75effb0188695739e8b3a7e"
     },
     {
       "description": "Published Total renewable energy in gigawatts.",
       "inputs": ["fc580bd4f4ee39ef20de6b1ce3926005a4e3e3b8e2c92fd6a16d175a52515921", "c71bd27d8e33f57d817523def77c1189af0132d74fd7a1e594e56ef3b6a0cb8b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/irena_capacity.py",
-      "transform_sha256": "16bd17df3d2b10a759698227214b0e393d75faa0ed366728da5d688b5ed00ab5"
+      "transform_sha256": "6f905d91fa1374866dee7145d18f722d2edc0e1ed75effb0188695739e8b3a7e"
     }
   ],
   "published_value": null,

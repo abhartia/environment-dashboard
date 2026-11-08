@@ -65,7 +65,7 @@ def _current_file(source_id: str, artifact_id: str) -> InputFile:
 
 @pytest.mark.parametrize("side", NV_SIDECARS, ids=lambda p: p.name)
 def test_nv_fixture_matches_its_sidecar(side):
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     f = side.with_name(side.name.removesuffix(".provenance.json"))
     assert canonical.sha256_bytes(f.read_bytes()) == meta["fixture_sha256"]
     assert f.name.startswith(meta["full_sha256"][:12])
@@ -85,7 +85,7 @@ def test_nv_fixture_is_an_exact_slice_of_the_snapshot(side):
     sys.path.insert(0, str(NV_FIXTURES))
     from make_payload_fixture import cut, decode, parse_command
 
-    meta = json.loads(side.read_text())
+    meta = json.loads(side.read_text(encoding="utf-8"))
     raw = (Paths.default().cache / meta["full_sha256"]).read_bytes()
     assert canonical.sha256_bytes(raw) == meta["full_sha256"]
     assert parse_command(meta["command"]) == meta["artifact_id"]
@@ -180,14 +180,14 @@ def test_nv_every_value_from_the_real_page():
     by_area, total = nv.transforms(Paths.default())
     r = by_area.run({nv.PAGE.key: f})
     validate(by_area, r.observations)
-    assert len(r.observations) == 6 * 16
-    assert r.vintage == "2008-2023 series, page reviewed 2025-10-28"
+    assert len(r.observations) == 6 * 17
+    assert r.vintage == "2008-2024 series, page reviewed 2026-10-29"
     got = {(o.dims["area"], o.period): o.value for o in r.observations}
-    assert got[("food", "2023")] == 1.35 and got[("investment", "2008")] == 3.3
+    assert got[("food", "2023")] == 1.3 and got[("investment", "2008")] == 3.33
     assert any("'Koldioxidekvivalenter'" in s and "CH4 25" in s for s in r.steps)
     r = total.run({nv.PAGE.key: f})
     validate(total, r.observations)
-    assert {o.period: o.value for o in r.observations}["2023"] == 7.62
+    assert {o.period: o.value for o in r.observations}["2023"] == 7.17
     assert r.changes is None
 
 
@@ -366,6 +366,6 @@ def test_nv_build_exports_publicly(tmp_paths):
     report = build_and_export(paths, reg, [t for t in discover(paths) if t.spec.id in NV_IDS])
     assert [o.state for o in report.outcomes] == ["built"] * 2, [o.reason for o in report.outcomes]
     ind = exported(paths.public_indicators / "footprint.naturvardsverket.per-person-total.json")
-    assert ind["latest"]["value"] == 7.62 and ind["latest"]["period"] == "2023"
+    assert ind["latest"]["value"] == 7.48 and ind["latest"]["period"] == "2024"
     assert "Statistics Sweden (SCB)" in ind["attribution"]
     assert validate_all(paths, reg) == []

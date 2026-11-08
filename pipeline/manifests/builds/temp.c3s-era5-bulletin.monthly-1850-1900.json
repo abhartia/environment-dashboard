@@ -1,14 +1,14 @@
 {
   "export": "data/v1/indicators/temp.c3s-era5-bulletin.monthly-1850-1900.json",
-  "export_sha256": "5a068eba58280c012b16054c5afe98fca648b31a2c20f1fee6a38d75257c9f98",
+  "export_sha256": "a3b6b814e4b7c1bef9247881a49aca169239bc95924e05884e1b6f6401d69b77",
   "indicator_id": "temp.c3s-era5-bulletin.monthly-1850-1900",
-  "key": "2122bbfa1bd3e7623be5fa04e0ce5b2d6882395fe0f3b88ad644d6786092392a",
+  "key": "4e2534b6b90b94863bbf6821ee1ac8779d2c1cc13aa348fbe5f00b2202c05b52",
   "key_parts": {
     "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
       "c3s-era5-bulletin/global-allmonths": {
-        "manifest_sha256": "4e0a6b3b91ea5b8ec732df59d090bcf5692470c56c5d1bb04181ac61012e0b1f",
-        "sha256": "b31271d6984e7e4cc02bedffd268e68d7b5cda571fb521dcedf435c2eca5407e"
+        "manifest_sha256": "b46e70d53137da676ead4480ffc12db5a128bf464f71e39e12b37db6e87b1fcf",
+        "sha256": "22fbd43d30a700e001d8ebe63fa161083b3efdb8de778b7534fb7453d5b7e7e8"
       }
     },
     "key_files": {},
@@ -19,6 +19,6 @@
     "transform_sha256": "68e092127131e1b08758c37cb6e8571cc5fce06e3c9d79574e94121066163081"
   },
   "publisher_checks": [
-    {"detail": "check is for vintage 2026-08; built 2026-09", "entity": "WLD", "period": "2026-08", "quote": "August 2026 was 1.65°C above the estimated 1850-1900 pre-industrial average for the month", "source_id": "c3s-era5-bulletin", "stated": "1.65", "status": "not-applicable", "url": "https://climate.copernicus.eu/surface-air-temperature-august-2026", "vintage": "2026-08"}
+    {"detail": "check is for vintage 2026-08; built 2026-10", "entity": "WLD", "period": "2026-08", "quote": "August 2026 was 1.65°C above the estimated 1850-1900 pre-industrial average for the month", "source_id": "c3s-era5-bulletin", "stated": "1.65", "status": "not-applicable", "url": "https://climate.copernicus.eu/surface-air-temperature-august-2026", "vintage": "2026-08"}
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "attribution": "Naturvårdsverket, Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2023 series, page reviewed 2025-10-28); official statistics of Sweden, responsible authority Statistics Sweden (SCB). Open data; SCB data CC0 1.0.",
+  "attribution": "Naturvårdsverket, Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2024 series, page reviewed 2026-10-29); official statistics of Sweden, responsible authority Statistics Sweden (SCB). Open data; SCB data CC0 1.0.",
   "description": "The consumption-based greenhouse gas footprint of an average person in Sweden: emissions in Sweden and abroad from producing everything used in Sweden, divided by the population, in tonnes of carbon dioxide equivalent per person per year, as published by Naturvårdsverket from Statistics Sweden's official statistics. This is the producer's published total (Totalt). It includes household consumption and also public consumption and investment, which are shared out per person but are not personal choices. International flights are undercounted: only jet fuel bought in Sweden is counted, without stopovers or the high-altitude effect. The page shows the IPCC Fourth Assessment Report (AR4) global warming potentials (methane 25, nitrous oxide 298) in a general conversion table, without saying they apply to this series. Sweden only; it is not a world average or a measure of any one person.",
   "dimensions": [],
   "display": {
@@ -13,9 +13,9 @@
     "age_bp": null,
     "dims": {},
     "entity": "SWE",
-    "period": "2023",
+    "period": "2024",
     "status": "final",
-    "value": 7.62
+    "value": 7.48
   },
   "licence": {
     "name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0",
@@ -26,26 +26,26 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "per-person-page", "bytes": 231605, "citation_full": "Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2023 series, page reviewed 2025-10-28). Official statistics of Sweden; responsible authority Statistics Sweden (SCB). https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "date_accessed": "2026-10-05", "date_published": "2025-10-28", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0", "spdx": null, "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"}, "producer": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)", "r2_url": null, "sha256": "da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30", "source_id": "naturvardsverket-consumption-footprint", "title": "Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)", "url_download": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "url_main": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "version_producer": "2008-2023 series, page reviewed 2025-10-28", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "per-person-page", "bytes": 213771, "citation_full": "Naturvårdsverket (2025). Konsumtionsbaserade växthusgasutsläpp per person och år (2008-2024 series, page reviewed 2026-10-29). Official statistics of Sweden; responsible authority Statistics Sweden (SCB). https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "date_accessed": "2026-11-08", "date_published": "2026-10-29", "doi": null, "etag": null, "last_modified": null, "licence": {"name": "Naturvårdsverket open data (free use, attribution requested); the underlying SCB official statistics are CC0 1.0", "spdx": null, "url": "https://www.naturvardsverket.se/om-oss/om-webbplatsen/struktur-och-funktion/"}, "producer": "Naturvårdsverket (Swedish Environmental Protection Agency); official statistics from Statistics Sweden (SCB)", "r2_url": null, "sha256": "40843ce9d2f6afa2c03916f52feaaa1d647876e53763111a908f838116e7584b", "source_id": "naturvardsverket-consumption-footprint", "title": "Konsumtionsbaserade växthusgasutsläpp per person och år (consumption-based greenhouse gas emissions per person)", "url_download": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "url_main": "https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/", "version_producer": "2008-2024 series, page reviewed 2026-10-29", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read the statistics page 'Konsumtionsbaserade växthusgasutsläpp per person och år' (sha256 da4e1b4dd620…, retrieved 2026-10-05, reviewed by the producer on 2025-10-28). The series is the CSV inside the page's chart options (page model <script id=\"__model_data\">, content.highChartsOptions, data.csv): 16 years, 2008–2023, in tonnes of carbon dioxide equivalent per person ('Ton koldioxidekvivalenter per person'). Checked the page heading, the responsible authority (SCB), the axis title, the series names and the CSV header before reading any value.",
-      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "description": "Read the statistics page 'Konsumtionsbaserade växthusgasutsläpp per person och år' (sha256 40843ce9d2f6…, retrieved 2026-11-08, reviewed by the producer on 2026-10-29). The series is the CSV inside the page's chart options (page model <script id=\"__model_data\">, content.highChartsOptions, data.csv): 17 years, 2008–2024, in tonnes of carbon dioxide equivalent per person ('Ton koldioxidekvivalenter per person'). Checked the page heading, the responsible authority (SCB), the axis title, the series names and the CSV header before reading any value.",
+      "inputs": ["40843ce9d2f6afa2c03916f52feaaa1d647876e53763111a908f838116e7584b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     },
     {
       "description": "Selected the column Totalt as published (the producer's own total, not a sum of ours). No value was changed.",
-      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "inputs": ["40843ce9d2f6afa2c03916f52feaaa1d647876e53763111a908f838116e7584b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
     },
     {
       "description": "Checked the page's tab 'Koldioxidekvivalenter': its general conversion table ('Omräkningstabell') gives CO2 1, CH4 25 and N2O 298, the IPCC Fourth Assessment Report (AR4) 100-year values, and links that report ('Koldioxidekvivalenter för ytterligare växthusgaser i IPCC:s fjärde utvärderingsrapport'), but the page does not say that this series uses them. So no global warming potential is recorded in the scope; the basis says what the page shows.",
-      "inputs": ["da4e1b4dd6201559013bbca3a522d2adeda80e7ffd10d0aeb40a9b8e969ffc30"],
+      "inputs": ["40843ce9d2f6afa2c03916f52feaaa1d647876e53763111a908f838116e7584b"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/footprints/naturvardsverket.py",
       "transform_sha256": "dcfd45c65b18c23ca05ec4751b1efbaf53fc6223b900cf5c523b3894b5b28a56"
@@ -64,10 +64,10 @@
   "superseded_by": null,
   "table": {
     "dims": {},
-    "entity": ["SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE"],
-    "period": ["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
-    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
-    "value": [11.92, 9.97, 11.26, 11.75, 10.78, 10.69, 9.94, 9.73, 9.69, 9.35, 9.36, 8.73, 7.77, 8.21, 8.46, 7.62]
+    "entity": ["SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE", "SWE"],
+    "period": ["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    "status": ["final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final", "final"],
+    "value": [11.49, 10.29, 11.57, 11.48, 10.48, 10.39, 9.91, 9.65, 9.7, 9.41, 9.31, 8.7, 7.85, 8.3, 8.1, 7.17, 7.48]
   },
   "time_basis": "calendar",
   "title": "Greenhouse gas footprint of an average person in Sweden (Naturvårdsverket)",
@@ -76,5 +76,5 @@
     "label": "tonnes of carbon dioxide equivalent per person per year",
     "short": "t CO₂e/person/yr"
   },
-  "vintage": "2008-2023 series, page reviewed 2025-10-28"
+  "vintage": "2008-2024 series, page reviewed 2026-10-29"
 }
