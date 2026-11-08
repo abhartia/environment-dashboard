@@ -167,6 +167,13 @@ def negative_rows(ay: AreaYear) -> list[str]:
     return out
 
 
+CLEAN_SHARE_MAX = 100 + 9 * 0.005
+"""Ember prints each share as the sum of its sources' rounded shares, so a country whose generation is all clean can
+print a Clean share just above 100 (Iceland 2025 in the file of 3 November 2026: Solar 0.055, Wind 0.044, Hydro 71.243
+and Other renewables 28.66 make Clean 100.002). Nine sources printed to at least two decimals miss 100 by at most
+9 x 0.005. check_area_year still checks every printed share against the generation it comes from."""
+
+
 def check_area_year(ay: AreaYear) -> None:
     """Stop unless the shares, Clean and intensity of this area and year mean what is published."""
     where = f"{ay.area} {ay.year}"
@@ -414,7 +421,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 "nuclear) as printed.",
             ),
             module_file=here,
-            validation=Validation(min_rows=150 * 26, value_range=(0.0, 100.0)),
+            validation=Validation(min_rows=150 * 26, value_range=(0.0, CLEAN_SHARE_MAX)),
             key_files=keys,
         ),
         Transform(
