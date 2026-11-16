@@ -3,6 +3,99 @@
 One entry per Sunday run of the data steward routine (newest first): what was refreshed, what failed and why, what
 was fixed, what depth was added, dead ends, and what the next run should do first.
 
+## 2026-11-15
+
+Second run on the Windows machine; it started on Sunday 15 November and finished early on the 16th. Still no run
+secrets in `%USERPROFILE%\.secrets` (only two unrelated keys), so GFW, NASA SSH, R2 and the Internet Archive were
+unavailable again (owner actions below). The leftover `.claude/worktrees/weekly-depth` folder held only an empty
+`web/` directory and was not a registered worktree; it was removed and the worktree re-created from origin/main.
+
+**Refresh.** `envdash refresh` took about 90 minutes, most of it fetching. Every reachable licence quote was unchanged.
+New vintages: GISTEMP v4 2026-10 (2025 revised 1.4045 → 1.4145 °C, a producer revision), NOAAGlobalTemp
+6.1.0.202610 (2025 1.282 → 1.290 °C), C3S Climate Pulse to 12 November, EFFIS 704,227 ha (from 703,775), HadSST4
+monthly, EIA international bulk Nov 2026 (values unchanged), WDI electricity access 2026-11-11 (values unchanged), FAO
+FRA re-download (values unchanged), Systems Change Lab (unchanged share), Eurostat candidate list, EIA FAQ 207. No
+errata.
+
+**Failed, not fixable here (host side).**
+- `wb-cckp`: cckpapi.worldbank.org answered HTTP 500 to every artifact after three attempts. Values unchanged.
+- `furch-2022`, `grant-2025`, `rosenow-2025`: Europe PMC's fullTextXML service answered HTTP 500 for all three.
+- `gfw-tree-cover-loss`, `nasa-ssh-gmsl`: `GFW_API_KEY` and `EARTHDATA_TOKEN` not on this machine.
+- `unep-agr-2025`: still the owner's annex PDF.
+- Terms unverifiable, as last week: ipcc.ch/copyright answers 403; ourairports.com's TLS certificate has expired.
+
+**FAOSTAT 2026 adopted (backlog G5, fixed at the root).** The refresh again built 13 FAOSTAT indicators on the release
+of 6 November 2026 and failed 7, so it would have published half a release. Fixed instead:
+1. *PRIMAP-hist version.* Twenty CO2 values (DEU, CHN, IND energy; USA IPPU; BRA waste; 2021–2024) equal PRIMAP-hist
+   v2.8 HISTTP exactly, and 12 of them differ from v2.7 (Germany energy 2023: 537,000 kt in GT and v2.8, 550,000 in
+   v2.7). v2.8's Zenodo record (22876287) says "Since v2.8 PRIMAP-hist is published under a non-commercial license
+   (CC BY-NC-SA)", so the class stays noncommercial; registry quote, terms_url, citation and attribution now name
+   v2.8 (Gütschow and Pflüger, 2026). Not a licence change against us.
+2. *Bunkers.* `International bunkers` (6820) is a seventh, World-only part of `ghg.faostat.by-sector` and
+   `ghg.faostat.ch4-share-by-sector` ("International aviation and shipping"). The identities still hold everywhere
+   (World with seven parts in all 35 years, 9,320 other area-years with six), and a bunkers row without a total
+   stops the build. Scope is `bunkers: included` for the six all-sector indicators, and every description says the
+   world's total counts them and no country's does. Agrifood indicators keep `excluded` (their items never include
+   bunkers).
+3. *Flag L.* An empty Value flagged L ("Missing value; data exist but were not collected", checked against each
+   file's codebook) is left out and named in a step (Nicaragua 2023–2024 in EM, 2024 in GLE). Any other empty Value
+   still stops. Shared helpers `faostat_bulk.not_collected` and `not_collected_step`.
+4. *Tuvalu 2000 methane shares add up to 100.0433.* FAO divided 0.2311 kt of sector methane by a total it prints as
+   0.2310 kt. Declared in `CH4_SHARES_OVER_100`, which stops the build if the sum changes. The check was not
+   loosened.
+5. Every count in the descriptions was re-derived from the new files: 27 territories without energy rows (was 28),
+   8 zero-total territories (was 10), 61 without F-gases (was 67), 201 negative per-person values (was 94), 74/71
+   negative EI meat values (was 75/72).
+
+Headline moves, all FAO revisions, checked for consistency rather than taken on trust. World total 2023 is 52.106 →
+52.931 Gt (v2.8 plus 1.330 Gt of bunkers); 2024 is 53.362. Agrifood 2023 is 16.535 → 18.648 Gt. FAO's agrifood share
+2023 is 31.73 → 35.23 % (2024: 34.61 %), and 2001 is 38.37 → 44.74 %. In every year checked, FAO's printed share equals
+its agrifood total over its all-sector total. World net land use 2023 is +0.467 → −0.711 Gt (a larger forest sink).
+FAO has published no analytical brief for this release yet, so the publisher checks (Brief 115, release of 2025)
+report not-applicable. Tests were re-pinned to the new files: test_ghg_faostat_all_sectors, test_faostat_emissions
+(the World total now includes bunkers, so the identity test asserts seven parts), test_food_faostat and
+test_food_faostat_breakdowns. New snapshot tests cover the bunkers part, flag L and the declared Tuvalu sum.
+
+**Depth shipped.** Backlog D6: each `/food?v=tl-<ISO>` (tree cover lost by driver, previously `drills: []`) gets one
+card into `/food?v=fa-<ISO>`. That view is the country's forest area in FAO's forest assessment since 1990
+(`forest.fao-fra-2025.area`, CC BY 4.0, open), and its sentence says forest area also counts regrowth and planting,
+unlike tree cover lost. It adds 50 nodes (every tl- country has FRA data) and no new indicator. I chose D6 because
+the FAOSTAT fix filled most of the run, and D6 was small and complete.
+
+**Visual check (built-in browser, static export on :3201).** The pane was hidden, so animations stalled in
+screenshots. A full-resolution capture and DOM measurements stood in:
+- `/emissions` draws seven World bands, with the blue aviation and shipping band on top.
+- `tl-BRA` shows the "Brazil: forest area" card, and selecting it opens `fa-BRA`, whose chart draws.
+- At 375×812, `tl-IDN`, `fa-IDN` and `/emissions` have no page scroll either way (812 × 375), and the card is inside
+  the viewport.
+- No console errors, apart from the local `serve`'s 404s on Next RSC prefetch files. Those 404s are not from this
+  change.
+
+**Gates.** ruff, ruff format, `pytest -q` (1,119 passed), `envdash validate` (0 problems), gen:api clean, typecheck,
+lint, `npm test` (235), build with check-build (5,468 files, 215 indicators). `pytest -m snapshot`: 466 passed; the
+expected failures are the three UNEP-annex tests and the golden rebuild (WinError 1314, symlinks need Developer
+Mode).
+
+**Not archived.** No R2 or Internet Archive keys. This week's and last week's new snapshots (including FAOSTAT's
+b048ba37…, f49d3fde… and the GLE/EI/catalogue files) have no `r2_key`; their bytes are in the main checkout's
+`pipeline/.snapshots` cache, copied there before the worktree was removed. No private export changed, so the
+deploy's `private pull` is unaffected.
+
+**Owner actions.**
+1. Put the run's secrets on this machine as DPAPI files in `%USERPROFILE%\.secrets`: `r2-envdash-access-key-id`,
+   `r2-envdash-secret-access-key`, `gfw-api-key`, `earthdata-envdash`, `archive-org-s3-access`,
+   `archive-org-s3-secret`, `eia-api-key`. Two weeks of snapshots are waiting to be archived.
+2. Renew the NASA Earthdata token: it expires 2026-12-05 (19 days left). Renew it at urs.earthdata.nasa.gov ›
+   Generate Token after 2026-11-21, and store it as above.
+3. Download the Living Planet Report 2026 trend CSVs (see 2026-10-11, action 1).
+4. Download `AGR2025_Online_Annexes.pdf` (runbook step 4).
+5. IDMC API key still not issued.
+6. Optional: ask FAO (faostat@fao.org) which PRIMAP-hist version its GT notes should name. The values are v2.8, but
+   FAO's documentation still says v2.4.
+
+**Next run first.** `envdash archive` if the R2 keys exist. Then the Lancet Countdown 2026 (G2, new portal), then
+look for an FAO brief on the 2026 emissions release to add as a publisher check. Re-probe cckpapi and Europe PMC.
+
 ## 2026-11-08
 
 First run on the owner's Windows machine (the Mac is out of service until about December). No run on 2026-11-01.
