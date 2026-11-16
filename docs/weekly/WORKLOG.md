@@ -81,6 +81,14 @@ b048ba37…, f49d3fde… and the GLE/EI/catalogue files) have no `r2_key`; their
 `pipeline/.snapshots` cache, copied there before the worktree was removed. No private export changed, so the
 deploy's `private pull` is unaffected.
 
+**Issues.** `envdash report-issues` failed twice on Windows, both times on wb-cckp's 119,030-character failure
+reason. First the body was passed on the command line, past Windows' 32,767-character limit. Then GitHub refused it
+(the limit is 65,536). Fixed in `issues.py`: bodies now go to `gh` on stdin (`--body-file -`), and the quoted reason
+is cut between artifacts at 4,000 characters, with a pointer to status.json (unit test added). Result: closed
+faostat, faostat-all-sectors and imbie-2026; opened furch-2022 (#15), gfw-tree-cover-loss (#16), grant-2025 (#17),
+nasa-ssh-gmsl (#18), rosenow-2025 (#19) and wb-cckp (#20); updated unep-agr-2025 (#3). New release-due issues:
+climate-trace, lancet-countdown-2025 and net-zero-tracker-2025. Check those producers next run.
+
 **Owner actions.**
 1. Put the run's secrets on this machine as DPAPI files in `%USERPROFILE%\.secrets`: `r2-envdash-access-key-id`,
    `r2-envdash-secret-access-key`, `gfw-api-key`, `earthdata-envdash`, `archive-org-s3-access`,
