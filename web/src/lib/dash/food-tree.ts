@@ -535,9 +535,35 @@ function countryTreeLoss(iso: string): Built {
     headline: h,
     sentence: `of tree cover lost in ${name} in ${h.period} (University of Maryland), split by the main driver in each square kilometre (WRI and Google DeepMind). The bands add up to all loss.`,
     chart: area(driverSeries(iso, false), short, decimals, true),
-    drills: [],
+    drills: hasForestArea(iso) ? [{ label: "Forest area over time", to: `fa-${iso}` }] : [],
     credit: credit(TREE_LOSS, DRIVERS),
     indicators: [TREE_LOSS, DRIVERS],
+  };
+}
+
+function hasForestArea(iso: string): boolean {
+  return points(FOREST, iso).some((p) => p[1] !== null);
+}
+
+/**
+ * A country's forest area in FAO's forest assessment, below its tree cover loss: tree cover lost is not forest lost,
+ * since forest area also counts regrowth and planting, so the two answer different questions and are never subtracted.
+ */
+function countryForest(iso: string): Built {
+  const { short, decimals } = u(FOREST);
+  const name = entityName(iso);
+  const h = headline(FOREST, iso);
+  return {
+    id: `fa-${iso}`,
+    parent: `tl-${iso}`,
+    crumb: "Forest area",
+    kicker: `${name}: forest area`,
+    headline: h,
+    sentence: `of forest in ${name} in ${h.period}, as reported to FAO's forest assessment. Unlike tree cover lost, forest area also counts regrowth and planting.`,
+    chart: area([{ key: "forest", label: indicator(FOREST).title, colour: TREE, points: points(FOREST, iso) }], short, decimals, false),
+    drills: [],
+    credit: credit(FOREST),
+    indicators: [FOREST],
   };
 }
 
@@ -688,6 +714,9 @@ function ids(): string[] {
     ...Object.keys(FIXED).filter((id) => id !== "root"),
     ...driverViews().map((d) => `driver-${d}`),
     ...treeLossCodes().map((c) => `tl-${c}`),
+    ...treeLossCodes()
+      .filter(hasForestArea)
+      .map((c) => `fa-${c}`),
     ...countryCodes().map((c) => `c-${c}`),
   ];
 }
@@ -699,6 +728,8 @@ function build(id: string): Built {
   if (c) return countryStages(c[1], BY_COUNTRY);
   const tl = id.match(/^tl-([A-Z0-9_]+)$/);
   if (tl) return countryTreeLoss(tl[1]);
+  const fa = id.match(/^fa-([A-Z0-9_]+)$/);
+  if (fa) return countryForest(fa[1]);
   const driver = id.match(/^driver-(.+)$/);
   if (driver) return driverCountries(driver[1]);
   const node = buildFood(id);
