@@ -392,17 +392,17 @@ def test_full_snapshots_build_every_breakdown():
             built[t.spec.id] = {(o.entity, tuple(sorted(o.dims.items())), o.period): o.value for o in r.observations}
             steps[t.spec.id] = r.steps
     stage = built["food.faostat.agrifood-emissions-by-stage"]
-    assert stage[("WLD", (("stage", "farm-gate"),), "2023")] == 8096.9734689
-    # The counts the EI descriptions give for the February 2026 release.
-    for i, n in (("food.faostat.commodity-emissions", 75), ("food.faostat.commodity-intensity", 72)):
+    assert stage[("WLD", (("stage", "farm-gate"),), "2023")] == 7991.0873131
+    # The counts the EI descriptions give for the November 2026 release.
+    for i, n in (("food.faostat.commodity-emissions", 74), ("food.faostat.commodity-intensity", 71)):
         assert sum(1 for v in built[i].values() if v < 0) == n, i
         assert any(s.startswith(f"{n} published values are below zero") for s in steps[i]), i
     assert min(built["food.faostat.commodity-emissions"].values()) == -6.3167537
     assert built["food.faostat.commodity-emissions"][("MLI", (("commodity", "goat-meat"),), "2011")] == -6.3167537
     assert built["food.faostat.commodity-intensity"][("MLI", (("commodity", "goat-meat"),), "2010")] == -854.2702
-    assert any("5,239 product-years of the published areas" in s for s in steps["food.faostat.commodity-intensity"])
+    assert any("7,607 product-years of the published areas" in s for s in steps["food.faostat.commodity-intensity"])
     animals = built["food.faostat.livestock-ch4-by-animal"]
-    assert abs(sum(v for (e, _, y), v in animals.items() if e == "WLD" and y == "2023") - 115.2112597) < 1e-6
+    assert abs(sum(v for (e, _, y), v in animals.items() if e == "WLD" and y == "2023") - 115.7500541) < 1e-6
     # FAO's "China" (351) is never published beside China, mainland (41 -> CHN).
     for rows in built.values():
         assert "CHN" in {e for e, _, _ in rows}

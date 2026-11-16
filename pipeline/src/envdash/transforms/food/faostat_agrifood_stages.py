@@ -48,6 +48,7 @@ from envdash.transforms.food.faostat_bulk import (
     Table,
     flag_step,
     flag_words,
+    not_collected_step,
     read_flags,
     read_member,
     vintage_of,
@@ -244,6 +245,7 @@ def observations(table: Table, flags: dict[str, str], level: str) -> tuple[list[
         f"Published the {'three stage' if level == 'stage' else '22 process'} items, {all_years[0]}–{all_years[-1]}, "
         "each value exactly as one row of the file.",
         areas_step(left_out),
+        *not_collected_step(g.not_collected, flags, FLAGS_MEMBER),
         "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed values).",
         flag_step(words, counts),
         labels_step(STAGE_LABELLED if level == "stage" else STAGE_LABELLED + PROCESS_LABELLED),

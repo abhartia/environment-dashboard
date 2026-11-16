@@ -478,6 +478,43 @@ def value_of(row: dict[str, str], what: str) -> Decimal | None:
     return Decimal(v) if v != "" else None
 
 
+NOT_COLLECTED = "L"
+NOT_COLLECTED_WORDS = "Missing value; data exist but were not collected"
+"""FAO prints some rows with an empty Value and flag L (first in the release of 6 November 2026: Nicaragua 2023-2024).
+Such a row says FAO has no value; it is left out and named in a processing step, never filled. An empty Value with any
+other flag stops the transform."""
+
+
+def not_collected(row: dict[str, str], where: str) -> bool:
+    """True for a row whose Value is empty and whose flag is L; False for a row with a value. Any other empty Value
+    stops the transform."""
+    if row["Value"] != "":
+        return False
+    if row["Flag"] != NOT_COLLECTED:
+        raise FaostatBulkError(f"{where}: empty Value with flag {row['Flag']!r}; re-read the file before trusting it")
+    return True
+
+
+def not_collected_step(cells: Iterable[tuple[str, int]], flags: dict[str, str], member: str) -> list[str]:
+    """The processing step naming the (FAO area name, year) rows left out as flag L, after checking that the file's
+    codebook gives L the meaning this rule relies on; nothing when there are none."""
+    cells = set(cells)
+    if not cells:
+        return []
+    if flags.get(NOT_COLLECTED) != NOT_COLLECTED_WORDS:
+        raise FaostatBulkError(
+            f"{member}: flag {NOT_COLLECTED} is {flags.get(NOT_COLLECTED)!r}, not {NOT_COLLECTED_WORDS!r}"
+        )
+    by_area: dict[str, list[int]] = {}
+    for area, year in sorted(cells):
+        by_area.setdefault(area, []).append(year)
+    listed = "; ".join(f"{a} {', '.join(str(y) for y in ys)}" for a, ys in sorted(by_area.items()))
+    return [
+        f'Left out the rows FAO prints with no value and flag {NOT_COLLECTED} ("{NOT_COLLECTED_WORDS}"): {listed}. '
+        "Those areas and years stay missing; nothing is filled in or set to zero."
+    ]
+
+
 def flag_words(flags: dict[str, str], used: Iterable[str], member: str) -> dict[str, str]:
     out = {}
     for f in sorted(set(used)):

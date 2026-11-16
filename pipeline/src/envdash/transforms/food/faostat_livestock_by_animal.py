@@ -43,6 +43,7 @@ from envdash.transforms.food.faostat_bulk import (
     Table,
     flag_step,
     flag_words,
+    not_collected_step,
     read_flags,
     read_member,
 )
@@ -178,6 +179,7 @@ def observations(table: Table, flags: dict[str, str]) -> tuple[list[Observation]
         "kilotonnes. Nothing is computed from this check; it shows that the animals published are FAO's whole "
         "total, with no remainder.",
         areas_step(left_out),
+        *not_collected_step(g.not_collected, flags, FLAGS_MEMBER),
         "Converted kilotonnes to million tonnes by dividing by 1,000 (exact decimal arithmetic on the printed "
         "values). The values stay in tonnes of methane; they are not converted to CO₂-equivalent.",
         flag_step(words, counts),

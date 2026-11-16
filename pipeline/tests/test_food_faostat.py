@@ -225,7 +225,7 @@ def test_agrifood_item_is_the_sum_of_its_three_parts():
         if "6518" in d:
             assert abs(d["6518"] - sum(d.get(i, Decimal(0)) for i in ("6996", "6516", "6517"))) <= Decimal("0.0001")
             checked += 1
-    assert checked == 9174
+    assert checked == 9355  # release of 6 November 2026: 9,174 area-years of the 2025 release plus 2024 for 181 areas
 
 
 @pytest.mark.snapshot
@@ -249,4 +249,4 @@ def test_full_snapshots_build_all_faostat_country_indicators():
                 files[i.key] = InputFile(snapshots.cache_path(p, snap.sha256), snap)
             r = t.run(files)
             validate(t, r.observations)
-            assert r.vintage in {"2025-10-28", "2026-10-02", "2026-09-29"}
+            assert r.vintage in {"2026-11-06", "2026-10-02", "2026-09-29"}

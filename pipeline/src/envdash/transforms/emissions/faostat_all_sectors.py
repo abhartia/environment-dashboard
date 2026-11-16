@@ -11,18 +11,19 @@ codes must be the ones declared below, or the transform stops. Only GT's "FAO TI
 
 What the items are. FAO computes Agriculture (1711 "IPCC Agriculture") and LULUCF (1707) itself, by IPCC Tier 1
 methods. Energy (6821), IPPU (6817, industrial processes and product use), Waste (6818) and Other (6819) are the
-PRIMAP-hist v2.7 third-party-priority series (see pipeline/sources/faostat-all-sectors.yaml for the evidence). LULUCF is
+PRIMAP-hist v2.8 third-party-priority series (see pipeline/sources/faostat-all-sectors.yaml for the evidence). LULUCF is
 a net, inventory-style figure: net forest conversion, minus the carbon taken up by existing forests ("Forestland"),
-plus drained organic soils and fires, so it can be negative. "All sectors with LULUCF" (6825) is the sum of the six;
-"International bunkers" (6820, aviation and shipping fuel sold for international trips) is a separate memo item outside
-it and is not used.
+plus drained organic soils and fires, so it can be negative. "All sectors with LULUCF" (6825) is the sum of the six,
+plus, for the World only from the release of 6 November 2026, "International bunkers" (6820, aviation and shipping
+fuel sold for international trips), which is published as a part of its own where FAO counts it.
 
 Identities the transform enforces (in every area and year it publishes, missing items counted as absent, never zero):
-- the six sectors add up to item 6825, element "Emissions (CO2eq) (AR5)" (723113);
+- the six sectors (and bunkers, where printed) add up to item 6825, element "Emissions (CO2eq) (AR5)" (723113);
 - for item 6825, "Emissions (CO2)" (7273) plus the CO2-equivalent of CH4 (724413), N2O (724313) and F-gases (717815)
   equals element 723113 (CO2 counts at a global warming potential of 1, so its kilotonnes are CO2-equivalent);
-- in EM, the shares of all methane (element 7265) of the six sectors add up to 100 within the rounding of the printed
-  values, where FAO publishes all six.
+- in EM, the shares of all methane (element 7265) of the six sectors (and bunkers, where printed) add up to 100 within
+  the rounding of the printed values, where FAO publishes all six, except the area-years declared in
+  CH4_SHARES_OVER_100 with FAO's own kilotonnes as evidence.
 A release that breaks one stops the transform. The tolerances are stated next to the constants below.
 
 Areas. FAO area codes go through faostat_bulk.area_entity, the crosswalk the other FAOSTAT transforms use: countries
@@ -78,6 +79,8 @@ from envdash.transforms.food.faostat_bulk import (
     catalogue_entry,
     flag_step,
     flag_words,
+    not_collected,
+    not_collected_step,
     not_published_step,
     read_flags,
 )
@@ -173,6 +176,12 @@ SECTORS: tuple[Part, ...] = (
     Part("waste", "Waste", Code("6818", "Waste")),
     Part("other", "Other", Code("6819", "Other")),
 )
+BUNKERS = Part("bunkers", "International aviation and shipping", Code("6820", "International bunkers"))
+"""Fuel sold for international flights and voyages. From the release of 6 November 2026, FAO counts it in the World's
+"All sectors with LULUCF" total (and in EM's World shares) and in no other area's; no other area has a bunkers row. So
+it is a seventh part wherever FAO prints it, and the identities below hold with it."""
+PARTS: tuple[Part, ...] = (*SECTORS, BUNKERS)
+"""Every part of ALL_SECTORS FAO may print: the six sectors everywhere, bunkers for the World."""
 ALL_SECTORS = Code("6825", "All sectors with LULUCF")
 AGRIFOOD = Code("6518", "Agrifood systems")
 
@@ -228,6 +237,8 @@ class Table:
     """FAO area codes of kept item/element rows whose area is not published."""
     forecast: tuple[tuple[str, str, str, int], ...]
     """(area, item, element, year) of rows flagged F, which are not published."""
+    not_collected: frozenset[tuple[str, int]] = frozenset()
+    """(FAO area name, year) of kept item/element rows printed with no value and flag L (faostat_bulk.not_collected)."""
 
 
 # --- reading -------------------------------------------------------------------------------------------------------
@@ -250,6 +261,7 @@ def scan(lines: Iterable[bytes], domain: Domain, wanted: dict[tuple[str, str], t
     kept: list[Row] = []
     forecast: list[tuple[str, str, str, int]] = []
     left_out: set[str] = set()
+    empty: set[tuple[str, int]] = set()
     for line in it:
         n += 1
         if not line.startswith(b'"'):
@@ -273,8 +285,9 @@ def scan(lines: Iterable[bytes], domain: Domain, wanted: dict[tuple[str, str], t
             raise FaostatBulkError(f"{what}: unit {r['Unit']!r}, expected {unit!r}")
         if r["Year"] != r["Year Code"] or not r["Year"].isdigit() or len(r["Year"]) != 4:
             raise FaostatBulkError(f"{what}: Year {r['Year']!r} / Year Code {r['Year Code']!r} is not one year")
-        if r["Value"] == "":
-            raise FaostatBulkError(f"{what}: empty Value; re-read the file before trusting it")
+        if not_collected(r, what):
+            empty.add((r["Area"], int(r["Year"])))
+            continue
         entity = area_entity(r["Area Code"], r["Area Code (M49)"])
         if entity is None:
             left_out.add(r["Area Code"])
@@ -287,7 +300,7 @@ def scan(lines: Iterable[bytes], domain: Domain, wanted: dict[tuple[str, str], t
             Row(r["Area Code"], entity, key[0], key[1], year, Decimal(r["Value"]), r["Flag"], r.get("Note", ""))
         )
     _check_unique_and_forecasts(kept, forecast, domain)
-    return Table(n, tuple(kept), frozenset(left_out), tuple(sorted(forecast)))
+    return Table(n, tuple(kept), frozenset(left_out), tuple(sorted(forecast)), frozenset(empty))
 
 
 def _check_unique_and_forecasts(rows: list[Row], forecast: list[tuple[str, str, str, int]], domain: Domain) -> None:
@@ -309,7 +322,7 @@ def _check_unique_and_forecasts(rows: list[Row], forecast: list[tuple[str, str, 
 
 
 def _wanted_gt() -> dict[tuple[str, str], tuple[str, str, str]]:
-    w = {(p.fao.code, CO2EQ.code): (p.fao.name, CO2EQ.name, UNIT_KT) for p in SECTORS}
+    w = {(p.fao.code, CO2EQ.code): (p.fao.name, CO2EQ.name, UNIT_KT) for p in PARTS}
     w[(ALL_SECTORS.code, CO2EQ.code)] = (ALL_SECTORS.name, CO2EQ.name, UNIT_KT)
     for g in GASES:
         w[(ALL_SECTORS.code, g.fao.code)] = (ALL_SECTORS.name, g.fao.name, UNIT_KT)
@@ -317,7 +330,7 @@ def _wanted_gt() -> dict[tuple[str, str], tuple[str, str, str]]:
 
 
 def _wanted_em() -> dict[tuple[str, str], tuple[str, str, str]]:
-    w = {(p.fao.code, CH4_SHARE.code): (p.fao.name, CH4_SHARE.name, UNIT_PERCENT) for p in SECTORS}
+    w = {(p.fao.code, CH4_SHARE.code): (p.fao.name, CH4_SHARE.name, UNIT_PERCENT) for p in PARTS}
     w[(ALL_SECTORS.code, PER_CAPITA.code)] = (ALL_SECTORS.name, PER_CAPITA.name, UNIT_PER_CAPITA)
     w[(AGRIFOOD.code, SHARE.code)] = (AGRIFOOD.name, SHARE.name, UNIT_PERCENT)
     return w
@@ -482,12 +495,33 @@ def below_zero_step(found: dict[Key, Row], what: str, unit: str) -> str:
     )
 
 
+def bunkers_step(totals: dict[Key, Row], bunkers: dict[Key, Row]) -> str:
+    """Words saying where FAO's total counts international bunkers. A bunkers row without a total stops."""
+    for k in bunkers:
+        if k not in totals:
+            raise FaostatBulkError(f"{k[0]} {k[1]}: an {BUNKERS.fao.name} row without an all-sector total")
+    if not bunkers:
+        return (
+            f'FAO prints no "{BUNKERS.fao.name}" (item {BUNKERS.fao.code}) row, so no total counts international '
+            "aviation and shipping."
+        )
+    by: dict[str, list[int]] = defaultdict(list)
+    for e, y in bunkers:
+        by[e].append(y)
+    listed = "; ".join(f"{e} {_years(ys)}" for e, ys in sorted(by.items()))
+    return (
+        f'FAO counts "{BUNKERS.fao.name}" (item {BUNKERS.fao.code}: fuel for international flights and voyages) in the '
+        f'"{ALL_SECTORS.name}" total of {listed}, and of no other area: there it is published as a part of its own, '
+        f'"{BUNKERS.label}", so the parts add up to the total. No country\'s total includes it.'
+    )
+
+
 def by_sector(table: Table, flags: dict[str, str]) -> tuple[list[Observation], list[str]]:
     totals = values(table, ALL_SECTORS, CO2EQ)
     _need_world(totals, ALL_SECTORS.name)
-    parts = {p.id: values(table, p.fao, CO2EQ) for p in SECTORS}
+    parts = {p.id: values(table, p.fao, CO2EQ) for p in PARTS}
     for (entity, year), total in totals.items():
-        present = [parts[p.id][(entity, year)] for p in SECTORS if (entity, year) in parts[p.id]]
+        present = [parts[p.id][(entity, year)] for p in PARTS if (entity, year) in parts[p.id]]
         if not present:
             raise FaostatBulkError(f"{entity} {year}: an all-sector total with no sector rows")
         gap = identity_gap(total, present)
@@ -495,11 +529,11 @@ def by_sector(table: Table, flags: dict[str, str]) -> tuple[list[Observation], l
             raise FaostatBulkError(
                 f"{entity} {year}: the sectors add up to {gap:+} kt away from {ALL_SECTORS.name} ({total.value} kt)"
             )
-    dropped = [k for p in SECTORS for k in parts[p.id] if k not in totals]
+    dropped = [k for p in PARTS for k in parts[p.id] if k not in totals]
     selected = [
         (entity, year, parts[p.id][(entity, year)].value / MILLION, parts[p.id][(entity, year)], {"sector": p.id})
         for entity in sorted({e for e, _ in totals})
-        for p in SECTORS
+        for p in PARTS
         for year in sorted(y for e, y in totals if e == entity)
         if (entity, year) in parts[p.id]
     ]
@@ -509,14 +543,15 @@ def by_sector(table: Table, flags: dict[str, str]) -> tuple[list[Observation], l
     steps = [
         f'Kept the "{TIER1}" rows of element "{CO2EQ.name}" (code {CO2EQ.code}) for the six IPCC sector items '
         + ", ".join(f'"{p.fao.name}" ({p.fao.code})' for p in SECTORS)
-        + ', in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global warming potentials). Rows from FAO\'s "UNFCCC" '
-        'source and the memo item "International bunkers" (6820) are not used.',
+        + f', and "{BUNKERS.fao.name}" ({BUNKERS.fao.code}), in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global '
+        'warming potentials). Rows from FAO\'s "UNFCCC" source are not used.',
+        bunkers_step(totals, parts[BUNKERS.id]),
         f"Kept each sector's values for the years in which FAO publishes the area's \"{ALL_SECTORS.name}\" total "
         f"(item {ALL_SECTORS.code}; {years[0]}–{years[-1]} for the World), so the sectors of every published year make "
         f"up a published total. {_dropped_words(dropped)}",
-        f'Checked in every area and year that the sectors present add up to "{ALL_SECTORS.name}" within '
+        f'Checked in every area and year that the parts present add up to "{ALL_SECTORS.name}" within '
         f"{KT_TOLERANCE} kt (the rounding of the printed values); the transform stops otherwise.",
-        missing_step(missing_parts(totals, parts), labels, "all-sector totals"),
+        missing_step(missing_parts(totals, sectors_only(parts)), labels, "all-sector totals"),
         zero_totals_step(totals, parts),
         not_published_step(table.left_out),
         "Converted kilotonnes to billion tonnes by dividing by 1,000,000 (exact decimal arithmetic on the printed "
@@ -525,6 +560,11 @@ def by_sector(table: Table, flags: dict[str, str]) -> tuple[list[Observation], l
         *_forecast_step(table),
     ]
     return obs, steps
+
+
+def sectors_only(parts: dict[str, dict[Key, Row]]) -> dict[str, dict[Key, Row]]:
+    """The six sectors of `parts`: bunkers is a part only where FAO prints it, so it is never reported missing."""
+    return {p.id: parts[p.id] for p in SECTORS}
 
 
 def _dropped_words(dropped: list[Key]) -> str:
@@ -544,6 +584,7 @@ def total(table: Table, flags: dict[str, str]) -> tuple[list[Observation], list[
     totals = values(table, ALL_SECTORS, CO2EQ)
     _need_world(totals, ALL_SECTORS.name)
     parts = {p.id: values(table, p.fao, CO2EQ) for p in SECTORS}
+    bunkers = values(table, BUNKERS.fao, CO2EQ)
     selected = [(e, y, r.value / MILLION, r, {}) for (e, y), r in sorted(totals.items())]
     obs, fstep = _observations(selected, flags, GT.flags_member)
     labels = {p.id: f"{p.label} (item {p.fao.code})" for p in SECTORS}
@@ -553,8 +594,9 @@ def total(table: Table, flags: dict[str, str]) -> tuple[list[Observation], list[
         f"(code {CO2EQ.code}), {years[0]}–{years[-1]}, in kilotonnes of CO₂-equivalent (IPCC AR5 100-year global "
         'warming potentials). Rows from FAO\'s "UNFCCC" source are not used.',
         "FAO's total is the sum of its six IPCC sector items (energy, industrial processes and product use, "
-        "agriculture, net land use, land-use change and forestry, waste, other); international aviation and shipping "
-        '("International bunkers", item 6820) are outside it. '
+        "agriculture, net land use, land-use change and forestry, waste, other). "
+        + bunkers_step(totals, bunkers)
+        + " "
         + missing_step(missing_parts(totals, parts), labels, "all-sector totals"),
         zero_totals_step(totals, parts),
         not_published_step(table.left_out),
@@ -643,46 +685,77 @@ def agrifood_share(table: Table, flags: dict[str, str]) -> tuple[list[Observatio
 
 
 def ch4_share_by_sector(table: Table, flags: dict[str, str]) -> tuple[list[Observation], list[str]]:
-    parts = {p.id: values(table, p.fao, CH4_SHARE) for p in SECTORS}
+    parts = {p.id: values(table, p.fao, CH4_SHARE) for p in PARTS}
     keys = sorted(set().union(*parts.values()))
     if not any(e == WORLD for e, _ in keys):
         raise FaostatBulkError(f"no World values of {CH4_SHARE.name}")
     complete = 0
     off: dict[str, list[tuple[int, Decimal]]] = defaultdict(list)
+    declared: list[tuple[str, int, Decimal]] = []
     for k in keys:
-        present = [parts[p.id][k] for p in SECTORS if k in parts[p.id]]
+        present = [parts[p.id][k] for p in PARTS if k in parts[p.id]]
         added = sum((r.value for r in present), Decimal(0))
-        if len(present) == len(SECTORS):
+        if all(k in parts[p.id] for p in SECTORS):
             complete += 1
-            if abs(added - 100) > SHARE_TOLERANCE:
-                raise FaostatBulkError(f"{k[0]} {k[1]}: the six sectors' methane shares add up to {added}, not 100")
+            tolerance = SHARE_TOLERANCE * len(present) / len(SECTORS)
+            if k in CH4_SHARES_OVER_100:
+                if added != CH4_SHARES_OVER_100[k] or abs(added - 100) <= tolerance:
+                    raise FaostatBulkError(f"{k[0]} {k[1]}: CH4_SHARES_OVER_100 no longer describes the file ({added})")
+                declared.append((k[0], k[1], added))
+            elif abs(added - 100) > tolerance:
+                raise FaostatBulkError(f"{k[0]} {k[1]}: the sectors' methane shares add up to {added}, not 100")
         elif abs(added - 100) > len(present) * SHARE_TOLERANCE / len(SECTORS):
             off[k[0]].append((k[1], added))
+    for k in CH4_SHARES_OVER_100:
+        if k not in keys:
+            raise FaostatBulkError(f"{k[0]} {k[1]}: declared in CH4_SHARES_OVER_100 but not in the file")
     selected = [
         (entity, year, parts[p.id][(entity, year)].value, parts[p.id][(entity, year)], {"sector": p.id})
         for entity in sorted({e for e, _ in keys})
-        for p in SECTORS
+        for p in PARTS
         for year in sorted(y for e, y in keys if e == entity)
         if (entity, year) in parts[p.id]
     ]
     obs, fstep = _observations(selected, flags, EM.flags_member)
     years = sorted({y for _, y in keys})
-    labels = {v.id: f"{v.label} (item {p.fao.code})" for v, p in zip(CH4_SECTOR_DIM.values, SECTORS, strict=True)}
+    labels = {v.id: f"{v.label} (item {p.fao.code})" for v, p in zip(CH4_SECTOR_DIM.values, PARTS, strict=True)}
     steps = [
         f'Kept the rows of element "{CH4_SHARE.name}" (code {CH4_SHARE.code}), unit "{UNIT_PERCENT}", for the six IPCC '
         "sector items "
         + ", ".join(f'"{p.fao.name}" ({p.fao.code})' for p in SECTORS)
         + f", {years[0]}–{years[-1]}, as FAO prints them: each sector's methane as a percentage of the area's methane "
         f'from all sectors (item "{ALL_SECTORS.name}"). Nothing is computed here.',
-        f"Checked that the six shares add up to 100 within {SHARE_TOLERANCE} (the rounding of values printed to "
-        f"0.01) in each of the {complete:,} area-years where FAO publishes all six; the transform stops otherwise.",
-        _ch4_missing_step(keys, parts, labels),
+        f'FAO prints a share for "{BUNKERS.fao.name}" (item {BUNKERS.fao.code}) where its total counts them (the '
+        "World), published as a part of its own.",
+        "Checked that the shares add up to 100 within the rounding of values printed to 0.01 (0.005 a share) in "
+        f"each of the {complete:,} area-years where FAO publishes all six sectors; the transform stops otherwise."
+        + _ch4_declared_words(declared),
+        _ch4_missing_step(keys, sectors_only(parts), {q.id: labels[q.id] for q in SECTORS}),
         *_ch4_off_step(off),
         not_published_step(table.left_out),
         fstep,
         *_forecast_step(table),
     ]
     return obs, steps
+
+
+CH4_SHARES_OVER_100: dict[Key, Decimal] = {("TUV", 2000): Decimal("100.043300")}
+"""Area-years whose six printed methane shares add up to more than 100 beyond their rounding, each checked against
+FAO's own kilotonnes (release of 6 November 2026). Tuvalu 2000: GT prints agriculture 0.2001, waste 0.0307 and energy
+0.0003 kt of methane (0.2311 kt) but an all-sector total of 0.2310 kt, and EM's shares are those values divided by
+the printed total (86.6234 + 13.2900 + 0.1299 = 100.0433). A declared sum that no longer matches stops the build."""
+
+
+def _ch4_declared_words(declared: list[tuple[str, int, Decimal]]) -> str:
+    if not declared:
+        return ""
+    listed = "; ".join(f"{e} {y} ({a.normalize():f})" for e, y, a in declared)
+    return (
+        " Published as printed, although their shares add up to more than 100: "
+        + listed
+        + ". FAO divides each sector's methane by an all-sector total rounded to 0.0001 kilotonnes, which for a "
+        "total this small moves the shares by more than their own rounding."
+    )
 
 
 def _ch4_missing_step(keys: list[Key], parts: dict[str, dict[Key, Row]], labels: dict[str, str]) -> str:
@@ -749,6 +822,7 @@ def _runner(data: Input, domain: Domain, compute: Compute, changes: str | None):
         table, flags = read_zip(files[data.key].path, domain.code)
         updated, vstep = vintage(files, data, domain, table.data_rows)
         obs, steps = compute(table, flags)
+        steps = [*steps, *not_collected_step(table.not_collected, flags, domain.flags_member)]
         return Result(
             observations=obs,
             vintage=updated.isoformat(),
@@ -784,33 +858,33 @@ def what_is_counted(land_use: str) -> str:
     return (
         "FAOSTAT's six IPCC sectors: energy, industrial processes and product use, agriculture, land use, land-use "
         f"change and forestry ({land_use}), waste and other. International aviation and shipping (bunker fuels) are "
-        "not included. Agriculture and land use are FAO's own Tier 1 estimates; energy, industry, waste and other are "
-        "PRIMAP-hist v2.7 third-party estimates, which count some territories inside their parent country (for "
+        "counted in the World's total only, as a part of their own, since FAO's release of 6 November 2026; no "
+        "country's total includes them. Agriculture and land use are FAO's own Tier 1 estimates; energy, industry, "
+        "waste and other are PRIMAP-hist v2.8 third-party estimates, which count some territories inside their parent "
+        "country (for "
         "example Bermuda in the United Kingdom, Greenland and the Faroe Islands in Denmark, Palestine in Israel, "
         "Puerto Rico in the United States). So such a parent country's energy, industry, waste and other emissions "
-        "include those territories while its agriculture and land use do not, and for 28 territories in the October "
-        "2025 release FAO has no energy, industry, waste or other rows, so their total covers agriculture and land use "
+        "include those territories while its agriculture and land use do not, and for 27 territories in the November "
+        "2026 release FAO has no energy, industry, waste or other rows, so their total covers agriculture and land use "
         "only. Estimates, not country inventory submissions."
     )
 
 
 WHAT_IS_COUNTED = what_is_counted(LAND_USE_NET)
-SECTOR_DIM = Dimension(
-    id="sector", label="IPCC sector", values=[DimensionValue(id=p.id, label=p.label) for p in SECTORS]
-)
+SECTOR_DIM = Dimension(id="sector", label="IPCC sector", values=[DimensionValue(id=p.id, label=p.label) for p in PARTS])
 CH4_LAND_USE_LABEL = "Land use (fires)"
 """Methane from land use, land-use change and forestry is fires only (FAO's LULUCF methane is its forest fires plus
 fires in organic soils), and nothing is netted, so the CO2-equivalent label "(net)" does not apply."""
 CH4_SECTOR_DIM = Dimension(
     id="sector",
     label="IPCC sector",
-    values=[DimensionValue(id=p.id, label=CH4_LAND_USE_LABEL if p.id == "land-use" else p.label) for p in SECTORS],
+    values=[DimensionValue(id=p.id, label=CH4_LAND_USE_LABEL if p.id == "land-use" else p.label) for p in PARTS],
 )
 ZERO_TOTALS = (
-    "American Samoa, the Channel Islands, Gibraltar, Greenland, Guam, the Northern Mariana Islands, Norfolk Island, "
-    "Pitcairn, Svalbard and Jan Mayen, and Saint Pierre and Miquelon"
+    "American Samoa, Gibraltar, Greenland, Guam, the Northern Mariana Islands, Norfolk Island, Pitcairn, and Svalbard "
+    "and Jan Mayen"
 )
-"""The territories whose all-sector total FAO prints as exactly 0 in some or all years of the October 2025 release
+"""The territories whose all-sector total FAO prints as exactly 0 in some or all years of the November 2026 release
 (tests/test_ghg_faostat_all_sectors.py checks this list against the snapshot; zero_totals_step lists the years)."""
 GAS_DIM = Dimension(id="gas", label="Gas", values=[DimensionValue(id=g.id, label=g.label) for g in GASES])
 
@@ -818,7 +892,7 @@ GAS_DIM = Dimension(id="gas", label="Gas", values=[DimensionValue(id=g.id, label
 def transforms(paths: Paths) -> list[Transform]:
     here = Path(__file__)
     all_ghg_scope = Scope(
-        geography=GEOGRAPHY, gwp="AR5-GWP100", lulucf="included", bunkers="excluded", basis=WHAT_IS_COUNTED
+        geography=GEOGRAPHY, gwp="AR5-GWP100", lulucf="included", bunkers="included", basis=WHAT_IS_COUNTED
     )
     gt = (TOTALS, CATALOGUE)
     em = (INDICATORS, CATALOGUE)
@@ -831,13 +905,14 @@ def transforms(paths: Paths) -> list[Transform]:
                 "six sectors that do not overlap and add up to the total: energy, industrial processes and product "
                 "use, agriculture, land use (net, which can be below zero where forests take up more carbon than "
                 "land clearing releases), waste and other, as published by FAO for the world and each country since "
-                "1990. Food is not a seventh sector: its emissions run across agriculture, land use, energy, industry "
-                "and waste. Where FAO publishes no row for a sector (28 territories in the October 2025 release, "
-                "whose energy, industry and waste are counted in their parent country; Tokelau, Nauru and Tuvalu in "
-                "part) the sector is left missing, never set to zero, so for those 28 territories the total is "
-                "agriculture plus land use only. For 10 of them (" + ZERO_TOTALS + ") FAO prints agriculture, land "
-                "use and the total as exactly 0 in some or all years, where it has no estimate. These territories' "
-                "values are not comparable with countries'. International aviation and shipping are not included.",
+                "1990. The world's total also counts international aviation and shipping, shown as a part of its "
+                "own; no country's does. Food is not a further sector: its emissions run across agriculture, land "
+                "use, energy, industry and waste. Where FAO publishes no row for a sector (27 territories in the "
+                "November 2026 release, whose energy, industry and waste are counted in their parent country; "
+                "Tokelau and Nauru in part) the sector is left missing, never set to zero, so for those 27 "
+                "territories the total is agriculture plus land use only. For 8 of them (" + ZERO_TOTALS + ") FAO "
+                "prints agriculture, land use and the total as exactly 0 in some or all years, where it has no "
+                "estimate. These territories' values are not comparable with countries'.",
                 kind="series",
                 unit=GT_CO2E,
                 display=Display(decimals=2),
@@ -858,11 +933,12 @@ def transforms(paths: Paths) -> list[Transform]:
                 title="Greenhouse gas emissions, all gases and all sectors including land use",
                 description="Each year's emissions of all greenhouse gases (carbon dioxide, methane, nitrous oxide and "
                 "fluorinated gases) from all sectors, in carbon dioxide equivalent, including net land use, land-use "
-                "change and forestry and excluding international aviation and shipping, as published by FAO for the "
-                "world and each country since 1990. For 28 territories in the October 2025 release, whose energy, "
-                "industry and waste emissions are counted in their parent country, the total is agriculture plus "
-                "land use only, and for 10 of them (" + ZERO_TOTALS + ") FAO prints a total of exactly 0 in some or "
-                "all years, where it has no estimate. These territories' values are not comparable with countries'.",
+                "change and forestry, as published by FAO for the world and each country since 1990. The world's "
+                "total also counts international aviation and shipping; no country's does. For 27 territories in the "
+                "November 2026 release, whose energy, industry and waste emissions are counted in their parent "
+                "country, the total is agriculture plus land use only, and for 8 of them (" + ZERO_TOTALS + ") FAO "
+                "prints a total of exactly 0 in some or all years, where it has no estimate. These territories' "
+                "values are not comparable with countries'.",
                 kind="series",
                 unit=GT_CO2E,
                 display=Display(decimals=1),
@@ -891,13 +967,13 @@ def transforms(paths: Paths) -> list[Transform]:
             spec=Spec(
                 id="ghg.faostat.by-gas",
                 title="Greenhouse gas emissions by gas, all sectors including land use",
-                description="Each year's emissions from all sectors, including net land use and excluding "
-                "international aviation and shipping, split by gas: carbon dioxide, methane, nitrous oxide and "
+                description="Each year's emissions from all sectors, including net land use (and, for the world "
+                "only, international aviation and shipping), split by gas: carbon dioxide, methane, nitrous oxide and "
                 "fluorinated gases, each in carbon dioxide equivalent (carbon dioxide counts as itself), as published "
                 "by FAO for the world and each country since 1990. The four gases add up to the all-gas total. Carbon "
                 "dioxide includes the net carbon dioxide of land use, land-use change and forestry, so it can be "
                 "below zero for a country whose forests take up more carbon than it emits. Where FAO publishes no "
-                "fluorinated-gas row (67 countries and territories in the October 2025 release) the gas is left "
+                "fluorinated-gas row (61 countries and territories in the November 2026 release) the gas is left "
                 "missing, never set to zero.",
                 kind="series",
                 unit=GT_CO2E,
@@ -906,7 +982,7 @@ def transforms(paths: Paths) -> list[Transform]:
                     geography=GEOGRAPHY,
                     gwp="AR5-GWP100",
                     lulucf="included",
-                    bunkers="excluded",
+                    bunkers="included",
                     basis="Carbon dioxide is in tonnes of CO₂, its own CO₂-equivalent (global warming potential 1); "
                     "methane, nitrous oxide and fluorinated gases are FAO's CO₂-equivalents at IPCC AR5 100-year "
                     "global warming potentials (methane 28, nitrous oxide 265). The total split is " + WHAT_IS_COUNTED,
@@ -926,15 +1002,16 @@ def transforms(paths: Paths) -> list[Transform]:
                 id="ghg.faostat.per-capita",
                 title="Greenhouse gas emissions per person: each country's emissions divided by its population",
                 description="Each country's emissions of all greenhouse gases from all sectors on its territory, "
-                "including net land use and excluding international aviation and shipping, divided by its population, "
+                "including net land use, divided by its population (the world's value also counts international "
+                "aviation and shipping, which FAO counts in no country), "
                 "in tonnes of carbon dioxide equivalent per person per year, as published by FAO since 1990. This is "
                 "a national average where emissions happen, not one person's footprint: it does not follow what "
                 "people buy (emissions in imported goods count where they are made) and says nothing about how "
-                "emissions differ between people in a country. FAO has no row for some sectors of four territories "
-                "(October 2025 release), so their values leave those sectors out: Mayotte has no energy, industry, "
-                "waste or other emissions, Tokelau no energy or other, and Nauru and Tuvalu no other. Values can be "
-                "below zero where forests take up more carbon than the country emits: 94 of the values in the "
-                "October 2025 release are.",
+                "emissions differ between people in a country. FAO has no row for some sectors of three territories "
+                "(November 2026 release), so their values leave those sectors out: Mayotte has no energy, industry, "
+                "waste or other emissions, Tokelau no energy or other, and Nauru no other. Values can be below zero "
+                "where forests take up more carbon than the country emits: 201 of the values in the November 2026 "
+                "release are.",
                 kind="series",
                 unit=Unit(
                     code="tCO2e-per-person",
@@ -946,7 +1023,7 @@ def transforms(paths: Paths) -> list[Transform]:
                     geography=GEOGRAPHY,
                     gwp="AR5-GWP100",
                     lulucf="included",
-                    bunkers="excluded",
+                    bunkers="included",
                     basis='FAO\'s published value of all-sector emissions (FAOSTAT item "All sectors with LULUCF") '
                     "divided by population, territorial (production-based) accounting. " + WHAT_IS_COUNTED,
                 ),
@@ -961,20 +1038,21 @@ def transforms(paths: Paths) -> list[Transform]:
         Transform(
             spec=Spec(
                 id="food.faostat.agrifood-emissions-world.share",
-                title="Agrifood systems' share of FAO's all-sector greenhouse gas total (net land use, no "
+                title="Agrifood systems' share of FAO's all-sector greenhouse gas total (net land use, with "
                 "international transport)",
                 description="The part of FAO's all-sector greenhouse gas total that comes from food and farming "
                 "systems each year since 1990, as published by FAO: FAO's agrifood-systems emissions (on farms, from "
                 "clearing land for agriculture, and from making, moving, selling, cooking and throwing away food) as "
                 "a percentage of FAO's own total of all sectors, which includes net land use, land-use change and "
-                "forestry and excludes international aviation and shipping. The agrifood figure counts clearing land "
+                "forestry and, from FAO's release of 6 November 2026, international aviation and shipping. The "
+                "agrifood figure counts clearing land "
                 "for farming without subtracting what forests take up, while the total's land use is net of that "
                 "uptake, so this is not a share of gross global emissions. Food's emissions run across the "
                 "agriculture, land-use, energy, industry and waste sectors; they are not a sector of their own.",
                 kind="series",
                 unit=Unit(
                     code="percent",
-                    label="percent of FAO's all-sector total (net land use, no international transport)",
+                    label="percent of FAO's all-sector total (net land use, with international transport)",
                     short="%",
                 ),
                 display=Display(decimals=1),
@@ -982,15 +1060,15 @@ def transforms(paths: Paths) -> list[Transform]:
                     geography="World",
                     gwp="AR5-GWP100",
                     lulucf="included",
-                    bunkers="excluded",
+                    bunkers="included",
                     basis='FAO\'s published share (FAOSTAT Emissions indicators, item "Agrifood systems", element '
                     '"Emissions Share (CO2eq) (AR5)"). Numerator: emissions within the farm gate, from land-use change '
                     "and from pre- and post-production (fertilizer manufacturing, processing, packaging, transport, "
                     "retail, household consumption and waste disposal); its land-use change counts only what FAO "
                     "attributes to agriculture (deforestation and fires in humid tropical forests and organic soils), "
                     "with the carbon taken up by forests not subtracted. Denominator: FAO's \"All sectors with "
-                    'LULUCF" total of the six IPCC sectors, in which land use is net of the forest sink; '
-                    "international aviation and shipping bunkers are a separate item and are not in it.",
+                    'LULUCF" total of the six IPCC sectors and, for the World, international aviation and shipping '
+                    "bunkers, in which land use is net of the forest sink.",
                 ),
                 geo_coverage="global-only",
                 headline_entity=WORLD,
@@ -1018,17 +1096,18 @@ def transforms(paths: Paths) -> list[Transform]:
                 id="ghg.faostat.ch4-share-by-sector",
                 title="Where methane comes from: each sector's share of all methane emissions",
                 description="Each sector's methane emissions as a percentage of all methane emitted by the world or "
-                "a country in a year, since 1990, as published by FAO, for the six sectors that make up FAO's total: "
+                "a country in a year, since 1990, as published by FAO, for the sectors that make up FAO's total: "
                 "energy (fossil fuel production and use), industrial processes and product use, agriculture "
-                "(livestock, rice, manure), land use (fires), waste and other. Where FAO publishes all six, they add "
-                "up to 100. Food systems' methane runs across several of these sectors.",
+                "(livestock, rice, manure), land use (fires), waste and other, and, for the world only, "
+                "international aviation and shipping. Where FAO publishes all six sectors, the shares add up to 100 "
+                "(Tuvalu 2000, as printed, to 100.04). Food systems' methane runs across several of these sectors.",
                 kind="series",
                 unit=Unit(code="percent", label="percent of all methane emissions", short="%"),
                 display=Display(decimals=1),
                 scope=Scope(
                     geography=GEOGRAPHY,
                     lulucf="included",
-                    bunkers="excluded",
+                    bunkers="included",
                     basis='FAO\'s published shares (FAOSTAT Emissions indicators, element "Emissions Share (CH4)") '
                     "of methane by mass, so no global warming potential is involved. The whole is FAO's all-sector "
                     'methane ("All sectors with LULUCF"). ' + what_is_counted(LAND_USE_CH4),

@@ -28,6 +28,7 @@ from envdash.transforms.food.faostat_bulk import (
     NO_ENTITY,
     FaostatBulkError,
     area_entity,
+    not_collected,
     year_of,
 )
 
@@ -53,6 +54,8 @@ class Gathered:
     forecast: dict[Key, list[int]] = field(default_factory=lambda: defaultdict(list))
     m49: dict[str, str] = field(default_factory=dict)
     """FAO Area Code -> "Area Code (M49)" as printed."""
+    not_collected: set[tuple[str, int]] = field(default_factory=set)
+    """(FAO area name, year) of rows printed with no value and flag L (faostat_bulk.not_collected)."""
 
     def forecast_years(self) -> list[int]:
         return sorted({y for ys in self.forecast.values() for y in ys})
@@ -67,7 +70,8 @@ def gather(
     what: str,
 ) -> Gathered:
     """Rows of `items` (code -> FAO's name) and `elements` (code -> (FAO's name, unit)), from `source` when the file
-    has a Source column (None when it has none). Every value must be printed; F rows are projections."""
+        has a Source column (None when it has none). Every value must be printed, except rows FAO flags L ("data exist
+    but were not collected"), which are set aside in `not_collected`; F rows are projections."""
     g = Gathered()
     for r in rows:
         item, element = r["Item Code"], r["Element Code"]
@@ -84,8 +88,9 @@ def gather(
         if r["Unit"] != elements[element][1]:
             raise FaostatBulkError(f"{where}: unit {r['Unit']!r}, expected {elements[element][1]!r}")
         year = year_of(r, where)
-        if r["Value"] == "":
-            raise FaostatBulkError(f"{where}: empty Value; re-read the file before trusting it")
+        if not_collected(r, where):
+            g.not_collected.add((r["Area"], year))
+            continue
         prev = g.m49.setdefault(r["Area Code"], r["Area Code (M49)"])
         if prev != r["Area Code (M49)"]:
             raise FaostatBulkError(f"{where}: M49 {r['Area Code (M49)']} differs from {prev} in earlier rows")

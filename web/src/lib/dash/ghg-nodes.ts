@@ -32,7 +32,10 @@ const TOP = 15;
 /** UK households' product groups drawn as lines: the largest few in the latest year, so the chart stays readable. */
 const UK_LINES = 5;
 
-/** Sector colours: energy dark, industry grey, farming brown, land green (it can be a net sink), waste purple. */
+/**
+ * Sector colours: energy dark, industry grey, farming brown, land green (it can be a net sink), waste purple, and
+ * international aviation and shipping blue (a part of the world's total only; FAO counts it in no country's).
+ */
 const SECTOR_COLOURS: Record<string, string> = {
   energy: "#3d3d3d",
   industry: "#8b8b86",
@@ -40,6 +43,7 @@ const SECTOR_COLOURS: Record<string, string> = {
   "land-use": "#1b7837",
   waste: "#7b5ea7",
   other: "#c75400",
+  bunkers: "#2166ac",
 };
 const GAS_COLOURS: Record<string, string> = { co2: "#b2182b", ch4: "#c75400", n2o: "#7b5ea7", "f-gases": "#2166ac" };
 const STAGE_COLOURS: Record<string, string> = { "farm-gate": "#8c510a", "land-use-change": "#1b7837", "pre-post-production": "#2166ac" };

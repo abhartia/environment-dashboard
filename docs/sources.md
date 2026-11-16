@@ -63,6 +63,17 @@ Evidence: docs/research/sources-ghg-food-personal-2026-10-05.json (research[0] c
   behind the pre- and post-production estimates carries restrictions. Re-check at FAO's October 2026 release, which
   will probably use PRIMAP-hist v2.8 (also CC BY-NC-SA; its record warns "Do not use the TP scenario data without
   proper checks.").
+- **The release of 6 November 2026 (data to 2024) is PRIMAP-hist v2.8 (re-checked 2026-11-15).** Twenty CO2 values of
+  the non-farm items, 2021–2024, equal PRIMAP-hist v2.8 HISTTP exactly (Zenodo 22876287, file
+  `Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.csv`), while 12 of them differ from v2.7: Germany energy
+  2023 is 537,000 kt in GT and v2.8 against 550,000 in v2.7; China energy 2023 11,900,000 against 11,100,000; India
+  energy 2023 3,030,000 against 2,910,000; USA IPPU 2023 133,000 against 137,000. v2.8's record says "Since v2.8
+  PRIMAP-hist is published under a non-commercial license (CC BY-NC-SA). This means that commercial users can not use
+  it freely and have to obtain a commercial license.", so the class stays noncommercial and only the attribution moves
+  to v2.8 (Gütschow and Pflüger, 2026). The release also counts International bunkers (item 6820) in the World's
+  "All sectors with LULUCF" total and in EM's World shares (all 35 World years add up with seven parts; the 9,320
+  other area-years still add up with six, and no country has a bunkers row), so bunkers became a seventh,
+  World-only part of the by-sector and methane splits, with scope `bunkers: included`.
 
 ## Decisions on FAOSTAT food breakdowns (2026-10-05)
 

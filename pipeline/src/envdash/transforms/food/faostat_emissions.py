@@ -14,8 +14,9 @@ elements are matched by code, and the names next to the codes must be the ones b
   million tonnes of methane (kt / 1,000).
 
 Agrifood's share of all emissions is not computed here. Its denominator, "All sectors with LULUCF" (item 6825),
-contains FAOSTAT's energy, industry, waste and other items, which are PRIMAP-hist v2.7 data (CC BY-NC-SA 4.0), so the
-share is FAO's own published value under the noncommercial source faostat-all-sectors
+contains FAOSTAT's energy, industry, waste and other items, which are PRIMAP-hist data (v2.8 in the release of 6
+November 2026; CC BY-NC-SA 4.0), so the share is FAO's own published value under the noncommercial source
+faostat-all-sectors
 (envdash/transforms/emissions/faostat_all_sectors.py). The agrifood item "Land-use change" (6516) equals Net Forest
 conversion + Fires in humid tropical forests + Fires in organic soils, without "Forestland" (6751, the forest sink), in
 every year of the World FAO TIER 1 rows of the release of 28 October 2025 (tests/test_faostat_emissions.py, snapshot

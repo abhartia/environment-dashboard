@@ -19,7 +19,7 @@
 # "with permission, formalized via a FAO-UNFCCC Memorandum of Understanding"; pre/post-production estimates use UNSD
 # and IEA activity data. No dataset-specific restriction is stated in the metadata. We use "FAO TIER 1" rows; never mix
 # them with "UNFCCC" rows. The note names PRIMAP-hist v2.4 (CC BY 4.0) for GT's energy, IPPU, waste and other items,
-# but the October 2025 values of those items are PRIMAP-hist v2.7 (CC BY-NC-SA 4.0): see
+# but the values of those items are PRIMAP-hist v2.7 in October 2025 and v2.8 in November 2026 (both CC BY-NC-SA 4.0): see
 # pipeline/sources/faostat-all-sectors.yaml, which registers them and the all-sector totals as noncommercial, and the
 # version evidence in docs/research/sources-ghg-food-personal-2026-10-05.json. This open entry does not publish them.
 # Artifacts checked 2026-10-04 (HEAD): GT 200, 20,501,708 bytes, Last-Modified 2025-12-06 (catalogue DateUpdate
@@ -173,7 +173,7 @@ status:
   state: active
   note: >-
     Updated on FAO's annual cycle: Land Use on 2 October 2026 and SDG indicators on 29 September 2026; the emissions
-    domains (GT, GLE) were last updated 28 October 2025 with data to 2023. The World Census of Agriculture domain was last
+    domains (GT, GLE) were last updated 6 November 2026 with data to 2024. The World Census of Agriculture domain was last
     updated 27 April 2026; it changes as countries' censuses are added. FAO is not on the January 2026 US withdrawal
     memorandum (FR Doc 2026-00976); UNFCCC is, which concerns the "UNFCCC" source rows in GT.
   us_federal: false
@@ -181,10 +181,10 @@ update_cadence: >-
   Annual per domain; emissions domains each October-November, Land Use and SDG indicators around late September.
   DateUpdate in datasets_E.json changes with each release, but zips are sometimes re-uploaded later.
 next_release:
-  expected: 2026-10-31
+  expected: 2027-10-31
   note: >-
-    FAO's 2026 release calendar lists FAOSTAT Emissions totals and Emissions from Livestock (data to 2024) under
-    October 2026 without a day; 31 October is the end of that window.
+    FAO released Emissions totals and Emissions from Livestock with data to 2024 on 6 November 2026; the next release
+    (data to 2025) is expected about October 2027.
   url: https://www.fao.org/statistics/data-releases/upcoming-data-releases/en
 twins: []
 research_ref: >-

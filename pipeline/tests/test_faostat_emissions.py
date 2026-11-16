@@ -189,14 +189,16 @@ def test_full_snapshot_builds_both():
         files[key] = InputFile(snapshots.cache_path(p, snap.sha256), snap)
     for t in transforms(p):
         r = t.run(files)
-        assert r.vintage == "2025-10-28" and r.year == "2025"
-        assert {o.status for o in run_checks(t, {"faostat": r.vintage}, r.observations)} <= {"pass"}
+        assert r.vintage == "2026-11-06" and r.year == "2026"
+        # The publisher check quotes FAO's highlight for the release of 28 October 2025; none applies to this one.
+        assert {o.status for o in run_checks(t, {"faostat": r.vintage}, r.observations)} <= {"not-applicable"}
 
 
 @pytest.mark.snapshot
 def test_full_snapshot_scope_identities():
     """What the agrifood basis says: the agrifood land-use change is net forest conversion and fires, without the
-    forest sink, in every World year; and FAO's with-LULUCF total is the IPCC sectors without international bunkers."""
+    forest sink, in every World year; and FAO's with-LULUCF World total is the IPCC sectors plus international bunkers
+    (from the release of 6 November 2026; the release of 28 October 2025 left bunkers out)."""
     from decimal import Decimal
 
     from envdash import snapshots
@@ -222,12 +224,12 @@ def test_full_snapshot_scope_identities():
         )
     ]
     bunkers = by_year("6820", "International bunkers")
-    rounding = Decimal("0.0003")  # six values printed to 0.0001 kt
-    assert len(total) == 34
+    rounding = Decimal("0.00035")  # seven values printed to 0.0001 kt
+    assert len(total) == 35
     for y, v in total.items():
         parts = sum((sec[y] for sec in sectors), Decimal(0))
-        assert abs(parts - v) <= rounding, y
-        assert abs(parts + bunkers[y] - v) > 1000, y  # adding bunkers (over 650,000 kt) would not match
+        assert abs(parts + bunkers[y] - v) <= rounding, y
+        assert abs(parts - v) > 600_000, y  # without bunkers (over 650,000 kt) the sectors fall short
     luc = by_year("6516", "Land-use change")
     luc_parts = [
         by_year(c, n)

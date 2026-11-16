@@ -1,14 +1,14 @@
 {
   "export": "data/v1/indicators/farms.faostat-wcad.holdings-by-land-size.json",
-  "export_sha256": "6161cd27249e738113af2a4c17cdba551db029a39f2ec7c94c81222547b97003",
+  "export_sha256": "22397aa1a7871c03f4485d16b5fca9da3b20f9ce1d035f84b455f2d4a924e80f",
   "indicator_id": "farms.faostat-wcad.holdings-by-land-size",
-  "key": "51bbf2f83862d959c0b408537870e63116b5fc67e9aecdf26fec50bb0797c8d7",
+  "key": "843cecffbc82f91d6feb93dd9799b446c3bf5cbb4fa12b9d1ab0194145aa7b14",
   "key_parts": {
     "contract_sha256": "9ec65048f6281c8514e25c919755af5827bd57e865f55831a1fab7ec1a505b5c",
     "inputs": {
       "faostat/datasets-catalogue": {
-        "manifest_sha256": "64ca208e49000fe281de8ea4dd3d76e584efb9cfc08d33a4e3da75621324771f",
-        "sha256": "dd04f24ca690e7f4e693e038234460cbffe1617930c086561a1d84cf2f97e3b3"
+        "manifest_sha256": "a9391c7cf068b4c1c3b921dcbc1356be998b2544f1085b2c1412dfda27254d5e",
+        "sha256": "6b9cc9c2cab46c0b69700a6e29bbfdc10c852677c6cc5d1a4710a67984e2d4db"
       },
       "faostat/world-census-agriculture": {
         "manifest_sha256": "5da3dc5be1a9214fb74baae15b11bc503fb32743ac636aebd0134311f04ff754",
@@ -18,7 +18,7 @@
     "key_files": {},
     "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
     "sources": {
-      "faostat": "6a5fe694f80773f813e5b98bf6f787448c9b21f22f2f78e59034d02f187ce812"
+      "faostat": "f2770d5d7df73b331eb67af082bd39c291dd26be55bd9405e99fa383f04108cd"
     },
     "transform_sha256": "05dab27ba4b411c34f3b29ca3db2ec53ea085cc5a1e41582eac2441adb43829e"
   },

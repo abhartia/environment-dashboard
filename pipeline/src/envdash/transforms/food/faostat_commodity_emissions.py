@@ -30,7 +30,7 @@ items are meat "with the bone"), raw whole milk not corrected for fat and protei
 cereals. So the intensities cannot be compared with figures per kilogram of boneless retail meat.
 
 Values as printed. The split of sheep, goat, buffalo and camel emissions by the share of milk animals gives negative
-meat values (in the February 2026 release 75 emission values and 72 intensities, all goat, buffalo or sheep meat,
+meat values (in the November 2026 release 74 emission values and 71 intensities, all goat, buffalo or sheep meat,
 mostly Mali and Bhutan, down to -6.3 million tonnes for goat meat in Mali in 2011 and -854 kg per kg in 2010); they are
 published as printed, as are very large intensities where production is small. Emission rows without an intensity row
 (no production figure) have absent intensities, never filled; the processing steps count both, for the published
@@ -58,6 +58,7 @@ from envdash.transforms.food.faostat_bulk import (
     Table,
     flag_step,
     flag_words,
+    not_collected_step,
     read_flags,
     read_member,
     vintage_of,
@@ -176,6 +177,7 @@ def observations(table: Table, flags: dict[str, str], element: str) -> tuple[lis
         f'Kept the rows of element "{name}" (code {element}, unit "{unit}") for the 14 items of the file, matched by '
         f"Item Code, {years[0]}–{years[-1]}.",
         areas_step(left_out),
+        *not_collected_step(g.not_collected, flags, FLAGS_MEMBER),
         _negatives_step(rows, unit),
     ]
     if element == EMISSIONS:
@@ -304,8 +306,8 @@ def transforms(paths: Paths) -> list[Transform]:
                 + COVERAGE
                 + " "
                 + NOT_LCA
-                + " FAO's split of sheep, goat, buffalo and camel emissions between meat and milk makes 75 meat "
-                "values negative in the February 2026 release, all goat, buffalo or sheep meat and most of them in "
+                + " FAO's split of sheep, goat, buffalo and camel emissions between meat and milk makes 74 meat "
+                "values negative in the November 2026 release, all goat, buffalo or sheep meat and most of them in "
                 "Mali and Bhutan, down to about -6.3 million tonnes for goat meat in Mali in 2011. They are published "
                 "as printed.",
                 kind="series",
@@ -340,7 +342,7 @@ def transforms(paths: Paths) -> list[Transform]:
                 + NOT_LCA
                 + " Where a country produces little of a product the value can be very large, and where FAO gives "
                 "no production figure there is no value. FAO's split of sheep, goat, buffalo and camel emissions "
-                "between meat and milk makes 72 meat values negative in the February 2026 release, most of them in "
+                "between meat and milk makes 71 meat values negative in the November 2026 release, most of them in "
                 "Mali and Bhutan, down to about -854 kilograms per kilogram for goat meat in Mali in 2010. They are "
                 "published as printed.",
                 kind="series",
