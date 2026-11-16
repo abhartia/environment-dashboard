@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date
 
 from envdash.fetch import SourceFetch
-from envdash.issues import failure_title, plan, release_title
+from envdash.issues import MAX_REASON, failure_title, plan, quoted_reason, release_title
 from envdash.registry import load_registry
 from envdash.status import update_status
 
@@ -42,3 +42,13 @@ def test_release_due_filed_once(tmp_paths):
     assert ("release", "noaa-gml-trends") in [(p.action, p.source_id) for p in due]
     filed = plan(tmp_paths, reg, open_failures={}, known_release={release_title("noaa-gml-trends")}, today=expected)
     assert "noaa-gml-trends" not in [p.source_id for p in filed]
+
+
+def test_a_long_reason_is_cut_between_artifacts():
+    parts = [f"artifact-{i}: HTTP 500 from https://example.org/{i}" for i in range(3000)]
+    reason = "; ".join(parts)
+    q = quoted_reason(reason)
+    head = q.split(" … (")[0]
+    assert len(head) <= MAX_REASON and head == "; ".join(parts[: head.count("; ") + 1])
+    assert f"{len(reason) - len(head):,} more characters" in q and "data/v1/status.json" in q
+    assert quoted_reason("HTTP 503 from Met Office") == "HTTP 503 from Met Office"

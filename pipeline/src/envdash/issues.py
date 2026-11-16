@@ -59,7 +59,7 @@ def plan(
         title = failure_title(sid)
         if s.state == "failed":
             body = (
-                f"`{sid}` failed on {s.checked_at}.\n\n> {s.reason}\n\n"
+                f"`{sid}` failed on {s.checked_at}.\n\n> {quoted_reason(s.reason or '')}\n\n"
                 f"The site keeps showing its last validated vintage ({s.vintage or 'none yet'}); /status says so."
                 f"{run}"
             )
@@ -89,8 +89,25 @@ def plan(
     return out
 
 
-def _gh(*args: str) -> str:  # pragma: no cover - needs gh and a token
-    return subprocess.run(["gh", *args], check=True, capture_output=True, text=True).stdout
+MAX_REASON = 4000
+"""Characters of a failure reason quoted in an issue. GitHub refuses bodies over 65,536 characters, and a source with
+hundreds of artifacts (wb-cckp) can fail with a reason of over 100,000."""
+
+
+def quoted_reason(reason: str) -> str:
+    """The reason as the issue quotes it: whole when short; otherwise cut at the last "; " (the separator between
+    artifacts) within MAX_REASON, saying how much is left out and where the full reason is."""
+    if len(reason) <= MAX_REASON:
+        return reason
+    cut = reason.rfind("; ", 0, MAX_REASON)
+    head = reason[: cut if cut > 0 else MAX_REASON]
+    return f"{head} … ({len(reason) - len(head):,} more characters; the full reason is in data/v1/status.json)"
+
+
+def _gh(*args: str, stdin: str | None = None) -> str:  # pragma: no cover - needs gh and a token
+    return subprocess.run(
+        ["gh", *args], check=True, capture_output=True, text=True, encoding="utf-8", input=stdin
+    ).stdout
 
 
 def apply(paths: Paths, registry: Registry, today: date) -> list[Planned]:  # pragma: no cover - needs gh
@@ -113,13 +130,15 @@ def apply(paths: Paths, registry: Registry, today: date) -> list[Planned]:  # pr
         )
     }
     planned = plan(paths, registry, open_failures, known_release, today)
+    # Bodies go through stdin: a failure that lists every artifact (wb-cckp has hundreds) is longer than the
+    # 32,767 characters Windows allows on a command line.
     for p in planned:
         if p.action == "open":
-            _gh("issue", "create", "--title", p.title, "--label", FAILURE_LABEL, "--body", p.body)
+            _gh("issue", "create", "--title", p.title, "--label", FAILURE_LABEL, "--body-file", "-", stdin=p.body)
         elif p.action == "update":
-            _gh("issue", "edit", str(p.number), "--body", p.body)
+            _gh("issue", "edit", str(p.number), "--body-file", "-", stdin=p.body)
         elif p.action == "close":
             _gh("issue", "close", str(p.number), "--comment", p.body)
         elif p.action == "release":
-            _gh("issue", "create", "--title", p.title, "--label", RELEASE_LABEL, "--body", p.body)
+            _gh("issue", "create", "--title", p.title, "--label", RELEASE_LABEL, "--body-file", "-", stdin=p.body)
     return planned
