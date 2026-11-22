@@ -56,6 +56,7 @@ PAGE = Input(SOURCE, "per-person-page")
 ENTITY = "SWE"
 
 MODEL = re.compile(r'<script id="__model_data" type="application/json">(.*?)</script>', re.S)
+REVIEWED = re.compile(r"(\d{4}-\d{2}-\d{2})(?:T00:00:00(?:[+-]\d{2}:\d{2}|Z))?")
 HEADING = "Konsumtionsbaserade växthusgasutsläpp per person och år"
 RESPONSIBLE = "Statistikmyndigheten SCB"
 Y_AXIS = "Ton koldioxidekvivalenter per person"
@@ -141,9 +142,13 @@ def chart(model: dict) -> Chart:
     for key, want in (("heading", HEADING), ("responsibleAuthority", RESPONSIBLE)):
         if c.get(key) != want:
             raise NaturvardsverketFormatError(f"content.{key} is {c.get(key)!r}, not {want!r}")
-    reviewed = c.get("lastReviewed")
-    if not isinstance(reviewed, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", reviewed):
-        raise NaturvardsverketFormatError(f"content.lastReviewed {reviewed!r} is not a date")
+    # The page printed a bare date until October 2026; since November it prints Swedish local midnight with its
+    # offset ("2026-10-29T00:00:00+01:00"). Either way the producer's review date is the date part, unchanged.
+    raw_reviewed = c.get("lastReviewed")
+    m = REVIEWED.fullmatch(raw_reviewed) if isinstance(raw_reviewed, str) else None
+    if not m:
+        raise NaturvardsverketFormatError(f"content.lastReviewed {raw_reviewed!r} is not a date")
+    reviewed = m.group(1)
     if not isinstance(c.get("highChartsOptions"), str):
         raise NaturvardsverketFormatError("content.highChartsOptions is not a JSON string")
     opts = json.loads(c["highChartsOptions"])
@@ -159,13 +164,29 @@ def chart(model: dict) -> Chart:
     return Chart(csv=csv, last_reviewed=reviewed, gwp_step=gwp_table(c))
 
 
+def tab_html(tab: dict) -> str | None:
+    """A tab's HTML as the page prints it. Until October 2026 the page model held it as one `text` string (beside a
+    `textAsModel`); since November it holds only `textAsModel.fragments`, each with its HTML in `raw` (a heading
+    fragment's raw is the plain heading), in page order. A fragment without a raw string is refused."""
+    text, model = tab.get("text"), tab.get("textAsModel")
+    if isinstance(text, str):
+        return text
+    if text is not None or not isinstance(model, dict) or not isinstance(model.get("fragments"), list):
+        return None
+    raws = [f.get("raw") if isinstance(f, dict) else None for f in model["fragments"]]
+    if not raws or not all(isinstance(r, str) for r in raws):
+        return None
+    return "\n".join(raws)
+
+
 def gwp_table(content: dict) -> str:
     """The page's tab GWP_TAB must still hold the conversion table GWP_TABLE and its link to the IPCC's fourth
     assessment, which the scope and description describe; returns the step that says so."""
     tabs = [t for t in content.get("tabItems") or [] if isinstance(t, dict) and t.get("heading") == GWP_TAB]
-    if len(tabs) != 1 or not isinstance(tabs[0].get("text"), str):
+    html = tab_html(tabs[0]) if len(tabs) == 1 else None
+    if html is None:
         raise NaturvardsverketFormatError(f"expected one tab {GWP_TAB!r} with text, found {len(tabs)}")
-    text = textmatch.html_to_text(tabs[0]["text"])
+    text = textmatch.html_to_text(html)
     key = textmatch.match_key(text)
     at = 0
     for cell in GWP_TABLE:

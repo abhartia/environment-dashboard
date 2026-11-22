@@ -169,9 +169,33 @@ def test_nv_gwp_table_is_checked_on_the_page():
     model = nv.page_model(_current_file(nv.SOURCE, nv.PAGE.artifact_id).path.read_bytes())
     assert "AR4" in nv.gwp_table(model["content"])
     tab = next(t for t in model["content"]["tabItems"] if t.get("heading") == nv.GWP_TAB)
-    changed = {**model["content"], "tabItems": [{**tab, "text": tab["text"].replace("<td>298</td>", "<td>265</td>")}]}
+    # Since November 2026 the tab's HTML comes in fragments (textAsModel), not one text string.
+    assert "text" not in tab and len(tab["textAsModel"]["fragments"]) == 4
+    parts = tab["textAsModel"]["fragments"]
+    fragments = [{**f, "raw": f["raw"].replace("<td>298</td>", "<td>265</td>")} for f in parts]
+    changed = {**model["content"], "tabItems": [{**tab, "textAsModel": {"fragments": fragments}}]}
     with pytest.raises(nv.NaturvardsverketFormatError, match="298"):
         nv.gwp_table(changed)
+    # A fragment without its HTML is not a page this transform knows.
+    odd = {**tab, "textAsModel": {"fragments": [{"modelType": "RawFragment"}]}}
+    with pytest.raises(nv.NaturvardsverketFormatError, match="with text"):
+        nv.gwp_table({**model["content"], "tabItems": [odd]})
+
+
+@pytest.mark.snapshot
+def test_nv_review_date_is_read_from_a_bare_date_or_local_midnight():
+    # Since November 2026 the page prints its review date as Swedish local midnight with the offset; the date part
+    # is the producer's date. Anything else (another time of day, a non-date) is refused.
+    model = nv.page_model(_current_file(nv.SOURCE, nv.PAGE.artifact_id).path.read_bytes())
+    printed = model["content"]["lastReviewed"]
+    assert printed == "2026-10-29T00:00:00+01:00"
+    assert nv.chart(model).last_reviewed == "2026-10-29"
+    bare = {**model, "content": {**model["content"], "lastReviewed": "2026-10-29"}}
+    assert nv.chart(bare).last_reviewed == "2026-10-29"
+    for bad in ("2026-10-29T13:45:00+01:00", "29 oktober 2026", None):
+        changed = {**model, "content": {**model["content"], "lastReviewed": bad}}
+        with pytest.raises(nv.NaturvardsverketFormatError, match="is not a date"):
+            nv.chart(changed)
 
 
 @pytest.mark.snapshot
