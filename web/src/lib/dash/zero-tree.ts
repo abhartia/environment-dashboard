@@ -942,23 +942,27 @@ function netZeroEmitters(): Built {
   };
   const first = rows[0];
   const h = headline(NZ_COUNTRY, first.iso, { status: first.status });
+  // Each bar opens the country's climate plan in the action chapter, where Climate Watch has coded one.
+  const plans = new Set(action.ids());
+  const plan = (iso: string) => (plans.has(`ndc-${iso}`) ? `action:ndc-${iso}` : undefined);
+  const noPlan = rows.filter((r) => !plan(r.iso)).map((r) => entityName(r.iso));
   return {
     id: "net-zero-emitters",
     parent: "net-zero",
     crumb: "Largest emitters",
     kicker: "The largest emitters' net zero years",
     headline: h,
-    sentence: `for net zero in ${entityName(first.iso)} (${dimLabel(NZ_COUNTRY, "status", first.status).toLowerCase()}), the largest emitter with a target. Each bar is a country's target year, coloured by how firm it is.`,
+    sentence: `for net zero in ${entityName(first.iso)} (${dimLabel(NZ_COUNTRY, "status", first.status).toLowerCase()}), the largest emitter with a target. Each bar is a country's target year, coloured by how firm it is, and opens what its climate plan contains.`,
     chart: bars(
       rows.map((r) => {
         const colour = STATUS_COLOUR[r.status];
         if (!colour) throw new Error(`zero/net-zero-emitters: no colour for status ${r.status}`);
-        return { key: r.iso, label: `${entityName(r.iso)}, ${dimLabel(NZ_COUNTRY, "status", r.status).toLowerCase()}`, value: r.value, colour };
+        return { key: r.iso, label: `${entityName(r.iso)}, ${dimLabel(NZ_COUNTRY, "status", r.status).toLowerCase()}`, value: r.value, colour, drill: plan(r.iso) };
       }),
       "target year",
       0,
       h.period,
-      `The largest greenhouse gas emitters in ${period} (FAO), largest first.${without.length ? ` No net zero target: ${without.map(reason).join(", ")}.` : ""}`,
+      `The largest greenhouse gas emitters in ${period} (FAO), largest first.${without.length ? ` No net zero target: ${without.map(reason).join(", ")}.` : ""}${noPlan.length ? ` No climate plan coded by Climate Watch: ${noPlan.join(", ")}.` : ""}`,
     ),
     drills: [],
     credit: credit(NZ_COUNTRY, GHG),

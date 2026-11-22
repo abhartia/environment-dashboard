@@ -63,6 +63,15 @@ export function resolvedNode(slug: string, id: string): DrillNode {
     if (!indicators.includes(h.indicator)) indicators.push(h.indicator);
     return { ...filled, soWhat: { ...d.soWhat, headline: h } };
   });
+  // A band, line or bar that opens a view ("ndc-CHN", or "action:ndc-CHN" in another chapter) must name one the
+  // chapter publishes, so selecting it never lands on a missing node.
+  const chartDrills = node.chart.kind === "bars" ? node.chart.bars.map((b) => b.drill) : node.chart.series.map((s) => s.drill);
+  for (const to of chartDrills) {
+    if (!to) continue;
+    const m = to.match(/^([a-z]+):(.+)$/);
+    const [target, view] = m ? [m[1], m[2]] : [slug, to];
+    if (!CHAPTERS[target] || !idsOf(target).has(view)) throw new Error(`${slug}/${id}: the chart opens ${to}, which no chapter publishes`);
+  }
   const so = drills.filter((d) => d.soWhat);
   if (so.length > 1) throw new Error(`${slug}/${id}: ${so.length} "so what" cards; a view has at most one`);
   return { ...node, drills: [...so, ...drills.filter((d) => !d.soWhat)], credit: credits, indicators };
