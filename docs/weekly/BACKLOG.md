@@ -13,7 +13,8 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 | G1 | How much international public money reaches adaptation (the fourth AGR indicator) | unep-agr-2025 online annexes PDF (noncommercial) | zero adaptation nodes | owner: download `AGR2025_Online_Annexes.pdf` by hand (runbook step 4) |
 | G3 | Wildlife populations to 2022 (Living Planet Report 2026) | living-planet-index (share-alike; terms re-read 2026-10-11) | `/food` species nodes | owner: download the nine trend CSVs, then adopt and update the citation |
 | G4 | Keep electric car shares fetchable | iea-gevo-2026 evs-historical (open) | `/energy?v=ev` and below | done 2026-10-18: the IEA moved the route to `api.iea.org/electric-vehicles` (same bytes) |
-| G2 | Heat-related deaths after 2021 | Lancet Countdown 2026 report (noncommercial; terms not re-read yet) | `/people` heat deaths, and every other Lancet indicator | todo, next run first: out by 2026-11-08 on a new portal, data.lancetcountdown.org/data-explorer ("2026 Indicator catalogue"; 1.1.5 "last updated in September 2026", CSV and XLSX under `/downloads/2026/<indicator>/<hash>/lancet-countdown-2026-<indicator>-<name>.csv`). The 2025 source reads XLSX workbooks, so this is a new vintage of a new shape: read the portal's terms first, then one transform per file layout, re-pinned snapshot facts and the people and heat nodes rechecked |
+| G2 | Heat-related deaths after 2021 | Lancet Countdown 2026 (noncommercial; terms re-read 2026-11-22, quote unchanged) | `/people` heat deaths, and every other Lancet indicator | todo, next run first: XLSX at `data.lancetcountdown.org/downloads/2026/<ind>/<hash>/lancet-countdown-2026-<ind>-<name>.xlsx`; 1.1.5 to 2023 (plus a confidence-interval file), 1.1.1 heatwave days and vulnerable populations to 2025, labour is 1.1.3 (to 2025), 1.1.4 is now sleep loss, 3.2.1 sector and source to 2023. One transform per layout, re-pinned snapshot facts, people and heat nodes rechecked |
+| G6 | Electricity mix by country from Ember's file of 17 November 2026 | ember-yearly (open) | `/energy` country mixes | blocked (producer): 67 small-territory area-years whose shares do not add up to 100 (Ember's own Total share prints the same); by-country held at 3 November; re-fetch weekly, never declare exceptions |
 | G5 | Food and all-sector emissions to 2024 (FAOSTAT release of 2026-11-06) | faostat (open), faostat-all-sectors (noncommercial) | `/emissions`, `/food` | done 2026-11-15: PRIMAP-hist v2.8 verified (same class), bunkers a World-only seventh part, flag-L rows left out and named, Tuvalu 2000 methane sum declared; follow-up: add a publisher check when FAO publishes a brief for this release |
 
 ## Dead ends answerable from data already published
@@ -27,7 +28,7 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 | D5 | Primary forest loss and driver bars → the existing `tl-<iso>` country nodes | `forest.gfw.*` (open) | `/food?v=primary-loss-countries`, `driver-<id>` | done 2026-10-25 (tl- nodes for all three rankings, 50 countries) |
 | D6 | A country's forest area over time below `tl-<iso>` | `forest.fao-fra-2025.area` (open) | `/food?v=tl-<iso>` | done 2026-11-15 (`fa-<ISO>`, 50 nodes) |
 | D7 | Each country's electrification over time (bars → country line) | `electricity.eurostat.share-of-final-energy` (open) | `/zero?v=electrify-countries` | done 2026-11-08 (`electrify-<ISO>`) |
-| D8 | Net zero emitters' bars → the existing `action:ndc-<iso>` nodes | `ndc.climate-watch.2025-ndc` (noncommercial) | `/zero?v=net-zero-emitters` | todo |
+| D8 | Net zero emitters' bars → the existing `action:ndc-<iso>` nodes | `ndc.climate-watch.2025-ndc` (noncommercial) | `/zero?v=net-zero-emitters` | done 2026-11-22 (all 13 bars) |
 | D9 | A country's net zero target below its NDC | `net-zero.nzt-2025.target-by-country` (noncommercial) | `/action?v=ndc-<iso>` | todo |
 | D10 | Ocean pH beside surface carbon dioxide (sibling drill) | `ph.hot-aloha.surface-insitu` (open) | `/oceans?v=pco2` | todo |
 
@@ -46,6 +47,10 @@ Status: `todo`, `blocked (<why>)`, `done <date>`, `owner` (needs the owner: a ne
 | N9 | A per-person denominator for energy | UN WPP 2024 or WDI population (open) | `/energy` | todo: needed before any "per person" energy view |
 
 ## Notes
+
+- Net Zero Tracker's end target for Germany is "Net negative" for 2050, so `/zero?v=net-zero-emitters` shows 2050
+  while Germany's law also sets net zero for 2045. Check, against the tracker's own documentation, whether the
+  transform should pick the net zero row where a country has both, before changing anything.
 
 - `ghg.faostat.by-sector` and `ghg.faostat.ch4-share-by-sector` now carry a World-only `bunkers` part (international
   aviation and shipping). A country view never has it; any new World-level view of these indicators must keep it in

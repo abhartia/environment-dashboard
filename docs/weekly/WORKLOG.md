@@ -3,6 +3,83 @@
 One entry per Sunday run of the data steward routine (newest first): what was refreshed, what failed and why, what
 was fixed, what depth was added, dead ends, and what the next run should do first.
 
+## 2026-11-22
+
+Third run on the Windows machine. Still no run secrets in `%USERPROFILE%\.secrets` (only two unrelated keys), so GFW,
+NASA SSH, R2 and the Internet Archive were unavailable again. The `.claude/worktrees/weekly-depth` worktree (at
+origin/main) held uncommitted work from an earlier, unrecorded session of 2026-11-21: a Naturvårdsverket fix, backlog
+D8, and a fetch that had recorded Ember's file of 17 November. I reviewed it and kept it rather than discarding it,
+re-ran the refresh over it, and shipped it after the gates.
+
+**Refresh.** `envdash refresh` (about 25 minutes). Every reachable licence quote was unchanged. New vintages: NOAA GML
+2026-11 (Mauna Loa October 426.69 ppm; global methane 2025 1936.03 → 1935.95 ppb), C3S Climate Pulse to 20 November,
+AVISO to September 2026, NSIDC, OSI SAF, Systems Change Lab, FAO FRA re-download (values unchanged), EIA bulk manifest,
+WDI population, and Ember yearly and monthly files of 17 November. Ember revised world solar up about 2 % in every year
+(2025 share 8.791 → 8.986 %), so the world clean share 2025 is 42.309 → 42.483 %. That is a producer revision,
+consistent across the series. No errata.
+
+**Fixed (56e5b44).** Naturvårdsverket's page now prints `lastReviewed` as local midnight with an offset and holds the
+GWP tab's HTML only as `textAsModel.fragments`. The transform reads the date part (any other time is refused) and joins
+the fragments' raw HTML. Snapshot tests are pinned to the November page. Values unchanged.
+
+**Held, not fixable here: ember-yearly by country.** Ember's 17 November file fails the by-country share check in 67
+area-years across 19 small territories (Cook Islands 2021–2024, Montserrat 2019–2024 with 104.286 % in 2023, Kiribati,
+Nauru, Falklands, Guinea-Bissau, French Guiana, Guadeloupe, Réunion and others; off by 0.003 to 4.3 points). In each,
+Ember's own `Total generation` share prints the same off-100 figure. For Cook Islands 2021, generation of 0.008 and 0.02
+TWh gives 28.714 % and 71.784 %, a denominator about 0.5 % below the total. The 3 November file passed in all 5,312
+area-years. That is a producer inconsistency, not our parsing. Declaring 67 exceptions would amount to loosening the
+check, so `electricity.ember.mix-by-country`, `clean-share-by-country` and `lifecycle-intensity-by-country` keep the 3
+November vintage, and issue `source:ember-yearly` is open. The World indicators passed every check and use the 17
+November file. The scan script is not committed: it runs `check_area_year` over `area_years(read_table(...))` and
+collects every failure.
+
+**Other failures (host side or missing keys).** `gfw-tree-cover-loss` and `nasa-ssh-gmsl` (no keys), `grant-2025`
+(Europe PMC HTTP 500), `ipcc-ar6-wg1-spm1` (CEDA HTTP 503 on panel a's 1–2000 reconstruction; the other three panels
+were not modified), `rajalehto-helo-2025` (osuva.uwasa.fi timed out), and `unep-agr-2025` (manual). Recovered and
+closed: wb-cckp (#20), furch-2022 (#15) and rosenow-2025 (#19). Terms unverifiable as before: ourairports.com (expired
+certificate), and Europe PMC for rosenow and scarborough (HTTP 500).
+
+**Release due: Lancet Countdown 2026 (G2), checked, not adopted.** The terms page (lancetcountdown.org/use-our-data/)
+still carries our quote word for word (CC BY-NC-SA 4.0), so the class stays noncommercial. The site's general Terms
+& Conditions speak of "personal, non-commercial use" without redistribution. They are unchanged since we adopted the
+2025 data, and the specific data licence governs, as before. The 2026 files are XLSX at
+`data.lancetcountdown.org/downloads/2026/<indicator>/<hash>/lancet-countdown-2026-<indicator>-<name>.xlsx`. 1.1.5
+heat deaths runs to 2023 (the 2025 report ran to 2021). 1.1.1 and 1.1.3 run to 2025, and 3.2.1 to 2023. Labour is
+1.1.3 and 1.1.4 is now sleep loss. Not adopted this run (too large to finish alongside the rest).
+
+**Depth shipped.** Backlog D8 (f77b808): each bar on `/zero?v=net-zero-emitters` now opens `/action?v=ndc-<ISO>`.
+All 13 emitters have one, and a country without a coded plan would be named in the caption. `resolvedNode` now checks
+chart drills as it already checked cards. No new indicator, card or screen. I chose D8 because it was finished and
+its gates passed, and G2 does not fit in one run.
+
+**Visual check: not possible.** Starting the static preview server was declined (no one present to approve it). Instead
+I read the node file: 13 bars, each with `drill: action:ndc-<ISO>`. `crossHref` and `drill-canvas` route a bar's
+cross-chapter drill with `router.push`.
+
+**Gates.** ruff, ruff format, `pytest -q` (1,120 passed), `envdash validate` (0 problems), gen:api clean, typecheck,
+lint, `npm test` (235), build with check-build (5,468 files, 215 indicators). Snapshot tests: the full run gave 457 passed and 14 failed. Ten of the failures were facts pinned to the old vintages (Ember 3 → 17 November, AVISO 7 → 21 November, EIA's count of country-years checked 11,140 → 11,563); they were re-pinned to the new files, and the Ember by-country tests now read the snapshot the published indicators were built from. A new test pins the refusal of the 17 November file, and the rerun of those files passes (19). The four remaining failures are the expected ones: three UNEP-annex tests, and the golden rebuild (WinError 1314).
+
+**Not archived.** No R2 or Internet Archive keys. Three weeks of snapshots now have no `r2_key`. Their bytes were copied
+into the main checkout's `pipeline/.snapshots` before the worktree was removed. No private export changed.
+
+**Issues.** Opened ember-yearly, ipcc-ar6-wg1-spm1 and rajalehto-helo-2025. Closed furch-2022, rosenow-2025 and
+wb-cckp. Updated #3, #16, #17 and #18. New release-due issue: iucn-red-list-gbif.
+
+**Owner actions.**
+1. **Renew the Earthdata token at urs.earthdata.nasa.gov › Generate Token.** It expires on 2026-12-05, in 13 days.
+   Store it as `earthdata-envdash` in `%USERPROFILE%\.secrets`.
+2. Put the run's secrets on this machine as DPAPI files in `%USERPROFILE%\.secrets`: `r2-envdash-access-key-id`,
+   `r2-envdash-secret-access-key`, `gfw-api-key`, `archive-org-s3-access`, `archive-org-s3-secret` and `eia-api-key`.
+   Three weeks of snapshots are waiting to be archived.
+3. Optional: tell Ember (hello@ember-energy.org) that its 17 November yearly file has small-territory shares that do not
+   add up to 100 (Cook Islands 2021: 100.498 %; Montserrat 2023: 104.286 %).
+4. Download the Living Planet Report 2026 trend CSVs and `AGR2025_Online_Annexes.pdf` (as before). The IDMC key has
+   still not been issued.
+
+**Next run first.** Re-fetch Ember. If its file adds up again, the three by-country indicators rebuild by themselves.
+If it does not, hold again; never declare 67 exceptions. Then adopt Lancet Countdown 2026 (G2), starting with 1.1.5
+and 1.1.1. Run `envdash archive` if the R2 keys exist.
+
 ## 2026-11-15
 
 Second run on the Windows machine; it started on Sunday 15 November and finished early on the 16th. Still no run
