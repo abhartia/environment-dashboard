@@ -26,48 +26,48 @@
   "notes": [],
   "notice": null,
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "intl-bulk", "bytes": 24148612, "citation_full": "Source: U.S. Energy Information Administration (Nov 2026).", "date_accessed": "2026-11-15", "date_published": "2026-11-09", "doi": null, "etag": "\"02c7bd5c871dd1:0\"", "last_modified": "Wed, 11 Nov 2026 10:38:48 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "source_id": "eia-international", "title": "International energy data", "url_download": "https://www.eia.gov/opendata/bulk/INTL.zip", "url_main": "https://www.eia.gov/international/data/world", "version_producer": "Nov 2026", "wayback_url": null},
-    {"acquisition": "automatic", "artifact_id": "bulk-manifest", "bytes": 28398, "citation_full": "Source: U.S. Energy Information Administration (Nov 2026).", "date_accessed": "2026-11-15", "date_published": "2026-11-09", "doi": null, "etag": "\"80eabe697874dd1:0\"", "last_modified": "Sat, 14 Nov 2026 20:40:41 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02", "source_id": "eia-international", "title": "International energy data", "url_download": "https://www.eia.gov/opendata/bulk/manifest.txt", "url_main": "https://www.eia.gov/international/data/world", "version_producer": "Nov 2026", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "intl-bulk", "bytes": 24714575, "citation_full": "Source: U.S. Energy Information Administration (Nov 2026).", "date_accessed": "2026-11-21", "date_published": "2026-11-19", "doi": null, "etag": "\"0af691f6678dd1:0\"", "last_modified": "Thu, 19 Nov 2026 20:39:50 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "source_id": "eia-international", "title": "International energy data", "url_download": "https://www.eia.gov/opendata/bulk/INTL.zip", "url_main": "https://www.eia.gov/international/data/world", "version_producer": "Nov 2026", "wayback_url": null},
+    {"acquisition": "automatic", "artifact_id": "bulk-manifest", "bytes": 28398, "citation_full": "Source: U.S. Energy Information Administration (Nov 2026).", "date_accessed": "2026-11-22", "date_published": "2026-11-19", "doi": null, "etag": "\"020cbac6d7add1:0\"", "last_modified": "Sun, 22 Nov 2026 10:38:56 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "U.S. Energy Information Administration", "r2_url": null, "sha256": "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279", "source_id": "eia-international", "title": "International energy data", "url_download": "https://www.eia.gov/opendata/bulk/manifest.txt", "url_main": "https://www.eia.gov/international/data/world", "version_producer": "Nov 2026", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read INTL.txt from EIA's bulk file INTL.zip. EIA's bulk manifest gives the INTL release as last updated 9 November 2026 and names this zip as its file, so the vintage is 'Nov 2026'. The zip was last modified on the server on Wed, 11 Nov 2026 10:38:48 GMT.",
-      "inputs": ["fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02"],
+      "description": "Read INTL.txt from EIA's bulk file INTL.zip. EIA's bulk manifest gives the INTL release as last updated 19 November 2026 and names this zip as its file, so the vintage is 'Nov 2026'. The zip was last modified on the server on Thu, 19 Nov 2026 20:39:50 GMT.",
+      "inputs": ["2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
       "transform_sha256": "bac889878ed69d297a325eb1a219f86e2bf30218afbcf518e5010d9ff73a11b1"
     },
     {
       "description": "Kept the annual consumption series in quadrillion Btu: total energy consumption and its five fuels (coal, natural gas, petroleum and other liquids, nuclear, renewables and other), checking each series' name and units. Kept the World and the 220 countries and territories in pipeline/geo/entities.csv, matched by EIA's ISO 3 code (EIA's XKS is Kosovo, KOS, and its SCG, Former Serbia and Montenegro, is Serbia and Montenegro as reported together, SRB_MNE); EIA's regional aggregates are left out, and so are these geographies, which have no entity in the crosswalk: Former Czechoslovakia; Former U.S.S.R.; Former Yugoslavia; Germany, East; Germany, West; Hawaiian Trade Zone; Netherlands Antilles; U.S. Pacific Islands; U.S. Territories; Wake Island.",
-      "inputs": ["fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02"],
+      "inputs": ["2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
       "transform_sha256": "bac889878ed69d297a325eb1a219f86e2bf30218afbcf518e5010d9ff73a11b1"
     },
     {
-      "description": "Checked EIA's accounting method against its own generation series: for every country other than the United States, the energy content of hydro, wind, solar, geothermal and tide and wave electricity is 3,412 Btu per kilowatt-hour, the captured-energy approach (11,140 country-years checked). Not on that basis in this file: USA: 72 values, e.g. solar 2023 3676, solar 2024 3622 Btu per kWh. World nuclear consumption is 10,379 Btu per kilowatt-hour of nuclear generation in 2024, the heat input of the plants.",
-      "inputs": ["fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02"],
+      "description": "Checked EIA's accounting method against its own generation series: for every country other than the United States, the energy content of hydro, wind, solar, geothermal and tide and wave electricity is 3,412 Btu per kilowatt-hour, the captured-energy approach (11,563 country-years checked). Not on that basis in this file: USA: 74 values, e.g. solar 2024 3746, solar 2025 3697 Btu per kWh. World nuclear consumption is 10,586 Btu per kilowatt-hour of nuclear generation in 2024, the heat input of the plants.",
+      "inputs": ["2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
       "transform_sha256": "bac889878ed69d297a325eb1a219f86e2bf30218afbcf518e5010d9ff73a11b1"
     },
     {
       "description": "Where EIA's total differs from the sum of its five fuel series, both are published as given. Entities where they differ in this vintage: USA, WLD (World 2024: total minus the sum is -1.442 quad Btu).",
-      "inputs": ["fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02"],
+      "inputs": ["2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
       "transform_sha256": "bac889878ed69d297a325eb1a219f86e2bf30218afbcf518e5010d9ff73a11b1"
     },
     {
       "description": "EIA's codes '--', 'NA' and 'ie' (which the file does not define) are null values whose reason quotes the code.",
-      "inputs": ["fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02"],
+      "inputs": ["2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
       "transform_sha256": "bac889878ed69d297a325eb1a219f86e2bf30218afbcf518e5010d9ff73a11b1"
     },
     {
       "description": "Unit conversion to average power, for the World only: EIA's total energy consumption in quadrillion Btu times 10^15 times 1,055.05585262 joules per Btu (the International Table Btu, exact; EIA's 3,412.14 Btu per kilowatt-hour, checked above, is the same definition), divided by 3.6 x 10^15 joules per terawatt-hour, then by the hours in that calendar year (8,760, or 8,784 in a leap year), giving terawatts (TWh / h = TW), in exact decimal arithmetic. The result is the constant power that would deliver the same energy over the year.",
-      "inputs": ["fcc89cff31122a166a02c6e62e8b33932cc3a5f099426c20ad88f426fa33b957", "78079f6a580b1a6dfca01c4abb8fa5223802fd747d0d5618b63aacb49d9a2e02"],
+      "inputs": ["2a79be689b8d93787745b129630b1a5a97365ecb4528381d02da490264628857", "1c4447b0db351edf76767319f5446a7270417d496a34350208671d24fdc8e279"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/energy/eia_international.py",
       "transform_sha256": "bac889878ed69d297a325eb1a219f86e2bf30218afbcf518e5010d9ff73a11b1"

@@ -8,6 +8,7 @@ full-file tests (-m snapshot) need pipeline/.snapshots populated by envdash fetc
 from __future__ import annotations
 
 import dataclasses
+import json
 
 import pytest
 
@@ -122,17 +123,54 @@ def test_entity_codes_are_resolved_explicitly():
 # --- full snapshot ------------------------------------------------------------------------------------------------
 
 
-def _current(key: str) -> InputFile:
+def _snapshot(sha: str) -> InputFile:
     p = Paths.default()
-    sha = snapshots.read_current(p)[key]
     snap = snapshots.read_manifest(p, sha)
     assert isinstance(snap, Snapshot)
     return InputFile(snapshots.cache_path(p, sha), snap)
 
 
+def _current(key: str) -> InputFile:
+    return _snapshot(snapshots.read_current(Paths.default())[key])
+
+
+def _published(key: str) -> InputFile:
+    """The snapshot the published by-country indicators were built from (their build manifest's input), which is not
+    the current one while Ember's newest file is refused (see the test below)."""
+    build = json.loads((Paths.default().builds / f"{IDS[0]}.json").read_text(encoding="utf-8"))
+    return _snapshot(build["key_parts"]["inputs"][key]["sha256"])
+
+
+# Ember's file of 17 November 2026 (last modified 2026-11-17T18:34:40Z).
+REFUSED_17_NOVEMBER = "43db1b75e3ae16eff5fc62a4bfa1f10876efa24af953e0069a939441ea95c616"
+
+
+@pytest.mark.snapshot
+def test_file_of_17_november_is_refused_where_shares_do_not_add_up():
+    # In 67 area-years of 19 small territories the sources' shares miss 100 by more than rounding, and Ember's own
+    # Total generation share prints the same figure (Cook Islands 2021: Solar 28.714 + Other fossil 71.784 = 100.498;
+    # Montserrat 2023: 104.286). The file of 3 November passed in every area-year. Nothing is declared or loosened:
+    # the by-country indicators keep the last file that passes.
+    groups = ec.area_years(read_table(_snapshot(REFUSED_17_NOVEMBER).path.read_bytes()))
+    failed = []
+    for ay in groups:
+        try:
+            ec.check_area_year(ay)
+        except EmberFormatError as e:
+            failed.append((ay.entity, ay.year, str(e)))
+    assert len(failed) == 67 and len({e for e, _, _ in failed}) == 19
+    assert ("COK", "2021", "Cook Islands (the) 2021: the source shares add up to 100.498, not 100") in failed
+    assert ("MSR", "2023", "Montserrat 2023: the source shares add up to 104.286, not 100") in failed
+    assert all(
+        ay.rows["Total generation"][ec.SHARE] != "100.0"
+        for ay in groups
+        if (ay.entity, ay.year) in {(e, y) for e, y, _ in failed}
+    )
+
+
 @pytest.mark.snapshot
 def test_full_file_publishes_the_overseas_regions_and_a_clean_share_printed_above_100():
-    r = ec.read(read_table(_current(GENERATION.key).path.read_bytes()))
+    r = ec.read(read_table(_published(GENERATION.key).path.read_bytes()))
     assert {"GUF", "REU"} <= {ay.entity for ay in r.groups}
     # The file of 3 November 2026 has no negative generation, so nothing is withheld (11 country-years were in the
     # file of 19 October, Costa Rica 2025 among them; the rule is tested on the fixture above).
@@ -150,7 +188,7 @@ def test_full_file_publishes_the_overseas_regions_and_a_clean_share_printed_abov
 
 @pytest.mark.snapshot
 def test_full_transforms_run_and_validate():
-    files = {GENERATION.key: _current(GENERATION.key), METHODOLOGY.key: _current(METHODOLOGY.key)}
+    files = {GENERATION.key: _published(GENERATION.key), METHODOLOGY.key: _current(METHODOLOGY.key)}
     ts = {t.spec.id: t for t in discover(Paths.default())}
     for tid in IDS:
         res = ts[tid].run(files)

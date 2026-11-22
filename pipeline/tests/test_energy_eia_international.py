@@ -178,7 +178,7 @@ def test_full_transform_run():
     res = ts["energy.eia.fossil-share"].run(files)
     validate(ts["energy.eia.fossil-share"], res.observations)
     assert res.vintage == "Nov 2026" and res.changes
-    assert "(11,140 country-years checked)" in res.steps[2]
+    assert "(11,563 country-years checked)" in res.steps[2]
     assert "Entities where they differ in this vintage: USA, WLD" in res.steps[3]
     over = [o for o in res.observations if o.value is not None and o.value > 100]
     assert len(over) == 244 and max(o.value for o in over) == pytest.approx(109.637, abs=1e-3)  # type: ignore[type-var]

@@ -1,5 +1,5 @@
 {
-  "attribution": "NOAA Global Monitoring Laboratory (Lan, Thoning & Dlugokencky), version 2026-10, doi:10.15138/P8XG-AA10.",
+  "attribution": "NOAA Global Monitoring Laboratory (Lan, Thoning & Dlugokencky), version 2026-11, doi:10.15138/P8XG-AA10.",
   "description": "Annual mean nitrous oxide in dry air averaged over NOAA's global network of marine surface air-sampling sites, since 2001.",
   "dimensions": [],
   "display": {
@@ -26,26 +26,26 @@
   "notes": [],
   "notice": "The NOAA Global Monitoring Laboratory methane and nitrous oxide global marine surface means are US Government material and are not subject to copyright protection in the United States.",
   "origins": [
-    {"acquisition": "automatic", "artifact_id": "n2o-annmean-gl", "bytes": 2455, "citation_full": "Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-10, https://doi.org/10.15138/P8XG-AA10", "date_accessed": "2026-10-11", "date_published": "2026-10-09", "doi": "10.15138/P8XG-AA10", "etag": "\"997-65d6d473ccf83\"", "last_modified": "Fri, 09 Oct 2026 19:23:08 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": "https://files.environmentdashboard.org/raw/fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b.zst", "sha256": "fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b", "source_id": "noaa-gml-trends-ch4-n2o-sf6", "title": "Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv", "url_main": "https://gml.noaa.gov/ccgg/trends_doi.html", "version_producer": "2026-10", "wayback_url": null}
+    {"acquisition": "automatic", "artifact_id": "n2o-annmean-gl", "bytes": 2455, "citation_full": "Lan, X., K.W. Thoning, and E.J. Dlugokencky: Trends in globally-averaged CH4, N2O, and SF6 determined from NOAA Global Monitoring Laboratory measurements. Version 2026-11, https://doi.org/10.15138/P8XG-AA10", "date_accessed": "2026-11-21", "date_published": "2026-11-19", "doi": "10.15138/P8XG-AA10", "etag": "\"997-660a7dba7fe40\"", "last_modified": "Thu, 19 Nov 2026 21:32:01 GMT", "licence": {"name": "Public domain (work of the US federal government)", "spdx": null, "url": "https://www.copyright.gov/title17/92chap1.html#105"}, "producer": "NOAA Global Monitoring Laboratory", "r2_url": null, "sha256": "99c9bee98ea209c91c9d4c86700748d557903edc6aeb2c01af4830889fe93c17", "source_id": "noaa-gml-trends-ch4-n2o-sf6", "title": "Trends in globally-averaged methane, nitrous oxide and sulphur hexafluoride", "url_download": "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv", "url_main": "https://gml.noaa.gov/ccgg/trends_doi.html", "version_producer": "2026-11", "wayback_url": null}
   ],
   "processing": [
     {
-      "description": "Read n2o_annmean_gl.csv, created by NOAA on 9 October 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
-      "inputs": ["fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b"],
+      "description": "Read n2o_annmean_gl.csv, created by NOAA on 19 November 2026. The vintage is the year and month of that creation date, which is how NOAA labels its versions.",
+      "inputs": ["99c9bee98ea209c91c9d4c86700748d557903edc6aeb2c01af4830889fe93c17"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
       "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
     },
     {
       "description": "Lower and upper are the mean minus and plus NOAA's stated uncertainty, which the file defines as the standard deviations of 100 bootstrap (network) and 100 Monte Carlo (measurement) global averages taken in quadrature (one standard deviation).",
-      "inputs": ["fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b"],
+      "inputs": ["99c9bee98ea209c91c9d4c86700748d557903edc6aeb2c01af4830889fe93c17"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
       "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
     },
     {
       "description": "The last year is marked preliminary because the file states that the data for the last year are subject to change.",
-      "inputs": ["fdc99f462233e9f8acba3e7eab90a972eef1dec6ded65173ed395fd74f82b71b"],
+      "inputs": ["99c9bee98ea209c91c9d4c86700748d557903edc6aeb2c01af4830889fe93c17"],
       "lock_sha256": "540d352a2533554fbfd8f392b6bae78d1f9332effe729c06b520b2a630450330",
       "script": "pipeline/src/envdash/transforms/air/noaa_ch4_n2o.py",
       "transform_sha256": "10dc38222688b6d57bb5a048a714817da27eaad60322fa658a533496b920573d"
@@ -79,5 +79,5 @@
     "label": "parts per billion",
     "short": "ppb"
   },
-  "vintage": "2026-10"
+  "vintage": "2026-11"
 }

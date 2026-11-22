@@ -1,7 +1,7 @@
 # World electricity generation by source
-# Indicator: electricity.ember.mix-world (vintage 2026-11-03); unit: percent of electricity generation (percent)
+# Indicator: electricity.ember.mix-world (vintage 2026-11-17); unit: percent of electricity generation (percent)
 # Source: Ember <https://ember-energy.org/data/yearly-electricity-data/>
-# Credit: Ember, Yearly Electricity Data (file of 2026-11-03), CC BY 4.0.
+# Credit: Ember, Yearly Electricity Data (file of 2026-11-17), CC BY 4.0.
 # Licence: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
 # Provenance and processing: https://environmentdashboard.org/data/electricity/ember/mix-world
 indicator_id,entity,period,value,lower,upper,interval,status,note,missing_reason,age_bp,source
@@ -21,16 +21,16 @@ electricity.ember.mix-world,WLD,2012,0.429,,,,final,,,,solar
 electricity.ember.mix-world,WLD,2013,0.567,,,,final,,,,solar
 electricity.ember.mix-world,WLD,2014,0.831,,,,final,,,,solar
 electricity.ember.mix-world,WLD,2015,1.064,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2016,1.324,,,,final,,,,solar
+electricity.ember.mix-world,WLD,2016,1.323,,,,final,,,,solar
 electricity.ember.mix-world,WLD,2017,1.743,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2018,2.17,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2019,2.594,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2020,3.18,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2021,3.719,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2022,4.603,,,,final,,,,solar
-electricity.ember.mix-world,WLD,2023,5.605,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
-electricity.ember.mix-world,WLD,2024,6.954,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
-electricity.ember.mix-world,WLD,2025,8.791,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
+electricity.ember.mix-world,WLD,2018,2.174,,,,final,,,,solar
+electricity.ember.mix-world,WLD,2019,2.651,,,,final,,,,solar
+electricity.ember.mix-world,WLD,2020,3.248,,,,final,,,,solar
+electricity.ember.mix-world,WLD,2021,3.785,,,,final,,,,solar
+electricity.ember.mix-world,WLD,2022,4.669,,,,final,,,,solar
+electricity.ember.mix-world,WLD,2023,5.705,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
+electricity.ember.mix-world,WLD,2024,7.085,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
+electricity.ember.mix-world,WLD,2025,8.986,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,solar
 electricity.ember.mix-world,WLD,2000,0.203,,,,final,,,,wind
 electricity.ember.mix-world,WLD,2001,0.246,,,,final,,,,wind
 electricity.ember.mix-world,WLD,2002,0.324,,,,final,,,,wind
@@ -49,14 +49,14 @@ electricity.ember.mix-world,WLD,2014,2.967,,,,final,,,,wind
 electricity.ember.mix-world,WLD,2015,3.449,,,,final,,,,wind
 electricity.ember.mix-world,WLD,2016,3.883,,,,final,,,,wind
 electricity.ember.mix-world,WLD,2017,4.471,,,,final,,,,wind
-electricity.ember.mix-world,WLD,2018,4.785,,,,final,,,,wind
-electricity.ember.mix-world,WLD,2019,5.283,,,,final,,,,wind
-electricity.ember.mix-world,WLD,2020,5.938,,,,final,,,,wind
-electricity.ember.mix-world,WLD,2021,6.549,,,,final,,,,wind
-electricity.ember.mix-world,WLD,2022,7.261,,,,final,,,,wind
-electricity.ember.mix-world,WLD,2023,7.781,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
-electricity.ember.mix-world,WLD,2024,8.067,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
-electricity.ember.mix-world,WLD,2025,8.472,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
+electricity.ember.mix-world,WLD,2018,4.784,,,,final,,,,wind
+electricity.ember.mix-world,WLD,2019,5.279,,,,final,,,,wind
+electricity.ember.mix-world,WLD,2020,5.934,,,,final,,,,wind
+electricity.ember.mix-world,WLD,2021,6.544,,,,final,,,,wind
+electricity.ember.mix-world,WLD,2022,7.256,,,,final,,,,wind
+electricity.ember.mix-world,WLD,2023,7.771,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
+electricity.ember.mix-world,WLD,2024,8.053,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
+electricity.ember.mix-world,WLD,2025,8.454,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,wind
 electricity.ember.mix-world,WLD,2000,17.178,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2001,16.508,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2002,16.241,,,,final,,,,hydro
@@ -71,18 +71,18 @@ electricity.ember.mix-world,WLD,2010,16.114,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2011,15.866,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2012,16.241,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2013,16.348,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2014,16.29,,,,final,,,,hydro
+electricity.ember.mix-world,WLD,2014,16.289,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2015,16.164,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2016,16.261,,,,final,,,,hydro
 electricity.ember.mix-world,WLD,2017,15.936,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2018,15.784,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2019,15.741,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2020,16.244,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2021,15.158,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2022,14.953,,,,final,,,,hydro
-electricity.ember.mix-world,WLD,2023,14.279,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
-electricity.ember.mix-world,WLD,2024,14.364,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
-electricity.ember.mix-world,WLD,2025,13.931,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
+electricity.ember.mix-world,WLD,2018,15.783,,,,final,,,,hydro
+electricity.ember.mix-world,WLD,2019,15.732,,,,final,,,,hydro
+electricity.ember.mix-world,WLD,2020,16.233,,,,final,,,,hydro
+electricity.ember.mix-world,WLD,2021,15.148,,,,final,,,,hydro
+electricity.ember.mix-world,WLD,2022,14.943,,,,final,,,,hydro
+electricity.ember.mix-world,WLD,2023,14.26,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
+electricity.ember.mix-world,WLD,2024,14.34,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
+electricity.ember.mix-world,WLD,2025,13.94,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,hydro
 electricity.ember.mix-world,WLD,2000,1.038,,,,final,,,,bioenergy
 electricity.ember.mix-world,WLD,2001,0.994,,,,final,,,,bioenergy
 electricity.ember.mix-world,WLD,2002,1.043,,,,final,,,,bioenergy
@@ -102,13 +102,13 @@ electricity.ember.mix-world,WLD,2015,1.957,,,,final,,,,bioenergy
 electricity.ember.mix-world,WLD,2016,1.95,,,,final,,,,bioenergy
 electricity.ember.mix-world,WLD,2017,1.967,,,,final,,,,bioenergy
 electricity.ember.mix-world,WLD,2018,1.988,,,,final,,,,bioenergy
-electricity.ember.mix-world,WLD,2019,2.044,,,,final,,,,bioenergy
-electricity.ember.mix-world,WLD,2020,2.136,,,,final,,,,bioenergy
-electricity.ember.mix-world,WLD,2021,2.146,,,,final,,,,bioenergy
-electricity.ember.mix-world,WLD,2022,2.092,,,,final,,,,bioenergy
-electricity.ember.mix-world,WLD,2023,2.066,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
-electricity.ember.mix-world,WLD,2024,2.045,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
-electricity.ember.mix-world,WLD,2025,2.044,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
+electricity.ember.mix-world,WLD,2019,2.043,,,,final,,,,bioenergy
+electricity.ember.mix-world,WLD,2020,2.135,,,,final,,,,bioenergy
+electricity.ember.mix-world,WLD,2021,2.145,,,,final,,,,bioenergy
+electricity.ember.mix-world,WLD,2022,2.091,,,,final,,,,bioenergy
+electricity.ember.mix-world,WLD,2023,2.061,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
+electricity.ember.mix-world,WLD,2024,2.047,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
+electricity.ember.mix-world,WLD,2025,2.048,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,bioenergy
 electricity.ember.mix-world,WLD,2000,0.285,,,,final,,,,other-renewables
 electricity.ember.mix-world,WLD,2001,0.284,,,,final,,,,other-renewables
 electricity.ember.mix-world,WLD,2002,0.285,,,,final,,,,other-renewables
@@ -130,11 +130,11 @@ electricity.ember.mix-world,WLD,2017,0.309,,,,final,,,,other-renewables
 electricity.ember.mix-world,WLD,2018,0.308,,,,final,,,,other-renewables
 electricity.ember.mix-world,WLD,2019,0.308,,,,final,,,,other-renewables
 electricity.ember.mix-world,WLD,2020,0.321,,,,final,,,,other-renewables
-electricity.ember.mix-world,WLD,2021,0.305,,,,final,,,,other-renewables
+electricity.ember.mix-world,WLD,2021,0.304,,,,final,,,,other-renewables
 electricity.ember.mix-world,WLD,2022,0.303,,,,final,,,,other-renewables
-electricity.ember.mix-world,WLD,2023,0.297,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
-electricity.ember.mix-world,WLD,2024,0.285,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
-electricity.ember.mix-world,WLD,2025,0.285,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
+electricity.ember.mix-world,WLD,2023,0.296,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
+electricity.ember.mix-world,WLD,2024,0.284,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
+electricity.ember.mix-world,WLD,2025,0.284,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-renewables
 electricity.ember.mix-world,WLD,2000,16.577,,,,final,,,,nuclear
 electricity.ember.mix-world,WLD,2001,16.808,,,,final,,,,nuclear
 electricity.ember.mix-world,WLD,2002,16.491,,,,final,,,,nuclear
@@ -154,13 +154,13 @@ electricity.ember.mix-world,WLD,2015,10.528,,,,final,,,,nuclear
 electricity.ember.mix-world,WLD,2016,10.394,,,,final,,,,nuclear
 electricity.ember.mix-world,WLD,2017,10.179,,,,final,,,,nuclear
 electricity.ember.mix-world,WLD,2018,10.03,,,,final,,,,nuclear
-electricity.ember.mix-world,WLD,2019,10.237,,,,final,,,,nuclear
-electricity.ember.mix-world,WLD,2020,9.882,,,,final,,,,nuclear
-electricity.ember.mix-world,WLD,2021,9.739,,,,final,,,,nuclear
-electricity.ember.mix-world,WLD,2022,9.105,,,,final,,,,nuclear
-electricity.ember.mix-world,WLD,2023,9.053,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
-electricity.ember.mix-world,WLD,2024,8.931,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
-electricity.ember.mix-world,WLD,2025,8.786,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
+electricity.ember.mix-world,WLD,2019,10.231,,,,final,,,,nuclear
+electricity.ember.mix-world,WLD,2020,9.876,,,,final,,,,nuclear
+electricity.ember.mix-world,WLD,2021,9.732,,,,final,,,,nuclear
+electricity.ember.mix-world,WLD,2022,9.098,,,,final,,,,nuclear
+electricity.ember.mix-world,WLD,2023,9.041,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
+electricity.ember.mix-world,WLD,2024,8.917,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
+electricity.ember.mix-world,WLD,2025,8.77,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,nuclear
 electricity.ember.mix-world,WLD,2000,38.114,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2001,38.096,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2002,38.377,,,,final,,,,coal
@@ -174,26 +174,26 @@ electricity.ember.mix-world,WLD,2009,39.949,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2010,39.904,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2011,40.715,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2012,39.961,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2013,40.883,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2013,40.882,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2014,40.576,,,,final,,,,coal
 electricity.ember.mix-world,WLD,2015,38.796,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2016,37.912,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2017,38.117,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2018,38.102,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2019,36.763,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2020,35.475,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2021,36.146,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2022,35.74,,,,final,,,,coal
-electricity.ember.mix-world,WLD,2023,35.352,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
-electricity.ember.mix-world,WLD,2024,34.284,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
-electricity.ember.mix-world,WLD,2025,33.226,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
+electricity.ember.mix-world,WLD,2016,37.913,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2017,38.116,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2018,38.1,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2019,36.742,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2020,35.45,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2021,36.121,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2022,35.715,,,,final,,,,coal
+electricity.ember.mix-world,WLD,2023,35.312,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
+electricity.ember.mix-world,WLD,2024,34.213,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
+electricity.ember.mix-world,WLD,2025,33.129,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,coal
 electricity.ember.mix-world,WLD,2000,17.925,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2001,18.758,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2002,19.297,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2003,19.531,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2004,20.068,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2005,20.25,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2006,20.657,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2006,20.658,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2007,21.353,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2008,21.643,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2009,21.922,,,,final,,,,gas
@@ -201,18 +201,18 @@ electricity.ember.mix-world,WLD,2010,22.63,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2011,22.144,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2012,22.92,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2013,21.835,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2014,21.966,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2014,21.967,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2015,23.078,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2016,23.677,,,,final,,,,gas
 electricity.ember.mix-world,WLD,2017,23.473,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2018,23.471,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2019,23.801,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2020,23.862,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2021,23.179,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2022,22.773,,,,final,,,,gas
-electricity.ember.mix-world,WLD,2023,22.531,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
-electricity.ember.mix-world,WLD,2024,22.186,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
-electricity.ember.mix-world,WLD,2025,21.681,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
+electricity.ember.mix-world,WLD,2018,23.469,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2019,23.787,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2020,23.845,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2021,23.163,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2022,22.757,,,,final,,,,gas
+electricity.ember.mix-world,WLD,2023,22.501,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
+electricity.ember.mix-world,WLD,2024,22.151,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
+electricity.ember.mix-world,WLD,2025,21.605,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,gas
 electricity.ember.mix-world,WLD,2000,8.673,,,,final,,,,other-fossil
 electricity.ember.mix-world,WLD,2001,8.297,,,,final,,,,other-fossil
 electricity.ember.mix-world,WLD,2002,7.93,,,,final,,,,other-fossil
@@ -232,10 +232,10 @@ electricity.ember.mix-world,WLD,2015,4.66,,,,final,,,,other-fossil
 electricity.ember.mix-world,WLD,2016,4.292,,,,final,,,,other-fossil
 electricity.ember.mix-world,WLD,2017,3.805,,,,final,,,,other-fossil
 electricity.ember.mix-world,WLD,2018,3.363,,,,final,,,,other-fossil
-electricity.ember.mix-world,WLD,2019,3.229,,,,final,,,,other-fossil
-electricity.ember.mix-world,WLD,2020,2.96,,,,final,,,,other-fossil
-electricity.ember.mix-world,WLD,2021,3.06,,,,final,,,,other-fossil
-electricity.ember.mix-world,WLD,2022,3.17,,,,final,,,,other-fossil
-electricity.ember.mix-world,WLD,2023,3.036,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
-electricity.ember.mix-world,WLD,2024,2.884,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
-electricity.ember.mix-world,WLD,2025,2.784,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 115 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
+electricity.ember.mix-world,WLD,2019,3.227,,,,final,,,,other-fossil
+electricity.ember.mix-world,WLD,2020,2.958,,,,final,,,,other-fossil
+electricity.ember.mix-world,WLD,2021,3.058,,,,final,,,,other-fossil
+electricity.ember.mix-world,WLD,2022,3.167,,,,final,,,,other-fossil
+electricity.ember.mix-world,WLD,2023,3.052,,,,preliminary,"Partly Ember's estimate: the file has no 2023 generation for 1 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
+electricity.ember.mix-world,WLD,2024,2.909,,,,preliminary,"Partly Ember's estimate: the file has no 2024 generation for 15 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
+electricity.ember.mix-world,WLD,2025,2.782,,,,preliminary,"Partly Ember's estimate: the file has no 2025 generation for 114 of the 209 countries and economies with generation for an earlier year, and Ember's methodology says it estimates a country's missing years from its historical trends of demand and generation by source.",,,other-fossil
