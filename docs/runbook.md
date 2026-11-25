@@ -84,7 +84,7 @@ into the environment for a run only; none is a GitHub secret.
 | Keychain service | For | Environment variable |
 |---|---|---|
 | `archive-org-s3-access`, `archive-org-s3-secret` | Internet Archive Save Page Now (archive.org/account/s3.php) | `IA_ACCESS`, `IA_SECRET` |
-| `earthdata-envdash` | NASA Earthdata user token (NASA-SSH sea level). It lasts 60 days: the current one expires on 2026-12-05. Renew at urs.earthdata.nasa.gov › Generate Token, then store it again | `EARTHDATA_TOKEN` |
+| `earthdata-envdash` | NASA Earthdata user token (NASA-SSH sea level). It lasts 60 days: the current one (made 2026-11-25) expires on 2027-01-24. Renew at urs.earthdata.nasa.gov › Generate Token, then store it again | `EARTHDATA_TOKEN` |
 | `eia-api-key` | US EIA API v2 (valid; no source needs it yet: eia-international uses the keyless bulk file) | `EIA_API_KEY` |
 | `gfw-api-key` | Global Forest Watch Data API | `GFW_API_KEY` |
 | `idmc-client-id` | IDMC GIDD API client_id, once IDMC issues it (sent as the client_id query parameter) | `IDMC_CLIENT_ID` |
